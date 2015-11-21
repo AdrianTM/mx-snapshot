@@ -1,0 +1,91 @@
+# rsync excludes file for mx-snapshot
+# version 15.2.20
+
+# Do NOT edit this entry block unless you know what you are doing
+dev/*
+cdrom/*
+media/*
+swapfile
+mnt/*
+sys/*
+proc/*
+tmp
+live/*
+boot/grub/*
+etc/blkid.tab.old
+etc/defaultdomain
+etc/fstab.backup
+etc/ioctl.save
+etc/live/protect
+etc/mailname
+etc/mtab
+etc/udev/rules.d/70-persistent-cd.rules
+etc/udev/rules.d/70-persistent-net.rules
+etc/resolv.conf
+home/snapshot
+lost+found
+grub/*
+run/*
+root/.bash_history
+root/.dbus
+root/.gconf
+root/.gnome2
+var/tmp/*
+var/cache/apt/archives/*.deb
+var/cache/apt/*.bin
+var/lib/apt/lists/*
+var/lib/dhcp/*
+var/cache/debconf/*-old
+var/cache/lightdm
+var/cache/samba/browse.dat
+var/lib/dpkg/*-old
+var/lib/lightdm/.cache
+var/lib/lightdm/.Xauthority
+var/lib/nfs/rpc_pipefs/*
+var/lib/sudo/*
+var/lib/udisks/*
+var/lib/urandom/*
+var/log/!(samba)
+var/log/samba/*
+var/mail/*
+var/spool/mail/*
+
+# Entries below this can be edited by the user. If you have any large
+# files or directories, you should exclude them from being copied
+# by adding them to this list.
+
+home/*/.mozilla/firefox/*/Cache/*
+home/*/.mozilla/seamonkey/*/Cache/*
+home/*/.adobe
+home/*/.macromedia
+home/*/.thumbnails/large/*
+home/*/.thumbnails/normal/*
+home/*/.Trash*
+home/*/.local/share/Trash/*
+# home/*/.cache
+home/*/.gvfs
+home/*/.bash_history
+home/*/.recently-used
+home/*/.recently-used.xbel
+home/*/.VirtualBox
+home/*/VirtualBox VMs
+
+# Examples:
+# home/*/Desktop/*
+# home/*/Downloads/*
+# home/*/Music/*
+# home/*/Pictures/*
+# home/*/Videos/*
+
+
+# Other possible exclusions
+# usr/share/doc/*
+
+
+# To exclude all hidden files and directories in your home, uncomment
+# the next line. You will lose custom desktop configs if you do.
+# home/*/.[a-z,A-Z,0-9]*
+
+# This stops any nvidia drivers from loading - safe option.
+etc/X11/xorg.conf
+etc/X11/xorg.conf.d/20-nvidia.conf
