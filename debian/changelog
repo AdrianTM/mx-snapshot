@@ -1,0 +1,170 @@
+mx-snapshot (15.10.5mx15) mx; urgency=medium
+
+  * Removed x64 grub/syslinu/isolinux.cfg files.
+
+ -- anticapitalista <antiX@operamail.com>  Sat, 21 Nov 2015 14:14:00 +0200
+
+
+mx-snapshot (15.10.4mx15) mx; urgency=medium
+
+  * Brought up to date to beta2
+
+ -- anticapitalista <antiX@operamail.com>  Mon, 16 Nov 2015 17:14:00 +0200
+
+
+mx-snapshot (15.10.3mx15) mx; urgency=medium
+
+  * Brought up to date to a5
+
+ -- anticapitalista <antiX@operamail.com>  Thu, 29 Oct 2015 16:26:00 +0200
+
+
+mx-snapshot (15.10.2mx15) mx; urgency=medium
+
+  * new translations
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 24 Oct 2015 19:20:37 -0400
+
+mx-snapshot (15.10.1mx15) mx; urgency=medium
+
+  * minor fix
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 15 Oct 2015 11:07:38 -0400
+
+mx-snapshot (15.10mx15) mx; urgency=medium
+
+  * update with new ISO template
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 11 Oct 2015 14:39:27 -0400
+
+mx-snapshot (15.8mx15) mx; urgency=medium
+
+  * various fixes
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 07 Aug 2015 15:48:55 -0400
+
+mx-snapshot (15.7.3mx15) mx; urgency=medium
+
+  * using copy-initrd-modules and installed-to-live scripts
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 25 Jul 2015 10:14:47 -0400
+
+mx-snapshot (15.7.2mx15) mx; urgency=medium
+
+  * update build-deps, fixed license
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 09 Jul 2015 20:36:09 -0400
+
+mx-snapshot (15.7mx15) mx; urgency=medium
+
+  * update to qt5
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 30 Jun 2015 14:23:08 -0400
+
+mx-snapshot (15.6.2mx14) mx; urgency=medium
+
+  * added some error checking
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 17 Jun 2015 16:24:58 -0400
+
+mx-snapshot (15.6.1mx14) mx; urgency=medium
+
+  * removed home/demo exlusion
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 16 Jun 2015 15:55:48 -0400
+
+mx-snapshot (15.6mx14) mx; urgency=medium
+
+  * changed documentation URL
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 03 Jun 2015 13:09:36 -0400
+
+mx-snapshot (15.5.2mx14) mx; urgency=medium
+
+  * small adjustments in exclude list
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 08 May 2015 10:16:11 -0400
+
+mx-snapshot (15.5.1mx14) mx; urgency=medium
+
+  * used the new syslinux/isolinux config files
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 05 May 2015 15:52:00 -0400
+
+mx-snapshot (15.5mx14) mx; urgency=medium
+
+  * used the new init.rd from MX14.4
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 05 May 2015 08:40:27 -0400
+
+mx-snapshot (15.4mx14) mx; urgency=medium
+
+  * added translation
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 21 Apr 2015 14:12:40 -0400
+
+mx-snapshot (15.3mx14) mx; urgency=medium
+
+  * changed manual URL
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 20 Mar 2015 16:52:26 -0400
+
+mx-snapshot (15.2.7) mx; urgency=medium
+
+  * re-add installer icon on desktop when taking "preserve acounts" snapshot
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 26 Feb 2015 09:51:39 -0500
+
+mx-snapshot (15.2.6) mx; urgency=medium
+
+  * small fix, creating md5sum for linuxfs file
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 25 Feb 2015 12:59:39 -0500
+
+mx-snapshot (15.2.5) mx; urgency=medium
+
+  * changed location exclue file
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 20 Feb 2015 19:43:59 -0500
+
+mx-snapshot (15.2.4) mx; urgency=medium
+
+  * corrected URL
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 15 Feb 2015 18:02:58 -0500
+
+mx-snapshot (15.2.3) mx; urgency=medium
+
+  * changed manual location, fixed displaying version
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 15 Feb 2015 09:57:19 -0500
+
+mx-snapshot (15.2.2) mx; urgency=medium
+
+  * added installer icon on Desktop on resetting accounts
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 08 Feb 2015 17:05:20 -0500
+
+mx-snapshot (15.2.1) mx; urgency=medium
+
+  * Changed "reset accounts" to not copy anything from /home
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 06 Feb 2015 15:21:34 -0500
+
+mx-snapshot (15.2) mx; urgency=medium
+
+  * Added translations
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 06 Feb 2015 08:10:08 -0500
+
+mx-snapshot (0.15.2) mx; urgency=medium
+
+  * Added respin option (reset root and demo passwords)
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 01 Feb 2015 19:42:33 -0500
+
+mx-snapshot (0.14.3) mx; urgency=medium
+
+  * initial release
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 14 Dec 2014 13:18:14 -0500
