@@ -34,18 +34,18 @@
 #include "batchprocessing.h"
 #include "mainwindow.h"
 #include "version.h"
-#include <signal.h>
+#include <csignal>
 #include <unistd.h>
 
 static QScopedPointer<QFile> logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
-void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
-void runApp(QCommandLineParser parser);
+void messageHandler(QtMsgType, const QMessageLogContext, const QString);
+void runApp(QCommandLineParser);
 void setLog();
 void setTranslation();
-void signalHandler(int sig);
+void signalHandler(int);
 
 int main(int argc, char *argv[])
 {
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
             setLog();
             qDebug().noquote() << qApp->applicationName() << QObject::tr("version:") << qApp->applicationVersion();
             if (argc > 1) qDebug().noquote() << "Args:" << qApp->arguments();
-            Batchprocessing  batch(parser);
+            Batchprocessing batch(parser);
             QTimer::singleShot(0, &app, &QCoreApplication::quit);
             return app.exec();
         } else {
@@ -142,7 +142,7 @@ int main(int argc, char *argv[])
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
-    msg.contains("\r") ? term_out << msg << flush: term_out << msg << "\n" << flush;
+    msg.contains("\r") ? term_out << msg << flush : term_out << msg << "\n" << flush;
 
     if (msg.startsWith("\033[2KProcessing")) return;
     QTextStream out(logFile.data());
@@ -163,7 +163,6 @@ void setTranslation()
     if (qtTran.load(QLocale::system(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtTran);
 
-
     if (qtBaseTran.load("qtbase_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtBaseTran);
 
@@ -174,7 +173,7 @@ void setTranslation()
 // Check if SQUASHFS is available
 void checkSquashfs()
 {
-    if (system("[ -f /boot/config-$(uname -r) ]") == 0
+    if (system("test -f /boot/config-$(uname -r)") == 0
             and system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
         QMessageBox::critical(nullptr, QObject::tr("Error"),
                               QObject::tr("Current kernel doesn't support Squashfs, cannot continue."));
@@ -185,7 +184,7 @@ void checkSquashfs()
 void setLog()
 {
     QString log_name= "/var/log/" + qApp->applicationName() + ".log";
-    system("[ -f " + log_name.toUtf8() + " ] && mv " + log_name.toUtf8() + " " + log_name.toUtf8() + ".old");
+    system("test -f " + log_name.toUtf8() + " && mv " + log_name.toUtf8() + " " + log_name.toUtf8() + ".old");
     logFile.reset(new QFile(log_name));
     logFile.data()->open(QFile::Append | QFile::Text);
     qInstallMessageHandler(messageHandler);
@@ -195,10 +194,10 @@ void signalHandler(int sig)
 {
     switch (sig)
     {
-    case 1: qDebug() << "\nSIGHUP"; break;
-    case 2: qDebug() << "\nSIGINT"; break;
-    case 3: qDebug() << "\nSIGQUIT"; break;
-    case 15: qDebug() << "\nSIGTERM"; break;
+    case SIGHUP:  qDebug() << "\nSIGHUP"; break;
+    case SIGINT:  qDebug() << "\nSIGINT"; break;
+    case SIGQUIT: qDebug() << "\nSIGQUIT"; break;
+    case SIGTERM: qDebug() << "\nSIGTERM"; break;
     }
     qApp->quit(); // quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
 }
