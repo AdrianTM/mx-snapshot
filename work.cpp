@@ -33,7 +33,7 @@
 Work::Work(Settings *settings) :
     settings(settings)
 {
-    if (not settings->checkCompression()) {
+    if (!settings->checkCompression()) {
         emit messageBox(BoxType::critical, tr("Error"),
             tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm."));
         cleanUp();
@@ -53,17 +53,17 @@ void Work::checkEnoughSpace()
     QFile *file = &settings->snapshot_excludes;
 
     // open and read the excludes file
-    if (not file->open(QIODevice::ReadOnly))
+    if (!file->open(QIODevice::ReadOnly))
         qDebug() << "Count not open file: " << file->fileName();
-    while(not file->atEnd()) {
+    while(!file->atEnd()) {
         QString line = file->readLine().trimmed();
-        if (not line.startsWith("#") and not line.isEmpty() and not line.startsWith(".bind-root"))
+        if (!line.startsWith("#") && !line.isEmpty() && !line.startsWith(".bind-root"))
             excludes << line.trimmed();
     }
     file->close();
 
     // add session excludes
-    if (not settings->session_excludes.isEmpty()) {
+    if (!settings->session_excludes.isEmpty()) {
         QString set = settings->session_excludes;
         set.remove(0, 3); // remove "-e "
         for (QString tmp : set.split("\" \"")) {
@@ -94,7 +94,7 @@ void Work::checkEnoughSpace()
     QString cmd = settings->live ? "du -sc" : "du -sxc";
     quint64 excl_size = settings->shell->getCmdOut(cmd + " {" + excludes.join(",").remove("/.bind-root,")
                                                        + "} 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
-    if (not ok) {
+    if (!ok) {
         qDebug() << "Error: calculating size of excluded files\n"\
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
@@ -102,7 +102,7 @@ void Work::checkEnoughSpace()
     emit message(tr("Calculating size of root..."));
     cmd = settings->live ? "du -s" : "du -sx";
     quint64 root_size = settings->shell->getCmdOut(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
-    if (not ok) {
+    if (!ok) {
         qDebug() << "Error: calculating root size (/.bind-root)\n"\
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
@@ -156,7 +156,7 @@ bool Work::checkInstalled(const QString &package)
 // clean up changes before exit
 void Work::cleanUp()
 {
-    if (not started ) {
+    if (!started ) {
         settings->shell->halt();
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
@@ -170,10 +170,10 @@ void Work::cleanUp()
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf"))
         system("installed-to-live cleanup");
 
-    if (not settings->live and not settings->reset_accounts)
+    if (!settings->live && !settings->reset_accounts)
         system("rm /home/*/Desktop/minstall.desktop 2>/dev/null");
 
-    if (not settings->live) QFile::remove("/etc/skel/Desktop/Installer.desktop");
+    if (!settings->live) QFile::remove("/etc/skel/Desktop/Installer.desktop");
 
     initrd_dir.remove();
     settings->tmpdir.reset();
@@ -204,7 +204,7 @@ void Work::copyModules(const QString &to, const QString &kernel)
     QString cmd = QString("/usr/share/mx-packageinstaller/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel);
     settings->shell->run(cmd);
     // copy 586 modules for the non-PAE kernel
-    if (settings->i686 and settings->debian_version < 9) {  // Not applicable for Stretch (MX17) or more
+    if (settings->i686 && settings->debian_version < 9) {  // Not applicable for Stretch (MX17) or more
         QString cmd = QString("/usr/share/mx-packageinstaller/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel586);
         settings->shell->run(cmd);
     }
@@ -243,7 +243,7 @@ void Work::copyNewIso()
     makeChecksum(HashType::md5, settings->work_dir + "/iso-template/antiX", "vmlinuz");
 
     QString path = initrd_dir.path();
-    if (not initrd_dir.isValid()) {
+    if (!initrd_dir.isValid()) {
         qDebug() << tr("Could not create temp directory. ") + path;
         cleanUp();
     }
@@ -251,7 +251,7 @@ void Work::copyNewIso()
     openInitrd(settings->work_dir + "/iso-template/antiX/initrd.gz", path);
 
     // Strip modules; make sure initrd_dir is correct to avoid disaster
-    if (path.startsWith("/tmp/") and QFileInfo::exists(path + "/lib/modules"))
+    if (path.startsWith("/tmp/") && QFileInfo::exists(path + "/lib/modules"))
          settings->shell->run("rm -r \"" + path  + "/lib/modules\"");
 
     // We cannot count on this file in the future versions
@@ -278,7 +278,7 @@ bool Work::createIso(const QString &filename)
             + " -wildcards -ef " + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
 
     emit message(tr("Squashing filesystem..."));
-    if (not settings->shell->run(cmd)) {
+    if (!settings->shell->run(cmd)) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not create linuxfs file, please check whether you have enough space on the destination partition."));
         return false;
@@ -296,7 +296,7 @@ bool Work::createIso(const QString &filename)
     cmd = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table -b boot/isolinux/isolinux.bin  -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c boot/isolinux/isolinux.cat -o \"" +
             settings->snapshot_dir + "/" + filename + "\" . \""  + settings->work_dir + "/iso-2\"";
     emit message(tr("Creating CD/DVD image file..."));
-    if (not settings->shell->run(cmd)) {
+    if (!settings->shell->run(cmd)) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
         return false;
     }
@@ -333,7 +333,7 @@ bool Work::installPackage(const QString &package)
 {
     emit message(tr("Installing ") + package);
     settings->shell->run("apt-get update");
-    if (not settings->shell->run("apt-get install -y " + package)) {
+    if (!settings->shell->run("apt-get install -y " + package)) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not install ") + package);
         return false;
     }
@@ -357,11 +357,11 @@ void Work::makeChecksum(const HashType &hash_type, const QString &folder, const 
     if (settings->preempt) {
         // check free space available on /tmp
         settings->shell->run("TF=/tmp/snapsphot-checksum-temp/\"" + file_name + "\"; [ -f \"$TF\" ] && rm -f \"$TF\"");
-        if (not settings->shell->run("DUF=$(du -BM " + file_name
+        if (!settings->shell->run("DUF=$(du -BM " + file_name
                                      + "|grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE '^[[:digit:]]+'); ((TDA/10*8 >= DUF))"))
             settings->preempt = false;
     }
-    if (not settings->preempt) {
+    if (!settings->preempt) {
         cmd = checksum_cmd;
     } else {
         // free pagecache
@@ -379,7 +379,7 @@ bool Work::mkDir(const QString &file_name)
     QDir dir;
     QFileInfo fi(file_name);
     dir.setPath(settings->work_dir + "/iso-template/" + fi.completeBaseName());
-    if (not dir.mkpath(dir.absolutePath())) {
+    if (!dir.mkpath(dir.absolutePath())) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not create working directory. ") + dir.absolutePath());
         return false;
     }
@@ -420,7 +420,7 @@ void Work::replaceMenuStrings() {
     full_distro_name_space.replace("_", " ");
 
     QString date = QDate::currentDate().toString("dd MMMM yyyy");
-    if (not QFileInfo::exists("/etc/lsb-release")) {
+    if (!QFileInfo::exists("/etc/lsb-release")) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not find %1 file, cannot continue").arg("/etc/lsb-release"));
         cleanUp();
     }
@@ -503,7 +503,7 @@ void Work::setupEnv()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // checks if work_dir looks OK
-    if (not settings->work_dir.contains("/mx-snapshot"))
+    if (!settings->work_dir.contains("/mx-snapshot"))
         cleanUp();
 
     QString bind_boot = "";
@@ -514,7 +514,7 @@ void Work::setupEnv()
     }
 
     // install mx-installer if absent
-    if (settings->force_installer and not checkInstalled("mx-installer"))
+    if (settings->force_installer && !checkInstalled("mx-installer"))
         installPackage("mx-installer");
 
     writeSnapshotInfo();
@@ -528,8 +528,9 @@ void Work::setupEnv()
             settings->shell->run("echo /home/*/Desktop |xargs -n1 cp /usr/share/applications/minstall.desktop 2>/dev/null");
             // Needs write access to remove lock symbol on installer on desktop, executable to run it
             settings->shell->run("chmod 777 /home/*/Desktop/minstall.desktop");
-            if (not QFile::exists("xdg-user-dirs-update.real")) {
-                if (not QFile::exists("/etc/skel/Desktop")) QDir().mkdir("/etc/skel/Desktop");
+            if (!QFile::exists("xdg-user-dirs-update.real")) {
+                if (!QFile::exists("/etc/skel/Desktop"))
+                    QDir().mkdir("/etc/skel/Desktop");
                 QFile::copy("/usr/share/applications/minstall.desktop", "/etc/skel/Desktop/Installer.desktop");
                 settings->shell->run("chmod 755 /etc/skel/Desktop/Installer.desktop");
             }
@@ -543,7 +544,7 @@ void Work::setupEnv()
 void Work::writeSnapshotInfo()
 {
     QFile file("/usr/local/share/live-files/files/etc/snapshot_created");
-    if (not file.open(QFile::WriteOnly | QFile::Truncate))
+    if (!file.open(QFile::WriteOnly | QFile::Truncate))
         return;
 
     QTextStream stream(&file);
