@@ -161,7 +161,7 @@ bool MainWindow::installPackage(const QString &package)
     ui->btnBack->setDisabled(true);
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     displayOutput();
-    if (not work.installPackage(package)) {
+    if (!work.installPackage(package)) {
         disableOutput();
         return false;
     }
@@ -236,7 +236,7 @@ void MainWindow::progress()
     ui->progressBar->setValue((ui->progressBar->value() + 1) % 100);
 
     // in live environment and first page, blink text while calculating used disk space
-    if (live and (ui->stackedWidget->currentIndex() == 0)) {
+    if (live && (ui->stackedWidget->currentIndex() == 0)) {
         if (ui->progressBar->value() % 4 == 0 )
             ui->labelUsedSpace->setText("\n " + tr("Please wait."));
         else
@@ -249,7 +249,7 @@ void MainWindow::progress()
 void MainWindow::on_btnNext_clicked()
 {
     QString file_name = ui->lineEditName->text();
-    if (not file_name.endsWith(".iso"))
+    if (!file_name.endsWith(".iso"))
         file_name += ".iso";
 
     // on first page
@@ -275,11 +275,11 @@ void MainWindow::on_btnNext_clicked()
         }
         work.started = true;
         work.e_timer.start();
-        if (not checkSnapshotDir()) {
+        if (!checkSnapshotDir()) {
             QMessageBox::critical(this, tr("Error"), tr("Could not create working directory. ") + snapshot_dir);
             cleanUp();
         }
-        if (not checkTempDir()) {
+        if (!checkTempDir()) {
             QMessageBox::critical(this, tr("Error"), tr("Could not create temporary directory. ") + snapshot_dir);
             cleanUp();
         }
@@ -291,17 +291,18 @@ void MainWindow::on_btnNext_clicked()
         this->setWindowTitle(tr("Output"));
         ui->outputBox->clear();
         work.setupEnv();
-        if (not monthly and not override_size)
+        if (!monthly && !override_size)
             work.checkEnoughSpace();
         work.copyNewIso();
         ui->outputLabel->setText("");
-        if (not work.mkDir(file_name))
+        if (!work.mkDir(file_name))
             return;
         work.savePackageList(file_name);
 
         if (edit_boot_menu) {
             if (QMessageBox::Yes == QMessageBox::question(this, tr("Edit Boot Menu"),
-                                  tr("The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot."),
+                                  tr("The program will now pause to allow you to edit any files in the work directory. "
+                                     "Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot."),
                                      QMessageBox::Yes | QMessageBox::No)) {
                 this->hide();
                 QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
@@ -337,50 +338,50 @@ void MainWindow::on_btnEditExclude_clicked()
 void MainWindow::on_excludeDocuments_toggled(bool checked)
 {
     excludeDocuments(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_excludeDownloads_toggled(bool checked)
 {
     excludeDownloads(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_excludePictures_toggled(bool checked)
 {
     excludePictures(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_excludeMusic_toggled(bool checked)
 {
     excludeMusic(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_excludeVideos_toggled(bool checked)
 {
     excludeVideos(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_excludeDesktop_toggled(bool checked)
 {
     excludeDesktop(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_radioRespin_toggled(bool checked)
 {
     reset_accounts = checked;
-    if (checked and not ui->excludeAll->isChecked())
+    if (checked && !ui->excludeAll->isChecked())
         ui->excludeAll->click();
 }
 
 void MainWindow::on_radioPersonal_clicked(bool checked)
 {
     reset_accounts = !checked;
-    if (checked and ui->excludeAll->isChecked())
+    if (checked && ui->excludeAll->isChecked())
         ui->excludeAll->click();
 }
 
@@ -389,7 +390,8 @@ void MainWindow::on_radioPersonal_clicked(bool checked)
 void MainWindow::on_btnAbout_clicked()
 {
     this->hide();
-    displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" + this->windowTitle() +"</h2></b></p><p align=\"center\">" +
+    displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" + this->windowTitle()
+                       + "</h2></b></p><p align=\"center\">" +
                        tr("Version: ") + qApp->applicationVersion() + "</p><p align=\"center\"><h3>" +
                        tr("Program for creating a live-CD from the running system for MX Linux") +
                        "</h3></p><p align=\"center\"><a href=\"http://mxlinux.org\">http://mxlinux.org</a><br /></p><p align=\"center\">" +
@@ -417,7 +419,7 @@ void MainWindow::on_btnSelectSnapshot_clicked()
     QFileDialog dialog;
 
     QString selected = dialog.getExistingDirectory(this, tr("Select Snapshot Directory"), QString(), QFileDialog::ShowDirsOnly);
-    if (not selected.isEmpty()) {
+    if (!selected.isEmpty()) {
         snapshot_dir = selected + "/snapshot";
         ui->labelSnapshotDir->setText(snapshot_dir);
         listFreeSpace();
@@ -434,7 +436,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 // close application
 void MainWindow::closeApp() {
     // ask for confirmation when on outputPage and not done
-    if (ui->stackedWidget->currentWidget() == ui->outputPage and not work.done) {
+    if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.done) {
         if (QMessageBox::Yes != QMessageBox::question(this, tr("Confirmation"),
                                                       tr("Are you sure you want to quit the application?"),
                                                       QMessageBox::Yes | QMessageBox::No))
@@ -458,7 +460,7 @@ void MainWindow::on_cbCompression_currentIndexChanged(const QString &arg1)
 void MainWindow::on_excludeNetworks_toggled(bool checked)
 {
     excludeNetworks(checked);
-    if (not checked) ui->excludeAll->setChecked(false);
+    if (!checked) ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::on_checksums_toggled(bool checked)

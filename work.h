@@ -30,7 +30,7 @@
 #include "cmd.h"
 #include "settings.h"
 
-enum BoxType {question, information, warning, critical};
+enum class BoxType {question, information, warning, critical};
 
 class Work : public QObject
 {

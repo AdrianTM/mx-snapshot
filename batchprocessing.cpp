@@ -36,20 +36,20 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
     setConnections();
     QString path = snapshot_dir;
     getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
-    if (not arg_parser.isSet("month") and not arg_parser.isSet("override-size"))
+    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
         getUsedSpace();
 
     work.started = true;
     work.e_timer.start();
-    if (not checkSnapshotDir() or not checkTempDir())
+    if (!checkSnapshotDir() || !checkTempDir())
         work.cleanUp();
     otherExclusions();
 
-    if (not work.mkDir(snapshot_name))
+    if (!work.mkDir(snapshot_name))
         work.cleanUp();
     work.setupEnv();
 
-    if (not arg_parser.isSet("month") and not arg_parser.isSet("override-size"))
+    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
         work.checkEnoughSpace();
 
     work.copyNewIso();
@@ -70,8 +70,8 @@ Batchprocessing::~Batchprocessing()
 void Batchprocessing::setConnections()
 {
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
-    connect(shell, &Cmd::started, [this]{ timer.start(500); });
-    connect(shell, &Cmd::finished, [this]{ timer.stop(); });
+    connect(shell, &Cmd::started, [this] { timer.start(500); });
+    connect(shell, &Cmd::finished, [this] { timer.stop(); });
     connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
     connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
@@ -84,7 +84,7 @@ void Batchprocessing::progress()
     static int i = 0;
 
     // skip message when running mksquashfs
-    if (shell->arguments().size() >= 2 and shell->arguments().at(1).startsWith("mksquashfs"))
+    if (shell->arguments().size() >= 2 && shell->arguments().at(1).startsWith("mksquashfs"))
         return;
 
     (i % 2 == 1) ? qDebug() << "\033[2KProcessing command...\r"
