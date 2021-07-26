@@ -62,6 +62,8 @@ bool Settings::checkCompression()
         return (shell->run("grep ^CONFIG_SQUASHFS_XZ=y /boot/config-" + kernel));
     else if (compression == "lzo")
         return (shell->run("grep ^CONFIG_SQUASHFS_LZO=y /boot/config-" + kernel));
+    else if (compression == "zstd")
+        return (shell->run("grep ^CONFIG_SQUASHFS_ZSTD=y /boot/config-" + kernel));
     return true;
 }
 

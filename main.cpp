@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     parser.addOption({{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
     parser.addOption({{"x", "exclude"}, QObject::tr("Exclude main folders, valid choices: ") + QObject::tr("Desktop, Documents, Downloads, Music, Networks, Pictures, Videos.") + " " +
                       QObject::tr("Use the option one time for each item you want to exclude"), QObject::tr("one item")});
-    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz", QObject::tr("format")});
+    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
 
 
     QStringList opts;
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
         opts << QString(argv[i]);
     parser.parse(opts);
 
-    QStringList allowed_comp {"lz4", "lzo", "gzip", "xz"};
+    QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
     if (!parser.value("compression").isEmpty())
         if (!allowed_comp.contains(parser.value("compression"))) {
             qDebug() << "Wrong compression format";
