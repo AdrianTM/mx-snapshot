@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 25 Jul 2021 20:51:41 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 21.7
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.7) mx; urgency=medium
+ .
+   * Add ZSTD compression support
+Checksums-Sha1:
+ 57ff46aed818aed22867304fac56db8c197e7cc5 10126 mx-snapshot_21.7_i386.buildinfo
+ 3cb911edc422c8e04d9e06f0477c91f24352b472 247288 mx-snapshot_21.7_i386.deb
+Checksums-Sha256:
+ c87c056778004fdd887a76bfc6668355b10db0f174f7999396f33dc4ec2da296 10126 mx-snapshot_21.7_i386.buildinfo
+ 455dff9adaae4289c2bff8f9f56692a44f9bac327d911f053381cb1fd68aedc1 247288 mx-snapshot_21.7_i386.deb
+Files:
+ b30cbd381985f85abdac6af81ddc8e80 10126 admin optional mx-snapshot_21.7_i386.buildinfo
+ 81a1e62a3b59a5a37a4191df6034ba3e 247288 admin optional mx-snapshot_21.7_i386.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmD+B7MTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumEWTB/0Xqe3TMPONQPC/9XZKVC1Zk7okhCoi
+RbRBjb1rfn1tPbpqhWXi0a65AKKJaNFEgzYTlGc0cCr/7Ec3j/jCZQn+Jpd5ZocX
+9cIuWusQqqDQECmTvz4UyrOhT6dgCVWXDIa2vxJXKcZ81CIkPJIZmdvytTg5EN1H
+348oetlR/Dbkxs48T108kHIqo5GYkij2d4ITzB9CoGixZiz0CBLzZVKdbHUsHw9I
+zUVi7OSmWezxv299reZhT8rHuQGUkGNOMnIZStjttj6kpfSnSsaI/t/daX4bSYaO
+KwwTrxdrHXykamFefFD3pS++ghuv4eKKlEq2KaARPzDYRBmZ8SI2YJ22
+=AdS7
+-----END PGP SIGNATURE-----

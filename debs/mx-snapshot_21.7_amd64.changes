@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 25 Jul 2021 20:51:41 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 21.7
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.7) mx; urgency=medium
+ .
+   * Add ZSTD compression support
+Checksums-Sha1:
+ f71fc37889a406b97f132aaa5f271714f77d5864 1164 mx-snapshot_21.7.dsc
+ 9ffac45e522568172e7ec0795fc74690cac5fb62 187220 mx-snapshot_21.7.tar.xz
+ 9d50614295b7d9629bb7ad2c7f1febfa05d0c4be 10420 mx-snapshot_21.7_amd64.buildinfo
+ 3d1359db16c5a124ecf3fdba2eea7cfa8fd7cf7d 240756 mx-snapshot_21.7_amd64.deb
+Checksums-Sha256:
+ b099192e7b9ed93c0e3022f12fe96854081dbdaa08409d3dede13284f22481ad 1164 mx-snapshot_21.7.dsc
+ 72192a4892fbdfcaa4483f1c587a75cfafc01c3d1be9fdf4a5742e1c0f8e2da9 187220 mx-snapshot_21.7.tar.xz
+ 162399739ecfa725fc8afa57b8311c754aabef5199843d5955636f58ac72a69c 10420 mx-snapshot_21.7_amd64.buildinfo
+ 7b1225ef86a5c56677ca838ddb5626eaf00fedf660e44664fcbae538d244edcc 240756 mx-snapshot_21.7_amd64.deb
+Files:
+ d962ae563119abfd513825054f555c6c 1164 admin optional mx-snapshot_21.7.dsc
+ 7d03e4fa790c322ef5383b1d422c405e 187220 admin optional mx-snapshot_21.7.tar.xz
+ 4584df6908f55a758e184da6f510c26b 10420 admin optional mx-snapshot_21.7_amd64.buildinfo
+ 596da3b6d6fcec78c08621fa1ebfd7f8 240756 admin optional mx-snapshot_21.7_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmD+B7ITHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumEgBB/9UPruFZ+B80Q9gtd4Esjc+r4EXRp5o
+CJ/tQ0Q1qoMMF/7kAr7rPPDvqra60zBHtfxMoCi8x7mN61iLtIb2kiOdDfY8Ys6f
+nQOz2T/T8PHEOYTMRAscTOH5XFqkcjJ55AoWHfAY9tjEbTJmbqkZLgfDSyc7rm3Y
+xe+Cw6tpqjtwGTeVfSvN0gS/KoSxivw7eGBOc59ia+SvoSELpT/lF49D9cdPZ1U8
+HoGp1I14nmSCDBTllQB3XQj5AKRR6aQRYVY4Eu5O1ai8zCn3F76LMkqMPUqlSFxq
+vsXHikobYdoGYpsF4yrHKXz/V4FVk1uxOdFaRvNHdTtWSsZwA7cH2gt0
+=Vb0A
+-----END PGP SIGNATURE-----
