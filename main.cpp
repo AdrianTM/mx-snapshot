@@ -63,6 +63,9 @@ int main(int argc, char *argv[])
     parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
     parser.addOption({{"k", "kernel"}, QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by 'uname -r'") + " " +
                       QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."), QObject::tr("version, or path")});
+    parser.addOption({{"l", "compression-level"}, QObject::tr("Compression level options.") + " "
+                      + QObject::tr("Use quotes: \"-Xcompression-level <level>\", "
+                      "or \"-Xalgorithm <algorithm>\", or \"-Xhc\", see mksquashfs man page"), QObject::tr("\"option\"")});
     parser.addOption({{"m", "month"}, QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " " +
                      QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored")});
     parser.addOption({{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file")});
@@ -70,9 +73,12 @@ int main(int argc, char *argv[])
     parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
     parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
     parser.addOption({{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
-    parser.addOption({{"x", "exclude"}, QObject::tr("Exclude main folders, valid choices: ") + QObject::tr("Desktop, Documents, Downloads, Music, Networks, Pictures, Videos.") + " " +
+    parser.addOption({{"x", "exclude"}, QObject::tr("Exclude main folders, valid choices: ")
+                      + QObject::tr("Desktop, Documents, Downloads, Music, Networks, Pictures, Videos.") + " " +
                       QObject::tr("Use the option one time for each item you want to exclude"), QObject::tr("one item")});
-    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
+    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ")
+                      + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
+
 
 
     QStringList opts;

@@ -32,10 +32,11 @@
 #include <cmd.h>
 
 static QHash<QString, uint> compression_factor {
-    {"gzip", 37},
-    {"lzo", 52},
-    { "lzma", 52 },
     { "xz", 31 },
+    { "zstd", 35 },
+    { "gzip", 37 },
+    { "lzo", 52 },
+    { "lzma", 52 },
     { "lz4", 52 }};
 
 class Settings

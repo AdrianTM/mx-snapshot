@@ -267,7 +267,8 @@ quint64 Settings::getLiveRootSpace()
     QString sqfile_full = livesettings.value("SQFILE_FULL", "/live/boot-dev/antiX/linuxfs").toString();
 
     // get compression factor by reading the linuxfs squasfs file, if available
-    QString linuxfs_compression_type = shell->getCmdOut("dd if=" + sqfile_full + " bs=1 skip=20 count=2 status=none 2>/dev/null |od -An -tdI");
+    QString linuxfs_compression_type = shell->getCmdOut("dd if=" + sqfile_full
+                                            + " bs=1 skip=20 count=2 status=none 2>/dev/null |od -An -tdI").trimmed();
     uint c_factor;
     // gzip, xz, or lz4
     if (linuxfs_compression_type == "1") c_factor = compression_factor.value("gzip");
@@ -275,6 +276,7 @@ quint64 Settings::getLiveRootSpace()
     else if (linuxfs_compression_type == "3") c_factor = compression_factor.value("lzma"); // lzma, not used by antiX
     else if (linuxfs_compression_type == "4") c_factor = compression_factor.value("xz");
     else if (linuxfs_compression_type == "5") c_factor = compression_factor.value("lz4");
+    else if (linuxfs_compression_type == "6") c_factor = compression_factor.value("zstd");
     else c_factor = 30; //anything else or linuxfs not reachable (toram), should be pretty conservative
 
     quint64 rootfs_file_size = 0;
@@ -465,7 +467,7 @@ void Settings::loadConfig()
     snapshot_basename = settings.value("snapshot_basename", "snapshot").toString();
     make_chksum = settings.value("make_md5sum", "no").toString() == "no" ? false : true;
     make_isohybrid = settings.value("make_isohybrid", "yes").toString() == "yes" ? true : false;
-    compression = settings.value("compression", "lz4").toString();
+    compression = settings.value("compression", "zstd").toString();
     mksq_opt = settings.value("mksq_opt").toString();
     edit_boot_menu = settings.value("edit_boot_menu", "no").toString() == "no" ? false : true;
     gui_editor.setFileName(settings.value("gui_editor", "/usr/bin/featherpad").toString());
@@ -522,6 +524,8 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         make_chksum = false;
     if (!arg_parser.value("compression").isEmpty())
         compression = arg_parser.value("compression");
+    if (!arg_parser.value("compression-level").isEmpty())
+        mksq_opt = arg_parser.value("compression-level");
     selectKernel();
 }
 
@@ -549,7 +553,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         snapshot_name = name.section("_", 0, 0) + "_" + QDate::currentDate().toString("MMMM") + "_"
                 + name.section("_", 1, 1) + ".iso";
     if (arg_parser.value("compression").isEmpty())
-        compression = "xz";
+        compression = "zstd";
     reset_accounts = true;
     excludeAll();
 }
