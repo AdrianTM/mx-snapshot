@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 31 Jul 2021 16:55:35 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 21.7.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.7.01) mx; urgency=medium
+ .
+   * Add --compression-level CLI option
+   * Make zstd default for monthly snapshots
+Checksums-Sha1:
+ 2720b1b576be13a29e92b3164996a0076ea7b042 1206 mx-snapshot_21.7.01.dsc
+ d9e5a698ef6fb33edc9fb7604b2554fbf33e65cf 187408 mx-snapshot_21.7.01.tar.xz
+ ae3aaf736a7bff9b4fe02296ecc0e4c356d88bf7 10444 mx-snapshot_21.7.01_amd64.buildinfo
+ fb3413b1c43a67c8f5ef347c239775547ce2fa53 241144 mx-snapshot_21.7.01_amd64.deb
+Checksums-Sha256:
+ 5a2546f4454939f0058fcd62e001fc606831c1cceb84472ce8a4f6676e80944b 1206 mx-snapshot_21.7.01.dsc
+ 4c13ca95d2b04824e15c3237cf940f5ff6bee4cfa9813968b40959aa01eb19ca 187408 mx-snapshot_21.7.01.tar.xz
+ 43d5c929c9ff730e45aa30ce50fa28c5f1fcd163ec12f79de0d18b53fbfb7e64 10444 mx-snapshot_21.7.01_amd64.buildinfo
+ 305dd89197f4c56253a8a49ca6f2351d260790e652a804d2a6f1504d7bf50949 241144 mx-snapshot_21.7.01_amd64.deb
+Files:
+ 74f606356d286c347a11caf3cf8de5fa 1206 admin optional mx-snapshot_21.7.01.dsc
+ 7ebe7fc0a4ae154db34c0eb894809339 187408 admin optional mx-snapshot_21.7.01.tar.xz
+ 3d6a90adade507fd1c9f9f3c71378e1a 10444 admin optional mx-snapshot_21.7.01_amd64.buildinfo
+ b7ab320737b7063bda08f8b3c474d178 241144 admin optional mx-snapshot_21.7.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmEFuwUTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumOdrB/9WFpX9erO3h71wSyNfFlCni7qzfO34
+gHxCNtLPMVTqJB4JjPzHwRJphMFOxMkR2xXaTkLAF6j148XZNaKHP7QhkhjLqlFd
+CY6ZqKZGdmim1PHvvhfeZrDtj87w/JevMlemT1ZE7yUjSotGFQNwOXfowCwC1TNp
+X/lObTmNFca7WQurTmIdXqwCFxWQqciGeH76ce098QCdM9eH7I4cDU1x8WP/oXHb
+NwNUjdfTANNwjSYWaRml8gg7wrCPZRvnnsK5Nl/xJ6uQ5xqqGjd1L9FOiC12U5sC
+nVuLMwB5gn9Fg9NnL7zE4msNUl7leYr/pLCvm/N3p0G3DOJXzMwduM27
+=Hk3D
+-----END PGP SIGNATURE-----
