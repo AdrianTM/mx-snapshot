@@ -1,3 +1,10 @@
+mx-snapshot (21.7.01) mx; urgency=medium
+
+  * Add --compression-level CLI option
+  * Make zstd default for monthly snapshots
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 31 Jul 2021 16:55:35 -0400
+
 mx-snapshot (21.7) mx; urgency=medium
 
   * Add ZSTD compression support

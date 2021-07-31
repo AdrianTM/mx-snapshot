@@ -40,6 +40,11 @@ default running kernel, use format returned by
 \&'uname \fB\-r\fR' Or the full path:
 \fI\,/boot/vmlinuz\-x.xx.x\/\fP...
 .TP
+\fB\-l\fR, \fB\-\-compression\-level\fR <"option">
+Compression level options. Use quotes: 
+"-Xcompression-level <level>", or "-Xalgorithm <algorithm>",
+or "-Xhc", see mksquashfs man page
+.TP
 \fB\-m\fR, \fB\-\-month\fR
 Create a monthly snapshot, add 'Month' name in
 the ISO name, skip used space calculation This
@@ -68,7 +73,7 @@ want to exclude
 .TP
 \fB\-z\fR, \fB\-\-compression\fR <format>
 Compression format, valid choices: lz4, lzo,
-gzip, xz
+gzip, xz, zstd
 
 
 .SH SEE ALSO
