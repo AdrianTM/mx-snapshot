@@ -37,7 +37,7 @@
 #include "version.h"
 #include "batchprocessing.h"
 
-static QScopedPointer<QFile> logFile;
+static QFile logFile;
 
 void checkSquashfs();
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
@@ -116,7 +116,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     msg.contains("\r") ? term_out << msg << flush: term_out << msg << "\n" << flush;
 
     if (msg.startsWith("\033[2KProcessing")) return;
-    QTextStream out(logFile.data());
+    QTextStream out(&logFile);
     out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
     switch (type)
     {
@@ -156,10 +156,13 @@ void checkSquashfs()
 
 void setLog()
 {
-    QString log_name= "/var/log/" + qApp->applicationName() + ".log";
-    system("[ -f " + log_name.toUtf8() + " ] && mv " + log_name.toUtf8() + " " + log_name.toUtf8() + ".old");
-    logFile.reset(new QFile(log_name));
-    logFile.data()->open(QFile::Append | QFile::Text);
+    QString log_name = "/var/log/" + qApp->applicationName() + ".log";
+    if (QFileInfo::exists(log_name)) {
+        QFile::remove(log_name + ".old");
+        QFile::rename(log_name, log_name + ".old");
+    }
+    logFile.setFileName(log_name);
+    logFile.open(QFile::Append | QFile::Text);
     qInstallMessageHandler(messageHandler);
 }
 
