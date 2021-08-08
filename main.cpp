@@ -189,7 +189,7 @@ void checkSquashfs()
 
 void setLog()
 {
-    QString log_name= "/var/log/" + qApp->applicationName() + ".log";
+    QString log_name = "/var/log/" + qApp->applicationName() + ".log";
     if (QFileInfo::exists(log_name)) {
         QFile::remove(log_name + ".old");
         QFile::rename(log_name, log_name + ".old");
