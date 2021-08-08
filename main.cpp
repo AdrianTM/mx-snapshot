@@ -37,7 +37,7 @@
 #include <csignal>
 #include <unistd.h>
 
-static QScopedPointer<QFile> logFile;
+static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
@@ -151,7 +151,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     msg.contains("\r") ? term_out << msg << flush : term_out << msg << "\n" << flush;
 
     if (msg.startsWith("\033[2KProcessing")) return;
-    QTextStream out(logFile.data());
+    QTextStream out(&logFile);
     out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
     switch (type)
     {
@@ -180,7 +180,7 @@ void setTranslation()
 void checkSquashfs()
 {
     if (system("test -f /boot/config-$(uname -r)") == 0
-            and system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
+            && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
         QMessageBox::critical(nullptr, QObject::tr("Error"),
                               QObject::tr("Current kernel doesn't support Squashfs, cannot continue."));
         exit(EXIT_FAILURE);
@@ -190,9 +190,12 @@ void checkSquashfs()
 void setLog()
 {
     QString log_name= "/var/log/" + qApp->applicationName() + ".log";
-    system("test -f " + log_name.toUtf8() + " && mv " + log_name.toUtf8() + " " + log_name.toUtf8() + ".old");
-    logFile.reset(new QFile(log_name));
-    logFile.data()->open(QFile::Append | QFile::Text);
+    if (QFileInfo::exists(log_name)) {
+        QFile::remove(log_name + ".old");
+        QFile::rename(log_name, log_name + ".old");
+    }
+    logFile.setFileName(log_name);
+    logFile.open(QFile::Append | QFile::Text);
     qInstallMessageHandler(messageHandler);
 }
 
