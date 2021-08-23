@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 23 Aug 2021 00:08:22 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 21.8
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.8) mx; urgency=medium
+ .
+   * Improve free space detection: move work_dir to a different partition if needed and possible
+Checksums-Sha1:
+ cebca7d2138d0e8f366bf7531eacd2db844c7c1d 10126 mx-snapshot_21.8_i386.buildinfo
+ ba8004744a8d0510b5d52b4b94aee9edca52d133 247594 mx-snapshot_21.8_i386.deb
+Checksums-Sha256:
+ 0ee9da269ff99ca171b40e0092cc4e42994f7b2ecbc04993f0c5575f5d921bf4 10126 mx-snapshot_21.8_i386.buildinfo
+ 61495cfd9932896e1801d69fe789403776c3ed0a272e07805459b916fcc52285 247594 mx-snapshot_21.8_i386.deb
+Files:
+ fad44269b886f43fafdcd3660258a61c 10126 admin optional mx-snapshot_21.8_i386.buildinfo
+ f3c06565e69dd72678efbfc35c98006e 247594 admin optional mx-snapshot_21.8_i386.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmEjH5YTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBU1B/4za3Lg/+mWAHT404aT8UhNojDuuVk0
+VklJ6RxRreFtf+UHbFNzYlmfcBmwaY7rRSVZpdslKR7LknSEh0UzqrN/KLC/csXc
+Qs0I39BAMBYdrBtp8KQB1dhge20Ooaj9OZZ3hqAqCJA18zVxGpsd4T44mxpOb8rc
+GizUKbyIMv+I84QpaznSBL3g0tr0fI6ErepyVW+0SQEkG15Ms5/p7CDy+e72ffpN
+mHgC81MoD8FCKyTB8uYN+ibvIPNjzdvRwnZeiwkX4fiKHlPHb5wR4ZOi+iqwhkGk
+TP5ux5w+EHFeGERdqMLr+evJMWgaD7dMd6IG04ja9iHumCB82psKQRQe
+=hmoz
+-----END PGP SIGNATURE-----

@@ -1,3 +1,9 @@
+mx-snapshot (21.8) mx; urgency=medium
+
+  * Improve free space detection: move work_dir to a different partition if needed and possible
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 23 Aug 2021 00:08:22 -0400
+
 mx-snapshot (21.7.01) mx; urgency=medium
 
   * Add --compression-level CLI option
