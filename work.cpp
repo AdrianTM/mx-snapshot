@@ -52,93 +52,25 @@ Work::~Work()
 // We don't yet take /home used space into considerations (need to calculate how much is excluded)
 void Work::checkEnoughSpace()
 {
-    QStringList excludes;
-    QFile *file = &settings->snapshot_excludes;
-
-    // open and read the excludes file
-    if (!file->open(QIODevice::ReadOnly))
-        qDebug() << "Count not open file: " << file->fileName();
-    while(!file->atEnd()) {
-        QString line = file->readLine().trimmed();
-        if (!line.startsWith("#") && !line.isEmpty() && !line.startsWith(".bind-root"))
-            excludes << line.trimmed();
-    }
-    file->close();
-
-    // add session excludes
-    if (!settings->session_excludes.isEmpty()) {
-        QString set = settings->session_excludes;
-        set.remove(0, 3); // remove "-e "
-        for (QString tmp : set.split("\" \"")) {
-            tmp.remove("\"");
-            tmp.remove(0, 0);
-            excludes << tmp;
-        }
-    }
-
-    QString root_dev = OUT("df /.bind-root --output=target |tail -1", true);
-    QMutableStringListIterator it(excludes);
-    while (it.hasNext()) {
-        it.next();
-        if (it.value().indexOf("!") != -1) // remove things like "!(minstall.desktop)"
-            it.value().truncate(it.value().indexOf("!"));
-        it.value().replace(" ", "\\ "); // escape special bash characters, might need to expand this
-        it.value().replace("(", "\\(");
-        it.value().replace(")", "\\)");
-        it.value().replace("|", "\\|");
-        it.value().prepend("/.bind-root/"); // check size occupied by excluded files on /.bind-root only
-        it.value().remove(QRegularExpression("\\*$")); // chop last *
-        // remove from list if files not on the same volume
-        if (root_dev != OUT("df " + it.value() + " --output=target 2>/dev/null |tail -1", true))
-            it.remove();
-    }
-    emit message(tr("Calculating total size of excluded files..."));
-    bool ok;
-    QString cmd = settings->live ? "du -sc" : "du -sxc";
-    quint64 excl_size = OUT(cmd + " {" + excludes.join(",").remove("/.bind-root,")
-                                                       + "} 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
-    if (!ok) {
-        qDebug() << "Error: calculating size of excluded files\n"\
-                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
-        cleanUp();
-    }
-    emit message(tr("Calculating size of root..."));
-    cmd = settings->live ? "du -s" : "du -sx";
-    quint64 root_size = OUT(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
-    if (!ok) {
-        qDebug() << "Error: calculating root size (/.bind-root)\n"\
-                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
-        cleanUp();
-    }
-    qDebug() << "SIZE ROOT" << root_size;
-    qDebug() << "SIZE EXCL" << excl_size;
-    qDebug() << "SIZE FREE" << settings->free_space;
-    if (excl_size > root_size) {
-        qDebug() << "Error: calculating excluded file size.\n"\
-                    "If you are sure you have enough free space rerun the program with -o/--overrde-size option";
-        cleanUp();
-    }
-
-    uint c_factor = compression_factor.value(settings->compression);
-    quint64 adjusted_root = (root_size - excl_size) * c_factor / 100;
+    quint64 required_space = getRequiredSpace();
 
     // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
-    checkNoSpaceAndExit(adjusted_root, settings->free_space, settings->snapshot_dir);
+    checkNoSpaceAndExit(required_space, settings->free_space, settings->snapshot_dir);
 
-    /* If snapshot and workdir are on the same partition we need about double the size of adjusted_root.
+    /* If snapshot and workdir are on the same partition we need about double the size of required_space.
      * If both TMP work_dir and ISO don't fit on snapshot_dir, see if work_dir can be put on /home or /tmp
      * we already checked that ISO can fit on snapshot_dir so if TMP work fits on /home or /tmp move
      * the work_dir to the appropriate place and return */
     if (OUT("stat -c '%d' " + settings->work_dir) == OUT("stat -c '%d' " + settings->snapshot_dir)) {
-        if (settings->free_space < adjusted_root * 2) {
-            if (checkAndMoveWorkDir("/tmp", adjusted_root))
+        if (settings->free_space < required_space * 2) {
+            if (checkAndMoveWorkDir("/tmp", required_space))
                 return;
-            if (checkAndMoveWorkDir("/home", adjusted_root))
+            if (checkAndMoveWorkDir("/home", required_space))
                 return;
-            checkNoSpaceAndExit(adjusted_root * 2, settings->free_space, settings->snapshot_dir); // Print out error and exit
+            checkNoSpaceAndExit(required_space * 2, settings->free_space, settings->snapshot_dir); // Print out error and exit
         }
-    } else { // If not on the same partitions, check if work_dir has enough free space for temp files for one adjusted_root
-        checkNoSpaceAndExit(adjusted_root, settings->free_space_work, settings->work_dir);
+    } else { // If not on the same partitions, check if work_dir has enough free space for temp files for required_space
+        checkNoSpaceAndExit(required_space, settings->free_space_work, settings->work_dir);
     }
 }
 
@@ -555,4 +487,77 @@ void Work::writeSnapshotInfo()
     QTextStream stream(&file);
     stream << QDateTime::currentDateTime().toString("yyyyMMdd_HHmm");
     file.close();
+}
+
+quint64 Work::getRequiredSpace()
+{
+    QStringList excludes;
+    QFile *file = &settings->snapshot_excludes;
+
+    // open and read the excludes file
+    if (!file->open(QIODevice::ReadOnly))
+        qDebug() << "Count not open file: " << file->fileName();
+    while(!file->atEnd()) {
+        QString line = file->readLine().trimmed();
+        if (!line.startsWith("#") && !line.isEmpty() && !line.startsWith(".bind-root"))
+            excludes << line.trimmed();
+    }
+    file->close();
+
+    // add session excludes
+    if (!settings->session_excludes.isEmpty()) {
+        QString set = settings->session_excludes;
+        set.remove(0, 3); // remove "-e "
+        for (QString tmp : set.split("\" \"")) {
+            tmp.remove("\"");
+            tmp.remove(0, 0);
+            excludes << tmp;
+        }
+    }
+
+    QString root_dev = OUT("df /.bind-root --output=target |tail -1", true);
+    QMutableStringListIterator it(excludes);
+    while (it.hasNext()) {
+        it.next();
+        if (it.value().indexOf("!") != -1) // remove things like "!(minstall.desktop)"
+            it.value().truncate(it.value().indexOf("!"));
+        it.value().replace(" ", "\\ "); // escape special bash characters, might need to expand this
+        it.value().replace("(", "\\(");
+        it.value().replace(")", "\\)");
+        it.value().replace("|", "\\|");
+        it.value().prepend("/.bind-root/"); // check size occupied by excluded files on /.bind-root only
+        it.value().remove(QRegularExpression("\\*$")); // chop last *
+        // remove from list if files not on the same volume
+        if (root_dev != OUT("df " + it.value() + " --output=target 2>/dev/null |tail -1", true))
+            it.remove();
+    }
+    emit message(tr("Calculating total size of excluded files..."));
+    bool ok;
+    QString cmd = settings->live ? "du -sc" : "du -sxc";
+    quint64 excl_size = OUT(cmd + " {" + excludes.join(",").remove("/.bind-root,")
+                                                       + "} 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    if (!ok) {
+        qDebug() << "Error: calculating size of excluded files\n"\
+                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
+        cleanUp();
+    }
+    emit message(tr("Calculating size of root..."));
+    cmd = settings->live ? "du -s" : "du -sx";
+    quint64 root_size = OUT(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    if (!ok) {
+        qDebug() << "Error: calculating root size (/.bind-root)\n"\
+                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
+        cleanUp();
+    }
+    qDebug() << "SIZE ROOT" << root_size;
+    qDebug() << "SIZE EXCL" << excl_size;
+    qDebug() << "SIZE FREE" << settings->free_space;
+    if (excl_size > root_size) {
+        qDebug() << "Error: calculating excluded file size.\n"\
+                    "If you are sure you have enough free space rerun the program with -o/--overrde-size option";
+        cleanUp();
+    }
+
+    uint c_factor = compression_factor.value(settings->compression);
+    return (root_size - excl_size) * c_factor / 100;
 }
