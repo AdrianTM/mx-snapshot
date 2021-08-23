@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 23 Aug 2021 00:08:22 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 21.8
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.8) mx; urgency=medium
+ .
+   * Improve free space detection: move work_dir to a different partition if needed and possible
+Checksums-Sha1:
+ 188433fb91cb5c80bd0de8f7e15ee5152e08c6a8 1194 mx-snapshot_21.8.dsc
+ 02402c448989e15f1b16f31e7c8b63f2f2d42d05 187788 mx-snapshot_21.8.tar.xz
+ ce1725a340d02fce935be45dade38b6694ac953a 10420 mx-snapshot_21.8_amd64.buildinfo
+ ef6e7530470584310a284c07d3d0ccdb3e9f187c 240766 mx-snapshot_21.8_amd64.deb
+Checksums-Sha256:
+ 46b15285309a33558038a162266830b8241467058fb558b66a26ca7d4425d3c0 1194 mx-snapshot_21.8.dsc
+ 67c5a4858539b8895241b25db7e22a7151d2fe1b563594414f5a24b721adf6bd 187788 mx-snapshot_21.8.tar.xz
+ fedbe64ad47fd737c2f9d7602d9b079c1d59c2fa37293fb2e56ef0fa854f550a 10420 mx-snapshot_21.8_amd64.buildinfo
+ bc2fe2fa051919665d1bb1bebe0aff31161ebd35d8b4eff9a31e8cd00f6567ee 240766 mx-snapshot_21.8_amd64.deb
+Files:
+ 9fba4ae98586d813c70a4aef441cbe3c 1194 admin optional mx-snapshot_21.8.dsc
+ dca12de4c11e467c0519178e680a0f97 187788 admin optional mx-snapshot_21.8.tar.xz
+ 93d6d69cce1a6a6d4c50c975245f421e 10420 admin optional mx-snapshot_21.8_amd64.buildinfo
+ cb5ced4f60dc2ff3ce46267593dbf651 240766 admin optional mx-snapshot_21.8_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmEjH5QTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumIGHB/wIpmBvqUY3BDbI0+Cox7l5xA81hMXT
+FPYPQG7qlPkBwm5RGcWCqoC/JqWfkXgDAE4lPU5/qjpndSyTAYUxAfNxm37PCsw2
+pHk9Jhp0KqUNuFtvDWJsfpYn7sRfcTjnUEynEalzVhEVYAw01mrRXkkFLEIDOnu9
+r/Qrj0HnEj+4HwxkeeMCjgPSsBlVUzccq8uRcZq2VqPcK+NMMITCaVNB6f2DdMmw
+0vr7GnGj27x0DDBfq48oeJ/NEQ9HV+g+Ry56kqG9AYrBTZSOGtJ5Q/TDpByZ2leW
+3Ae7GEte4GO1rGuvkOSXM37BBDl+L926QUhyxF7O168JGmxAgIUUqWKt
+=dm5x
+-----END PGP SIGNATURE-----
