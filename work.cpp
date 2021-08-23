@@ -121,28 +121,24 @@ void Work::checkEnoughSpace()
 
     uint c_factor = compression_factor.value(settings->compression);
     quint64 adjusted_root = (root_size - excl_size) * c_factor / 100;
-    // if snapshot and workdir are on the same partition we need about double the size of adjusted_root
-    if (settings->shell->getCmdOut("stat -c '%d' " + settings->work_dir) ==
-            settings->shell->getCmdOut("stat -c '%d' " + settings->snapshot_dir)) {
+
+    // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
+    checkNoSpaceAndExit(adjusted_root, settings->free_space, settings->snapshot_dir);
+
+    /* If snapshot and workdir are on the same partition we need about double the size of adjusted_root.
+     * If both TMP work_dir and ISO don't fit on snapshot_dir, see if work_dir can be put on /home or /tmp
+     * we already checked that ISO can fit on snapshot_dir so if TMP work fits on /home or /tmp move
+     * the work_dir to the appropriate place and return */
+    if (OUT("stat -c '%d' " + settings->work_dir) == OUT("stat -c '%d' " + settings->snapshot_dir)) {
         if (settings->free_space < adjusted_root * 2) {
-            emit messageBox(BoxType::critical, tr("Error"),
-                            tr("There's not enough free space on your target disk, you need at least %1").arg(QString::number(adjusted_root * 2 / 1048576.0, 'f', 2) + "GiB" ) + "\n" +
-                            tr("You have %1 free space on %2").arg(QString::number(settings->free_space / 1048576.0, 'f', 2) + "GiB").arg(settings->snapshot_dir));
-            cleanUp();
+            if (checkAndMoveWorkDir("/tmp", adjusted_root))
+                return;
+            if (checkAndMoveWorkDir("/home", adjusted_root))
+                return;
+            checkNoSpaceAndExit(adjusted_root * 2, settings->free_space, settings->snapshot_dir); // Print out error and exit
         }
-    } else { // if not on the same partitions, check if each work_dir and snapshot_dir partitions have enough free space for 1 adjusted_root
-        if (settings->free_space_work < adjusted_root) {
-            emit messageBox(BoxType::critical, tr("Error"),
-                            tr("There's not enough free space on your target disk, you need at least %1").arg(QString::number(adjusted_root / 1048576.0, 'f', 2) + "GiB") + "\n" +
-                            tr("You have %1 free space on %2").arg(QString::number(settings->free_space_work / 1048576.0, 'f', 2) + "GiB").arg(settings->work_dir));
-            cleanUp();
-        }
-        if (settings->free_space < adjusted_root) {
-            emit messageBox(BoxType::critical, tr("Error"),
-                            tr("There's not enough free space on your target disk, you need at least %1").arg(QString::number(adjusted_root / 1048576.0, 'f', 2) + "GiB") + "\n" +
-                            tr("You have %1 free space on %2").arg(QString::number(settings->free_space / 1048576.0, 'f', 2) + "GiB").arg(settings->snapshot_dir));
-            cleanUp();
-        }
+    } else { // If not on the same partitions, check if work_dir has enough free space for temp files for one adjusted_root
+        checkNoSpaceAndExit(adjusted_root, settings->free_space_work, settings->work_dir);
     }
 }
 
