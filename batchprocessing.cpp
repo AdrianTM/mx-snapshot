@@ -44,14 +44,9 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
     if (!checkSnapshotDir() || !checkTempDir())
         work.cleanUp();
     otherExclusions();
-
-    if (!work.mkDir(snapshot_name))
-        work.cleanUp();
     work.setupEnv();
-
     if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
         work.checkEnoughSpace();
-
     work.copyNewIso();
     work.savePackageList(snapshot_name);
 

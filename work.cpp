@@ -492,6 +492,9 @@ void Work::savePackageList(const QString &file_name)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QFileInfo fi(file_name);
+    QDir dir(settings->work_dir + "/iso-template/" + fi.completeBaseName());
+    if (!dir.mkpath(dir.absolutePath()))
+        emit messageBox(BoxType::critical, tr("Error"), tr("Could not create working directory. ") + dir.absolutePath());
     QString full_name = settings->work_dir + "/iso-template/" + fi.completeBaseName() + "/package_list";
     QString cmd = "dpkg -l |grep ^ii\\ \\ |awk '{print $2,$3}' |sed 's/:'$(dpkg --print-architecture)'//' |column -t >\""
             + full_name + "\"";
