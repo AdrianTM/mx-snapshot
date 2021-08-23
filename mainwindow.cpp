@@ -295,8 +295,6 @@ void MainWindow::on_btnNext_clicked()
             work.checkEnoughSpace();
         work.copyNewIso();
         ui->outputLabel->setText("");
-        if (!work.mkDir(file_name))
-            return;
         work.savePackageList(file_name);
 
         if (edit_boot_menu) {
