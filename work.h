@@ -64,6 +64,7 @@ public:
     void savePackageList(const QString &file_name);
     void setupEnv();
     void writeSnapshotInfo();
+    quint64 getRequiredSpace();
 
 signals:
     void message(const QString &msg);
