@@ -94,7 +94,7 @@ bool Settings::checkSnapshotDir()
     system("chown $(logname):$(logname) \"/" + snapshot_dir.toUtf8() + "\"");
     // Create a work_dir
     tempdir_parent = snapshot_dir;
-    if (!isOnSupportedPart(snapshot_dir)) // if not saving snapshot on a Linux partition put working dir in /tmp or /home
+    if (!isOnSupportedPart(snapshot_dir)) // if not saving snapshot on a supported partition, put working dir in /tmp or /home
         tempdir_parent = largerFreeSpace("/tmp", "/home");
     else
         tempdir_parent = largerFreeSpace("/tmp", "/home", snapshot_dir);
@@ -357,7 +357,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
     free_space = getFreeSpace(path);
     QString out = QString::number(free_space / 1048576.0, 'f', 2) + "GiB";
 
-    qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path) + out) << endl;
+    qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path) + out) << "\n";
 
     qDebug().noquote() << QObject::tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
                                        "      If necessary, you can create more available space\n"
