@@ -86,13 +86,11 @@ public:
     bool override_size;
     bool reset_accounts;
     short debian_version;
-    quint64 free_space = 0;
-    quint64 free_space_work = 0;
-    quint64 home_size = 0;
-    quint64 root_size = 0;
+    quint64 free_space;
+    quint64 free_space_work;
+    quint64 home_size;
+    quint64 root_size;
 
-
-    //QString getUsedSpace();
     QString getEditor();
     QString getFilename();
     QString getFreeSpaceStrings(const QString &path);

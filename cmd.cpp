@@ -46,7 +46,7 @@ bool Cmd::run(const QString &cmd, QString &output, bool quiet)
         return false;
     }
     out_buffer.clear();
-    connect(this, QOverload<int>::of(&QProcess::finished), this, &Cmd::finished, Qt::UniqueConnection);
+    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Cmd::finished, Qt::UniqueConnection);
     if (this->state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
