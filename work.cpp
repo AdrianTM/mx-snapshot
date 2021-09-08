@@ -53,7 +53,6 @@ Work::~Work()
 void Work::checkEnoughSpace()
 {
     quint64 required_space = getRequiredSpace();
-
     // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
     checkNoSpaceAndExit(required_space, settings->free_space, settings->snapshot_dir);
 
@@ -136,6 +135,9 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 
 void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
 {
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    qDebug() << "Needed space:" << needed_space;
+    qDebug() << "Free space  :" << free_space << "on" << dir;
     if (needed_space > free_space) {
         emit messageBox(BoxType::critical, tr("Error"),
                     tr("There's not enough free space on your target disk, you need at least %1").arg(QString::number(needed_space / 1048576.0, 'f', 2) + "GiB") + "\n" +
@@ -549,15 +551,17 @@ quint64 Work::getRequiredSpace()
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
-    qDebug() << "SIZE ROOT" << root_size;
-    qDebug() << "SIZE EXCL" << excl_size;
-    qDebug() << "SIZE FREE" << settings->free_space;
+    qDebug() << "SIZE ROOT    " << root_size;
+    qDebug() << "SIZE EXCLUDES" << excl_size;
+    uint c_factor = compression_factor.value(settings->compression);
+    qDebug() << "COMPRESSION  " << c_factor;
+    qDebug() << "SIZE NEEDED  " << (root_size - excl_size) * c_factor / 100;
+    qDebug() << "SIZE FREE    " << settings->free_space << "\n";
+
     if (excl_size > root_size) {
         qDebug() << "Error: calculating excluded file size.\n"\
                     "If you are sure you have enough free space rerun the program with -o/--overrde-size option";
         cleanUp();
     }
-
-    uint c_factor = compression_factor.value(settings->compression);
     return (root_size - excl_size) * c_factor / 100;
 }
