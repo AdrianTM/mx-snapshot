@@ -470,7 +470,7 @@ void Work::setupEnv()
             RUN("echo /home/*/Desktop/minstall.desktop |xargs -n1 sed -i 's/^NoDisplay=true/NoDisplay=false/'");
             // Needs write access to remove lock symbol on installer on desktop, executable to run it
             RUN("chmod 777 /home/*/Desktop/minstall.desktop");
-            if (!QFile::exists("xdg-user-dirs-update.real")) {
+            if (!QFile::exists("/usr/bin/xdg-user-dirs-update.real")) {
                 QDir().mkdir("/etc/skel/Desktop");
                 QFile::copy("/usr/share/applications/minstall.desktop", "/etc/skel/Desktop/Installer.desktop");
                 RUN("chmod 755 /etc/skel/Desktop/Installer.desktop");
