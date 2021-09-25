@@ -467,6 +467,7 @@ void Work::setupEnv()
     } else {
         if (settings->force_installer) {  // copy minstall.desktop to Desktop on all accounts
             RUN("echo /home/*/Desktop |xargs -n1 cp /usr/share/applications/minstall.desktop 2>/dev/null");
+            RUN("echo /home/*/Desktop/minstall.desktop |xargs -n1 sed -i 's/NoDisplay=true/NoDisplay=false/'");
             // Needs write access to remove lock symbol on installer on desktop, executable to run it
             RUN("chmod 777 /home/*/Desktop/minstall.desktop");
             if (!QFile::exists("xdg-user-dirs-update.real")) {
