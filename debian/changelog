@@ -1,3 +1,9 @@
+mx-snapshot (21.9) mx; urgency=medium
+
+  * Make sure Installer icon shows on desktop in Plasma
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 25 Sep 2021 00:19:25 -0400
+
 mx-snapshot (21.8) mx; urgency=medium
 
   * Improve free space detection: move work_dir to a different partition if needed and possible

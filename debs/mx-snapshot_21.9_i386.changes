@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 25 Sep 2021 00:19:25 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 21.9
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.9) mx; urgency=medium
+ .
+   * Make sure Installer icon shows on desktop in Plasma
+Checksums-Sha1:
+ 2e4fb3017ca9dd1664b09ed5a333e1f1629f87fb 9564 mx-snapshot_21.9_i386.buildinfo
+ c5661bc7f116ffcb8bea77caf33090706beaf74c 248126 mx-snapshot_21.9_i386.deb
+Checksums-Sha256:
+ fcae67b731eca511b5044449ed7f110e15fe8b75523e721d86acd4ff432264ca 9564 mx-snapshot_21.9_i386.buildinfo
+ 143b3b8813344584adc73ea43cd3001c15a1cdd82e5b186269dfab5de665f10d 248126 mx-snapshot_21.9_i386.deb
+Files:
+ 06daaf050477387c285561eb1ead2ba0 9564 admin optional mx-snapshot_21.9_i386.buildinfo
+ b7a9df4c426cafbe282e77ed597f3c04 248126 admin optional mx-snapshot_21.9_i386.deb
