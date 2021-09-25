@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 25 Sep 2021 11:36:30 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 21.9.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (21.9.01) mx; urgency=medium
+ .
+   * Fix: don't create /etc/skel/Desktop when not needed
+Checksums-Sha1:
+ e69c3d723ff77c5f522209c9143cd6a379d9e317 9579 mx-snapshot_21.9.01_i386.buildinfo
+ ad2038ff8464c85fc8494d94816ae17446651855 248260 mx-snapshot_21.9.01_i386.deb
+Checksums-Sha256:
+ edfc6e42c2c47be9e10f5330169f4bb3dec05934142c4d7a0e3a606651acac56 9579 mx-snapshot_21.9.01_i386.buildinfo
+ a7e30e5193f11f7f46f3b8abab540b1012c9ee1fd40ffd8dee6b31296aef9103 248260 mx-snapshot_21.9.01_i386.deb
+Files:
+ 9c412bf3f7b3e5bc5001bf30b17ec7f8 9579 admin optional mx-snapshot_21.9.01_i386.buildinfo
+ 476e7979ed61b7519b96c7a93aa000a0 248260 admin optional mx-snapshot_21.9.01_i386.deb

@@ -1,3 +1,9 @@
+mx-snapshot (21.9.01) mx; urgency=medium
+
+  * Fix: don't create /etc/skel/Desktop when not needed
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 25 Sep 2021 11:36:30 -0400
+
 mx-snapshot (21.9) mx; urgency=medium
 
   * Make sure Installer icon shows on desktop in Plasma
