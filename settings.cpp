@@ -28,7 +28,6 @@
 #include <QMessageBox>
 #include <QSettings>
 
-
 #include "settings.h"
 
 Settings::Settings(const QCommandLineParser &arg_parser)

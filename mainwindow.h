@@ -25,7 +25,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QCommandLineParser>
 #include <QMessageBox>
 #include <QSettings>
 #include <QTimer>
@@ -33,6 +32,8 @@
 #include "cmd.h"
 #include "settings.h"
 #include "work.h"
+
+class QCommandLineParser;
 
 namespace Ui {
 class MainWindow;

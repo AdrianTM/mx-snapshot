@@ -180,8 +180,11 @@ void checkSquashfs()
 {
     if (system("test -f /boot/config-$(uname -r)") == 0
             && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
-        QMessageBox::critical(nullptr, QObject::tr("Error"),
-                              QObject::tr("Current kernel doesn't support Squashfs, cannot continue."));
+        QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
+        if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
+            qDebug() << message;
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
 }
