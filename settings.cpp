@@ -55,16 +55,7 @@ bool Settings::checkCompression()
 {
     if (!QFileInfo::exists("/boot/config-" + kernel)) // return true if cannot check config file
         return true;
-
-    if (compression == "lz4")
-        return (shell->run("grep ^CONFIG_SQUASHFS_LZ4=y /boot/config-" + kernel));
-    else if (compression == "xz")
-        return (shell->run("grep ^CONFIG_SQUASHFS_XZ=y /boot/config-" + kernel));
-    else if (compression == "lzo")
-        return (shell->run("grep ^CONFIG_SQUASHFS_LZO=y /boot/config-" + kernel));
-    else if (compression == "zstd")
-        return (shell->run("grep ^CONFIG_SQUASHFS_ZSTD=y /boot/config-" + kernel));
-    return true;
+    return (shell->run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel));
 }
 
 // adds or removes exclusion to the exclusion string
