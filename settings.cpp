@@ -200,7 +200,7 @@ void Settings::selectKernel()
              kernel = shell->getCmdOut("ls -1 /boot/vmlinuz* |sort |tail -n1").remove("/boot/vmlinuz-");
              if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                  QString message = QObject::tr("Could not find a usable kernel");
-                 if (QString::compare(qApp->metaObject()->className(), "QApplication") != 0)
+                 if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
                      qDebug().noquote() << message;
                  else
                     QMessageBox::critical(nullptr, QObject::tr("Error"), message);
@@ -211,7 +211,7 @@ void Settings::selectKernel()
     // Check if SQUASHFS is available
     if (system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-" + kernel.toUtf8()) != 0) {
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-        if (QString::compare(qApp->metaObject()->className(), "QApplication") != 0)
+        if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
         else
             QMessageBox::critical(nullptr, QObject::tr("Error"), message);
