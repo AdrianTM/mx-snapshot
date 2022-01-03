@@ -2,8 +2,9 @@
 #define CMD_H
 
 #include <QProcess>
-#include <QString>
-#include <QTextStream>
+
+class QString;
+class QTextStream;
 
 class Cmd: public QProcess
 {

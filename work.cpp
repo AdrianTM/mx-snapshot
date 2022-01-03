@@ -26,7 +26,6 @@
 #include <QDate>
 #include <QDirIterator>
 #include <QRegularExpression>
-#include <QSettings>
 
 #include "work.h"
 
@@ -560,7 +559,7 @@ quint64 Work::getRequiredSpace()
     qDebug() << "SIZE FREE    " << settings->free_space << "\n";
 
     if (excl_size > root_size) {
-        qDebug() << "Error: calculating excluded file size.\n"\
+        qDebug() << "Error: calculating excluded file size.\n"
                     "If you are sure you have enough free space rerun the program with -o/--overrde-size option";
         cleanUp();
     }

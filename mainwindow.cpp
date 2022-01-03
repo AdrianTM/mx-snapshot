@@ -165,7 +165,6 @@ bool MainWindow::installPackage(const QString &package)
         disableOutput();
         return false;
     }
-
     disableOutput();
     return true;
 }
