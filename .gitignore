@@ -36,3 +36,14 @@ Makefile*
 *.qmlproject.user.*
 
 mx-snapshot
+
+# CMake ignore
+.cmake
+.ninja_deps
+.ninja_log
+CMakeCache.txt
+CMakeLists.txt.user
+CMakeFiles
+build.ninja
+cmake_install.cmake
+*_autogen/
