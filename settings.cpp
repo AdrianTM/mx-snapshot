@@ -26,6 +26,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QMessageBox>
+#include <QRegularExpression>
 #include <QSettings>
 
 #include "settings.h"
@@ -192,11 +193,11 @@ QString Settings::getXdgUserDirs(const QString& folder)
 
 void Settings::selectKernel()
 {
-    if (kernel.startsWith("/boot/vmlinuz-")) kernel.remove("/boot/vmlinuz-"); // remove path and part of name if passed as arg
+    kernel.remove(QRegularExpression("^/boot/vmlinuz-")); // remove path and part of name if passed as arg
     if (kernel.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) {  // if kernel version not passed as arg, or incorrect
         kernel = shell->getCmdOut("uname -r");
-        if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) { // if current kernel doesn't exist for some reason (e.g. WSL) in /boot pick first kernel
-             kernel = shell->getCmdOut("ls -1 /boot/vmlinuz* |sort |tail -n1").remove("/boot/vmlinuz-");
+        if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) { // if current kernel doesn't exist for some reason (e.g. WSL) in /boot pick latest kernel
+             kernel = shell->getCmdOut("ls -1 /boot/vmlinuz* |sort |tail -n1").remove(QRegularExpression("^/boot/vmlinuz-"));
              if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                  QString message = QObject::tr("Could not find a usable kernel");
                  if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
