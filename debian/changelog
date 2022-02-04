@@ -1,3 +1,9 @@
+mx-snapshot (22.2) mx; urgency=medium
+
+  * Add Steam (~/.steam) and VirtualBox folders exclusion options
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 04 Feb 2022 16:38:45 -0500
+
 mx-snapshot (21.9.01) mx; urgency=medium
 
   * Fix: don't create /etc/skel/Desktop when not needed

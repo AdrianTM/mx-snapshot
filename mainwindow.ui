@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>507</height>
+    <width>984</width>
+    <height>648</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -295,24 +295,20 @@ color: rgb(0, 0, 0);</string>
           <number>1</number>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="1" column="1">
-           <widget class="QCheckBox" name="excludeDownloads">
-            <property name="text">
-             <string>Downloads</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="excludeDocuments">
-            <property name="text">
-             <string>Documents</string>
-            </property>
-           </widget>
-          </item>
           <item row="2" column="1">
            <widget class="QCheckBox" name="excludePictures">
             <property name="text">
              <string>Pictures</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="excludeSteam">
+            <property name="text">
+             <string notr="true">Steam</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -323,34 +319,58 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="2">
+          <item row="4" column="0">
+           <widget class="QCheckBox" name="excludeAll">
+            <property name="text">
+             <string>All of the above</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="excludeDocuments">
+            <property name="text">
+             <string>Documents</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="excludeDownloads">
+            <property name="text">
+             <string>Downloads</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
            <widget class="QCheckBox" name="excludeDesktop">
             <property name="text">
              <string>Desktop</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
+          <item row="2" column="3">
            <widget class="QCheckBox" name="excludeVideos">
             <property name="text">
              <string>Videos</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="3">
+          <item row="3" column="3">
+           <widget class="QCheckBox" name="excludeVirtualBox">
+            <property name="text">
+             <string notr="true">VirtualBox</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
            <widget class="QCheckBox" name="excludeNetworks">
             <property name="statusTip">
              <string>exclude network configurations</string>
             </property>
             <property name="text">
              <string>Networks</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="excludeAll">
-            <property name="text">
-             <string>All of the above</string>
             </property>
            </widget>
           </item>
@@ -779,6 +799,31 @@ p, li { white-space: pre-wrap; }
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>btnSelectSnapshot</tabstop>
+  <tabstop>lineEditName</tabstop>
+  <tabstop>btnAbout</tabstop>
+  <tabstop>btnHelp</tabstop>
+  <tabstop>btnBack</tabstop>
+  <tabstop>btnNext</tabstop>
+  <tabstop>btnCancel</tabstop>
+  <tabstop>excludeDocuments</tabstop>
+  <tabstop>excludeDownloads</tabstop>
+  <tabstop>excludeDesktop</tabstop>
+  <tabstop>excludeMusic</tabstop>
+  <tabstop>excludePictures</tabstop>
+  <tabstop>excludeVideos</tabstop>
+  <tabstop>excludeNetworks</tabstop>
+  <tabstop>excludeSteam</tabstop>
+  <tabstop>excludeVirtualBox</tabstop>
+  <tabstop>excludeAll</tabstop>
+  <tabstop>btnEditExclude</tabstop>
+  <tabstop>cbCompression</tabstop>
+  <tabstop>checksums</tabstop>
+  <tabstop>radioPersonal</tabstop>
+  <tabstop>radioRespin</tabstop>
+  <tabstop>outputBox</tabstop>
+ </tabstops>
  <resources>
   <include location="images.qrc"/>
  </resources>
@@ -790,12 +835,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>144</x>
-     <y>240</y>
+     <x>163</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>632</x>
-     <y>192</y>
+     <x>769</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
@@ -806,12 +851,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>632</x>
-     <y>216</y>
+     <x>208</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>144</x>
-     <y>192</y>
+     <x>182</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
@@ -822,12 +867,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>632</x>
-     <y>216</y>
+     <x>208</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>388</x>
-     <y>192</y>
+     <x>520</x>
+     <y>143</y>
     </hint>
    </hints>
   </connection>
@@ -838,12 +883,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>632</x>
-     <y>216</y>
+     <x>208</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>144</x>
-     <y>216</y>
+     <x>182</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
@@ -854,12 +899,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>632</x>
-     <y>216</y>
+     <x>208</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>388</x>
-     <y>216</y>
+     <x>520</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
@@ -870,12 +915,12 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>632</x>
-     <y>216</y>
+     <x>208</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>632</x>
-     <y>192</y>
+     <x>769</x>
+     <y>161</y>
     </hint>
    </hints>
   </connection>
@@ -886,12 +931,44 @@ p, li { white-space: pre-wrap; }
    <slot>setChecked(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>119</x>
-     <y>226</y>
+     <x>138</x>
+     <y>198</y>
     </hint>
     <hint type="destinationlabel">
-     <x>688</x>
-     <y>164</y>
+     <x>270</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>excludeAll</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>excludeSteam</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>59</x>
+     <y>192</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>520</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>excludeAll</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>excludeVirtualBox</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>103</x>
+     <y>190</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>686</x>
+     <y>177</y>
     </hint>
    </hints>
   </connection>
