@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 04 Feb 2022 16:38:45 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2) mx; urgency=medium
+ .
+   * Add Steam (~/.steam) and VirtualBox folders exclusion options
+Checksums-Sha1:
+ 7bff72819d6215dbee0f7990b90f740e44c3d2fd 1194 mx-snapshot_22.2.dsc
+ 1bd6f59461e356524cb87fdc0ae58024818f10e5 188372 mx-snapshot_22.2.tar.xz
+ c6d5a65ac76d0ac0f96527b7815aac220fe1b390 10731 mx-snapshot_22.2_amd64.buildinfo
+ 62b5e0a3de08029edd42e5caf7734e5fbaae9f1a 243924 mx-snapshot_22.2_amd64.deb
+Checksums-Sha256:
+ 33c123066ffc982cda69d92a0ceb868458feaa9850489f675fd97602d19af8d9 1194 mx-snapshot_22.2.dsc
+ bf70bf71caab6303180778b83b67f5e7171fe9b6cc6fc9448d93b3f8222eb3e6 188372 mx-snapshot_22.2.tar.xz
+ b636f7190be8aa5f38ebf22f60ab6b353a2713e3627600df0ced3915c3e1acb6 10731 mx-snapshot_22.2_amd64.buildinfo
+ b57df7589fc2208002d9104796a88faf82c4db01889f921e4de6252064e18ea1 243924 mx-snapshot_22.2_amd64.deb
+Files:
+ a3d98c4784dfaa67e9884681888c743d 1194 admin optional mx-snapshot_22.2.dsc
+ 8bccab420a515a49d8b2315376570a09 188372 admin optional mx-snapshot_22.2.tar.xz
+ d36c9a07858a088426a52e7e57499d81 10731 admin optional mx-snapshot_22.2_amd64.buildinfo
+ 1a5ef4f9daf694deb6b83dfe823fafde 243924 admin optional mx-snapshot_22.2_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmH9rBYTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumF2KCACp7zL+qwDUwPSahCKaN+IiTjeQgOjw
+sLpyHablOOOPy30vz7vePPCdmC9SSBp+ysze8XHGWEawF1IEClNASdgGsegfjKnU
+uvHwixaNZz3GdD1DciUI1Q1E8KxHBKMlJXcHAIM+rtHNBj70W74YHwJqP0runhGV
+x3fcR8BlE0VuS72hT+wEOzuiZeoWB8zBlY0+kDSobvZ22j2Zn3oB+vnRHwiouTbG
+VuMMpiyLbEDmQDWdkAEELaS+B+d8J271h7HP2RK94p2QUryzWdEqNkxRLHAJ/oiZ
+QDU02osUeZCulDJ84u2bstVjH6iBNCorit+Y8J85i6bRIhszxlM+6y5q
+=k9xS
+-----END PGP SIGNATURE-----

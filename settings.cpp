@@ -448,9 +448,7 @@ void Settings::excludeSteam(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (exclude) exclusions.setFlag(Exclude::Steam);
-    QString folder = "home/*/.steam/";
-    QString exclusion = folder + "*\" \"" + folder + ".*";
-    addRemoveExclusion(exclude, exclusion);
+    addRemoveExclusion(exclude, "home/*/.steam");
 }
 
 void Settings::excludeVideos(bool exclude)
@@ -467,9 +465,7 @@ void Settings::excludeVirtualBox(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (exclude) exclusions.setFlag(Exclude::VirtualBox);
-    QString folder = "home/*/VirtualBox VMs/";
-    QString exclusion = folder + "*\" \"" + folder + ".*";
-    addRemoveExclusion(exclude, exclusion);
+    addRemoveExclusion(exclude, "home/*/VirtualBox VMs");
 }
 
 // load settings from config file
