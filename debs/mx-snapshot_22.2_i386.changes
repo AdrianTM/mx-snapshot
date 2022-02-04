@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Fri, 04 Feb 2022 16:38:45 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2) mx; urgency=medium
+ .
+   * Add Steam (~/.steam) and VirtualBox folders exclusion options
+Checksums-Sha1:
+ 74fffb6989df6adfc3676a4bb75cf7dd2de6e1e1 9993 mx-snapshot_22.2_i386.buildinfo
+ d3fc26fad04b3c4061d8bda4f64839db9fa75ef9 249680 mx-snapshot_22.2_i386.deb
+Checksums-Sha256:
+ 6df424923bdd87513db9f30e90a358d038c0918a5b66f8cf4de2e629e9c3f638 9993 mx-snapshot_22.2_i386.buildinfo
+ 93d119778398480295489646a9b58a8a26c13725f17afd0f36c6e7e693f0fa8d 249680 mx-snapshot_22.2_i386.deb
+Files:
+ c732d498f11c9e4abdb340274b25b3ce 9993 admin optional mx-snapshot_22.2_i386.buildinfo
+ 5d2058a081984a0fa2d5eef6246f66ac 249680 admin optional mx-snapshot_22.2_i386.deb
