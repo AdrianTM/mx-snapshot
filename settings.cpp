@@ -379,7 +379,9 @@ void Settings::excludeItem(const QString &item)
     if (item == QObject::tr("Music") || item == "Music") excludeMusic(true);
     if (item == QObject::tr("Networks") || item == "Networks") excludeNetworks(true);
     if (item == QObject::tr("Pictures") || item == "Pictures") excludePictures(true);
+    if (item == "Steam") excludeSteam(true);
     if (item == QObject::tr("Videos") || item == "Videos") excludeVideos(true);
+    if (item == "VirtualBox") excludeVirtualBox(true);
 }
 
 void Settings::excludeDesktop(bool exclude)
@@ -442,6 +444,15 @@ void Settings::excludePictures(bool exclude)
     addRemoveExclusion(exclude, exclusion);
 }
 
+void Settings::excludeSteam(bool exclude)
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    if (exclude) exclusions.setFlag(Exclude::Steam);
+    QString folder = "home/*/.steam/";
+    QString exclusion = folder + "*\" \"" + folder + ".*";
+    addRemoveExclusion(exclude, exclusion);
+}
+
 void Settings::excludeVideos(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -449,6 +460,15 @@ void Settings::excludeVideos(bool exclude)
     QString folder = "home/*/Videos/";
     QString xdg_name = "VIDEOS";
     QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
+    addRemoveExclusion(exclude, exclusion);
+}
+
+void Settings::excludeVirtualBox(bool exclude)
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    if (exclude) exclusions.setFlag(Exclude::VirtualBox);
+    QString folder = "home/*/VirtualBox VMs/";
+    QString exclusion = folder + "*\" \"" + folder + ".*";
     addRemoveExclusion(exclude, exclusion);
 }
 
@@ -484,7 +504,9 @@ void Settings::excludeAll()
     excludeMusic(true);
     excludeNetworks(true);
     excludePictures(true);
+    excludeSteam(true);
     excludeVideos(true);
+    excludeVirtualBox(true);
 }
 
 void Settings::otherExclusions()
@@ -532,7 +554,7 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 {
     if (!arg_parser.values("exclude").isEmpty()) {
         QStringList options = arg_parser.values("exclude");
-        QStringList valid_options {"Desktop", "Documents", "Downloads", "Music", "Networks", "Pictures", "Videos"};
+        QStringList valid_options {"Desktop", "Documents", "Downloads", "Music", "Networks", "Pictures", "Steam", "Videos", "VirtualBox"};
         for (const QString &option : options )
             if (valid_options.contains(option))
                 excludeItem(option);

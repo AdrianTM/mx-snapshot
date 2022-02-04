@@ -101,7 +101,9 @@ void MainWindow::setExclusions()
     ui->excludeMusic->setChecked(exclusions.testFlag(Exclude::Music));
     ui->excludeNetworks->setChecked(exclusions.testFlag(Exclude::Networks));
     ui->excludePictures->setChecked(exclusions.testFlag(Exclude::Pictures));
+    ui->excludeSteam->setChecked(exclusions.testFlag(Exclude::Steam));
     ui->excludeVideos->setChecked(exclusions.testFlag(Exclude::Videos));
+    ui->excludeVirtualBox->setChecked(exclusions.testFlag(Exclude::VirtualBox));
 }
 
 // setup/refresh versious items first time program runs
@@ -465,4 +467,16 @@ void MainWindow::on_checksums_toggled(bool checked)
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue("make_md5sum", checked ? "yes" : "no");
     make_chksum = checked;
+}
+
+void MainWindow::on_excludeSteam_toggled(bool checked)
+{
+    excludeSteam(checked);
+    if (!checked) ui->excludeAll->setChecked(false);
+}
+
+void MainWindow::on_excludeVirtualBox_toggled(bool checked)
+{
+    excludeVirtualBox(checked);
+    if (!checked) ui->excludeAll->setChecked(false);
 }

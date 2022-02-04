@@ -49,7 +49,9 @@ public:
         Music = 0x8,
         Networks = 0x16,
         Pictures = 0x32,
-        Videos = 0x64
+        Videos = 0x64,
+        Steam = 0x128,
+        VirtualBox = 0x256
     };
     Q_DECLARE_FLAGS(Exclusions, Exclude)
 
@@ -119,7 +121,9 @@ public:
     void excludeMusic(bool exclude);
     void excludeNetworks(bool exclude);
     void excludePictures(bool exclude);
+    void excludeSteam(bool exclude);
     void excludeVideos(bool exclude);
+    void excludeVirtualBox(bool exclude);
     void loadConfig();
     void otherExclusions();
     void processArgs(const QCommandLineParser &arg_parser);
