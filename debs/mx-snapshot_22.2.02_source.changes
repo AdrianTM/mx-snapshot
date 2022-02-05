@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 05 Feb 2022 16:05:53 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.2.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.2.02) mx; urgency=medium
+ .
+   * Fix starting editor
+Checksums-Sha1:
+ fe734e70e20d2756914e005af3a943d56099e060 644 mx-snapshot_22.2.02.dsc
+ a2cb1d7fea7508d7253741f9f0db77864bb6ebfd 188432 mx-snapshot_22.2.02.tar.xz
+ 42bf1772a6374750cb8b69174462c93c03b9dd7a 10008 mx-snapshot_22.2.02_i386.buildinfo
+Checksums-Sha256:
+ d725a55d2f0854d9b38d531b252cad171a011aeb521cb35c9e6333a088969529 644 mx-snapshot_22.2.02.dsc
+ 4abe2c30738cf2849437f473f00d0ed9d71c28dbc747e71fa07513c2be6186d0 188432 mx-snapshot_22.2.02.tar.xz
+ 987a4b46eb29f54db7847f2f8730c5bdf6aa546b42b4e6ac48fb2d8aa7dc3937 10008 mx-snapshot_22.2.02_i386.buildinfo
+Files:
+ c8e93ab04c527f4d229077205431447d 644 admin optional mx-snapshot_22.2.02.dsc
+ 82410214c009712fae73f7f9027f50c1 188432 admin optional mx-snapshot_22.2.02.tar.xz
+ cc41d12023a86f9cba42eec20e4f9fa2 10008 admin optional mx-snapshot_22.2.02_i386.buildinfo
