@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 05 Feb 2022 16:05:53 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.2.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2.02) mx; urgency=medium
+ .
+   * Fix starting editor
+Checksums-Sha1:
+ 5bf9cf0c320b75255db7a3007db6ab677d5b2c5e 1206 mx-snapshot_22.2.02.dsc
+ 7c739a9a1c404a430fb03550085474e09f8a37ff 188420 mx-snapshot_22.2.02.tar.xz
+ ff00e74a7790872442a9f10ad7e79addca8c4eea 10755 mx-snapshot_22.2.02_amd64.buildinfo
+ 47e8a402efbe1449ebc3b99a1a2392898f70a705 244060 mx-snapshot_22.2.02_amd64.deb
+Checksums-Sha256:
+ 817adec0c25cb9d7d586df57f94a5a3f6d7644adacaa5a1c8b648e84fca6ebd9 1206 mx-snapshot_22.2.02.dsc
+ 6a3e0a0de26c6efd0e10b975838f54d8ab62768dc85b195c7cfc8a3032d00bec 188420 mx-snapshot_22.2.02.tar.xz
+ d98dbde58bf3665aa959f42ee4f2b16dfb3f7b05c5b06b30583d49abc7f0a757 10755 mx-snapshot_22.2.02_amd64.buildinfo
+ 1db7c6d091db598f8ddfdb8ef5073cf14b072bb7170074b042d1fc9b94f59b49 244060 mx-snapshot_22.2.02_amd64.deb
+Files:
+ 9c0c6de0b0cfa589487c56ff2b9d468c 1206 admin optional mx-snapshot_22.2.02.dsc
+ 17b273383657adf0111c40b18411c9d2 188420 admin optional mx-snapshot_22.2.02.tar.xz
+ 7a6d246ed0add2bc0e79f470858e2966 10755 admin optional mx-snapshot_22.2.02_amd64.buildinfo
+ 0cec4d89f1028ea140d1763d1b4cd48c 244060 admin optional mx-snapshot_22.2.02_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmH+50sTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumGxtB/0ckypqrnPqMzOeoyk5fy4oQXarDLt/
+EHArxeG8Hv3xaH6K50iikXQKsMUTQCg8xAukLW0R2/rRQKlAIKqWV1JGcTI/443f
+a65T8mOOIdNJGaSX05MYz2l2ZXTzy9wXC7NONhO7ufezNQxFE+SMbdM81YGcKQZ6
+2dcvm83wslII6H46jLkTynzdCdngTnDkryKKGEKAT22Ju67D9G+pgwfqhXIZkV++
+4KJfZTTFAxKe1w+8fKFaMqaUytLts/e+3+OE2vSK+Pg7MM+Rx1aQbQwSAk69UFaa
+xQTKfpq8sPJkh2Vm1L6EAFTIEBYdnt1TjLESk7X7MGVKde+0WtKgxFFo
+=exCG
+-----END PGP SIGNATURE-----

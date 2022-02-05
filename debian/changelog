@@ -1,3 +1,9 @@
+mx-snapshot (22.2.02) mx; urgency=medium
+
+  * Fix starting editor
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 05 Feb 2022 16:05:53 -0500
+
 mx-snapshot (22.2.01) mx; urgency=medium
 
   * Fix starting krite/kate as normal users when editing exlusion file
