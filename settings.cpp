@@ -50,7 +50,7 @@ Settings::~Settings()
 {
 }
 
-// check if compression is available in the kernel (lz4, lzo, xz)
+// check if compression is available in the kernel (gzip, lz4, lzo, xz)
 bool Settings::checkCompression()
 {
     if (!QFileInfo::exists("/boot/config-" + kernel)) // return true if cannot check config file
@@ -192,6 +192,7 @@ QString Settings::getXdgUserDirs(const QString& folder)
 
 void Settings::selectKernel()
 {
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     kernel.remove(QRegularExpression("^/boot/vmlinuz-")); // remove path and part of name if passed as arg
     if (kernel.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) {  // if kernel version not passed as arg, or incorrect
         kernel = shell->getCmdOut("uname -r");
