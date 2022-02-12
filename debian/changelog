@@ -1,3 +1,10 @@
+mx-snapshot (22.2.03) mx; urgency=medium
+
+  * Fix displaying critical error regarding missing compression algorithm in kernel
+  * Improve text editor detection
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 12 Feb 2022 00:22:55 -0500
+
 mx-snapshot (22.2.02) mx; urgency=medium
 
   * Fix starting editor
