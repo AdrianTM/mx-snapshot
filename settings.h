@@ -61,11 +61,11 @@ public:
     Cmd *shell;
     Exclusions exclusions;
     QFile config_file;
-    QFile gui_editor;
     QFile snapshot_excludes;
     QHash<QString, QString> englishDirs; // English names of /home directories
     QScopedPointer<QTemporaryDir> tmpdir;
     QString compression;
+    QString gui_editor;
     QString kernel;
     QString mksq_opt;
     QString save_message;
@@ -84,14 +84,14 @@ public:
     bool live;
     bool make_chksum;
     bool make_isohybrid;
-    bool preempt; // command line option
     bool override_size;
+    bool preempt; // command line option
     bool reset_accounts;
-    short debian_version;
     quint64 free_space;
     quint64 free_space_work;
     quint64 home_size;
     quint64 root_size;
+    short debian_version;
 
     QString getEditor();
     QString getFilename();
