@@ -35,16 +35,10 @@
 Work::Work(Settings *settings) :
     settings(settings)
 {
-    if (!settings->checkCompression()) {
-        emit messageBox(BoxType::critical, tr("Error"),
-            tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm."));
-        cleanUp();
-    }
 }
 
 Work::~Work()
 {
-
 }
 
 // Checks if there's enough space on partitions, if not post error, cleanup and exit

@@ -268,6 +268,11 @@ void MainWindow::on_btnNext_clicked()
 
     // on settings page
     } else if (ui->stackedWidget->currentWidget() == ui->settingsPage) {
+        if (!checkCompression()) {
+            processMsgBox(BoxType::critical, tr("Error"),
+                tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm."));
+            return;
+        }
         if (QMessageBox::Cancel == QMessageBox::question(this, tr("Final chance"),
                  tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n" +
                  tr("It will take some time to finish, depending on the size of the installed system and the capacity of your computer.") + "\n\n" +

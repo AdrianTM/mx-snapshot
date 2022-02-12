@@ -34,6 +34,12 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
 {
     connect(qApp, &QCoreApplication::aboutToQuit, [this] { work.cleanUp(); });
     setConnections();
+
+    if (!checkCompression()) {
+        qDebug().noquote() << tr("Error") << tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm.");
+        return;
+    }
+
     QString path = snapshot_dir;
     getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
     if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
