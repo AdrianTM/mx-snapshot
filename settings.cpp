@@ -50,9 +50,11 @@ Settings::~Settings()
 {
 }
 
-// check if compression is available in the kernel (gzip, lz4, lzo, xz)
+// check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression()
 {
+    if (compression == "gzip") // don't check for gzip
+        return true;
     if (!QFileInfo::exists("/boot/config-" + kernel)) // return true if cannot check config file
         return true;
     return (shell->run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel));
