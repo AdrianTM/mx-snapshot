@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 12 Feb 2022 00:22:55 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.2.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2.03) mx; urgency=medium
+ .
+   * Fix displaying critical error regarding missing compression algorithm in kernel
+   * Improve text editor detection
+Checksums-Sha1:
+ 7612ab6ad379aee94b1b057ca13df53e8f0c0a2a 1206 mx-snapshot_22.2.03.dsc
+ 64e383f8046cb065fcdf0f585421ad3171d607ca 188508 mx-snapshot_22.2.03.tar.xz
+ bc16e77f53188500a99e5ba849e69a0ecda2ec22 10755 mx-snapshot_22.2.03_amd64.buildinfo
+ b801d417fde748477a4952d6e0758d3e5538a9f2 244412 mx-snapshot_22.2.03_amd64.deb
+Checksums-Sha256:
+ f7c2f2c454476cef596688234b6041c4bc61b97bc1c115f0df3eef0b4fcd57bd 1206 mx-snapshot_22.2.03.dsc
+ 25023f0bf383aed3f72958faaeddc76e38fdcc8c36309e335683bcb89f0d48bb 188508 mx-snapshot_22.2.03.tar.xz
+ 4e47977f0c79bb741de87297b840318fae1813cb2469f809eb1b23b29079fc39 10755 mx-snapshot_22.2.03_amd64.buildinfo
+ a4bfa85cd06fca2cec360ec184a41fb8dbf69455e0f7797e39e293f945a0655a 244412 mx-snapshot_22.2.03_amd64.deb
+Files:
+ a067b95558f88df0e49f0632b6860ecc 1206 admin optional mx-snapshot_22.2.03.dsc
+ 3e6474053d304f16b0cf80cceccfeac0 188508 admin optional mx-snapshot_22.2.03.tar.xz
+ d158f6f697640e2ae09977877dcb9030 10755 admin optional mx-snapshot_22.2.03_amd64.buildinfo
+ 853fe091b3da99eae966b853e301ba4e 244412 admin optional mx-snapshot_22.2.03_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmIHTVoTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumGAfB/0WubsYXvBGlLJ4fZINrWeF1R+10sND
+eYLaI1cFK5cTO4WJFD76qD62q1Xh2zocmQ+pHirqWp2aJ0wpSlOABE1CfjNhKlPQ
+vGZqONy4ImqlJ6ofKjkCsHqq2ay+5xV2CJFnkes53Igaj6T4a6ASiNHwRFrkJi/4
+zA2Cajk5QvOsxSr2YQQ8NDmH0zvioHL5PPXNiHEPrM2vWX/sMHv9APT+4EDg0hlg
+JrAXfy9s6NUnhQF9Uyd6W/zzM/lQb41P00488YFVCo3LZj9C0ZIRBccVECmGirjo
+NqLDCJhvQ29OWE8RuTy1aUW5L/NzQeOpdnT1/8EzaIQuy+ojjGGu826f
+=BAg0
+-----END PGP SIGNATURE-----
