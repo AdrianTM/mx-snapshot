@@ -1,0 +1,48 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 16 Feb 2022 22:16:00 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.2.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2.04) mx; urgency=medium
+ .
+   * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
+   *   for example: workdir=/tmp, program will check if the folder exits and if it's
+   *   the right partition type (only partitions that allow bind mounts can work)
+Checksums-Sha1:
+ 0cb180cd31d50cbbcdfcc98e63956322becfc429 1206 mx-snapshot_22.2.04.dsc
+ dbc228ccad06efe2607aa97f8d208cbe24c5f2e8 188604 mx-snapshot_22.2.04.tar.xz
+ 194ccf144ee43a357a9e156e3edfc4bda0048365 10755 mx-snapshot_22.2.04_amd64.buildinfo
+ e97f373c0eb530dec7b8ac59914cea34b542fc61 244572 mx-snapshot_22.2.04_amd64.deb
+Checksums-Sha256:
+ 619daba97faeab6e0ad7362d2fcd0137bebfd15e6818742c4ba328ddfee2e72b 1206 mx-snapshot_22.2.04.dsc
+ 2b3cdc549afb1561e6528c7741ddc95f862314b4d222ec9050b08c9f560a2051 188604 mx-snapshot_22.2.04.tar.xz
+ 793ad9983deba6c36a99e0b9da468f62170071ae764af96150c3c0478696beaa 10755 mx-snapshot_22.2.04_amd64.buildinfo
+ b91a603447734b1a80c50500fc40a3cdb11bdbbf8550ae21e74a8c5c2d3973bd 244572 mx-snapshot_22.2.04_amd64.deb
+Files:
+ f0712479b26ccc93d4eb76f560daf7be 1206 admin optional mx-snapshot_22.2.04.dsc
+ 85cd78b0a8998dae2c520499c8a3e4e7 188604 admin optional mx-snapshot_22.2.04.tar.xz
+ 1515bebcaff628d1e9164f7e28a670ee 10755 admin optional mx-snapshot_22.2.04_amd64.buildinfo
+ d6af143dc2fba430e7028bea9544df36 244572 admin optional mx-snapshot_22.2.04_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmINvykTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumE/jB/40a5SCn9G6hBo11NTQDey+bFNioep6
+/ZdsMa60zi+aiax1wAadeKHDQKa6FApz00fmbaIRlvZNzLZ+na3DPtaPaESygFdY
+4hVcyojyUiA8H8zWjOIzyR9glHX9/fHk0AKMBt7MSV5OE8G8eSo1wfXspNz8R2lU
+KSRVppkaK3VRGV7tYQgPPdjmKSZNnqiP+WlreDzxFRdbaxywFuHRdVn28JpFxwIH
+S5788FURss+rl8XY9KIE1/3Q6xFg+u9y9dgt4H8R3BtKZIOI05kU+6CwBWBII1T/
+S+EkOgsgjP9S03olziJXPySywiJXUEMjVyrgI/BhnC8Uopnf4PkJMGVi
+=+7Q/
+-----END PGP SIGNATURE-----

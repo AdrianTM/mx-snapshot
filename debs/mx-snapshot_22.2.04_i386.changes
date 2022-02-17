@@ -1,0 +1,27 @@
+Format: 1.8
+Date: Wed, 16 Feb 2022 22:16:00 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.2.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.2.04) mx; urgency=medium
+ .
+   * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
+   *   for example: workdir=/tmp, program will check if the folder exits and if it's
+   *   the right partition type (only partitions that allow bind mounts can work)
+Checksums-Sha1:
+ 7c5d2109b1e916889a249af37bc3fc8294e4b9d5 10008 mx-snapshot_22.2.04_i386.buildinfo
+ 00111d88f28cb6c0b39fc681679e50fef558820b 250440 mx-snapshot_22.2.04_i386.deb
+Checksums-Sha256:
+ 3f8f213cca8bbefab1749176a1cab5ed842befbef86edfb90128a1617c8fe991 10008 mx-snapshot_22.2.04_i386.buildinfo
+ 1def41cbe59e53734a9a36258c41a676b72ee2d916a9719f273978c9e023aca9 250440 mx-snapshot_22.2.04_i386.deb
+Files:
+ 7409cdb5cc5a1c0fb305d3de09e7e70f 10008 admin optional mx-snapshot_22.2.04_i386.buildinfo
+ ad38c8706d60e256c81215e7374bdc56 250440 admin optional mx-snapshot_22.2.04_i386.deb
