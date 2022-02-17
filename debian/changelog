@@ -1,3 +1,11 @@
+mx-snapshot (22.2.04) mx; urgency=medium
+
+  * Add option to specify temporary work directory in /etc/mx-snapshot.conf file 
+  *   for example: workdir=/tmp, program will check if the folder exits and if it's 
+  *   the right partition type (only partitions that allow bind mounts can work)
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 16 Feb 2022 22:16:00 -0500
+
 mx-snapshot (22.2.03) mx; urgency=medium
 
   * Fix displaying critical error regarding missing compression algorithm in kernel

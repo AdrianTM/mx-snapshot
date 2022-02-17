@@ -85,18 +85,21 @@ bool Settings::checkSnapshotDir()
         return false;
     }
     system("chown $(logname):$(logname) \"/" + snapshot_dir.toUtf8() + "\"");
-    // Create a work_dir
-    tempdir_parent = snapshot_dir;
-    if (!isOnSupportedPart(snapshot_dir)) // if not saving snapshot on a supported partition, put working dir in /tmp or /home
-        tempdir_parent = largerFreeSpace("/tmp", "/home");
-    else
-        tempdir_parent = largerFreeSpace("/tmp", "/home", snapshot_dir);
     return true;
 }
 
 bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
+    if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !isOnSupportedPart(tempdir_parent)) {
+        tempdir_parent = snapshot_dir;
+        if (!isOnSupportedPart(snapshot_dir)) // if not saving snapshot on a supported partition, put working dir in /tmp or /home
+            tempdir_parent = largerFreeSpace("/tmp", "/home");
+        else
+            tempdir_parent = largerFreeSpace("/tmp", "/home", snapshot_dir);
+    }
+
     tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
         qDebug() << QObject::tr("Could not create temp directory. ") + tmpdir.data()->path();
@@ -106,6 +109,7 @@ bool Settings::checkTempDir()
     free_space_work = getFreeSpace(work_dir);
 
     QDir().mkpath(work_dir + "/iso-template/antiX");
+    qDebug() << "Work directory is placed in" << tempdir_parent;
     return true;
 }
 
@@ -490,6 +494,7 @@ void Settings::loadConfig()
     gui_editor = settings.value("gui_editor").toString();
     stamp = settings.value("stamp").toString();
     force_installer = settings.value("force_installer", "true").toBool();
+    tempdir_parent = settings.value("workdir").toString();
     reset_accounts = false;
 }
 
