@@ -13,15 +13,17 @@ Changes:
    * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
    *   for example: workdir=/tmp, program will check if the folder exits and if it's
    *   the right partition type (only partitions that allow bind mounts can work)
+   * Updated mx-snapshot.conf file format to make sure comments are not lost when
+   *   writing back to file
 Checksums-Sha1:
- 8ceb74bd26d30c51cca921b1c71a90484ca2baff 644 mx-snapshot_22.2.04.dsc
- ea9f906f63b53c3834244c4e9bfa635ecb273973 188692 mx-snapshot_22.2.04.tar.xz
- 7c5d2109b1e916889a249af37bc3fc8294e4b9d5 10008 mx-snapshot_22.2.04_i386.buildinfo
+ e4bbaddb759c6848e6101f852cb13a63df417d33 644 mx-snapshot_22.2.04.dsc
+ 33c79fc73c10090387ec5ac535af04aeed5ecb27 188648 mx-snapshot_22.2.04.tar.xz
+ d9cf487ef25ffa62996b6114c6f6b6790a675693 10008 mx-snapshot_22.2.04_i386.buildinfo
 Checksums-Sha256:
- f915b6e2814c78f2028147e835556e19769d4ccae71bdd4b223032244c217353 644 mx-snapshot_22.2.04.dsc
- 7420d2decab75d7ae1c23eaa9f9bb38eb6638d60b96cc6021435d2dec3065259 188692 mx-snapshot_22.2.04.tar.xz
- 3f8f213cca8bbefab1749176a1cab5ed842befbef86edfb90128a1617c8fe991 10008 mx-snapshot_22.2.04_i386.buildinfo
+ b2ef9efb131da064fab355ad6c4eebbbc5a23ab208e0b953c56a566c36446bea 644 mx-snapshot_22.2.04.dsc
+ 28eda446defa9470afcb847695cbc5cd86d61b9f2bc582d8ed85ae19d857fcf1 188648 mx-snapshot_22.2.04.tar.xz
+ c54b2963b5c6dadfa64f5108dafb7752946748cfefa5eecb19198afed23352ef 10008 mx-snapshot_22.2.04_i386.buildinfo
 Files:
- 1182a9b7566fae25750c33f5a6f8621e 644 admin optional mx-snapshot_22.2.04.dsc
- 822c2df7566e1f4f05b13fa37c3f2258 188692 admin optional mx-snapshot_22.2.04.tar.xz
- 7409cdb5cc5a1c0fb305d3de09e7e70f 10008 admin optional mx-snapshot_22.2.04_i386.buildinfo
+ 2b5d2dd20d8738faf8405c76b1127ea0 644 admin optional mx-snapshot_22.2.04.dsc
+ 13cd3708e0ae1502915e6253343f9639 188648 admin optional mx-snapshot_22.2.04.tar.xz
+ 61593ed79cebbc7546abcb295319fa29 10008 admin optional mx-snapshot_22.2.04_i386.buildinfo

@@ -19,30 +19,32 @@ Changes:
    * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
    *   for example: workdir=/tmp, program will check if the folder exits and if it's
    *   the right partition type (only partitions that allow bind mounts can work)
+   * Updated mx-snapshot.conf file format to make sure comments are not lost when
+   *   writing back to file
 Checksums-Sha1:
- 0cb180cd31d50cbbcdfcc98e63956322becfc429 1206 mx-snapshot_22.2.04.dsc
- dbc228ccad06efe2607aa97f8d208cbe24c5f2e8 188604 mx-snapshot_22.2.04.tar.xz
- 194ccf144ee43a357a9e156e3edfc4bda0048365 10755 mx-snapshot_22.2.04_amd64.buildinfo
- e97f373c0eb530dec7b8ac59914cea34b542fc61 244572 mx-snapshot_22.2.04_amd64.deb
+ 3be88b7b08e46b647b5ae4999c31f530eddc29bc 1206 mx-snapshot_22.2.04.dsc
+ bbc55177c0edcae271b6a983aa03b85b0c916599 188676 mx-snapshot_22.2.04.tar.xz
+ ae4bd82b736b65ae8d580ab6cd3a151d1fee8bae 10755 mx-snapshot_22.2.04_amd64.buildinfo
+ 344967df6b6c08ff716457fbf56b60acfd4a315f 244524 mx-snapshot_22.2.04_amd64.deb
 Checksums-Sha256:
- 619daba97faeab6e0ad7362d2fcd0137bebfd15e6818742c4ba328ddfee2e72b 1206 mx-snapshot_22.2.04.dsc
- 2b3cdc549afb1561e6528c7741ddc95f862314b4d222ec9050b08c9f560a2051 188604 mx-snapshot_22.2.04.tar.xz
- 793ad9983deba6c36a99e0b9da468f62170071ae764af96150c3c0478696beaa 10755 mx-snapshot_22.2.04_amd64.buildinfo
- b91a603447734b1a80c50500fc40a3cdb11bdbbf8550ae21e74a8c5c2d3973bd 244572 mx-snapshot_22.2.04_amd64.deb
+ a3f88afb695b9061a1ee277256453d990d522b3d642ba8b94a92c2b8e83c575b 1206 mx-snapshot_22.2.04.dsc
+ 4106dac750fb5c9bb352aa9e49e39ce5dcd0d2c7bda557e35baf05707c3e0de0 188676 mx-snapshot_22.2.04.tar.xz
+ d5739a58b17326ab108a3b531d72d4f59ff36c2bcef219146ae58e4d1b6c0c78 10755 mx-snapshot_22.2.04_amd64.buildinfo
+ 3fc2b5cf49e822de1331a12cb867e0e0021190c83789c289802878d0c5061427 244524 mx-snapshot_22.2.04_amd64.deb
 Files:
- f0712479b26ccc93d4eb76f560daf7be 1206 admin optional mx-snapshot_22.2.04.dsc
- 85cd78b0a8998dae2c520499c8a3e4e7 188604 admin optional mx-snapshot_22.2.04.tar.xz
- 1515bebcaff628d1e9164f7e28a670ee 10755 admin optional mx-snapshot_22.2.04_amd64.buildinfo
- d6af143dc2fba430e7028bea9544df36 244572 admin optional mx-snapshot_22.2.04_amd64.deb
+ 93e41d9f8ab1fc979dd5e7ffe73a7d75 1206 admin optional mx-snapshot_22.2.04.dsc
+ b9c91284dc853df9c59e3a07977de043 188676 admin optional mx-snapshot_22.2.04.tar.xz
+ cbb6626a66cf422f6e475d0bfd8884bc 10755 admin optional mx-snapshot_22.2.04_amd64.buildinfo
+ 94179f3b6bd6df4c74c6ffdc74d464d1 244524 admin optional mx-snapshot_22.2.04_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmINvykTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumE/jB/40a5SCn9G6hBo11NTQDey+bFNioep6
-/ZdsMa60zi+aiax1wAadeKHDQKa6FApz00fmbaIRlvZNzLZ+na3DPtaPaESygFdY
-4hVcyojyUiA8H8zWjOIzyR9glHX9/fHk0AKMBt7MSV5OE8G8eSo1wfXspNz8R2lU
-KSRVppkaK3VRGV7tYQgPPdjmKSZNnqiP+WlreDzxFRdbaxywFuHRdVn28JpFxwIH
-S5788FURss+rl8XY9KIE1/3Q6xFg+u9y9dgt4H8R3BtKZIOI05kU+6CwBWBII1T/
-S+EkOgsgjP9S03olziJXPySywiJXUEMjVyrgI/BhnC8Uopnf4PkJMGVi
-=+7Q/
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmIPBnMTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDWfCADAnsW4O4oz3riWgfgfK/KMUonLviSz
+fstBNh3mdwfNr5nksRb+vNoHUbSO5SGAb6UTqR5idndu741PPWawwE+nyaJ3ISHA
+oEZqaWowxesTYCK4im6zYt9f1gwe9YQSKis77/cmE6h8CAaU534vM/koJQTDQw6A
+8YlJAgeNJ/oS6p52wgqDXak+XReqA8yEb4g/KUGW7rE3g9t/FhYnbNddpbjIFRvo
+xbzEuVDWPHTfkHGrppjadwRf/jziYeajfn3u9uqJREjSC5aN1Cv9oQClo7ZVXiXA
+wikT7fiiC94s6lyIYpdu6Z1JLyMnF4bNmYqT8NJQ5hk1WVdcTS1oqi1j
+=BUU5
 -----END PGP SIGNATURE-----
