@@ -122,8 +122,8 @@ QString Settings::getEditor()
 {
     QString editor = gui_editor;
     if (editor.isEmpty() || system("command -v " + editor.toUtf8()) != 0) {  // if specified editor doesn't exist get the default one
-        QString local = QDir::homePath() + "/.local/share/applications";
-        if (!QFile::exists(local)) local = " ";
+        QString local = QDir::homePath() + "/.local/share/applications ";
+        if (!QFile::exists(local)) local = "";
         QString desktop_file = shell->getCmdOut("find " + local + "/usr/share/applications -name $(xdg-mime query default text/plain) -print -quit", true);
         editor = shell->getCmdOut("grep -m1 ^Exec= " + desktop_file, true);
         editor = editor.remove(QRegularExpression("^Exec=|%u|%U|%f|%F|%c|%C")).trimmed();
