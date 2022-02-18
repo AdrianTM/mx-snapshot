@@ -1,3 +1,9 @@
+mx-snapshot (22.2.05) mx; urgency=medium
+
+  * Fix missing blank space when searching for editor
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 18 Feb 2022 17:41:29 -0500
+
 mx-snapshot (22.2.04) mx; urgency=medium
 
   * Add option to specify temporary work directory in /etc/mx-snapshot.conf file 

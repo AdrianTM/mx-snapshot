@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Fri, 18 Feb 2022 17:41:29 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.2.05
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.2.05) mx; urgency=medium
+ .
+   * Fix missing blank space when searching for editor
+Checksums-Sha1:
+ e110e0c1661c3e46bb96cc54878eeb66432572b4 644 mx-snapshot_22.2.05.dsc
+ 9409ceaa126c01a05dcec72b9281f372338cb049 188696 mx-snapshot_22.2.05.tar.xz
+ 82d23c939d5f51b52abfda94265a8699414558df 10008 mx-snapshot_22.2.05_i386.buildinfo
+Checksums-Sha256:
+ c1e110146e5c8d62a634628bf6473a33643c53bd4aacf966c2327ff9655e91e5 644 mx-snapshot_22.2.05.dsc
+ d2478180eebbd5d420b1f77eb228b5567bab20be817eff7ec8b85a65c701d835 188696 mx-snapshot_22.2.05.tar.xz
+ c25613369d2b3a3d83b3a3bda81d2b243fda7434ca16a176948f168bfbd58620 10008 mx-snapshot_22.2.05_i386.buildinfo
+Files:
+ 04b1b0b0dbfedbcb9a10a867000af6bd 644 admin optional mx-snapshot_22.2.05.dsc
+ 1a6142b592ef984a83bcc2414268138b 188696 admin optional mx-snapshot_22.2.05.tar.xz
+ 8ae641247917a1016685696c9e89f866 10008 admin optional mx-snapshot_22.2.05_i386.buildinfo
