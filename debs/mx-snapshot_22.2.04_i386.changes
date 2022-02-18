@@ -16,12 +16,14 @@ Changes:
    * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
    *   for example: workdir=/tmp, program will check if the folder exits and if it's
    *   the right partition type (only partitions that allow bind mounts can work)
+   * Updated mx-snapshot.conf file format to make sure comments are not lost when
+   *   writing back to file
 Checksums-Sha1:
- 7c5d2109b1e916889a249af37bc3fc8294e4b9d5 10008 mx-snapshot_22.2.04_i386.buildinfo
- 00111d88f28cb6c0b39fc681679e50fef558820b 250440 mx-snapshot_22.2.04_i386.deb
+ d9cf487ef25ffa62996b6114c6f6b6790a675693 10008 mx-snapshot_22.2.04_i386.buildinfo
+ b38dc1fedc9eb1549eaef504f7fe17eaaa83e772 250384 mx-snapshot_22.2.04_i386.deb
 Checksums-Sha256:
- 3f8f213cca8bbefab1749176a1cab5ed842befbef86edfb90128a1617c8fe991 10008 mx-snapshot_22.2.04_i386.buildinfo
- 1def41cbe59e53734a9a36258c41a676b72ee2d916a9719f273978c9e023aca9 250440 mx-snapshot_22.2.04_i386.deb
+ c54b2963b5c6dadfa64f5108dafb7752946748cfefa5eecb19198afed23352ef 10008 mx-snapshot_22.2.04_i386.buildinfo
+ c93b48f4f11113d462aec965e725f36f677a0e2034ff6e3e7626a849ef69caa0 250384 mx-snapshot_22.2.04_i386.deb
 Files:
- 7409cdb5cc5a1c0fb305d3de09e7e70f 10008 admin optional mx-snapshot_22.2.04_i386.buildinfo
- ad38c8706d60e256c81215e7374bdc56 250440 admin optional mx-snapshot_22.2.04_i386.deb
+ 61593ed79cebbc7546abcb295319fa29 10008 admin optional mx-snapshot_22.2.04_i386.buildinfo
+ 67e22c48367be51a4c134ae08a8c7b27 250384 admin optional mx-snapshot_22.2.04_i386.deb
