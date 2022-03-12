@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 12 Mar 2022 14:54:20 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.3
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.3) mx; urgency=medium
+ .
+   * Save file system size info in a file under /antiX/ folder to be used by installer
+Checksums-Sha1:
+ 9602dd848333fc4ee72ae7b15914e071b85b93ae 632 mx-snapshot_22.3.dsc
+ 0ac6a87aa338742a23b2d9a7452f806c941c671f 188900 mx-snapshot_22.3.tar.xz
+ d2d338bcd00f351e1b4c3a7bd437e74001478b1c 9993 mx-snapshot_22.3_i386.buildinfo
+Checksums-Sha256:
+ af99571e0c5e83b568ab21299124add41902f5e52325a129f9be5f9b753ef729 632 mx-snapshot_22.3.dsc
+ d78ce20bed450a9d801e86c844792ad75b84a8b2604e29cd57f9c88360c3544c 188900 mx-snapshot_22.3.tar.xz
+ f592964731ce5ddf0957215028d8070d044158f3357437c1a6819fca326887f3 9993 mx-snapshot_22.3_i386.buildinfo
+Files:
+ cdeb01a49562d15b0748b6dcafcd54cb 632 admin optional mx-snapshot_22.3.dsc
+ 9a3368afd992b6939a46a278eb131569 188900 admin optional mx-snapshot_22.3.tar.xz
+ 02401e5df822e44687d219d726496bb9 9993 admin optional mx-snapshot_22.3_i386.buildinfo

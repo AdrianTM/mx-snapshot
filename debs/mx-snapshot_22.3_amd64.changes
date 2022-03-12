@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 12 Mar 2022 14:54:20 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.3
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.3) mx; urgency=medium
+ .
+   * Save file system size info in a file under /antiX/ folder to be used by installer
+Checksums-Sha1:
+ 10d99672030b16ccdf619985543ac3fc8603ba03 1194 mx-snapshot_22.3.dsc
+ bf8b41af75af77ebebfa69c88a80a7027300f864 188832 mx-snapshot_22.3.tar.xz
+ 47713189d8d5fe8300ca38d0405646a8cb76c379 10731 mx-snapshot_22.3_amd64.buildinfo
+ 8417ed5ffd6c6648248a650aacae29e55fa488ae 244912 mx-snapshot_22.3_amd64.deb
+Checksums-Sha256:
+ dae7976f8447302440ceda4bb343e0fdffbc3271caabf1bed1014ae6e997a92b 1194 mx-snapshot_22.3.dsc
+ 053886e8385ffe1f5f2a3940f5b9cb669ec0293984739a77549d8e552c953a8f 188832 mx-snapshot_22.3.tar.xz
+ 4ddc9837f92a0cd27005afeb766204edb9ce3877d3380b1a49f5a49e3956ad67 10731 mx-snapshot_22.3_amd64.buildinfo
+ 70d28b2e390ac47c8b8a04cb166ae14ee850d60fd65d1d63176f97f60d563cfa 244912 mx-snapshot_22.3_amd64.deb
+Files:
+ 2723d4a41fb5d80c4cacdd020102b4de 1194 admin optional mx-snapshot_22.3.dsc
+ ca0f09755bf94097704faa44960f27f4 188832 admin optional mx-snapshot_22.3.tar.xz
+ 4c96a1f8ab3743ca8f730afc87783b82 10731 admin optional mx-snapshot_22.3_amd64.buildinfo
+ e28951b35d517452201b643fc84729d9 244912 admin optional mx-snapshot_22.3_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmIs+uYTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumI3DCACpFrMZYQ+HAeCr0TuVixtvuzajQIzd
+wIYQU+4NG8CVl/KcqnHnOvFVejX1rJGLuOK8S+Gy0dYZa3s3Vt0JWOsISsDrBiV+
+t95KVa2bxfbu4SFkw6Ue+4vwkJobS9WeesHZJ2WhGseO2nM79kl6BKuqox6ZbHKz
+HJxFI2eCTRud8z2kGr7KBJF2ECXFfVLDfXNjqwLIn4G2lelCvjXkgvRX3nh0u95Y
+ZKyV3vxTXJQm+bqMlnmiJ8xNd9455OYidzSPT1ygFAdzxyKDUHmNcQABEtAOopJE
+9Z0P3IRO/iHk0SfadVGvMuMBB/Rj3WDkvtUbOW0DTIJhWWIcLVheWtAt
+=UoeE
+-----END PGP SIGNATURE-----
