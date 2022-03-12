@@ -26,6 +26,7 @@
 #include <QDate>
 #include <QDirIterator>
 #include <QRegularExpression>
+#include <QSettings>
 
 #include "work.h"
 
@@ -227,11 +228,13 @@ bool Work::createIso(const QString &filename)
             + " -wildcards -ef " + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
 
     emit message(tr("Squashing filesystem..."));
-    if (!RUN(cmd)) {
+    QString out;
+    if (!RUN(cmd, out)) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not create linuxfs file, please check whether you have enough space on the destination partition."));
         return false;
     }
+    writeUnsquashfsSize(out);
 
     // mv linuxfs to another folder
     QDir().mkpath("iso-2/antiX");
@@ -483,6 +486,12 @@ void Work::writeSnapshotInfo()
     QTextStream stream(&file);
     stream << QDateTime::currentDateTime().toString("yyyyMMdd_HHmm");
     file.close();
+}
+
+void Work::writeUnsquashfsSize(const QString &text)
+{
+    QSettings file(settings->work_dir + "/iso-template/antiX/unsquashfs.size", QSettings::NativeFormat);
+    file.setValue("sizeKB", text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
 }
 
 quint64 Work::getRequiredSpace()

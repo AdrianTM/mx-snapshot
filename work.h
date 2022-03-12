@@ -64,6 +64,7 @@ public:
     void savePackageList(const QString &file_name);
     void setupEnv();
     void writeSnapshotInfo();
+    void writeUnsquashfsSize(const QString &text);
     quint64 getRequiredSpace();
 
 signals:
