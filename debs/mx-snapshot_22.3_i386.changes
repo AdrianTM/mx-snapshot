@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 12 Mar 2022 14:54:20 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.3
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.3) mx; urgency=medium
+ .
+   * Save file system size info in a file under /antiX/ folder to be used by installer
+Checksums-Sha1:
+ d2d338bcd00f351e1b4c3a7bd437e74001478b1c 9993 mx-snapshot_22.3_i386.buildinfo
+ cb4d64fc41dd29cc660ac2236ff47a71e6b73c3f 250944 mx-snapshot_22.3_i386.deb
+Checksums-Sha256:
+ f592964731ce5ddf0957215028d8070d044158f3357437c1a6819fca326887f3 9993 mx-snapshot_22.3_i386.buildinfo
+ 6bf39429636e20da8891bf10a8953d988edf431ce6d07d3ab26ad710839c8e3f 250944 mx-snapshot_22.3_i386.deb
+Files:
+ 02401e5df822e44687d219d726496bb9 9993 admin optional mx-snapshot_22.3_i386.buildinfo
+ 8933cec9cbe2790ba136efc622c1403a 250944 admin optional mx-snapshot_22.3_i386.deb

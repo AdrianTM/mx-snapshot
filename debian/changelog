@@ -1,3 +1,9 @@
+mx-snapshot (22.3) mx; urgency=medium
+
+  * Save file system size info in a file under /antiX/ folder to be used by installer
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 12 Mar 2022 14:54:20 -0500
+
 mx-snapshot (22.2.05) mx; urgency=medium
 
   * Fix missing blank space when searching for editor
