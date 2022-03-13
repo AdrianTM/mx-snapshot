@@ -1,3 +1,9 @@
+mx-snapshot (22.3.01) mx; urgency=medium
+
+  * Minor: change system size info file name.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 12 Mar 2022 19:15:37 -0500
+
 mx-snapshot (22.3) mx; urgency=medium
 
   * Save file system size info in a file under /antiX/ folder to be used by installer

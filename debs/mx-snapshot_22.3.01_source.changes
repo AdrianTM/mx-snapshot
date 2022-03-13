@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 12 Mar 2022 19:15:37 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.3.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.3.01) mx; urgency=medium
+ .
+   * Minor: change system size info file name.
+Checksums-Sha1:
+ 31257955d29096fd6ec7828e6b8eca8e6b01eec4 644 mx-snapshot_22.3.01.dsc
+ 6989602a9546a8448763b604cf7a1f962d37c6bf 188836 mx-snapshot_22.3.01.tar.xz
+ e7bd6c3b12a4115493812564285191c8bc065237 10008 mx-snapshot_22.3.01_i386.buildinfo
+Checksums-Sha256:
+ 1d91236b4e838aa98c36639e053fa0c429a5cd9b37999291af13568d6cdf4e94 644 mx-snapshot_22.3.01.dsc
+ c074eac6751a2aac3f88ac3ef536a70897d1294dec2edc16a6a2843bbb2edec1 188836 mx-snapshot_22.3.01.tar.xz
+ a4233ca4f08d052078877acbb6b6920fdb0b15af5831778a2fc5a68d6f55630e 10008 mx-snapshot_22.3.01_i386.buildinfo
+Files:
+ f2fe764be66e64448fb956b24b68ada1 644 admin optional mx-snapshot_22.3.01.dsc
+ e287fa03b54ad31ec15ac9000dd2bbc4 188836 admin optional mx-snapshot_22.3.01.tar.xz
+ 8bbb31e05a9854465acf72f73a154bba 10008 admin optional mx-snapshot_22.3.01_i386.buildinfo
