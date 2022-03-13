@@ -490,8 +490,8 @@ void Work::writeSnapshotInfo()
 
 void Work::writeUnsquashfsSize(const QString &text)
 {
-    QSettings file(settings->work_dir + "/iso-template/antiX/unsquashfs.size", QSettings::NativeFormat);
-    file.setValue("sizeKB", text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
+    QSettings file(settings->work_dir + "/iso-template/antiX/linuxfs.info", QSettings::NativeFormat);
+    file.setValue("UncompressedSizeKB", text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
 }
 
 quint64 Work::getRequiredSpace()
