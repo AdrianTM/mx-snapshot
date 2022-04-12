@@ -246,7 +246,7 @@ bool Work::createIso(const QString &filename)
 
     // create the iso file
     QDir::setCurrent(settings->work_dir + "/iso-template");
-    cmd = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table -b boot/isolinux/isolinux.bin  -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c boot/isolinux/isolinux.cat -o \"" +
+    cmd = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table -b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c boot/isolinux/isolinux.cat -o \"" +
             settings->snapshot_dir + "/" + filename + "\" . \""  + settings->work_dir + "/iso-2\"";
     emit message(tr("Creating CD/DVD image file..."));
     if (!RUN(cmd)) {
@@ -271,7 +271,7 @@ bool Work::createIso(const QString &filename)
     }
 
     QTime time(0, 0);
-    time = time.addMSecs(static_cast<int>(e_timer.elapsed()));
+    time = time.addMSecs(e_timer.elapsed());
     emit message(tr("Done"));
     emit messageBox(BoxType::information, tr("Success"), tr("MX Snapshot completed sucessfully!") + "\n" +
                     tr("Snapshot took %1 to finish.").arg(time.toString("hh:mm:ss")) + "\n\n" +
