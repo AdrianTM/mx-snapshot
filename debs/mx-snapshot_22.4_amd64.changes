@@ -1,0 +1,49 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 12 Apr 2022 13:57:36 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.4
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.4) mx; urgency=medium
+ .
+   * Check if output file already exits and ask user to change the name or remove the existent file.
+   * Unbuffer mksqashfs if ran from CLI and if 'expect' package is installed.
+   * Preserve /var/log/apache2 to make sure Apache starts.
+   * Add option to man page.
+Checksums-Sha1:
+ d60a7ac16cf5109f5b2cf2a87e3b7ed082d82be8 1194 mx-snapshot_22.4.dsc
+ cacf42c8fd804e2b480f034340775e07f538c215 189084 mx-snapshot_22.4.tar.xz
+ 9a2adb64a9254d91d9d1495c3dcf424acce45663 10731 mx-snapshot_22.4_amd64.buildinfo
+ 44b50effba35343e775bab09f1b638f59b5cf9a7 245796 mx-snapshot_22.4_amd64.deb
+Checksums-Sha256:
+ b1c12e03b0e73f62b5fe627d49a5456cc53b2317f3bdeb309a7d312a4ff20aba 1194 mx-snapshot_22.4.dsc
+ 16e1de7fa38a1aa7aa8bcc094696eb034855ce3169d6e88388451d17ce35a2d8 189084 mx-snapshot_22.4.tar.xz
+ 90f4e463a0d7de041b576d8aa183d66de546844c13f1c8766070a962f97d541e 10731 mx-snapshot_22.4_amd64.buildinfo
+ 7e317332a65c0c4813eec9d654821cbfb1703c4bed0572ca1a03bdf579f2077e 245796 mx-snapshot_22.4_amd64.deb
+Files:
+ 62310ce796aa4e32528329a683d84cd1 1194 admin optional mx-snapshot_22.4.dsc
+ c306de8b2c9bedc5929cea52648d4a7b 189084 admin optional mx-snapshot_22.4.tar.xz
+ 53a0ba1a417da3d17a50e674a8467742 10731 admin optional mx-snapshot_22.4_amd64.buildinfo
+ 5e70043726f961399a3dcd93f61ed2a1 245796 admin optional mx-snapshot_22.4_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmJVvv0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHTgB/9tIn6DZF/odEGj5ut5Lwo0oxDBIwkK
+G/pqBLuxviYBot+AOLinc2bShEhGC0tR3PYA1waujChzyuJBo+KkeFLFrNmYo7kQ
+IvKRg7xJvxYhQxEnQhvxGdiCMUFqhL2jMoCD3lMc9JPlgz0fvhlGu5lkiiJTMouF
++xZNYdu9onIy1awK+ii0gyKwlRLjVTHFleITANlxiyej7r1t8RiWw81gkFloKd/x
+vREIBOaUnqqGVxHQy5xGdtQRu9ck8I4u+54Syb9QC5M/JCe9KZsoWT/doBZFmHyP
+qtdzY84Ev5AzG9MtleDtNjSe2o1PkK+3bKmT2tncMb0p0A0xua7iT1h5
+=jgDf
+-----END PGP SIGNATURE-----

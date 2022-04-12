@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Tue, 12 Apr 2022 13:57:36 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.4
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.4) mx; urgency=medium
+ .
+   * Check if output file already exits and ask user to change the name or remove the existent file.
+   * Unbuffer mksqashfs if ran from CLI and if 'expect' package is installed.
+   * Preserve /var/log/apache2 to make sure Apache starts.
+   * Add option to man page.
+Checksums-Sha1:
+ 33272207b62e81ad8e71e5c44ea0d125db3439a2 9993 mx-snapshot_22.4_i386.buildinfo
+ dc87b10a5799483cd6dfd9e603b6ef26775f7784 251656 mx-snapshot_22.4_i386.deb
+Checksums-Sha256:
+ 7c92e1943c0c3bf308cbd8026fbe90f1b3cdd0a24c79408dcce3d605c68d014f 9993 mx-snapshot_22.4_i386.buildinfo
+ b91b556ffca460a99c6cc2d5977656006b3eecd4bb52100262917f0bf276d125 251656 mx-snapshot_22.4_i386.deb
+Files:
+ 1d4e315e399fcaab14a58fb0c8a8581b 9993 admin optional mx-snapshot_22.4_i386.buildinfo
+ accb3e9d152b286506fce24b141660b8 251656 admin optional mx-snapshot_22.4_i386.deb
