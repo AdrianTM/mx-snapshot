@@ -173,9 +173,7 @@ void Work::copyNewIso()
     QDir::setCurrent(settings->work_dir);
 
     RUN("tar xf /usr/lib/iso-template/iso-template.tar.gz");
-
     RUN("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
-
     RUN("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
 
     if (settings->debian_version < 9) { // Only for versions older than Stretch
