@@ -433,11 +433,8 @@ void Settings::excludeNetworks(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (exclude) exclusions.setFlag(Exclude::Networks);
-    // Network Manager
     addRemoveExclusion(exclude, "/etc/NetworkManager/system-connections/*");
-    // WiCD
     addRemoveExclusion(exclude, "/etc/wicd/*");
-    // connman
     addRemoveExclusion(exclude, "/var/lib/connman/*");
 }
 
