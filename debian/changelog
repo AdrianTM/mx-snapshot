@@ -1,3 +1,12 @@
+mx-snapshot (22.4) mx; urgency=medium
+
+  * Check if output file already exits and ask user to change the name or remove the existent file.
+  * Unbuffer mksqashfs if ran from CLI and if 'expect' package is installed.
+  * Preserve /var/log/apache2 to make sure Apache starts.
+  * Add option to man page.
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 12 Apr 2022 13:57:36 -0400
+
 mx-snapshot (22.3.01) mx; urgency=medium
 
   * Minor: change system size info file name.
