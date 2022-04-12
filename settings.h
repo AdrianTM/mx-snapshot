@@ -78,6 +78,7 @@ public:
     QString version;
     QString work_dir;
     QStringList users; // list of users with /home folders
+    bool cli_mode;
     bool edit_boot_menu;
     bool force_installer;
     bool i686;

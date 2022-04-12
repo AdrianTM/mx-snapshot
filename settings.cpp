@@ -43,6 +43,7 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     if (arg_parser.isSet("month"))
         setMonthlySnapshot(arg_parser);
     override_size = arg_parser.isSet("override-size");
+    cli_mode = arg_parser.isSet("cli");
     processExclArgs(arg_parser);
 }
 
