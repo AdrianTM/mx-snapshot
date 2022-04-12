@@ -253,6 +253,12 @@ void MainWindow::on_btnNext_clicked()
     if (!file_name.endsWith(".iso"))
         file_name += ".iso";
 
+    if (QFile::exists(snapshot_dir + "/" + file_name)) {
+        QMessageBox::critical(this, tr("Error"),
+                              tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + file_name));
+        return;
+    }
+
     // on first page
     if (ui->stackedWidget->currentIndex() == 0) {
         this->setWindowTitle(tr("Settings"));

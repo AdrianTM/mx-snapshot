@@ -535,6 +535,14 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         snapshot_name = arg_parser.value("file") + (arg_parser.value("file").endsWith(".iso") ? QString() : ".iso");
     else
         snapshot_name = getFilename();
+    if (QFile::exists(snapshot_dir + "/" + snapshot_name)) {
+        QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
+        if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
+            qDebug().noquote() << message;
+        else
+           QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+        exit(EXIT_FAILURE);
+    }
     reset_accounts = arg_parser.isSet("reset");
     if (reset_accounts)
         excludeAll();
@@ -574,6 +582,14 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
     if (arg_parser.value("file").isEmpty())
         snapshot_name = name.section("_", 0, 0) + "_" + QDate::currentDate().toString("MMMM") + "_"
                 + name.section("_", 1, 1) + ".iso";
+    if (QFile::exists(snapshot_dir + "/" + snapshot_name)) {
+        QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
+        if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
+            qDebug().noquote() << message;
+        else
+           QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+        exit(EXIT_FAILURE);
+    }
     if (arg_parser.value("compression").isEmpty())
         compression = "zstd";
     reset_accounts = true;
