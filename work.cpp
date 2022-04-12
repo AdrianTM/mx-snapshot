@@ -223,7 +223,8 @@ bool Work::createIso(const QString &filename)
     // squash the filesystem copy
     QDir::setCurrent(settings->work_dir);
     QString cmd;
-    cmd = "mksquashfs /.bind-root iso-template/antiX/linuxfs -comp " + settings->compression
+    QString maybe_unbuffer = (settings->cli_mode && checkInstalled("expect")) ? "unbuffer " : "";
+    cmd = maybe_unbuffer + "mksquashfs /.bind-root iso-template/antiX/linuxfs -comp " + settings->compression
             + ((settings->mksq_opt.isEmpty()) ? "" : " " + settings->mksq_opt)
             + " -wildcards -ef " + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
 
