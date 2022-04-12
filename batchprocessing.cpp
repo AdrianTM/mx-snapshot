@@ -61,6 +61,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
         QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
         shell->run(cmd);
     }
+    disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
     work.createIso(snapshot_name);
 }
 
@@ -83,11 +84,6 @@ void Batchprocessing::setConnections()
 void Batchprocessing::progress()
 {
     static int i = 0;
-
-    // skip message when running mksquashfs
-    if (shell->arguments().size() >= 2 && shell->arguments().at(1).contains(QRegularExpression(QLatin1String("^mksq|^unbuf|^xorriso"))))
-        return;
-
     (i % 2 == 1) ? qDebug() << "\033[2KProcessing command...\r"
                  : qDebug() << "\033[2KProcessing command\r";
     ++i;
