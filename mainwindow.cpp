@@ -114,6 +114,7 @@ void MainWindow::setup()
     QFont font("monospace");
     font.setStyleHint(QFont::Monospace);
     ui->outputBox->setFont(font);
+    ui->outputBox->setReadOnly(true);
 
     this->setWindowTitle(tr("MX Snapshot"));
     ui->btnBack->setHidden(true);
@@ -224,6 +225,7 @@ void MainWindow::disableOutput()
 // update output box
 void MainWindow::outputAvailable(const QString &output)
 {
+    ui->outputBox->moveCursor(QTextCursor::End);
     if (output.contains("\r")) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
         ui->outputBox->moveCursor(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
