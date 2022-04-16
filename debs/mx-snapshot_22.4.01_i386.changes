@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Sat, 16 Apr 2022 17:54:54 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.4.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.4.01) mx; urgency=medium
+ .
+   * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
+   * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
+Checksums-Sha1:
+ cff7b1fffba2b314fce0aea06217ac9574034095 10048 mx-snapshot_22.4.01_i386.buildinfo
+ b39c65428c62695d8145f93af882d2f2aab82b65 251364 mx-snapshot_22.4.01_i386.deb
+Checksums-Sha256:
+ 883bbbb124967acdc7bcd14e6388c29d50985fbb435810e254dd29ccd9d74401 10048 mx-snapshot_22.4.01_i386.buildinfo
+ 8b7cbb02967962c8f492e56a1407c3b3347902b77acb8f773aecc5b721b44204 251364 mx-snapshot_22.4.01_i386.deb
+Files:
+ 1c5abf10ebf6d5e66846f76a04923811 10048 admin optional mx-snapshot_22.4.01_i386.buildinfo
+ c81fa571d0ba66376b0e1406df064382 251364 admin optional mx-snapshot_22.4.01_i386.deb
