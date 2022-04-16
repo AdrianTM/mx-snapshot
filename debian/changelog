@@ -1,3 +1,10 @@
+mx-snapshot (22.4.01) mx; urgency=medium
+
+  * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
+  * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 16 Apr 2022 17:54:54 -0400
+
 mx-snapshot (22.4) mx; urgency=medium
 
   * Check if output file already exits and ask user to change the name or remove the existent file.
