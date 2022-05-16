@@ -26,25 +26,24 @@
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QDebug>
-#include <QIcon>
 #include <QLibraryInfo>
 #include <QLocale>
-#include <QScopedPointer>
 #include <QTranslator>
 
-#include <signal.h>
-#include <unistd.h>
-#include "version.h"
 #include "batchprocessing.h"
+#include "version.h"
+#include <csignal>
+#include <unistd.h>
 
 static QFile logFile;
+static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
-void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
-void runApp(QCommandLineParser parser);
+void messageHandler(QtMsgType, const QMessageLogContext, const QString);
+void runApp(QCommandLineParser);
 void setLog();
 void setTranslation();
-void signalHandler(int sig);
+void signalHandler(int);
 
 int main(int argc, char *argv[])
 {
@@ -61,15 +60,22 @@ int main(int argc, char *argv[])
     parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
     parser.addOption({{"k", "kernel"}, QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by 'uname -r'") + " " +
                       QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."), QObject::tr("version, or path")});
+    parser.addOption({{"l", "compression-level"}, QObject::tr("Compression level options.") + " "
+                      + QObject::tr("Use quotes: \"-Xcompression-level <level>\", "
+                      "or \"-Xalgorithm <algorithm>\", or \"-Xhc\", see mksquashfs man page"), QObject::tr("\"option\"")});
     parser.addOption({{"m", "month"}, QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " " +
                      QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored")});
     parser.addOption({{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file")});
     parser.addOption({{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels")});
     parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
     parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
-    parser.addOption({{"x", "exclude"}, QObject::tr("Exclude main folders, valid choices: ") + "Desktop, Documents, Downloads, Music, Networks, Pictures, Videos." + " " +
+    parser.addOption({{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
+    parser.addOption({{"x", "exclude"}, QObject::tr("Exclude main folders, valid choices: ")
+                      + "Desktop, Documents, Downloads, Music, Networks, Pictures, Steam, Videos, VirtualBox. " +
                       QObject::tr("Use the option one time for each item you want to exclude"), QObject::tr("one item")});
-    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz", QObject::tr("format")});
+    parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ")
+                      + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
+
 
 
     QStringList opts;
@@ -77,7 +83,7 @@ int main(int argc, char *argv[])
         opts << QString(argv[i]);
     parser.parse(opts);
 
-    QStringList allowed_comp {"lz4", "lzo", "gzip", "xz"};
+    QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
     if (!parser.value("compression").isEmpty())
         if (!allowed_comp.contains(parser.value("compression"))) {
             qDebug() << "Wrong compression format";
@@ -100,7 +106,7 @@ int main(int argc, char *argv[])
         setLog();
         qDebug().noquote() << qApp->applicationName() << QObject::tr("version:") << qApp->applicationVersion();
         if (argc > 1) qDebug().noquote() << "Args:" << qApp->arguments();
-        Batchprocessing  batch(parser);
+        Batchprocessing batch(parser);
         QTimer::singleShot(0, &app, &QCoreApplication::quit);
         return app.exec();
     } else {
@@ -113,7 +119,7 @@ int main(int argc, char *argv[])
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
-    msg.contains("\r") ? term_out << msg << flush: term_out << msg << "\n" << flush;
+    msg.contains("\r") ? term_out << msg << flush : term_out << msg << "\n" << flush;
 
     if (msg.startsWith("\033[2KProcessing")) return;
     QTextStream out(&logFile);
@@ -129,18 +135,14 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     out << context.category << QStringLiteral(": ") << msg << endl;
 }
 
-
 void setTranslation()
 {
-    QTranslator qtTran;
     if (qtTran.load(QLocale::system(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtTran);
 
-    QTranslator qtBaseTran;
     if (qtBaseTran.load("qtbase_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtBaseTran);
 
-    QTranslator appTran;
     if (appTran.load(qApp->applicationName() + "_" + QLocale::system().name(), "/usr/share/" + qApp->applicationName() + "/locale"))
         qApp->installTranslator(&appTran);
 }
@@ -148,7 +150,8 @@ void setTranslation()
 // Check if SQUASHFS is available
 void checkSquashfs()
 {
-    if (system("[ -f /boot/config-$(uname -r) ]") == 0 && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
+    if (system("test -f /boot/config-$(uname -r)") == 0
+            && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         exit(EXIT_FAILURE);
     }
@@ -170,10 +173,10 @@ void signalHandler(int sig)
 {
     switch (sig)
     {
-    case 1: qDebug() << "\nSIGHUP"; break;
-    case 2: qDebug() << "\nSIGINT"; break;
-    case 3: qDebug() << "\nSIGQUIT"; break;
-    case 15: qDebug() << "\nSIGTERM"; break;
+    case SIGHUP:  qDebug() << "\nSIGHUP"; break;
+    case SIGINT:  qDebug() << "\nSIGINT"; break;
+    case SIGQUIT: qDebug() << "\nSIGQUIT"; break;
+    case SIGTERM: qDebug() << "\nSIGTERM"; break;
     }
     qApp->quit(); // quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
 }
