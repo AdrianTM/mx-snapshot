@@ -489,7 +489,8 @@ void Settings::loadConfig()
     snapshot_dir = settings.value("snapshot_dir", "/home/snapshot").toString();
     if (!snapshot_dir.endsWith("/snapshot"))
         snapshot_dir += (snapshot_dir.endsWith("/") ? "snapshot" : "/snapshot");
-    snapshot_excludes.setFileName(settings.value("snapshot_excludes", "/usr/local/share/excludes/mx-snapshot-exclude.list").toString());
+    snapshot_excludes.setFileName(settings.value("snapshot_excludes",
+                                                 "/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list").toString());
     snapshot_basename = settings.value("snapshot_basename", "snapshot").toString();
     make_chksum = settings.value("make_md5sum", "no").toString() == "no" ? false : true;
     make_isohybrid = settings.value("make_isohybrid", "yes").toString() == "yes" ? true : false;
