@@ -1,0 +1,47 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 16 Apr 2022 17:54:54 -0400
+Source: iso-snapshot-cli
+Binary: iso-snapshot-cli
+Architecture: source amd64
+Version: 22.4.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+Changes:
+ iso-snapshot-cli (22.4.01) mx; urgency=medium
+ .
+   * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
+   * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
+Checksums-Sha1:
+ c81d0f67312600712176266fa3b22b11fe5503be 1236 iso-snapshot-cli_22.4.01.dsc
+ c5b39a52e6d4769797befb20858dbdcbe65130fe 183236 iso-snapshot-cli_22.4.01.tar.xz
+ 6e960a64aefefd86c2bf274b2f1ab357f0e8c989 10800 iso-snapshot-cli_22.4.01_amd64.buildinfo
+ 65eacbf628fef967aa77f3649ac5d4d695ba4b1a 213288 iso-snapshot-cli_22.4.01_amd64.deb
+Checksums-Sha256:
+ 4842ff66114a5b8c88b104f747474f7586d8e1bc5189bf36bad2f42acff3e0dd 1236 iso-snapshot-cli_22.4.01.dsc
+ f589e22235b779280642d87f89309f53df2151bc3885f045b587f2b70f9b9537 183236 iso-snapshot-cli_22.4.01.tar.xz
+ 3959eb88617e2a3877f237c26123a5f352526f3988463e38c73e74f7c0ccee9b 10800 iso-snapshot-cli_22.4.01_amd64.buildinfo
+ f29b409e86006240c4c3a1f30d4ebd324459381b9d210ceb7d74e651008e944f 213288 iso-snapshot-cli_22.4.01_amd64.deb
+Files:
+ 926fa11f8b012330bebea667a3abf08a 1236 admin optional iso-snapshot-cli_22.4.01.dsc
+ 254e865c48a9a60d5a424199098e952d 183236 admin optional iso-snapshot-cli_22.4.01.tar.xz
+ 08feb30b08492eb5a8f36a6916d43f9b 10800 admin optional iso-snapshot-cli_22.4.01_amd64.buildinfo
+ 05ceefa63abe6f2a9751849fac135c1d 213288 admin optional iso-snapshot-cli_22.4.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKCxvATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumL0BB/9VE4UoKN4QeiuoJ5MwPZUMwSXo5vsy
+KEVhVAXFMLElNdhrY96wdWAAFX6w25DS7AU+0sDXmgti2WOFVqkkm5KIzp/s8AAN
+/tgP8XKrXhPKR6oWFnzHqm3ib8y2HIQwGX9Py6Mw5lNlRQlTlHAdrSPDEcsis5DJ
+YKX6n5x5w1S94BXq3dsuMlq812irtnREbZK5/13a+1BAh+EpnqdzWd5r2zLP4OZn
+OTdInmL4LPdiS3XXMkWqQzjYmJ+h9PNKtSHGKw8v5akJ1QoMSIigEjiZnRrXr8l0
+ZmV6qK9e5e9o1S8upSX7OCDFE2FzibBDgQVU+ovOpAljfj2w4Wv4wXNV
+=a948
+-----END PGP SIGNATURE-----

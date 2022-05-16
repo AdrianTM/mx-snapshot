@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Sat, 16 Apr 2022 17:54:54 -0400
+Source: iso-snapshot-cli
+Architecture: source
+Version: 22.4.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ iso-snapshot-cli (22.4.01) mx; urgency=medium
+ .
+   * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
+   * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
+Checksums-Sha1:
+ 6b02b6e0137a53461454f1167a2e95ef93d8ba68 674 iso-snapshot-cli_22.4.01.dsc
+ 1ba3a1aa48f09d04de46c441664ca5b9fad97bf6 183200 iso-snapshot-cli_22.4.01.tar.xz
+ cffe1cf58ef65b1faf502f9af05a95aa6eb2a39c 10078 iso-snapshot-cli_22.4.01_i386.buildinfo
+Checksums-Sha256:
+ ab176074c67f5934fd1db9307492351cd9c3aee69e2bffe04a10abca35190c2a 674 iso-snapshot-cli_22.4.01.dsc
+ 891a58c51917ad6e90ce05fdef144848f0a448cc1b8aa74f83885fc1a7e47991 183200 iso-snapshot-cli_22.4.01.tar.xz
+ 3fe3d517d1e173101a6d9c934463daca2b8dcd05f12496c785b1f82bd1c7f971 10078 iso-snapshot-cli_22.4.01_i386.buildinfo
+Files:
+ 3003206fda9d925860eb44d9f8e1b2af 674 admin optional iso-snapshot-cli_22.4.01.dsc
+ ceb5fee82a2d44a1ce361882b7feb42b 183200 admin optional iso-snapshot-cli_22.4.01.tar.xz
+ 28e0bd20d54a1cea6e73cb6b9a747198 10078 admin optional iso-snapshot-cli_22.4.01_i386.buildinfo
