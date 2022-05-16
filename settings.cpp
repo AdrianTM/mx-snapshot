@@ -28,7 +28,7 @@
 #include <QRegularExpression>
 #include <QSettings>
 
-#ifndef CLIMODE
+#ifndef CLI_BUILD
 #include <QMessageBox>
 #endif
 
@@ -212,7 +212,7 @@ void Settings::selectKernel()
                  QString message = QObject::tr("Could not find a usable kernel");
                  if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
                      qDebug().noquote() << message;
-#ifndef CLIMODE
+#ifndef CLI_BUILD
                  else
                     QMessageBox::critical(nullptr, QObject::tr("Error"), message);
 #endif
@@ -225,7 +225,7 @@ void Settings::selectKernel()
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
-#ifndef CLIMODE
+#ifndef CLI_BUILD
         else
             QMessageBox::critical(nullptr, QObject::tr("Error"), message);
 #endif
@@ -547,7 +547,7 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
-#ifndef CLIMODE
+#ifndef CLI_BUILD
         else
            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
 #endif
@@ -596,7 +596,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
-#ifndef CLIMODE
+#ifndef CLI_BUILD
         else
            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
 #endif
