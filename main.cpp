@@ -22,7 +22,11 @@
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
 
+#ifdef CLI_BUILD
 #include <QCoreApplication>
+#else
+#include <QApplication>
+#endif
 #include <QCommandLineParser>
 #include <QDateTime>
 #include <QDebug>
@@ -31,6 +35,9 @@
 #include <QTranslator>
 
 #include "batchprocessing.h"
+#ifndef CLI_BUILD
+#include "mainwindow.h"
+#endif
 #include "version.h"
 #include <csignal>
 #include <unistd.h>
@@ -56,6 +63,9 @@ int main(int argc, char *argv[])
     parser.setApplicationDescription(QObject::tr("Tool used for creating a live-CD from the running system"));
     parser.addHelpOption();
     parser.addVersionOption();
+#ifndef CLI_BUILD
+    parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
+#endif
     parser.addOption({{"d", "directory"}, QObject::tr("Output directory"), QObject::tr("path")});
     parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
     parser.addOption({{"k", "kernel"}, QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by 'uname -r'") + " " +
@@ -76,31 +86,64 @@ int main(int argc, char *argv[])
     parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ")
                       + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
 
-
-
     QStringList opts;
     for (int i = 0; i < argc; ++i)
         opts << QString(argv[i]);
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
-    if (!parser.value("compression").isEmpty())
+    if (!parser.value("compression").isEmpty()) {
         if (!allowed_comp.contains(parser.value("compression"))) {
             qDebug() << "Wrong compression format";
             return EXIT_FAILURE;
         }
+     }
 
-    QCoreApplication app(argc, argv);
-    app.setApplicationVersion(VERSION);
-    parser.process(app);
-    setTranslation();
-    checkSquashfs();
-
+#ifdef CLI_BUILD
     // root guard
     if (system("logname |grep -q ^root$") == 0) {
         qDebug() << QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program.");
         exit(EXIT_FAILURE);
     }
+    QCoreApplication app(argc, argv);
+#else
+    if (parser.isSet("cli") or parser.isSet("help")) {
+        QCoreApplication app(argc, argv);
+        // root guard
+        if (system("logname |grep -q ^root$") == 0) {
+            qDebug() << QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program.");
+            exit(EXIT_FAILURE);
+        }
+#endif
+        app.setApplicationVersion(VERSION);
+        parser.process(app);
+        setTranslation();
+        checkSquashfs();
+        if (getuid() == 0) {
+            setLog();
+            qDebug().noquote() << qApp->applicationName() << QObject::tr("version:") << qApp->applicationVersion();
+            if (argc > 1) qDebug().noquote() << "Args:" << qApp->arguments();
+            Batchprocessing batch(parser);
+            QTimer::singleShot(0, &app, &QCoreApplication::quit);
+            return app.exec();
+        } else {
+            qDebug().noquote() << QObject::tr("You must run this program as root.");
+            return EXIT_FAILURE;
+        }
+#ifndef CLI_BUILD
+    } else {
+        QApplication app(argc, argv);
+        app.setApplicationVersion(VERSION);
+        parser.process(app);
+        setTranslation();
+        checkSquashfs();
+
+        // root guard
+        if (system("logname |grep -q ^root$") == 0) {
+            QMessageBox::critical(nullptr, QObject::tr("Error"),
+                                  QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program."));
+            exit(EXIT_FAILURE);
+        }
 
     if (getuid() == 0) {
         setLog();
@@ -113,7 +156,9 @@ int main(int argc, char *argv[])
         qDebug().noquote() << QObject::tr("You must run this program as root.");
         return EXIT_FAILURE;
     }
+#endif
 }
+
 
 // The implementation of the handler
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
@@ -152,7 +197,15 @@ void checkSquashfs()
 {
     if (system("test -f /boot/config-$(uname -r)") == 0
             && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
+#ifdef CLI_BUILD
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
+#else
+        QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
+        if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
+            qDebug() << message;
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+#endif
         exit(EXIT_FAILURE);
     }
 }
