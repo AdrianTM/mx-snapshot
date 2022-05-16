@@ -25,9 +25,12 @@
 #include <QCoreApplication>
 #include <QDate>
 #include <QDebug>
-#include <QMessageBox>
 #include <QRegularExpression>
 #include <QSettings>
+
+#ifndef CLIMODE
+#include <QMessageBox>
+#endif
 
 #include "settings.h"
 
@@ -209,8 +212,10 @@ void Settings::selectKernel()
                  QString message = QObject::tr("Could not find a usable kernel");
                  if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
                      qDebug().noquote() << message;
+#ifndef CLIMODE
                  else
                     QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+#endif
                  exit(EXIT_FAILURE);
              }
         }
@@ -220,8 +225,10 @@ void Settings::selectKernel()
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
+#ifndef CLIMODE
         else
             QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+#endif
         exit(EXIT_FAILURE);
     }
 }
@@ -539,8 +546,10 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
+#ifndef CLIMODE
         else
            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+#endif
         exit(EXIT_FAILURE);
     }
     reset_accounts = arg_parser.isSet("reset");
@@ -586,8 +595,10 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         QString message = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + snapshot_name);
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
+#ifndef CLIMODE
         else
            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+#endif
         exit(EXIT_FAILURE);
     }
     if (arg_parser.value("compression").isEmpty())
