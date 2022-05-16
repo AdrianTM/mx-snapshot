@@ -147,7 +147,7 @@ int main(int argc, char *argv[])
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
-    msg.contains("\r") ? term_out << msg << flush : term_out << msg << "\n" << flush;
+    msg.contains("\r") ? term_out << msg : term_out << msg << "\n";
 
     if (msg.startsWith("\033[2KProcessing")) return;
     QTextStream out(&logFile);
@@ -160,7 +160,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     case QtCriticalMsg: out << QStringLiteral("CRT "); break;
     case QtFatalMsg:    out << QStringLiteral("FTL "); break;
     }
-    out << context.category << QStringLiteral(": ") << msg << endl;
+    out << context.category << QStringLiteral(": ") << msg << "\n";
 }
 
 void setTranslation()
