@@ -1,10 +1,7 @@
-docs/*				usr/share/doc/mx-snapshot
-manual/mx-snapshot.8.gz		usr/share/man/man8
-icons/mx-snapshot.png		usr/share/icons/hicolor/48x48/apps
-icons/mx-snapshot.svg		usr/share/icons/hicolor/scalable/apps
-mx-snapshot			usr/bin
-mx-snapshot-exclude.list	etc
-mx-snapshot.conf		etc
-mx-snapshot.desktop		usr/share/applications
-scripts/*			usr/share/mx-packageinstaller/scripts
-translations/*.qm		usr/share/mx-snapshot/locale
+docs/*				usr/share/doc/iso-snapshot-cli
+manual/iso-snapshot-cli.8.gz	usr/share/man/man8
+iso-snapshot-cli		usr/bin
+iso-snapshot-cli-exclude.list	etc
+iso-snapshot.conf		etc
+scripts/*			usr/share/iso-snapshot-cli/scripts
+translations/*.qm		usr/share/iso-snapshot-cli/locale

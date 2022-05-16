@@ -1,4 +1,4 @@
-Source: mx-snapshot
+Source: iso-snapshot-cli
 Section: admin
 Priority: optional
 Maintainer: Adrian <adrian@mxlinux.org>
@@ -19,5 +19,5 @@ Depends: menu,
          xorriso (>= 1.4.6),
          ${misc:Depends},
          ${shlibs:Depends}
-Description: MX Snapshot
- MX Snapshot is a tool used for creating a live-CD from the running system.
+Description: ISO Snapshoti CLI
+ ISO Snapshot CLI is a tool used for creating a live-CD from the running system.
