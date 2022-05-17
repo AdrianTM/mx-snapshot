@@ -13,14 +13,14 @@ Changes:
    * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
    * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
 Checksums-Sha1:
- b3aa7505460e1bc6ced702253e7518f3284b9b0c 674 iso-snapshot-cli_22.4.01.dsc
- 1a14e85388a05fd4a58488fea968e0b62faab5da 196652 iso-snapshot-cli_22.4.01.tar.xz
- a92d0a12e03b73fb8c6360d912a53a25d3c8698e 10014 iso-snapshot-cli_22.4.01_i386.buildinfo
+ d522e0cf3f9a81797740ae7b666bffef80c8a471 674 iso-snapshot-cli_22.4.01.dsc
+ c0ad5b101c7697a2edb4816622ab9c1dc9061838 183172 iso-snapshot-cli_22.4.01.tar.xz
+ 24460cc7f5e8542497a59b2d2c293c9577621195 10078 iso-snapshot-cli_22.4.01_i386.buildinfo
 Checksums-Sha256:
- ebb914d314bbdd81e47f497638fe7d51d2e27c8465c5c833fb618b8865bdcf46 674 iso-snapshot-cli_22.4.01.dsc
- 7efb12304d1c0beb8b80eddcf430b02eb8dcfa91d11a64fd39f13cf62c09d87d 196652 iso-snapshot-cli_22.4.01.tar.xz
- 8e63a26f0740994acae2b5d951fa878ef235ba4f9a47f32f55c16aca04e5923b 10014 iso-snapshot-cli_22.4.01_i386.buildinfo
+ e118631aff96de780c1b65d7155c2e92a52cbf4a0d81747a493ab977fb95cc75 674 iso-snapshot-cli_22.4.01.dsc
+ 59b44e51766c3a4480b05229f83c9c1a5760a1dfb1a48295b8d7dba66b1be605 183172 iso-snapshot-cli_22.4.01.tar.xz
+ bbb27be0d6188c882687e2aef47a8d889121b50deb38c68d9da4d157785fd82c 10078 iso-snapshot-cli_22.4.01_i386.buildinfo
 Files:
- 350b06532b1143e403f9eb33bc1e18ba 674 admin optional iso-snapshot-cli_22.4.01.dsc
- d6afd1019a831fb25fbc54bccd371f53 196652 admin optional iso-snapshot-cli_22.4.01.tar.xz
- 8c7b933013f88a98ba769f8db16a0c43 10014 admin optional iso-snapshot-cli_22.4.01_i386.buildinfo
+ 6c1156e110d99d682a633235f8ff8df8 674 admin optional iso-snapshot-cli_22.4.01.dsc
+ 8fd7f8c3159cae4ee4598a0dd90f0d70 183172 admin optional iso-snapshot-cli_22.4.01.tar.xz
+ 8e118dd34dc9cdefdb6035c99fc0140b 10078 admin optional iso-snapshot-cli_22.4.01_i386.buildinfo
