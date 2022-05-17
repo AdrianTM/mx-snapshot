@@ -154,14 +154,14 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 void Work::copyModules(const QString &to, const QString &kernel)
 {
     QString kernel586 = "3.16.0-4-586";
-    QString cmd = QString("/usr/share/mx-packageinstaller/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel);
+    QString cmd = QString("/usr/share/iso-snapshot-cli/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel);
     RUN(cmd);
     // copy 586 modules for the non-PAE kernel
     if (settings->i686 && settings->debian_version < 9) {  // Not applicable for Stretch (MX17) or more
-        QString cmd = QString("/usr/share/mx-packageinstaller/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel586);
+        QString cmd = QString("/usr/share/iso-snapshot-cli/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel586);
         RUN(cmd);
     }
-    cmd = QString("/usr/share/mx-packageinstaller/scripts/copy-initrd-programs --to=\"%1\"").arg(to);
+    cmd = QString("/usr/share/iso-snapshot-cli/scripts/copy-initrd-programs --to=\"%1\"").arg(to);
     RUN(cmd);
 }
 
