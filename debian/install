@@ -6,5 +6,5 @@ mx-snapshot			usr/bin
 mx-snapshot-exclude.list	etc
 mx-snapshot.conf		etc
 mx-snapshot.desktop		usr/share/applications
-scripts/*			usr/share/mx-packageinstaller/scripts
+scripts/*			usr/share/mx-snapshot/scripts
 translations/*.qm		usr/share/mx-snapshot/locale
