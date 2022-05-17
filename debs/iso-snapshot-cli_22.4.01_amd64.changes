@@ -19,29 +19,29 @@ Changes:
    * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)
    * Don't run runuser command inside a login shell; it can create problems if user has scripts that output text at login
 Checksums-Sha1:
- 8c914cd455118bfef8581d6c9d29964ef6febf3f 1236 iso-snapshot-cli_22.4.01.dsc
- b00e588bfd048d8e2331debf4852885ae4dd8aec 183164 iso-snapshot-cli_22.4.01.tar.xz
- 8f15de1fb434fc6e4f43bdcde95cd0642def6fac 10800 iso-snapshot-cli_22.4.01_amd64.buildinfo
- 2a8b7c245cc02d7f23be836a8e086afac8542e7e 212988 iso-snapshot-cli_22.4.01_amd64.deb
+ a95629e3573336b9d0aaef2cf924d1c0bed82aa0 1236 iso-snapshot-cli_22.4.01.dsc
+ 59baab651ef671a7af9aa3ce7fa78ceba115f70e 196676 iso-snapshot-cli_22.4.01.tar.xz
+ b0926c6a441c4c55f09c4e26bbfd03002a686263 10880 iso-snapshot-cli_22.4.01_amd64.buildinfo
+ cccc12f4cb01771b12b5b14d397b3d146e30cf84 212996 iso-snapshot-cli_22.4.01_amd64.deb
 Checksums-Sha256:
- 86bbc0d232fc503cc12afaa363846b2142a5c61518a89edf3d30d9db71090640 1236 iso-snapshot-cli_22.4.01.dsc
- 110e788779f8785e488b754da93c6da9c3fc56a1b85f566409568f29a185c00f 183164 iso-snapshot-cli_22.4.01.tar.xz
- 47a54c528c1f52134ced22b87699af5a5bd78297b4cb4b6e9f201afaadb7dff0 10800 iso-snapshot-cli_22.4.01_amd64.buildinfo
- 4b0a5703df0ac64a8bd5d101c6431a63f4c210ea6b17e147413433156c9ecd60 212988 iso-snapshot-cli_22.4.01_amd64.deb
+ 6c61e017700627fe8a6a2ef7f530d88bc4bf116a749062c2666deedc17889cab 1236 iso-snapshot-cli_22.4.01.dsc
+ 49c889cfc39966b29d488e6faecad71c224d7b2ed97d329b5d2b734a92abf915 196676 iso-snapshot-cli_22.4.01.tar.xz
+ cb2dc738d29e64a2836b8d3f8919526749ea5b8d78a6e335dff5d9c35e0c7e6a 10880 iso-snapshot-cli_22.4.01_amd64.buildinfo
+ 904e03b8e6a6541ce4e2a1e7fb3be5bb9140a6aa0f5bbe34f6fa365e719b3d30 212996 iso-snapshot-cli_22.4.01_amd64.deb
 Files:
- c48e585e8c3f44a88c44cd5827e26281 1236 admin optional iso-snapshot-cli_22.4.01.dsc
- 3851d29185086c845adb751dd831fab6 183164 admin optional iso-snapshot-cli_22.4.01.tar.xz
- 6b8c2dac92aa040c2b345f352a695080 10800 admin optional iso-snapshot-cli_22.4.01_amd64.buildinfo
- 13c2131befa665107b1649e1ddef2296 212988 admin optional iso-snapshot-cli_22.4.01_amd64.deb
+ a19bd84e6dd049a9f055cf55533c8b27 1236 admin optional iso-snapshot-cli_22.4.01.dsc
+ b40b5ac88d5e8865aefb683956296ca1 196676 admin optional iso-snapshot-cli_22.4.01.tar.xz
+ 14070ad0ceb3285c5521f757e116e782 10880 admin optional iso-snapshot-cli_22.4.01_amd64.buildinfo
+ 7ec833842f4c8d0bfe35e93a2d09318a 212996 admin optional iso-snapshot-cli_22.4.01_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKDBjwTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumEDYCACUxz1aOW8lWLI7y5pMm3oOHWrZWQcd
-J1cmcucn/TEIoG+xNPcmMC2xt43JfJikjLljsclOFqorPzc0k0O2z5NXvSrJELA1
-t3wvkVGvtTq6isF1iekaHfRvpJJf7I9168Lp7iOyCoQGUp9Q37viwAsBXTvSotU/
-CowAx5R8xPtSZtXsNti2taXBqfZ97/oZAmzZ2wgWHUhJCzpespJ9XVmDAKAjIpOw
-PaiHEZlcwK/kUCQ07j8RAsv7Hj245JEF0UJiK9w+bQ46q1yBHPccEvzCATwfiu8u
-8aajLCLQ2tC1qbFdx+nrc6GIHa6zx0pXwOlkOJOFyo+p5gQYfA3fobtL
-=vJn+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKDz74THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPKlB/0a4Onz7mnM+npXqUY3r3tfrf/Bi0/d
+Qifg9MrGhcNgjuQRyEh+QJqcp4oBDL9ZSfbMTr3XiKppkBKtTphhb3T9aOmfBJ3A
+OFTP3Kk00HvCqxaVuM+J/lCOsqwRY/2AKQCMnvSIvJEy65v7k8J9E8GIfw+353xC
+LFiTWNpiel9q2kR9Wv4UUm1+BAXIpA0k8cy96D17KTmUy/XdoKzJT84QbDzym47q
+U1Rfpb1PyM1KF1THgbzrXzFhUkYoeAHpcgms9gkv19T40KOBZI+h5aQ/S3Y2zzUn
+nUgJg58Kz6lB342Z6csWlXmRhGEuo5HpTMgKdtuhq7c5HToK9AEmDmsp
+=0ydd
 -----END PGP SIGNATURE-----

@@ -14,20 +14,20 @@ Build-Depends: debhelper (>= 10), qtbase5-dev, qttools5-dev-tools
 Package-List:
  iso-snapshot-cli deb admin optional arch=any
 Checksums-Sha1:
- b00e588bfd048d8e2331debf4852885ae4dd8aec 183164 iso-snapshot-cli_22.4.01.tar.xz
+ 59baab651ef671a7af9aa3ce7fa78ceba115f70e 196676 iso-snapshot-cli_22.4.01.tar.xz
 Checksums-Sha256:
- 110e788779f8785e488b754da93c6da9c3fc56a1b85f566409568f29a185c00f 183164 iso-snapshot-cli_22.4.01.tar.xz
+ 49c889cfc39966b29d488e6faecad71c224d7b2ed97d329b5d2b734a92abf915 196676 iso-snapshot-cli_22.4.01.tar.xz
 Files:
- 3851d29185086c845adb751dd831fab6 183164 iso-snapshot-cli_22.4.01.tar.xz
+ b40b5ac88d5e8865aefb683956296ca1 196676 iso-snapshot-cli_22.4.01.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKDBjETHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDkGB/9ky/rF5y7Z+FviSACXgijhBM0gReNk
-wifghBnJi1eo4cIP9WSp15n46XkZP7v3+yqCaF0p7DJbNENhoHYFr05+BxNi4m4z
-q52MTwOWy04c3jbN1xdNk6jureTKb8Z4vKFtY5n/9L/lkusniw5/IO1m59i7Pkqu
-J/UbSXqaftsS6OYP9ZVrtKIBHLMOBjbvCKt7EK3yolkgBJAdjdomU9rCDU+M504H
-H3s6MaM5MZy2WNW6iypiasO00x6qW+QXYrlq9yp6ja9qZ5wdGEvTGgnp1Mh80fo9
-IRMRd0l5PUuaAPPiWi+R+Xgo3lDNuODicOkjPporaQTiWyvhhxhhRTCO
-=BaB+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKDz7sTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumODtB/wI9cYp61q6ttvDLhL1TDgbvAem2JCZ
+4XP8f76i+qq/fVy1YSYrWPu3O4pEqJruQ+8C/c29lKz81goVj7nI976qlFb1MV4g
+9SDyENTikHZePl1eGYHaQOu1O2q0LW5ryGs3RX+n28uXxA7iujO3QemRW1yN5Hnn
+8dzLLj2LxvWRlsHSi+CdJqdzn9smAYoFYfIPTomYKycEioDkvTOHRv3mhROjQgK2
+pKvHKT1gi9Ho7C6N7mEToDp07xHdJEb7T50L2eIZh+nlEmx6gzL+ICRzLYQ30WAH
+HwiIQ7muLhp9AYnvL4prfwpGL2S2lWdVwvFOjEc9zp3SIkudQ2JZlm2r
+=A+NG
 -----END PGP SIGNATURE-----
