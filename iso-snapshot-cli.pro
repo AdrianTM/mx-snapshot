@@ -30,9 +30,9 @@ DEFINES += "CLI_BUILD=1"
 
 QT       += core
 
-CONFIG   += c++11
+QT       -= gui
 
-#greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+CONFIG   += c++11
 
 TARGET = iso-snapshot-cli
 TEMPLATE = app
