@@ -169,7 +169,7 @@ void MainWindow::listFreeSpace()
     ui->labelDiskSpaceHelp->setText(tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
                                        "      If necessary, you can create more available space\n"
                                        "      by removing previous snapshots and saved copies:\n"
-                                       "      %1 snapshots are taking up %2 of disk space.\n").arg(QString::number(getSnapshotCount())).arg(getSnapshotSize()));
+                                       "      %1 snapshots are taking up %2 of disk space.\n").arg(QString::number(getSnapshotCount()), getSnapshotSize()));
 }
 
 // Installs package
