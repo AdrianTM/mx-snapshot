@@ -142,10 +142,9 @@ QString Settings::getEditor()
 // return the size of the snapshot folder
 QString Settings::getSnapshotSize()
 {
-    QString size;
     if (QFileInfo::exists(snapshot_dir)) {
         QString cmd = QString("find \"%1\" -maxdepth 1 -type f -name '*.iso' -exec du -shc {} + |tail -1 |awk '{print $1}'").arg(snapshot_dir);
-        size = shell->getCmdOut(cmd);
+        auto size = shell->getCmdOut(cmd);
         if (!size.isEmpty())
             return size;
     }
@@ -176,9 +175,8 @@ quint64 Settings::getFreeSpace(const QString &path)
 // return the XDG User Directory for each user with different localizations than English
 QString Settings::getXdgUserDirs(const QString& folder)
 {
-    QString result = "";
-
-    for (const QString &user : users) {
+    QString result;
+    for (const QString &user : qAsConst(users)) {
         QString dir;
         bool success = shell->run("runuser " + user + " -c \"xdg-user-dir " + folder + "\"", dir);
         if (success) {
@@ -303,9 +301,8 @@ quint64 Settings::getLiveRootSpace()
 
 QString Settings::getUsedSpace()
 {
-    bool ok;
     QString out = "\n- " + QObject::tr("Used space on / (root): ");
-    if (live) {
+    if (bool ok; live) {
         root_size = getLiveRootSpace();
         out += QString::number(root_size / 1048576.0, 'f', 2) + "GiB" + " -- " + QObject::tr("estimated");
     } else {
@@ -313,7 +310,7 @@ QString Settings::getUsedSpace()
         if (!ok) return "Can't calculate free space on root";
         out += QString::number(root_size / 1048576.0, 'f', 2) + "GiB";
     }
-    if (shell->run("mountpoint -q /home")) {
+    if (bool ok; shell->run("mountpoint -q /home")) {
         home_size = shell->getCmdOut("df -k --output=used /home |tail -n1").toULongLong(&ok);
         if (!ok) return "Can't calculate free space on /home";
         out.append("\n- " + QObject::tr("Used space on /home: ") + QString::number(home_size / 1048576.0, 'f', 2) + "GiB");
@@ -375,7 +372,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
     qDebug().noquote() << QObject::tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
                                        "      If necessary, you can create more available space\n"
                                        "      by removing previous snapshots and saved copies:\n"
-                                       "      %1 snapshots are taking up %2 of disk space.\n").arg(QString::number(getSnapshotCount())).arg(getSnapshotSize());
+                                       "      %1 snapshots are taking up %2 of disk space.\n").arg(QString::number(getSnapshotCount()), getSnapshotSize());
     return out;
 }
 

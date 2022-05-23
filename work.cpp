@@ -135,7 +135,7 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
     if (needed_space > free_space) {
         emit messageBox(BoxType::critical, tr("Error"),
                     tr("There's not enough free space on your target disk, you need at least %1").arg(QString::number(needed_space / 1048576.0, 'f', 2) + "GiB") + "\n" +
-                    tr("You have %1 free space on %2").arg(QString::number(free_space / 1048576.0, 'f', 2) + "GiB").arg(dir) + "\n" +
+                    tr("You have %1 free space on %2").arg(QString::number(free_space / 1048576.0, 'f', 2) + "GiB", dir) + "\n" +
                     tr("If you are sure you have enough free space rerun the program with -o/--override-size option"));
         cleanUp();
     }
@@ -154,11 +154,11 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 void Work::copyModules(const QString &to, const QString &kernel)
 {
     QString kernel586 = "3.16.0-4-586";
-    QString cmd = QString("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel);
+    QString cmd = QString("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel);
     RUN(cmd);
     // copy 586 modules for the non-PAE kernel
     if (settings->i686 && settings->debian_version < 9) {  // Not applicable for Stretch (MX17) or more
-        QString cmd = QString("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to).arg(kernel586);
+        QString cmd = QString("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel586);
         RUN(cmd);
     }
     cmd = QString("/usr/share/mx-snapshot/scripts/copy-initrd-programs --to=\"%1\"").arg(to);
@@ -418,7 +418,7 @@ void Work::replaceMenuStrings() {
 // Util function for replacing strings in files
 bool Work::replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path)
 {
-    return RUN(QString("sed -i 's/%1/%2/g' \"%3\"").arg(old_text).arg(new_text).arg(file_path));
+    return RUN(QString("sed -i 's/%1/%2/g' \"%3\"").arg(old_text, new_text, file_path));
 }
 
 // Save package list in working directory
