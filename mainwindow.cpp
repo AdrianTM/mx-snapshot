@@ -84,6 +84,24 @@ void MainWindow::setOtherOptions()
 void MainWindow::setConnections()
 {
     connect(qApp, &QApplication::aboutToQuit, [this] { cleanUp(); });
+    connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
+    connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
+    connect(ui->btnEditExclude, &QPushButton::clicked, this, &MainWindow::btnEditExclude_clicked);
+    connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
+    connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
+    connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
+    connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
+    connect(ui->checksums, &QCheckBox::toggled, this, &MainWindow::checksums_toggled);
+    connect(ui->excludeDesktop, &QCheckBox::toggled, this, &MainWindow::excludeDesktop_toggled);
+    connect(ui->excludeDocuments, &QCheckBox::toggled, this, &MainWindow::excludeDocuments_toggled);
+    connect(ui->excludeDownloads, &QCheckBox::toggled, this, &MainWindow::excludeDownloads_toggled);
+    connect(ui->excludeMusic, &QCheckBox::toggled, this, &MainWindow::excludeMusic_toggled);
+    connect(ui->excludeNetworks, &QCheckBox::toggled, this, &MainWindow::excludeNetworks_toggled);
+    connect(ui->excludePictures, &QCheckBox::toggled, this, &MainWindow::excludePictures_toggled);
+    connect(ui->excludeSteam, &QCheckBox::toggled, this, &MainWindow::excludeSteam_toggled);
+    connect(ui->excludeVideos, &QCheckBox::toggled, this, &MainWindow::excludeVideos_toggled);
+    connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
+    connect(ui->radioPersonal, &QRadioButton::clicked, this, &MainWindow::radioPersonal_clicked);
     connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
     connect(shell, &Cmd::started, this, &MainWindow::procStart);
     connect(shell, &Cmd::finished, this, &MainWindow::procDone);
@@ -249,7 +267,7 @@ void MainWindow::progress()
 
 
 // Next button clicked
-void MainWindow::on_btnNext_clicked()
+void MainWindow::btnNext_clicked()
 {
     QString file_name = ui->lineEditName->text();
     if (!file_name.endsWith(".iso"))
@@ -331,7 +349,7 @@ void MainWindow::on_btnNext_clicked()
     }
 }
 
-void MainWindow::on_btnBack_clicked()
+void MainWindow::btnBack_clicked()
 {
     this->setWindowTitle(tr("MX Snapshot"));
     ui->stackedWidget->setCurrentIndex(0);
@@ -340,57 +358,57 @@ void MainWindow::on_btnBack_clicked()
     ui->outputBox->clear();
 }
 
-void MainWindow::on_btnEditExclude_clicked()
+void MainWindow::btnEditExclude_clicked()
 {
     this->hide();
     shell->run(getEditor() + " " + snapshot_excludes.fileName());
     this->show();
 }
 
-void MainWindow::on_excludeDocuments_toggled(bool checked)
+void MainWindow::excludeDocuments_toggled(bool checked)
 {
     excludeDocuments(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludeDownloads_toggled(bool checked)
+void MainWindow::excludeDownloads_toggled(bool checked)
 {
     excludeDownloads(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludePictures_toggled(bool checked)
+void MainWindow::excludePictures_toggled(bool checked)
 {
     excludePictures(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludeMusic_toggled(bool checked)
+void MainWindow::excludeMusic_toggled(bool checked)
 {
     excludeMusic(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludeVideos_toggled(bool checked)
+void MainWindow::excludeVideos_toggled(bool checked)
 {
     excludeVideos(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludeDesktop_toggled(bool checked)
+void MainWindow::excludeDesktop_toggled(bool checked)
 {
     excludeDesktop(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_radioRespin_toggled(bool checked)
+void MainWindow::radioRespin_toggled(bool checked)
 {
     reset_accounts = checked;
     if (checked && !ui->excludeAll->isChecked())
         ui->excludeAll->click();
 }
 
-void MainWindow::on_radioPersonal_clicked(bool checked)
+void MainWindow::radioPersonal_clicked(bool checked)
 {
     reset_accounts = !checked;
     if (checked && ui->excludeAll->isChecked())
@@ -399,7 +417,7 @@ void MainWindow::on_radioPersonal_clicked(bool checked)
 
 
 // About button clicked
-void MainWindow::on_btnAbout_clicked()
+void MainWindow::btnAbout_clicked()
 {
     this->hide();
     displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" + this->windowTitle()
@@ -413,7 +431,7 @@ void MainWindow::on_btnAbout_clicked()
 }
 
 // Help button clicked
-void MainWindow::on_btnHelp_clicked()
+void MainWindow::btnHelp_clicked()
 {
     QLocale locale;
     QString lang = locale.bcp47Name();
@@ -426,7 +444,7 @@ void MainWindow::on_btnHelp_clicked()
 }
 
 // Select snapshot directory
-void MainWindow::on_btnSelectSnapshot_clicked()
+void MainWindow::btnSelectSnapshot_clicked()
 {
     QFileDialog dialog;
 
@@ -457,38 +475,38 @@ void MainWindow::closeApp() {
     cleanUp();
 }
 
-void MainWindow::on_btnCancel_clicked()
+void MainWindow::btnCancel_clicked()
 {
     closeApp();
 }
 
-void MainWindow::on_cbCompression_currentIndexChanged(const QString &arg1)
+void MainWindow::cbCompression_currentIndexChanged()
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue("compression", arg1);
-    compression = arg1;
+    settings.setValue("compression", ui->cbCompression->currentText());
+    compression = ui->cbCompression->currentText();
 }
 
-void MainWindow::on_excludeNetworks_toggled(bool checked)
+void MainWindow::excludeNetworks_toggled(bool checked)
 {
     excludeNetworks(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_checksums_toggled(bool checked)
+void MainWindow::checksums_toggled(bool checked)
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue("make_md5sum", checked ? "yes" : "no");
     make_chksum = checked;
 }
 
-void MainWindow::on_excludeSteam_toggled(bool checked)
+void MainWindow::excludeSteam_toggled(bool checked)
 {
     excludeSteam(checked);
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::on_excludeVirtualBox_toggled(bool checked)
+void MainWindow::excludeVirtualBox_toggled(bool checked)
 {
     excludeVirtualBox(checked);
     if (!checked) ui->excludeAll->setChecked(false);

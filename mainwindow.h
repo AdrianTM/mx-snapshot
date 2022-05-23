@@ -73,26 +73,26 @@ public slots:
     void progress();
 
 private slots:
-    void on_btnAbout_clicked();
-    void on_btnBack_clicked();
-    void on_btnCancel_clicked();
-    void on_btnEditExclude_clicked();
-    void on_btnHelp_clicked();
-    void on_btnNext_clicked();
-    void on_btnSelectSnapshot_clicked();
-    void on_cbCompression_currentIndexChanged(const QString &arg1);
-    void on_checksums_toggled(bool checked);
-    void on_excludeDesktop_toggled(bool checked);
-    void on_excludeDocuments_toggled(bool checked);
-    void on_excludeDownloads_toggled(bool checked);
-    void on_excludeMusic_toggled(bool checked);
-    void on_excludeNetworks_toggled(bool checked);
-    void on_excludePictures_toggled(bool checked);
-    void on_excludeSteam_toggled(bool checked);
-    void on_excludeVideos_toggled(bool checked);
-    void on_excludeVirtualBox_toggled(bool checked);
-    void on_radioPersonal_clicked(bool checked);
-    void on_radioRespin_toggled(bool checked);
+    void btnAbout_clicked();
+    void btnBack_clicked();
+    void btnCancel_clicked();
+    void btnEditExclude_clicked();
+    void btnHelp_clicked();
+    void btnNext_clicked();
+    void btnSelectSnapshot_clicked();
+    void cbCompression_currentIndexChanged();
+    void checksums_toggled(bool checked);
+    void excludeDesktop_toggled(bool checked);
+    void excludeDocuments_toggled(bool checked);
+    void excludeDownloads_toggled(bool checked);
+    void excludeMusic_toggled(bool checked);
+    void excludeNetworks_toggled(bool checked);
+    void excludePictures_toggled(bool checked);
+    void excludeSteam_toggled(bool checked);
+    void excludeVideos_toggled(bool checked);
+    void excludeVirtualBox_toggled(bool checked);
+    void radioPersonal_clicked(bool checked);
+    void radioRespin_toggled(bool checked);
 
 private:
     Ui::MainWindow *ui;
