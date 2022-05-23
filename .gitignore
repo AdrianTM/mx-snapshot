@@ -36,6 +36,7 @@ Makefile*
 *.qmlproject.user.*
 
 mx-snapshot
+iso-snapshot-cli
 
 # CMake ignore
 .cmake
