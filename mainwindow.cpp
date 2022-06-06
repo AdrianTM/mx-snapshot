@@ -85,6 +85,7 @@ void MainWindow::setConnections()
 {
     connect(qApp, &QApplication::aboutToQuit, [this] { cleanUp(); });
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
+    connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
     connect(ui->btnEditExclude, &QPushButton::clicked, this, &MainWindow::btnEditExclude_clicked);
     connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
