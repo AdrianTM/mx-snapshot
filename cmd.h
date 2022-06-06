@@ -23,7 +23,7 @@ signals:
 
 private:
     QString out_buffer;
-    bool halting = false;
+
 };
 
 #endif // CMD_H
