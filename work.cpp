@@ -80,11 +80,11 @@ bool Work::checkInstalled(const QString &package)
 void Work::cleanUp()
 {
     if (!started ) {
-        settings->shell->halt();
+        settings->shell->close();
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
-    settings->shell->halt();
+    settings->shell->close();
     emit message(tr("Cleaning..."));
     system("sync");
 

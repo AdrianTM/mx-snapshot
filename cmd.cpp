@@ -12,17 +12,6 @@ Cmd::Cmd(QObject *parent)
     connect(this, &Cmd::errorAvailable, [this](const QString &out) { out_buffer += out; });
 }
 
-void Cmd::halt()
-{
-    halting = true;
-    if (state() != QProcess::NotRunning) {
-        terminate();
-        waitForFinished(5000);
-        kill();
-        waitForFinished(1000);
-    }
-}
-
 bool Cmd::run(const QString &cmd, bool quiet)
 {
     out_buffer.clear();
@@ -30,7 +19,6 @@ bool Cmd::run(const QString &cmd, bool quiet)
     return run(cmd, output, quiet);
 }
 
-// util function for getting bash command output
 QString Cmd::getCmdOut(const QString &cmd, bool quiet)
 {
     out_buffer.clear();
@@ -41,19 +29,14 @@ QString Cmd::getCmdOut(const QString &cmd, bool quiet)
 
 bool Cmd::run(const QString &cmd, QString &output, bool quiet)
 {
-    if (halting) {
-        qDebug() << "Halting, cmd not executed:" << cmd;
-        return false;
-    }
     out_buffer.clear();
-    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Cmd::finished, Qt::UniqueConnection);
     if (this->state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
     }
     if (!quiet) qDebug().noquote() << cmd;
     QEventLoop loop;
-    connect(this, &Cmd::finished, &loop, &QEventLoop::quit, Qt::UniqueConnection);
+    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit, Qt::UniqueConnection);
     start(QStringLiteral("/bin/bash"), QStringList() << QStringLiteral("-c") << cmd);
     loop.exec();
     output = out_buffer.trimmed();
