@@ -46,11 +46,11 @@ static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
-void messageHandler(QtMsgType, const QMessageLogContext, const QString);
+void messageHandler(QtMsgType, QMessageLogContext, QString);
 void runApp(QCommandLineParser);
 void setLog();
 void setTranslation();
-void signalHandler(int);
+void signalHandler(int signal);
 
 int main(int argc, char *argv[])
 {
@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
     parser.addOption({{"d", "directory"}, QObject::tr("Output directory"), QObject::tr("path")});
     parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
     parser.addOption({{"k", "kernel"}, QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by 'uname -r'") + " " +
-                      QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."), QObject::tr("version, or path")});
+                      QObject::tr("Or the full path: %1").arg(QStringLiteral("/boot/vmlinuz-x.xx.x...")), QObject::tr("version, or path")});
     parser.addOption({{"l", "compression-level"}, QObject::tr("Compression level options.") + " "
                       + QObject::tr("Use quotes: \"-Xcompression-level <level>\", "
                       "or \"-Xalgorithm <algorithm>\", or \"-Xhc\", see mksquashfs man page"), QObject::tr("\"option\"")});
@@ -87,13 +87,14 @@ int main(int argc, char *argv[])
                       + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
 
     QStringList opts;
+    opts.reserve(argc);
     for (int i = 0; i < argc; ++i)
         opts << QString(argv[i]);
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
-    if (!parser.value("compression").isEmpty()) {
-        if (!allowed_comp.contains(parser.value("compression"))) {
+    if (!parser.value(QStringLiteral("compression")).isEmpty()) {
+        if (!allowed_comp.contains(parser.value(QStringLiteral("compression")))) {
             qDebug() << "Wrong compression format";
             return EXIT_FAILURE;
         }
@@ -107,7 +108,7 @@ int main(int argc, char *argv[])
     }
     QCoreApplication app(argc, argv);
 #else
-    if (parser.isSet("cli") or parser.isSet("help")) {
+    if (parser.isSet(QStringLiteral("cli")) || parser.isSet(QStringLiteral("help"))) {
         QCoreApplication app(argc, argv);
         // root guard
         if (system("logname |grep -q ^root$") == 0) {
@@ -164,11 +165,12 @@ int main(int argc, char *argv[])
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
-    msg.contains("\r") ? term_out << msg : term_out << msg << "\n";
+    msg.contains(QLatin1String("\r")) ? term_out << msg : term_out << msg << "\n";
 
-    if (msg.startsWith("\033[2KProcessing")) return;
+    if (msg.startsWith(QLatin1String("\033[2KProcessing")))
+        return;
     QTextStream out(&logFile);
-    out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
+    out << QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss.zzz "));
     switch (type)
     {
     case QtInfoMsg:     out << QStringLiteral("INF "); break;
@@ -182,13 +184,14 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 void setTranslation()
 {
-    if (qtTran.load(QLocale::system(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtTran.load(QLocale::system(), QStringLiteral("qt_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtTran);
 
     if (qtBaseTran.load("qtbase_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtBaseTran);
 
-    if (appTran.load(qApp->applicationName() + "_" + QLocale::system().name(), "/usr/share/" + qApp->applicationName() + "/locale"))
+    if (appTran.load(qApp->applicationName() + "_" + QLocale::system().name(), "/usr/share/"
+                     + qApp->applicationName() + "/locale"))
         qApp->installTranslator(&appTran);
 }
 
@@ -222,9 +225,9 @@ void setLog()
     qInstallMessageHandler(messageHandler);
 }
 
-void signalHandler(int sig)
+void signalHandler(int signal)
 {
-    switch (sig)
+    switch (signal)
     {
     case SIGHUP:  qDebug() << "\nSIGHUP"; break;
     case SIGINT:  qDebug() << "\nSIGINT"; break;
