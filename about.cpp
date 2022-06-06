@@ -1,56 +1,67 @@
 #include <QApplication>
 #include <QFileInfo>
 #include <QMessageBox>
+#include <QProcess>
 #include <QPushButton>
 #include <QTextEdit>
 #include <QVBoxLayout>
 
 #include "about.h"
-#include "cmd.h"
 #include "version.h"
 
-
 // display doc as nomal user when run as root
-void displayDoc(QString url, QString title, bool runned_as_root)
+void displayDoc(const QString &url, const QString &title, bool runned_as_root)
 {
-    if (system("command -v mx-viewer >/dev/null") == 0) {
-        system("mx-viewer " + url.toUtf8() + " \"" + title.toUtf8() + "\"&");
+    // prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
+    if (QFile::exists(QStringLiteral("/usr/bin/mx-viewer"))) {
+        QProcess::execute(QStringLiteral("mx-viewer"), {url, title});
     } else {
-        if (!runned_as_root)
-            system("xdg-open " + url.toUtf8());
-        else
-            system("runuser $(logname) -c \"env XDG_RUNTIME_DIR=/run/user/$(id -u $(logname)) xdg-open " + url.toUtf8() + "\"&");
+        if (!runned_as_root) {
+            QProcess::execute(QStringLiteral("xdg-open"), {url});
+        } else {
+            QProcess proc;
+            proc.start(QStringLiteral("logname"), {}, QIODevice::ReadOnly);
+            proc.waitForFinished();
+            QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+            QProcess::startDetached(QStringLiteral("runuser"),
+                                    {QStringLiteral("-u"), user, QStringLiteral("--"), QStringLiteral("xdg-open"), url});
+        }
     }
 }
 
-void displayAboutMsgBox(QString title, QString message, QString licence_url, QString license_title, bool runned_as_root)
+void displayAboutMsgBox(const QString &title, const QString &message, const QString &licence_url, const QString &license_title, bool runned_as_root)
 {
+    const auto width  = 600;
+    const auto height = 500;
     QMessageBox msgBox(QMessageBox::NoIcon, title, message);
-    QPushButton *btnLicense = msgBox.addButton(QObject::tr("License"), QMessageBox::HelpRole);
-    QPushButton *btnChangelog = msgBox.addButton(QObject::tr("Changelog"), QMessageBox::HelpRole);
-    QPushButton *btnCancel = msgBox.addButton(QObject::tr("Cancel"), QMessageBox::NoRole);
-    btnCancel->setIcon(QIcon::fromTheme("window-close"));
+    auto *btnLicense = msgBox.addButton(QObject::tr("License"), QMessageBox::HelpRole);
+    auto *btnChangelog = msgBox.addButton(QObject::tr("Changelog"), QMessageBox::HelpRole);
+    auto *btnCancel = msgBox.addButton(QObject::tr("Cancel"), QMessageBox::NoRole);
+    btnCancel->setIcon(QIcon::fromTheme(QStringLiteral("window-close")));
 
     msgBox.exec();
 
     if (msgBox.clickedButton() == btnLicense) {
         displayDoc(licence_url, license_title, runned_as_root);
     } else if (msgBox.clickedButton() == btnChangelog) {
-        QDialog *changelog = new QDialog();
+        auto *changelog = new QDialog;
         changelog->setWindowTitle(QObject::tr("Changelog"));
-        changelog->resize(600, 500);
+        changelog->resize(width, height);
 
-        QTextEdit *text = new QTextEdit;
+        auto *text = new QTextEdit;
         text->setReadOnly(true);
-        Cmd cmd;
-        text->setText(cmd.getCmdOut("zless /usr/share/doc/" +
-                                    QFileInfo(QCoreApplication::applicationFilePath()).fileName()  + "/changelog.gz"));
+        QProcess proc;
+        proc.start(QStringLiteral("zless"), {QStringLiteral("/usr/share/doc/") +
+                                             QFileInfo(QCoreApplication::applicationFilePath()).fileName() +
+                                             QStringLiteral("/changelog.gz")}, QIODevice::ReadOnly);
+        proc.waitForFinished();
+        text->setText(QString::fromLatin1(proc.readAllStandardOutput()));
 
-        QPushButton *btnClose = new QPushButton(QObject::tr("&Close"));
-        btnClose->setIcon(QIcon::fromTheme("window-close"));
+        auto *btnClose = new QPushButton(QObject::tr("&Close"));
+        btnClose->setIcon(QIcon::fromTheme(QStringLiteral("window-close")));
         QObject::connect(btnClose, &QPushButton::clicked, changelog, &QDialog::close);
 
-        QVBoxLayout *layout = new QVBoxLayout;
+        auto *layout = new QVBoxLayout;
         layout->addWidget(text);
         layout->addWidget(btnClose);
         changelog->setLayout(layout);
