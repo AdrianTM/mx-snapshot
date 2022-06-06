@@ -27,6 +27,9 @@
 
 #include "batchprocessing.h"
 #include "work.h"
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
     Settings(arg_parser),
@@ -36,13 +39,14 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
     setConnections();
 
     if (!checkCompression()) {
-        qDebug().noquote() << tr("Error") << tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm.");
+        qDebug().noquote() << tr("Error") << tr("Current kernel doesn't support selected compression algorithm, "
+"please edit the configuration file and select a different algorithm.");
         return;
     }
 
     QString path = snapshot_dir;
-    getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
-    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
+    getFreeSpaceStrings(path.remove(QRegularExpression(QStringLiteral("/snapshot$"))));
+    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size")))
         getUsedSpace();
 
     work.started = true;
@@ -51,7 +55,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
         work.cleanUp();
     otherExclusions();
     work.setupEnv();
-    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size"))
+    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size")))
         work.checkEnoughSpace();
     work.copyNewIso();
     work.savePackageList(snapshot_name);
@@ -65,19 +69,18 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
     work.createIso(snapshot_name);
 }
 
-Batchprocessing::~Batchprocessing()
-{
-}
+Batchprocessing::~Batchprocessing() = default;
 
 void Batchprocessing::setConnections()
 {
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
-    connect(shell, &Cmd::started, [this] { timer.start(500); });
+    connect(shell, &Cmd::started, [this] { timer.start(500ms); });
     connect(shell, &Cmd::finished, [this] { timer.stop(); });
     connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
     connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
-    connect(&work, &Work::messageBox, [](BoxType, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });
+    connect(&work, &Work::messageBox, [](BoxType /*unused*/, const QString &title, const QString &msg) {
+        qDebug().noquote() << title << msg; });
 }
 
 void Batchprocessing::progress()

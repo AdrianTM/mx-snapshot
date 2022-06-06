@@ -40,7 +40,7 @@ public:
     void setConnections();
 
 public slots:
-    void progress();
+    static void progress();
 
 private:
     Work work;
