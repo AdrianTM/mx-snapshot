@@ -32,8 +32,11 @@
 #include "about.h"
 #include "mainwindow.h"
 #include "settings.h"
-#include "work.h"
 #include "ui_mainwindow.h"
+#include "work.h"
+#include <chrono>
+
+using namespace std::chrono_literals;
 
 MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser) :
     QDialog(parent),
@@ -42,7 +45,7 @@ MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser) :
     work(this)
 {
     ui->setupUi(this);
-    monthly = arg_parser.isSet("month");
+    monthly = arg_parser.isSet(QStringLiteral("month"));
     setConnections();
     setup();
     loadSettings();
@@ -130,7 +133,7 @@ void MainWindow::setup()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     setWindowFlags(Qt::Window); // for the close, min and max buttons
-    QFont font("monospace");
+    QFont font(QStringLiteral("monospace"));
     font.setStyleHint(QFont::Monospace);
     ui->outputBox->setFont(font);
     ui->outputBox->setReadOnly(true);
@@ -163,7 +166,7 @@ void MainWindow::listFreeSpace()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QString path = snapshot_dir;
-    path.remove(QRegularExpression("/snapshot$"));
+    path.remove(QRegularExpression(QStringLiteral("/snapshot$")));
     QString free_space = getFreeSpaceStrings(path);
     ui->labelFreeSpace->clear();
     ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space + "\n");
@@ -200,7 +203,7 @@ bool MainWindow::installPackage(const QString &package)
 
 void MainWindow::procStart()
 {
-    timer.start(500);
+    timer.start(500ms);
     setCursor(QCursor(Qt::BusyCursor));
 }
 
@@ -245,7 +248,7 @@ void MainWindow::disableOutput()
 void MainWindow::outputAvailable(const QString &output)
 {
     ui->outputBox->moveCursor(QTextCursor::End);
-    if (output.contains("\r")) {
+    if (output.contains(QLatin1String("\r"))) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
         ui->outputBox->moveCursor(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
     }
@@ -255,7 +258,7 @@ void MainWindow::outputAvailable(const QString &output)
 
 void MainWindow::progress()
 {
-    ui->progressBar->setValue((ui->progressBar->value() + 1) % 100);
+    ui->progressBar->setValue((ui->progressBar->value() + 1) % ui->progressBar->maximum());
 
     // in live environment and first page, blink text while calculating used disk space
     if (live && (ui->stackedWidget->currentIndex() == 0)) {
@@ -271,8 +274,8 @@ void MainWindow::progress()
 void MainWindow::btnNext_clicked()
 {
     QString file_name = ui->lineEditName->text();
-    if (!file_name.endsWith(".iso"))
-        file_name += ".iso";
+    if (!file_name.endsWith(QLatin1String(".iso")))
+        file_name += QLatin1String(".iso");
 
     if (QFile::exists(snapshot_dir + "/" + file_name)) {
         QMessageBox::critical(this, tr("Error"),
@@ -327,7 +330,7 @@ void MainWindow::btnNext_clicked()
         if (!monthly && !override_size)
             work.checkEnoughSpace();
         work.copyNewIso();
-        ui->outputLabel->setText("");
+        ui->outputLabel->setText(QLatin1String(""));
         work.savePackageList(file_name);
 
         if (edit_boot_menu) {
@@ -421,13 +424,14 @@ void MainWindow::radioPersonal_clicked(bool checked)
 void MainWindow::btnAbout_clicked()
 {
     this->hide();
-    displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" + this->windowTitle()
-                       + "</h2></b></p><p align=\"center\">" +
+    displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" +
+                       this->windowTitle() + "</h2></b></p><p align=\"center\">" +
                        tr("Version: ") + qApp->applicationVersion() + "</p><p align=\"center\"><h3>" +
                        tr("Program for creating a live-CD from the running system for MX Linux") +
-                       "</h3></p><p align=\"center\"><a href=\"http://mxlinux.org\">http://mxlinux.org</a><br /></p><p align=\"center\">" +
+                       R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)" +
                        tr("Copyright (c) MX Linux") + "<br /><br /></p>",
-                       "/usr/share/doc/mx-snapshot/license.html", tr("%1 License").arg(this->windowTitle()), true);
+                       QStringLiteral("/usr/share/doc/mx-snapshot/license.html"),
+                       tr("%1 License").arg(this->windowTitle()), true);
     this->show();
 }
 
@@ -437,10 +441,10 @@ void MainWindow::btnHelp_clicked()
     QLocale locale;
     QString lang = locale.bcp47Name();
 
-    QString url = "/usr/share/doc/mx-snapshot/mx-snapshot.html";
+    QString url = QStringLiteral("/usr/share/doc/mx-snapshot/mx-snapshot.html");
 
-    if (lang.startsWith("fr"))
-        url = "https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane";
+    if (lang.startsWith(QLatin1String("fr")))
+        url = QStringLiteral("https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane");
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()), true);
 }
 
@@ -449,7 +453,7 @@ void MainWindow::btnSelectSnapshot_clicked()
 {
     QFileDialog dialog;
 
-    QString selected = dialog.getExistingDirectory(this, tr("Select Snapshot Directory"), QString(), QFileDialog::ShowDirsOnly);
+    QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(), QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {
         snapshot_dir = selected + "/snapshot";
         ui->labelSnapshotDir->setText(snapshot_dir);
@@ -484,7 +488,7 @@ void MainWindow::btnCancel_clicked()
 void MainWindow::cbCompression_currentIndexChanged()
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue("compression", ui->cbCompression->currentText());
+    settings.setValue(QStringLiteral("compression"), ui->cbCompression->currentText());
     compression = ui->cbCompression->currentText();
 }
 
@@ -497,7 +501,7 @@ void MainWindow::excludeNetworks_toggled(bool checked)
 void MainWindow::checksums_toggled(bool checked)
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue("make_md5sum", checked ? "yes" : "no");
+    settings.setValue(QStringLiteral("make_md5sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
     make_chksum = checked;
 }
 
