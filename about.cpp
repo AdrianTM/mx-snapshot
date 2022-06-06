@@ -48,7 +48,7 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         changelog->setWindowTitle(QObject::tr("Changelog"));
         changelog->resize(width, height);
 
-        auto *text = new QTextEdit;
+        auto *text = new QTextEdit(changelog);
         text->setReadOnly(true);
         QProcess proc;
         proc.start(QStringLiteral("zless"), {QStringLiteral("/usr/share/doc/") +
@@ -57,11 +57,11 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         proc.waitForFinished();
         text->setText(QString::fromLatin1(proc.readAllStandardOutput()));
 
-        auto *btnClose = new QPushButton(QObject::tr("&Close"));
+        auto *btnClose = new QPushButton(QObject::tr("&Close"), changelog);
         btnClose->setIcon(QIcon::fromTheme(QStringLiteral("window-close")));
         QObject::connect(btnClose, &QPushButton::clicked, changelog, &QDialog::close);
 
-        auto *layout = new QVBoxLayout;
+        auto *layout = new QVBoxLayout(changelog);
         layout->addWidget(text);
         layout->addWidget(btnClose);
         changelog->setLayout(layout);
