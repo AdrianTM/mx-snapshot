@@ -494,11 +494,11 @@ void Settings::loadConfig()
                                                  qApp->applicationName() +
                                                  QStringLiteral("-exclude.list")).toString());
     snapshot_basename = settings.value(QStringLiteral("snapshot_basename"), "snapshot").toString();
-    make_chksum = settings.value(QStringLiteral("make_md5sum"), "no").toString() == QLatin1String("no");
+    make_chksum = settings.value(QStringLiteral("make_md5sum"), "no").toString() != QLatin1String("no");
     make_isohybrid = settings.value(QStringLiteral("make_isohybrid"), "yes").toString() == QLatin1String("yes");
     compression = settings.value(QStringLiteral("compression"), "zstd").toString();
     mksq_opt = settings.value(QStringLiteral("mksq_opt")).toString();
-    edit_boot_menu = settings.value(QStringLiteral("edit_boot_menu"), "no").toString() == QLatin1String("no");
+    edit_boot_menu = settings.value(QStringLiteral("edit_boot_menu"), "no").toString() != QLatin1String("no");
     gui_editor = settings.value(QStringLiteral("gui_editor")).toString();
     stamp = settings.value(QStringLiteral("stamp")).toString();
     force_installer = settings.value(QStringLiteral("force_installer"), "true").toBool();

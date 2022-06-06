@@ -58,12 +58,12 @@ public:
     void closeInitrd(const QString &initrd_dir, const QString &file);
     void copyModules(const QString &to, const QString &kernel);
     void copyNewIso();
-    void makeChecksum(const Work::HashType &hash_type, const QString &folder, const QString &file_name);
+    void makeChecksum(Work::HashType hash_type, const QString &folder, const QString &file_name);
     void openInitrd(const QString &file, const QString &initrd_dir);
     void replaceMenuStrings();
     void savePackageList(const QString &file_name);
     void setupEnv();
-    void writeSnapshotInfo();
+    static void writeSnapshotInfo();
     void writeUnsquashfsSize(const QString &text);
     quint64 getRequiredSpace();
 
