@@ -31,6 +31,8 @@
 
 #include <cmd.h>
 
+extern QString current_kernel;
+
 static QHash<QString, uint> compression_factor {
     { "xz", 31 },
     { "zstd", 35 },

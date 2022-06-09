@@ -201,7 +201,7 @@ void Settings::selectKernel()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     kernel.remove(QRegularExpression(QStringLiteral("^/boot/vmlinuz-"))); // remove path and part of name if passed as arg
     if (kernel.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) {  // if kernel version not passed as arg, or incorrect
-        kernel = shell->getCmdOut(QStringLiteral("uname -r"));
+        kernel = current_kernel;
         if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) { // if current kernel doesn't exist for some reason (e.g. WSL) in /boot pick latest kernel
              kernel = shell->getCmdOut(QStringLiteral("ls -1 /boot/vmlinuz* |sort |tail -n1")).remove(QRegularExpression(QStringLiteral("^/boot/vmlinuz-")));
              if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
