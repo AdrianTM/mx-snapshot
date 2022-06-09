@@ -42,6 +42,7 @@
 #include <csignal>
 #include <unistd.h>
 
+QString current_kernel;
 static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
@@ -74,7 +75,7 @@ int main(int argc, char *argv[])
                       + QObject::tr("Use quotes: \"-Xcompression-level <level>\", "
                       "or \"-Xalgorithm <algorithm>\", or \"-Xhc\", see mksquashfs man page"), QObject::tr("\"option\"")});
     parser.addOption({{"m", "month"}, QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " " +
-                     QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored")});
+                      QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored")});
     parser.addOption({{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file")});
     parser.addOption({{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels")});
     parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
@@ -98,11 +99,11 @@ int main(int argc, char *argv[])
             qDebug() << "Wrong compression format";
             return EXIT_FAILURE;
         }
-     }
+    }
 
 #ifdef CLI_BUILD
     // root guard
-    if (system("logname |grep -q ^root$") == 0) {
+    if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
         qDebug() << QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program.");
         exit(EXIT_FAILURE);
     }
@@ -111,7 +112,7 @@ int main(int argc, char *argv[])
     if (parser.isSet(QStringLiteral("cli")) || parser.isSet(QStringLiteral("help"))) {
         QCoreApplication app(argc, argv);
         // root guard
-        if (system("logname |grep -q ^root$") == 0) {
+        if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
             qDebug() << QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program.");
             exit(EXIT_FAILURE);
         }
@@ -140,7 +141,7 @@ int main(int argc, char *argv[])
         checkSquashfs();
 
         // root guard
-        if (system("logname |grep -q ^root$") == 0) {
+        if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
             QMessageBox::critical(nullptr, QObject::tr("Error"),
                                   QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program."));
             exit(EXIT_FAILURE);
@@ -154,7 +155,7 @@ int main(int argc, char *argv[])
             w.show();
             exit(app.exec());
         } else {
-            system("su-to-root -X -c " + app.applicationFilePath().toUtf8() + "&");
+            QProcess::startDetached("su-to-root", {"-X", "-c", QApplication::applicationFilePath()});
         }
     }
 #endif
@@ -198,8 +199,13 @@ void setTranslation()
 // Check if SQUASHFS is available
 void checkSquashfs()
 {
-    if (system("test -f /boot/config-$(uname -r)") == 0
-            && system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-$(uname -r)") != 0) {
+    QProcess proc;
+    proc.start("uname", {"-r"}, QIODevice::ReadOnly);
+    proc.waitForFinished();
+    current_kernel = proc.readAllStandardOutput().trimmed();
+
+    if (QFile::exists("/boot/config-" + current_kernel)
+            && proc.execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + current_kernel}) != 0) {
 #ifdef CLI_BUILD
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #else
