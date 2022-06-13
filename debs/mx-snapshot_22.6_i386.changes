@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Mon, 13 Jun 2022 10:32:02 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.6
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.6) mx; urgency=medium
+ .
+   * Preserve user theme when launching prongar as root
+   * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
+Checksums-Sha1:
+ b2add2811470a3b27d8a1bbdcdeaaf301db448a7 10033 mx-snapshot_22.6_i386.buildinfo
+ 14c5a50b26d1b5e9bd61ae09125642a63210d5ad 253664 mx-snapshot_22.6_i386.deb
+Checksums-Sha256:
+ c2ffad16fac7326cb6669c41bf81e94725484410c3175066a22cd29f2abac807 10033 mx-snapshot_22.6_i386.buildinfo
+ 209aa6ba85761571a50e9c9160f6f6458127052687e890dc07a589b54d722644 253664 mx-snapshot_22.6_i386.deb
+Files:
+ e81bb553f4b052479f97ab51114f33fe 10033 admin optional mx-snapshot_22.6_i386.buildinfo
+ b27ad1214b4e7552328fdfbb51630990 253664 admin optional mx-snapshot_22.6_i386.deb

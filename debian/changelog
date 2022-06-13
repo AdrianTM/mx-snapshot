@@ -1,3 +1,10 @@
+mx-snapshot (22.6) mx; urgency=medium
+
+  * Preserve user theme when launching prongar as root
+  * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 13 Jun 2022 10:32:02 -0400
+
 mx-snapshot (22.4.01) mx; urgency=medium
 
   * Make sure the output text is added at the end of output box (clicking inside the output box should not more the cursor arround and clobber text)

@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Mon, 13 Jun 2022 10:32:02 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 22.6
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.6) mx; urgency=medium
+ .
+   * Preserve user theme when launching prongar as root
+   * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
+Checksums-Sha1:
+ 072fb2315f97ce101f1670f12ee418cd3f5fa90b 632 mx-snapshot_22.6.dsc
+ a5742b6954ac5039f2f06ce1b221a7ee00e40da8 190836 mx-snapshot_22.6.tar.xz
+ b2add2811470a3b27d8a1bbdcdeaaf301db448a7 10033 mx-snapshot_22.6_i386.buildinfo
+Checksums-Sha256:
+ 35a011421aed4b5850166b8083b348857b74bb1214358b7f37981d066cca04d9 632 mx-snapshot_22.6.dsc
+ b9813a9f78b833fac09c5f1a5107a140a7314ad838ed0a720603d3a88aaff52a 190836 mx-snapshot_22.6.tar.xz
+ c2ffad16fac7326cb6669c41bf81e94725484410c3175066a22cd29f2abac807 10033 mx-snapshot_22.6_i386.buildinfo
+Files:
+ 4fd05d162ac8c86902a778c812cfae44 632 admin optional mx-snapshot_22.6.dsc
+ 5fbfbb01730a6f00882ca6b5e228cfd8 190836 admin optional mx-snapshot_22.6.tar.xz
+ e81bb553f4b052479f97ab51114f33fe 10033 admin optional mx-snapshot_22.6_i386.buildinfo
