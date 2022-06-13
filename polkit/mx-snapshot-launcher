@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# MX Linux mx-snapshot pkexec wrapper to retain QT environment
+# Usage:
+#        
+# based on mx-pkexec wrapper
+
+##launch snapshot 
+
+if [ "$EUID" != 0 ]; then
+    # normal user
+
+    # wayland fix (chkboom)
+    if [ x"$WAYLAND_DISPLAY" != "x" ] && [ -n "${WAYLAND_DISPLAY##/*}" ]; then
+      export WAYLAND_DISPLAY=$XDG_RUNTIME_DIR/$WAYLAND_DISPLAY
+    fi
+
+    pkexec /usr/bin/mx-snapshot-launcher
+
+else
+    # root user
+
+    # set XDG_RUNTIME_DIR - create a valid runtime dir
+    if [ "$XDG_RUNTIME_DIR" != "/run/user/0" ]; then
+      XDG_RUNTIME_DIR=/run/user/0
+      export XDG_RUNTIME_DIR
+      [ -d $XDG_RUNTIME_DIR ] || mkdir -p $XDG_RUNTIME_DIR
+      chmod 700 $XDG_RUNTIME_DIR
+      chown 0:0 $XDG_RUNTIME_DIR
+    fi
+    # add /usr/local/bin as first entry if not already
+    [ -z "${PATH##/usr/local/bin:*}" ] || PATH="/usr/local/bin:$PATH"
+
+    # put pattern list of environment variables we want get 
+    # from users environment into an array
+    __ENVIRONEMENT_PATTERN__=(
+    DISPLAY=
+    DESKTOP_SESSION=
+    KDE_FULL_SESSION=
+    HOME=
+    LANG=
+    LANGUAGE=
+    LC_[[:alpha:]]+=
+    PWD=
+    QT_[[:alnum:]_]+=
+    XDG_CURRENT_DESKTOP=
+    XDG_SESSION_TYPE=
+    WAYLAND_DISPLAY=
+    )
+    # combine array into a string of space separated entries 
+    __ENVIRONEMENT_PATTERN__="${__ENVIRONEMENT_PATTERN__[*]}"
+    # replace spaces with pipe-symbole as pattern alternative
+    __ENVIRONEMENT_PATTERN__="^(${__ENVIRONEMENT_PATTERN__// /|})"
+    # read environment variables from users process environement table
+    while read -r; do  
+        IFS='=' read -r  k v  <<<"$REPLY" 
+        # remove any 'bad' special char's like back-quotes and dollar sign
+        v="${v//[\`\$]/}"
+        # change to user working dir
+        [ "$k" = "PWD" ] && cd "$v" && continue
+        # echo export $k="${v@Q}"  
+        export $k="$v"  
+    done < <( xargs -0 -L1 -a /proc/$PPID/environ \
+            | grep -E "${__ENVIRONEMENT_PATTERN__}")
+
+    unset k v
+    unset __ENVIRONEMENT_PATTERN__
+
+    RUN="/usr/bin/mx-snapshot"
+    echo Starting  "$RUN" 
+    command -v "$RUN" >/dev/null || { echo "mx-snapshot: Command '$RUN' not found"; exit 1; }
+    exec "$RUN" 
+fi
+
+exit
