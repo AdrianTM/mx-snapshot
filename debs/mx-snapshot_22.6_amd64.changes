@@ -19,29 +19,29 @@ Changes:
    * Preserve user theme when launching program as root
    * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
 Checksums-Sha1:
- f7a88d14854f602474ebf9820bf5f203a04cc854 1194 mx-snapshot_22.6.dsc
- 4d80bafea4c417f8d9afb588436b38a25f86b7b1 190860 mx-snapshot_22.6.tar.xz
- df2eac817feaa4f63b0058e76f031a5fa186b080 10731 mx-snapshot_22.6_amd64.buildinfo
- dbaa5add5508e2c8410a35b96950b71ddb4eeb51 248212 mx-snapshot_22.6_amd64.deb
+ 82f0fd326390535c6f842e58e6b425b296930524 1194 mx-snapshot_22.6.dsc
+ 465542a8e8d60ef0dd613633f8127081cf5a307a 190840 mx-snapshot_22.6.tar.xz
+ e1e574f9e9c3976eecdc8c84e3a57e2ccbf00edb 10731 mx-snapshot_22.6_amd64.buildinfo
+ 8705da4237cc0a156ed97a335ce636bfeb7ab224 248208 mx-snapshot_22.6_amd64.deb
 Checksums-Sha256:
- a52e1c069ecc0575345b951adba33633d35f30c59a6186033c270f081c171817 1194 mx-snapshot_22.6.dsc
- aefc93e4de3af81e89d80a7a7db8d676cc33d2001c46389ace9197e39a08b879 190860 mx-snapshot_22.6.tar.xz
- 228b6e7a33db49837db96c8cd131f2dd2d8bb291fbe5132376b9186ca50a3997 10731 mx-snapshot_22.6_amd64.buildinfo
- 5dbf67e5d348d5a3b2bc177342b6d7c9f425dfe284b40e9854272dd9c84378da 248212 mx-snapshot_22.6_amd64.deb
+ a71b3c3499751bffaa1d134792662590f030f8703f3a36178270903abe2a62ba 1194 mx-snapshot_22.6.dsc
+ 3f815735d892e5fa2a0daa86c353f19782aecdc7c18fd3169812d67b1b879ede 190840 mx-snapshot_22.6.tar.xz
+ 898d66617586af1e874779863a9f3b2f9800ebf71c28af662211032bf386a337 10731 mx-snapshot_22.6_amd64.buildinfo
+ 0d9e02ce47710a609151c23b1387a43555effffe7bdcd54f1946a545f4e1cbfb 248208 mx-snapshot_22.6_amd64.deb
 Files:
- 9020612d2f78a9de77e947835d32f5da 1194 admin optional mx-snapshot_22.6.dsc
- c32765605e8c44fae68383490889639e 190860 admin optional mx-snapshot_22.6.tar.xz
- dc835fc9bf17ced7b42f606da4789f7f 10731 admin optional mx-snapshot_22.6_amd64.buildinfo
- 373a8364cc2036b8c1921c24fe584d4c 248212 admin optional mx-snapshot_22.6_amd64.deb
+ 202f5781c9ab5bf28c4c723c4da33b0b 1194 admin optional mx-snapshot_22.6.dsc
+ c69411103ccf50643b8b0b2548d58cb1 190840 admin optional mx-snapshot_22.6.tar.xz
+ 36030987ca6f0d7e79e86eab09f8c7de 10731 admin optional mx-snapshot_22.6_amd64.buildinfo
+ 1e1523dbda912cead927ef54287c2f40 248208 admin optional mx-snapshot_22.6_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKneaATHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumEI9CACtAX1L2LjGKdPHiilaUhvNLnUo3/bE
-NJmMUSnfcd24rQhycDrx29gTwgicBwyjA61SJOHDwULXZUF5UE565kRAWWbUKqrq
-QJF/JKgKRXbR78eJIx2ERONr/9wCeGEOPFOWMMbdsPy2B5t27h4cAuFO91Sr6b1H
-Hiyy5h1tfx1lvioNYU0JMTTysY0iGz970PiGdac6xjgtkCewDgtjV9qa//GVud0F
-mgqaYDWEmyjkPGxkZrE6cmipzfgjyG/GyuJroQgi+XiYrb6Vns0n/hHw4V9h/50v
-DmC6lPysLJ0maEfULi3drNjFI9k+pq6FkzAq3JZ4uyVG/L81m5WwtZFv
-=IlnE
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKnh5ETHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBvtB/9pAVViEhePVuP83oS0Asi0KLgYAwW9
+ocgPN6tR5voceG5lZ5eQR3I7K+NZchSGG6TqJk94u6TgYC9Z7nSpDZ9jmX5wzjEb
+oKPojSEZ2ZcwCtWlVLtOZOD700qycYdHoIiuOQJQJGp7oZ3agnemWJiZDye2q844
+ZInHXtAQ8FQMeYtYQ56Rm97KdAZnvgDA2KexBWjmXSkjcQPD5AHjoWKqkbq5NsFE
+Z3TVWZtB6k+KM2khY4gTHnkMKpObVx83bJjhykdd3LXqVHyZHOnBvO+zSCI2tD3v
+Z4CRzU0j+a95bEAO2NkZ8g2GkSvURH2Q0jg+q8l378ZUBzbUscX6Lbed
+=D1uj
 -----END PGP SIGNATURE-----
