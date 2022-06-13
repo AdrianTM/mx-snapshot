@@ -34,10 +34,9 @@ else
     # put pattern list of environment variables we want get 
     # from users environment into an array
     __ENVIRONEMENT_PATTERN__=(
-    DISPLAY=
     DESKTOP_SESSION=
-    KDE_FULL_SESSION=
     HOME=
+    KDE_FULL_SESSION=
     LANG=
     LANGUAGE=
     LC_[[:alpha:]]+=
