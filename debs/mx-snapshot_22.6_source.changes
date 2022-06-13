@@ -10,17 +10,17 @@ Changed-By: Adrian <adrian@mxlinux.org>
 Changes:
  mx-snapshot (22.6) mx; urgency=medium
  .
-   * Preserve user theme when launching prongar as root
+   * Preserve user theme when launching program as root
    * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
 Checksums-Sha1:
- 072fb2315f97ce101f1670f12ee418cd3f5fa90b 632 mx-snapshot_22.6.dsc
- a5742b6954ac5039f2f06ce1b221a7ee00e40da8 190836 mx-snapshot_22.6.tar.xz
- b2add2811470a3b27d8a1bbdcdeaaf301db448a7 10033 mx-snapshot_22.6_i386.buildinfo
+ ef6aef60b5e7812db0ed33c5f973b168dac5390d 632 mx-snapshot_22.6.dsc
+ 86c0d38d761f8ebe0085a6eed50409dd210a5ffe 190860 mx-snapshot_22.6.tar.xz
+ 64630e69f35d51fa187846886f708c010c609a74 10033 mx-snapshot_22.6_i386.buildinfo
 Checksums-Sha256:
- 35a011421aed4b5850166b8083b348857b74bb1214358b7f37981d066cca04d9 632 mx-snapshot_22.6.dsc
- b9813a9f78b833fac09c5f1a5107a140a7314ad838ed0a720603d3a88aaff52a 190836 mx-snapshot_22.6.tar.xz
- c2ffad16fac7326cb6669c41bf81e94725484410c3175066a22cd29f2abac807 10033 mx-snapshot_22.6_i386.buildinfo
+ b55cad58b6eb754a036910857d310a06f136a6b655a68e3d553454a2622f634d 632 mx-snapshot_22.6.dsc
+ 4cb5ad36c66b4f610ff9a79b70b5b4616260faf63a92ad0b2e1ec39064f90f21 190860 mx-snapshot_22.6.tar.xz
+ ebd7abd671f6abb73ea074a092abb463b7130c116b2ccb47618f621c0d4a5d96 10033 mx-snapshot_22.6_i386.buildinfo
 Files:
- 4fd05d162ac8c86902a778c812cfae44 632 admin optional mx-snapshot_22.6.dsc
- 5fbfbb01730a6f00882ca6b5e228cfd8 190836 admin optional mx-snapshot_22.6.tar.xz
- e81bb553f4b052479f97ab51114f33fe 10033 admin optional mx-snapshot_22.6_i386.buildinfo
+ 941259f3990c806581efbfd3a06200e9 632 admin optional mx-snapshot_22.6.dsc
+ 42f3c1facb3e94fe2115664007724bb9 190860 admin optional mx-snapshot_22.6.tar.xz
+ c903045ebf66567098852daf507bd897 10033 admin optional mx-snapshot_22.6_i386.buildinfo
