@@ -13,14 +13,14 @@ Description:
 Changes:
  mx-snapshot (22.6) mx; urgency=medium
  .
-   * Preserve user theme when launching prongar as root
+   * Preserve user theme when launching program as root
    * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
 Checksums-Sha1:
- b2add2811470a3b27d8a1bbdcdeaaf301db448a7 10033 mx-snapshot_22.6_i386.buildinfo
- 14c5a50b26d1b5e9bd61ae09125642a63210d5ad 253664 mx-snapshot_22.6_i386.deb
+ 64630e69f35d51fa187846886f708c010c609a74 10033 mx-snapshot_22.6_i386.buildinfo
+ ba39fc5e98db2480706fbb2007b083667a6fdfa3 253844 mx-snapshot_22.6_i386.deb
 Checksums-Sha256:
- c2ffad16fac7326cb6669c41bf81e94725484410c3175066a22cd29f2abac807 10033 mx-snapshot_22.6_i386.buildinfo
- 209aa6ba85761571a50e9c9160f6f6458127052687e890dc07a589b54d722644 253664 mx-snapshot_22.6_i386.deb
+ ebd7abd671f6abb73ea074a092abb463b7130c116b2ccb47618f621c0d4a5d96 10033 mx-snapshot_22.6_i386.buildinfo
+ 8b00917caf58d298606a98f216550365a5bc129ad2d49c68aad88deff0d5f148 253844 mx-snapshot_22.6_i386.deb
 Files:
- e81bb553f4b052479f97ab51114f33fe 10033 admin optional mx-snapshot_22.6_i386.buildinfo
- b27ad1214b4e7552328fdfbb51630990 253664 admin optional mx-snapshot_22.6_i386.deb
+ c903045ebf66567098852daf507bd897 10033 admin optional mx-snapshot_22.6_i386.buildinfo
+ d787c6541b0f9fcb70145b584542c4bb 253844 admin optional mx-snapshot_22.6_i386.deb
