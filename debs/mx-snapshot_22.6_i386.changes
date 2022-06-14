@@ -16,11 +16,11 @@ Changes:
    * Preserve user theme when launching program as root
    * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
 Checksums-Sha1:
- 223c3426089cbfee9c037e7d149dd95291020844 10033 mx-snapshot_22.6_i386.buildinfo
- 0b95ca9133f2f6a89a897989ee62a6c47dd06d56 253840 mx-snapshot_22.6_i386.deb
+ 0448b69bb52d2f723ffd5533687234506dec6fa9 10033 mx-snapshot_22.6_i386.buildinfo
+ e32e9f7a9d2f5d13dccfee0567a57a05bac45f8f 253804 mx-snapshot_22.6_i386.deb
 Checksums-Sha256:
- 7278ff76a799727b658a65ed04f88c19385b22cf0f38c9ce6c3b22e2bfd61e8d 10033 mx-snapshot_22.6_i386.buildinfo
- 79238e37afb6a497a482a009cb12db1b8d265cfeadcfccb253c335de465de5f0 253840 mx-snapshot_22.6_i386.deb
+ fa70911c30c6e5b874c919c9244f7292dd6199fbf70a27157407d00f0f46a125 10033 mx-snapshot_22.6_i386.buildinfo
+ 10e93307816947e8a3ca3df0ca7c93f1b31a17194bfcafe4e1e5680b5380b6cb 253804 mx-snapshot_22.6_i386.deb
 Files:
- 1d6c536c9fd7812b9bef62c950e07884 10033 admin optional mx-snapshot_22.6_i386.buildinfo
- 6d4b4e3a1d3991264441a516d686858d 253840 admin optional mx-snapshot_22.6_i386.deb
+ e4e3ee9ef7b2f82aec83994c6ef73dce 10033 admin optional mx-snapshot_22.6_i386.buildinfo
+ 3c40023f747a3c706e3d79eaaf8c7ba9 253804 admin optional mx-snapshot_22.6_i386.deb
