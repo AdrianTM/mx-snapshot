@@ -2,10 +2,10 @@
 
 # MX Linux mx-snapshot pkexec wrapper to retain QT environment
 # Usage:
-#        
+#
 # based on mx-pkexec wrapper
 
-##launch snapshot 
+##launch snapshot
 
 if [ "$EUID" != 0 ]; then
     # normal user
@@ -31,7 +31,7 @@ else
     # add /usr/local/bin as first entry if not already
     [ -z "${PATH##/usr/local/bin:*}" ] || PATH="/usr/local/bin:$PATH"
 
-    # put pattern list of environment variables we want get 
+    # put pattern list of environment variables we want get
     # from users environment into an array
     __ENVIRONEMENT_PATTERN__=(
     DESKTOP_SESSION=
@@ -46,19 +46,19 @@ else
     XDG_SESSION_TYPE=
     WAYLAND_DISPLAY=
     )
-    # combine array into a string of space separated entries 
+    # combine array into a string of space separated entries
     __ENVIRONEMENT_PATTERN__="${__ENVIRONEMENT_PATTERN__[*]}"
     # replace spaces with pipe-symbole as pattern alternative
     __ENVIRONEMENT_PATTERN__="^(${__ENVIRONEMENT_PATTERN__// /|})"
     # read environment variables from users process environement table
-    while read -r; do  
-        IFS='=' read -r  k v  <<<"$REPLY" 
+    while read -r; do
+        IFS='=' read -r  k v  <<<"$REPLY"
         # remove any 'bad' special char's like back-quotes and dollar sign
         v="${v//[\`\$]/}"
         # change to user working dir
         [ "$k" = "PWD" ] && cd "$v" && continue
-        # echo export $k="${v@Q}"  
-        export $k="$v"  
+        # echo export $k="${v@Q}"
+        export $k="$v"
     done < <( xargs -0 -L1 -a /proc/$PPID/environ \
             | grep -E "${__ENVIRONEMENT_PATTERN__}")
 
@@ -66,9 +66,9 @@ else
     unset __ENVIRONEMENT_PATTERN__
 
     RUN="/usr/bin/mx-snapshot"
-    echo Starting  "$RUN" 
+    echo Starting  "$RUN"
     command -v "$RUN" >/dev/null || { echo "mx-snapshot: Command '$RUN' not found"; exit 1; }
-    exec "$RUN" 
+    exec "$RUN"
 fi
 
 exit

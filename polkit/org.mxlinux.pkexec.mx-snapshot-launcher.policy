@@ -2,7 +2,7 @@
 <!DOCTYPE policyconfig PUBLIC
   "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
   "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
-<!-- 
+<!--
 	/usr/share/polkit-1/actions/org.mxlinux.mx-snapshot-launcher.policy
 !-->
  <policyconfig>

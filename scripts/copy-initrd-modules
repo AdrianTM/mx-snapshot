@@ -6,11 +6,11 @@ MP_ARGS="-D -a"
 usage() {
         cat <<Usage
 Usage: $ME [options] [file]
-Copies modules listed in file from /lib/modules/\$KERN to 
+Copies modules listed in file from /lib/modules/\$KERN to
 ./lib/modules/\$KERN in the CWD.  Also copies all dependencies.
 
 If only one kernel directory exists then we choose that kernel
-automatically.  
+automatically.
 
 If no --dir or -- option is given and there are no files on
 the command line then "default mode" is used.  The list of
@@ -93,7 +93,7 @@ jbd
 jbd2
 jfs
 libcrc32c
-libahci 
+libahci
 linear
 loop
 mbcache
@@ -187,15 +187,15 @@ main() {
                 fi;;
         esac
 
-        case $arg in 
+        case $arg in
             -dir|-from|-kernel|-to|[dfkt])
                 [ $# -lt 1 ] && fatal "Expected a parameter after: -$arg"
                 val=$1
                 shift;;
-            *=*) 
+            *=*)
                 val=${arg#*=}
                 arg=${arg%%=*} ;;
-             *) 
+             *)
                  val="???" ;;
         esac
 
