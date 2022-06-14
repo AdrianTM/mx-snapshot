@@ -43,6 +43,7 @@
 #include <unistd.h>
 
 QString current_kernel;
+QString starting_home = qEnvironmentVariable("HOME");
 static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
@@ -202,7 +203,7 @@ void setTranslation()
 void checkSquashfs()
 {
     QProcess proc;
-    proc.start("uname", {"-r"}, QIODevice::ReadOnly);
+    proc.start("uname", {"-r"});
     proc.waitForFinished();
     current_kernel = proc.readAllStandardOutput().trimmed();
 
