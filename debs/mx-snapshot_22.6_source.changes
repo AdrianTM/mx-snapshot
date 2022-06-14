@@ -13,14 +13,14 @@ Changes:
    * Preserve user theme when launching program as root
    * Make sure HOME and XDG_RUNTIME_DIR are correct when launching as root
 Checksums-Sha1:
- d0788d008c916f70bbe32b94b50b2bb3fd57a049 632 mx-snapshot_22.6.dsc
- efe9699180cf2e0683e2f04a04cb6b7bbf60adbe 190800 mx-snapshot_22.6.tar.xz
- 223c3426089cbfee9c037e7d149dd95291020844 10033 mx-snapshot_22.6_i386.buildinfo
+ 07bb5c0379546b6176786563d7b6de70a76b4c90 632 mx-snapshot_22.6.dsc
+ 323c41681d172402ed539dbd7ccc0c2a631ea74e 190820 mx-snapshot_22.6.tar.xz
+ 0448b69bb52d2f723ffd5533687234506dec6fa9 10033 mx-snapshot_22.6_i386.buildinfo
 Checksums-Sha256:
- aed4c0f0a2cec2c500b4bccb138a39065532cfa43d8b636b1b3648c663cff4f8 632 mx-snapshot_22.6.dsc
- fa402f8b0c33ba0f8b496b65364aaf8a52a26428a677fd008f2601a2807bef8f 190800 mx-snapshot_22.6.tar.xz
- 7278ff76a799727b658a65ed04f88c19385b22cf0f38c9ce6c3b22e2bfd61e8d 10033 mx-snapshot_22.6_i386.buildinfo
+ d25432c3a1e7e14a925fc41c7251a8f29c99a5ac681465b8eff5e48edeecdc37 632 mx-snapshot_22.6.dsc
+ b6f21518bc6e54beb56809c25289bd32bf5d138739451fe7d754d3a1330444e8 190820 mx-snapshot_22.6.tar.xz
+ fa70911c30c6e5b874c919c9244f7292dd6199fbf70a27157407d00f0f46a125 10033 mx-snapshot_22.6_i386.buildinfo
 Files:
- a5b14944bd9555e8cbd46afc1290fb13 632 admin optional mx-snapshot_22.6.dsc
- 2d66574afcaa1d75a8670cee807679c8 190800 admin optional mx-snapshot_22.6.tar.xz
- 1d6c536c9fd7812b9bef62c950e07884 10033 admin optional mx-snapshot_22.6_i386.buildinfo
+ b93a83255bcb84a2891be5b0ea8eb344 632 admin optional mx-snapshot_22.6.dsc
+ 16785cf35eeb844d7db9c0c9b6aafe1e 190820 admin optional mx-snapshot_22.6.tar.xz
+ e4e3ee9ef7b2f82aec83994c6ef73dce 10033 admin optional mx-snapshot_22.6_i386.buildinfo
