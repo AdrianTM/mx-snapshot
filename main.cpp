@@ -188,14 +188,13 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 void setTranslation()
 {
-    if (qtTran.load(QLocale::system(), QStringLiteral("qt_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtTran.load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtTran);
 
-    if (qtBaseTran.load("qtbase_" + QLocale::system().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(&qtBaseTran);
 
-    if (appTran.load(qApp->applicationName() + "_" + QLocale::system().name(), "/usr/share/"
-                     + qApp->applicationName() + "/locale"))
+    if (appTran.load(qApp->applicationName() + "_" + QLocale().name(), "/usr/share/" + qApp->applicationName() + "/locale"))
         qApp->installTranslator(&appTran);
 }
 
