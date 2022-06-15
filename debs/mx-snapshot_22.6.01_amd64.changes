@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 15 Jun 2022 19:05:55 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.6.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.6.01) mx; urgency=medium
+ .
+   * Fix resetting accounts/respin mode
+Checksums-Sha1:
+ a4a674b1a15958cd0a00cba88c6eebd0957dc4ce 1206 mx-snapshot_22.6.01.dsc
+ d6fe7ab3c7b3ce97d140c1d88d3d440d7e7946e6 190940 mx-snapshot_22.6.01.tar.xz
+ c51c4748221df3293203ea870f6baf18fc724144 10899 mx-snapshot_22.6.01_amd64.buildinfo
+ 3e2cce9d84444c375a75504607518da8c051f460 248680 mx-snapshot_22.6.01_amd64.deb
+Checksums-Sha256:
+ 4b456b36061444a09a96d750650903ac86c894812c476da1c4009e5d7bef9a1c 1206 mx-snapshot_22.6.01.dsc
+ 2d7bd254e761de9d03383a9c262a5bdb097186083c33ccd6c84f86c154bcb710 190940 mx-snapshot_22.6.01.tar.xz
+ e0b2d4b091553d144e2c8b99d6d56fa314199744eb73fdc2ecabd8c3b81c774c 10899 mx-snapshot_22.6.01_amd64.buildinfo
+ 1056bc02874d017233cbbe3e38038656e6e8375f4282b425c8cc22f411ab1f93 248680 mx-snapshot_22.6.01_amd64.deb
+Files:
+ e8aec001315d3562f9e2d803c0533988 1206 admin optional mx-snapshot_22.6.01.dsc
+ ceb58f2ca546c8ea428cecc7c46fccac 190940 admin optional mx-snapshot_22.6.01.tar.xz
+ 7cce9c202eccab580a5a74eaae2a236b 10899 admin optional mx-snapshot_22.6.01_amd64.buildinfo
+ 77347317bb6086c8f45707aa50d3cef8 248680 admin optional mx-snapshot_22.6.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmKqZikTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumN8BCADEI7yRVeBrP2/AfeQn4yV0pubD3NUu
+WYlnokUCvHBfIpLGu53nROJiKYin7rC5xMLsVIGfuSztQEtK1lsLznBg0l3uGi7q
+U1pXM5RAztXMaXZATmrMfPETRpGeSwY2aiyo5EjvJ5j7/bw3Gs91DUrgfBOc9jQz
+CtDltZk4UYQKXJQ0PtiX7aueY6GhhNCoFNHK3YEGCDFbN4yyM8lDUY2xyQINXbD5
+ZaZiBuulZbapqPFsbqtIUwAoXJ6Hc6eFlT/1lOL3Ozw+E8AtdUgsDMJgw4Rf7eq6
+V1CEbnIR7hFmJlB9FKZP3D/h3GuQSAGDnDwzCZXC5RePS9Y/odd6DlJ5
+=4VqC
+-----END PGP SIGNATURE-----
