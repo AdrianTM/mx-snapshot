@@ -82,6 +82,7 @@ private slots:
     void btnSelectSnapshot_clicked();
     void cbCompression_currentIndexChanged();
     void checksums_toggled(bool checked);
+    void excludeAll_toggled(bool checked);
     void excludeDesktop_toggled(bool checked);
     void excludeDocuments_toggled(bool checked);
     void excludeDownloads_toggled(bool checked);

@@ -86,7 +86,7 @@ void MainWindow::setOtherOptions()
 
 void MainWindow::setConnections()
 {
-    connect(qApp, &QApplication::aboutToQuit, [this] { cleanUp(); });
+    connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { cleanUp(); });
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -96,6 +96,7 @@ void MainWindow::setConnections()
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checksums, &QCheckBox::toggled, this, &MainWindow::checksums_toggled);
+    connect(ui->excludeAll, &QCheckBox::toggled, this, &MainWindow::excludeAll_toggled);
     connect(ui->excludeDesktop, &QCheckBox::toggled, this, &MainWindow::excludeDesktop_toggled);
     connect(ui->excludeDocuments, &QCheckBox::toggled, this, &MainWindow::excludeDocuments_toggled);
     connect(ui->excludeDownloads, &QCheckBox::toggled, this, &MainWindow::excludeDownloads_toggled);
@@ -106,6 +107,7 @@ void MainWindow::setConnections()
     connect(ui->excludeVideos, &QCheckBox::toggled, this, &MainWindow::excludeVideos_toggled);
     connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
     connect(ui->radioPersonal, &QRadioButton::clicked, this, &MainWindow::radioPersonal_clicked);
+    connect(ui->radioRespin, &QRadioButton::toggled, this, &MainWindow::radioRespin_toggled);
     connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
     connect(shell, &Cmd::started, this, &MainWindow::procStart);
     connect(shell, &Cmd::finished, this, &MainWindow::procDone);
@@ -426,7 +428,7 @@ void MainWindow::btnAbout_clicked()
     this->hide();
     displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" +
                        this->windowTitle() + "</h2></b></p><p align=\"center\">" +
-                       tr("Version: ") + qApp->applicationVersion() + "</p><p align=\"center\"><h3>" +
+                       tr("Version: ") + QApplication::applicationVersion() + "</p><p align=\"center\"><h3>" +
                        tr("Program for creating a live-CD from the running system for MX Linux") +
                        R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)" +
                        tr("Copyright (c) MX Linux") + "<br /><br /></p>",
@@ -503,6 +505,20 @@ void MainWindow::checksums_toggled(bool checked)
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue(QStringLiteral("make_md5sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
     make_chksum = checked;
+}
+
+void MainWindow::excludeAll_toggled(bool checked)
+{
+    qDebug() << "EXCLUDE ALL" << checked;
+    excludeDesktop_toggled(checked);
+    excludeDocuments_toggled(checked);
+    excludeDownloads_toggled(checked);
+    excludeMusic_toggled(checked);
+    excludeNetworks_toggled(checked);
+    excludePictures_toggled(checked);
+    excludeSteam_toggled(checked);
+    excludeVideos_toggled(checked);
+    excludeVirtualBox_toggled(checked);
 }
 
 void MainWindow::excludeSteam_toggled(bool checked)

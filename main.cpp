@@ -43,7 +43,7 @@
 #include <unistd.h>
 
 QString current_kernel;
-QString starting_home = qEnvironmentVariable("HOME");
+extern const QString starting_home = qEnvironmentVariable("HOME");
 static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
@@ -114,12 +114,12 @@ int main(int argc, char *argv[])
     if (parser.isSet(QStringLiteral("cli")) || parser.isSet(QStringLiteral("help"))) {
         QCoreApplication app(argc, argv);
         // root guard
-        if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
+        if (QProcess::execute(QStringLiteral("/bin/bash"), {"-c", "logname |grep -q ^root$"}) == 0) {
             qDebug() << QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program.");
             exit(EXIT_FAILURE);
         }
 #endif
-        app.setApplicationVersion(VERSION);
+        QCoreApplication::setApplicationVersion(VERSION);
         parser.process(app);
         setTranslation();
         checkSquashfs();
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
             if (argc > 1) qDebug().noquote() << "Args:" << qApp->arguments();
             Batchprocessing batch(parser);
             QTimer::singleShot(0, &app, &QCoreApplication::quit);
-            return app.exec();
+            return QCoreApplication::exec();
         } else {
             qDebug().noquote() << QObject::tr("You must run this program as root.");
             return EXIT_FAILURE;
@@ -137,13 +137,13 @@ int main(int argc, char *argv[])
 #ifndef CLI_BUILD
     } else {
         QApplication app(argc, argv);
-        app.setApplicationVersion(VERSION);
+        QApplication::setApplicationVersion(VERSION);
         parser.process(app);
         setTranslation();
         checkSquashfs();
 
         // root guard
-        if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
+        if (QProcess::execute(QStringLiteral("/bin/bash"), {"-c", "logname |grep -q ^root$"}) == 0) {
             QMessageBox::critical(nullptr, QObject::tr("Error"),
                                   QObject::tr("You seem to be logged in as root, please log out and log in as normal user to use this program."));
             exit(EXIT_FAILURE);
@@ -156,9 +156,9 @@ int main(int argc, char *argv[])
             qputenv("HOME", "/root");
             MainWindow w(nullptr, parser);
             w.show();
-            exit(app.exec());
+            exit(QApplication::exec());
         } else {
-            QProcess::startDetached("/usr/bin/mx-snapshot-launcher", {});
+            QProcess::startDetached(QStringLiteral("/usr/bin/mx-snapshot-launcher"), {});
         }
     }
 #endif
@@ -202,12 +202,12 @@ void setTranslation()
 void checkSquashfs()
 {
     QProcess proc;
-    proc.start("uname", {"-r"});
+    proc.start(QStringLiteral("uname"), {"-r"});
     proc.waitForFinished();
     current_kernel = proc.readAllStandardOutput().trimmed();
 
     if (QFile::exists("/boot/config-" + current_kernel)
-            && proc.execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + current_kernel}) != 0) {
+            && QProcess::execute(QStringLiteral("grep"), {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + current_kernel}) != 0) {
 #ifdef CLI_BUILD
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #else
