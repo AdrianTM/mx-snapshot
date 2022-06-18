@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 18 Jun 2022 12:21:56 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 22.6.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.6.02) mx; urgency=medium
+ .
+   *  Fix: don't remove all exclusions when Exclude all is toggled off when one of the exclusions is removed
+Checksums-Sha1:
+ 08fb4d664ba04e2e95e53b9199d3856598ee0b00 644 mx-snapshot_22.6.02.dsc
+ c79b95f50e418ad6c0868d63e1c3e0bb26c1a1ac 191024 mx-snapshot_22.6.02.tar.xz
+ 297510ed186fee0816399f0d252f95b59989b271 10048 mx-snapshot_22.6.02_i386.buildinfo
+Checksums-Sha256:
+ 033094c1f751908c078a2326d8a3894618bbdb35428b414b71a260f88e28a990 644 mx-snapshot_22.6.02.dsc
+ 3891c69a37d1af776a0c95909a051f606914f2140ff4f7a9018195e280305ca5 191024 mx-snapshot_22.6.02.tar.xz
+ 59ce74c65f352692cf21bb1d2ead78ffda0a71956062db6a0074a6e2717827c0 10048 mx-snapshot_22.6.02_i386.buildinfo
+Files:
+ f88df527596ede6070f4e9f7c494a47b 644 admin optional mx-snapshot_22.6.02.dsc
+ f5a4f44000b629f95a59dbab45db8b36 191024 admin optional mx-snapshot_22.6.02.tar.xz
+ 71680edcd2bd54f878ae2350ddb99a49 10048 admin optional mx-snapshot_22.6.02_i386.buildinfo

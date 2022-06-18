@@ -1,3 +1,9 @@
+mx-snapshot (22.6.02) mx; urgency=medium
+
+  *  Fix: don't remove all exclusions when Exclude all is toggled off when one of the exclusions is removed
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 18 Jun 2022 12:21:56 -0400
+
 mx-snapshot (22.6.01) mx; urgency=medium
 
   * Fix resetting accounts/respin mode
