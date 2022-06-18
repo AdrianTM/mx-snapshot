@@ -96,7 +96,7 @@ void MainWindow::setConnections()
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checksums, &QCheckBox::toggled, this, &MainWindow::checksums_toggled);
-    connect(ui->excludeAll, &QCheckBox::toggled, this, &MainWindow::excludeAll_toggled);
+    connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
     connect(ui->excludeDesktop, &QCheckBox::toggled, this, &MainWindow::excludeDesktop_toggled);
     connect(ui->excludeDocuments, &QCheckBox::toggled, this, &MainWindow::excludeDocuments_toggled);
     connect(ui->excludeDownloads, &QCheckBox::toggled, this, &MainWindow::excludeDownloads_toggled);
@@ -507,7 +507,7 @@ void MainWindow::checksums_toggled(bool checked)
     make_chksum = checked;
 }
 
-void MainWindow::excludeAll_toggled(bool checked)
+void MainWindow::excludeAll_clicked(bool checked)
 {
     qDebug() << "EXCLUDE ALL" << checked;
     excludeDesktop_toggled(checked);
