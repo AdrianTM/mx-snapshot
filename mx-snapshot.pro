@@ -67,6 +67,7 @@ TRANSLATIONS += translations/mx-snapshot_am.ts \
                 translations/mx-snapshot_da.ts \
                 translations/mx-snapshot_de.ts \
                 translations/mx-snapshot_el.ts \
+                translations/mx-snapshot_en.ts \
                 translations/mx-snapshot_es.ts \
                 translations/mx-snapshot_et.ts \
                 translations/mx-snapshot_eu.ts \
