@@ -86,7 +86,14 @@ void MainWindow::setOtherOptions()
 
 void MainWindow::setConnections()
 {
+    connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
+    connect(&work, &Work::message, this, &MainWindow::processMsg);
+    connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
     connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { cleanUp(); });
+    connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
+    connect(shell, &Cmd::finished, this, &MainWindow::procDone);
+    connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
+    connect(shell, &Cmd::started, this, &MainWindow::procStart);
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -97,6 +104,15 @@ void MainWindow::setConnections()
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checksums, &QCheckBox::toggled, this, &MainWindow::checksums_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeMusic, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeNetworks, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludePictures, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeSteam, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeVideos, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeVirtualBox, &QCheckBox::setChecked);
     connect(ui->excludeDesktop, &QCheckBox::toggled, this, &MainWindow::excludeDesktop_toggled);
     connect(ui->excludeDocuments, &QCheckBox::toggled, this, &MainWindow::excludeDocuments_toggled);
     connect(ui->excludeDownloads, &QCheckBox::toggled, this, &MainWindow::excludeDownloads_toggled);
@@ -108,13 +124,6 @@ void MainWindow::setConnections()
     connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
     connect(ui->radioPersonal, &QRadioButton::clicked, this, &MainWindow::radioPersonal_clicked);
     connect(ui->radioRespin, &QRadioButton::toggled, this, &MainWindow::radioRespin_toggled);
-    connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
-    connect(shell, &Cmd::started, this, &MainWindow::procStart);
-    connect(shell, &Cmd::finished, this, &MainWindow::procDone);
-    connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
-    connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
-    connect(&work, &Work::message, this, &MainWindow::processMsg);
-    connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
 }
 
 void MainWindow::setExclusions()
