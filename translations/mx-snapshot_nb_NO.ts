@@ -1,10 +1,10 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="kk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="nb_NO">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
         <source>Error</source>
-        <translation>Қате</translation>
+        <translation>Feil</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
@@ -86,12 +86,12 @@
     <message>
         <location filename="../mainwindow.ui" line="346"/>
         <source>Desktop</source>
-        <translation>Жұмыс үстелі</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="353"/>
         <source>Videos</source>
-        <translation>Видеолар</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="370"/>
@@ -171,12 +171,12 @@
     <message>
         <location filename="../mainwindow.ui" line="635"/>
         <source>Display help </source>
-        <translation>Көмекті көрсету</translation>
+        <translation>Vis hjelp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="638"/>
         <source>Help</source>
-        <translation>Көмек</translation>
+        <translation>Hjelp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="645"/>
@@ -186,12 +186,12 @@
     <message>
         <location filename="../mainwindow.ui" line="696"/>
         <source>About this application</source>
-        <translation>Бұл қолданба жөнінде</translation>
+        <translation>Om denne applikasjonen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="699"/>
         <source>About...</source>
-        <translation>Осы туралы...</translation>
+        <translation>Om...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="706"/>
@@ -201,12 +201,12 @@
     <message>
         <location filename="../mainwindow.ui" line="722"/>
         <source>Quit application</source>
-        <translation>Қолданба жұмысын аяқтау</translation>
+        <translation>Lukk programmet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="725"/>
         <source>Cancel</source>
-        <translation>Бас тарту</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="732"/>
@@ -260,7 +260,7 @@
         <location filename="../mainwindow.cpp" line="317"/>
         <location filename="../mainwindow.cpp" line="321"/>
         <source>Error</source>
-        <translation>Қате</translation>
+        <translation>Feil</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
@@ -340,17 +340,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="352"/>
         <source>Close</source>
-        <translation>Жабу</translation>
+        <translation>Lukk</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="429"/>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Om %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="431"/>
         <source>Version: </source>
-        <translation>Нұсқасы:</translation>
+        <translation>Versjon:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="432"/>
@@ -360,7 +360,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="434"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="436"/>
@@ -370,7 +370,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="450"/>
         <source>%1 Help</source>
-        <translation type="unfinished"/>
+        <translation>%1 Hjelp</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="458"/>
@@ -393,7 +393,7 @@
     <message>
         <location filename="../about.cpp" line="41"/>
         <source>License</source>
-        <translation>Лицензиясы</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../about.cpp" line="42"/>
@@ -404,12 +404,12 @@
     <message>
         <location filename="../about.cpp" line="43"/>
         <source>Cancel</source>
-        <translation>Бас тарту</translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="63"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Lukk</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="64"/>
@@ -552,7 +552,7 @@
     <message>
         <location filename="../main.cpp" line="138"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"/>
+        <translation>Du må kjøre dette programmet som root.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="151"/>
@@ -562,7 +562,7 @@
         <location filename="../settings.cpp" line="554"/>
         <location filename="../settings.cpp" line="603"/>
         <source>Error</source>
-        <translation>Қате</translation>
+        <translation>Feil</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="216"/>
@@ -619,7 +619,7 @@
     <message>
         <location filename="../settings.cpp" line="389"/>
         <source>Desktop</source>
-        <translation>Жұмыс үстелі</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../settings.cpp" line="390"/>
@@ -649,7 +649,7 @@
     <message>
         <location filename="../settings.cpp" line="396"/>
         <source>Videos</source>
-        <translation>Видеолар</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../settings.cpp" line="549"/>
@@ -675,7 +675,7 @@
         <location filename="../work.cpp" line="104"/>
         <location filename="../work.cpp" line="273"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Ferdig</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="134"/>
@@ -685,7 +685,7 @@
         <location filename="../work.cpp" line="362"/>
         <location filename="../work.cpp" line="434"/>
         <source>Error</source>
-        <translation>Қате</translation>
+        <translation>Feil</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
