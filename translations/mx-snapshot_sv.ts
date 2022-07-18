@@ -1,17 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
         <source>Error</source>
-        <translation type="unfinished">Fel</translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="unfinished">Nuvarande kärna stöder inte vald kompressionsalgoritm, var vänlig redigera konfigurationsfilen och välj en annan algoritm.</translation>
+        <translation>Nuvarande kärna stöder inte vald kompressionsalgoritm, var vänlig redigera konfigurationsfilen och välj en annan algoritm.</translation>
     </message>
 </context>
 <context>
@@ -50,26 +48,6 @@
         <translation>Välj en annan snapshot katalog</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="484"/>
-        <source>lz4</source>
-        <translation>lz4</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="489"/>
-        <source>lzo</source>
-        <translation>lzo</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>gzip</source>
-        <translation>gzip</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="499"/>
-        <source>xz</source>
-        <translation>xz</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="214"/>
         <location filename="../mainwindow.ui" line="276"/>
         <source>TextLabel</source>
@@ -81,21 +59,6 @@
         <translation>Du kan också undanta speciella kataloger genom att kryssa för de vanliga valen nedan, eller genom att klicka på knappen för att direkt redigera  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="339"/>
-        <source>Downloads</source>
-        <translation>Nerladdningar</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="332"/>
-        <source>Documents</source>
-        <translation>Dokument</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="325"/>
-        <source>All of the above</source>
-        <translation>Alla ovan nämnda</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="301"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
@@ -104,6 +67,21 @@
         <location filename="../mainwindow.ui" line="318"/>
         <source>Music</source>
         <translation>Musik</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="325"/>
+        <source>All of the above</source>
+        <translation>Alla ovan nämnda</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="332"/>
+        <source>Documents</source>
+        <translation>Dokument</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="339"/>
+        <source>Downloads</source>
+        <translation>Nerladdningar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="346"/>
@@ -146,29 +124,49 @@
         <translation>Bevara konton (för personlig backup)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="532"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO kompressions-schema:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="460"/>
         <source>Edit Exclusion File</source>
         <translation>Redigera Exklusionsfil</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="484"/>
+        <source>lz4</source>
+        <translation>lz4</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="489"/>
+        <source>lzo</source>
+        <translation>lzo</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>gzip</source>
+        <translation>gzip</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="499"/>
+        <source>xz</source>
+        <translation>xz</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="532"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO kompressions-schema:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="539"/>
         <source>Calculate checksums</source>
-        <translation type="unfinished"></translation>
+        <translation>Beräkna checksums</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="635"/>
@@ -226,18 +224,6 @@
         <translation>Bakåt</translation>
     </message>
     <message>
-        <source>Used space on / (root): </source>
-        <translation type="vanished">Använt utrymme på / (root): </translation>
-    </message>
-    <message>
-        <source>estimated</source>
-        <translation type="vanished">uppskattad</translation>
-    </message>
-    <message>
-        <source>Used space on /home: </source>
-        <translation type="vanished">Använt utrymme på/home: </translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="174"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
@@ -264,70 +250,6 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Installerar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="283"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="317"/>
-        <location filename="../mainwindow.cpp" line="321"/>
-        <source>Error</source>
-        <translation>Fel</translation>
-    </message>
-    <message>
-        <source>Could not install </source>
-        <translation type="vanished">Kunde inte installera</translation>
-    </message>
-    <message>
-        <source>Building new initrd...</source>
-        <translation type="vanished">Skapar ny initrd...</translation>
-    </message>
-    <message>
-        <source>Copying the new-iso filesystem...</source>
-        <translation type="vanished">Kopierar new-iso filsystem...</translation>
-    </message>
-    <message>
-        <source>Squashing filesystem...</source>
-        <translation type="vanished">Squashing filsystem...</translation>
-    </message>
-    <message>
-        <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="vanished">Kunde inte skapa linuxfs fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
-    </message>
-    <message>
-        <source>Creating CD/DVD image file...</source>
-        <translation type="vanished">Skapar CD/DVD avbildsfil...</translation>
-    </message>
-    <message>
-        <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="vanished">Kunde inte skapa ISO fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
-    </message>
-    <message>
-        <source>Making hybrid iso</source>
-        <translation type="vanished">Skapar hybrid iso</translation>
-    </message>
-    <message>
-        <source>MX Snapshot completed sucessfully!</source>
-        <translation type="vanished">MX Snapshot fullföljdes framgångsrikt!</translation>
-    </message>
-    <message>
-        <source>Snapshot took %1 to finish.</source>
-        <translation type="vanished">Snapshot tog %1 för att avslutas.</translation>
-    </message>
-    <message>
-        <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation type="vanished">Tack för att du använder MX Snapshot, kör sedan MX Live USB Maker! </translation>
-    </message>
-    <message>
-        <source>Making md5sum</source>
-        <translation type="vanished">Skapar md5 summa</translation>
-    </message>
-    <message>
-        <source>Cleaning...</source>
-        <translation type="vanished">Rensar...</translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="vanished">Klar</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="268"/>
         <source>Please wait.</source>
         <translation>Var vänlig vänta.</translation>
@@ -338,9 +260,17 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Var vänlig vänta. Beräknar använt hårddiskutrymme...</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="283"/>
+        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="321"/>
+        <source>Error</source>
+        <translation>Fel</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -390,12 +320,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../mainwindow.cpp" line="317"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="321"/>
         <source>Could not create temporary directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="329"/>
@@ -411,14 +341,6 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../mainwindow.cpp" line="340"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programmet kommer nu ta en paus för att låta dig redigera filer i arbetskatalogen. Välj Ja för att redigera boot menyn eller välj Nej för att hoppa över detta steg och fortsätta skapandet av snapshotet.</translation>
-    </message>
-    <message>
-        <source>Success</source>
-        <translation type="vanished">Det lyckades</translation>
-    </message>
-    <message>
-        <source>All finished!</source>
-        <translation type="vanished">Allt klart!</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="352"/>
@@ -472,157 +394,170 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
 </context>
 <context>
-    <name>QApplication</name>
-    <message>
-        <source>License</source>
-        <translation type="vanished">Licens</translation>
-    </message>
-    <message>
-        <source>Changelog</source>
-        <translation type="vanished">Ändringslogg</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-    <message>
-        <source>&amp;Close</source>
-        <translation type="vanished">&amp;Stäng</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation type="vanished">Fel</translation>
-    </message>
-    <message>
-        <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation type="vanished">Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Du måste köra detta program som root</translation>
-    </message>
-</context>
-<context>
     <name>QObject</name>
+    <message>
+        <location filename="../about.cpp" line="41"/>
+        <source>License</source>
+        <translation>Licens</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="42"/>
+        <location filename="../about.cpp" line="51"/>
+        <source>Changelog</source>
+        <translation>Ändringslogg</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="43"/>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="63"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Stäng</translation>
+    </message>
+    <message>
+        <location filename="../batchprocessing.cpp" line="64"/>
+        <source>The program will pause the build and open the boot menu in your text editor.</source>
+        <translation>Programmet kommer att pausa byggandet och öppna boot-menyn i din textredigerare.</translation>
+    </message>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>Tool used for creating a live-CD from the running system</source>
-        <translation type="unfinished"></translation>
+        <translation>Verktyg för att skapa en live-CD av systemet du kör</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="73"/>
         <source>Use CLI only</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd enbart CLI</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
         <source>Output directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Output-katalog</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>sökväg</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="76"/>
         <source>Output filename</source>
-        <translation type="unfinished"></translation>
+        <translation>Output filnamn</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="76"/>
         <source>name</source>
-        <translation type="unfinished"></translation>
+        <translation>namn</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="77"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Nämn en annan kärna att använda istället för den kärna som körs som standard, använd formatet som du får av &apos;uname -r&apos;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>Or the full path: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Eller hela sökvägen: %1</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="78"/>
+        <source>version, or path</source>
+        <translation>version, eller sökväg</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa ett månatligt snapshot, lägg till &apos;Månad&apos;  i ISO namnet, slopa beräkningen av använt utrymme</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
-        <translation type="unfinished"></translation>
+        <translation>Denna möjlighet ställer in återställnings-konton och kompression till standard, argument som ändrar dessa saker kommer att ignoreras</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="84"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
-        <translation type="unfinished"></translation>
+        <translation>Beräkna inte checksums för den slutliga ISO-filen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="85"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternativ för att fixa problem med beräkning av checksums för preempt_rt kärnor</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="86"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished">Återställa konton (för distribution till andra)</translation>
+        <translation>Återställa konton (för distribution till andra)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="87"/>
         <source>Calculate checksums for resulting ISO file</source>
-        <translation type="unfinished"></translation>
+        <translation>Beräkna checksums för den slutliga ISO-filen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation type="unfinished"></translation>
+        <translation>Exkludera huvudkataloger, giltiga val:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
         <source>Use the option one time for each item you want to exclude</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd möjligheten en gång för varje post du vill exkludera</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
         <source>one item</source>
-        <translation type="unfinished"></translation>
+        <translation>en post</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="92"/>
         <source>Compression format, valid choices: </source>
-        <translation type="unfinished"></translation>
+        <translation>Kompressionsformat, giltiga val:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
         <source>format</source>
-        <translation type="unfinished"></translation>
+        <translation>format</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="112"/>
+        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="152"/>
+        <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
+        <translation>Du verkar vara inloggad som root, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="159"/>
+        <source>version:</source>
+        <translation>version:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="138"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished">Du måste köra detta program som root</translation>
+        <translation>Du måste köra detta program som administratör d.v.s med sudo.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="151"/>
@@ -632,72 +567,49 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../settings.cpp" line="554"/>
         <location filename="../settings.cpp" line="603"/>
         <source>Error</source>
-        <translation type="unfinished">Fel</translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="112"/>
-        <location filename="../main.cpp" line="121"/>
-        <location filename="../main.cpp" line="152"/>
-        <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="78"/>
-        <source>version, or path</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="216"/>
         <location filename="../main.cpp" line="218"/>
         <location filename="../settings.cpp" line="221"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation type="unfinished">Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="132"/>
-        <location filename="../main.cpp" line="159"/>
-        <source>version:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../batchprocessing.cpp" line="64"/>
-        <source>The program will pause the build and open the boot menu in your text editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="86"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="107"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="208"/>
         <source>Could not find a usable kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte hitta en användbar kärna</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="304"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished">Använt utrymme på / (root): </translation>
+        <translation>Använt utrymme på / (root): </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="307"/>
         <source>estimated</source>
-        <translation type="unfinished">uppskattad</translation>
+        <translation>uppskattad</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="316"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished">Använt utrymme på/home: </translation>
+        <translation>Använt utrymme på/home: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="372"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished">Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
+        <translation>Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="374"/>
@@ -707,7 +619,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished">Det fria utrymmet borde vara tillräckligt för att rymma den komprimerade datan från / och /home
+        <translation>Det fria utrymmet borde vara tillräckligt för att rymma den komprimerade datan från / och /home
 
 Om nödvändigt kan du skapa mer tillgängligt utrymme
 genom att avlägsna tidigare snapshots och sparade kopior:
@@ -717,73 +629,64 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../settings.cpp" line="389"/>
         <source>Desktop</source>
-        <translation type="unfinished">Skrivbord</translation>
+        <translation>Skrivbord</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="390"/>
         <source>Documents</source>
-        <translation type="unfinished">Dokument</translation>
+        <translation>Dokument</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="391"/>
         <source>Downloads</source>
-        <translation type="unfinished">Nerladdningar</translation>
+        <translation>Nerladdningar</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="392"/>
         <source>Music</source>
-        <translation type="unfinished">Musik</translation>
+        <translation>Musik</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="393"/>
         <source>Networks</source>
-        <translation type="unfinished">Nätverk</translation>
+        <translation>Nätverk</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="394"/>
         <source>Pictures</source>
-        <translation type="unfinished">Bilder</translation>
+        <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="396"/>
         <source>Videos</source>
-        <translation type="unfinished">Video</translation>
+        <translation>Video</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="41"/>
-        <source>License</source>
-        <translation type="unfinished">Licens</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="42"/>
-        <location filename="../about.cpp" line="51"/>
-        <source>Changelog</source>
-        <translation type="unfinished">Ändringslogg</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="43"/>
-        <source>Cancel</source>
-        <translation type="unfinished">Avbryt</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="63"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished">&amp;Stäng</translation>
+        <translation>Avbruten eller kunde inte fullbordas</translation>
     </message>
 </context>
 <context>
     <name>Work</name>
+    <message>
+        <location filename="../work.cpp" line="85"/>
+        <source>Cleaning...</source>
+        <translation>Rensar...</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="101"/>
+        <location filename="../work.cpp" line="104"/>
+        <location filename="../work.cpp" line="273"/>
+        <source>Done</source>
+        <translation>Klar</translation>
+    </message>
     <message>
         <location filename="../work.cpp" line="134"/>
         <location filename="../work.cpp" line="232"/>
@@ -792,133 +695,117 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../work.cpp" line="362"/>
         <location filename="../work.cpp" line="434"/>
         <source>Error</source>
-        <translation type="unfinished">Fel</translation>
-    </message>
-    <message>
-        <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="obsolete">Nuvarande kärna stöder inte vald kompressionsalgoritm, var vänlig redigera konfigurationsfilen och välj en annan algoritm.</translation>
-    </message>
-    <message>
-        <location filename="../work.cpp" line="541"/>
-        <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../work.cpp" line="551"/>
-        <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Det finns inte tillräckligt mycket utrymme på din måldisk, du behöver åtminstone %1</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>
         <source>You have %1 free space on %2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../work.cpp" line="85"/>
-        <source>Cleaning...</source>
-        <translation type="unfinished">Rensar...</translation>
-    </message>
-    <message>
-        <location filename="../work.cpp" line="101"/>
-        <location filename="../work.cpp" line="104"/>
-        <location filename="../work.cpp" line="273"/>
-        <source>Done</source>
-        <translation type="unfinished">Klar</translation>
+        <translation>Du har %1 fritt utrymme på %2</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation type="unfinished">Kopierar new-iso filsystem...</translation>
+        <translation>Kopierar new-iso filsystem...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="229"/>
         <source>Squashing filesystem...</source>
-        <translation type="unfinished">Squashing filsystem...</translation>
+        <translation>Squashing filsystem...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="233"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished">Kunde inte skapa linuxfs fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
+        <translation>Kunde inte skapa linuxfs fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="249"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished">Skapar CD/DVD avbildsfil...</translation>
+        <translation>Skapar CD/DVD avbildsfil...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="251"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished">Kunde inte skapa ISO fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
+        <translation>Kunde inte skapa ISO fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="258"/>
         <source>Making hybrid iso</source>
-        <translation type="unfinished">Skapar hybrid iso</translation>
+        <translation>Skapar hybrid iso</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="274"/>
         <source>Success</source>
-        <translation type="unfinished">Det lyckades</translation>
+        <translation>Det lyckades</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="274"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation type="unfinished">MX Snapshot fullföljdes framgångsrikt!</translation>
+        <translation>MX Snapshot fullföljdes framgångsrikt!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="275"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation type="unfinished">Snapshot tog %1 för att avslutas.</translation>
+        <translation>Snapshot tog %1 för att avslutas.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="276"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation type="unfinished">Tack för att du använder MX Snapshot, kör sedan MX Live USB Maker! </translation>
+        <translation>Tack för att du använder MX Snapshot, kör sedan MX Live USB Maker! </translation>
     </message>
     <message>
         <location filename="../work.cpp" line="285"/>
         <source>Installing </source>
-        <translation type="unfinished">Installerar</translation>
+        <translation>Installerar</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="288"/>
         <source>Could not install </source>
-        <translation type="unfinished">Kunde inte installera</translation>
+        <translation>Kunde inte installera</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="298"/>
         <source>Calculating checksum...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../work.cpp" line="434"/>
-        <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Beräknar checksum...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="329"/>
         <source>Building new initrd...</source>
-        <translation type="unfinished">Skapar ny initrd...</translation>
+        <translation>Skapar ny initrd...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="362"/>
         <source>Could not find %1 file, cannot continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte hitta %1 fil, kan inte fortsätta</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="434"/>
+        <source>Could not create working directory. </source>
+        <translation>Kunde inte skapa fungerande katalog.</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="541"/>
+        <source>Calculating total size of excluded files...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="551"/>
+        <source>Calculating size of root...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
