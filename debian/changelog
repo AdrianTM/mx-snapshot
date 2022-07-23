@@ -1,3 +1,9 @@
+mx-snapshot (22.7) mx; urgency=medium
+
+  * translation update 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 23 Jul 2022 12:30:30 -0400
+
 mx-snapshot (22.6.02) mx; urgency=medium
 
   *  Fix: don't remove all exclusions when Exclude all is toggled off when one of the exclusions is removed
