@@ -151,7 +151,7 @@
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
@@ -270,7 +270,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -469,17 +469,17 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"/>
+        <translation>Opzioni del livello di compressione.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"/>
+        <translation>Usa le espressioni: &quot;-Xcompression-level &lt;level&gt;&quot;, o &quot;-Xalgorithm &lt;algorithm&gt;&quot;, o &quot;-Xhc&quot;, vedi la pagina di mksquashfs man</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;opzione&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
@@ -514,7 +514,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"/>
+        <translation>Salta il calcolo dello spazio libero per vedere se l&apos;ISO risultante si adatterà</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
@@ -665,7 +665,7 @@ rimuovendo precedenti snapshots e copie salvate:
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
@@ -710,7 +710,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"/>
+        <translation>Se sei sicuro di avere abbastanza spazio libero, esegui nuovamente il programma con l&apos;opzione -o/--override-size</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -800,12 +800,12 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"/>
+        <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"/>
+        <translation>Calcolo la dimensione di root...</translation>
     </message>
 </context>
 </TS>

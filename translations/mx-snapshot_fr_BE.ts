@@ -34,7 +34,7 @@
     <message>
         <location filename="../mainwindow.ui" line="53"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation>Espace utilisé sur les partitions / (racine) et /home:</translation>
+        <translation>Espace utilisé sur les partitions /(root) et /home:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
@@ -151,7 +151,7 @@
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
@@ -161,7 +161,7 @@
     <message>
         <location filename="../mainwindow.ui" line="532"/>
         <source>ISO compression scheme:</source>
-        <translation>Méthode de compression de l&apos;ISO :</translation>
+        <translation>Méthode de compression de l&apos;ISO:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="539"/>
@@ -269,7 +269,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -463,22 +463,22 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>version, or path</source>
-        <translation>version, ou chemin</translation>
+        <translation>version ou chemin</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"/>
+        <translation>Options du niveau de compression.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez les expressions: &quot;-Xcompression-level &lt;level&gt;&quot; ou &quot;-Xalgorithm &lt;algorithm&gt;&quot;, ou &quot;-Xhc&quot;, voir mksquashfs man page</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;option&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
@@ -513,12 +513,12 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"/>
+        <translation>Ne pas calculer l&apos;espace libre pour voir si l&apos;ISO qui en résulte tiendra dans l&apos;espace.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation>Exclure les dossiers principaux, les choix valables : </translation>
+        <translation>Exclure les dossiers principaux, choix valables: </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
@@ -533,7 +533,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="92"/>
         <source>Compression format, valid choices: </source>
-        <translation>Format de compression, choix valables : </translation>
+        <translation>Format de compression, choix valables: </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
@@ -551,7 +551,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <location filename="../main.cpp" line="132"/>
         <location filename="../main.cpp" line="159"/>
         <source>version:</source>
-        <translation>version :</translation>
+        <translation>version:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="138"/>
@@ -593,7 +593,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../settings.cpp" line="304"/>
         <source>Used space on / (root): </source>
-        <translation>Espace utilisé dans / (racine):</translation>
+        <translation>Espace utilisé dans /(root):</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="307"/>
@@ -663,7 +663,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
@@ -708,7 +708,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"/>
+        <translation>Si vous êtes certain d&apos;avoir assez d&apos;espace libre, relancez le programme avec -o/--override-size option</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -798,12 +798,12 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"/>
+        <translation>Calcul de la taille totale des fichiers exclus...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"/>
+        <translation>Calcul de la taille de root...</translation>
     </message>
 </context>
 </TS>

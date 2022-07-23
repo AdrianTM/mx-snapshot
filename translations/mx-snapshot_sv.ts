@@ -151,7 +151,7 @@
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
@@ -270,7 +270,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -469,17 +469,17 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"/>
+        <translation>Kompressionsnivå-alternativ.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"/>
+        <translation>Använd citationstecken: &quot;-Xcompression-level &lt;level&gt;&quot;, eller &quot;-Xalgorithm &lt;algorithm&gt;&quot;, eller &quot;-Xhc&quot;, se mksquashfs man page</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;alternativ&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
@@ -514,7 +514,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"/>
+        <translation>Slopa uträkning av fritt utrymme för att se om den resulterande ISO-filen ryms.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
@@ -665,7 +665,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
@@ -710,7 +710,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"/>
+        <translation>Om du är säker på att du har tillräckligt med fritt utrymme, kör programmet en gång till med  -o/--override-size alternativet</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -800,12 +800,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"/>
+        <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"/>
+        <translation>Beräknar storleken på root...</translation>
     </message>
 </context>
 </TS>
