@@ -24,7 +24,7 @@
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Snapshot location:</source>
-        <translation>Emplacement de l&apos;instantané:</translation>
+        <translation>Emplacement de l&apos;instantané :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
@@ -34,13 +34,13 @@
     <message>
         <location filename="../mainwindow.ui" line="53"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation>Espace utilisé sur les partitions / (racine) et /home:</translation>
+        <translation>Espace utilisé sur les partitions /(root) et /home :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="158"/>
         <location filename="../mainwindow.cpp" line="298"/>
         <source>Snapshot name:</source>
-        <translation>Nom de l&apos;instantané:</translation>
+        <translation>Nom de l&apos;instantané :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="165"/>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../mainwindow.ui" line="421"/>
         <source>Type of snapshot:</source>
-        <translation>Type d&apos;instantané:</translation>
+        <translation>Type d&apos;instantané :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="428"/>
@@ -151,12 +151,12 @@
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
         <source>Options:</source>
-        <translation>Options:</translation>
+        <translation>Options :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="532"/>
@@ -226,7 +226,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="174"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l&apos;instantané: </translation>
+        <translation>Espace libre disponible dans %1 où sera mis le dossier de l&apos;instantané : </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="175"/>
@@ -238,7 +238,7 @@
 </source>
         <translation>L&apos;espace libre doit pouvoir contenir les données compressées de / et /home
 
-Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
+Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprimant les instantanés et les copies créées auparavant :
 %1 images occupent %2 de l&apos;espace disque.
 </translation>
     </message>
@@ -269,7 +269,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -279,17 +279,17 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="295"/>
         <source>Snapshot will use the following settings:*</source>
-        <translation>Snapshot utilisera les réglages suivants:*</translation>
+        <translation>Snapshot utilisera les réglages suivants :*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>- Snapshot directory:</source>
-        <translation>- Répertoire de l&apos;instantané:</translation>
+        <translation>- Répertoire de l&apos;instantané :</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
         <source>- Kernel to be used:</source>
-        <translation>- Noyau à utiliser:</translation>
+        <translation>- Noyau à utiliser :</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="305"/>
@@ -314,7 +314,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="311"/>
         <source>OK to start?</source>
-        <translation>Prêt à démarrer?</translation>
+        <translation>Prêt à démarrer ?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="317"/>
@@ -354,7 +354,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="431"/>
         <source>Version: </source>
-        <translation>Version: </translation>
+        <translation>Version : </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="432"/>
@@ -389,7 +389,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../mainwindow.cpp" line="478"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation>Êtes-vous sûr de vouloir quitter l&apos;application?</translation>
+        <translation>Êtes-vous sûr de vouloir quitter l&apos;application ?</translation>
     </message>
 </context>
 <context>
@@ -458,27 +458,27 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>Or the full path: %1</source>
-        <translation>Ou le chemin entier: %1</translation>
+        <translation>Ou le chemin entier : %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>version, or path</source>
-        <translation>version, ou chemin</translation>
+        <translation>version ou chemin</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"/>
+        <translation>Options du niveau de compression.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez les expressions: &quot;-Xcompression-level &lt;level&gt;&quot; ou &quot;-Xalgorithm &lt;algorithm&gt;&quot;, ou &quot;-Xhc&quot;, voir mksquashfs man page</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;option&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
@@ -513,12 +513,12 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"/>
+        <translation>Ne pas calculer l&apos;espace libre pour voir si l&apos;ISO qui en résulte tiendra dans l&apos;espace.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation>Exclure les dossiers principaux, les choix valables : </translation>
+        <translation>Exclure les dossiers principaux, choix valables : </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
@@ -593,7 +593,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../settings.cpp" line="304"/>
         <source>Used space on / (root): </source>
-        <translation>Espace utilisé dans / (racine):</translation>
+        <translation>Espace utilisé dans /(root) :</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="307"/>
@@ -603,12 +603,12 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../settings.cpp" line="316"/>
         <source>Used space on /home: </source>
-        <translation>Espace utilisé dans /home:</translation>
+        <translation>Espace utilisé dans /home :</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="372"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l&apos;instantané: </translation>
+        <translation>Espace libre disponible dans %1 où sera mis le dossier de l&apos;instantané : </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="374"/>
@@ -620,7 +620,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
 </source>
         <translation>L&apos;espace libre doit pouvoir contenir les données compressées de / et /home
 
-Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
+Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprimant les instantanés et les copies créées auparavant :
 %1 images occupent %2 de l&apos;espace disque.
 </translation>
     </message>
@@ -663,7 +663,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
@@ -708,7 +708,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"/>
+        <translation>Si vous êtes certain d&apos;avoir assez d&apos;espace libre, relancez le programme avec -o/--override-size option</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -753,7 +753,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="274"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>Instantané MX crée avec succès!</translation>
+        <translation>Instantané MX crée avec succès !</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="275"/>
@@ -763,7 +763,7 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="276"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Merci d&apos;utiliser MX Snapshot, lancez ensuite Créateur de Live USB MX!</translation>
+        <translation>Merci d&apos;utiliser MX Snapshot, lancez ensuite Créateur de Live USB MX !</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="285"/>
@@ -798,12 +798,12 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"/>
+        <translation>Calcul de la taille totale des fichiers exclus...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"/>
+        <translation>Calcul de la taille de root...</translation>
     </message>
 </context>
 </TS>

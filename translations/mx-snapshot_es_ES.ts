@@ -151,7 +151,7 @@
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
@@ -270,7 +270,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>El archivo de salida %1 ya existe. Por favor, utilice otro nombre de archivo o elimine el archivo existente.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
@@ -469,17 +469,17 @@
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de niveles de compresión.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"/>
+        <translation>Utilice las comillas: &quot;-Xcompression-level &lt;level&gt;&quot;, o &quot;-Xalgorithm &lt;algorithm&gt;&quot;, o &quot;-Xhc&quot;, vea la página man de mksquashfs</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"/>
+        <translation>&quot;opciones&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
@@ -514,7 +514,7 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"/>
+        <translation>Omitir el cálculo del espacio libre para ver si la ISO resultante cabe</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
@@ -665,7 +665,7 @@
         <location filename="../settings.cpp" line="549"/>
         <location filename="../settings.cpp" line="598"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"/>
+        <translation>El archivo de salida %1 ya existe. Por favor, utilice otro nombre de archivo o elimine el archivo existente.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="105"/>
@@ -710,7 +710,7 @@
     <message>
         <location filename="../work.cpp" line="137"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"/>
+        <translation>Si está seguro de que tiene suficiente espacio libre vuelva a ejecutar el programa con la opción -o/--override-size</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -800,12 +800,12 @@
     <message>
         <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"/>
+        <translation>Calculando el tamaño total de los archivos excluidos...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"/>
+        <translation>Calculando el tamaño de root...</translation>
     </message>
 </context>
 </TS>
