@@ -1,3 +1,10 @@
+mx-snapshot (22.8) mx; urgency=medium
+
+  * Fix: launching Firefox from Help
+  * Translation update
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 17 Aug 2022 16:41:43 -0400
+
 mx-snapshot (22.7) mx; urgency=medium
 
   * translation update 
