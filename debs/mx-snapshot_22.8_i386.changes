@@ -1,0 +1,26 @@
+Format: 1.8
+Date: Wed, 17 Aug 2022 16:41:43 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.8
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8) mx; urgency=medium
+ .
+   * Fix: launching Firefox from Help
+   * Translation update
+Checksums-Sha1:
+ 8555fc1e0b6d05fcd81b7ef6f0963223f69bc417 10033 mx-snapshot_22.8_i386.buildinfo
+ 476ea1efad03e598ee9d50dab542a1b92b36199f 281560 mx-snapshot_22.8_i386.deb
+Checksums-Sha256:
+ 96fdabe9871ca0b1086d96f520a45792f3cb4d428c463259ee400f3bd44ddd11 10033 mx-snapshot_22.8_i386.buildinfo
+ 6d7c7dc68c7ab2841c70f478460b5668d86525d9ef5e758e23c7bd45424552db 281560 mx-snapshot_22.8_i386.deb
+Files:
+ 46b26b6a9cf661d0a62eae12766481fc 10033 admin optional mx-snapshot_22.8_i386.buildinfo
+ 4985c607eaf14c0f51699e6c49f9fce1 281560 admin optional mx-snapshot_22.8_i386.deb
