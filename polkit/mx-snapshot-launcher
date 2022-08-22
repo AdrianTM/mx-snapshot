@@ -45,6 +45,7 @@ else
     XDG_CURRENT_DESKTOP=
     XDG_SESSION_TYPE=
     WAYLAND_DISPLAY=
+    DBUS_SESSION_BUS_ADDRESS=
     )
     # combine array into a string of space separated entries
     __ENVIRONEMENT_PATTERN__="${__ENVIRONEMENT_PATTERN__[*]}"
