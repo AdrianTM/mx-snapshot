@@ -14,20 +14,20 @@ Build-Depends: debhelper (>= 10), qtbase5-dev, qttools5-dev-tools
 Package-List:
  mx-snapshot deb admin optional arch=any
 Checksums-Sha1:
- c1707394444b835d6404b0b6d7b494ec254a3f4b 216560 mx-snapshot_22.8.01.tar.xz
+ 7522907857c3ca30103ad92756868c957c7ef99f 216568 mx-snapshot_22.8.01.tar.xz
 Checksums-Sha256:
- d7125b0beb5e9dc158f26f5a3f494da24de96685c4f791b83cbac2967d05d3b5 216560 mx-snapshot_22.8.01.tar.xz
+ dcc31f54e71b7b3fa09bcaf9408f72820181689a7ef843c5c7b0c81652e97155 216568 mx-snapshot_22.8.01.tar.xz
 Files:
- 4d73acbd44463e8212e8dd0b95d6b13b 216560 mx-snapshot_22.8.01.tar.xz
+ 658fa3047c30855bdede1583ec8ab975 216568 mx-snapshot_22.8.01.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDsG0THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJBuCADW1fX/gcbvw2OgChxBel9SCUHQKx49
-3cjn2ct+qGZgTExc4luu8aTSwMYP5H8lZyYRQlOj4t9kFHslhOoO5fauoe8chEQ9
-A4MyCOjzlUWh6luxqDNR9Ybg21T5pAMRybdi54Ej4WY+iQUH5mIuv/nIAL1xT6Cv
-xU5ifBmXf9uOdIB63RyiRDq1Cdf6HKOLa+4P8K4uappPPRqI4iAWxg/kds+8IxeJ
-R+mdY4ZLGyJG9nDX2R3qejmudJwt16P3p/70ISqcXbn9Ws4OkuHm/rO3X5y21cnx
-VFZTrU1O8eNMYSb2cACsfBwfvKO9vaEndriCdoVNUMAN+BbujLM1Zj9D
-=8mRS
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDu2cTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumOuzCACY2Nfw5o6WeZGQORbvPpkV7u1hpY/7
+fIHQ6Npd5hdtOW9j5//KxLXQO4Ujn5SwId4FR3yYfCleP69LMyqchdPfQaMBJ5xO
+zmX1WIuijU5MfL8AqIxSvWTcgsrg1TK98YzQVyFFh5UYdps+PKg30VHgNkinaxUx
+e2iQW8rtxBbLg9vIAk2KDfQW4kF2zY5E8GQg6L4JA6nWDCRyqFbifiVU6j8of/0r
+j9AEYDyFw0N2o5KgpIGc7easjv2FONWX0mWy2lsPVoeWUpqTlfp6S3AK7+IQYn/j
+j2lBpXIYhuLQtbiHROYcKyl8wLqmxd6kFxdIKIIUzh68oMGDMkQjvXjN
+=Gp68
 -----END PGP SIGNATURE-----
