@@ -15,11 +15,11 @@ Changes:
  .
    * Use gio open instead of xdg-open to open documents
 Checksums-Sha1:
- 39e71dbd56509236fd1ff5e82ae220bb42b35d38 10048 mx-snapshot_22.8.01_i386.buildinfo
- 5e57a7bd88dcbc274136579f587534d55bc8f1b8 281404 mx-snapshot_22.8.01_i386.deb
+ bd8206e1bffeee43a11287cab8be24a9e3d682c5 10048 mx-snapshot_22.8.01_i386.buildinfo
+ e531b238d97f5d98ab9533c8d110108343ae3a40 281772 mx-snapshot_22.8.01_i386.deb
 Checksums-Sha256:
- 3f3dfc4e441cfb6f6848aa2b851a5ff57f35796e8eb2c0f8d9a83b6eceaaea23 10048 mx-snapshot_22.8.01_i386.buildinfo
- 9311b8e84fb62a6b115107b0761a7d2b7e20fb94645b578ed4c6154efa6da322 281404 mx-snapshot_22.8.01_i386.deb
+ 8b202868f649fff76b2b0e3ead5eac12290c939eaab849f72ff8311164fdf42e 10048 mx-snapshot_22.8.01_i386.buildinfo
+ bb35abae93775c364f7e559472526602bda27cbe92e5ec0d39a9fb4d823319e5 281772 mx-snapshot_22.8.01_i386.deb
 Files:
- 8983a3d88fdcd6cff0abf7c30c2aed1a 10048 admin optional mx-snapshot_22.8.01_i386.buildinfo
- 4c62d7550e6a55808b87a14c4cd0aedc 281404 admin optional mx-snapshot_22.8.01_i386.deb
+ 7c3638487389e0fe19f4c3ce8af4be5b 10048 admin optional mx-snapshot_22.8.01_i386.buildinfo
+ b485c5ecd6b598094c51cd240f1dfbb5 281772 admin optional mx-snapshot_22.8.01_i386.deb

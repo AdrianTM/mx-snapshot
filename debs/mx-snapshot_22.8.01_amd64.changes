@@ -18,29 +18,29 @@ Changes:
  .
    * Use gio open instead of xdg-open to open documents
 Checksums-Sha1:
- eca4970f7dcc510bb5ef4039b5862b642f3205a5 1206 mx-snapshot_22.8.01.dsc
- 7522907857c3ca30103ad92756868c957c7ef99f 216568 mx-snapshot_22.8.01.tar.xz
- 87d3686d4f22fab687f2cc02e4b96da014f0b8dd 10755 mx-snapshot_22.8.01_amd64.buildinfo
- c7f50985591791ae0d22becb67beab1bbe575be0 276208 mx-snapshot_22.8.01_amd64.deb
+ 3f3b8b6612f55bb2722785986e75c7df8ac414be 1206 mx-snapshot_22.8.01.dsc
+ 6fdf663b1177e34769b3c97e6015f8d99187aa09 216576 mx-snapshot_22.8.01.tar.xz
+ 0c9d0175b529588e9cdc21a0552232a2a5e397fd 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ 39e770b5b80a5abe2b2e545cb1bafb13324d397a 276596 mx-snapshot_22.8.01_amd64.deb
 Checksums-Sha256:
- 6e4647f84080e70330465a01a8e06e2de01c94f33a201412fe0ed732c303bbac 1206 mx-snapshot_22.8.01.dsc
- dcc31f54e71b7b3fa09bcaf9408f72820181689a7ef843c5c7b0c81652e97155 216568 mx-snapshot_22.8.01.tar.xz
- 0d2748cb49cf3553b0fe25be034d7b2429e7789f450acf6e5bc1dc23f54a68c6 10755 mx-snapshot_22.8.01_amd64.buildinfo
- 37854a844bd02aed0561368a8cdabe854486827242b2e233b398f4ec25462f39 276208 mx-snapshot_22.8.01_amd64.deb
+ 974aadc707ed5677936c04e91464d15970f7d6df82716b9815f19ecbe48296ed 1206 mx-snapshot_22.8.01.dsc
+ 2ca12875be2e515202f0b51d66f576687b03d175b6853f2458c92f521ebbfa9a 216576 mx-snapshot_22.8.01.tar.xz
+ ae63b799f739d0935944c31e6af5f753c1be4575d1c34607a06f73698df78ac3 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ c4bb68fa8fa9c07a68c804f4028757ba67d752fe83504ef80fe685e4859ba288 276596 mx-snapshot_22.8.01_amd64.deb
 Files:
- 01d8e4d39620603de9e49d9234bcb8e7 1206 admin optional mx-snapshot_22.8.01.dsc
- 658fa3047c30855bdede1583ec8ab975 216568 admin optional mx-snapshot_22.8.01.tar.xz
- f923bb87ea7f44044e35b702067e2ef7 10755 admin optional mx-snapshot_22.8.01_amd64.buildinfo
- 7b4a9d1050f79e6e417c1ee1e1b9dc74 276208 admin optional mx-snapshot_22.8.01_amd64.deb
+ 5ef7d3d27a7285214eded1ccc9e4e8a2 1206 admin optional mx-snapshot_22.8.01.dsc
+ b7e13fddc8a9b40039ed57da0c913bbb 216576 admin optional mx-snapshot_22.8.01.tar.xz
+ 6378f42a71845cc6a5cbb9facd152424 10755 admin optional mx-snapshot_22.8.01_amd64.buildinfo
+ d3df132189db8e5863832f4e5d0029af 276596 admin optional mx-snapshot_22.8.01_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDu2cTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHKGB/45CNnG1YEtLCT8B2m3HadK+68XGBkl
-ZROjtKus62goZuXiHX1DPEyO7W1f0LCqBUUMiOZuHlu4b0Mq1YROf6LiFovNip9D
-6SCOnXZuouYCANGkwl61bRqwPO4DKiCr5bESvknwO1Plyhnt2jibz5A0kg5w2Yqc
-zeKub74OUGD3Yh9geRbyN6g4/AI4Ij5RY5ng7VllQ095JHF5JlooXLEdqA/+NF0+
-S1vlwr6VE7pQXee6CaIiFVPlihMt3rIiQdH90Ybl4/dj7teGEGwfVaBqc5FA9Idy
-QjpB6s18xD6c4HRCOpVOVHgRlfwhcbv1Qf2MjOZuW9I4oMFrY4QG3tLA
-=WvWp
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMECeATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumIlQB/4s4HMf7eJavxkGFD1jaxl4wPE0Go8x
+saUs4vZqHLD0cQCOtSAw3xN3bnkWSoF6AarIL9DKVKcGEdOmgZvu9nUMvca3t9BT
+HGahb152agoZEudZgy9lna3Eix79IjIUGBtBhLzNyrgOGtptjKVUPFoCb2Ee1im3
+PRs/6lrWozb28o3L2/Mseip8RBBt3i32dR0ipsC7fECWtWbxOf3tT3GjR3KKFGue
+76ZAH9FTk5fB38dfqyGQeHScWYTa6T05+wSt9uiZ62XlzoiGv2VPq2l1pLPRW25u
+pDYrN/MbF4JnQjPmHvlQ0Ea45FS/3GUPXV1OsAZWcaS0OBzIm3syxciI
+=Jw5a
 -----END PGP SIGNATURE-----
