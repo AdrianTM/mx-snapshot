@@ -15,26 +15,26 @@ Changes:
  .
    * Use gio open instead of xdg-open to open documents
 Checksums-Sha1:
- 4076a05a7945bb6751c2cd1b8e65cdf091bc1589 1206 mx-snapshot_22.8.01.dsc
- c1707394444b835d6404b0b6d7b494ec254a3f4b 216560 mx-snapshot_22.8.01.tar.xz
- d3fb14435251be9d035a7ab7f16f17f3f38ab825 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ eca4970f7dcc510bb5ef4039b5862b642f3205a5 1206 mx-snapshot_22.8.01.dsc
+ 7522907857c3ca30103ad92756868c957c7ef99f 216568 mx-snapshot_22.8.01.tar.xz
+ 87d3686d4f22fab687f2cc02e4b96da014f0b8dd 10755 mx-snapshot_22.8.01_amd64.buildinfo
 Checksums-Sha256:
- 4174b28088a70e65c32cb172d4c79b56bb70df576198e27b43f36a5dc3c351b3 1206 mx-snapshot_22.8.01.dsc
- d7125b0beb5e9dc158f26f5a3f494da24de96685c4f791b83cbac2967d05d3b5 216560 mx-snapshot_22.8.01.tar.xz
- 074fc9dd212e514821a4715df8879d780d5c692703b8a47aec80e2ae613791d2 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ 6e4647f84080e70330465a01a8e06e2de01c94f33a201412fe0ed732c303bbac 1206 mx-snapshot_22.8.01.dsc
+ dcc31f54e71b7b3fa09bcaf9408f72820181689a7ef843c5c7b0c81652e97155 216568 mx-snapshot_22.8.01.tar.xz
+ 0d2748cb49cf3553b0fe25be034d7b2429e7789f450acf6e5bc1dc23f54a68c6 10755 mx-snapshot_22.8.01_amd64.buildinfo
 Files:
- 3f5bc95ad3fb8bac7da7336c9e6d5bee 1206 admin optional mx-snapshot_22.8.01.dsc
- 4d73acbd44463e8212e8dd0b95d6b13b 216560 admin optional mx-snapshot_22.8.01.tar.xz
- cba500a0bb3ffde9f6f6d52b5d014abf 10755 admin optional mx-snapshot_22.8.01_amd64.buildinfo
+ 01d8e4d39620603de9e49d9234bcb8e7 1206 admin optional mx-snapshot_22.8.01.dsc
+ 658fa3047c30855bdede1583ec8ab975 216568 admin optional mx-snapshot_22.8.01.tar.xz
+ f923bb87ea7f44044e35b702067e2ef7 10755 admin optional mx-snapshot_22.8.01_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDsHgTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBHBB/9mCHYZR+MVkDapigQMTgZXGl1869xe
-v9peaippIfRUOQvjum0xrezGuLFmIFJCoAvbmJ39ixbcw2O/aR4oCuc19bgcnwVi
-P0x9sG4KgngfOMEg3dDrZbuO4q1M+W0kfoc6a3HrobzUeC9LLl/XmX8LzMvtSFlC
-1wJci41r2Gz2IqKqYVAbD6IjegHBELimy8d+5zKcfA5xQzvnQqo1MrK8bWAdO/7o
-w/EpkOXWuqowPVdr9QYkK29AF3XURWU/wNubtRnkgOapesyqKtY/sQKb/oMMvmSD
-DogtuMsVC4gcVYCbc4Ix5rOYS1y+J2a6a+ql7wT2k0ixtbyN9vY5tfb0
-=N93A
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDu2cTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumELTCACPHdSIUo7GmdWhQHuM0lp5Tf0syOdI
+0SHsYJPGiQfmpGSuVg4Xe4UkRX6yoO968kwjudPhCE2+XMMWjf0+FfHtivqOjBiq
+T5Rz00OUy5BrLRsBOvhhttL71S+h9txsge8BAV7193L7hXEhLzEp/fsUjkWGm6IQ
+9a319rctgbfRMXeFK0tCG9oO8zY/rRGKoAPKnZ3gl1ko3uFw4AXPvyoau0H/3E1m
+kOtPwovqJ+dXwrMZl6yuEzYahBsO6RcdHPmCvpRNAf0fi9/fZBXBgH4dD/qCk9l4
+f1ecqFzx1UKQj52SOUAUWMOLWdX7eW6St27qiBq+/CpCyQxiV2w7p/jm
+=GTpb
 -----END PGP SIGNATURE-----
