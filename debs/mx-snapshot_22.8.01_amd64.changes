@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 22 Aug 2022 12:34:16 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.8.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8.01) mx; urgency=medium
+ .
+   * Use gio open instead of xdg-open to open documents
+Checksums-Sha1:
+ 4076a05a7945bb6751c2cd1b8e65cdf091bc1589 1206 mx-snapshot_22.8.01.dsc
+ c1707394444b835d6404b0b6d7b494ec254a3f4b 216560 mx-snapshot_22.8.01.tar.xz
+ d3fb14435251be9d035a7ab7f16f17f3f38ab825 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ 0c3c7426936431daf090080ef5215f8ca2616c69 276124 mx-snapshot_22.8.01_amd64.deb
+Checksums-Sha256:
+ 4174b28088a70e65c32cb172d4c79b56bb70df576198e27b43f36a5dc3c351b3 1206 mx-snapshot_22.8.01.dsc
+ d7125b0beb5e9dc158f26f5a3f494da24de96685c4f791b83cbac2967d05d3b5 216560 mx-snapshot_22.8.01.tar.xz
+ 074fc9dd212e514821a4715df8879d780d5c692703b8a47aec80e2ae613791d2 10755 mx-snapshot_22.8.01_amd64.buildinfo
+ 5aec25ab27bb8326b5619710f39e268b0e439f6fabf5bda7e9e6df73f29b757a 276124 mx-snapshot_22.8.01_amd64.deb
+Files:
+ 3f5bc95ad3fb8bac7da7336c9e6d5bee 1206 admin optional mx-snapshot_22.8.01.dsc
+ 4d73acbd44463e8212e8dd0b95d6b13b 216560 admin optional mx-snapshot_22.8.01.tar.xz
+ cba500a0bb3ffde9f6f6d52b5d014abf 10755 admin optional mx-snapshot_22.8.01_amd64.buildinfo
+ 140475473a84152fb7a12012302b4015 276124 admin optional mx-snapshot_22.8.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMDsHgTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDIjB/0aJwczhvjuxQcV34it+/3zPewrh5Xf
+E10FCqniCJckFPBPNNn12BF7a5bRkMi2HIFJwxz1z71gvWrRlq9VaoJMD4Bf9Cuc
+r3ESWGCpyl9OgB8fulFsTmsKYJjx6rUsOXb5zApDTX0Qnt2DK0muAydgPTfvkS92
+7CTywoQBxCPdOSRS+mFKwrQO5JXJ103MLxYX3fZobKFryWoko+g7xPIvU7PWBHtT
+2KOu0fofCWroc0s/bo0btm7E1ENmWfzkydqdd3hF5ocd3dsH0QfXveBjmoJ+ruHf
+vKPEBRxFWIwH48NJOv0el4FZi/s4Vm3Shu5uW2DmwpQ11zykjnftiGAt
+=RuD4
+-----END PGP SIGNATURE-----
