@@ -1,3 +1,9 @@
+mx-snapshot (22.8.01) mx; urgency=medium
+
+  * Use gio open instead of xdg-open to open documents
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 22 Aug 2022 12:34:16 -0400
+
 mx-snapshot (22.8) mx; urgency=medium
 
   * Fix: launching Firefox from Help

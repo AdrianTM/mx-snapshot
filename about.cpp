@@ -15,19 +15,18 @@ extern const QString starting_home;
 void displayDoc(const QString &url, const QString &title, bool runned_as_root)
 {
     qputenv("HOME", starting_home.toUtf8());
-    // prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
+    // prefer mx-viewer otherwise use gio open (use runuser to run that as logname user)
     if (QFile::exists(QStringLiteral("/usr/bin/mx-viewer"))) {
         QProcess::execute(QStringLiteral("mx-viewer"), {url, title});
     } else {
         if (!runned_as_root) {
-            QProcess::execute(QStringLiteral("xdg-open"), {url});
+            QProcess::execute(QStringLiteral("gio"), {"open", url});
         } else {
             QProcess proc;
             proc.start(QStringLiteral("logname"), {}, QIODevice::ReadOnly);
             proc.waitForFinished();
             QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
-            QProcess::startDetached(QStringLiteral("runuser"),
-                                    {QStringLiteral("-u"), user, QStringLiteral("--"), QStringLiteral("xdg-open"), url});
+            QProcess::startDetached(QStringLiteral("runuser"), {"-u", user, "--", "gio", "open", url});
         }
     }
     qputenv("HOME", "/root");
