@@ -11,7 +11,6 @@ Package: mx-snapshot
 Architecture: any
 Depends: mx-iso-template | iso-template (>= 16.1mx15),
          mx-remaster,
-         mx-viewer | xdg-utils,
          squashfs-tools,
          syslinux-utils,
          xdg-user-dirs,
