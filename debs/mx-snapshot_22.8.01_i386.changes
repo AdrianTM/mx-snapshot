@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Mon, 22 Aug 2022 12:34:16 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.8.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8.01) mx; urgency=medium
+ .
+   * Use gio open instead of xdg-open to open documents
+Checksums-Sha1:
+ 424ac27a61ca6854f825a17807cdf6ecd3f52b67 10048 mx-snapshot_22.8.01_i386.buildinfo
+ e054f7cd2899a8b8b4a5633463ced472cc0b6543 281476 mx-snapshot_22.8.01_i386.deb
+Checksums-Sha256:
+ eacbafe7985dd95791853303c5245ca122746ebd55b38e729a63dff99e31b480 10048 mx-snapshot_22.8.01_i386.buildinfo
+ acdb3cb07540ddf9869dd3096e7f49b25e626d33adbc7965908ddd12925f30ab 281476 mx-snapshot_22.8.01_i386.deb
+Files:
+ afbdcef9414dbc7549907d7c4e26cd6c 10048 admin optional mx-snapshot_22.8.01_i386.buildinfo
+ dc275e8189f4ac47b68173c23559a1bc 281476 admin optional mx-snapshot_22.8.01_i386.deb
