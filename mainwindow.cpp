@@ -442,7 +442,7 @@ void MainWindow::btnAbout_clicked()
                        R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)" +
                        tr("Copyright (c) MX Linux") + "<br /><br /></p>",
                        QStringLiteral("/usr/share/doc/mx-snapshot/license.html"),
-                       tr("%1 License").arg(this->windowTitle()), true);
+                       tr("%1 License").arg(this->windowTitle()));
     this->show();
 }
 
@@ -456,7 +456,7 @@ void MainWindow::btnHelp_clicked()
 
     if (lang.startsWith(QLatin1String("fr")))
         url = QStringLiteral("https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane");
-    displayDoc(url, tr("%1 Help").arg(this->windowTitle()), true);
+    displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
 }
 
 // Select snapshot directory

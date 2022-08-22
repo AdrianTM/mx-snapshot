@@ -8,31 +8,41 @@
 
 #include "about.h"
 #include "version.h"
+#include <unistd.h>
 
 extern const QString starting_home;
 
 // display doc as nomal user when run as root
-void displayDoc(const QString &url, const QString &title, bool runned_as_root)
+void displayDoc(const QString &url, const QString &title)
 {
     qputenv("HOME", starting_home.toUtf8());
-    // prefer mx-viewer otherwise use gio open (use runuser to run that as logname user)
+    // prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user) "gio open" would also work here
     if (QFile::exists(QStringLiteral("/usr/bin/mx-viewer"))) {
         QProcess::execute(QStringLiteral("mx-viewer"), {url, title});
     } else {
-        if (!runned_as_root) {
-            QProcess::execute(QStringLiteral("gio"), {"open", url});
+        if (getuid() != 0) {
+            QProcess::execute(QStringLiteral("xdg-open"), {url});
+            return;
         } else {
             QProcess proc;
             proc.start(QStringLiteral("logname"), {}, QIODevice::ReadOnly);
             proc.waitForFinished();
-            QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
-            QProcess::startDetached(QStringLiteral("runuser"), {"-u", user, "--", "gio", "open", url});
+            QByteArray user = proc.readAllStandardOutput().trimmed();
+            proc.start(QStringLiteral("id"), {"-u", user});
+            proc.waitForFinished();
+            QByteArray id = proc.readAllStandardOutput().trimmed();
+
+            qunsetenv("KDE_FULL_SESSION");
+            qunsetenv("XDG_CURRENT_DESKTOP");
+            qputenv("XDG_RUNTIME_DIR", "/run/user/" + id);
+            QProcess::startDetached(QStringLiteral("runuser"), {"-u", user, "--", "xdg-open", url});
+            qputenv("XDG_RUNTIME_DIR", "/run/user/0");
         }
     }
     qputenv("HOME", "/root");
 }
 
-void displayAboutMsgBox(const QString &title, const QString &message, const QString &licence_url, const QString &license_title, bool runned_as_root)
+void displayAboutMsgBox(const QString &title, const QString &message, const QString &licence_url, const QString &license_title)
 {
     const auto width  = 600;
     const auto height = 500;
@@ -44,7 +54,7 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
 
     msgBox.exec();
     if (msgBox.clickedButton() == btnLicense) {
-        displayDoc(licence_url, license_title, runned_as_root);
+        displayDoc(licence_url, license_title);
     } else if (msgBox.clickedButton() == btnChangelog) {
         auto *changelog = new QDialog;
         changelog->setWindowTitle(QObject::tr("Changelog"));
@@ -53,9 +63,7 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         auto *text = new QTextEdit(changelog);
         text->setReadOnly(true);
         QProcess proc;
-        proc.start(QStringLiteral("zless"), {QStringLiteral("/usr/share/doc/") +
-                                             QFileInfo(QCoreApplication::applicationFilePath()).fileName() +
-                                             QStringLiteral("/changelog.gz")}, QIODevice::ReadOnly);
+        proc.start(QStringLiteral("zless"), {"/usr/share/doc/" + QFileInfo(QCoreApplication::applicationFilePath()).fileName() + "/changelog.gz"});
         proc.waitForFinished();
         text->setText(QString::fromLatin1(proc.readAllStandardOutput()));
 
