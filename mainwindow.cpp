@@ -326,12 +326,12 @@ void MainWindow::btnNext_clicked()
         auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
         auto *checkShutdown = new QCheckBox(this);
         checkShutdown->setText(tr("Shutdown computer when done."));
+        if (shutdown) checkShutdown->setCheckState(Qt::Checked);
         messageBox.setCheckBox(checkShutdown);
         messageBox.exec();
         if (messageBox.clickedButton() == pushCancel)
             return;
-        if (checkShutdown->isChecked())
-            shutdown = true;
+        shutdown = checkShutdown->isChecked();
 
         work.started = true;
         work.e_timer.start();
