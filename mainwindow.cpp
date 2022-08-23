@@ -206,7 +206,7 @@ bool MainWindow::installPackage(const QString &package)
 }
 
 // clean up changes before exit
-[[ noreturn ]] void MainWindow::cleanUp()
+void MainWindow::cleanUp()
 {
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     work.cleanUp();
@@ -314,12 +314,25 @@ void MainWindow::btnNext_clicked()
                 tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm."));
             return;
         }
-        if (QMessageBox::Cancel == QMessageBox::question(this, tr("Final chance"),
-                 tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n" +
-                 tr("It will take some time to finish, depending on the size of the installed system and the capacity of your computer.") + "\n\n" +
-                 tr("OK to start?"), QMessageBox::Ok | QMessageBox::Cancel)) {
+
+
+        QMessageBox messageBox(this);
+        messageBox.setIcon(QMessageBox::Question);
+        messageBox.setWindowTitle(tr("Final chance"));
+        messageBox.setText(tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n" +
+                           tr("It will take some time to finish, depending on the size of the installed system and the capacity of your computer.") + "\n\n" +
+                           tr("OK to start?"));
+        messageBox.addButton(QMessageBox::Ok);
+        auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
+        auto *checkShutdown = new QCheckBox(this);
+        checkShutdown->setText(tr("Shutdown computer when done."));
+        messageBox.setCheckBox(checkShutdown);
+        messageBox.exec();
+        if (messageBox.clickedButton() == pushCancel)
             return;
-        }
+        if (checkShutdown->isChecked())
+            shutdown = true;
+
         work.started = true;
         work.e_timer.start();
         if (!checkSnapshotDir()) {
