@@ -18,29 +18,29 @@ Changes:
  .
    * Adds a shutdown when done option (checkbox before starting in GUI and --shutdown CLI option)
 Checksums-Sha1:
- 5e34413a2ddbf61775833e5999d3e02a2c2f9a97 1206 mx-snapshot_22.8.02.dsc
- 7a629c3240d1cfe01b590f8b730750c98465a6e9 216888 mx-snapshot_22.8.02.tar.xz
- caeed503b16ad5b340d3217f64848c94b7057790 10755 mx-snapshot_22.8.02_amd64.buildinfo
- 8ddd58a0d89963f63f41412cc7900de80d1338b0 277096 mx-snapshot_22.8.02_amd64.deb
+ 5706fbfbf421221a39355d429c4e8c9974d0d4e0 1206 mx-snapshot_22.8.02.dsc
+ c67603927051d8a00d5afb741c206715181462b2 220780 mx-snapshot_22.8.02.tar.xz
+ 19f94df5c5b5d4120a4c5f8162c6138e09eb5c3c 10755 mx-snapshot_22.8.02_amd64.buildinfo
+ 46e2f26acb8d5f59d8804829db80e39775cfa740 277020 mx-snapshot_22.8.02_amd64.deb
 Checksums-Sha256:
- a4a13482046d1829ba1654252de17f48b90f3d3b297841cb7b373237eb97d19b 1206 mx-snapshot_22.8.02.dsc
- 92b35becb194d615b2cf0e4b7849422c5921acd0d4efd646e1ac14ece2106196 216888 mx-snapshot_22.8.02.tar.xz
- 1639f5b437bc2e0150e4c925abb8d6c1093c325d53915d3bec541c548eda4d86 10755 mx-snapshot_22.8.02_amd64.buildinfo
- 956a940a4adcadad48537f7098ca36ed63e79e5fffc72077f9a71fb681402c5d 277096 mx-snapshot_22.8.02_amd64.deb
+ c2127c217722a720d8519e947fd54118a894e9fa5697298aa634490a861adfc8 1206 mx-snapshot_22.8.02.dsc
+ 88c3c7f8554080378d7a93b40b1788d06372ff790f34784909c086e9f7723eae 220780 mx-snapshot_22.8.02.tar.xz
+ 75c2d17c0bc471316336e5bc0104c840aca93a4cedc6ae3380df1f98b71b1b2b 10755 mx-snapshot_22.8.02_amd64.buildinfo
+ 5c5ca4d58b0f62f37ccd7e8f1304a9f5381f09e02620db8d35d4bb4ef7fb12f6 277020 mx-snapshot_22.8.02_amd64.deb
 Files:
- 1f9df259df042b7811a8f278020f4943 1206 admin optional mx-snapshot_22.8.02.dsc
- 515626279d0300bcc47a54b49a7f2c2d 216888 admin optional mx-snapshot_22.8.02.tar.xz
- ca96f54ca7ee8b96c14bbab9df9a3a2e 10755 admin optional mx-snapshot_22.8.02_amd64.buildinfo
- 9663f4ac58b2ec7d1ae761a6d97fb8a5 277096 admin optional mx-snapshot_22.8.02_amd64.deb
+ de7701ad9fcbe86c857d362b8181c938 1206 admin optional mx-snapshot_22.8.02.dsc
+ e6c4afc070174aef2810f21e9d69086d 220780 admin optional mx-snapshot_22.8.02.tar.xz
+ 2a7b3a5e0b6f996f783a20c244eb25d6 10755 admin optional mx-snapshot_22.8.02_amd64.buildinfo
+ 533e4d4ad31e228f7a607b696c9544ad 277020 admin optional mx-snapshot_22.8.02_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMFX7cTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPHZB/9IvHFKAUPuppLV6vsuP3gNlvItsPWW
-CMrAZVvYzKzq+ABVMk7jKIGPqUOL6eu/d4tlMg8zkzj4lAeFJCHf3ND4OSvoQI4q
-OO1xrKbMJpfGevGRQ2J63AF1O0HNNCxoVcMrZnbfwh408gz9y2KU3OQWTZ2y6Ar8
-d9k4bvjBrdAdxNvR7PwVZZ7vX1L3X36spJnX5L9JZrQ1LaBcJAsG8fLQbs9vHnyL
-fWzIX8QER+IC8x71u9kj2AeeBs3MIWVvJb9C2eaK9jyNE+IPt4RdYKglJMc4e2dE
-ioRhJwsiLqoCZ2hiwJvVfaTSX9ocr8PejbiIruHX/Wmze6J8LQAIPAcW
-=L0+Q
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMFYXwTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHIICAC0Sa6702hbJpu9fdiM3C5/KYJz5uuM
+0NKVbgNdgQ7i5SkbC8829exK9nUZb0dCMSWtY0qQqtnvIaRU+ZbJjJWJdVM3gTXo
+1AqeVxvjzYvkAI6YvFiDmPX2e8bOV/wEf8vp+FU5+VsewgDdPHrrySZXZkC8zTHD
+JniiVuyTm4wIe/JObko97i9Q0ZwzBGDrSTAPgUO1NeNxxOqBz6BSid0DZrhL4fTj
+TgGQfBiACNP46Wy1JhOVcbw7T1dmkfN4ZYoQfF2u6Qx1G5kbKi0p01eyWRnZMkxX
+3XK1VhGVgCXHNTrnHX/P2/jwx1ZPOVcuMePbDumChcNnIsiDRaqhxI6R
+=Lb82
 -----END PGP SIGNATURE-----
