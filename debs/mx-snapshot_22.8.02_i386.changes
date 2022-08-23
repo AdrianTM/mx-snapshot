@@ -15,11 +15,11 @@ Changes:
  .
    * Adds a shutdown when done option (checkbox before starting in GUI and --shutdown CLI option)
 Checksums-Sha1:
- c4e1b8d6a804252f34dca159cd6233fb62fe1c82 10048 mx-snapshot_22.8.02_i386.buildinfo
- c0c0dc34b537addd9debb26f805f504b608387ed 282768 mx-snapshot_22.8.02_i386.deb
+ 12f0a8552d49cd4855ddc4d40342a0ece19a4191 10048 mx-snapshot_22.8.02_i386.buildinfo
+ 1b2982bfed751a48c67c3ed6f7d3792d30259103 283452 mx-snapshot_22.8.02_i386.deb
 Checksums-Sha256:
- 0e4c19a181e7c87ce57106ba2872906ba1fa2fb1abd27375322b8844392af4ad 10048 mx-snapshot_22.8.02_i386.buildinfo
- 41a70c6a3cf8a03cfcb4e87934d60a787ad1821608ecfc1f276c278e3c9ffd22 282768 mx-snapshot_22.8.02_i386.deb
+ 1a083b235ca714e30d6827bedef879df9732fd9484153e0f74e7e52bbcc8c9cc 10048 mx-snapshot_22.8.02_i386.buildinfo
+ bd7d2d3d5192f7e559fa49bf364dd11e923e67f70c544a65f92604ad3cba749c 283452 mx-snapshot_22.8.02_i386.deb
 Files:
- c37db2f109d9e139dd62fccb2384d325 10048 admin optional mx-snapshot_22.8.02_i386.buildinfo
- 3184de616a978bd6f7174f19947881fe 282768 admin optional mx-snapshot_22.8.02_i386.deb
+ f4c7047f607092d79e17725891e6b2ff 10048 admin optional mx-snapshot_22.8.02_i386.buildinfo
+ f4ff7b15954b9cf34dc295d71b237081 283452 admin optional mx-snapshot_22.8.02_i386.deb
