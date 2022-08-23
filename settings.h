@@ -90,6 +90,7 @@ public:
     bool override_size;
     bool preempt; // command line option
     bool reset_accounts;
+    bool shutdown;
     quint64 free_space;
     quint64 free_space_work;
     quint64 home_size;

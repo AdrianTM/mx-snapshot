@@ -537,6 +537,7 @@ void Settings::otherExclusions()
 
 void Settings::processArgs(const QCommandLineParser &arg_parser)
 {
+    shutdown = arg_parser.isSet(QStringLiteral("shutdown"));
     kernel = arg_parser.value(QStringLiteral("kernel"));
     preempt = arg_parser.isSet(QStringLiteral("preempt"));
     if (!arg_parser.value(QStringLiteral("directory")).isEmpty() && QFileInfo::exists(arg_parser.value(QStringLiteral("directory"))))

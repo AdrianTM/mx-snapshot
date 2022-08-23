@@ -33,6 +33,7 @@
 #define OUT settings->shell->getCmdOut
 #define RUN settings->shell->run
 const quint8 STRETCH = 9;
+extern QFile logFile;
 
 Work::Work(Settings *settings) :
     settings(settings)
@@ -99,6 +100,10 @@ void Work::cleanUp()
     settings->tmpdir.reset();
     if (done) {
         qDebug().noquote() << tr("Done");
+        if (settings->shutdown) {
+            QFile::copy(logFile.fileName(), settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
+            QProcess::startDetached(QStringLiteral("shutdown"), {"-h", "now"});
+        }
         exit(EXIT_SUCCESS);
     } else {
         qDebug().noquote() << tr("Done") << "\n";
@@ -271,6 +276,10 @@ bool Work::createIso(const QString &filename)
     QTime time(0, 0);
     time = time.addMSecs(e_timer.elapsed());
     emit message(tr("Done"));
+    if (settings->shutdown) {
+        done = true;
+        cleanUp();
+    }
     emit messageBox(BoxType::information, tr("Success"), tr("MX Snapshot completed sucessfully!") + "\n" +
                     tr("Snapshot took %1 to finish.").arg(time.toString(QStringLiteral("hh:mm:ss"))) + "\n\n" +
                     tr("Thanks for using MX Snapshot, run MX Live USB Maker next!"));

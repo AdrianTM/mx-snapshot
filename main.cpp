@@ -42,9 +42,9 @@
 #include <csignal>
 #include <unistd.h>
 
+QFile logFile;
 QString current_kernel;
 extern const QString starting_home = qEnvironmentVariable("HOME");
-static QFile logFile;
 static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
@@ -91,6 +91,7 @@ int main(int argc, char *argv[])
                       QObject::tr("Use the option one time for each item you want to exclude"), QObject::tr("one item")});
     parser.addOption({{"z", "compression"}, QObject::tr("Compression format, valid choices: ")
                       + "lz4, lzo, gzip, xz, zstd", QObject::tr("format")});
+    parser.addOption({"shutdown", QObject::tr("Shutdown computer when done.")});
 
     QStringList opts;
     opts.reserve(argc);

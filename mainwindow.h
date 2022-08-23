@@ -47,7 +47,7 @@ public:
     MainWindow(QWidget *parent = nullptr, const QCommandLineParser &arg_parser = QCommandLineParser());
     ~MainWindow();
 
-    [[ noreturn ]] void cleanUp();
+    [[noreturn]] void cleanUp();
     bool installPackage(const QString &package);
     void checkSaveWork();
     void closeApp();
