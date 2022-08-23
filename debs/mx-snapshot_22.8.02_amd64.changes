@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 23 Aug 2022 19:14:05 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.8.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8.02) mx; urgency=medium
+ .
+   * Adds a shutdown when done option (checkbox before starting in GUI and --shutdown CLI option)
+Checksums-Sha1:
+ 5e34413a2ddbf61775833e5999d3e02a2c2f9a97 1206 mx-snapshot_22.8.02.dsc
+ 7a629c3240d1cfe01b590f8b730750c98465a6e9 216888 mx-snapshot_22.8.02.tar.xz
+ caeed503b16ad5b340d3217f64848c94b7057790 10755 mx-snapshot_22.8.02_amd64.buildinfo
+ 8ddd58a0d89963f63f41412cc7900de80d1338b0 277096 mx-snapshot_22.8.02_amd64.deb
+Checksums-Sha256:
+ a4a13482046d1829ba1654252de17f48b90f3d3b297841cb7b373237eb97d19b 1206 mx-snapshot_22.8.02.dsc
+ 92b35becb194d615b2cf0e4b7849422c5921acd0d4efd646e1ac14ece2106196 216888 mx-snapshot_22.8.02.tar.xz
+ 1639f5b437bc2e0150e4c925abb8d6c1093c325d53915d3bec541c548eda4d86 10755 mx-snapshot_22.8.02_amd64.buildinfo
+ 956a940a4adcadad48537f7098ca36ed63e79e5fffc72077f9a71fb681402c5d 277096 mx-snapshot_22.8.02_amd64.deb
+Files:
+ 1f9df259df042b7811a8f278020f4943 1206 admin optional mx-snapshot_22.8.02.dsc
+ 515626279d0300bcc47a54b49a7f2c2d 216888 admin optional mx-snapshot_22.8.02.tar.xz
+ ca96f54ca7ee8b96c14bbab9df9a3a2e 10755 admin optional mx-snapshot_22.8.02_amd64.buildinfo
+ 9663f4ac58b2ec7d1ae761a6d97fb8a5 277096 admin optional mx-snapshot_22.8.02_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMFX7cTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPHZB/9IvHFKAUPuppLV6vsuP3gNlvItsPWW
+CMrAZVvYzKzq+ABVMk7jKIGPqUOL6eu/d4tlMg8zkzj4lAeFJCHf3ND4OSvoQI4q
+OO1xrKbMJpfGevGRQ2J63AF1O0HNNCxoVcMrZnbfwh408gz9y2KU3OQWTZ2y6Ar8
+d9k4bvjBrdAdxNvR7PwVZZ7vX1L3X36spJnX5L9JZrQ1LaBcJAsG8fLQbs9vHnyL
+fWzIX8QER+IC8x71u9kj2AeeBs3MIWVvJb9C2eaK9jyNE+IPt4RdYKglJMc4e2dE
+ioRhJwsiLqoCZ2hiwJvVfaTSX9ocr8PejbiIruHX/Wmze6J8LQAIPAcW
+=L0+Q
+-----END PGP SIGNATURE-----

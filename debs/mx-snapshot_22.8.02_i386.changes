@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Tue, 23 Aug 2022 19:14:05 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.8.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8.02) mx; urgency=medium
+ .
+   * Adds a shutdown when done option (checkbox before starting in GUI and --shutdown CLI option)
+Checksums-Sha1:
+ c4e1b8d6a804252f34dca159cd6233fb62fe1c82 10048 mx-snapshot_22.8.02_i386.buildinfo
+ c0c0dc34b537addd9debb26f805f504b608387ed 282768 mx-snapshot_22.8.02_i386.deb
+Checksums-Sha256:
+ 0e4c19a181e7c87ce57106ba2872906ba1fa2fb1abd27375322b8844392af4ad 10048 mx-snapshot_22.8.02_i386.buildinfo
+ 41a70c6a3cf8a03cfcb4e87934d60a787ad1821608ecfc1f276c278e3c9ffd22 282768 mx-snapshot_22.8.02_i386.deb
+Files:
+ c37db2f109d9e139dd62fccb2384d325 10048 admin optional mx-snapshot_22.8.02_i386.buildinfo
+ 3184de616a978bd6f7174f19947881fe 282768 admin optional mx-snapshot_22.8.02_i386.deb
