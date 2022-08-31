@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 31 Aug 2022 16:32:30 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.8.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: fehlix <fehlix@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.8.03) mx; urgency=medium
+ .
+   * update hyper-v initrd modules
+Checksums-Sha1:
+ f1dc598e759e61f296cfd71254cef4ff30c775e0 1206 mx-snapshot_22.8.03.dsc
+ 699f57d35be18018b5c5618d4addff3f0849d1e0 220772 mx-snapshot_22.8.03.tar.xz
+ 93d914cfbf3cc564df65830e48205cc2f12fd315 10755 mx-snapshot_22.8.03_amd64.buildinfo
+ 3aab940ed8199af09c4a2aee1bb70f84b8fdb361 277028 mx-snapshot_22.8.03_amd64.deb
+Checksums-Sha256:
+ d02ed8ed8cc5213ef12824836ab5c1a2c3962d235298726bbe98eb33565e2182 1206 mx-snapshot_22.8.03.dsc
+ 5cb8961895902735809bb5c7b924fb6dcad72ebc91ab0a6ceb5d9d9875dfc77b 220772 mx-snapshot_22.8.03.tar.xz
+ 913bfb843aed4a2fe61011602c80cd796865a20f8c016c80c67d969f0b98d123 10755 mx-snapshot_22.8.03_amd64.buildinfo
+ 6e04b13df2192ac2b7846bf9cb9b390795bdad9df714e8974b2d4674e7a0632e 277028 mx-snapshot_22.8.03_amd64.deb
+Files:
+ ab2a8c12a59bdf080823a8697e6a245a 1206 admin optional mx-snapshot_22.8.03.dsc
+ 35e0cc97c6b030d6b8225546baaa62f1 220772 admin optional mx-snapshot_22.8.03.tar.xz
+ 1de8f575232bc542cc7126054b47ec64 10755 admin optional mx-snapshot_22.8.03_amd64.buildinfo
+ cae15f6b9911a0c03919001287839e27 277028 admin optional mx-snapshot_22.8.03_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMP2uITHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJqxB/sH07U545q5xqCw0RdL791cSMOqZ04H
+Vz5gcn39W//k7GKVDMV9u86lm6sWNjmfJ2HNbWnNx5yRh6lX9Gul1Rw2EORCat+C
+af/I2HCXlf4l5/79OMpAgl+UWgjtwcb2v+uwZpxWvNTCw6a/nrTkJY8S/dAKUMTF
+sZNb4dJYhggps1OHyQmNX48RfB7fSqMMGITKlOfYISwBvdR7oopQi7GD9RBtU5ki
+assutNMIku/wSNUv9LE4POj/T2xErNobshc3kM+BGB5x3gFyL20PnH4bref4kIGq
+z9wDqi4xjEQB8bGvsx0EFYS5Lnv0F1Kg4etJD6AYPPONWlaUl7dJ956V
+=sLQ1
+-----END PGP SIGNATURE-----
