@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 31 Aug 2022 16:32:30 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 22.8.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: fehlix <fehlix@mxlinux.org>
+Changes:
+ mx-snapshot (22.8.03) mx; urgency=medium
+ .
+   * update hyper-v initrd modules
+Checksums-Sha1:
+ f1dc598e759e61f296cfd71254cef4ff30c775e0 1206 mx-snapshot_22.8.03.dsc
+ 699f57d35be18018b5c5618d4addff3f0849d1e0 220772 mx-snapshot_22.8.03.tar.xz
+ 93d914cfbf3cc564df65830e48205cc2f12fd315 10755 mx-snapshot_22.8.03_amd64.buildinfo
+Checksums-Sha256:
+ d02ed8ed8cc5213ef12824836ab5c1a2c3962d235298726bbe98eb33565e2182 1206 mx-snapshot_22.8.03.dsc
+ 5cb8961895902735809bb5c7b924fb6dcad72ebc91ab0a6ceb5d9d9875dfc77b 220772 mx-snapshot_22.8.03.tar.xz
+ 913bfb843aed4a2fe61011602c80cd796865a20f8c016c80c67d969f0b98d123 10755 mx-snapshot_22.8.03_amd64.buildinfo
+Files:
+ ab2a8c12a59bdf080823a8697e6a245a 1206 admin optional mx-snapshot_22.8.03.dsc
+ 35e0cc97c6b030d6b8225546baaa62f1 220772 admin optional mx-snapshot_22.8.03.tar.xz
+ 1de8f575232bc542cc7126054b47ec64 10755 admin optional mx-snapshot_22.8.03_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMP2uITHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumM6nB/4+9HNYT5RCgN4XPihmE6cVTg4nHDzF
+enhcKrj/b9yETYL3wAJGVxHhMLRfnPt0s5PI3o2Jrd07MfCfjcqbXMOyXvUYz1Al
+CaN4CA7YM4i+TSQv+Qx6lq/JZiZr6iEA2fu8bE3/P9RGGZ2XvP3EKoKD2u72gZc+
+VuW2vIpCBcQiVhCljTJGYpFybVRfbNDe2m2LjdzLefjhJOPgikMMszcYD9sTadRS
+HOEzjKanl9fItco5pEIOjlnhCN744iOLTt6gQ2A6LCSWNhpxoUGMnblT5lg9XiDS
+3sHQKTmd0GTPYZKNSIhUU5dnj+CkwNBeOhTw4HkPR9SHeNBXKCjL0l/a
+=YO5a
+-----END PGP SIGNATURE-----
