@@ -83,6 +83,7 @@ hid-samsung
 hv_balloon
 hv_vmbus
 hv_utils
+hv_sock
 hv_storvsc
 hv_netvsc
 hyperv
@@ -109,6 +110,7 @@ ohci-hcd
 ohci-pci
 overlay
 pci-hyperv
+pci-hyperv-intf
 pcie-aspm
 printk
 pstore
