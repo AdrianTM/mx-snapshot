@@ -28,6 +28,8 @@
 #include <QRegularExpression>
 #include <QSettings>
 
+#include <unistd.h>
+
 #ifndef CLI_BUILD
 #include <QMessageBox>
 #endif
@@ -37,7 +39,7 @@
 Settings::Settings(const QCommandLineParser &arg_parser)
 {
     if (QFileInfo::exists(QStringLiteral("/tmp/installed-to-live/cleanup.conf"))) // cleanup installed-to-live from other sessions
-        system("installed-to-live cleanup");
+        QProcess::execute(QStringLiteral("installed-to-live"), {"cleanup"});
     shell = new Cmd;
 
     loadConfig();  // load settings from .conf file
@@ -48,6 +50,14 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     override_size = arg_parser.isSet(QStringLiteral("override-size"));
     cli_mode = arg_parser.isSet(QStringLiteral("cli"));
     processExclArgs(arg_parser);
+    auto *logname = getlogin();
+    QProcess proc;
+    proc.start(QStringLiteral("id"), {"-u", logname});
+    proc.waitForFinished();
+    uid = proc.readAllStandardOutput().trimmed().toUInt();
+    proc.start(QStringLiteral("id"), {"-g", logname});
+    proc.waitForFinished();
+    gid = proc.readAllStandardOutput().trimmed().toUInt();
 }
 
 Settings::~Settings() = default;
@@ -86,7 +96,7 @@ bool Settings::checkSnapshotDir() const
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }
-    system("chown $(logname):$(logname) \"/" + snapshot_dir.toUtf8() + "\"");
+    chown(snapshot_dir.toUtf8(), uid, gid);
     return true;
 }
 
@@ -123,7 +133,7 @@ quint8 Settings::getDebianVersion() const
 QString Settings::getEditor() const
 {
     QString editor = gui_editor;
-    if (editor.isEmpty() || system("command -v " + editor.toUtf8()) != 0) {  // if specified editor doesn't exist get the default one
+    if (editor.isEmpty() || QProcess::execute(QStringLiteral("command"), {"-v", editor}) != 0) {  // if specified editor doesn't exist get the default one
         QString local = QDir::homePath() + "/.local/share/applications ";
         if (!QFile::exists(local)) local = QLatin1String("");
         QString desktop_file = shell->getCmdOut("find " + local + "/usr/share/applications -name $(xdg-mime query default text/plain) -print -quit", true);
@@ -217,7 +227,7 @@ void Settings::selectKernel()
         }
     }
     // Check if SQUASHFS is available
-    if (system("grep -q ^CONFIG_SQUASHFS=[ym] /boot/config-" + kernel.toUtf8()) != 0) {
+    if (QProcess::execute(QStringLiteral("grep"), {"-q", "^CONFIG_SQUASHFS=[ym]",  "/boot/config-" + kernel}) != 0) {
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         if (qApp->metaObject()->className() !=  QLatin1String("QApplication"))
             qDebug().noquote() << message;
