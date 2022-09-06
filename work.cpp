@@ -87,7 +87,7 @@ void Work::cleanUp()
     emit message(tr("Cleaning..."));
     QProcess::execute(QStringLiteral("sync"), {});
 
-    QProcess::execute(QStringLiteral("pkill"), {"mksqushfs"});
+    QProcess::execute(QStringLiteral("pkill"), {"mksquashfs"});
     QProcess::execute(QStringLiteral("pkill"), {"md5sum"});
     QDir::setCurrent(QStringLiteral("/"));
     if (QFileInfo::exists(QStringLiteral("/tmp/installed-to-live/cleanup.conf")))
