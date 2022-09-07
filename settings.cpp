@@ -469,6 +469,7 @@ void Settings::excludeSteam(bool exclude)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (exclude) exclusions.setFlag(Exclude::Steam);
     addRemoveExclusion(exclude, QStringLiteral("home/*/.steam"));
+    addRemoveExclusion(exclude, QStringLiteral("home/*/.local/share/Steam"));
 }
 
 void Settings::excludeVideos(bool exclude)
