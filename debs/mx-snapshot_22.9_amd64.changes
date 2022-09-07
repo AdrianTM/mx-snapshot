@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 07 Sep 2022 11:45:51 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.9
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.9) mx; urgency=medium
+ .
+   * Add exclusion for ~/.local/share/Steam (for Steam package install from steampowered.com)
+Checksums-Sha1:
+ 20b9d5db6f9fafcc6da02ac5323dd873bad6a2b2 1194 mx-snapshot_22.9.dsc
+ d905a2d72005629dcbedc3c20ec458e1d9d3e4d2 224168 mx-snapshot_22.9.tar.xz
+ e5d30958eab59d1bfbfed55287d990b4da53d095 10811 mx-snapshot_22.9_amd64.buildinfo
+ b9fe1ffb894b2f44cc6f09b90384f0f23670e331 278008 mx-snapshot_22.9_amd64.deb
+Checksums-Sha256:
+ 4439403ea2b9b2c8fccad6b22735fa2fb23e2fbcb6a0e29b8771951c0a56f76a 1194 mx-snapshot_22.9.dsc
+ 47a2acf6a0c0cdf5ae2b37ca74f141660194e06ecf22295d3d16f118f3c3b165 224168 mx-snapshot_22.9.tar.xz
+ 4eb359681e13fea2d88f2715d481460d12bafc3ac962469a21f3d76ddec4da60 10811 mx-snapshot_22.9_amd64.buildinfo
+ 59df173ed8f993794d77ec8a66b477b91ae3bfdbe1277b29c876af6716ae9115 278008 mx-snapshot_22.9_amd64.deb
+Files:
+ 9d86a10388548c4861feeb99e31cbf22 1194 admin optional mx-snapshot_22.9.dsc
+ d6b3360fe620ad33651aef83d0e486c9 224168 admin optional mx-snapshot_22.9.tar.xz
+ 68c6922f1f89c165f04662cafbcb3610 10811 admin optional mx-snapshot_22.9_amd64.buildinfo
+ e3b2479ae81ed9ec6ff0f7fb9b5d2b15 278008 admin optional mx-snapshot_22.9_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMYvYgTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumAMFCADWHPFecPJ+/2SIKny4x0a3tilxgXnD
+TMfUe48EWEOrTexgWwTnu/JQAQnsKpKCL7PNecU/OKV8XY3k32aYzFt1soISOoDS
+1PHnmuiaqXYOAmt+h/IO15rAXhmHIBUxvc+WIeziWvMZYzd9OMQS6/IbwAU4U6wg
+2vJPcKDFGMdCqjTInGIJq9LXGjhnGLrcNj6+h/RHIrGBizXkCpSNTLuvz6Moi2EW
+nvyEtjY0YqixWMOMDM5ueyiozh4o6wGcNtwje1H6ObEXLM2Ys60Zv78g8OQhdfdA
+bow1yKG6CJFWIatADAvjHkrStOjkHiqwLp4d2C7boj58V1mMbw2PMc3j
+=iKVr
+-----END PGP SIGNATURE-----
