@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Thu, 08 Sep 2022 16:15:36 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.9.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.9.01) mx; urgency=medium
+ .
+   * Fix calculating md5sum for linuxfs file
+Checksums-Sha1:
+ 062addb2954a1d8e840b71bcd025fb48a48ee411 9984 mx-snapshot_22.9.01_i386.buildinfo
+ 8069f34cbe9e5774bf79ffb9e25055c5f9d8f858 283620 mx-snapshot_22.9.01_i386.deb
+Checksums-Sha256:
+ e0f3f3c03d5ac9f53490be1894e1984225fc3c8aded10aaebf05243e4405a14e 9984 mx-snapshot_22.9.01_i386.buildinfo
+ b9c84df93c653f6cd2d6c2f52367c61fd389f2f999faf8015d0d06816235e4f0 283620 mx-snapshot_22.9.01_i386.deb
+Files:
+ 63eeae30eeb1aa726b6e121987f5edd6 9984 admin optional mx-snapshot_22.9.01_i386.buildinfo
+ 4cdfa0f0066674354db807400da6da6a 283620 admin optional mx-snapshot_22.9.01_i386.deb

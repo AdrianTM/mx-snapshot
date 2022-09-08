@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 08 Sep 2022 16:15:36 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 22.9.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.9.01) mx; urgency=medium
+ .
+   * Fix calculating md5sum for linuxfs file
+Checksums-Sha1:
+ 73af0a463cd3a3837af0b30173ad320fcf4498ea 1206 mx-snapshot_22.9.01.dsc
+ 87c57c6a377fe7424d5f1381a1987c9e1a70e1b9 224160 mx-snapshot_22.9.01.tar.xz
+ 52cd3f2c90e1b90cf8c1d0d5e14ff5377f09a465 10835 mx-snapshot_22.9.01_amd64.buildinfo
+Checksums-Sha256:
+ cd73b2eb023efbeb32494a619daf24fd229f3a1e986233aeb6a87855c5e69a82 1206 mx-snapshot_22.9.01.dsc
+ faaf0c44cfdf4420636693b3cf56d36161e6845bd16693463f79d6abd0ed13f3 224160 mx-snapshot_22.9.01.tar.xz
+ cd602a908dec598294a5d6bff23c4d7483e76a665f264707460836477b83791d 10835 mx-snapshot_22.9.01_amd64.buildinfo
+Files:
+ 3bcaa20d231bc4efbca314b51df7cc2c 1206 admin optional mx-snapshot_22.9.01.dsc
+ 99f02ce45043a82658038d31ad2a5f48 224160 admin optional mx-snapshot_22.9.01.tar.xz
+ 6f598716d228c54354610700578aa10b 10835 admin optional mx-snapshot_22.9.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMaTdwTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMQhB/0RDn4R/77GUn2Kc24Pu12ZXz3rq1TO
+QVLNe7D7h5s9ylFja4U0oEgh8MuRJgf6HS5rbMv4shS69aENjn+ula0/MN/XkZMM
+TDlCLlstSIPBuJ3iyt+VmU0IHNnNw/YNT7xumemEdupa4ago9pj5f+xnUulwSHFl
++jvnF8QkkwLzDAItf6ftjnomBpPAUbGLEUsbpUWHP0SSkHCC80xc3qjeZConP1PE
++hnS9/5kXNKel7HlhksLgOJrJg5Wu/an+r31GsmzSCBieyuxX50rGw6HgrCL9FLh
+i140so2dv9x1As3NkmV5p2YsdWElPCjoOcTZKkjR4AaDmluFq1abJU/O
+=4dVS
+-----END PGP SIGNATURE-----
