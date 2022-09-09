@@ -15,11 +15,11 @@ Changes:
  .
    * Revert untested code that was creating some issues
 Checksums-Sha1:
- 9e23b071d2c0e82ed198f018c55f9425c1ace24a 10048 mx-snapshot_22.9.02_i386.buildinfo
- 87f60ac50e48029c3968224c0a13c0f741e69d1a 283732 mx-snapshot_22.9.02_i386.deb
+ 3f8f4798decc4fae16944b1496f204b75816e0e4 10048 mx-snapshot_22.9.02_i386.buildinfo
+ d1032853d7667c408a9b74eadaf369c8a0a36406 283600 mx-snapshot_22.9.02_i386.deb
 Checksums-Sha256:
- 892f23546cfb8f6490b536ca6d4ead1576775e01ce15bce843ef6bb6cdbb0a99 10048 mx-snapshot_22.9.02_i386.buildinfo
- fd0e2447bbc15a59dc311f78353c39d387c697903fbb947d639bc205e7038ec2 283732 mx-snapshot_22.9.02_i386.deb
+ 890a68c88cd8fad07b8a0aa8d28d5fb2608b44ed1f0cf183a66611ed63c08374 10048 mx-snapshot_22.9.02_i386.buildinfo
+ 3a58fe67e628a67f12f04600bcf5e673951725903cd060cc7542b92a8149b79d 283600 mx-snapshot_22.9.02_i386.deb
 Files:
- 6a9cc15519a704c2d9deed281adab70f 10048 admin optional mx-snapshot_22.9.02_i386.buildinfo
- ca61b614e2e3dc77fa4f1952d38fa47a 283732 admin optional mx-snapshot_22.9.02_i386.deb
+ dff78e5872cd30207539563712ad397a 10048 admin optional mx-snapshot_22.9.02_i386.buildinfo
+ 11b046c0198cbdd44bd26a1bb215b42f 283600 admin optional mx-snapshot_22.9.02_i386.deb
