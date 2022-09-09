@@ -28,7 +28,6 @@
 #include <QRegularExpression>
 #include <QSettings>
 
-#include <unistd.h>
 #include "work.h"
 
 #define OUT settings->shell->getCmdOut
@@ -180,16 +179,17 @@ void Work::copyNewIso()
     QDir::setCurrent(settings->work_dir);
 
     RUN(QStringLiteral("tar xf /usr/lib/iso-template/iso-template.tar.gz"));
-    QFile::copy(QStringLiteral("/usr/lib/iso-template/template-initrd.gz"), QStringLiteral("iso-template/antiX/initrd.gz"));
-    QFile::copy("/boot/vmlinuz-" + settings->kernel, QStringLiteral("iso-template/antiX/vmlinuz"));
+    RUN(QStringLiteral("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz"));
+    RUN("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
+
     if (settings->debian_version < STRETCH) {
         if (settings->i686) {
-            QFile::copy(QStringLiteral("/boot/vmlinuz-3.16.0-4-586"), QStringLiteral("iso-template/antiX/vmlinuz1"));
+            RUN(QStringLiteral("cp /boot/vmlinuz-3.16.0-4-586 iso-template/antiX/vmlinuz1"));
         } else {
             // mv x64 template files over
-            QFile::rename(QStringLiteral("iso-template/boot/grub/grub.cfg_x64"), QStringLiteral("iso-template/boot/grub/grub.cfg"));
-            QFile::rename(QStringLiteral("iso-template/boot/syslinux/syslinux.cfg_x64"), QStringLiteral("iso-template/boot/syslinux/syslinux.cfg"));
-            QFile::rename(QStringLiteral("iso-template/boot/isolinux/isolinux.cfg_x64"), QStringLiteral("iso-template/boot/isolinux/isolinux.cfg"));
+            RUN(QStringLiteral("mv iso-template/boot/grub/grub.cfg_x64 iso-template/boot/grub/grub.cfg"));
+            RUN(QStringLiteral("mv iso-template/boot/syslinux/syslinux.cfg_x64 iso-template/boot/syslinux/syslinux.cfg"));
+            RUN(QStringLiteral("mv iso-template/boot/isolinux/isolinux.cfg_x64 iso-template/boot/isolinux/isolinux.cfg"));
         }
     }
 
@@ -206,19 +206,13 @@ void Work::copyNewIso()
 
     // Strip modules; make sure initrd_dir is correct to avoid disaster
     if (path.startsWith(QLatin1String("/tmp/")) && QFileInfo::exists(path + "/lib/modules"))
-        QDir(path + "/lib/modules").removeRecursively();
+         RUN("rm -r \"" + path  + "/lib/modules\"");
 
     // We cannot count on this file in the future versions
-    if(QFile::exists(QStringLiteral("/usr/local/share/live-files/files/etc/initrd-release"))) {
-        QFile::remove(path + "/etc/initrd-release");
-        QFile::copy(QStringLiteral("/usr/local/share/live-files/files/etc/initrd-release"), path + "/etc");
-    }
+    RUN("test -r /usr/local/share/live-files/files/etc/initrd-release && cp /usr/local/share/live-files/files/etc/initrd-release \"" + path + "/etc\"");
 
     // Overwrite with this file, probably a better location _if_ the file exists
-    if (QFile::exists(QStringLiteral("/etc/initrd-release"))) {
-        QFile::remove(path + "/etc/initrd-release");
-        QFile::copy(QStringLiteral("etc/initrd-release"), path + "/etc");
-    }
+    RUN("test -r /etc/initrd-release && cp /etc/initrd-release \"" + path + "/etc\"");
     if (initrd_dir.isValid()) {
         copyModules(path, settings->kernel);
         closeInitrd(path, settings->work_dir + "/iso-template/antiX/initrd.gz");
@@ -251,8 +245,8 @@ bool Work::createIso(const QString &filename)
 
     // mv linuxfs files to iso-2/antiX folder
     QDir().mkpath(QStringLiteral("iso-2/antiX"));
-    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs"), QStringLiteral("iso-2/antiX/linuxfs"));
-    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs.info"), QStringLiteral("iso-2/antiX/linuxfs.info"));
+    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs"), QStringLiteral("iso-2/antiX"));
+    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs.info"), QStringLiteral("iso-2/antiX"));
     makeChecksum(HashType::md5, settings->work_dir + "/iso-2/antiX", QStringLiteral("linuxfs"));
 
     RUN(QStringLiteral("installed-to-live cleanup"));
@@ -266,7 +260,7 @@ bool Work::createIso(const QString &filename)
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
         return false;
     }
-    chown(settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8(), settings->uid, settings->gid);
+    system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8( )+ "\"");
 
     // make it isohybrid
     if (settings->make_isohybrid) {
@@ -279,8 +273,8 @@ bool Work::createIso(const QString &filename)
     if (settings->make_chksum) {
         makeChecksum(HashType::md5, settings->snapshot_dir, filename);
         makeChecksum(HashType::sha512, settings->snapshot_dir, filename);
-        chown(settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".md5", settings->uid, settings->gid);
-        chown(settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".sha512", settings->uid, settings->gid);
+        system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".md5\"");
+        system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".sha512\"");
     }
 
     QTime time(0, 0);
@@ -346,7 +340,7 @@ void Work::openInitrd(const QString &file, const QString &initrd_dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     emit message(tr("Building new initrd..."));
-    QFile(initrd_dir).setPermissions(QFlag(0x7755));
+    RUN("chmod a+rx \"" + initrd_dir + "\"");
     QDir::setCurrent(initrd_dir);
     RUN(QStringLiteral("gunzip -c \"%1\" |cpio -idum").arg(file));
 }
@@ -490,7 +484,7 @@ void Work::setupEnv()
             if (!QFile::exists(QStringLiteral("/usr/bin/xdg-user-dirs-update.real"))) {
                 QDir().mkdir(QStringLiteral("/etc/skel/Desktop"));
                 QFile::copy(QStringLiteral("/usr/share/applications/minstall.desktop"), QStringLiteral("/etc/skel/Desktop/Installer.desktop"));
-                QFile(QStringLiteral("/etc/skel/Desktop/Installer.desktop")).setPermissions(QFlag(0x7755));
+                RUN(QStringLiteral("chmod 755 /etc/skel/Desktop/Installer.desktop"));
             }
         }
         RUN("installed-to-live -b /.bind-root start bind=/home" + bind_boot_too + " live-files version-file adjtime read-only");

@@ -81,23 +81,21 @@ public:
     QString work_dir;
     QStringList users; // list of users with /home folders
     bool cli_mode;
-    bool edit_boot_menu{};
-    bool force_installer{};
-    bool i686{};
-    bool live{};
-    bool make_chksum{};
-    bool make_isohybrid{};
+    bool edit_boot_menu;
+    bool force_installer;
+    bool i686;
+    bool live;
+    bool make_chksum;
+    bool make_isohybrid;
     bool override_size;
-    bool preempt{}; // command line option
-    bool reset_accounts{};
-    bool shutdown{};
-    quint64 free_space_work{};
-    quint64 free_space{};
-    quint64 home_size{};
-    quint64 root_size{};
-    short debian_version{};
-    uint gid;
-    uint uid;
+    bool preempt; // command line option
+    bool reset_accounts;
+    bool shutdown;
+    quint64 free_space;
+    quint64 free_space_work;
+    quint64 home_size;
+    quint64 root_size;
+    short debian_version;
 
     QString getEditor() const;
     QString getFilename() const;
