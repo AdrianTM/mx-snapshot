@@ -245,8 +245,7 @@ bool Work::createIso(const QString &filename)
 
     // mv linuxfs files to iso-2/antiX folder
     QDir().mkpath(QStringLiteral("iso-2/antiX"));
-    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs"), QStringLiteral("iso-2/antiX"));
-    QFile::rename(QStringLiteral("iso-template/antiX/linuxfs.info"), QStringLiteral("iso-2/antiX"));
+    RUN(QStringLiteral("mv iso-template/antiX/linuxfs* iso-2/antiX"));
     makeChecksum(HashType::md5, settings->work_dir + "/iso-2/antiX", QStringLiteral("linuxfs"));
 
     RUN(QStringLiteral("installed-to-live cleanup"));
