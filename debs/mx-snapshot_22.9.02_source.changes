@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Fri, 09 Sep 2022 08:52:10 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 22.9.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.9.02) mx; urgency=medium
+ .
+   * Revert untested code that was creating some issues
+Checksums-Sha1:
+ 41def451218cdc7a778aef687845c064855867f5 1206 mx-snapshot_22.9.02.dsc
+ 705ea5361bfa2e2590efb5bd936aff593d9f34e3 220960 mx-snapshot_22.9.02.tar.xz
+ 94fcb66933b684cef89fdaa0d3314f50b8027d7a 10755 mx-snapshot_22.9.02_amd64.buildinfo
+Checksums-Sha256:
+ ca927eaf86c4662713cd477560548c4f46775eb561af1af01b8e5183251963e0 1206 mx-snapshot_22.9.02.dsc
+ 5d92b350beb9d54ebc008e101d511ea6e24eb3d2f9a4ace8f71d9f7e2bb89e4b 220960 mx-snapshot_22.9.02.tar.xz
+ 0e7593577d871bc59db51ddf264a5ade3c0e6ec1e4c299faa764792d3f724d3b 10755 mx-snapshot_22.9.02_amd64.buildinfo
+Files:
+ 6ef12c0a23ac1732aa49e87dda901fe5 1206 admin optional mx-snapshot_22.9.02.dsc
+ c3052c281843e14824d6bb1a1ee58774 220960 admin optional mx-snapshot_22.9.02.tar.xz
+ a2900ec1b33d040201ab6bc1acc61af0 10755 admin optional mx-snapshot_22.9.02_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmMbN1YTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNbvCADGVzXsOkqFhCSYZDEFS1Fq1/hQac7A
+Izo2YpRW9mVzfRITdYswQ0Q2AmUEeG0O1SthaThNsxCnZBI/OJ3xUqJx9OcfhEy8
+kMrty41QmMbnS4+LPp8VlymIKDjR+Bf6Ko6q8pCP5hLJ9rMVAwZRxju/Sgr7G5oo
+Wefzy3lEynBRN5vNPcMp5SqlStq59ZQgrPFMGqEucVqtSBuXP0RaTemZv2/MKGsV
+SHVjpMwhOu3mZ+Kp/6sjE4FALSD2YlfDF9e4aVpMgaqOsQvSVUeC8dkdKiF+FwCE
+TGgRiGMYkg0gmDszeYESTmqEc1t9tfXnoAUv6XQ+cERRpiR3qpuFhL6m
+=+kiQ
+-----END PGP SIGNATURE-----

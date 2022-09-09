@@ -1,3 +1,9 @@
+mx-snapshot (22.9.02) mx; urgency=medium
+
+  * Revert untested code that was creating some issues
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 09 Sep 2022 08:52:10 -0400
+
 mx-snapshot (22.9.01) mx; urgency=medium
 
   * Fix calculating md5sum for linuxfs file

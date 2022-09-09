@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Fri, 09 Sep 2022 08:52:10 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.9.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.9.02) mx; urgency=medium
+ .
+   * Revert untested code that was creating some issues
+Checksums-Sha1:
+ 9e23b071d2c0e82ed198f018c55f9425c1ace24a 10048 mx-snapshot_22.9.02_i386.buildinfo
+ 87f60ac50e48029c3968224c0a13c0f741e69d1a 283732 mx-snapshot_22.9.02_i386.deb
+Checksums-Sha256:
+ 892f23546cfb8f6490b536ca6d4ead1576775e01ce15bce843ef6bb6cdbb0a99 10048 mx-snapshot_22.9.02_i386.buildinfo
+ fd0e2447bbc15a59dc311f78353c39d387c697903fbb947d639bc205e7038ec2 283732 mx-snapshot_22.9.02_i386.deb
+Files:
+ 6a9cc15519a704c2d9deed281adab70f 10048 admin optional mx-snapshot_22.9.02_i386.buildinfo
+ ca61b614e2e3dc77fa4f1952d38fa47a 283732 admin optional mx-snapshot_22.9.02_i386.deb
