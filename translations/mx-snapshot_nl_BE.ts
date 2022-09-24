@@ -4,7 +4,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Foutmelding</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="42"/>
@@ -19,12 +19,12 @@
         <location filename="../mainwindow.cpp" line="143"/>
         <location filename="../mainwindow.cpp" line="360"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"/>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"/>
+        <translation>Snapshot locatie:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
@@ -40,7 +40,7 @@
         <location filename="../mainwindow.ui" line="158"/>
         <location filename="../mainwindow.cpp" line="298"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"/>
+        <translation>Snapshot naam:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="165"/>
@@ -51,7 +51,7 @@
         <location filename="../mainwindow.ui" line="214"/>
         <location filename="../mainwindow.ui" line="276"/>
         <source>TextLabel</source>
-        <translation type="unfinished"/>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="244"/>
@@ -61,12 +61,12 @@
     <message>
         <location filename="../mainwindow.ui" line="301"/>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Afbeeldingen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="318"/>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Muziek</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="325"/>
@@ -76,12 +76,12 @@
     <message>
         <location filename="../mainwindow.ui" line="332"/>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Documenten</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="339"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="346"/>
@@ -91,17 +91,17 @@
     <message>
         <location filename="../mainwindow.ui" line="353"/>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Video&apos;s</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="370"/>
         <source>exclude network configurations</source>
-        <translation type="unfinished"/>
+        <translation>netwerkconfiguraties uitsluiten</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="373"/>
         <source>Networks</source>
-        <translation type="unfinished"/>
+        <translation>Netwerken</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="411"/>
@@ -116,7 +116,7 @@
     <message>
         <location filename="../mainwindow.ui" line="421"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"/>
+        <translation>Type snapshot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="428"/>
@@ -126,52 +126,52 @@
     <message>
         <location filename="../mainwindow.ui" line="460"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"/>
+        <translation>Bewerk Exclusion Bestand</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="484"/>
         <source>lz4</source>
-        <translation type="unfinished"/>
+        <translation>lz4</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="489"/>
         <source>lzo</source>
-        <translation type="unfinished"/>
+        <translation>lzo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
         <source>gzip</source>
-        <translation type="unfinished"/>
+        <translation>gzip</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="499"/>
         <source>xz</source>
-        <translation type="unfinished"/>
+        <translation>xz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation type="unfinished"/>
+        <translation>zstd</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
         <source>Options:</source>
-        <translation type="unfinished"/>
+        <translation>Opties:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="532"/>
         <source>ISO compression scheme:</source>
-        <translation type="unfinished"/>
+        <translation>ISO compressieschema:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="539"/>
         <source>Calculate checksums</source>
-        <translation type="unfinished"/>
+        <translation>Bereken checksums</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="635"/>
         <source>Display help </source>
-        <translation type="unfinished"/>
+        <translation>Toon help</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="638"/>
@@ -181,27 +181,27 @@
     <message>
         <location filename="../mainwindow.ui" line="645"/>
         <source>Alt+H</source>
-        <translation type="unfinished"/>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="696"/>
         <source>About this application</source>
-        <translation type="unfinished"/>
+        <translation>Over deze applicatie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="699"/>
         <source>About...</source>
-        <translation type="unfinished"/>
+        <translation>Over...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="706"/>
         <source>Alt+B</source>
-        <translation type="unfinished"/>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="722"/>
         <source>Quit application</source>
-        <translation type="unfinished"/>
+        <translation>Verlaat de applicatie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="725"/>
@@ -211,22 +211,22 @@
     <message>
         <location filename="../mainwindow.ui" line="732"/>
         <source>Alt+N</source>
-        <translation type="unfinished"/>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="748"/>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Volgende</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
         <source>Back</source>
-        <translation type="unfinished"/>
+        <translation>Terug</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="174"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"/>
+        <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="175"/>
@@ -236,23 +236,29 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"/>
+        <translation>De vrije ruimte zou afdoende moeten zijn om de gecomprimeerde data van / en /home te bevatten
+
+Indien nodig kunt u meer beschikbare ruimte creëren
+door oudere snapshots en opgeslagen kopieën te verwijderen:
+%1 snapshots nemen %2 van de diskruimte in beslag.
+ 
+</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="184"/>
         <location filename="../mainwindow.cpp" line="185"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>Installeren</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="268"/>
         <source>Please wait.</source>
-        <translation type="unfinished"/>
+        <translation>Even wachten a.u.b.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="270"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation type="unfinished"/>
+        <translation>Even wachten aub. Gebruikte schijfruimte aan het berekenen...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="283"/>
@@ -260,7 +266,7 @@
         <location filename="../mainwindow.cpp" line="317"/>
         <location filename="../mainwindow.cpp" line="321"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Foutmelding</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="284"/>
@@ -270,7 +276,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="290"/>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Instellingen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="295"/>
@@ -280,7 +286,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>- Snapshot directory:</source>
-        <translation type="unfinished"/>
+        <translation>- Snapshot folder:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
@@ -340,17 +346,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="352"/>
         <source>Close</source>
-        <translation type="unfinished"/>
+        <translation>Sluiten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="429"/>
         <source>About %1</source>
-        <translation type="unfinished"/>
+        <translation>Over %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="431"/>
         <source>Version: </source>
-        <translation type="unfinished"/>
+        <translation>Versie:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="432"/>
@@ -360,17 +366,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="434"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"/>
+        <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="436"/>
         <source>%1 License</source>
-        <translation type="unfinished"/>
+        <translation>%1 Licentie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="450"/>
         <source>%1 Help</source>
-        <translation type="unfinished"/>
+        <translation>%1 Help</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="458"/>
@@ -393,13 +399,13 @@
     <message>
         <location filename="../about.cpp" line="41"/>
         <source>License</source>
-        <translation type="unfinished"/>
+        <translation>Licentie</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="42"/>
         <location filename="../about.cpp" line="51"/>
         <source>Changelog</source>
-        <translation type="unfinished"/>
+        <translation>Changelog</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="43"/>
@@ -409,7 +415,7 @@
     <message>
         <location filename="../about.cpp" line="63"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"/>
+        <translation>&amp;Sluiten</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="64"/>
@@ -541,7 +547,7 @@
         <location filename="../main.cpp" line="121"/>
         <location filename="../main.cpp" line="152"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"/>
+        <translation>U lijkt ingelogd te zijn als root, gelieve uit te loggen en in te loggen als normale gebruiker om dit programma te gebruiken.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="132"/>
@@ -552,7 +558,7 @@
     <message>
         <location filename="../main.cpp" line="138"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"/>
+        <translation>U dient deze toepassing als &apos;root&apos; uit te voeren.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="151"/>
@@ -562,7 +568,7 @@
         <location filename="../settings.cpp" line="554"/>
         <location filename="../settings.cpp" line="603"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Foutmelding</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="216"/>
@@ -604,7 +610,7 @@
     <message>
         <location filename="../settings.cpp" line="372"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"/>
+        <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="374"/>
@@ -614,7 +620,13 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"/>
+        <translation>De vrije ruimte zou afdoende moeten zijn om de gecomprimeerde data van / en /home te bevatten
+
+Indien nodig kunt u meer beschikbare ruimte creëren
+door oudere snapshots en opgeslagen kopieën te verwijderen:
+%1 snapshots nemen %2 van de diskruimte in beslag.
+ 
+</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="389"/>
@@ -624,32 +636,32 @@
     <message>
         <location filename="../settings.cpp" line="390"/>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Documenten</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="391"/>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="392"/>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Muziek</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="393"/>
         <source>Networks</source>
-        <translation type="unfinished"/>
+        <translation>Netwerken</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="394"/>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Afbeeldingen</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="396"/>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Video&apos;s</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="549"/>
@@ -675,7 +687,7 @@
         <location filename="../work.cpp" line="104"/>
         <location filename="../work.cpp" line="273"/>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Klaar</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="134"/>
@@ -685,7 +697,7 @@
         <location filename="../work.cpp" line="362"/>
         <location filename="../work.cpp" line="434"/>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>Foutmelding</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
@@ -740,7 +752,7 @@
     <message>
         <location filename="../work.cpp" line="274"/>
         <source>Success</source>
-        <translation type="unfinished"/>
+        <translation>Gelukt</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="274"/>
@@ -760,7 +772,7 @@
     <message>
         <location filename="../work.cpp" line="285"/>
         <source>Installing </source>
-        <translation type="unfinished"/>
+        <translation>Installeren</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="288"/>
