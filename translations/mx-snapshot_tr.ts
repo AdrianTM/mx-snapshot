@@ -576,8 +576,8 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <location filename="../main.cpp" line="223"/>
         <location filename="../settings.cpp" line="213"/>
         <location filename="../settings.cpp" line="226"/>
-        <location filename="../settings.cpp" line="555"/>
-        <location filename="../settings.cpp" line="604"/>
+        <location filename="../settings.cpp" line="556"/>
+        <location filename="../settings.cpp" line="605"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -674,13 +674,13 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation>Videolar</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="550"/>
-        <location filename="../settings.cpp" line="599"/>
+        <location filename="../settings.cpp" line="551"/>
+        <location filename="../settings.cpp" line="600"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="110"/>
+        <location filename="../work.cpp" line="113"/>
         <source>Interrupted or failed to complete</source>
         <translation>Kesintiye uğradı veya tamamlanamadı</translation>
     </message>
@@ -693,129 +693,129 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation>Temizleniyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="102"/>
-        <location filename="../work.cpp" line="109"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="105"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Done</source>
         <translation>Bitti</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="139"/>
-        <location filename="../work.cpp" line="237"/>
-        <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="371"/>
-        <location filename="../work.cpp" line="443"/>
+        <location filename="../work.cpp" line="142"/>
+        <location filename="../work.cpp" line="240"/>
+        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="374"/>
+        <location filename="../work.cpp" line="446"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="140"/>
+        <location filename="../work.cpp" line="143"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Hedef diskinizde yeterli boş alan yok, en az %1 gerekli</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="141"/>
+        <location filename="../work.cpp" line="144"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 üzerinde %1 boş alanınız var</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="142"/>
+        <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="175"/>
+        <location filename="../work.cpp" line="178"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Yeni iso dosya sistemi kopyalanıyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="198"/>
+        <location filename="../work.cpp" line="201"/>
         <source>Could not create temp directory. </source>
         <translation>Geçici dizin oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="234"/>
+        <location filename="../work.cpp" line="237"/>
         <source>Squashing filesystem...</source>
         <translation>Dosya sistemi sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
+        <location filename="../work.cpp" line="241"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>linuxfs dosyası oluşturulamadı, lütfen hedef bölüm üzerinde yeterli alan olup olmadığını kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="254"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD kalıp dosyası oluşturuluyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="259"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISO dosyası oluşturulamadı, lütfen hedef bölüm üzerinde yeterli alan olup olmadığını kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="266"/>
         <source>Making hybrid iso</source>
         <translation>Hibrit iso oluşturuluyor</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Success</source>
         <translation>Başarılı</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot başarıyla tamamlandı !</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Anlık Görüntüyü Oluşturmak %1 sürdü</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX Snapshot &apos;ı kullandığınız için teşekkürler, boot edilebilir usb hazırlamak için MX Live USB Maker &apos;ı kullanabilirsiniz!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="297"/>
         <source>Installing </source>
         <translation>Kuruluyor</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="300"/>
         <source>Could not install </source>
         <translation>Kurulamadı</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="307"/>
+        <location filename="../work.cpp" line="310"/>
         <source>Calculating checksum...</source>
         <translation>Sağlama hesaplanıyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
         <translation>Yeni initrd oluşturuluyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="371"/>
+        <location filename="../work.cpp" line="374"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>%1 dosyası bulunamadı, devam edilemiyor</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="443"/>
+        <location filename="../work.cpp" line="446"/>
         <source>Could not create working directory. </source>
         <translation>Çalışma dizini oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="560"/>
+        <location filename="../work.cpp" line="563"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>
