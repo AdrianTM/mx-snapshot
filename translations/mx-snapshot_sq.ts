@@ -576,8 +576,8 @@
         <location filename="../main.cpp" line="223"/>
         <location filename="../settings.cpp" line="213"/>
         <location filename="../settings.cpp" line="226"/>
-        <location filename="../settings.cpp" line="555"/>
-        <location filename="../settings.cpp" line="604"/>
+        <location filename="../settings.cpp" line="556"/>
+        <location filename="../settings.cpp" line="605"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
@@ -674,13 +674,13 @@
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="550"/>
-        <location filename="../settings.cpp" line="599"/>
+        <location filename="../settings.cpp" line="551"/>
+        <location filename="../settings.cpp" line="600"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="110"/>
+        <location filename="../work.cpp" line="113"/>
         <source>Interrupted or failed to complete</source>
         <translation>U ndërpre, ose s’u arrit të plotësohej</translation>
     </message>
@@ -693,129 +693,129 @@
         <translation>Po pastrohet…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="102"/>
-        <location filename="../work.cpp" line="109"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="105"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Done</source>
         <translation>U bë</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="139"/>
-        <location filename="../work.cpp" line="237"/>
-        <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="371"/>
-        <location filename="../work.cpp" line="443"/>
+        <location filename="../work.cpp" line="142"/>
+        <location filename="../work.cpp" line="240"/>
+        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="374"/>
+        <location filename="../work.cpp" line="446"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="140"/>
+        <location filename="../work.cpp" line="143"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>S’ka hapësirë të mjaftë të lirë në diskun ku synoni, ju duhen të paktën %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="141"/>
+        <location filename="../work.cpp" line="144"/>
         <source>You have %1 free space on %2</source>
         <translation>Keni %1 hapësirë të lirë në %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="142"/>
+        <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Nëse jeni i sigurt se keni hapësirë të mjaftueshme, rixhironi programin me mundësinë -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="175"/>
+        <location filename="../work.cpp" line="178"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Po kopjohet sistemi i ri i kartelave ISO…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="198"/>
+        <location filename="../work.cpp" line="201"/>
         <source>Could not create temp directory. </source>
         <translation>S’u krijua dot drejtori e përkohshme. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="234"/>
+        <location filename="../work.cpp" line="237"/>
         <source>Squashing filesystem...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
+        <location filename="../work.cpp" line="241"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>S’u krijua kartelë linuxfs, ju lutemi, kontrolloni nëse keni hapësirë të mjaftueshme te pjesa e synuar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="254"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Po krijohet kartelë pamje CD/DVD…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="259"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>S’u krijua dot kartelë ISO, ju lutemi, kontrolloni nëse keni hapësirë të mjaftueshme te pjesa e synuar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="266"/>
         <source>Making hybrid iso</source>
         <translation>Po krijohet ISO hibride</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Success</source>
         <translation>Sukses</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Fotografimi MX u plotësua me sukses!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Fotografimit iu deshën %1 të plotësohet.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Faleminderit që përdorni MX Snapshot, pas kësaj xhironi MX Live USB Maker!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="297"/>
         <source>Installing </source>
         <translation>Po instalohet </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="300"/>
         <source>Could not install </source>
         <translation>S’u instalua dot </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="307"/>
+        <location filename="../work.cpp" line="310"/>
         <source>Calculating checksum...</source>
         <translation>Po llogaritet vlera e checksum-it…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
         <translation>Po ndërtohet initrd i ri…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="371"/>
+        <location filename="../work.cpp" line="374"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>S’u gjet dot kartelë %1, të vazhdohet</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="443"/>
+        <location filename="../work.cpp" line="446"/>
         <source>Could not create working directory. </source>
         <translation>S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Po njehsohet madhësia gjithsej e kartelave të përjashtuara…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="560"/>
+        <location filename="../work.cpp" line="563"/>
         <source>Calculating size of root...</source>
         <translation>Po njehsohet madhësia e rrënjës…</translation>
     </message>
