@@ -1,0 +1,244 @@
+ dpkg-buildpackage -us -uc -ui
+dpkg-buildpackage: info: source package mx-snapshot
+dpkg-buildpackage: info: source version 22.10
+dpkg-buildpackage: info: source distribution mx
+dpkg-buildpackage: info: source changed by Dolphin Oracle <dolphinoracle@gmail.com>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean --no-automatic-dbgsym --parallel 
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/media/demo/dataext/development/working/mx-snapshot/64'
+dh_auto_clean
+rm -f src/translations/*.qm
+make[1]: Leaving directory '/media/demo/dataext/development/working/mx-snapshot/64'
+   dh_autoreconf_clean -O--no-automatic-dbgsym -O--parallel
+   dh_clean -O--no-automatic-dbgsym -O--parallel
+ dpkg-source -b .
+dpkg-source: info: using source format '3.0 (native)'
+dpkg-source: info: building mx-snapshot in mx-snapshot_22.10.tar.xz
+dpkg-source: info: building mx-snapshot in mx-snapshot_22.10.dsc
+ debian/rules build
+dh build --no-automatic-dbgsym --parallel 
+   dh_update_autotools_config -O--no-automatic-dbgsym -O--parallel
+   dh_autoreconf -O--no-automatic-dbgsym -O--parallel
+   dh_auto_configure -O--no-automatic-dbgsym -O--parallel
+	qmake -makefile "QMAKE_CFLAGS_RELEASE=-g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" "QMAKE_CFLAGS_DEBUG=-g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" "QMAKE_CXXFLAGS_RELEASE=-g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" "QMAKE_CXXFLAGS_DEBUG=-g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2" QMAKE_LFLAGS_RELEASE=-Wl,-z,relro QMAKE_LFLAGS_DEBUG=-Wl,-z,relro QMAKE_STRIP=: PREFIX=/usr
+Info: creating stash file /media/demo/dataext/development/working/mx-snapshot/64/.qmake.stash
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/media/demo/dataext/development/working/mx-snapshot/64'
+lrelease mx-snapshot.pro
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_am.qm'...
+    Generated 80 translation(s) (80 finished and 0 unfinished)
+    Ignored 70 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ar.qm'...
+    Generated 27 translation(s) (27 finished and 0 unfinished)
+    Ignored 123 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_bg.qm'...
+    Generated 27 translation(s) (27 finished and 0 unfinished)
+    Ignored 123 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_bn.qm'...
+    Generated 0 translation(s) (0 finished and 0 unfinished)
+    Ignored 150 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ca.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_cs.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_da.qm'...
+    Generated 100 translation(s) (100 finished and 0 unfinished)
+    Ignored 50 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_de.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_el.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_en.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+    Ignored 2 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_es.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_et.qm'...
+    Generated 6 translation(s) (6 finished and 0 unfinished)
+    Ignored 144 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_eu.qm'...
+    Generated 4 translation(s) (4 finished and 0 unfinished)
+    Ignored 146 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_fa.qm'...
+    Generated 24 translation(s) (24 finished and 0 unfinished)
+    Ignored 126 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_fi.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_fil_PH.qm'...
+    Generated 71 translation(s) (71 finished and 0 unfinished)
+    Ignored 79 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_fr.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_fr_BE.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_he_IL.qm'...
+    Generated 63 translation(s) (63 finished and 0 unfinished)
+    Ignored 87 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_hi.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_hr.qm'...
+    Generated 33 translation(s) (33 finished and 0 unfinished)
+    Ignored 117 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_hu.qm'...
+    Generated 26 translation(s) (26 finished and 0 unfinished)
+    Ignored 124 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_id.qm'...
+    Generated 20 translation(s) (20 finished and 0 unfinished)
+    Ignored 130 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_is.qm'...
+    Generated 22 translation(s) (22 finished and 0 unfinished)
+    Ignored 128 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_it.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ja.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_kk.qm'...
+    Generated 22 translation(s) (22 finished and 0 unfinished)
+    Ignored 128 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ko.qm'...
+    Generated 9 translation(s) (9 finished and 0 unfinished)
+    Ignored 141 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_lt.qm'...
+    Generated 84 translation(s) (84 finished and 0 unfinished)
+    Ignored 66 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_mk.qm'...
+    Generated 6 translation(s) (6 finished and 0 unfinished)
+    Ignored 144 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_mr.qm'...
+    Generated 21 translation(s) (21 finished and 0 unfinished)
+    Ignored 129 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_nb.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_nl.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_pl.qm'...
+    Generated 140 translation(s) (140 finished and 0 unfinished)
+    Ignored 10 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_pt.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_pt_BR.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ro.qm'...
+    Generated 31 translation(s) (31 finished and 0 unfinished)
+    Ignored 119 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_ru.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_sk.qm'...
+    Generated 89 translation(s) (89 finished and 0 unfinished)
+    Ignored 61 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_sl.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_sq.qm'...
+    Generated 148 translation(s) (148 finished and 0 unfinished)
+    Ignored 2 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_sr.qm'...
+    Generated 10 translation(s) (10 finished and 0 unfinished)
+    Ignored 140 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_sv.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_tr.qm'...
+    Generated 150 translation(s) (150 finished and 0 unfinished)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_uk.qm'...
+    Generated 32 translation(s) (32 finished and 0 unfinished)
+    Ignored 118 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_vi.qm'...
+    Generated 23 translation(s) (23 finished and 0 unfinished)
+    Ignored 127 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_zh_CN.qm'...
+    Generated 48 translation(s) (48 finished and 0 unfinished)
+    Ignored 102 untranslated source text(s)
+Updating '/media/demo/dataext/development/working/mx-snapshot/64/translations/mx-snapshot_zh_TW.qm'...
+    Generated 99 translation(s) (99 finished and 0 unfinished)
+    Ignored 51 untranslated source text(s)
+head -n1 debian/changelog | sed -e "s/.*(\([^(]*\)).*/#define VERSION \"\1\"/" > version.h
+gzip -kf manual/mx-snapshot.8
+dh_auto_build
+	make -j4
+make[2]: Entering directory '/media/demo/dataext/development/working/mx-snapshot/64'
+/usr/lib/qt5/bin/uic mainwindow.ui -o ui_mainwindow.h
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o main.o main.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o about.o about.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o cmd.o cmd.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o settings.o settings.cpp
+settings.cpp: In constructor ‘Settings::Settings(const QCommandLineParser&)’:
+settings.cpp:40:15: warning: ignoring return value of ‘int system(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
+         system("installed-to-live cleanup");
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+settings.cpp: In member function ‘bool Settings::checkSnapshotDir() const’:
+settings.cpp:89:11: warning: ignoring return value of ‘int system(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
+     system("chown $(logname):$(logname) \"/" + snapshot_dir.toUtf8() + "\"");
+     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o batchprocessing.o batchprocessing.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o work.o work.cpp
+/usr/lib/qt5/bin/rcc -name images images.qrc -o qrc_images.cpp
+g++ -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o mainwindow.o mainwindow.cpp
+work.cpp: In member function ‘bool Work::createIso(const QString&)’:
+work.cpp:262:11: warning: ignoring return value of ‘int system(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
+     system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8( )+ "\"");
+     ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+work.cpp:275:15: warning: ignoring return value of ‘int system(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
+         system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".md5\"");
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+work.cpp:276:15: warning: ignoring return value of ‘int system(const char*)’, declared with attribute warn_unused_result [-Wunused-result]
+         system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".sha512\"");
+         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o qrc_images.o qrc_images.cpp
+/usr/lib/qt5/bin/moc -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --include /media/demo/dataext/development/working/mx-snapshot/64/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/demo/dataext/development/working/mx-snapshot/64 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include mainwindow.h -o moc_mainwindow.cpp
+/usr/lib/qt5/bin/moc -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --include /media/demo/dataext/development/working/mx-snapshot/64/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/demo/dataext/development/working/mx-snapshot/64 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include cmd.h -o moc_cmd.cpp
+/usr/lib/qt5/bin/moc -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --include /media/demo/dataext/development/working/mx-snapshot/64/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/demo/dataext/development/working/mx-snapshot/64 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include batchprocessing.h -o moc_batchprocessing.cpp
+/usr/lib/qt5/bin/moc -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB --include /media/demo/dataext/development/working/mx-snapshot/64/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/media/demo/dataext/development/working/mx-snapshot/64 -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include work.h -o moc_work.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o moc_mainwindow.o moc_mainwindow.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o moc_cmd.o moc_cmd.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o moc_batchprocessing.o moc_batchprocessing.cpp
+g++ -c -pipe -g -O2 -fdebug-prefix-map=/media/demo/dataext/development/working/mx-snapshot/64=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -std=gnu++1z -Wall -W -D_REENTRANT -fPIC -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -o moc_work.o moc_work.cpp
+g++ -Wl,-z,relro -o mx-snapshot main.o mainwindow.o about.o cmd.o settings.o batchprocessing.o work.o qrc_images.o moc_mainwindow.o moc_cmd.o moc_batchprocessing.o moc_work.o   -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+make[2]: Leaving directory '/media/demo/dataext/development/working/mx-snapshot/64'
+make[1]: Leaving directory '/media/demo/dataext/development/working/mx-snapshot/64'
+   dh_auto_test -O--no-automatic-dbgsym -O--parallel
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary --no-automatic-dbgsym --parallel 
+   dh_testroot -O--no-automatic-dbgsym -O--parallel
+   dh_prep -O--no-automatic-dbgsym -O--parallel
+   dh_auto_install -O--no-automatic-dbgsym -O--parallel
+   dh_install -O--no-automatic-dbgsym -O--parallel
+   dh_installdocs -O--no-automatic-dbgsym -O--parallel
+   dh_installchangelogs -O--no-automatic-dbgsym -O--parallel
+   dh_installman -O--no-automatic-dbgsym -O--parallel
+   dh_systemd_enable -O--no-automatic-dbgsym -O--parallel
+   dh_installinit -O--no-automatic-dbgsym -O--parallel
+   dh_systemd_start -O--no-automatic-dbgsym -O--parallel
+   dh_icons -O--no-automatic-dbgsym -O--parallel
+   dh_perl -O--no-automatic-dbgsym -O--parallel
+   dh_link -O--no-automatic-dbgsym -O--parallel
+   dh_strip_nondeterminism -O--no-automatic-dbgsym -O--parallel
+   dh_compress -O--no-automatic-dbgsym -O--parallel
+   dh_fixperms -O--no-automatic-dbgsym -O--parallel
+   dh_missing -O--no-automatic-dbgsym -O--parallel
+   dh_strip -O--no-automatic-dbgsym -O--parallel
+   dh_makeshlibs -O--no-automatic-dbgsym -O--parallel
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/media/demo/dataext/development/working/mx-snapshot/64'
+dh_shlibdeps -- -xvirtualbox-guest-x11 --ignore-missing-info
+dpkg-shlibdeps: warning: package could avoid a useless dependency if debian/mx-snapshot/usr/bin/mx-snapshot was not linked against libGL.so.1 (it uses none of the library's symbols)
+make[1]: Leaving directory '/media/demo/dataext/development/working/mx-snapshot/64'
+   dh_installdeb -O--no-automatic-dbgsym -O--parallel
+   dh_gencontrol -O--no-automatic-dbgsym -O--parallel
+   dh_md5sums -O--no-automatic-dbgsym -O--parallel
+   dh_builddeb -O--no-automatic-dbgsym -O--parallel
+dpkg-deb: building package 'mx-snapshot' in '../mx-snapshot_22.10_amd64.deb'.
+ dpkg-genbuildinfo
+ dpkg-genchanges  >../mx-snapshot_22.10_amd64.changes
+dpkg-genchanges: info: including full source code in upload
+ dpkg-source --after-build .
+dpkg-buildpackage: info: full upload; Debian-native package (full source is included)
