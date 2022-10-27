@@ -1,3 +1,9 @@
+mx-snapshot (22.10) mx; urgency=medium
+
+  * translation refresh 
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 26 Oct 2022 20:07:26 -0400
+
 mx-snapshot (22.9.02) mx; urgency=medium
 
   * Revert untested code that was creating some issues
