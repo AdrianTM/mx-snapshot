@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Wed, 26 Oct 2022 20:07:26 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.10
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Dolphin Oracle <dolphinoracle@gmail.com>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10) mx; urgency=medium
+ .
+   * translation refresh
+Checksums-Sha1:
+ 7232f50d80243dbba2edaf9983bb894b46ef21b0 10190 mx-snapshot_22.10_i386.buildinfo
+ af517fbcabd53b4fca688913815635f750cabf64 284988 mx-snapshot_22.10_i386.deb
+Checksums-Sha256:
+ a7c638b53ac64c64418c4279b29acc43286d4869aca8feb2601461f5f6abd580 10190 mx-snapshot_22.10_i386.buildinfo
+ 29303d77cc583eceed2dca77d5e94305323720d93589eb459a9ea0ba24d5f064 284988 mx-snapshot_22.10_i386.deb
+Files:
+ 7c450f5383038977daef29d75c67f77e 10190 admin optional mx-snapshot_22.10_i386.buildinfo
+ f971a54a1afbbd3465894a5a95381182 284988 admin optional mx-snapshot_22.10_i386.deb
