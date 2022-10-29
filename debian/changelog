@@ -1,3 +1,9 @@
+mx-snapshot (22.10.02) mx; urgency=medium
+
+  ^ Execute a sync before automatic shutdown
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 29 Oct 2022 07:47:56 -0400
+
 mx-snapshot (22.10.01) mx; urgency=medium
 
   * Make it possible to select different checksum, not all or nothing

@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 29 Oct 2022 07:47:56 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.10.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.02) mx; urgency=medium
+ .
+   ^ Execute a sync before automatic shutdown
+Checksums-Sha1:
+ 19b84ee1758444922fef1cd1fe5e4cfd4a24b500 10053 mx-snapshot_22.10.02_i386.buildinfo
+ 996107318b8677fdb1ca031797e7caf8275b6c1d 285616 mx-snapshot_22.10.02_i386.deb
+Checksums-Sha256:
+ 2f66f019153101bbf88652d4cc91dc63c44e455b2d11b72fe3b14fc8b6c982de 10053 mx-snapshot_22.10.02_i386.buildinfo
+ a73093890c79e81ab7a0bdd5c4d3e85398864b1b30cb41b783540c9b381cf670 285616 mx-snapshot_22.10.02_i386.deb
+Files:
+ 0504de9cb36330562f648351c59575a5 10053 admin optional mx-snapshot_22.10.02_i386.buildinfo
+ da755d6ff7b20007150356688382d941 285616 admin optional mx-snapshot_22.10.02_i386.deb
