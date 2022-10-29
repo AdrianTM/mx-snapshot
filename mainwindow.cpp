@@ -79,7 +79,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::setOtherOptions()
 {
-    ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(compression));
+    ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(compression, Qt::MatchStartsWith));
     ui->checksums->setChecked(make_chksum);
     ui->radioRespin->setChecked(reset_accounts);
 }
@@ -154,6 +154,13 @@ void MainWindow::setup()
     ui->stackedWidget->setCurrentIndex(0);
     ui->btnCancel->setEnabled(true);
     ui->btnNext->setEnabled(true);
+    ui->cbCompression->blockSignals(true);
+    ui->cbCompression->addItems({"lz4 - " + tr("fastest, worst compression"),
+                                 "lzo - " + tr("fast, worse compression"),
+                                 "gzip - " + tr("slow, better compression"),
+                                 "zstd - " + tr("best compromise"),
+                                 "xz - " + tr("slowest, best compression")});
+    ui->cbCompression->blockSignals(false);
     this->show();
 }
 
@@ -512,8 +519,9 @@ void MainWindow::btnCancel_clicked()
 void MainWindow::cbCompression_currentIndexChanged()
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue(QStringLiteral("compression"), ui->cbCompression->currentText());
-    compression = ui->cbCompression->currentText();
+    QString comp = ui->cbCompression->currentText().section(QStringLiteral(" "), 0, 0);
+    settings.setValue(QStringLiteral("compression"), comp);
+    compression = comp;
 }
 
 void MainWindow::excludeNetworks_toggled(bool checked)
