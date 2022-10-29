@@ -405,23 +405,6 @@ color: rgb(0, 0, 0);</string>
           <number>0</number>
          </property>
          <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0">
-          <item row="4" column="1">
-           <widget class="QRadioButton" name="radioRespin">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string>Resetting accounts (for distribution to others)</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>Type of snapshot:</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="1">
            <widget class="QRadioButton" name="radioPersonal">
             <property name="text">
@@ -429,6 +412,13 @@ color: rgb(0, 0, 0);</string>
             </property>
             <property name="checked">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Type of snapshot:</string>
             </property>
            </widget>
           </item>
@@ -444,6 +434,16 @@ color: rgb(0, 0, 0);</string>
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="4" column="1">
+           <widget class="QRadioButton" name="radioRespin">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string>Resetting accounts (for distribution to others)</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -477,6 +477,20 @@ color: rgb(0, 0, 0);</string>
           <number>0</number>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
+          <item row="4" column="1">
+           <widget class="QCheckBox" name="checkSha512">
+            <property name="text">
+             <string>sha512</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Options:</string>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="4">
            <spacer name="horizontalSpacer_2">
             <property name="orientation">
@@ -490,28 +504,28 @@ color: rgb(0, 0, 0);</string>
             </property>
            </spacer>
           </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="checkMd5">
             <property name="text">
-             <string>Options:</string>
+             <string>md5</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" colspan="2">
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>Calculate checksums:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
            <widget class="QLabel" name="labelCompression">
             <property name="text">
              <string>ISO compression scheme:</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0" colspan="2">
-           <widget class="QCheckBox" name="checksums">
-            <property name="text">
-             <string>Calculate checksums</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2" colspan="2">
+          <item row="1" column="1" colspan="3">
            <widget class="QComboBox" name="cbCompression"/>
           </item>
          </layout>
@@ -793,7 +807,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>excludeAll</tabstop>
   <tabstop>btnEditExclude</tabstop>
   <tabstop>cbCompression</tabstop>
-  <tabstop>checksums</tabstop>
   <tabstop>radioPersonal</tabstop>
   <tabstop>radioRespin</tabstop>
   <tabstop>outputBox</tabstop>

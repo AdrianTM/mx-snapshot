@@ -85,7 +85,8 @@ public:
     bool force_installer{};
     bool i686{};
     bool live{};
-    bool make_chksum{};
+    bool make_md5sum{};
+    bool make_sha512sum{};
     bool make_isohybrid{};
     bool override_size;
     bool preempt{}; // command line option

@@ -495,7 +495,8 @@ void Settings::loadConfig()
                                                  qApp->applicationName() +
                                                  QStringLiteral("-exclude.list")).toString());
     snapshot_basename = settings.value(QStringLiteral("snapshot_basename"), "snapshot").toString();
-    make_chksum = settings.value(QStringLiteral("make_md5sum"), "no").toString() != QLatin1String("no");
+    make_md5sum = settings.value(QStringLiteral("make_md5sum"), "no").toString() != QLatin1String("no");
+    make_sha512sum = settings.value(QStringLiteral("make_sha512sum"), "no").toString() != QLatin1String("no");
     make_isohybrid = settings.value(QStringLiteral("make_isohybrid"), "yes").toString() == QLatin1String("yes");
     compression = settings.value(QStringLiteral("compression"), "zstd").toString();
     mksq_opt = settings.value(QStringLiteral("mksq_opt")).toString();
@@ -558,18 +559,24 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         exit(EXIT_FAILURE);
     }
     reset_accounts = arg_parser.isSet(QStringLiteral("reset"));
-    if (reset_accounts)
+    if (reset_accounts) {
         excludeAll();
-    if (arg_parser.isSet(QStringLiteral("month")))
+    } if (arg_parser.isSet(QStringLiteral("month"))) {
         reset_accounts = true;
-    if (arg_parser.isSet(QStringLiteral("checksums")) || arg_parser.isSet(QStringLiteral("month")))
-        make_chksum = true;
-    if (arg_parser.isSet(QStringLiteral("no-checksums")))
-        make_chksum = false;
-    if (!arg_parser.value(QStringLiteral("compression")).isEmpty())
+    } if (arg_parser.isSet(QStringLiteral("checksums"))) {
+        make_sha512sum = true;
+        make_md5sum = true;
+    } if (arg_parser.isSet(QStringLiteral("month"))) {
+        make_sha512sum = true;
+        make_md5sum = false;
+    } if (arg_parser.isSet(QStringLiteral("no-checksums"))) {
+        make_sha512sum = false;
+        make_md5sum = false;
+    } if (!arg_parser.value(QStringLiteral("compression")).isEmpty()) {
         compression = arg_parser.value(QStringLiteral("compression"));
-    if (!arg_parser.value(QStringLiteral("compression-level")).isEmpty())
+    } if (!arg_parser.value(QStringLiteral("compression-level")).isEmpty()) {
         mksq_opt = arg_parser.value(QStringLiteral("compression-level"));
+    }
     selectKernel();
 }
 
