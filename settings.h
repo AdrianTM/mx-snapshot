@@ -96,7 +96,6 @@ public:
     quint64 free_space_work{};
     quint64 home_size{};
     quint64 root_size{};
-    short debian_version{};
 
     QString getEditor() const;
     QString getFilename() const;
@@ -113,7 +112,6 @@ public:
     bool isLive() const;
     bool isOnSupportedPart(const QString &dir) const;
     bool isi686() const;
-    quint8 getDebianVersion() const;
     int getSnapshotCount() const;
     quint64 getFreeSpace(const QString &path) const;
     quint64 getLiveRootSpace() const;
