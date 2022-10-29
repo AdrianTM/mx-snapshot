@@ -115,11 +115,6 @@ bool Settings::checkTempDir()
     return true;
 }
 
-quint8 Settings::getDebianVersion() const
-{
-    return shell->getCmdOut(QStringLiteral("cat /etc/debian_version |cut -f1 -d'.'"), true).toUShort();
-}
-
 QString Settings::getEditor() const
 {
     QString editor = gui_editor;
@@ -243,7 +238,6 @@ void Settings::setVariables()
     live = isLive();
     users = listUsers();
     i686 = isi686();
-    debian_version = getDebianVersion();
 }
 
 // Create the output filename

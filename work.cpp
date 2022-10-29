@@ -32,7 +32,6 @@
 
 #define OUT settings->shell->getCmdOut
 #define RUN settings->shell->run
-const quint8 STRETCH = 9;
 const extern QFile logFile;
 
 Work::Work(Settings *settings) :
@@ -159,16 +158,8 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 // copyModules(mod_dir/kernel kernel)
 void Work::copyModules(const QString &to, const QString &kernel)
 {
-    QString kernel586 = QStringLiteral("3.16.0-4-586");
-    QString cmd = QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel);
-    RUN(cmd);
-    // copy 586 modules for the non-PAE kernel
-    if (settings->i686 && settings->debian_version < STRETCH) {  // Not applicable for Stretch (MX17) or more
-        QString cmd = QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel586);
-        RUN(cmd);
-    }
-    cmd = QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-programs --to=\"%1\"").arg(to);
-    RUN(cmd);
+    RUN(QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel));
+    RUN(QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-programs --to=\"%1\"").arg(to));
 }
 
 
@@ -181,17 +172,6 @@ void Work::copyNewIso()
     RUN(QStringLiteral("tar xf /usr/lib/iso-template/iso-template.tar.gz"));
     RUN(QStringLiteral("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz"));
     RUN("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
-
-    if (settings->debian_version < STRETCH) {
-        if (settings->i686) {
-            RUN(QStringLiteral("cp /boot/vmlinuz-3.16.0-4-586 iso-template/antiX/vmlinuz1"));
-        } else {
-            // mv x64 template files over
-            RUN(QStringLiteral("mv iso-template/boot/grub/grub.cfg_x64 iso-template/boot/grub/grub.cfg"));
-            RUN(QStringLiteral("mv iso-template/boot/syslinux/syslinux.cfg_x64 iso-template/boot/syslinux/syslinux.cfg"));
-            RUN(QStringLiteral("mv iso-template/boot/isolinux/isolinux.cfg_x64 iso-template/boot/isolinux/isolinux.cfg"));
-        }
-    }
 
     replaceMenuStrings();
     makeChecksum(HashType::md5, settings->work_dir + "/iso-template/antiX", QStringLiteral("vmlinuz"));
@@ -384,51 +364,36 @@ void Work::replaceMenuStrings() {
 
     QString options = QStringLiteral("quiet");
 
-    if (settings->debian_version < STRETCH) { // Only for versions older than Stretch which uses old mx-iso-template
-        if (settings->i686) {
-            QString new_string = "MX Linux 386 (" + date + ")";
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-        } else {
-            QString new_string = "MX Linux x64 (" + date + ")";
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-            replaceStringInFile(QStringLiteral("custom-name"), new_string, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-        }
+    replaceStringInFile(QStringLiteral("%DISTRO%"), distro, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
 
-    } else { // with new mx-iso-template for MX-17 and greater
-        replaceStringInFile(QStringLiteral("%DISTRO%"), distro, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-        replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-        replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
+    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
 
-        replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-        replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
 
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
 
-        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
-        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
+    replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
+    replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
 
-        replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-        replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-
-        QString themeDir = settings->work_dir + "/iso-template/boot/grub/theme";
-        QDirIterator themeFileIt(themeDir, {"*.txt"}, QDir::Files);
-        QString themeFile;
-        while (themeFileIt.hasNext()) {
-            themeFile = themeFileIt.next();
-            replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), code_name, themeFile);
-            replaceStringInFile(QStringLiteral("%DISTRO%"), distro, themeFile);
-        }
+    QString themeDir = settings->work_dir + "/iso-template/boot/grub/theme";
+    QDirIterator themeFileIt(themeDir, {"*.txt"}, QDir::Files);
+    QString themeFile;
+    while (themeFileIt.hasNext()) {
+        themeFile = themeFileIt.next();
+        replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), code_name, themeFile);
+        replaceStringInFile(QStringLiteral("%DISTRO%"), distro, themeFile);
     }
 }
 
