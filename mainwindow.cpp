@@ -80,7 +80,8 @@ void MainWindow::loadSettings()
 void MainWindow::setOtherOptions()
 {
     ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(compression, Qt::MatchStartsWith));
-    ui->checksums->setChecked(make_chksum);
+    ui->checkMd5->setChecked(make_md5sum);
+    ui->checkSha512->setChecked(make_sha512sum);
     ui->radioRespin->setChecked(reset_accounts);
 }
 
@@ -102,8 +103,9 @@ void MainWindow::setConnections()
     connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
-    connect(ui->checksums, &QCheckBox::toggled, this, &MainWindow::checksums_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
+    connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
+    connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
@@ -530,11 +532,18 @@ void MainWindow::excludeNetworks_toggled(bool checked)
     if (!checked) ui->excludeAll->setChecked(false);
 }
 
-void MainWindow::checksums_toggled(bool checked)
+void MainWindow::checkMd5_toggled(bool checked)
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue(QStringLiteral("make_md5sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
-    make_chksum = checked;
+    make_md5sum = checked;
+}
+
+void MainWindow::checkSha512_toggled(bool checked)
+{
+    QSettings settings(config_file.fileName(), QSettings::IniFormat);
+    settings.setValue(QStringLiteral("make_sha512sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
+    make_sha512sum = checked;
 }
 
 void MainWindow::excludeAll_clicked(bool checked)

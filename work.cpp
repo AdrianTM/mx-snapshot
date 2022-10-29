@@ -269,10 +269,12 @@ bool Work::createIso(const QString &filename)
     }
 
     // make ISO checksums
-    if (settings->make_chksum) {
+    if (settings->make_md5sum) {
         makeChecksum(HashType::md5, settings->snapshot_dir, filename);
-        makeChecksum(HashType::sha512, settings->snapshot_dir, filename);
         system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".md5\"");
+    }
+    if (settings->make_sha512sum) {
+        makeChecksum(HashType::sha512, settings->snapshot_dir, filename);
         system("chown $(logname):$(logname) \"" + settings->snapshot_dir.toUtf8() + "/" + filename.toUtf8() + ".sha512\"");
     }
 
