@@ -247,7 +247,7 @@ void Settings::setVariables()
 
     if (!distro_version_file.isEmpty()) {
         distro = shell->getCmdOut("cut -f1 -d'_' " + distro_version_file);
-        full_distro_name = shell->getCmdOut("cut -f1 -d' ' " + distro_version_file);
+        full_distro_name = distro + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
     } else {
         distro = QStringLiteral("MX_") + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
         full_distro_name = distro;
