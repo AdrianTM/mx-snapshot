@@ -53,6 +53,8 @@ public:
     bool createIso(const QString &filename);
     bool installPackage(const QString &package);
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
+    quint64 getRequiredSpace();
+    static void writeSnapshotInfo();
     void checkEnoughSpace();
     void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
     void closeInitrd(const QString &initrd_dir, const QString &file);
@@ -63,9 +65,9 @@ public:
     void replaceMenuStrings();
     void savePackageList(const QString &file_name);
     void setupEnv();
-    static void writeSnapshotInfo();
+    void writeLsbRelease();
     void writeUnsquashfsSize(const QString &text);
-    quint64 getRequiredSpace();
+    void writeVersionFile();
 
 signals:
     void message(const QString &msg);
