@@ -66,15 +66,15 @@ public:
     QFile snapshot_excludes;
     QHash<QString, QString> englishDirs; // English names of /home directories
     QScopedPointer<QTemporaryDir> tmpdir;
-    QString code_name;
+    QString codename;
     QString compression;
-    QString distro;
-    QString distro_name;
+    QString distro_version;
+    QString project_name;
     QString full_distro_name;
     QString gui_editor;
     QString kernel;
     QString mksq_opt;
-    QString options;
+    QString boot_options;
     QString release_date;
     QString save_message;
     QString session_excludes;

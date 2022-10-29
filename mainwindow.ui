@@ -72,21 +72,21 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QLineEdit" name="textDistroName">
+           <widget class="QLineEdit" name="textProjectName">
             <property name="text">
              <string notr="true"/>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QLineEdit" name="textCodeName">
+           <widget class="QLineEdit" name="textCodename">
             <property name="text">
              <string notr="true"/>
             </property>
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="labelDistroName">
+           <widget class="QLabel" name="labelProjectName">
             <property name="text">
              <string>Project name:</string>
             </property>
@@ -100,7 +100,7 @@
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QLineEdit" name="textDistro">
+           <widget class="QLineEdit" name="textDistroVersion">
             <property name="text">
              <string notr="true"/>
             </property>
@@ -884,9 +884,9 @@ p, li { white-space: pre-wrap; }
  <tabstops>
   <tabstop>btnSelectSnapshot</tabstop>
   <tabstop>lineEditName</tabstop>
-  <tabstop>textDistroName</tabstop>
-  <tabstop>textDistro</tabstop>
-  <tabstop>textCodeName</tabstop>
+  <tabstop>textProjectName</tabstop>
+  <tabstop>textDistroVersion</tabstop>
+  <tabstop>textCodename</tabstop>
   <tabstop>textReleaseDate</tabstop>
   <tabstop>textOptions</tabstop>
   <tabstop>btnAbout</tabstop>

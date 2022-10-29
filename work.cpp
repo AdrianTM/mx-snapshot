@@ -96,6 +96,9 @@ void Work::cleanUp()
             for (const QString &filename : QDir("/home/" + user + "/Desktop").entryList({"minstall.desktop"}))
                 QFile::remove("/home/" + user + "/Desktop/" + filename);}
 
+    QFile::remove(QStringLiteral("/usr/local/share/live-files/files/etc/mx-version"));
+    QFile::remove(QStringLiteral("/usr/local/share/live-files/files/etc/lsb-release"));
+
     if (!settings->live) QFile::remove(QStringLiteral("/etc/skel/Desktop/Installer.desktop"));
 
     initrd_dir.remove();
@@ -340,18 +343,18 @@ void Work::replaceMenuStrings() {
     full_distro_name_space.replace(QLatin1String("_"), QLatin1String(" "));
 
     const QString grub_cfg = QStringLiteral("/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%DISTRO%"), settings->distro, settings->work_dir + grub_cfg);
-    replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), settings->distro_name, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%DISTRO%"), settings->project_name + "-" + settings->distro_version, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), settings->project_name, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), settings->full_distro_name, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + grub_cfg);
-    replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->options, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->boot_options, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), settings->release_date, settings->work_dir + grub_cfg);
 
     const QString syslinux_cfg = QStringLiteral("/iso-template/boot/syslinux/syslinux.cfg");
     const QString isolinux_cfg = QStringLiteral("/iso-template/boot/isolinux/isolinux.cfg");
     for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
-        replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->options, settings->work_dir + file);
-        replaceStringInFile(QStringLiteral("%CODE_NAME%"), settings->code_name, settings->work_dir + file);
+        replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->boot_options, settings->work_dir + file);
+        replaceStringInFile(QStringLiteral("%CODE_NAME%"), settings->codename, settings->work_dir + file);
     }
 
     const QString sys_readme = QStringLiteral("/iso-template/boot/syslinux/readme.msg");
@@ -367,8 +370,8 @@ void Work::replaceMenuStrings() {
     QString themeFile;
     while (themeFileIt.hasNext()) {
         themeFile = themeFileIt.next();
-        replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), settings->code_name, themeFile);
-        replaceStringInFile(QStringLiteral("%DISTRO%"), settings->distro, themeFile);
+        replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), settings->codename, themeFile);
+        replaceStringInFile(QStringLiteral("%DISTRO%"), settings->project_name + "-" + settings->distro_version, themeFile);
     }
 }
 
@@ -412,6 +415,8 @@ void Work::setupEnv()
         installPackage(QStringLiteral("mx-installer"));
 
     writeSnapshotInfo();
+    writeVersionFile();
+    writeLsbRelease();
 
     // setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->reset_accounts) {
@@ -432,6 +437,21 @@ void Work::setupEnv()
     }
 }
 
+void Work::writeLsbRelease()
+{
+    QFile file(QStringLiteral("/usr/local/share/live-files/files/etc/lsb-release"));
+    if (!file.open(QFile::WriteOnly | QFile::Truncate))
+        return;
+
+    QTextStream stream(&file);
+    stream << "PRETTY_NAME=" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\n";
+    stream << "DISTRIB_ID=" << settings->project_name << "\n";
+    stream << "DISTRIB_RELEASE=" << settings->distro_version << "\n";
+    stream << "DISTRIB_CODENAME=" << settings->codename << "\n";
+    stream << "DISTRIB_DESCRIPTION=" << settings->project_name  + " " + settings->distro_version + " " + settings->codename;
+    file.close();
+}
+
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
@@ -441,6 +461,17 @@ void Work::writeSnapshotInfo()
 
     QTextStream stream(&file);
     stream << QDateTime::currentDateTime().toString(QStringLiteral("yyyyMMdd_HHmm"));
+    file.close();
+}
+
+void Work::writeVersionFile()
+{
+    QFile file(QStringLiteral("/usr/local/share/live-files/files/etc/mx-version"));
+    if (!file.open(QFile::WriteOnly | QFile::Truncate))
+        return;
+
+    QTextStream stream(&file);
+    stream << settings->full_distro_name + " " + settings->codename + " " + settings->release_date;
     file.close();
 }
 
