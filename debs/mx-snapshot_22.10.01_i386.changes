@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Sat, 29 Oct 2022 00:53:23 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.10.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.01) mx; urgency=medium
+ .
+   * Make it possible to select different checksum, not all or nothing
+   * Provide more info about compression algorithms
+   * Remove code targetting versions < Stretch
+   * Add optional customization for name of the project, version, date, codename, boot options
+Checksums-Sha1:
+ 36d48665a1ba7f5c21d3bb75b36c2070778f9adb 10053 mx-snapshot_22.10.01_i386.buildinfo
+ 4691df06dfb9226ca89675b2f0cb849c138f171a 285844 mx-snapshot_22.10.01_i386.deb
+Checksums-Sha256:
+ e4fcaf0f6a4f359708cfb2c799301636be4a9d4a8417f146f195c7df8cf8291c 10053 mx-snapshot_22.10.01_i386.buildinfo
+ 34eace928c9dd68d6e57be081e54a1355729e3016d424f0902763e38dfee683f 285844 mx-snapshot_22.10.01_i386.deb
+Files:
+ 796bc76967e8b69af3b756fc131f82a5 10053 admin optional mx-snapshot_22.10.01_i386.buildinfo
+ 9506894181019c23cb5900c872e8de6e 285844 admin optional mx-snapshot_22.10.01_i386.deb

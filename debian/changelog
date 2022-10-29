@@ -1,3 +1,12 @@
+mx-snapshot (22.10.01) mx; urgency=medium
+
+  * Make it possible to select different checksum, not all or nothing
+  * Provide more info about compression algorithms
+  * Remove code targetting versions < Stretch
+  * Add optional customization for name of the project, version, date, codename, boot options
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 29 Oct 2022 00:53:23 -0400
+
 mx-snapshot (22.10) mx; urgency=medium
 
   * translation refresh 
