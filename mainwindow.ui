@@ -24,14 +24,112 @@
      </property>
      <widget class="QWidget" name="selectionPage">
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="10" column="0">
-        <widget class="QLabel" name="labelLocation">
-         <property name="text">
-          <string>Snapshot location:</string>
+       <item row="14" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>Optional customization</string>
          </property>
+         <layout class="QGridLayout" name="gridLayout_6">
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="textReleaseDate">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="labelOptions">
+            <property name="text">
+             <string>Boot options:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="textOptions">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="labelDate">
+            <property name="text">
+             <string>Release date:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLineEdit" name="textDistroName">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="textCodeName">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelDistroName">
+            <property name="text">
+             <string>Project name:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelDistro">
+            <property name="text">
+             <string>Release version:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="textDistro">
+            <property name="text">
+             <string notr="true"/>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="labelCodeName">
+            <property name="text">
+             <string>Release codename:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
-       <item row="0" column="0" colspan="6">
+       <item row="15" column="0" colspan="2">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0" colspan="2">
         <widget class="QLabel" name="labelIntro">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -47,7 +145,7 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="0" colspan="6">
+       <item row="1" column="0" colspan="2">
         <widget class="QLabel" name="labelCurrentSpace">
          <property name="text">
           <string>Used space on / (root) and /home partitions:</string>
@@ -57,7 +155,62 @@
          </property>
         </widget>
        </item>
-       <item row="5" column="0" colspan="6">
+       <item row="3" column="0" colspan="2">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>Location and ISO name</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="1" column="1">
+           <widget class="QLineEdit" name="lineEditName"/>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="labelSnapshotDir">
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 205);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::Box</enum>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="wordWrap">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelLocation">
+            <property name="text">
+             <string>Snapshot location:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QPushButton" name="btnSelectSnapshot">
+            <property name="text">
+             <string>Select a different snapshot directory</string>
+            </property>
+            <property name="icon">
+             <iconset theme="cursor-arrow">
+              <normaloff>.</normaloff>.</iconset>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="labelIsoName">
+            <property name="text">
+             <string>Snapshot name:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="2">
         <widget class="QLabel" name="labelDiskSpaceHelp">
          <property name="text">
           <string/>
@@ -67,14 +220,7 @@
          </property>
         </widget>
        </item>
-       <item row="7" column="0" colspan="6">
-        <widget class="Line" name="line_4">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="0" colspan="6">
+       <item row="2" column="0" colspan="2">
         <widget class="QFrame" name="frame_2">
          <property name="frameShape">
           <enum>QFrame::Box</enum>
@@ -151,58 +297,6 @@ color: rgb(0, 0, 0);</string>
           </item>
          </layout>
         </widget>
-       </item>
-       <item row="13" column="0">
-        <widget class="QLabel" name="labelIsoName">
-         <property name="text">
-          <string>Snapshot name:</string>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="3">
-        <widget class="QPushButton" name="btnSelectSnapshot">
-         <property name="text">
-          <string>Select a different snapshot directory</string>
-         </property>
-         <property name="icon">
-          <iconset theme="cursor-arrow">
-           <normaloff>.</normaloff>.</iconset>
-         </property>
-        </widget>
-       </item>
-       <item row="11" column="0" colspan="3">
-        <widget class="QLabel" name="labelSnapshotDir">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 205);
-border-color: rgb(0, 0, 0);
-color: rgb(0, 0, 0);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Box</enum>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="16" column="0" colspan="6">
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item row="14" column="0" colspan="3">
-        <widget class="QLineEdit" name="lineEditName"/>
        </item>
       </layout>
      </widget>
@@ -611,53 +705,8 @@ p, li { white-space: pre-wrap; }
      <property name="spacing">
       <number>5</number>
      </property>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="btnHelp">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="toolTip">
-        <string>Display help </string>
-       </property>
-       <property name="text">
-        <string>Help</string>
-       </property>
-       <property name="icon">
-        <iconset theme="help-contents">
-         <normaloff>.</normaloff>.</iconset>
-       </property>
-       <property name="shortcut">
-        <string>Alt+H</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QLabel" name="labelMX">
-       <property name="maximumSize">
-        <size>
-         <width>32</width>
-         <height>32</height>
-        </size>
-       </property>
-       <property name="midLineWidth">
-        <number>0</number>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="images.qrc">:/icons/logo.png</pixmap>
-       </property>
-       <property name="scaledContents">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="5">
-      <spacer name="horizontalSpacer2">
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer1">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -724,6 +773,22 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="0" column="5">
+      <spacer name="horizontalSpacer2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="0" column="8">
       <widget class="QPushButton" name="btnNext">
        <property name="sizePolicy">
@@ -750,21 +815,27 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
-     <item row="0" column="2">
-      <spacer name="horizontalSpacer1">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
+     <item row="0" column="3">
+      <widget class="QLabel" name="labelMX">
+       <property name="maximumSize">
         <size>
-         <width>100</width>
-         <height>20</height>
+         <width>32</width>
+         <height>32</height>
         </size>
        </property>
-      </spacer>
+       <property name="midLineWidth">
+        <number>0</number>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="images.qrc">:/icons/logo.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item row="0" column="7">
       <widget class="QPushButton" name="btnBack">
@@ -783,6 +854,29 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="btnHelp">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Display help </string>
+       </property>
+       <property name="text">
+        <string>Help</string>
+       </property>
+       <property name="icon">
+        <iconset theme="help-contents">
+         <normaloff>.</normaloff>.</iconset>
+       </property>
+       <property name="shortcut">
+        <string>Alt+H</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
@@ -790,23 +884,30 @@ p, li { white-space: pre-wrap; }
  <tabstops>
   <tabstop>btnSelectSnapshot</tabstop>
   <tabstop>lineEditName</tabstop>
+  <tabstop>textDistroName</tabstop>
+  <tabstop>textDistro</tabstop>
+  <tabstop>textCodeName</tabstop>
+  <tabstop>textReleaseDate</tabstop>
+  <tabstop>textOptions</tabstop>
   <tabstop>btnAbout</tabstop>
   <tabstop>btnHelp</tabstop>
   <tabstop>btnBack</tabstop>
   <tabstop>btnNext</tabstop>
   <tabstop>btnCancel</tabstop>
   <tabstop>excludeDocuments</tabstop>
-  <tabstop>excludeDownloads</tabstop>
-  <tabstop>excludeDesktop</tabstop>
   <tabstop>excludeMusic</tabstop>
-  <tabstop>excludePictures</tabstop>
-  <tabstop>excludeVideos</tabstop>
   <tabstop>excludeNetworks</tabstop>
-  <tabstop>excludeSteam</tabstop>
-  <tabstop>excludeVirtualBox</tabstop>
   <tabstop>excludeAll</tabstop>
+  <tabstop>excludeDownloads</tabstop>
+  <tabstop>excludePictures</tabstop>
+  <tabstop>excludeSteam</tabstop>
+  <tabstop>excludeDesktop</tabstop>
+  <tabstop>excludeVideos</tabstop>
+  <tabstop>excludeVirtualBox</tabstop>
   <tabstop>btnEditExclude</tabstop>
   <tabstop>cbCompression</tabstop>
+  <tabstop>checkMd5</tabstop>
+  <tabstop>checkSha512</tabstop>
   <tabstop>radioPersonal</tabstop>
   <tabstop>radioRespin</tabstop>
   <tabstop>outputBox</tabstop>

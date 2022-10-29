@@ -75,6 +75,11 @@ void MainWindow::loadSettings()
         ui->lineEditName->setText(getFilename());
     else
         ui->lineEditName->setText(snapshot_name);
+    ui->textCodeName->setText(code_name);
+    ui->textDistro->setText(distro);
+    ui->textDistroName->setText(distro_name);
+    ui->textOptions->setText(options);
+    ui->textReleaseDate->setText(release_date);
 }
 
 void MainWindow::setOtherOptions()
@@ -304,7 +309,7 @@ void MainWindow::btnNext_clicked()
     }
 
     // on first page
-    if (ui->stackedWidget->currentIndex() == 0) {
+    if (ui->stackedWidget->currentWidget() == ui->selectionPage) {
         this->setWindowTitle(tr("Settings"));
         ui->stackedWidget->setCurrentWidget(ui->settingsPage);
         ui->btnBack->setHidden(false);
@@ -315,7 +320,12 @@ void MainWindow::btnNext_clicked()
         ui->label_2->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" +
                        "- " + tr("Snapshot name:") + " " + file_name + "\n" +
                        tr("- Kernel to be used:") + " " + kernel + "\n");
-
+        code_name = ui->textCodeName->text();
+        distro = ui->textDistro->text();
+        distro_name = ui->textDistroName->text();
+        full_distro_name = distro + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
+        options = ui->textOptions->text();
+        release_date = ui->textReleaseDate->text();
     // on settings page
     } else if (ui->stackedWidget->currentWidget() == ui->settingsPage) {
         if (!checkCompression()) {
