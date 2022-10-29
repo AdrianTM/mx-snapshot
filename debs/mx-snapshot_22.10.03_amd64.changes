@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 29 Oct 2022 13:21:48 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.10.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.03) mx; urgency=medium
+ .
+   * Update /etc/mx-version and /etc/lsb-release files with the provided info
+Checksums-Sha1:
+ 996cc039ddced20ec3e8801316a7ee496779af6e 1210 mx-snapshot_22.10.03.dsc
+ 51a9084423b7ebbe6f979332ac02944ca5329844 219516 mx-snapshot_22.10.03.tar.xz
+ 38e95df9a3518b7a87afc3ad12ec4679da1c7a9c 10763 mx-snapshot_22.10.03_amd64.buildinfo
+ f109e8eb405f18732b2395034af98eada450c946 281000 mx-snapshot_22.10.03_amd64.deb
+Checksums-Sha256:
+ b2b6426ca3164e3bd3f8bdcc52a73f26db80408c2ab0ab7a428ee499a54d1936 1210 mx-snapshot_22.10.03.dsc
+ cf00e6bae5568e0e892c8e6ae23706b991c36e8f6241aed89f630ace61b40c28 219516 mx-snapshot_22.10.03.tar.xz
+ 94749f43e0c1cb36ed8c7222c4aa0e34f8e539f2038fc8475269be32180df20d 10763 mx-snapshot_22.10.03_amd64.buildinfo
+ 17080399088f607035af8e5db00f246e0a3304a42d524aa063053526ecdddab8 281000 mx-snapshot_22.10.03_amd64.deb
+Files:
+ a218d0c6efc0c4ec6fe6c6e7b495fb3b 1210 admin optional mx-snapshot_22.10.03.dsc
+ e734dbd13cd3018c0aeb07549a46b5cb 219516 admin optional mx-snapshot_22.10.03.tar.xz
+ bf6b2d120fda6bc0bff5f1479ae21ba7 10763 admin optional mx-snapshot_22.10.03_amd64.buildinfo
+ da832e138c3e8ce40ce78f7707d809d5 281000 admin optional mx-snapshot_22.10.03_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmNdYXsTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJZDCAC5WiYPYX2pzD+sGJoDJHVn2s034o2s
+TPfLI3vaDqbFGUonBfz+aROG1MzVWwt2z1RYSi8X9Sg43MqheGDZyY/WvD4cp+Fy
+glo4vZ8xclj0qba56278/gkwz3trKt1AX0DW+YoB0JEuLEwtIyjnQr8fdJPd8HBj
+sYqySZ/x82qLCVqpIxYSlzoXo09LzA6h66QZuF2D9wU/Pv14XvkUf8pPUsAryL/6
+Fdy3zzKNy55p7uwIzAH126ZF9INfi2/bQIxm8LlXOYp3L5c3wAhTgPJ5OP+Spjdk
+l/LkH10y4yDf6+txV+fXgYw6MgB4yD/6LF5hhSVUK2juBuCwA3uYFrJG
+=NH/J
+-----END PGP SIGNATURE-----

@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sat, 29 Oct 2022 13:21:48 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.10.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.03) mx; urgency=medium
+ .
+   * Update /etc/mx-version and /etc/lsb-release files with the provided info
+Checksums-Sha1:
+ 844dc8db7ba87f3e5ca22d45315de2e068858a5b 10053 mx-snapshot_22.10.03_i386.buildinfo
+ dead53f668c738232e631f23035b5cf3675c352b 287296 mx-snapshot_22.10.03_i386.deb
+Checksums-Sha256:
+ c75fdd815d504a213db1d967cb0b3ee61a49ef0dcd3b2433d93a7d4d7d348fbc 10053 mx-snapshot_22.10.03_i386.buildinfo
+ e58539fd421280be0b23d059a38e6370bb901f169d09cc7c1dcda5eede6d6989 287296 mx-snapshot_22.10.03_i386.deb
+Files:
+ 40ac6ce6bafac859adefe31f13888912 10053 admin optional mx-snapshot_22.10.03_i386.buildinfo
+ d02b6e818911d7643db7d44fc16d7173 287296 admin optional mx-snapshot_22.10.03_i386.deb
