@@ -104,6 +104,7 @@ void Work::cleanUp()
         qDebug().noquote() << tr("Done");
         if (settings->shutdown) {
             QFile::copy(logFile.fileName(), settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
+            QProcess::execute(QStringLiteral("sync"), {});
             QProcess::startDetached(QStringLiteral("shutdown"), {"-h", "now"});
         }
         exit(EXIT_SUCCESS);
