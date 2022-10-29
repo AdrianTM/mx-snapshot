@@ -66,10 +66,16 @@ public:
     QFile snapshot_excludes;
     QHash<QString, QString> englishDirs; // English names of /home directories
     QScopedPointer<QTemporaryDir> tmpdir;
+    QString code_name;
     QString compression;
+    QString distro;
+    QString distro_name;
+    QString full_distro_name;
     QString gui_editor;
     QString kernel;
     QString mksq_opt;
+    QString options;
+    QString release_date;
     QString save_message;
     QString session_excludes;
     QString snapshot_basename;
@@ -85,15 +91,15 @@ public:
     bool force_installer{};
     bool i686{};
     bool live{};
+    bool make_isohybrid{};
     bool make_md5sum{};
     bool make_sha512sum{};
-    bool make_isohybrid{};
     bool override_size;
     bool preempt{}; // command line option
     bool reset_accounts{};
     bool shutdown{};
-    quint64 free_space{};
     quint64 free_space_work{};
+    quint64 free_space{};
     quint64 home_size{};
     quint64 root_size{};
 

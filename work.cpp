@@ -330,70 +330,44 @@ void Work::openInitrd(const QString &file, const QString &initrd_dir)
 void Work::replaceMenuStrings() {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
-    QString distro;
-    QString full_distro_name;
-    QString full_distro_name_space;
-    QString distro_version_file = QLatin1String("");
-    if (QFileInfo::exists(QStringLiteral("/etc/antix-version")))
-        distro_version_file = QStringLiteral("/etc/antix-version");
-    else if (QFileInfo::exists(QStringLiteral("/etc/mx-version")))
-        distro_version_file = QStringLiteral("/etc/mx-version");
-
-    if (distro_version_file.length() > 0) {
-        distro = OUT("cut -f1 -d'_' " + distro_version_file);
-        full_distro_name = OUT("cut -f1 -d' ' " + distro_version_file);
-    } else {
-        distro = QStringLiteral("MX_") + QString(settings->i686 ? QStringLiteral("386")
-                                                                : QStringLiteral("x64"));
-        full_distro_name = distro;
-    }
-
-    full_distro_name_space = full_distro_name;
-    full_distro_name_space.replace(QLatin1String("_"), QLatin1String(" "));
-
-    QString date = QDate::currentDate().toString(QStringLiteral("dd MMMM yyyy"));
     if (!QFileInfo::exists(QStringLiteral("/etc/lsb-release"))) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not find %1 file, cannot continue").arg(QStringLiteral("/etc/lsb-release")));
         cleanUp();
     }
 
-    QString distro_name = OUT(QStringLiteral("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release"));
-    distro_name.replace(QLatin1String("\""), QLatin1String(""));
-    QString code_name = OUT(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
-    code_name.replace(QLatin1String("\""), QLatin1String(""));
+    QString full_distro_name_space = settings->full_distro_name;
+    full_distro_name_space.replace(QLatin1String("_"), QLatin1String(" "));
 
-    QString options = QStringLiteral("quiet");
+    const QString grub_cfg = QStringLiteral("/iso-template/boot/grub/grub.cfg");
+    replaceStringInFile(QStringLiteral("%DISTRO%"), settings->distro, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), settings->distro_name, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), settings->full_distro_name, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->options, settings->work_dir + grub_cfg);
+    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), settings->release_date, settings->work_dir + grub_cfg);
 
-    replaceStringInFile(QStringLiteral("%DISTRO%"), distro, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
-    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/grub/grub.cfg");
+    const QString syslinux_cfg = QStringLiteral("/iso-template/boot/syslinux/syslinux.cfg");
+    const QString isolinux_cfg = QStringLiteral("/iso-template/boot/isolinux/isolinux.cfg");
+    for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
+        replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->options, settings->work_dir + file);
+        replaceStringInFile(QStringLiteral("%CODE_NAME%"), settings->code_name, settings->work_dir + file);
+    }
 
-    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-    replaceStringInFile(QStringLiteral("%OPTIONS%"), options, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-    replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), full_distro_name, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
-
-    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/syslinux/readme.msg");
-    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
-    replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), date, settings->work_dir + "/iso-template/boot/isolinux/readme.msg");
-
-    replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg");
-    replaceStringInFile(QStringLiteral("%CODE_NAME%"), code_name, settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg");
+    const QString sys_readme = QStringLiteral("/iso-template/boot/syslinux/readme.msg");
+    const QString iso_readme = QStringLiteral("/iso-template/boot/isolinux/readme.msg");
+    const QStringList cfg_files{syslinux_cfg, isolinux_cfg, sys_readme, iso_readme};
+    for (const QString &file : cfg_files) {
+        replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), settings->full_distro_name, settings->work_dir + file);
+        replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), settings->release_date, settings->work_dir + file);
+    }
 
     QString themeDir = settings->work_dir + "/iso-template/boot/grub/theme";
     QDirIterator themeFileIt(themeDir, {"*.txt"}, QDir::Files);
     QString themeFile;
     while (themeFileIt.hasNext()) {
         themeFile = themeFileIt.next();
-        replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), code_name, themeFile);
-        replaceStringInFile(QStringLiteral("%DISTRO%"), distro, themeFile);
+        replaceStringInFile(QStringLiteral("%ASCII_CODE_NAME%"), settings->code_name, themeFile);
+        replaceStringInFile(QStringLiteral("%DISTRO%"), settings->distro, themeFile);
     }
 }
 
