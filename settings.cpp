@@ -238,6 +238,26 @@ void Settings::setVariables()
     live = isLive();
     users = listUsers();
     i686 = isi686();
+
+    QString distro_version_file;
+    if (QFileInfo::exists(QStringLiteral("/etc/antix-version")))
+        distro_version_file = QStringLiteral("/etc/antix-version");
+    else if (QFileInfo::exists(QStringLiteral("/etc/mx-version")))
+        distro_version_file = QStringLiteral("/etc/mx-version");
+
+    if (!distro_version_file.isEmpty()) {
+        distro = shell->getCmdOut("cut -f1 -d'_' " + distro_version_file);
+        full_distro_name = shell->getCmdOut("cut -f1 -d' ' " + distro_version_file);
+    } else {
+        distro = QStringLiteral("MX_") + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
+        full_distro_name = distro;
+    }
+    release_date = QDate::currentDate().toString(QStringLiteral("dd MMMM yyyy"));
+    distro_name = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release"));
+    distro_name.replace(QLatin1String("\""), QLatin1String(""));
+    code_name = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
+    code_name.replace(QLatin1String("\""), QLatin1String(""));
+    options = QStringLiteral("quiet");
 }
 
 // Create the output filename
