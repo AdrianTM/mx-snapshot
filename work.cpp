@@ -347,9 +347,13 @@ void Work::replaceMenuStrings() {
     replaceStringInFile(QStringLiteral("%DISTRO_NAME%"), settings->project_name, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME%"), settings->full_distro_name, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%FULL_DISTRO_NAME_SPACE%"), full_distro_name_space, settings->work_dir + grub_cfg);
-    replaceStringInFile(QStringLiteral("%OPTIONS%"), settings->boot_options, settings->work_dir + grub_cfg);
     replaceStringInFile(QStringLiteral("%RELEASE_DATE%"), settings->release_date, settings->work_dir + grub_cfg);
 
+    const QString grubenv_cfg = QStringLiteral("/iso-template/boot/grub/grubenv.cfg");
+    const QString boot_pararameter_regexp = QStringLiteral("^(lang=|kbd=|kbvar=|kbopt=|tz=)");
+    RUN(QStringLiteral("printf '%s\\n' %1 | grep -E '%2' >> '%3'").arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grubenv_cfg));
+    RUN(QStringLiteral("sed -i \"s|%OPTIONS%|$(printf '%s\\n' %1 | grep -v -E '%2' | tr '\\n' ' ')|\" '%3'").arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grub_cfg));
+ 
     const QString syslinux_cfg = QStringLiteral("/iso-template/boot/syslinux/syslinux.cfg");
     const QString isolinux_cfg = QStringLiteral("/iso-template/boot/isolinux/isolinux.cfg");
     for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
@@ -445,10 +449,10 @@ void Work::writeLsbRelease()
 
     QTextStream stream(&file);
     stream << "PRETTY_NAME=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\"\n";
-    stream << "DISTRIB_ID=" << settings->project_name << "\n";
+    stream << "DISTRIB_ID=\"" << settings->project_name << "\"\n";
     stream << "DISTRIB_RELEASE=" << settings->distro_version << "\n";
     stream << "DISTRIB_CODENAME=\"" << settings->codename << "\"\n";
-    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename + "\"";
+    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\"\n";
     file.close();
 }
 
