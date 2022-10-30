@@ -18,220 +18,289 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="152"/>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="159"/>
+        <location filename="../mainwindow.cpp" line="401"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="30"/>
+        <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
         <translation>Snapshot location:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="43"/>
+        <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="53"/>
+        <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Used space on / (root) and /home partitions:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Snapshot name:</source>
         <translation>Snapshot name:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="165"/>
+        <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
         <translation>Select a different snapshot directory</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="214"/>
-        <location filename="../mainwindow.ui" line="276"/>
+        <location filename="../mainwindow.ui" line="30"/>
+        <source>Optional customization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="43"/>
+        <source>Boot options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="70"/>
+        <source>Release date:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="91"/>
+        <source>Project name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="98"/>
+        <source>Release version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="112"/>
+        <source>Release codename:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="161"/>
+        <source>Location and ISO name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="308"/>
+        <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../mainwindow.ui" line="338"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="301"/>
+        <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
         <translation>Pictures</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
+        <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
         <translation>Music</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="325"/>
+        <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
         <translation>All of the above</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
+        <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="339"/>
+        <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="353"/>
+        <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="370"/>
+        <location filename="../mainwindow.ui" line="464"/>
         <source>exclude network configurations</source>
         <translation>exclude network configurations</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="373"/>
+        <location filename="../mainwindow.ui" line="467"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="411"/>
+        <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="414"/>
+        <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Resetting accounts (for distribution to others)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="421"/>
+        <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
         <translation>Type of snapshot:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="428"/>
+        <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Preserving accounts (for personal backup)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
         <translation>Edit Exclusion File</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="484"/>
         <source>lz4</source>
-        <translation>lz4</translation>
+        <translation type="vanished">lz4</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="489"/>
         <source>lzo</source>
-        <translation>lzo</translation>
+        <translation type="vanished">lzo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="494"/>
         <source>gzip</source>
-        <translation>gzip</translation>
+        <translation type="vanished">gzip</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
         <source>xz</source>
-        <translation>xz</translation>
+        <translation type="vanished">xz</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation>zstd</translation>
+        <translation type="vanished">zstd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="525"/>
+        <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
         <translation>Options:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="532"/>
+        <location filename="../mainwindow.ui" line="618"/>
         <source>ISO compression scheme:</source>
         <translation>ISO compression scheme:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="539"/>
         <source>Calculate checksums</source>
-        <translation>Calculate checksums</translation>
+        <translation type="vanished">Calculate checksums</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="635"/>
+        <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
         <translation>Display help </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="638"/>
+        <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
         <translation>Help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="645"/>
+        <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="696"/>
+        <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
         <translation>About this application</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="699"/>
+        <location filename="../mainwindow.ui" line="577"/>
+        <source>sha512</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="604"/>
+        <source>md5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="611"/>
+        <source>Calculate checksums:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
         <translation>About...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="706"/>
+        <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="722"/>
+        <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
         <translation>Quit application</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="725"/>
+        <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="732"/>
+        <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="748"/>
+        <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
         <translation>Next</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="790"/>
+        <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
         <translation>Back</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="183"/>
+        <location filename="../mainwindow.cpp" line="165"/>
+        <source>fastest, worst compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="166"/>
+        <source>fast, worse compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="167"/>
+        <source>slow, better compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="168"/>
+        <source>best compromise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="169"/>
+        <source>slowest, best compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="197"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Free space on %1, where snapshot folder is placed: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="184"/>
+        <location filename="../mainwindow.cpp" line="198"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -246,156 +315,156 @@
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="193"/>
-        <location filename="../mainwindow.cpp" line="194"/>
+        <location filename="../mainwindow.cpp" line="207"/>
+        <location filename="../mainwindow.cpp" line="208"/>
         <source>Installing </source>
         <translation>Installing </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="277"/>
+        <location filename="../mainwindow.cpp" line="291"/>
         <source>Please wait.</source>
         <translation>Please wait.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="279"/>
+        <location filename="../mainwindow.cpp" line="293"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Please wait. Calculating used disk space...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="292"/>
-        <location filename="../mainwindow.cpp" line="313"/>
-        <location filename="../mainwindow.cpp" line="339"/>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="306"/>
+        <location filename="../mainwindow.cpp" line="332"/>
+        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.cpp" line="307"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output file %1 already exists. Please use another file name, or delete the existent file.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="299"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="304"/>
+        <location filename="../mainwindow.cpp" line="318"/>
         <source>Snapshot will use the following settings:*</source>
         <translation>Snapshot will use the following settings:*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>- Snapshot directory:</source>
         <translation>- Snapshot directory:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>- Kernel to be used:</source>
         <translation>- Kernel to be used:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="333"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="340"/>
         <source>Final chance</source>
         <translation>Final chance</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="322"/>
+        <location filename="../mainwindow.cpp" line="341"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Snapshot now has all the information it needs to create an ISO from your running system.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="323"/>
+        <location filename="../mainwindow.cpp" line="342"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="324"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>OK to start?</source>
         <translation>OK to start?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="328"/>
+        <location filename="../mainwindow.cpp" line="347"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="339"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Could not create working directory. </source>
         <translation>Could not create working directory. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Could not create temporary directory. </source>
         <translation>Could not create temporary directory. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="351"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="380"/>
         <source>Edit Boot Menu</source>
         <translation>Edit Boot Menu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="374"/>
+        <location filename="../mainwindow.cpp" line="393"/>
         <source>Close</source>
         <translation>Close</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="451"/>
+        <location filename="../mainwindow.cpp" line="470"/>
         <source>About %1</source>
         <translation>About %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="453"/>
+        <location filename="../mainwindow.cpp" line="472"/>
         <source>Version: </source>
         <translation>Version: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="454"/>
+        <location filename="../mainwindow.cpp" line="473"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program for creating a live-CD from the running system for MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="456"/>
+        <location filename="../mainwindow.cpp" line="475"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="477"/>
         <source>%1 License</source>
         <translation>%1 License</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="472"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>%1 Help</source>
         <translation>%1 Help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="480"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Select Snapshot Directory</source>
         <translation>Select Snapshot Directory</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Confirmation</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="500"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Are you sure you want to quit the application?</translation>
     </message>
@@ -574,17 +643,17 @@
     <message>
         <location filename="../main.cpp" line="152"/>
         <location filename="../main.cpp" line="223"/>
-        <location filename="../settings.cpp" line="213"/>
-        <location filename="../settings.cpp" line="226"/>
-        <location filename="../settings.cpp" line="556"/>
-        <location filename="../settings.cpp" line="605"/>
+        <location filename="../settings.cpp" line="208"/>
+        <location filename="../settings.cpp" line="221"/>
+        <location filename="../settings.cpp" line="572"/>
+        <location filename="../settings.cpp" line="627"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="217"/>
         <location filename="../main.cpp" line="219"/>
-        <location filename="../settings.cpp" line="221"/>
+        <location filename="../settings.cpp" line="216"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Current kernel doesn&apos;t support Squashfs, cannot continue.</translation>
     </message>
@@ -599,32 +668,32 @@
         <translation>Could not create temp directory. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="208"/>
+        <location filename="../settings.cpp" line="203"/>
         <source>Could not find a usable kernel</source>
         <translation>Could not find a usable kernel</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="304"/>
+        <location filename="../settings.cpp" line="319"/>
         <source>Used space on / (root): </source>
         <translation>Used space on / (root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="307"/>
+        <location filename="../settings.cpp" line="322"/>
         <source>estimated</source>
         <translation>estimated</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="316"/>
+        <location filename="../settings.cpp" line="331"/>
         <source>Used space on /home: </source>
         <translation>Used space on /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="372"/>
+        <location filename="../settings.cpp" line="387"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Free space on %1, where snapshot folder is placed: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="374"/>
+        <location filename="../settings.cpp" line="389"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -639,48 +708,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="389"/>
+        <location filename="../settings.cpp" line="404"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="390"/>
+        <location filename="../settings.cpp" line="405"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="391"/>
+        <location filename="../settings.cpp" line="406"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="392"/>
+        <location filename="../settings.cpp" line="407"/>
         <source>Music</source>
         <translation>Music</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="393"/>
+        <location filename="../settings.cpp" line="408"/>
         <source>Networks</source>
         <translation>Networks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="394"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>Pictures</source>
         <translation>Pictures</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="396"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>Videos</source>
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="551"/>
-        <location filename="../settings.cpp" line="600"/>
+        <location filename="../settings.cpp" line="567"/>
+        <location filename="../settings.cpp" line="622"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output file %1 already exists. Please use another file name, or delete the existent file.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="113"/>
+        <location filename="../work.cpp" line="116"/>
         <source>Interrupted or failed to complete</source>
         <translation>Interrupted or failed to complete</translation>
     </message>
@@ -688,134 +757,134 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="86"/>
+        <location filename="../work.cpp" line="85"/>
         <source>Cleaning...</source>
         <translation>Cleaning...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="105"/>
-        <location filename="../work.cpp" line="112"/>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="107"/>
+        <location filename="../work.cpp" line="115"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Done</source>
         <translation>Done</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="142"/>
-        <location filename="../work.cpp" line="240"/>
-        <location filename="../work.cpp" line="259"/>
-        <location filename="../work.cpp" line="300"/>
-        <location filename="../work.cpp" line="374"/>
-        <location filename="../work.cpp" line="446"/>
+        <location filename="../work.cpp" line="145"/>
+        <location filename="../work.cpp" line="224"/>
+        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="391"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="143"/>
+        <location filename="../work.cpp" line="146"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>There&apos;s not enough free space on your target disk, you need at least %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="144"/>
+        <location filename="../work.cpp" line="147"/>
         <source>You have %1 free space on %2</source>
         <translation>You have %1 free space on %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="145"/>
+        <location filename="../work.cpp" line="148"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>If you are sure you have enough free space rerun the program with -o/--override-size option</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="178"/>
+        <location filename="../work.cpp" line="173"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copying the new-iso filesystem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="201"/>
+        <location filename="../work.cpp" line="185"/>
         <source>Could not create temp directory. </source>
         <translation>Could not create temp directory. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="221"/>
         <source>Squashing filesystem...</source>
         <translation>Squashing filesystem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="225"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Could not create linuxfs file, please check whether you have enough space on the destination partition.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="257"/>
+        <location filename="../work.cpp" line="241"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creating CD/DVD image file...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="243"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Could not create ISO file, please check whether you have enough space on the destination partition.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="266"/>
+        <location filename="../work.cpp" line="250"/>
         <source>Making hybrid iso</source>
         <translation>Making hybrid iso</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="272"/>
         <source>Success</source>
         <translation>Success</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="272"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot completed sucessfully!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="273"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot took %1 to finish.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="274"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Thanks for using MX Snapshot, run MX Live USB Maker next!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Installing </source>
         <translation>Installing </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Could not install </source>
         <translation>Could not install </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="310"/>
+        <location filename="../work.cpp" line="296"/>
         <source>Calculating checksum...</source>
         <translation>Calculating checksum...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="341"/>
+        <location filename="../work.cpp" line="327"/>
         <source>Building new initrd...</source>
         <translation>Building new initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="374"/>
+        <location filename="../work.cpp" line="338"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>Could not find %1 file, cannot continue</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="446"/>
+        <location filename="../work.cpp" line="391"/>
         <source>Could not create working directory. </source>
         <translation>Could not create working directory. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="526"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculating total size of excluded files...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="563"/>
+        <location filename="../work.cpp" line="536"/>
         <source>Calculating size of root...</source>
         <translation>Calculating size of root...</translation>
     </message>

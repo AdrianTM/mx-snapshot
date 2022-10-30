@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -16,220 +18,289 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="143"/>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="159"/>
+        <location filename="../mainwindow.cpp" line="401"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="30"/>
+        <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
         <translation>Ubicació de la instantània:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="43"/>
+        <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot és una eina que crea una imatge arrencable (ISO) del vostre sistema en funcionament, que podeu usar per a emmagatzematge o distribució. Podeu continuar usant aplicacions poc intensives mentre s&apos;executa.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="53"/>
+        <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Espai usat a les particions / (arrel) i /home: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="158"/>
-        <location filename="../mainwindow.cpp" line="298"/>
+        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Snapshot name:</source>
         <translation>Nom de la instantània: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="165"/>
+        <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
         <translation>Trieu un directori diferent per a la instantània </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="214"/>
-        <location filename="../mainwindow.ui" line="276"/>
+        <location filename="../mainwindow.ui" line="30"/>
+        <source>Optional customization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="43"/>
+        <source>Boot options:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="70"/>
+        <source>Release date:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="91"/>
+        <source>Project name:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="98"/>
+        <source>Release version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="112"/>
+        <source>Release codename:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="161"/>
+        <source>Location and ISO name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="308"/>
+        <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
         <translation>Etiqueta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="244"/>
+        <location filename="../mainwindow.ui" line="338"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>També podeu excloure alguns directoris marcant les opcions comunes a sota, o clicant el botó per editar directament /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="301"/>
+        <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="318"/>
+        <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="325"/>
+        <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
         <translation>Tots els esmentats</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="332"/>
+        <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="339"/>
+        <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="346"/>
+        <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="353"/>
+        <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="370"/>
+        <location filename="../mainwindow.ui" line="464"/>
         <source>exclude network configurations</source>
         <translation>configuracions d&apos;exclusió de xarxes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="373"/>
+        <location filename="../mainwindow.ui" line="467"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="411"/>
+        <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aquesta opció inicialitzarà les contrasenyes per &amp;quot;demo&amp;quot; i &amp;quot;root&amp;quot; als valors per omissió de MX Linux i no copiarà cap compte personal que s&apos;hagi creat.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="414"/>
+        <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Inicialitzant els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="421"/>
+        <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
         <translation>Tipus d&apos;instantània: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="428"/>
+        <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Preservant els comptes (còpia de seguretat personal) </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="460"/>
+        <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
         <translation>Edita el fitxer d&apos;exclusions</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="484"/>
         <source>lz4</source>
-        <translation>LZ4</translation>
+        <translation type="vanished">LZ4</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="489"/>
         <source>lzo</source>
-        <translation>LZO</translation>
+        <translation type="vanished">LZO</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="494"/>
         <source>gzip</source>
-        <translation>GZIP</translation>
+        <translation type="vanished">GZIP</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="499"/>
         <source>xz</source>
-        <translation>XZ</translation>
+        <translation type="vanished">XZ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="504"/>
         <source>zstd</source>
-        <translation>zstd</translation>
+        <translation type="vanished">zstd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="525"/>
+        <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
         <translation>Opcions</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="532"/>
+        <location filename="../mainwindow.ui" line="618"/>
         <source>ISO compression scheme:</source>
         <translation>Mètode de compressió de la ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="539"/>
         <source>Calculate checksums</source>
-        <translation>Calcula sumes de verificació</translation>
+        <translation type="vanished">Calcula sumes de verificació</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="635"/>
+        <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
         <translation>Mostra l&apos;ajuda</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="638"/>
+        <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
         <translation>Ajuda </translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="645"/>
+        <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="696"/>
+        <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
         <translation>Quant a aquest programa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="699"/>
+        <location filename="../mainwindow.ui" line="577"/>
+        <source>sha512</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="604"/>
+        <source>md5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="611"/>
+        <source>Calculate checksums:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
         <translation>Quant a...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="706"/>
+        <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="722"/>
+        <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
         <translation>Surt de l&apos;aplicació</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="725"/>
+        <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="732"/>
+        <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="748"/>
+        <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="790"/>
+        <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
         <translation>Enrere</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="174"/>
+        <location filename="../mainwindow.cpp" line="165"/>
+        <source>fastest, worst compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="166"/>
+        <source>fast, worse compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="167"/>
+        <source>slow, better compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="168"/>
+        <source>best compromise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="169"/>
+        <source>slowest, best compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="197"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="175"/>
+        <location filename="../mainwindow.cpp" line="198"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -244,151 +315,156 @@
 </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="184"/>
-        <location filename="../mainwindow.cpp" line="185"/>
+        <location filename="../mainwindow.cpp" line="207"/>
+        <location filename="../mainwindow.cpp" line="208"/>
         <source>Installing </source>
         <translation>Instal·lant </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="268"/>
+        <location filename="../mainwindow.cpp" line="291"/>
         <source>Please wait.</source>
         <translation>Espereu, si us plau. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="270"/>
+        <location filename="../mainwindow.cpp" line="293"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Espereu, si us plau. Calculant l&apos;espai de disc usat...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="283"/>
-        <location filename="../mainwindow.cpp" line="304"/>
-        <location filename="../mainwindow.cpp" line="317"/>
-        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="306"/>
+        <location filename="../mainwindow.cpp" line="332"/>
+        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="284"/>
+        <location filename="../mainwindow.cpp" line="307"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="290"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Settings</source>
         <translation>Paràmetres</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="295"/>
+        <location filename="../mainwindow.cpp" line="318"/>
         <source>Snapshot will use the following settings:*</source>
         <translation>La instantània usarà aquests paràmetres:*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="297"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>- Snapshot directory:</source>
         <translation>- Directori de la instantània: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="299"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>- Kernel to be used:</source>
         <translation>- Kernel a usar: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="305"/>
+        <location filename="../mainwindow.cpp" line="333"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>El kernel actual no dóna suport a l&apos;algoritme de compressió seleccionat, si us plau editeu el fitxer de configuració i trieu un algoritme diferent.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="340"/>
         <source>Final chance</source>
         <translation>Darrera oportunitat </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="309"/>
+        <location filename="../mainwindow.cpp" line="341"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>La instantània ara té tota la informació necessària per crear una ISO a partir del vostre sistema en execució. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="310"/>
+        <location filename="../mainwindow.cpp" line="342"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Cal un cert temps per acabar, depenent de la mida del vostre sistema instal·lat i de la potència de l&apos;ordinador. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>OK to start?</source>
         <translation>D&apos;acord per començar?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="317"/>
+        <location filename="../mainwindow.cpp" line="347"/>
+        <source>Shutdown computer when done.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Could not create temporary directory. </source>
         <translation>No he pogut crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="329"/>
+        <location filename="../mainwindow.cpp" line="370"/>
         <source>Output</source>
         <translation>Sortida </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="339"/>
+        <location filename="../mainwindow.cpp" line="380"/>
         <source>Edit Boot Menu</source>
         <translation>Edita el Menú d&apos;Arrencada </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="340"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>El programa ara farà una pausa per permetre-us editar fitxers al directori de treball. Trieu Sí per editar el menú d&apos;arrencada, o No per saltar aquest pas i continuar creant la instantània. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="352"/>
+        <location filename="../mainwindow.cpp" line="393"/>
         <source>Close</source>
         <translation>Tanca</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="470"/>
         <source>About %1</source>
         <translation>Quant a %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="472"/>
         <source>Version: </source>
         <translation>Versió: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="432"/>
+        <location filename="../mainwindow.cpp" line="473"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Programa de MX Linux per crear un CD autònom a partir del sistema en execució </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="434"/>
+        <location filename="../mainwindow.cpp" line="475"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="436"/>
+        <location filename="../mainwindow.cpp" line="477"/>
         <source>%1 License</source>
         <translation>Llicència de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="450"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>%1 Help</source>
         <translation>Ajuda de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="458"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Select Snapshot Directory</source>
         <translation>Trieu el directori de la instantània </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Confirmation</source>
         <translation>Confirmació</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="478"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Esteu segurs de voler sortir de l&apos;aplicació?</translation>
     </message>
@@ -396,23 +472,23 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="41"/>
+        <location filename="../about.cpp" line="50"/>
         <source>License</source>
         <translation>Llicència</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="42"/>
         <location filename="../about.cpp" line="51"/>
+        <location filename="../about.cpp" line="60"/>
         <source>Changelog</source>
         <translation>Registre de canvis</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="43"/>
+        <location filename="../about.cpp" line="52"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="63"/>
+        <location filename="../about.cpp" line="70"/>
         <source>&amp;Close</source>
         <translation>Tan&amp;ca </translation>
     </message>
@@ -542,37 +618,42 @@
         <translation>format </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="112"/>
-        <location filename="../main.cpp" line="121"/>
-        <location filename="../main.cpp" line="152"/>
+        <location filename="../main.cpp" line="94"/>
+        <source>Shutdown computer when done.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="113"/>
+        <location filename="../main.cpp" line="122"/>
+        <location filename="../main.cpp" line="153"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Sembla que esteu connectat com a administrador, si us plau sortiu i connecteu-vos com a usuari normal per a usar aquest programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="132"/>
-        <location filename="../main.cpp" line="159"/>
+        <location filename="../main.cpp" line="133"/>
+        <location filename="../main.cpp" line="160"/>
         <source>version:</source>
         <translation>versió:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="139"/>
         <source>You must run this program as root.</source>
         <translation>Cal ser usuari principal per executar aquest programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="151"/>
-        <location filename="../main.cpp" line="222"/>
-        <location filename="../settings.cpp" line="213"/>
-        <location filename="../settings.cpp" line="226"/>
-        <location filename="../settings.cpp" line="554"/>
-        <location filename="../settings.cpp" line="603"/>
+        <location filename="../main.cpp" line="152"/>
+        <location filename="../main.cpp" line="223"/>
+        <location filename="../settings.cpp" line="208"/>
+        <location filename="../settings.cpp" line="221"/>
+        <location filename="../settings.cpp" line="572"/>
+        <location filename="../settings.cpp" line="627"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="216"/>
-        <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="221"/>
+        <location filename="../main.cpp" line="217"/>
+        <location filename="../main.cpp" line="219"/>
+        <location filename="../settings.cpp" line="216"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no dóna suport a Squashfs, no puc continuar.</translation>
     </message>
@@ -587,32 +668,32 @@
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="208"/>
+        <location filename="../settings.cpp" line="203"/>
         <source>Could not find a usable kernel</source>
         <translation>No he trobat un kernel utilitzable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="304"/>
+        <location filename="../settings.cpp" line="319"/>
         <source>Used space on / (root): </source>
         <translation>Espai usat a / (arrel): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="307"/>
+        <location filename="../settings.cpp" line="322"/>
         <source>estimated</source>
         <translation>estimat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="316"/>
+        <location filename="../settings.cpp" line="331"/>
         <source>Used space on /home: </source>
         <translation>Espai usat a /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="372"/>
+        <location filename="../settings.cpp" line="387"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="374"/>
+        <location filename="../settings.cpp" line="389"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -627,48 +708,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="389"/>
+        <location filename="../settings.cpp" line="404"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="390"/>
+        <location filename="../settings.cpp" line="405"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="391"/>
+        <location filename="../settings.cpp" line="406"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="392"/>
+        <location filename="../settings.cpp" line="407"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="393"/>
+        <location filename="../settings.cpp" line="408"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="394"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="396"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="549"/>
-        <location filename="../settings.cpp" line="598"/>
+        <location filename="../settings.cpp" line="567"/>
+        <location filename="../settings.cpp" line="622"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="105"/>
+        <location filename="../work.cpp" line="116"/>
         <source>Interrupted or failed to complete</source>
         <translation>Aturat o fallat en completar </translation>
     </message>
@@ -681,129 +762,129 @@
         <translation>Endreçant... </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="101"/>
-        <location filename="../work.cpp" line="104"/>
-        <location filename="../work.cpp" line="273"/>
+        <location filename="../work.cpp" line="107"/>
+        <location filename="../work.cpp" line="115"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="134"/>
-        <location filename="../work.cpp" line="232"/>
-        <location filename="../work.cpp" line="251"/>
-        <location filename="../work.cpp" line="288"/>
-        <location filename="../work.cpp" line="362"/>
-        <location filename="../work.cpp" line="434"/>
+        <location filename="../work.cpp" line="145"/>
+        <location filename="../work.cpp" line="224"/>
+        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="391"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="135"/>
+        <location filename="../work.cpp" line="146"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hi ha prou espai lliure al vostre disc objectiu, us cal com a mínim %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="136"/>
+        <location filename="../work.cpp" line="147"/>
         <source>You have %1 free space on %2</source>
         <translation>Teniu un espai lliure de %1  a %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="137"/>
+        <location filename="../work.cpp" line="148"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si esteu segurs de tenir prou espai lliure, torneu a executar el programa amb l&apos;opció -o/--override-size </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="170"/>
+        <location filename="../work.cpp" line="173"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiant el sistema de fitxers del nou-iso: </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="193"/>
+        <location filename="../work.cpp" line="185"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="229"/>
+        <location filename="../work.cpp" line="221"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="225"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>No s&apos;ha pogut crear el fitxer linuxfs; si us plau, comproveu que hi hagi prou espai a la partició de destí.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="249"/>
+        <location filename="../work.cpp" line="241"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="251"/>
+        <location filename="../work.cpp" line="243"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No s&apos;ha pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="258"/>
+        <location filename="../work.cpp" line="250"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="274"/>
+        <location filename="../work.cpp" line="272"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="274"/>
+        <location filename="../work.cpp" line="272"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="275"/>
+        <location filename="../work.cpp" line="273"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="276"/>
+        <location filename="../work.cpp" line="274"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Installing </source>
         <translation>Instal·lant </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="296"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="329"/>
+        <location filename="../work.cpp" line="327"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="362"/>
+        <location filename="../work.cpp" line="338"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>No he trobat el fitxer %1, no puc continuar</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="434"/>
+        <location filename="../work.cpp" line="391"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="541"/>
+        <location filename="../work.cpp" line="526"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="551"/>
+        <location filename="../work.cpp" line="536"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>
