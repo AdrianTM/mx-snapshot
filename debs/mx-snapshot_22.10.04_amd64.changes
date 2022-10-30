@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 30 Oct 2022 10:32:39 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.10.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.04) mx; urgency=medium
+ .
+   * Fix quoting for name/description strings
+Checksums-Sha1:
+ 503370daf48a4e959ed8375b7b47129be470d3d8 1210 mx-snapshot_22.10.04.dsc
+ 085b4885d7cdc4bba9eab1889af7dce7ae2381a5 219552 mx-snapshot_22.10.04.tar.xz
+ 8f432152c5d95ddf7d1f58d29c964774fda2eaf5 10763 mx-snapshot_22.10.04_amd64.buildinfo
+ d7f3b74b8f66917e16d0591e9b6a6b8363d7fd86 281160 mx-snapshot_22.10.04_amd64.deb
+Checksums-Sha256:
+ 16b3eed3ae813724e2be5d1db2b1c1fd750a53d0917c4b0f681b6fffc12d9c13 1210 mx-snapshot_22.10.04.dsc
+ 85d13f15323314ed3d1c2750b00dd4f205fce0809b6555e8575865896a0df5ec 219552 mx-snapshot_22.10.04.tar.xz
+ 6235cfdc3f9caa1a766235f42565ae01a2876e3f7d3c6d0921e451ae6ddee864 10763 mx-snapshot_22.10.04_amd64.buildinfo
+ 779db29ac60ac17e510e5d352ddd36df54f70e1d85a32456d4c241c4572b75ca 281160 mx-snapshot_22.10.04_amd64.deb
+Files:
+ 2e49bda78d22c1cb17e1a26c98d0a9c2 1210 admin optional mx-snapshot_22.10.04.dsc
+ c352ed2904fe2ff94f054dab316add11 219552 admin optional mx-snapshot_22.10.04.tar.xz
+ 52f3003451069ea31b9a9ff5682802da 10763 admin optional mx-snapshot_22.10.04_amd64.buildinfo
+ c4a8af5d4392ecf0b33093b125f406fe 281160 admin optional mx-snapshot_22.10.04_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmNejQETHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumEMHB/9FMDEaCJte+tHOj1xcG2YbafEc1BkU
+5hdK69qxJEoj3eTHy2Ewu2Jpx+873iMndglL17/ptrTFJPwyMymWcwj0lO6pyEm5
+6j75aQt3cuWBMPVWSEoUth+zEJEQvKsk8hFdsuo+THh696At2Gu2Ghr3v9IQbIZT
+dR69aM9s9LGETwfZVJSDu3eDC+sFGD4V8n2naLiVlY0K3XtiYob1P9Mv/JBS7zTx
+cbi5KlfmkJM35PS57rQL+XAp3G4E+Ox8laDnB7WppT5EDnZ4B5OzEEeS/JsTcDbV
+RZ9NjplrkLfyIo24wI7yaKUVQSG7jEiNLYqdWkxkUa/gKapA07eBXlab
+=G1v/
+-----END PGP SIGNATURE-----

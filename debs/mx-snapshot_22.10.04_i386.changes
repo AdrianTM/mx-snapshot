@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sun, 30 Oct 2022 10:32:39 -0400
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.10.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.10.04) mx; urgency=medium
+ .
+   * Fix quoting for name/description strings
+Checksums-Sha1:
+ 2d70e8693b2070934884a54088b482aa87173e00 10053 mx-snapshot_22.10.04_i386.buildinfo
+ 214a57f9f25afbb78fe78c9eab577a41938d74f9 286652 mx-snapshot_22.10.04_i386.deb
+Checksums-Sha256:
+ c20d42083edc5666406cb4f1d58857a9560c787433d666c0afbf67d282558a5d 10053 mx-snapshot_22.10.04_i386.buildinfo
+ 1e06ae2b4d97a6dba6aaf16eed9e396b19ba0960ad5cdb44155c7f56c76520cc 286652 mx-snapshot_22.10.04_i386.deb
+Files:
+ 0766a2c274d1807f6e17b638eab0da28 10053 admin optional mx-snapshot_22.10.04_i386.buildinfo
+ 0072a2843a4f677d6b8ec2cf3b92bfc7 286652 admin optional mx-snapshot_22.10.04_i386.deb

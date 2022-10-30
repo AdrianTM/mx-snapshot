@@ -1,3 +1,9 @@
+mx-snapshot (22.10.04) mx; urgency=medium
+
+  * Fix quoting for name/description strings
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 30 Oct 2022 10:32:39 -0400
+
 mx-snapshot (22.10.03) mx; urgency=medium
 
   * Update /etc/mx-version and /etc/lsb-release files with the provided info
