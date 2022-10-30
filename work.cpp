@@ -444,11 +444,11 @@ void Work::writeLsbRelease()
         return;
 
     QTextStream stream(&file);
-    stream << "PRETTY_NAME=" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\n";
+    stream << "PRETTY_NAME=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\"\n";
     stream << "DISTRIB_ID=" << settings->project_name << "\n";
     stream << "DISTRIB_RELEASE=" << settings->distro_version << "\n";
-    stream << "DISTRIB_CODENAME=" << settings->codename << "\n";
-    stream << "DISTRIB_DESCRIPTION=" << settings->project_name  + " " + settings->distro_version + " " + settings->codename;
+    stream << "DISTRIB_CODENAME=\"" << settings->codename << "\"\n";
+    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename + "\"";
     file.close();
 }
 
