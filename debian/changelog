@@ -1,3 +1,9 @@
+mx-snapshot (22.10.05) mx; urgency=medium
+
+  * Add custom boot options directly to GRUB menu
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 30 Oct 2022 19:37:17 -0400
+
 mx-snapshot (22.10.04) mx; urgency=medium
 
   * Fix quoting for name/description strings
