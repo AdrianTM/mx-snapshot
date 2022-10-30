@@ -353,7 +353,7 @@ void Work::replaceMenuStrings() {
     const QString boot_pararameter_regexp = QStringLiteral("^(lang=|kbd=|kbvar=|kbopt=|tz=)");
     RUN(QStringLiteral("printf '%s\\n' %1 | grep -E '%2' >> '%3'").arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grubenv_cfg));
     RUN(QStringLiteral("sed -i \"s|%OPTIONS%|$(printf '%s\\n' %1 | grep -v -E '%2' | tr '\\n' ' ')|\" '%3'").arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grub_cfg));
- 
+
     const QString syslinux_cfg = QStringLiteral("/iso-template/boot/syslinux/syslinux.cfg");
     const QString isolinux_cfg = QStringLiteral("/iso-template/boot/isolinux/isolinux.cfg");
     for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
@@ -448,11 +448,11 @@ void Work::writeLsbRelease()
         return;
 
     QTextStream stream(&file);
-    stream << "PRETTY_NAME=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\"\n";
+    stream << "PRETTY_NAME=\"" << settings->project_name  << " " << settings->distro_version << " " << settings->codename << "\"\n";
     stream << "DISTRIB_ID=\"" << settings->project_name << "\"\n";
     stream << "DISTRIB_RELEASE=" << settings->distro_version << "\n";
     stream << "DISTRIB_CODENAME=\"" << settings->codename << "\"\n";
-    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  + " " + settings->distro_version + " " + settings->codename << "\"\n";
+    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  << " " << settings->distro_version << " " << settings->codename << "\"";
     file.close();
 }
 
@@ -475,7 +475,7 @@ void Work::writeVersionFile()
         return;
 
     QTextStream stream(&file);
-    stream << settings->full_distro_name + " " + settings->codename + " " + settings->release_date;
+    stream << settings->full_distro_name << " " << settings->codename << " " << settings->release_date;
     file.close();
 }
 
