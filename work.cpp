@@ -378,7 +378,7 @@ void Work::replaceMenuStrings() {
 // Util function for replacing strings in files
 bool Work::replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path)
 {
-    return RUN(QStringLiteral("sed -i 's/%1/%2/g' \"%3\"").arg(old_text, new_text, file_path));
+    return RUN(QStringLiteral("sed -i 's|%1|%2|g' \"%3\"").arg(old_text, new_text, file_path));
 }
 
 // Save package list in working directory
