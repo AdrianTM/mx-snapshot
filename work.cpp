@@ -452,7 +452,7 @@ void Work::writeLsbRelease()
     stream << "DISTRIB_ID=\"" << settings->project_name << "\"\n";
     stream << "DISTRIB_RELEASE=" << settings->distro_version << "\n";
     stream << "DISTRIB_CODENAME=\"" << settings->codename << "\"\n";
-    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  << " " << settings->distro_version << " " << settings->codename << "\"";
+    stream << "DISTRIB_DESCRIPTION=\"" << settings->project_name  << " " << settings->distro_version << " " << settings->codename << "\"\n";
     file.close();
 }
 
@@ -475,7 +475,7 @@ void Work::writeVersionFile()
         return;
 
     QTextStream stream(&file);
-    stream << settings->full_distro_name << " " << settings->codename << " " << settings->release_date;
+    stream << settings->full_distro_name << " " << settings->codename << " " << settings->release_date << "\n";
     file.close();
 }
 
