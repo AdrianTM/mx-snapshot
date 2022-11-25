@@ -22,25 +22,27 @@
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
 
+#include "batchprocessing.h"
+
 #include <QDebug>
 #include <QRegularExpression>
 
-#include "batchprocessing.h"
 #include "work.h"
 #include <chrono>
 
 using namespace std::chrono_literals;
 
-Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser) :
-    Settings(arg_parser),
-    work(this)
+Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser)
+    : Settings(arg_parser)
+    , work(this)
 {
     connect(qApp, &QCoreApplication::aboutToQuit, [this] { work.cleanUp(); });
     setConnections();
 
     if (!checkCompression()) {
-        qDebug().noquote() << tr("Error") << tr("Current kernel doesn't support selected compression algorithm, "
-"please edit the configuration file and select a different algorithm.");
+        qDebug().noquote() << tr("Error")
+                           << tr("Current kernel doesn't support selected compression algorithm, "
+                                 "please edit the configuration file and select a different algorithm.");
         return;
     }
 
@@ -79,14 +81,13 @@ void Batchprocessing::setConnections()
     connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
     connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
-    connect(&work, &Work::messageBox, [](BoxType /*unused*/, const QString &title, const QString &msg) {
-        qDebug().noquote() << title << msg; });
+    connect(&work, &Work::messageBox,
+            [](BoxType /*unused*/, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });
 }
 
 void Batchprocessing::progress()
 {
     static int i = 0;
-    (i % 2 == 1) ? qDebug() << "\033[2KProcessing command...\r"
-                 : qDebug() << "\033[2KProcessing command\r";
+    (i % 2 == 1) ? qDebug() << "\033[2KProcessing command...\r" : qDebug() << "\033[2KProcessing command\r";
     ++i;
 }

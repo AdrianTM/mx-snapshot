@@ -33,13 +33,8 @@
 
 extern QString current_kernel;
 
-static QHash<QString, uint> compression_factor {
-    { "xz", 31 },
-    { "zstd", 35 },
-    { "gzip", 37 },
-    { "lzo", 52 },
-    { "lzma", 52 },
-    { "lz4", 52 }};
+static QHash<QString, uint> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
+                                                {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
 class Settings
 {
@@ -87,28 +82,28 @@ public:
     QString work_dir;
     QStringList users; // list of users with /home folders
     bool cli_mode;
-    bool edit_boot_menu{};
-    bool force_installer{};
-    bool i686{};
-    bool live{};
-    bool make_isohybrid{};
-    bool make_md5sum{};
-    bool make_sha512sum{};
+    bool edit_boot_menu {};
+    bool force_installer {};
+    bool i686 {};
+    bool live {};
+    bool make_isohybrid {};
+    bool make_md5sum {};
+    bool make_sha512sum {};
     bool override_size;
-    bool preempt{}; // command line option
-    bool reset_accounts{};
-    bool shutdown{};
-    quint64 free_space_work{};
-    quint64 free_space{};
-    quint64 home_size{};
-    quint64 root_size{};
+    bool preempt {}; // command line option
+    bool reset_accounts {};
+    bool shutdown {};
+    quint64 free_space_work {};
+    quint64 free_space {};
+    quint64 home_size {};
+    quint64 root_size {};
 
     QString getEditor() const;
     QString getFilename() const;
     QString getFreeSpaceStrings(const QString &path);
     QString getSnapshotSize() const;
     QString getUsedSpace();
-    QString getXdgUserDirs(const QString& folder);
+    QString getXdgUserDirs(const QString &folder);
     QString largerFreeSpace(const QString &dir1, const QString &dir2) const;
     QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3) const;
     QStringList listUsers() const;
