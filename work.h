@@ -30,13 +30,13 @@
 #include "cmd.h"
 #include "settings.h"
 
-enum class BoxType {question, information, warning, critical};
+enum class BoxType { question, information, warning, critical };
 
 class Work : public QObject
 {
     Q_OBJECT
 public:
-    enum HashType {md5, sha512};
+    enum HashType { md5, sha512 };
     Q_ENUM(HashType)
 
     Work(Settings *settings);
@@ -75,7 +75,6 @@ signals:
 
 private:
     Settings *settings;
-
 };
 
 #endif // WORK_H

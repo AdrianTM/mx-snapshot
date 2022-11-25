@@ -22,6 +22,9 @@
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
 
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+
 #include <QDebug>
 #include <QFileDialog>
 #include <QKeyEvent>
@@ -30,19 +33,17 @@
 #include <QTime>
 
 #include "about.h"
-#include "mainwindow.h"
 #include "settings.h"
-#include "ui_mainwindow.h"
 #include "work.h"
 #include <chrono>
 
 using namespace std::chrono_literals;
 
-MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser) :
-    QDialog(parent),
-    Settings(arg_parser),
-    ui(new Ui::MainWindow),
-    work(this)
+MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser)
+    : QDialog(parent)
+    , Settings(arg_parser)
+    , ui(new Ui::MainWindow)
+    , work(this)
 {
     ui->setupUi(this);
     monthly = arg_parser.isSet(QStringLiteral("month"));
@@ -61,10 +62,7 @@ MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser) :
     }
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() { delete ui; }
 
 // load settings or use the default value
 void MainWindow::loadSettings()
@@ -107,7 +105,8 @@ void MainWindow::setConnections()
     connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
     connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
-    connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::cbCompression_currentIndexChanged);
+    connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
+            &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
     connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
@@ -162,10 +161,8 @@ void MainWindow::setup()
     ui->btnCancel->setEnabled(true);
     ui->btnNext->setEnabled(true);
     ui->cbCompression->blockSignals(true);
-    ui->cbCompression->addItems({"lz4 - " + tr("fastest, worst compression"),
-                                 "lzo - " + tr("fast, worse compression"),
-                                 "gzip - " + tr("slow, better compression"),
-                                 "zstd - " + tr("best compromise"),
+    ui->cbCompression->addItems({"lz4 - " + tr("fastest, worst compression"), "lzo - " + tr("fast, worse compression"),
+                                 "gzip - " + tr("slow, better compression"), "zstd - " + tr("best compromise"),
                                  "xz - " + tr("slowest, best compression")});
     ui->cbCompression->blockSignals(false);
     this->show();
@@ -185,7 +182,6 @@ void MainWindow::listUsedSpace()
     ui->labelUsedSpace->setText(out);
 }
 
-
 // List free space on drives
 void MainWindow::listFreeSpace()
 {
@@ -194,11 +190,14 @@ void MainWindow::listFreeSpace()
     path.remove(QRegularExpression(QStringLiteral("/snapshot$")));
     QString free_space = getFreeSpaceStrings(path);
     ui->labelFreeSpace->clear();
-    ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space + "\n");
-    ui->labelDiskSpaceHelp->setText(tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
-                                       "      If necessary, you can create more available space\n"
-                                       "      by removing previous snapshots and saved copies:\n"
-                                       "      %1 snapshots are taking up %2 of disk space.\n").arg(QString::number(getSnapshotCount()), getSnapshotSize()));
+    ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space
+                                + "\n");
+    ui->labelDiskSpaceHelp->setText(
+        tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
+           "      If necessary, you can create more available space\n"
+           "      by removing previous snapshots and saved copies:\n"
+           "      %1 snapshots are taking up %2 of disk space.\n")
+            .arg(QString::number(getSnapshotCount()), getSnapshotSize()));
 }
 
 // Installs package
@@ -235,12 +234,19 @@ void MainWindow::procStart()
 void MainWindow::processMsgBox(BoxType box_type, const QString &title, const QString &msg)
 {
     qDebug().noquote() << title << msg;
-    switch (box_type)
-    {
-    case BoxType::warning: QMessageBox::warning(this, title, msg); break;
-    case BoxType::critical: QMessageBox::critical(this, title, msg); break;
-    case BoxType::question: QMessageBox::question(this, title, msg); break;
-    case BoxType::information: QMessageBox::information(this, title, msg); break;
+    switch (box_type) {
+    case BoxType::warning:
+        QMessageBox::warning(this, title, msg);
+        break;
+    case BoxType::critical:
+        QMessageBox::critical(this, title, msg);
+        break;
+    case BoxType::question:
+        QMessageBox::question(this, title, msg);
+        break;
+    case BoxType::information:
+        QMessageBox::information(this, title, msg);
+        break;
     }
 }
 
@@ -287,13 +293,12 @@ void MainWindow::progress()
 
     // in live environment and first page, blink text while calculating used disk space
     if (live && (ui->stackedWidget->currentIndex() == 0)) {
-        if (ui->progressBar->value() % 4 == 0 )
+        if (ui->progressBar->value() % 4 == 0)
             ui->labelUsedSpace->setText("\n " + tr("Please wait."));
         else
             ui->labelUsedSpace->setText("\n " + tr("Please wait. Calculating used disk space..."));
     }
 }
-
 
 // Next button clicked
 void MainWindow::btnNext_clicked()
@@ -303,8 +308,10 @@ void MainWindow::btnNext_clicked()
         file_name += QLatin1String(".iso");
 
     if (QFile::exists(snapshot_dir + "/" + file_name)) {
-        QMessageBox::critical(this, tr("Error"),
-                              tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(snapshot_dir + "/" + file_name));
+        QMessageBox::critical(
+            this, tr("Error"),
+            tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
+                .arg(snapshot_dir + "/" + file_name));
         return;
     }
 
@@ -317,35 +324,39 @@ void MainWindow::btnNext_clicked()
         selectKernel();
         ui->label_1->setText(tr("Snapshot will use the following settings:*"));
 
-        ui->label_2->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" +
-                       "- " + tr("Snapshot name:") + " " + file_name + "\n" +
-                       tr("- Kernel to be used:") + " " + kernel + "\n");
+        ui->label_2->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
+                             + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " " + kernel
+                             + "\n");
         codename = ui->textCodename->text();
         distro_version = ui->textDistroVersion->text();
         project_name = ui->textProjectName->text();
-        full_distro_name = project_name + "-" + distro_version + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
+        full_distro_name
+            = project_name + "-" + distro_version + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
         boot_options = ui->textOptions->text();
         release_date = ui->textReleaseDate->text();
-    // on settings page
+        // on settings page
     } else if (ui->stackedWidget->currentWidget() == ui->settingsPage) {
         if (!checkCompression()) {
             processMsgBox(BoxType::critical, tr("Error"),
-                tr("Current kernel doesn't support selected compression algorithm, please edit the configuration file and select a different algorithm."));
+                          tr("Current kernel doesn't support selected compression algorithm, please edit the "
+                             "configuration file and select a different algorithm."));
             return;
         }
-
 
         QMessageBox messageBox(this);
         messageBox.setIcon(QMessageBox::Question);
         messageBox.setWindowTitle(tr("Final chance"));
-        messageBox.setText(tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n" +
-                           tr("It will take some time to finish, depending on the size of the installed system and the capacity of your computer.") + "\n\n" +
-                           tr("OK to start?"));
+        messageBox.setText(
+            tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n"
+            + tr("It will take some time to finish, depending on the size of the installed system and the capacity of "
+                 "your computer.")
+            + "\n\n" + tr("OK to start?"));
         messageBox.addButton(QMessageBox::Ok);
         auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
         auto *checkShutdown = new QCheckBox(this);
         checkShutdown->setText(tr("Shutdown computer when done."));
-        if (shutdown) checkShutdown->setCheckState(Qt::Checked);
+        if (shutdown)
+            checkShutdown->setCheckState(Qt::Checked);
         messageBox.setCheckBox(checkShutdown);
         messageBox.exec();
         if (messageBox.clickedButton() == pushCancel)
@@ -377,10 +388,13 @@ void MainWindow::btnNext_clicked()
         work.savePackageList(file_name);
 
         if (edit_boot_menu) {
-            if (QMessageBox::Yes == QMessageBox::question(this, tr("Edit Boot Menu"),
-                                  tr("The program will now pause to allow you to edit any files in the work directory. "
-                                     "Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot."),
-                                     QMessageBox::Yes | QMessageBox::No)) {
+            if (QMessageBox::Yes
+                == QMessageBox::question(
+                    this, tr("Edit Boot Menu"),
+                    tr("The program will now pause to allow you to edit any files in the work directory. "
+                       "Select Yes to edit the boot menu or select No to bypass this step and continue creating the "
+                       "snapshot."),
+                    QMessageBox::Yes | QMessageBox::No)) {
                 this->hide();
                 QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
                 shell->run(cmd);
@@ -392,7 +406,7 @@ void MainWindow::btnNext_clicked()
         work.createIso(file_name);
         ui->btnCancel->setText(tr("Close"));
     } else {
-        qApp->quit();
+        QApplication::quit();
     }
 }
 
@@ -415,37 +429,43 @@ void MainWindow::btnEditExclude_clicked()
 void MainWindow::excludeDocuments_toggled(bool checked)
 {
     excludeDocuments(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludeDownloads_toggled(bool checked)
 {
     excludeDownloads(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludePictures_toggled(bool checked)
 {
     excludePictures(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludeMusic_toggled(bool checked)
 {
     excludeMusic(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludeVideos_toggled(bool checked)
 {
     excludeVideos(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludeDesktop_toggled(bool checked)
 {
     excludeDesktop(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::radioRespin_toggled(bool checked)
@@ -462,19 +482,18 @@ void MainWindow::radioPersonal_clicked(bool checked)
         ui->excludeAll->click();
 }
 
-
 // About button clicked
 void MainWindow::btnAbout_clicked()
 {
     this->hide();
-    displayAboutMsgBox(tr("About %1").arg(this->windowTitle()), "<p align=\"center\"><b><h2>" +
-                       this->windowTitle() + "</h2></b></p><p align=\"center\">" +
-                       tr("Version: ") + QApplication::applicationVersion() + "</p><p align=\"center\"><h3>" +
-                       tr("Program for creating a live-CD from the running system for MX Linux") +
-                       R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)" +
-                       tr("Copyright (c) MX Linux") + "<br /><br /></p>",
-                       QStringLiteral("/usr/share/doc/mx-snapshot/license.html"),
-                       tr("%1 License").arg(this->windowTitle()));
+    displayAboutMsgBox(
+        tr("About %1").arg(this->windowTitle()),
+        "<p align=\"center\"><b><h2>" + this->windowTitle() + "</h2></b></p><p align=\"center\">" + tr("Version: ")
+            + QApplication::applicationVersion() + "</p><p align=\"center\"><h3>"
+            + tr("Program for creating a live-CD from the running system for MX Linux")
+            + R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)"
+            + tr("Copyright (c) MX Linux") + "<br /><br /></p>",
+        QStringLiteral("/usr/share/doc/mx-snapshot/license.html"), tr("%1 License").arg(this->windowTitle()));
     this->show();
 }
 
@@ -496,7 +515,8 @@ void MainWindow::btnSelectSnapshot_clicked()
 {
     QFileDialog dialog;
 
-    QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(), QFileDialog::ShowDirsOnly);
+    QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
+                                                         QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {
         snapshot_dir = selected + "/snapshot";
         ui->labelSnapshotDir->setText(snapshot_dir);
@@ -512,21 +532,19 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 }
 
 // close application
-void MainWindow::closeApp() {
+void MainWindow::closeApp()
+{
     // ask for confirmation when on outputPage and not done
     if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.done) {
-        if (QMessageBox::Yes != QMessageBox::question(this, tr("Confirmation"),
-                                                      tr("Are you sure you want to quit the application?"),
-                                                      QMessageBox::Yes | QMessageBox::No))
+        if (QMessageBox::Yes
+            != QMessageBox::question(this, tr("Confirmation"), tr("Are you sure you want to quit the application?"),
+                                     QMessageBox::Yes | QMessageBox::No))
             return;
     }
     cleanUp();
 }
 
-void MainWindow::btnCancel_clicked()
-{
-    closeApp();
-}
+void MainWindow::btnCancel_clicked() { closeApp(); }
 
 void MainWindow::cbCompression_currentIndexChanged()
 {
@@ -539,7 +557,8 @@ void MainWindow::cbCompression_currentIndexChanged()
 void MainWindow::excludeNetworks_toggled(bool checked)
 {
     excludeNetworks(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::checkMd5_toggled(bool checked)
@@ -573,11 +592,13 @@ void MainWindow::excludeAll_clicked(bool checked)
 void MainWindow::excludeSteam_toggled(bool checked)
 {
     excludeSteam(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }
 
 void MainWindow::excludeVirtualBox_toggled(bool checked)
 {
     excludeVirtualBox(checked);
-    if (!checked) ui->excludeAll->setChecked(false);
+    if (!checked)
+        ui->excludeAll->setChecked(false);
 }

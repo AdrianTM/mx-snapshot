@@ -35,7 +35,8 @@
 
 class QCommandLineParser;
 
-namespace Ui {
+namespace Ui
+{
 class MainWindow;
 }
 
@@ -60,7 +61,7 @@ public:
     void setup();
 
 protected:
-    void keyPressEvent(QKeyEvent* event);
+    void keyPressEvent(QKeyEvent *event);
 
 public slots:
     void disableOutput();
@@ -101,9 +102,6 @@ private:
     QTimer timer;
     Work work;
     bool monthly;
-
-
 };
 
 #endif // MainWindow_H
-
