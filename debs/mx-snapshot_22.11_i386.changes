@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Mon, 28 Nov 2022 18:26:08 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.11
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.11) mx; urgency=medium
+ .
+   * Add compressed kernel-modules handling. A mx-iso-template update is also required for this feature
+Checksums-Sha1:
+ 8205302e47932d6f4773414f49fefe3d8ec834ea 10038 mx-snapshot_22.11_i386.buildinfo
+ 669821eb0ae3fa7427bb387e8754f3a97f4d5a6c 286516 mx-snapshot_22.11_i386.deb
+Checksums-Sha256:
+ edbcfb74797b9306c316751b5eb4c5783a3e5d21f3d73f95788cba52d8be4c6a 10038 mx-snapshot_22.11_i386.buildinfo
+ bc36b9ca687e17cec13d2d3b945f93f1954f390b3851819dfe456c6136f41b0d 286516 mx-snapshot_22.11_i386.deb
+Files:
+ 33593fee63d1bc8436798a7e947e865f 10038 admin optional mx-snapshot_22.11_i386.buildinfo
+ e0dc32cf2f0a98b75c959d03bb47300a 286516 admin optional mx-snapshot_22.11_i386.deb
