@@ -1,3 +1,9 @@
+mx-snapshot (22.11) mx; urgency=medium
+
+  * Add compressed kernel-modules handling. A mx-iso-template update is also required for this feature
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 28 Nov 2022 18:26:08 -0500
+
 mx-snapshot (22.10.05) mx; urgency=medium
 
   * Add custom boot options directly to GRUB menu
