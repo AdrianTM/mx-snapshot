@@ -487,7 +487,7 @@ void MainWindow::btnAbout_clicked()
 {
     this->hide();
     displayAboutMsgBox(
-        tr("About %1").arg(this->windowTitle()),
+        tr("About %1").arg(QApplication::applicationDisplayName()),
         "<p align=\"center\"><b><h2>" + this->windowTitle() + "</h2></b></p><p align=\"center\">" + tr("Version: ")
             + QApplication::applicationVersion() + "</p><p align=\"center\"><h3>"
             + tr("Program for creating a live-CD from the running system for MX Linux")
