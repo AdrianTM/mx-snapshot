@@ -18,29 +18,29 @@ Changes:
  .
    * Read booted kernel options and set them as default when creating a snapshot
 Checksums-Sha1:
- 2ba741915fcf09f95eec3f062342da7ccf143de4 1198 mx-snapshot_22.12.dsc
- e4c7f137a9e9fe93389d850ac17f921eae2f2d5b 223584 mx-snapshot_22.12.tar.xz
- 6a2a2c1ab09e623f1107c73725244194fed4384e 10739 mx-snapshot_22.12_amd64.buildinfo
- ca464494d061eb37207c55361f7cb0df43f90f08 281708 mx-snapshot_22.12_amd64.deb
+ 00430fab778a4920d678e39405f6e4397d91c63e 1198 mx-snapshot_22.12.dsc
+ 7bb8073fa9222b46f522647f10f0cf904346886a 223612 mx-snapshot_22.12.tar.xz
+ bc18fbc176086a052589100dcf4feb6432e2455b 10739 mx-snapshot_22.12_amd64.buildinfo
+ 940467df23d7418b13cf08bcbb828b5ed8e4ac24 281624 mx-snapshot_22.12_amd64.deb
 Checksums-Sha256:
- d30884d4abcc185901e2bbd04737d84b16f3c41304130f5254348e15fc4116c4 1198 mx-snapshot_22.12.dsc
- aad4dadcffc11a03eb0293e95bcb189089aca0b5b418b5ac2db495fdd9e5c6db 223584 mx-snapshot_22.12.tar.xz
- 86ea57ac23c4c9e3d3da73691ac7f6e155b8ef6daa23e935be8c34095c5d49c0 10739 mx-snapshot_22.12_amd64.buildinfo
- c93eae7bf5a805ee4ab878da08aeb61c0876dcd4e217448686f68416141f07a3 281708 mx-snapshot_22.12_amd64.deb
+ d00cef8ce9d8584c802962473b79fd561d8a44fc60a61f9ca1e8baad5ede73b3 1198 mx-snapshot_22.12.dsc
+ d435e19c2b6e722aea74cc85f6ddb92bd5f3cf18027ce04ffd9059dca16264c3 223612 mx-snapshot_22.12.tar.xz
+ 8c21e0cdbaceb454ff4971a4a96926148aa58a7aa1d8d2b68bb1fd1ee7fd1019 10739 mx-snapshot_22.12_amd64.buildinfo
+ fff77c4b3754d8dd48e2e5c927b5e981d49ce8f4e0f8c10c9558168a3e9a2e73 281624 mx-snapshot_22.12_amd64.deb
 Files:
- 8c50b71de3b95f65797235e9f3171857 1198 admin optional mx-snapshot_22.12.dsc
- c024b697de038991ee04a1eaa15ad57d 223584 admin optional mx-snapshot_22.12.tar.xz
- 6683181227ae664205c7eca792a14f0c 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
- 61f009b0c8c7ae1c8c8c6a4758789616 281708 admin optional mx-snapshot_22.12_amd64.deb
+ 7793765410523cf88db4c918cfcd4e29 1198 admin optional mx-snapshot_22.12.dsc
+ 3986e2e48c00c88972885189d14aac7f 223612 admin optional mx-snapshot_22.12.tar.xz
+ 814ca34998a547efc796565043a7b3dc 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
+ fe70be5173f23a3719733bd6ac4cedce 281624 admin optional mx-snapshot_22.12_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK3fQTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHInB/4x2Keeg+3idyhMNwLFZrLth6qU78Va
-5g//8G6Fa5gVYgsztPcG9gx4zdDmCatQF8yNFQBzrUzfB7c9VW1kgSPFGvC2Jc1Q
-Aj4Z4CtRoHnwydW1oa/NRCBhBP3fNnlWXO6DJFIOEDWdoagqtn6yJEj0WW2wL+BB
-n8+2VJuUyBIqElRGKLwutLTbe7TexzHyFt1ZU/DADgegQQ6/1nrpFfVyqmyF6rn0
-W7hd1UWBArfHQLyVQW8HW/zPdrYMhH8t3tWtFOkVfbTSC0iwe8EtuU5AdYPUdrdh
-6aLzYxERw8xc5GHT3Ncde4z1Lv34diMNpRJxJ2ptEAjriUq7o7u0T9nd
-=D/Xb
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK3u0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKHOB/0V3l3whN2XPHCARGNCMs2HrsrS6mXd
+7vJj4+R82OFx5mBJH+HI9fTwCMw+oUtjHxm3tzNWlnngBjGngrqupsDv6SgL6e7x
+ClzcJHhFHtbJ00Hh+LdELkz3yD19+SfUeY8BeL4wyc9BCuXX1MfxjvK9As9tNQa2
+aI6gQVqTZOZIEQ9y9eoS0S0d6OiiEzzUL2cKjh0HbeaLdo1rRByypHUIEeSFH/b4
+17sLe4dyUgaApX0vGZst4d1Tvb0TQ/UwgqoH372d9FyV+QXryHC8qEmsGX9+pYgf
+KBx928IAUW7vs9MeudIAyxho5T/lnG3cxy6VZsqJqKuvzB2naRVXYYt8
+=Ksp0
 -----END PGP SIGNATURE-----
