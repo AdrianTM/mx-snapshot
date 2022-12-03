@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 03 Dec 2022 12:02:24 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.12.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.12.01) mx; urgency=medium
+ .
+   * Fix: set application display name
+Checksums-Sha1:
+ 5badcc360862b8f2a65ab6e97c54da38d190ed40 1210 mx-snapshot_22.12.01.dsc
+ 4592d79135239d17d81c2f5c17405b1792c9710b 223596 mx-snapshot_22.12.01.tar.xz
+ 15f90bce0d6cfc54b570f38c6c33c4a074d116c3 10763 mx-snapshot_22.12.01_amd64.buildinfo
+ da43cf17d71ddcc9fb0266e5a019a9eabeaf936b 281680 mx-snapshot_22.12.01_amd64.deb
+Checksums-Sha256:
+ 0f84e40d3e91eb6e86adee772fab8d495f6f990d495f8136d875324048bef527 1210 mx-snapshot_22.12.01.dsc
+ dc95486f199eebde6dda04b75f2f40ab81b4b4199cfbe40ebc8c4254c182c95b 223596 mx-snapshot_22.12.01.tar.xz
+ 7b2a44c52adc9f43677395988949340bc70b1b68aa747ecf5a7df1f837b93f7f 10763 mx-snapshot_22.12.01_amd64.buildinfo
+ 70b68a66c4808b865568c56bdb6aaa56edea8fa1425bb3b3e72fe534d2c55dec 281680 mx-snapshot_22.12.01_amd64.deb
+Files:
+ 6f78f24f1ba6c4c0ca99e4ae2982b628 1210 admin optional mx-snapshot_22.12.01.dsc
+ ed6a1e7d6d1ad9aa5c0d225f44e096f0 223596 admin optional mx-snapshot_22.12.01.tar.xz
+ 6b239676b8d13735569d93e646b97d2d 10763 admin optional mx-snapshot_22.12.01_amd64.buildinfo
+ 1c9656d171c775520bfd77f080fff02b 281680 admin optional mx-snapshot_22.12.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOLgW8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumGePB/9MDgr9x5X29K5uD5vYyt7/qcMnJPVq
+97pLM79ajyOCqIdWsOVOocqfn3KlJSpseX0sDgDhv7Relg+C8Qn8gjzE9vwcdwj7
+KLb3MpGAc63Kw+Jo/HPA86pYvIJG4eseFmzc+NNK1CL9WR8pZO+HQNCbA4m73yEU
+rd2Dyu3+0Q0JvNMGO3DUH51sOvs2y20mdLFXOQ7s4Y4s2HdxIyJuSjReEwiZM3XN
+Qcwmk7ttoq4FPzROpqRIN2aaIL75JKnl+eAXNhpViFYqMod/26ViL0PVqfxC0yIg
+GO/DDVlofHnZdoTmri2We2u206+6lNIDxe5MXXH25ARi0gynP543dd/W
+=XNMG
+-----END PGP SIGNATURE-----
