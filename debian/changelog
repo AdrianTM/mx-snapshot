@@ -1,3 +1,9 @@
+mx-snapshot (22.12) mx; urgency=medium
+
+  * Read booted kernel options and set them as default when creating a snapshot
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 03 Dec 2022 00:06:10 -0500
+
 mx-snapshot (22.11) mx; urgency=medium
 
   * Add compressed kernel-modules handling. A mx-iso-template update is also required for this feature
