@@ -15,26 +15,26 @@ Changes:
  .
    * Read booted kernel options and set them as default when creating a snapshot
 Checksums-Sha1:
- 00430fab778a4920d678e39405f6e4397d91c63e 1198 mx-snapshot_22.12.dsc
- 7bb8073fa9222b46f522647f10f0cf904346886a 223612 mx-snapshot_22.12.tar.xz
- bc18fbc176086a052589100dcf4feb6432e2455b 10739 mx-snapshot_22.12_amd64.buildinfo
+ 6fc9d5d9d77294c962802af3dbe0f59ad085270d 1198 mx-snapshot_22.12.dsc
+ 4782c511e0cba20d66903b5ff06ceff716ec4250 223564 mx-snapshot_22.12.tar.xz
+ 7d746c0c5dd478f0d5a03cd57675caf1cc8ea340 10739 mx-snapshot_22.12_amd64.buildinfo
 Checksums-Sha256:
- d00cef8ce9d8584c802962473b79fd561d8a44fc60a61f9ca1e8baad5ede73b3 1198 mx-snapshot_22.12.dsc
- d435e19c2b6e722aea74cc85f6ddb92bd5f3cf18027ce04ffd9059dca16264c3 223612 mx-snapshot_22.12.tar.xz
- 8c21e0cdbaceb454ff4971a4a96926148aa58a7aa1d8d2b68bb1fd1ee7fd1019 10739 mx-snapshot_22.12_amd64.buildinfo
+ 14f2341f9e9a93b9d33b7301c3f3570659b58a06c86e596850b5a9b33ffeb819 1198 mx-snapshot_22.12.dsc
+ 5c68999a75c62484d20c95f3471b928e7fa8cf44f16f2bb9e0d2742e268a5753 223564 mx-snapshot_22.12.tar.xz
+ 4f901e61b5fa2b8317d75ea945917eb54e72de5132f8970cc0e01e9307a2b47e 10739 mx-snapshot_22.12_amd64.buildinfo
 Files:
- 7793765410523cf88db4c918cfcd4e29 1198 admin optional mx-snapshot_22.12.dsc
- 3986e2e48c00c88972885189d14aac7f 223612 admin optional mx-snapshot_22.12.tar.xz
- 814ca34998a547efc796565043a7b3dc 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
+ 9d95e2efa384fd8a2c4f1d2d23af6281 1198 admin optional mx-snapshot_22.12.dsc
+ 28bc942546977a1e6229f5005243d05a 223564 admin optional mx-snapshot_22.12.tar.xz
+ 6cc1f136a2326a87963ff56b2465bee0 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK3u4THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumL3gB/sEjzYGSp/ABecjEaw+GsOVt9T0/P5A
-m/vKDDaDPcvCKZRoelQiFC8tn7tlywDRZ91pOOFQmjwQQWhXIudIW+KAj571MXdE
-ab4MoYehVP/xak7FoNI0W2o/X+x86V7YbUaQSrwKYhmQsV0RbV0vkQvv7xPX0ByI
-rNUsFGRg8q3PoVlkmG9hF8Xl5vTSGUtabXjW1SYrg22J3WQpw/9+gD1OwfcYobwr
-lNDvGuU8t9MCJXNdru+K0g2vbia7QYF+PRJN62/0Ec9w6Ec8nurw9nOUHtFQieA6
-GLM8NX8f0D0K4GeOOyrxa+A/7USruXPJELQOpqHoRcMleTry1hQmg59F
-=WDKU
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK5J0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumC8bB/0WRcn5BVHvb49CXK6f6YNSp4XN4aKf
+UnGw8yJGATUWwvcUkK4Sx8nnSFqj5pL49skQq5EdxaB2E+qwHMYHuXZquzKTpgOl
+5V8eKPE3GQZzFkp/2+/uGvhJm4ZRqTZznFTRJtA+LAMN4Glo62uuvfLU2SWwNeCj
+tpXF4QDs0hd2O1oZfmc97qSAuf7arUKSJ5QIWs1AUIZ09AdsEFs1C1trZ/5Q+iy6
+eNhrCsaCxwpO668TtbpNv0yYe3jEil9+t3PwD/Q7650Uj1c/7tLQfUQT5EJqnTll
+xyw6I/htiTXGdVOkRxqkNXWzgGtsTnvUZpz5v1RaciU7OgG5eai6j7Jk
+=1At1
 -----END PGP SIGNATURE-----

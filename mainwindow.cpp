@@ -482,7 +482,6 @@ void MainWindow::radioPersonal_clicked(bool checked)
         ui->excludeAll->click();
 }
 
-// About button clicked
 void MainWindow::btnAbout_clicked()
 {
     this->hide();
@@ -493,7 +492,8 @@ void MainWindow::btnAbout_clicked()
             + tr("Program for creating a live-CD from the running system for MX Linux")
             + R"(</h3></p><p align="center"><a href="http://mxlinux.org">http://mxlinux.org</a><br /></p><p align="center">)"
             + tr("Copyright (c) MX Linux") + "<br /><br /></p>",
-        QStringLiteral("/usr/share/doc/mx-snapshot/license.html"), tr("%1 License").arg(this->windowTitle()));
+        QStringLiteral("/usr/share/doc/mx-snapshot/license.html"),
+        tr("%1 License").arg(QApplication::applicationDisplayName()));
     this->show();
 }
 
