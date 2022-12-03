@@ -680,6 +680,7 @@ QString Settings::filterOptions(QString options)
 {
     options.remove(QRegularExpression("BOOT_IMAGE=\\S* ?"));
     options.remove(QRegularExpression("initrd=\\S* ?"));
+    options.remove(QRegularExpression("init=\\S* ?"));
     options.remove(QRegularExpression("root=\\S* ?"));
     options.remove(QRegularExpression("\\bro ?\\b"));
     return options.trimmed();
