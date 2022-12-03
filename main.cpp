@@ -140,7 +140,6 @@ int main(int argc, char *argv[])
         }
 #endif
     QCoreApplication::setApplicationVersion(VERSION);
-    QApplication::setApplicationDisplayName(QObject::tr("MX Snapshot"));
     parser.process(app);
     setTranslation();
     checkSquashfs();
