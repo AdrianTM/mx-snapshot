@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 03 Dec 2022 00:06:10 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.12
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.12) mx; urgency=medium
+ .
+   * Read booted kernel options and set them as default when creating a snapshot
+Checksums-Sha1:
+ d1e19d17e6de9adf9a4d9fd229e30c84c3059420 1198 mx-snapshot_22.12.dsc
+ 867f77cdcd26f53e0c7ce4c6ecba1b6e98a8f987 223624 mx-snapshot_22.12.tar.xz
+ 39a3ac6a84c8f3bac44be0ab34cc268d95742806 10739 mx-snapshot_22.12_amd64.buildinfo
+ 5c138634365407a58c7fc6b53aae94f3e75665bc 281840 mx-snapshot_22.12_amd64.deb
+Checksums-Sha256:
+ 36a0dfebf5eeb748a7475e6e347022ba282a6d860034488b54db66f2f1fa943d 1198 mx-snapshot_22.12.dsc
+ 5500122e0b3925eee7110c2020062e15ea2006004741de91216ed47c6a6f5b2e 223624 mx-snapshot_22.12.tar.xz
+ 8d0c445991d1266496b34d21e77ebc7410c0a60202017467d83a365bf17f31dc 10739 mx-snapshot_22.12_amd64.buildinfo
+ cad23751fb59f0c0be474f1d51c5d2cf6361138f1df1195fdc41b9b9c67e2b6f 281840 mx-snapshot_22.12_amd64.deb
+Files:
+ 3919e4050a801498d524e2ff9ac12e83 1198 admin optional mx-snapshot_22.12.dsc
+ 5db8f4960925cb8873dc1ef253cb9e23 223624 admin optional mx-snapshot_22.12.tar.xz
+ 2e5dfac9e9a00e344e1aa30317d14798 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
+ d9d68a8f19a9b70ef38d26c76adad7ee 281840 admin optional mx-snapshot_22.12_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK2d8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumFkkB/sEGfHmI1zwolFTcYYVT58qKGBviWwr
+BXezDo+B8asu4PLAXfFdKHVvQxr1Fz0D9EqBVWmpkrwF2vplU+Vsbq1FEIlPtOoW
+t4AVJUaHBpckYF7Iqil4TcxvKpHX7jS3aVScDDzGhbs3dyjcKgCriynNvs8nRm7Q
+zs7MFyHkm65JqhIlV1nF68vdJWPUIC5FTIjgUmTWUis0AT9IV16I/W+nlZXZNk70
+kb6/tE8pVEhACR36/K4J8sKswB7CCZoiA6Qnmw2Uht2ecsoddiusry6hXSfbVNiu
+aWQ7GTkuOT2bDnSk5MoJc42/M0D3HVzKzcXKfx2z5j1UMy/nYqK3wI0E
+=OXX5
+-----END PGP SIGNATURE-----

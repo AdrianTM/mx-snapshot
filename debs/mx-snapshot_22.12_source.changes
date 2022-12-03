@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 03 Dec 2022 00:06:10 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.12
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.12) mx; urgency=medium
+ .
+   * Read booted kernel options and set them as default when creating a snapshot
+Checksums-Sha1:
+ d1e19d17e6de9adf9a4d9fd229e30c84c3059420 1198 mx-snapshot_22.12.dsc
+ 867f77cdcd26f53e0c7ce4c6ecba1b6e98a8f987 223624 mx-snapshot_22.12.tar.xz
+ 39a3ac6a84c8f3bac44be0ab34cc268d95742806 10739 mx-snapshot_22.12_amd64.buildinfo
+Checksums-Sha256:
+ 36a0dfebf5eeb748a7475e6e347022ba282a6d860034488b54db66f2f1fa943d 1198 mx-snapshot_22.12.dsc
+ 5500122e0b3925eee7110c2020062e15ea2006004741de91216ed47c6a6f5b2e 223624 mx-snapshot_22.12.tar.xz
+ 8d0c445991d1266496b34d21e77ebc7410c0a60202017467d83a365bf17f31dc 10739 mx-snapshot_22.12_amd64.buildinfo
+Files:
+ 3919e4050a801498d524e2ff9ac12e83 1198 admin optional mx-snapshot_22.12.dsc
+ 5db8f4960925cb8873dc1ef253cb9e23 223624 admin optional mx-snapshot_22.12.tar.xz
+ 2e5dfac9e9a00e344e1aa30317d14798 10739 admin optional mx-snapshot_22.12_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOK2d8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumFKjB/9ezoj2MPtzv1GDWuKr4UQFwllM/v0j
+IZtrTZl/BLO31FRIuHq77WMY+DLxX0Ua5d1tyJYTt/6gbwnxdJ7pqv1v+CsDOQZw
+hS/RARI/wKjfLpYdyPdMpTRN8rRurjuLhn15s1fCkvyYLTBRSAQaB4XDO1mio4n2
+Uwu50mznSqJzny5WZhK8yL2wyxxp71ugcmr5/8a6GUZ4SBelBcUQrZhSkVfHye6L
+mnqLM/2YG677u01l6dtmI6d+tklmxie6AqOhMFf2DJNJ2UY2HGn4ROLLVjnYfrye
+mTK3nPVlDVczV5JMIOVdSsCVfsEnwh+qF7RzXEbzRDXglFR61sGNfnj5
+=5fWj
+-----END PGP SIGNATURE-----
