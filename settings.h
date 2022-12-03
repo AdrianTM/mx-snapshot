@@ -61,15 +61,15 @@ public:
     QFile snapshot_excludes;
     QHash<QString, QString> englishDirs; // English names of /home directories
     QScopedPointer<QTemporaryDir> tmpdir;
+    QString boot_options;
     QString codename;
     QString compression;
     QString distro_version;
-    QString project_name;
     QString full_distro_name;
     QString gui_editor;
     QString kernel;
     QString mksq_opt;
-    QString boot_options;
+    QString project_name;
     QString release_date;
     QString save_message;
     QString session_excludes;
@@ -93,8 +93,8 @@ public:
     bool preempt {}; // command line option
     bool reset_accounts {};
     bool shutdown {};
-    quint64 free_space_work {};
     quint64 free_space {};
+    quint64 free_space_work {};
     quint64 home_size {};
     quint64 root_size {};
 
@@ -116,6 +116,8 @@ public:
     int getSnapshotCount() const;
     quint64 getFreeSpace(const QString &path) const;
     quint64 getLiveRootSpace() const;
+    static QString filterOptions(QString options);
+    static QString readKernelOpts();
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
     void excludeDesktop(bool exclude);

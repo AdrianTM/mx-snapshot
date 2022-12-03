@@ -269,7 +269,7 @@ void Settings::setVariables()
     release_date = QDate::currentDate().toString(QStringLiteral("MMMM dd, yyyy"));
     codename = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
     codename.replace(QLatin1String("\""), QLatin1String(""));
-    boot_options = QStringLiteral("quiet");
+    boot_options = live ? readKernelOpts() : filterOptions(readKernelOpts());
 }
 
 // Create the output filename
@@ -665,6 +665,26 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
     }
 }
 
+// Read kernel line and options from /proc/cmdline
+QString Settings::readKernelOpts()
+{
+    QFile file(QStringLiteral("/proc/cmdline"));
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "Could not open file:" << file.fileName();
+        return QString();
+    }
+    return file.readAll();
+}
+
+QString Settings::filterOptions(QString options)
+{
+    options.remove(QRegularExpression("BOOT_IMAGE=\\S* ?"));
+    options.remove(QRegularExpression("initrd=\\S* ?"));
+    options.remove(QRegularExpression("root=\\S* ?"));
+    options.remove(QRegularExpression("\\bro ?\\b"));
+    return options.trimmed();
+}
+
 void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
 {
     QString name;
@@ -693,5 +713,6 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
     if (arg_parser.value(QStringLiteral("compression")).isEmpty())
         compression = QStringLiteral("zstd");
     reset_accounts = true;
+    boot_options.remove("toram");
     excludeAll();
 }
