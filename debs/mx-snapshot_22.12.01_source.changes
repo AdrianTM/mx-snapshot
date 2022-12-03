@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 03 Dec 2022 12:02:24 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.12.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.12.01) mx; urgency=medium
+ .
+   * Fix: set application display name
+Checksums-Sha1:
+ 5badcc360862b8f2a65ab6e97c54da38d190ed40 1210 mx-snapshot_22.12.01.dsc
+ 4592d79135239d17d81c2f5c17405b1792c9710b 223596 mx-snapshot_22.12.01.tar.xz
+ 15f90bce0d6cfc54b570f38c6c33c4a074d116c3 10763 mx-snapshot_22.12.01_amd64.buildinfo
+Checksums-Sha256:
+ 0f84e40d3e91eb6e86adee772fab8d495f6f990d495f8136d875324048bef527 1210 mx-snapshot_22.12.01.dsc
+ dc95486f199eebde6dda04b75f2f40ab81b4b4199cfbe40ebc8c4254c182c95b 223596 mx-snapshot_22.12.01.tar.xz
+ 7b2a44c52adc9f43677395988949340bc70b1b68aa747ecf5a7df1f837b93f7f 10763 mx-snapshot_22.12.01_amd64.buildinfo
+Files:
+ 6f78f24f1ba6c4c0ca99e4ae2982b628 1210 admin optional mx-snapshot_22.12.01.dsc
+ ed6a1e7d6d1ad9aa5c0d225f44e096f0 223596 admin optional mx-snapshot_22.12.01.tar.xz
+ 6b239676b8d13735569d93e646b97d2d 10763 admin optional mx-snapshot_22.12.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOLgW8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumO1UCAC7iDIr9QDR/iEuhKxbR+sxn+3gYQDE
+qy6T9otYTFX/oaF7F0tybviAsn5i/lg0QNLY8+z0H/mVVf5FpBtso06m06zmmCPa
+cloYugGa7iXaocMaFLJ7En2m58FtM0YIe2qBk0NZZvio2xSFTWzBiUcZHCZ+jia6
+9LwVppTmOVp5VT7Zkz+DjlkmDU2D9X/7WpJrXQki7fS96JGuhIj+hdn/47PI24pd
+jzusHH571utcCnUABeBNuDu6tPEGU+mLI1aWJl+NvVIboVGhg4jK4noHe2zmRTo7
+uUHQirDAHH68OcnoDLjgo0Ya3Bl21RISRAU6cHzZSCHnfxxMJWVG4GZm
+=9iVT
+-----END PGP SIGNATURE-----
