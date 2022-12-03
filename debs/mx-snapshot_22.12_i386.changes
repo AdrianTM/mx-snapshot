@@ -15,11 +15,11 @@ Changes:
  .
    * Read booted kernel options and set them as default when creating a snapshot
 Checksums-Sha1:
- 5c96c5d3d587ac202c0fcba95b809a53e19a52f1 10038 mx-snapshot_22.12_i386.buildinfo
- 32891a97fc13fdb570665144ef558790f5e67cd2 288072 mx-snapshot_22.12_i386.deb
+ 3b78bea3dc5caffb1aa3e44a605ec7d384164a47 10038 mx-snapshot_22.12_i386.buildinfo
+ 1c3b8080e222b132402d7a08813644e7fe6e2d76 287932 mx-snapshot_22.12_i386.deb
 Checksums-Sha256:
- 5ce8f7d27f2dccfbeb9b6eaaf799ba542c0b42f668dc37914d962f0cbcde5e6f 10038 mx-snapshot_22.12_i386.buildinfo
- 8d31b567d012fb10122f3fd8504781956675906ecf93e9d61e061ebdcb55b040 288072 mx-snapshot_22.12_i386.deb
+ 8fe62f815167ac5c3e342ab4863abdcdd9f4858fef67ff04b4005f2cb65986a3 10038 mx-snapshot_22.12_i386.buildinfo
+ bf5ac3d709c803a7feeecfed3e06c111a010079376bf5a7bc3b31610629ce3bd 287932 mx-snapshot_22.12_i386.deb
 Files:
- 614631b534974a75134db938acca2f5b 10038 admin optional mx-snapshot_22.12_i386.buildinfo
- 309e66973ce7fe6e4c17d9b40ef5c270 288072 admin optional mx-snapshot_22.12_i386.deb
+ a05e07e583c95b428abecdfa419c7dad 10038 admin optional mx-snapshot_22.12_i386.buildinfo
+ 1f0629d94b664aba6f83c9b206f409cf 287932 admin optional mx-snapshot_22.12_i386.deb
