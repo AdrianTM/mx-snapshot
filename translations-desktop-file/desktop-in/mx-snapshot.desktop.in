@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+# The desktop entry name will be displayed within the menu.
+Name=MX Snapshot
+# # The desktop entry comment will be shown within the menu.
+Comment=Create a live iso snapshot of your running system.
+Exec=mx-snapshot-launcher
+Terminal=false
+Type=Application
+Icon=mx-snapshot
+Categories=GNOME;GTK;System;MX-Live;
+NoDisplay=false
+
