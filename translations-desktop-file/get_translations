@@ -1,0 +1,35 @@
+#!/bin/bash
+
+APPNAME="$(basename $(dirname $(pwd)))-desktop"
+
+echodo() {
+  echo "${@}"
+  ${@}
+}
+
+# prepare transifex 
+if [ ! -s  .tx/config ]; then
+   mkdir -p .tx
+   cat <<EOF > .tx/config
+[main]
+host = https://www.transifex.com
+
+[antix-development.$APPNAME]
+file_filter = po/${APPNAME}_<lang>.po
+source_file = ${APPNAME}.pot
+source_lang = en
+type = po
+EOF
+fi    
+
+
+#remove existing translations
+backdir="po_$(date '+%Y-%m-%d_%H%M%S')"
+mkdir "$backdir"
+mv po/* "$backdir/"
+
+# get all translations
+if command -v tx >/dev/null; then
+   echodo tx pull -r antix-development.$APPNAME  --all
+fi
+
