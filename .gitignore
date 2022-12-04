@@ -48,3 +48,6 @@ CMakeFiles
 build.ninja
 cmake_install.cmake
 *_autogen/
+
+# Transifex ignore
+.tx/
