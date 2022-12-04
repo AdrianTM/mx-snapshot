@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="eo">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="rue">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -205,7 +205,7 @@
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"/>
+        <translation>Помоч</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
@@ -250,7 +250,7 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Одмінити</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
@@ -478,7 +478,7 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Одмінити</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="70"/>

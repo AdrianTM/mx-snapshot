@@ -4,12 +4,12 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../batchprocessing.cpp" line="42"/>
+        <location filename="../batchprocessing.cpp" line="43"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="42"/>
+        <location filename="../batchprocessing.cpp" line="44"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Huidige kernel ondersteunt het geselecteerde compressie algoritme niet, pas a.u.b. het configuratiebestand aan en kies een ander algoritme.</translation>
     </message>
@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="159"/>
-        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="158"/>
+        <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
-        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
         <translation>Snapshot naam:</translation>
     </message>
@@ -266,37 +266,37 @@
         <translation>Terug</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="165"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="166"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>fast, worse compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="167"/>
+        <location filename="../mainwindow.cpp" line="165"/>
         <source>slow, better compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="165"/>
         <source>best compromise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
+        <location filename="../mainwindow.cpp" line="166"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="197"/>
+        <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="198"/>
+        <location filename="../mainwindow.cpp" line="196"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -312,156 +312,156 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 </translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
-        <location filename="../mainwindow.cpp" line="208"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="291"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
         <translation>Even wachten aub.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Even wachten aub. Gebruikte schijfruimte aan het berekenen...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="332"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="312"/>
+        <location filename="../mainwindow.cpp" line="340"/>
+        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="313"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
         <translation>Snapshot zal de volgende instellingen gebruiken:*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="320"/>
+        <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
         <translation>- Snapshot folder:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="322"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
         <translation>- Te gebruiken kernel:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="333"/>
+        <location filename="../mainwindow.cpp" line="341"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Huidige kernel ondersteunt het geselecteerde compressie algoritme niet, pas a.u.b. het configuratiebestand aan en kies een ander algoritme.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="340"/>
+        <location filename="../mainwindow.cpp" line="348"/>
         <source>Final chance</source>
         <translation>Laatste kans</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="350"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Snapshot heeft nu alle informatie die het nodig heeft om een ISO van uw lopende systeem te creëren. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="342"/>
+        <location filename="../mainwindow.cpp" line="351"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Dit zal enige tijd duren, afhankelijk van de afmeting van het geïnstalleerde systeem en de capaciteit van uw computer.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
         <translation>OK om te beginnen?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="373"/>
         <source>Could not create temporary directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="370"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
         <translation>Boot Menu aanpassen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Het programma zal nu pauzeren om u in staat te stellen bestanden aan te passen in de werk folder. Selecteer Ja om het opstartmenu aan te passen of selecteer Nee om deze stap over te slaan en door te gaan met het creëren van het snapshot.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
         <translation>Sluiten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="470"/>
+        <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
         <translation>Over %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="472"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
         <translation>Versie:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="473"/>
+        <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Programma om een live-CD te creëren van het lopende systeem voor MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="475"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
         <translation>%1 Licentie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
         <translation>%1 Help</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
         <translation>Selecteer Snapshot Folder</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="518"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
         <translation>Bevestiging</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Weet u zeker dat u wilt stoppen met deze applicatie?</translation>
     </message>
@@ -469,28 +469,28 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="52"/>
         <source>License</source>
         <translation>Licentie</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="51"/>
-        <location filename="../about.cpp" line="60"/>
+        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
         <translation>Changelog</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="52"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
         <translation>Ongedaan maken</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="70"/>
+        <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
         <translation>&amp;Sluiten</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="64"/>
+        <location filename="../batchprocessing.cpp" line="66"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Het programma zal het bouwen pauzeren en het opstartmenu openen in uw tekstverwerker.</translation>
     </message>
@@ -525,172 +525,177 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>naam</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="78"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Noem een andere kernel te gebruiken, anders dan de standaard lopende kernel, gebruik formaat opgegeven door &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="80"/>
         <source>Or the full path: %1</source>
         <translation>Of het volledige pad: %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="81"/>
         <source>version, or path</source>
         <translation>versie, of pad</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="83"/>
         <source>Compression level options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="84"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="86"/>
         <source>&quot;option&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="89"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Creëer een maandelijkse snapshot, voeg de &apos;Maand&apos; naam toe in de ISO naam, sla gebruikte ruimtecalculatie over</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="90"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Deze optie zet reset-accounts en compressie op standaard, argumenten die deze items veranderen zullen worden genegeerd</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="93"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>Bereken geen checksums voor resulterend ISO-bestand</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="95"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Optie om het probleem op te lossen met het berekenen van checksums op preempt_rt kernels</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Accounts opnieuw instellen (voor distributie naar anderen)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Bereken checksums voor resulterend ISO-bestand</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="99"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Hoofdmappen uitsluiten, geldige keuzes:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Gebruik de optie één keer voor elk item dat u wilt uitsluiten</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="104"/>
         <source>one item</source>
         <translation>een item</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Compression format, valid choices: </source>
         <translation>Compressieformaat, geldige keuzes:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="93"/>
+        <location filename="../main.cpp" line="107"/>
         <source>format</source>
         <translation>Formaat</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="113"/>
-        <location filename="../main.cpp" line="122"/>
-        <location filename="../main.cpp" line="153"/>
+        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="174"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>U lijkt ingelogd te zijn als root, gelieve uit te loggen en in te loggen als normale gebruiker om dit programma te gebruiken.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="182"/>
         <source>version:</source>
         <translation>versie:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="156"/>
         <source>You must run this program as root.</source>
         <translation>U dient deze toepassing als &apos;root&apos; uit te voeren.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="152"/>
-        <location filename="../main.cpp" line="223"/>
-        <location filename="../settings.cpp" line="208"/>
+        <location filename="../main.cpp" line="165"/>
+        <source>MX Snapshot</source>
+        <translation type="unfinished">MX Snapshot</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="173"/>
+        <location filename="../main.cpp" line="257"/>
         <location filename="../settings.cpp" line="221"/>
-        <location filename="../settings.cpp" line="572"/>
-        <location filename="../settings.cpp" line="627"/>
+        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="624"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="217"/>
-        <location filename="../main.cpp" line="219"/>
-        <location filename="../settings.cpp" line="216"/>
+        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="253"/>
+        <location filename="../settings.cpp" line="229"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Huidige kernel ondersteunt geen Squashfs, kan niet doorgaan.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="86"/>
+        <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="107"/>
+        <location filename="../settings.cpp" line="109"/>
         <source>Could not create temp directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="203"/>
+        <location filename="../settings.cpp" line="216"/>
         <source>Could not find a usable kernel</source>
         <translation>Kon geen bruikbare kernel vinden</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="319"/>
+        <location filename="../settings.cpp" line="342"/>
         <source>Used space on / (root): </source>
         <translation>Gebruikte ruimte op / (root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="322"/>
+        <location filename="../settings.cpp" line="345"/>
         <source>estimated</source>
         <translation>geschat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="331"/>
+        <location filename="../settings.cpp" line="356"/>
         <source>Used space on /home: </source>
         <translation>Gebruikte ruimte op /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="387"/>
+        <location filename="../settings.cpp" line="407"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="389"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -706,48 +711,48 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="404"/>
+        <location filename="../settings.cpp" line="429"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="405"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Documents</source>
         <translation>Documenten</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="406"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="407"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Music</source>
         <translation>Muziek</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="408"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Networks</source>
         <translation>Netwerken</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="409"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Pictures</source>
         <translation>Afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="443"/>
         <source>Videos</source>
         <translation>Video&apos;s</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="567"/>
-        <location filename="../settings.cpp" line="622"/>
+        <location filename="../settings.cpp" line="618"/>
+        <location filename="../settings.cpp" line="704"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="116"/>
+        <location filename="../work.cpp" line="120"/>
         <source>Interrupted or failed to complete</source>
         <translation>Onderbroken of niet af kunnen maken</translation>
     </message>
@@ -755,134 +760,134 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="85"/>
+        <location filename="../work.cpp" line="87"/>
         <source>Cleaning...</source>
         <translation>Opruimen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="107"/>
-        <location filename="../work.cpp" line="115"/>
-        <location filename="../work.cpp" line="267"/>
+        <location filename="../work.cpp" line="111"/>
+        <location filename="../work.cpp" line="119"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="145"/>
-        <location filename="../work.cpp" line="224"/>
-        <location filename="../work.cpp" line="243"/>
-        <location filename="../work.cpp" line="286"/>
-        <location filename="../work.cpp" line="338"/>
-        <location filename="../work.cpp" line="391"/>
+        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="232"/>
+        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="358"/>
+        <location filename="../work.cpp" line="423"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="146"/>
+        <location filename="../work.cpp" line="151"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Er is niet genoeg vrije ruimte op uw doelschijf, u heeft minstens %1 nodig</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="147"/>
+        <location filename="../work.cpp" line="154"/>
         <source>You have %1 free space on %2</source>
         <translation>U heeft %1 vrije ruimte op %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="148"/>
+        <location filename="../work.cpp" line="156"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="173"/>
+        <location filename="../work.cpp" line="179"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>New-iso bestandssysteem kopiëren...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="185"/>
+        <location filename="../work.cpp" line="191"/>
         <source>Could not create temp directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="221"/>
+        <location filename="../work.cpp" line="229"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimeren van het bestandsysteem</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="225"/>
+        <location filename="../work.cpp" line="233"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen linuxfs bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="252"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD image bestand maken...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="256"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen ISO bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="250"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
         <translation>Hybride iso maken</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="272"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Success</source>
         <translation>Gelukt</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="272"/>
+        <location filename="../work.cpp" line="287"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="273"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot nam %1 tijd in beslag.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="274"/>
+        <location filename="../work.cpp" line="289"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dank u voor het gebruiken van MX Snapshot, voer MX Live USB Maker hierna uit!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="297"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="300"/>
         <source>Could not install </source>
         <translation>Kon niet installeren</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="310"/>
         <source>Calculating checksum...</source>
         <translation>Bereken checksum...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="327"/>
+        <location filename="../work.cpp" line="346"/>
         <source>Building new initrd...</source>
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="359"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>Kon %1 bestand niet vinden, kan niet doorgaan</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="391"/>
+        <location filename="../work.cpp" line="424"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="526"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="536"/>
+        <location filename="../work.cpp" line="581"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

@@ -4,12 +4,12 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../batchprocessing.cpp" line="42"/>
+        <location filename="../batchprocessing.cpp" line="43"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="42"/>
+        <location filename="../batchprocessing.cpp" line="44"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Ο τρέχων πυρήνας δεν υποστηρίζει τον επιλεγμένο αλγόριθμο συμπίεσης, παρακαλώ επεξεργαστείτε το αρχείο ρυθμίσεων και επιλέξτε διαφορετικό αλγόριθμο.</translation>
     </message>
@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="159"/>
-        <location filename="../mainwindow.cpp" line="401"/>
+        <location filename="../mainwindow.cpp" line="158"/>
+        <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -40,7 +40,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
-        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
         <translation>Όνομα του snapshot:</translation>
     </message>
@@ -266,37 +266,37 @@
         <translation>Πίσω</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="165"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="166"/>
+        <location filename="../mainwindow.cpp" line="164"/>
         <source>fast, worse compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="167"/>
+        <location filename="../mainwindow.cpp" line="165"/>
         <source>slow, better compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="165"/>
         <source>best compromise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="169"/>
+        <location filename="../mainwindow.cpp" line="166"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="197"/>
+        <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ελεύθερος χώρος στο κατάλογο %1, όπου τοποθετείται το snapshot: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="198"/>
+        <location filename="../mainwindow.cpp" line="196"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -311,156 +311,156 @@
 </translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
-        <location filename="../mainwindow.cpp" line="208"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="291"/>
+        <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
         <translation>Παρακαλώ περιμένετε.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="293"/>
+        <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Παρακαλώ περιμένετε. Υπολογισμός χώρου του δίσκου...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
-        <location filename="../mainwindow.cpp" line="332"/>
-        <location filename="../mainwindow.cpp" line="358"/>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="312"/>
+        <location filename="../mainwindow.cpp" line="340"/>
+        <location filename="../mainwindow.cpp" line="369"/>
+        <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="307"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="313"/>
+        <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="318"/>
+        <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
         <translation>Το snapshot θα χρησιμοποιήσει τις παρακάτω ρυθμίσεις:*</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="320"/>
+        <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
         <translation>- Κατάλογος για το snapshot:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="322"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
         <translation>- Πυρήνας που θα χρησιμοποιηθεί:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="333"/>
+        <location filename="../mainwindow.cpp" line="341"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Ο τρέχων πυρήνας δεν υποστηρίζει τον επιλεγμένο αλγόριθμο συμπίεσης, παρακαλώ επεξεργαστείτε το αρχείο ρυθμίσεων και επιλέξτε διαφορετικό αλγόριθμο.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="340"/>
+        <location filename="../mainwindow.cpp" line="348"/>
         <source>Final chance</source>
         <translation>Τελευταία ευκαιρία</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="350"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Το snapshot έχει όλες τις πληροφορίες που χρειάζονται για να δημιουργηθεί ένα ISO από το σύστημα σας.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="342"/>
+        <location filename="../mainwindow.cpp" line="351"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Θα χρειαστεί χρόνος για να ολοκληρωθεί, ανάλογα με το μέγεθος του συστήματος και την ικανότητα του υπολογιστή σας.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
         <translation>Εντάξει για να ξεκινήσετε;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
+        <location filename="../mainwindow.cpp" line="357"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>Could not create working directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="373"/>
         <source>Could not create temporary directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία προσωρινού καταλόγου.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="370"/>
+        <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
         <translation>Επεξεργασία μενού του φορτωτή εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="394"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Το πρόγραμμα θα σταματήσει τώρα για να σας επιτρέψει να επεξεργαστείτε αρχεία στον κατάλογο εργασίας σας. Επιλέξτε Ναι για να επεξεργαστείτε το μενού του φορτωτή εκκίνησης ή Όχι για να παρακάμψετε αυτό το βήμα και να συνεχίσετε με τη δημιουργία του snapshot.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="470"/>
+        <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
         <translation>Περί του %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="472"/>
+        <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
         <translation>Έκδοση: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="473"/>
+        <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Πρόγραμμα δημιουργίας live-CD του συστήματος για το MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="475"/>
+        <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
         <translation>Άδεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="491"/>
+        <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
         <translation>Βοήθεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
         <translation>Επιλέξτε κατάλογο για το snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="518"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Είστε βέβαιοι ότι θέλετε να τερματίσετε την εφαρμογή;</translation>
     </message>
@@ -468,28 +468,28 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="50"/>
+        <location filename="../about.cpp" line="52"/>
         <source>License</source>
         <translation>Άδεια</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="51"/>
-        <location filename="../about.cpp" line="60"/>
+        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
         <translation>Αρχείο αλλαγών</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="52"/>
+        <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
         <translation>Ακύρωση</translation>
     </message>
     <message>
-        <location filename="../about.cpp" line="70"/>
+        <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
         <translation>&amp;Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="64"/>
+        <location filename="../batchprocessing.cpp" line="66"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Το πρόγραμμα θα διακόψει τη δημιουργία και θα ανοίξει το μενού εκκίνησης στον επεξεργαστή κειμένου σας.</translation>
     </message>
@@ -524,172 +524,177 @@
         <translation>όνομα</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="78"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Ονομάστε έναν διαφορετικό πυρήνα για χρήση εκτός από τον προεπιλεγμένο τρέχοντα πυρήνα, χρησιμοποιήστε τη μορφή που επιστράφηκε από &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="80"/>
         <source>Or the full path: %1</source>
         <translation>Ή ολόκληρη η διαδρομή: %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="78"/>
+        <location filename="../main.cpp" line="81"/>
         <source>version, or path</source>
         <translation>έκδοση ή διαδρομή</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="83"/>
         <source>Compression level options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="84"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="86"/>
         <source>&quot;option&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="82"/>
+        <location filename="../main.cpp" line="89"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Δημιουργήστε ένα μηνιαίο στιγμιότυπο, προσθέστε το όνομα &apos;Μήνας&apos; στο όνομα ISO, μην υπολογίζετε τον χρησιμοποιημένο χώρο</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="90"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Αυτή η επιλογή ρυθμίζει τους λογαριασμούς επαναφοράς και τη συμπίεση σε προεπιλογές, τα επιχειρήματα που αλλάζουν αυτά τα στοιχεία θα αγνοηθούν</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="84"/>
+        <location filename="../main.cpp" line="93"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>Μην υπολογίζετε τα αθροίσματα ελέγχου για το προκύπτον αρχείο ISO</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="95"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Επιλογή για επίλυση προβλήματος με τον υπολογισμό των αθροισμάτων ελέγχου στους πυρήνες preempt_rt</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Επαναφορά λογαριασμών (για διανομή σε άλλους)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Υπολογίστε αθροίσματα ελέγχου για το προκύπτον αρχείο ISO</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="99"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Εξαίρεση κύριων φακέλων, έγκυρων επιλογών:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="103"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Χρησιμοποιήστε την επιλογή μία φορά για κάθε στοιχείο που θέλετε να εξαιρέσετε</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
+        <location filename="../main.cpp" line="104"/>
         <source>one item</source>
         <translation>ένα</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="92"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Compression format, valid choices: </source>
         <translation>Μορφή συμπίεσης, έγκυρες επιλογές:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="93"/>
+        <location filename="../main.cpp" line="107"/>
         <source>format</source>
         <translation>μορφή</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="113"/>
-        <location filename="../main.cpp" line="122"/>
-        <location filename="../main.cpp" line="153"/>
+        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="174"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Φαίνεται ότι έχετε συνδεθεί ως root, αποσυνδεθείτε και συνδεθείτε ως κανονικός χρήστης για να χρησιμοποιήσετε αυτό το πρόγραμμα.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
-        <location filename="../main.cpp" line="160"/>
+        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="182"/>
         <source>version:</source>
         <translation>Έκδοση:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
+        <location filename="../main.cpp" line="156"/>
         <source>You must run this program as root.</source>
         <translation>Πρέπει να τρέξετε αυτή την εφαρμογή ως Root.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="152"/>
-        <location filename="../main.cpp" line="223"/>
-        <location filename="../settings.cpp" line="208"/>
+        <location filename="../main.cpp" line="165"/>
+        <source>MX Snapshot</source>
+        <translation type="unfinished">MX Snapshot</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="173"/>
+        <location filename="../main.cpp" line="257"/>
         <location filename="../settings.cpp" line="221"/>
-        <location filename="../settings.cpp" line="572"/>
-        <location filename="../settings.cpp" line="627"/>
+        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="624"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="217"/>
-        <location filename="../main.cpp" line="219"/>
-        <location filename="../settings.cpp" line="216"/>
+        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="253"/>
+        <location filename="../settings.cpp" line="229"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Ο τρέχων πυρήνας δεν υποστηρίζει Squashfs, δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="86"/>
+        <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="107"/>
+        <location filename="../settings.cpp" line="109"/>
         <source>Could not create temp directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου temp.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="203"/>
+        <location filename="../settings.cpp" line="216"/>
         <source>Could not find a usable kernel</source>
         <translation>Δεν ήταν δυνατή η εύρεση ενός χρησιμοποιήσιμου πυρήνα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="319"/>
+        <location filename="../settings.cpp" line="342"/>
         <source>Used space on / (root): </source>
         <translation>Χώρος που χρησιμοποιεί το / (root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="322"/>
+        <location filename="../settings.cpp" line="345"/>
         <source>estimated</source>
         <translation>αναμενόμενα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="331"/>
+        <location filename="../settings.cpp" line="356"/>
         <source>Used space on /home: </source>
         <translation>Χώρος που χρησιμοποιεί το /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="387"/>
+        <location filename="../settings.cpp" line="407"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ελεύθερος χώρος στο κατάλογο %1, όπου τοποθετείται το snapshot: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="389"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -704,48 +709,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="404"/>
+        <location filename="../settings.cpp" line="429"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="405"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Documents</source>
         <translation>&apos;Εγγραφα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="406"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Downloads</source>
         <translation>Λήψεις</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="407"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Music</source>
         <translation>Μουσική</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="408"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Networks</source>
         <translation>Δίκτυα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="409"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Pictures</source>
         <translation>Εικόνες</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="443"/>
         <source>Videos</source>
         <translation>Βίντεο</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="567"/>
-        <location filename="../settings.cpp" line="622"/>
+        <location filename="../settings.cpp" line="618"/>
+        <location filename="../settings.cpp" line="704"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="116"/>
+        <location filename="../work.cpp" line="120"/>
         <source>Interrupted or failed to complete</source>
         <translation>Διακόπηκε ή απέτυχε να ολοκληρωθεί</translation>
     </message>
@@ -753,134 +758,134 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="85"/>
+        <location filename="../work.cpp" line="87"/>
         <source>Cleaning...</source>
         <translation>Εκκαθάριση...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="107"/>
-        <location filename="../work.cpp" line="115"/>
-        <location filename="../work.cpp" line="267"/>
+        <location filename="../work.cpp" line="111"/>
+        <location filename="../work.cpp" line="119"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Done</source>
         <translation>Ολοκληρώθηκε</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="145"/>
-        <location filename="../work.cpp" line="224"/>
-        <location filename="../work.cpp" line="243"/>
-        <location filename="../work.cpp" line="286"/>
-        <location filename="../work.cpp" line="338"/>
-        <location filename="../work.cpp" line="391"/>
+        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="232"/>
+        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="358"/>
+        <location filename="../work.cpp" line="423"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="146"/>
+        <location filename="../work.cpp" line="151"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Δεν υπάρχει αρκετός ελεύθερος χώρος στο δίσκο προορισμού σας, χρειάζεστε τουλάχιστον %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="147"/>
+        <location filename="../work.cpp" line="154"/>
         <source>You have %1 free space on %2</source>
         <translation>Έχετε %1 ελεύθερο χώρο στο %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="148"/>
+        <location filename="../work.cpp" line="156"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="173"/>
+        <location filename="../work.cpp" line="179"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Αντιγραφή αρχείων...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="185"/>
+        <location filename="../work.cpp" line="191"/>
         <source>Could not create temp directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου temp.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="221"/>
+        <location filename="../work.cpp" line="229"/>
         <source>Squashing filesystem...</source>
         <translation>Συμπίεση αρχείων...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="225"/>
+        <location filename="../work.cpp" line="233"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αρχείου linuxfs, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο διαμέρισμα προορισμού.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="252"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Δημιουργία αρχείου εικόνας CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="256"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο διαμέρισμα προορισμού.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="250"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
         <translation>Δημιουργία υβριδικού ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="272"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Success</source>
         <translation>Επιτυχία</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="272"/>
+        <location filename="../work.cpp" line="287"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Ολοκληρώθηκε με επιτυχία το MX Snapshot!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="273"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Το snapshot πήρε %1 για να ολοκληρωθεί.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="274"/>
+        <location filename="../work.cpp" line="289"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Snapshot, στη συνέχεια τρέξτε το MX Live USB Maker!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="297"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="300"/>
         <source>Could not install </source>
         <translation>Δεν ήταν δυνατή η εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="310"/>
         <source>Calculating checksum...</source>
         <translation>Υπολογισμός αθροίσματος ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="327"/>
+        <location filename="../work.cpp" line="346"/>
         <source>Building new initrd...</source>
         <translation>Δημιουργία νέου initrd ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="338"/>
+        <location filename="../work.cpp" line="359"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>Δεν ήταν δυνατή η εύρεση του αρχείου %1, δεν μπορεί να συνεχιστεί</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="391"/>
+        <location filename="../work.cpp" line="424"/>
         <source>Could not create working directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="526"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="536"/>
+        <location filename="../work.cpp" line="581"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>
