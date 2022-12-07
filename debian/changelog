@@ -1,3 +1,10 @@
+mx-snapshot (22.12.02) mx; urgency=medium
+
+  * Fix: remove linefeed from cmdline boot parameter
+  * Do not save build-in kernel parameter
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 07 Dec 2022 17:38:50 -0500
+
 mx-snapshot (22.12.01) mx; urgency=medium
 
   * Fix: set application display name
