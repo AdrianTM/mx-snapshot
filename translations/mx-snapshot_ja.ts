@@ -31,7 +31,7 @@
     <message>
         <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX スナップショットはシステムが動作しているストレージまたはディトリビューションを起動可能なイメージ (ISO) へ生成するユーティリティです。少ない手順で作業を進める事ができます。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX スナップショットは、稼働中のシステムからストレージへのインストールまたは他人へ配布する用途で、起動可能なイメージ (ISO) を作製するユーティリティです。少ない手順で作業を進める事ができます。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="151"/>
@@ -57,7 +57,7 @@
     <message>
         <location filename="../mainwindow.ui" line="43"/>
         <source>Boot options:</source>
-        <translation>ブートオプション:</translation>
+        <translation>起動オプション:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="70"/>
@@ -133,7 +133,7 @@
     <message>
         <location filename="../mainwindow.ui" line="464"/>
         <source>exclude network configurations</source>
-        <translation>ネットワーク構成を除外します</translation>
+        <translation>ネットワークの設定を除外します</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="467"/>
@@ -297,7 +297,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>スナップショット フォルダがある場所の空き容量 %1：</translation>
+        <translation>スナップショットのフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>Tool used for creating a live-CD from the running system</source>
-        <translation>実行中のシステムから Live CD を作成するツール</translation>
+        <translation>稼働中のシステムから Live CD を作成するツール</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="73"/>
@@ -565,7 +565,7 @@
     <message>
         <location filename="../main.cpp" line="93"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
-        <translation>作成したISOファイルのチェックサムを計算しない</translation>
+        <translation>作成した ISO ファイルのチェックサムを計算しない</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="95"/>
@@ -622,7 +622,7 @@
         <location filename="../main.cpp" line="137"/>
         <location filename="../main.cpp" line="174"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation>rootとしてログインしているようです。このプログラムを使用するには、一度ログアウトして通常のユーザーとしてログインしてください。</translation>
+        <translation>root ユーザーとしてログインしているようです。このプログラムを使用するには、一度ログアウトして一般ユーザーとしてログインしてください。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="149"/>
@@ -633,12 +633,12 @@
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>You must run this program as root.</source>
-        <translation>このプログラムは root で実行する必要があります。</translation>
+        <translation>このプログラムは root 権限で実行する必要があります。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="165"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished">MX スナップショット</translation>
+        <translation>MX スナップショット</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="173"/>
@@ -646,7 +646,7 @@
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -660,12 +660,12 @@
     <message>
         <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
-        <translation>作業用ディレクトリが作成できませんでした。</translation>
+        <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
         <source>Could not create temp directory. </source>
-        <translation>tempディレクトリを作成できませんでした。</translation>
+        <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="216"/>
@@ -739,7 +739,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>
@@ -796,7 +796,7 @@
     <message>
         <location filename="../work.cpp" line="191"/>
         <source>Could not create temp directory. </source>
-        <translation>tempディレクトリを作成できませんでした。</translation>
+        <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="229"/>
@@ -841,7 +841,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX ライブUSBメーカー を起動してください！</translation>
+        <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX ライブ USB メーカー を起動してください！</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="297"/>

@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 07 Dec 2022 17:38:50 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.12.02
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: fehlix <fehlix@mxlinux.org>
+Changes:
+ mx-snapshot (22.12.02) mx; urgency=medium
+ .
+   * Fix: remove linefeed from cmdline boot parameter
+   * Do not save build-in kernel parameter
+Checksums-Sha1:
+ 7a5c6449b8102178a058bd1814bec856ba2f6e5c 1210 mx-snapshot_22.12.02.dsc
+ f8f30e7c547db6ab4763411d3d5eb46fa19f584f 239208 mx-snapshot_22.12.02.tar.xz
+ de2486e4be2c60fbcc40f40f378dfd3e2418a2af 10763 mx-snapshot_22.12.02_amd64.buildinfo
+Checksums-Sha256:
+ 72313049c6d4a538b9c6b88252b87f94b6c2fc3343b2ea4cd4210c830872a9eb 1210 mx-snapshot_22.12.02.dsc
+ 4784b9e1253208c0be456774304c07776a45d80c5096ec6a606b8802b54242af 239208 mx-snapshot_22.12.02.tar.xz
+ 82c855ccb46ea0e6394b434f1fd5caa82aa3a33e6789f9351edf3591faa26fb4 10763 mx-snapshot_22.12.02_amd64.buildinfo
+Files:
+ 6a4264675a260fc0007aa7a2815f2d5b 1210 admin optional mx-snapshot_22.12.02.dsc
+ f46032a94bfdf640af87b76d23dded53 239208 admin optional mx-snapshot_22.12.02.tar.xz
+ 6e7bc882b461a63217dd557aa560934f 10763 admin optional mx-snapshot_22.12.02_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmORRBgTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMmACAChJ0kqY4bUtvFag6mo3y0/UysLuvv2
+PwurD8jS9Ys69ESLUoKePhUFCVqs80WUOpJMccjIwxoU7TtfrkfHkQJx1hP60paF
+xE3fH0gpX1xPSpNZIiPcrnYIYYdvPI8EuZn66UZ9MAyCB3msymGDn/7+nqwuC4Bi
+opnptRju6OqopaZzPmpdxhIMyNWGgadK0EvH3MUVMTFHZUJn3KukCCD/4hPjoJCC
+ze2UPocW4E+51xYzIAIx7EIxsS1VpXbYW4RQKHAdqFijdDqnmjZtRhygO/vpSBRc
+2yY2fyCjn+0nt9UddJwbi2PLtcYlEDTHvxwpowEkoz/AMW/M/CdP3qpp
+=Qojd
+-----END PGP SIGNATURE-----

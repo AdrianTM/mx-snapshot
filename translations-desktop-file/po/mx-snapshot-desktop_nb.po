@@ -29,4 +29,4 @@ msgstr "MX ISO-bilde"
 #. # The desktop entry comment will be shown within the menu.
 #: desktop-in/mx-snapshot.desktop.in:7
 msgid "Create a live iso snapshot of your running system."
-msgstr ""
+msgstr "Opprett et live ISO-bilde av det kjørende systemet"

@@ -643,7 +643,7 @@
     <message>
         <location filename="../main.cpp" line="165"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished">Fotografim MX Sistemi</translation>
+        <translation>Fotografim MX Sistemi</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="173"/>
@@ -651,7 +651,7 @@
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>

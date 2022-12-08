@@ -644,7 +644,7 @@ imagens anteriores e as cópias guardadas/copiadas:
     <message>
         <location filename="../main.cpp" line="165"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished">Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
+        <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="173"/>
@@ -652,7 +652,7 @@ imagens anteriores e as cópias guardadas/copiadas:
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
@@ -752,7 +752,7 @@ guardadas/copiadas:
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo de saída %1 já existe. Por favor, utilize um outro nome de arquivo ou exclua o arquivo existente.</translation>
     </message>
