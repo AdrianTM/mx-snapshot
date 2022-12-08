@@ -666,19 +666,22 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 }
 
 // Read kernel line and options from /proc/cmdline
-QString Settings::readKernelOpts()
+QString Settings::readKernelOpts() const
 {
     QFile file(QStringLiteral("/proc/cmdline"));
     if (!file.open(QIODevice::ReadOnly)) {
         qDebug() << "Could not open file:" << file.fileName();
         return QString();
     }
-    return file.readAll();
+    QString proc_cmdline = file.readAll().trimmed();
+    QString conf_cmdline = shell->getCmdOut("sed -nr 's/^CONFIG_CMDLINE=\"(.*)\"$/\\1/p' /boot/config-$(uname -r) 2>/dev/null");
+    QString krnl_cmdline = proc_cmdline.replace(conf_cmdline, "").trimmed();
+    krnl_cmdline.remove(QRegularExpression("^BOOT_IMAGE=\\S* ?"));
+    return krnl_cmdline.trimmed();
 }
 
 QString Settings::filterOptions(QString options)
 {
-    options.remove(QRegularExpression("BOOT_IMAGE=\\S* ?"));
     options.remove(QRegularExpression("initrd=\\S* ?"));
     options.remove(QRegularExpression("init=\\S* ?"));
     options.remove(QRegularExpression("root=\\S* ?"));
