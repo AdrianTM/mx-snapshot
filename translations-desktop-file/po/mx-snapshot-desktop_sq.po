@@ -30,3 +30,5 @@ msgstr "Fotografim MX Sistemi"
 #: desktop-in/mx-snapshot.desktop.in:7
 msgid "Create a live iso snapshot of your running system."
 msgstr ""
+"Krijoni një fotografim të sistemit që xhironi, për të krijuar një iso "
+"instalimi sistemi “live”."

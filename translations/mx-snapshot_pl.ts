@@ -638,7 +638,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     <message>
         <location filename="../main.cpp" line="165"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished">MX Zrzut systemu</translation>
+        <translation>MX Zrzut systemu</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="173"/>
@@ -646,7 +646,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -743,7 +743,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>

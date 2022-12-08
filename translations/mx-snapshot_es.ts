@@ -560,7 +560,7 @@
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
-        <translation>Crear una instantánea mensual, agregar el &apos;Mes&apos; en el nombre ISO, omitir el cálculo del espacio usado</translation>
+        <translation>Crear una imagen mensual, agregar el &apos;Mes&apos; en el nombre ISO, omitir el cálculo del espacio usado</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="90"/>
@@ -643,7 +643,7 @@
     <message>
         <location filename="../main.cpp" line="165"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished">MX Snapshot</translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="173"/>
@@ -651,7 +651,7 @@
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -749,7 +749,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El archivo de salida %1 ya existe. Utilice otro nombre de archivo o elimine el archivo existente.</translation>
     </message>
@@ -841,17 +841,17 @@
     <message>
         <location filename="../work.cpp" line="287"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>MX Snapshot completado con éxito!</translation>
+        <translation>¡MX Snapshot completada con éxito!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="288"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation>La instantánea toma 1% para finalizar.</translation>
+        <translation>La imagen tardó 1% en finalizar.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Gracias por usar MX Snapshot, ejecute MX Live USB Maker a continuación!</translation>
+        <translation>Gracias por usar MX Snapshot, ejecute MX Creador de Live-USB a continuación!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="297"/>
