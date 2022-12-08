@@ -117,7 +117,7 @@ public:
     quint64 getFreeSpace(const QString &path) const;
     quint64 getLiveRootSpace() const;
     static QString filterOptions(QString options);
-    static QString readKernelOpts();
+    QString readKernelOpts() const;
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
     void excludeDesktop(bool exclude);
