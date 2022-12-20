@@ -120,8 +120,10 @@ bool Settings::checkTempDir()
 QString Settings::getEditor() const
 {
     QString editor = gui_editor;
+    qDebug() << "EDITOR" << editor;
     if (editor.isEmpty()
-        || QProcess::execute("command", {"-v", editor}) != 0) { // if specified editor doesn't exist get the default one
+        || QProcess::execute("/bin/bash", {"-c", "command -v " + editor})
+               != 0) { // if specified editor doesn't exist get the default one
         QString local = QDir::homePath() + "/.local/share/applications ";
         if (!QFile::exists(local))
             local = QLatin1String("");
@@ -674,7 +676,8 @@ QString Settings::readKernelOpts() const
         return QString();
     }
     QString proc_cmdline = file.readAll().trimmed();
-    QString conf_cmdline = shell->getCmdOut("sed -nr 's/^CONFIG_CMDLINE=\"(.*)\"$/\\1/p' /boot/config-$(uname -r) 2>/dev/null");
+    QString conf_cmdline
+        = shell->getCmdOut("sed -nr 's/^CONFIG_CMDLINE=\"(.*)\"$/\\1/p' /boot/config-$(uname -r) 2>/dev/null");
     QString krnl_cmdline = proc_cmdline.replace(conf_cmdline, "").trimmed();
     krnl_cmdline.remove(QRegularExpression("^BOOT_IMAGE=\\S* ?"));
     return krnl_cmdline.trimmed();
