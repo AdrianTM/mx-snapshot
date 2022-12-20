@@ -24,32 +24,6 @@
         <translation>MX スナップショット</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="188"/>
-        <source>Snapshot location:</source>
-        <translation>スナップショットを保存する場所:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="141"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX スナップショットは、稼働中のシステムからストレージへのインストールまたは他人へ配布する用途で、起動可能なイメージ (ISO) を作製するユーティリティです。少ない手順で作業を進める事ができます。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="151"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>/ (root) および /home パーティションの空き容量を使用します: </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="206"/>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <source>Snapshot name:</source>
-        <translation>スナップショットのファイル名:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>Select a different snapshot directory</source>
-        <translation>差分スナップショットのディレクトリを選択</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Optional customization</source>
         <translation>カスタムオプション</translation>
@@ -80,9 +54,35 @@
         <translation>リリースのコード名:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="141"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX スナップショットは、稼働中のシステムからストレージへのインストールまたは他人へ配布する用途で、起動可能なイメージ (ISO) を作製するユーティリティです。少ない手順で作業を進める事ができます。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="151"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>/ (root) および /home パーティションの空き容量を使用します: </translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Location and ISO name</source>
         <translation>場所と ISO の名称</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="188"/>
+        <source>Snapshot location:</source>
+        <translation>スナップショットを保存する場所:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>Select a different snapshot directory</source>
+        <translation>差分スナップショットのディレクトリを選択</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.cpp" line="328"/>
+        <source>Snapshot name:</source>
+        <translation>スナップショットのファイル名:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
@@ -141,6 +141,16 @@
         <translation>ネットワーク</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="505"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>アカウントの保存 (個人的なバックアップ用途)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="515"/>
+        <source>Type of snapshot:</source>
+        <translation>スナップショットの種類:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;このオプションは、MX Linux のデフォルト「demo」・「root」パスワードをリセットします。作成された個人アカウントにはコピーされません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -151,78 +161,19 @@
         <translation>アカウントのリセット (他人への配布する用途)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="515"/>
-        <source>Type of snapshot:</source>
-        <translation>スナップショットの種類:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="505"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>アカウントの保存 (個人的なバックアップ用途)</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
         <translation>除外するファイルを編集</translation>
     </message>
     <message>
-        <source>lz4</source>
-        <translation type="vanished">lz4</translation>
-    </message>
-    <message>
-        <source>lzo</source>
-        <translation type="vanished">lzo</translation>
-    </message>
-    <message>
-        <source>gzip</source>
-        <translation type="vanished">gzip</translation>
-    </message>
-    <message>
-        <source>xz</source>
-        <translation type="vanished">xz</translation>
-    </message>
-    <message>
-        <source>zstd</source>
-        <translation type="vanished">zstd</translation>
+        <location filename="../mainwindow.ui" line="577"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
         <translation>オプション:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="618"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO 圧縮方式：</translation>
-    </message>
-    <message>
-        <source>Calculate checksums</source>
-        <translation type="vanished">チェックサムを生成</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="866"/>
-        <source>Display help </source>
-        <translation>ヘルプを表示</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="869"/>
-        <source>Help</source>
-        <translation>ヘルプ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="876"/>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="733"/>
-        <source>About this application</source>
-        <translation>このアプリケーションについて</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="577"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -233,6 +184,16 @@
         <location filename="../mainwindow.ui" line="611"/>
         <source>Calculate checksums:</source>
         <translation>チェックサムの生成:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="618"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO 圧縮方式：</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="733"/>
+        <source>About this application</source>
+        <translation>このアプリケーションについて</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
@@ -268,6 +229,21 @@
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
         <translation>戻る</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="866"/>
+        <source>Display help </source>
+        <translation>ヘルプを表示</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="869"/>
+        <source>Help</source>
+        <translation>ヘルプ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="876"/>
+        <source>Alt+H</source>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -643,17 +619,17 @@
     <message>
         <location filename="../main.cpp" line="173"/>
         <location filename="../main.cpp" line="257"/>
-        <location filename="../settings.cpp" line="221"/>
-        <location filename="../settings.cpp" line="234"/>
-        <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="223"/>
+        <location filename="../settings.cpp" line="236"/>
+        <location filename="../settings.cpp" line="626"/>
+        <location filename="../settings.cpp" line="716"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="251"/>
         <location filename="../main.cpp" line="253"/>
-        <location filename="../settings.cpp" line="229"/>
+        <location filename="../settings.cpp" line="231"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
@@ -668,32 +644,32 @@
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="216"/>
+        <location filename="../settings.cpp" line="218"/>
         <source>Could not find a usable kernel</source>
         <translation>使用可能なカーネルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="342"/>
+        <location filename="../settings.cpp" line="344"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="345"/>
+        <location filename="../settings.cpp" line="347"/>
         <source>estimated</source>
         <translation>推定</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="356"/>
+        <location filename="../settings.cpp" line="358"/>
         <source>Used space on /home: </source>
         <translation>/home の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="407"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>スナップショットを作成するフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="413"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -703,43 +679,43 @@
         <translation>/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:&#x3000;スナップショット %1 は空き容量の %2 を消費しています。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="429"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="443"/>
+        <location filename="../settings.cpp" line="445"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="707"/>
+        <location filename="../settings.cpp" line="620"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>

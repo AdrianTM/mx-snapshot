@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 20 Dec 2022 07:26:41 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.12.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.12.03) mx; urgency=medium
+ .
+   * Fix: finding system editor
+Checksums-Sha1:
+ d859fb4224e0a185b88bb9760440cc8b3c5f9d3f 1210 mx-snapshot_22.12.03.dsc
+ 07215f78057df4a6cd17e480de0eff81872b51a5 238184 mx-snapshot_22.12.03.tar.xz
+ 5c84f73b1687fbbb103443bedd77d1e70f228803 10763 mx-snapshot_22.12.03_amd64.buildinfo
+Checksums-Sha256:
+ 3322a5e409f7f7094565b3e0eeed50d6e7dc8bb2495361c7f682b436a4430d34 1210 mx-snapshot_22.12.03.dsc
+ fce4e22614592dfd0f9af4eaec2391eb3c6242f9f329e0cdbf8180c2567ffc80 238184 mx-snapshot_22.12.03.tar.xz
+ 22f691c37b1a7830b3dc16906076945479762cd4d67ddbf287941c852ecfe601 10763 mx-snapshot_22.12.03_amd64.buildinfo
+Files:
+ 95e09d7ba42fd9e2309a0b0452794c85 1210 admin optional mx-snapshot_22.12.03.dsc
+ 8823bad50969de38e81c87cf670af01c 238184 admin optional mx-snapshot_22.12.03.tar.xz
+ d1308f43e20b697f3b25714beadfacca 10763 admin optional mx-snapshot_22.12.03_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOhqp0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJ4ECACYtTl4EywcoF8qakrNmUvoWgb8IP/O
+pRVZLu5xvgUjTRiAz2OgRkWniCLdmUhWzWd4BC2dZUF2yNrsHR8Lr5xcXoh1pmVL
+L8spLMLeB1iCIncyOy6yjPUpFzdrUvy2QbBLzrfn51MFzty6/iSY5QGOtv4Q7Uq1
+x/SJi8BV0IieSvgm3GCFp1qIK5kzcMGpuaAYcwK2yoM0GJR76ea8g0OnJvf5GmVP
+9OQa4lpjUBvgykfWnTtpEdxminoXQhDURhhO45jEechLPHRrBhPbMp+smozz7HfK
+PjE0+FPgwG6EE+RclJTvjV9OCeLlUPQuzPM20QL2K0YFzNAuq/1bANbi
+=AP4w
+-----END PGP SIGNATURE-----

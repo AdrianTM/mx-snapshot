@@ -22,32 +22,6 @@
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="188"/>
-        <source>Snapshot location:</source>
-        <translation>Snapshot locatie:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="141"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="151"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="206"/>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <source>Snapshot name:</source>
-        <translation>Snapshot naam:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>Select a different snapshot directory</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Optional customization</source>
         <translation type="unfinished"/>
@@ -78,9 +52,35 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="141"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="151"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="188"/>
+        <source>Snapshot location:</source>
+        <translation>Snapshot locatie:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>Select a different snapshot directory</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.cpp" line="328"/>
+        <source>Snapshot name:</source>
+        <translation>Snapshot naam:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
@@ -139,6 +139,16 @@
         <translation>Netwerken</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="505"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="515"/>
+        <source>Type of snapshot:</source>
+        <translation>Type snapshot:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"/>
@@ -149,78 +159,19 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="515"/>
-        <source>Type of snapshot:</source>
-        <translation>Type snapshot:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="505"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
         <translation>Bewerk Exclusion Bestand</translation>
     </message>
     <message>
-        <source>lz4</source>
-        <translation type="vanished">lz4</translation>
-    </message>
-    <message>
-        <source>lzo</source>
-        <translation type="vanished">lzo</translation>
-    </message>
-    <message>
-        <source>gzip</source>
-        <translation type="vanished">gzip</translation>
-    </message>
-    <message>
-        <source>xz</source>
-        <translation type="vanished">xz</translation>
-    </message>
-    <message>
-        <source>zstd</source>
-        <translation type="vanished">zstd</translation>
+        <location filename="../mainwindow.ui" line="577"/>
+        <source>sha512</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
         <translation>Opties:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="618"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO compressieschema:</translation>
-    </message>
-    <message>
-        <source>Calculate checksums</source>
-        <translation type="vanished">Bereken checksums</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="866"/>
-        <source>Display help </source>
-        <translation>Toon help</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="869"/>
-        <source>Help</source>
-        <translation>Help</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="876"/>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="733"/>
-        <source>About this application</source>
-        <translation>Over deze applicatie</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="577"/>
-        <source>sha512</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -231,6 +182,16 @@
         <location filename="../mainwindow.ui" line="611"/>
         <source>Calculate checksums:</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="618"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO compressieschema:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="733"/>
+        <source>About this application</source>
+        <translation>Over deze applicatie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
@@ -266,6 +227,21 @@
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
         <translation>Terug</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="866"/>
+        <source>Display help </source>
+        <translation>Toon help</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="869"/>
+        <source>Help</source>
+        <translation>Help</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="876"/>
+        <source>Alt+H</source>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -650,7 +626,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <location filename="../settings.cpp" line="221"/>
         <location filename="../settings.cpp" line="234"/>
         <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="713"/>
         <source>Error</source>
         <translation>Foutmelding</translation>
     </message>
@@ -749,7 +725,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="704"/>
+        <location filename="../settings.cpp" line="707"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"/>
     </message>

@@ -24,32 +24,6 @@
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="188"/>
-        <source>Snapshot location:</source>
-        <translation>Emplacement de l&apos;instantané:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="141"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot est un utilitaire qui crée une image amorçable (ISO) de votre système actuel pour que vous puissiez la conserver ou la distribuer. Vous pouvez utiliser d&apos;autres applications légères pendant son fonctionnement.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="151"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>Espace utilisé sur les partitions /(root) et /home:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="206"/>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <source>Snapshot name:</source>
-        <translation>Nom de l&apos;instantané:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>Select a different snapshot directory</source>
-        <translation>Choisir un répertoire différent pour l&apos;instantané</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Optional customization</source>
         <translation>Personnalisation facultative</translation>
@@ -80,9 +54,35 @@
         <translation>Nom de code de la version:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="141"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot est un utilitaire qui crée une image amorçable (ISO) de votre système actuel pour que vous puissiez la conserver ou la distribuer. Vous pouvez utiliser d&apos;autres applications légères pendant son fonctionnement.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="151"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>Espace utilisé sur les partitions /(root) et /home:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Location and ISO name</source>
         <translation>Emplacement et nom de l&apos;ISO</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="188"/>
+        <source>Snapshot location:</source>
+        <translation>Emplacement de l&apos;instantané:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>Select a different snapshot directory</source>
+        <translation>Choisir un répertoire différent pour l&apos;instantané</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="206"/>
+        <location filename="../mainwindow.cpp" line="328"/>
+        <source>Snapshot name:</source>
+        <translation>Nom de l&apos;instantané:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
@@ -141,6 +141,16 @@
         <translation>Réseaux</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="505"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Conservation des comptes (pour une sauvegarde personnelle)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="515"/>
+        <source>Type of snapshot:</source>
+        <translation>Type d&apos;instantané:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cette option réinitialisera les mots de passe &amp;quot;demo&amp;quot; et &amp;quot;root&amp;quot; aux valeurs par défauts de MX Linux et ne copiera pas les comptes personnels.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
@@ -151,78 +161,19 @@
         <translation>Réinitialisation des comptes (pour distribuer à d&apos;autres personnes)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="515"/>
-        <source>Type of snapshot:</source>
-        <translation>Type d&apos;instantané:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="505"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Conservation des comptes (pour une sauvegarde personnelle)</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
         <translation>Editer le fichier d&apos;exclusion</translation>
     </message>
     <message>
-        <source>lz4</source>
-        <translation type="vanished">lz4</translation>
-    </message>
-    <message>
-        <source>lzo</source>
-        <translation type="vanished">lzo</translation>
-    </message>
-    <message>
-        <source>gzip</source>
-        <translation type="vanished">gzip</translation>
-    </message>
-    <message>
-        <source>xz</source>
-        <translation type="vanished">xz</translation>
-    </message>
-    <message>
-        <source>zstd</source>
-        <translation type="vanished">zstd</translation>
+        <location filename="../mainwindow.ui" line="577"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
         <translation>Options:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="618"/>
-        <source>ISO compression scheme:</source>
-        <translation>Méthode de compression de l&apos;ISO:</translation>
-    </message>
-    <message>
-        <source>Calculate checksums</source>
-        <translation type="vanished">Calculer la somme de contrôle</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="866"/>
-        <source>Display help </source>
-        <translation>Afficher l&apos;aide </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="869"/>
-        <source>Help</source>
-        <translation>Aide</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="876"/>
-        <source>Alt+H</source>
-        <translation>Alt+H</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="733"/>
-        <source>About this application</source>
-        <translation>À propos de cette application</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="577"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -233,6 +184,16 @@
         <location filename="../mainwindow.ui" line="611"/>
         <source>Calculate checksums:</source>
         <translation>Calculer les sommes de contrôle:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="618"/>
+        <source>ISO compression scheme:</source>
+        <translation>Méthode de compression de l&apos;ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="733"/>
+        <source>About this application</source>
+        <translation>À propos de cette application</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
@@ -268,6 +229,21 @@
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
         <translation>Retour</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="866"/>
+        <source>Display help </source>
+        <translation>Afficher l&apos;aide </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="869"/>
+        <source>Help</source>
+        <translation>Aide</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="876"/>
+        <source>Alt+H</source>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -647,17 +623,17 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
     <message>
         <location filename="../main.cpp" line="173"/>
         <location filename="../main.cpp" line="257"/>
-        <location filename="../settings.cpp" line="221"/>
-        <location filename="../settings.cpp" line="234"/>
-        <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="223"/>
+        <location filename="../settings.cpp" line="236"/>
+        <location filename="../settings.cpp" line="626"/>
+        <location filename="../settings.cpp" line="716"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="251"/>
         <location filename="../main.cpp" line="253"/>
-        <location filename="../settings.cpp" line="229"/>
+        <location filename="../settings.cpp" line="231"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
@@ -672,32 +648,32 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <translation>Impossible de créer le répertoire temporaire. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="216"/>
+        <location filename="../settings.cpp" line="218"/>
         <source>Could not find a usable kernel</source>
         <translation>Impossible de trouver un noyau utilisable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="342"/>
+        <location filename="../settings.cpp" line="344"/>
         <source>Used space on / (root): </source>
         <translation>Espace utilisé dans /(root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="345"/>
+        <location filename="../settings.cpp" line="347"/>
         <source>estimated</source>
         <translation>estimé</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="356"/>
+        <location filename="../settings.cpp" line="358"/>
         <source>Used space on /home: </source>
         <translation>Espace utilisé dans /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="407"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espace libre disponible dans %1 où sera mis le dossier de l&apos;instantané: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="413"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -711,43 +687,43 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="429"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Desktop</source>
         <translation>Bureau</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Downloads</source>
         <translation>Téléchargements</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Music</source>
         <translation>Musique</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Networks</source>
         <translation>Réseaux</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Pictures</source>
         <translation>Photos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="443"/>
+        <location filename="../settings.cpp" line="445"/>
         <source>Videos</source>
         <translation>Vidéos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="707"/>
+        <location filename="../settings.cpp" line="620"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
