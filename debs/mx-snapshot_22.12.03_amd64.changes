@@ -1,0 +1,46 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 20 Dec 2022 07:26:41 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: source amd64
+Version: 22.12.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.12.03) mx; urgency=medium
+ .
+   * Fix: finding system editor
+Checksums-Sha1:
+ d859fb4224e0a185b88bb9760440cc8b3c5f9d3f 1210 mx-snapshot_22.12.03.dsc
+ 07215f78057df4a6cd17e480de0eff81872b51a5 238184 mx-snapshot_22.12.03.tar.xz
+ 5c84f73b1687fbbb103443bedd77d1e70f228803 10763 mx-snapshot_22.12.03_amd64.buildinfo
+ b8c7d3d81df89f894a3ba570844c09a2a8b690db 286564 mx-snapshot_22.12.03_amd64.deb
+Checksums-Sha256:
+ 3322a5e409f7f7094565b3e0eeed50d6e7dc8bb2495361c7f682b436a4430d34 1210 mx-snapshot_22.12.03.dsc
+ fce4e22614592dfd0f9af4eaec2391eb3c6242f9f329e0cdbf8180c2567ffc80 238184 mx-snapshot_22.12.03.tar.xz
+ 22f691c37b1a7830b3dc16906076945479762cd4d67ddbf287941c852ecfe601 10763 mx-snapshot_22.12.03_amd64.buildinfo
+ 130b133cb43fd5c7d85f8767efb1837154017c4b092d339a29827a386f5a3a46 286564 mx-snapshot_22.12.03_amd64.deb
+Files:
+ 95e09d7ba42fd9e2309a0b0452794c85 1210 admin optional mx-snapshot_22.12.03.dsc
+ 8823bad50969de38e81c87cf670af01c 238184 admin optional mx-snapshot_22.12.03.tar.xz
+ d1308f43e20b697f3b25714beadfacca 10763 admin optional mx-snapshot_22.12.03_amd64.buildinfo
+ 701763e7e39dcc509226ac8bbb0b2a2e 286564 admin optional mx-snapshot_22.12.03_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOhqp0THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumCZFB/9TF/lY+v0ref84OtaWfHkzXrNLitF+
+dcoBfM6M+/V/ecBx9rFF2AwxuGldd9D0tFqNEkf5LzRbqX0bA+SyHn8oMaVp1jA7
+s0wHNu6MXBH/5qBI0p93+daHUFOMYcgBLEGCkYuneIOwNWb14xLXrTk5pz/8KtF2
+0YnNKyds7JlOHa1W/nJKdCk16hLAEXHDLATUzlhUrA6nG1ZQMf8UP8FRgbILcOk4
+7Um4/8Wf/2Ky4TyLRHidbojGb+9omAKa6iy92NmKCWx47qirOZuC2zLYYEmAXiM0
+X9t2KiMhHRYSWmMZKnYKqU0Ga6oLeZyZ80KtbYvIQ8L0cz3t9MKQ4QuE
+=wZLu
+-----END PGP SIGNATURE-----

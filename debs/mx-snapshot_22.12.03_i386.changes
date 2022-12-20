@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Tue, 20 Dec 2022 07:26:41 -0500
+Source: mx-snapshot
+Binary: mx-snapshot
+Architecture: i386
+Version: 22.12.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (22.12.03) mx; urgency=medium
+ .
+   * Fix: finding system editor
+Checksums-Sha1:
+ 876092faa9d5b04fba1b3613ef17a12cc4409ecd 10053 mx-snapshot_22.12.03_i386.buildinfo
+ b5051e50dfa6b2d01c9dfc407fa2476393282487 292552 mx-snapshot_22.12.03_i386.deb
+Checksums-Sha256:
+ d8f114b9c65848ceeea7f8fc0f2d964affd2e41c2451f435909a75dcc2c6c947 10053 mx-snapshot_22.12.03_i386.buildinfo
+ e8babef65dde325be5ea18383ebf98ac0996f0da77957e454d6cd00785899505 292552 mx-snapshot_22.12.03_i386.deb
+Files:
+ ec9353d179eac13b49313f902487340d 10053 admin optional mx-snapshot_22.12.03_i386.buildinfo
+ 9aa50ca279f5471578733b1693edc8db 292552 admin optional mx-snapshot_22.12.03_i386.deb
