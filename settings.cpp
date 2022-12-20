@@ -120,7 +120,6 @@ bool Settings::checkTempDir()
 QString Settings::getEditor() const
 {
     QString editor = gui_editor;
-    qDebug() << "EDITOR" << editor;
     if (editor.isEmpty()
         || QProcess::execute("/bin/bash", {"-c", "command -v " + editor})
                != 0) { // if specified editor doesn't exist get the default one
