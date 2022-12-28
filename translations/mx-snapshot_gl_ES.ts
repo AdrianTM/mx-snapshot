@@ -622,17 +622,17 @@
     <message>
         <location filename="../main.cpp" line="173"/>
         <location filename="../main.cpp" line="257"/>
-        <location filename="../settings.cpp" line="221"/>
-        <location filename="../settings.cpp" line="234"/>
-        <location filename="../settings.cpp" line="624"/>
-        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="223"/>
+        <location filename="../settings.cpp" line="236"/>
+        <location filename="../settings.cpp" line="626"/>
+        <location filename="../settings.cpp" line="716"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="251"/>
         <location filename="../main.cpp" line="253"/>
-        <location filename="../settings.cpp" line="229"/>
+        <location filename="../settings.cpp" line="231"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo actual non soporta Squashfs; non é posible continuar.</translation>
     </message>
@@ -647,32 +647,32 @@
         <translation>Non se puido crear o directorio temp.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="216"/>
+        <location filename="../settings.cpp" line="218"/>
         <source>Could not find a usable kernel</source>
         <translation>Non se puido atopar un núcleo utilizable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="342"/>
+        <location filename="../settings.cpp" line="344"/>
         <source>Used space on / (root): </source>
         <translation>Espazo usado en / (raíz ou root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="345"/>
+        <location filename="../settings.cpp" line="347"/>
         <source>estimated</source>
         <translation>estimado</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="356"/>
+        <location filename="../settings.cpp" line="358"/>
         <source>Used space on /home: </source>
         <translation>Espazo usado en /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="407"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espazo libre en %1, onde o cartafol de capturas está colocado:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="413"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -687,43 +687,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="429"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Desktop</source>
         <translation>Escritorio</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Downloads</source>
         <translation>Descargas</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Networks</source>
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Pictures</source>
         <translation>Fotos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="443"/>
+        <location filename="../settings.cpp" line="445"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="618"/>
-        <location filename="../settings.cpp" line="707"/>
+        <location filename="../settings.cpp" line="620"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"/>
     </message>

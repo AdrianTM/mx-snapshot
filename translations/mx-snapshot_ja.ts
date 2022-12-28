@@ -619,17 +619,17 @@
     <message>
         <location filename="../main.cpp" line="173"/>
         <location filename="../main.cpp" line="257"/>
-        <location filename="../settings.cpp" line="223"/>
-        <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="626"/>
-        <location filename="../settings.cpp" line="716"/>
+        <location filename="../settings.cpp" line="222"/>
+        <location filename="../settings.cpp" line="235"/>
+        <location filename="../settings.cpp" line="625"/>
+        <location filename="../settings.cpp" line="715"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="251"/>
         <location filename="../main.cpp" line="253"/>
-        <location filename="../settings.cpp" line="231"/>
+        <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
@@ -644,32 +644,32 @@
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="218"/>
+        <location filename="../settings.cpp" line="217"/>
         <source>Could not find a usable kernel</source>
         <translation>使用可能なカーネルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="344"/>
+        <location filename="../settings.cpp" line="343"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="347"/>
+        <location filename="../settings.cpp" line="346"/>
         <source>estimated</source>
         <translation>推定</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on /home: </source>
         <translation>/home の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="409"/>
+        <location filename="../settings.cpp" line="408"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>スナップショットを作成するフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="413"/>
+        <location filename="../settings.cpp" line="412"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -679,43 +679,43 @@
         <translation>/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:&#x3000;スナップショット %1 は空き容量の %2 を消費しています。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="430"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="432"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="434"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="436"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="438"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="441"/>
+        <location filename="../settings.cpp" line="440"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="445"/>
+        <location filename="../settings.cpp" line="444"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="620"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="619"/>
+        <location filename="../settings.cpp" line="709"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>

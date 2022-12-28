@@ -26,32 +26,32 @@
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcionális testreszabás</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Indítási paraméterek:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="70"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiadás dátuma:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="91"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Projekt neve:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="98"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiadás verziója:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="112"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kiadás kódneve:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="141"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>Hely és ISO neve</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
@@ -93,7 +93,7 @@
     <message>
         <location filename="../mainwindow.ui" line="338"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation type="unfinished"></translation>
+        <translation>Bizonyos könyvtárak kihagyása is lehetséges az alábbi általános lehetőségek bejelölésével, vagy a /etc/mx-snapshot-exclude.list közvetlen szerkesztésére szolgáló gombra kattintva.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="395"/>
@@ -148,12 +148,12 @@
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation>Pillanatkép típusa</translation>
+        <translation>Pillanatkép típusa:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ez az opció visszaállítja a &amp;quot;demo&amp;quot; és a &amp;quot;root&amp;quot; jelszavakat az MX Linux alapértelmezettre, és nem másolja át a létrehozott személyes fiókokat.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="538"/>
@@ -168,7 +168,7 @@
     <message>
         <location filename="../mainwindow.ui" line="577"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="584"/>
@@ -178,12 +178,12 @@
     <message>
         <location filename="../mainwindow.ui" line="604"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
         <source>Calculate checksums:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ellenőrzőösszegek számítása:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="618"/>
@@ -248,27 +248,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
         <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
+        <translation>leggyorsabb, leggyengébb tömörítés</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
         <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
+        <translation>gyors, gyengébb tömörítés</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="165"/>
         <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
+        <translation>lassú, erősebb tömörítés</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="165"/>
         <source>best compromise</source>
-        <translation type="unfinished"></translation>
+        <translation>legjobb kompromisszum</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="166"/>
         <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
+        <translation>leglassabb, legerősebb tömörítés</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
@@ -285,9 +285,9 @@
 </source>
         <translation>A szabad helynek elegendőnek kell lennie a / és /home fájlok tömörített adatainak tárolására.
 
-    Szükség esetén hozhat szabadíthat fel a korábbi
+    Szükség esetén szabadíthat fel helyet a korábbi
     pillanatképek és mentett másolatok törlésével:
-    %1 pillanatfelvétel %2 lemezterületet foglal el.
+    %1 pillanatkép %2 lemezterületet foglal el.
 </translation>
     </message>
     <message>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>A számítógép leállítása amikor kész.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>A program most szünetet tart, hogy lehetővé tegye a munkakönyvtárban lévő fájlok szerkesztését. Válassza az Igen lehetőséget a rendszerindító menü szerkesztéséhez, vagy válassza a Nem lehetőséget ennek a lépésnek a kihagyásához, és a pillanatfelvétel létrehozásának folytatásához.</translation>
+        <translation>A program most szünetet tart, hogy lehetővé tegye a munkakönyvtárban lévő fájlok szerkesztését. Válassza az Igen lehetőséget a rendszerindító menü szerkesztéséhez, vagy válassza a Nem lehetőséget ennek a lépésnek a kihagyásához, és a pillanatkép létrehozásának folytatásához.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
@@ -412,7 +412,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Program egy Live-CD létrehozására a futó rendszerből az MX Linux rendszerrel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
@@ -427,7 +427,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation>%1 Súgó</translation>
+        <translation>%1 súgó</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
@@ -450,13 +450,13 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation>Liszensz</translation>
+        <translation>Licenc</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation>Változásbejegyzés</translation>
+        <translation>Változások listája</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
@@ -466,7 +466,7 @@
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation>&amp;Bezár</translation>
+        <translation>&amp;Bezárás</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="66"/>
@@ -506,7 +506,7 @@
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Nevezzen meg egy másik rendszermagot, ha nem az alapértelmezetten futót szeretné használni, használja az &apos;uname -r&apos; által visszaadott formátumot.</translation>
+        <translation>Megad egy másik rendszermagot, ha nem az alapértelmezetten futót kell használni. Használja az &apos;uname -r&apos; által visszaadott formátumot.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -521,17 +521,17 @@
     <message>
         <location filename="../main.cpp" line="83"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tömörítési szint beállítások.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="84"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"></translation>
+        <translation>Használjon idézőjelet: &quot;-Xcompression-level &lt;level&gt;&quot;, vagy &quot;-Xalgorithm &lt;algorithm&gt;&quot;, vagy &quot;-Xhc&quot;, nézze meg az mksquashfs man oldalát</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="86"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;opció&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
@@ -566,7 +566,7 @@
     <message>
         <location filename="../main.cpp" line="99"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Hagyja ki az üres hely számítását, hogy az ISO el fog-e férni</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="101"/>
@@ -596,7 +596,7 @@
     <message>
         <location filename="../main.cpp" line="108"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>A számítógép leállítása amikor kész.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="127"/>
@@ -614,7 +614,7 @@
     <message>
         <location filename="../main.cpp" line="156"/>
         <source>You must run this program as root.</source>
-        <translation>Root felhasználóként kell futtatnia ezt a programot!</translation>
+        <translation>Root felhasználóként kell futtatnia ezt a programot.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="165"/>
@@ -624,17 +624,17 @@
     <message>
         <location filename="../main.cpp" line="173"/>
         <location filename="../main.cpp" line="257"/>
-        <location filename="../settings.cpp" line="223"/>
-        <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="626"/>
-        <location filename="../settings.cpp" line="716"/>
+        <location filename="../settings.cpp" line="222"/>
+        <location filename="../settings.cpp" line="235"/>
+        <location filename="../settings.cpp" line="625"/>
+        <location filename="../settings.cpp" line="715"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="251"/>
         <location filename="../main.cpp" line="253"/>
-        <location filename="../settings.cpp" line="231"/>
+        <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>A jelenlegi kernel nem támogatja Squashfs fájlrendszert. Nem folytatható.</translation>
     </message>
@@ -649,32 +649,32 @@
         <translation>Nem sikerült létrehozni az ideiglenes könyvtárat.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="218"/>
+        <location filename="../settings.cpp" line="217"/>
         <source>Could not find a usable kernel</source>
         <translation>Nem sikerült egy használható kernel találni</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="344"/>
+        <location filename="../settings.cpp" line="343"/>
         <source>Used space on / (root): </source>
-        <translation>Felhasznált terület a / (gyökér) partíción:</translation>
+        <translation>Foglalt terület a / (gyökér) partíción:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="347"/>
+        <location filename="../settings.cpp" line="346"/>
         <source>estimated</source>
         <translation>becsült</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on /home: </source>
         <translation>Foglalt terület a /home-on:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="409"/>
+        <location filename="../settings.cpp" line="408"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Szabad hely a %1 alatt, ahol a pillanatkép mappa található:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="413"/>
+        <location filename="../settings.cpp" line="412"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -683,51 +683,51 @@
 </source>
         <translation>A szabad helynek elegendőnek kell lennie a / és /home fájlok tömörített adatainak tárolására.
 
-    Szükség esetén hozhat szabadíthat fel a korábbi
+    Szükség esetén szabadíthat fel helyet a korábbi
     pillanatképek és mentett másolatok törlésével:
-    %1 pillanatfelvétel %2 lemezterületet foglal el.
+    %1 pillanatkép %2 lemezterületet foglal el.
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="430"/>
         <source>Desktop</source>
         <translation>Asztal</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="432"/>
         <source>Documents</source>
         <translation>Dokumentumok</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="434"/>
         <source>Downloads</source>
         <translation>Letöltések</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="436"/>
         <source>Music</source>
         <translation>Zene</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="438"/>
         <source>Networks</source>
         <translation>Hálózatok</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="441"/>
+        <location filename="../settings.cpp" line="440"/>
         <source>Pictures</source>
         <translation>Képek</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="445"/>
+        <location filename="../settings.cpp" line="444"/>
         <source>Videos</source>
         <translation>Videók</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="620"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="619"/>
+        <location filename="../settings.cpp" line="709"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="120"/>
@@ -772,7 +772,7 @@
     <message>
         <location filename="../work.cpp" line="156"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha biztos benne, hogy van elég hely, futtassa újra a programot a -o/--override-size opcióval</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="179"/>
@@ -817,7 +817,7 @@
     <message>
         <location filename="../work.cpp" line="287"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>A pillanatkép sikeresen elkészült!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="288"/>
@@ -827,7 +827,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation type="unfinished"></translation>
+        <translation>Köszönjük, hogy használta az MX pillanatkép készítőt, futtassa a Live USB készítőt a következőként!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="297"/>
@@ -862,12 +862,12 @@
     <message>
         <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
+        <translation>A kihagyott fájlok méretének kiszámítása...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="581"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>A gyökérkönyvtár méretének kiszámítása...</translation>
     </message>
 </context>
 </TS>
