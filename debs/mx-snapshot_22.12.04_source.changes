@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 27 Dec 2022 22:20:27 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 22.12.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (22.12.04) mx; urgency=medium
+ .
+   * Update copy-initrd-programs for luks2, see cli-shell-utils changelog
+Checksums-Sha1:
+ 2942023ba350170edaf9b1e80b043be21c999a6f 1210 mx-snapshot_22.12.04.dsc
+ 4e17c48af795eccd308ca7c4224e13b5a1f07db9 239044 mx-snapshot_22.12.04.tar.xz
+ 77b94d4dbd1a4ba98d69aae892640ffaa2fc315a 10763 mx-snapshot_22.12.04_amd64.buildinfo
+Checksums-Sha256:
+ d6f482fa6e78be3866bb1d60e502b74a3e4182f0d719c4632534a64782325e8d 1210 mx-snapshot_22.12.04.dsc
+ b3959030b308de574e4459c8ed73297a9e90ff13c6758b1406ecdc52329eb847 239044 mx-snapshot_22.12.04.tar.xz
+ a450f03e892dc767f75824d465b2c1cf9f7f157e43f050f5e7d73167e7a499be 10763 mx-snapshot_22.12.04_amd64.buildinfo
+Files:
+ 1a95df87fc0fcb1446824bbb669367d8 1210 admin optional mx-snapshot_22.12.04.dsc
+ 0e2299c1e00cbc74c585f5b2f3b8c08d 239044 admin optional mx-snapshot_22.12.04.tar.xz
+ 242165895eb2e34d6257313b0ec90612 10763 admin optional mx-snapshot_22.12.04_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmOrtpATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumC9hCADU25DWaGaW9D6gJmtXnj/HnwD/gOgK
+qxMvzxt1uQLrnA+MNduxAmitto65TutM3kCoFjIeqzHnYPPaq7gH3o1VdejRB/ND
+xdXDM5/sNM5MMoBxtUUX2pQmKUW0eaDvJz5ReHAgGKt2hkcQoYkDyiWExs1TANx0
+1k8q5rhtwXp6Y3MYsKFcTbnhhsO2TooEE2vW5+b1hMtEYuIORej3fRDrUUbYMhi/
+5z9AG1JPT3DiRydi7SsdUuzMCgdOvBK9FyZTEAERFWOdbwHoMDo1SWey2TDpffVm
+WQavrr9mg9jR3Yz5lqmdbu2wBEu/78Gb2e3vJs0NBry4UNQKaHvsGuh1
+=VTkz
+-----END PGP SIGNATURE-----
