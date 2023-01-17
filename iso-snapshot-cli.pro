@@ -31,7 +31,7 @@ DEFINES += "CLI_BUILD=1"
 QT       += core
 QT       -= gui
 
-CONFIG   += c++17
+CONFIG   += c++1z
 
 TARGET = iso-snapshot-cli
 TEMPLATE = app
