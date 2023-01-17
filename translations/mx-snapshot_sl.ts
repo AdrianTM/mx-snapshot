@@ -599,31 +599,31 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <translation>Ugasni računalnik, ko je zaključeno.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
-        <location filename="../main.cpp" line="137"/>
-        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="134"/>
+        <location filename="../main.cpp" line="172"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Prijevljeni ste kot korenski uporabnik. Izpišite se in se ponovno prijavite kot običajen uporabnik, če želite uporabljati ta program.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
-        <location filename="../main.cpp" line="182"/>
+        <location filename="../main.cpp" line="146"/>
+        <location filename="../main.cpp" line="180"/>
         <source>version:</source>
         <translation>različica:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="156"/>
+        <location filename="../main.cpp" line="154"/>
         <source>You must run this program as root.</source>
         <translation>Ta program morate zagnati korensko</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="163"/>
         <source>MX Snapshot</source>
         <translation>MX posnetek</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="173"/>
-        <location filename="../main.cpp" line="257"/>
+        <location filename="../main.cpp" line="171"/>
+        <location filename="../main.cpp" line="255"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
         <location filename="../settings.cpp" line="625"/>
@@ -632,8 +632,8 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <translation>Napaka</translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="249"/>
         <location filename="../main.cpp" line="251"/>
-        <location filename="../main.cpp" line="253"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Trenutno jedro ne podpira Squashfs. Ne morem nadaljevati.</translation>
