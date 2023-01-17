@@ -19,32 +19,32 @@ Changes:
  .
    * New translations
 Checksums-Sha1:
- 22c6efd088084c5b03c1b49a97e5f3d83d46c863 1258 mx-snapshot_23.1.dsc
- e270d8a82c12aed78322f06977563761e82887fd 241380 mx-snapshot_23.1.tar.xz
- fffe85e7c6c914085eca35756232d7abf2576bd7 254036 iso-snapshot-cli_23.1_amd64.deb
- 8a80f38e582e1b7bd03f312c36386ea0d7a5e1d5 11007 mx-snapshot_23.1_amd64.buildinfo
- 635bc47ad233991c0345429bb1721009e4c4aaae 288640 mx-snapshot_23.1_amd64.deb
+ a5a685083eec7c2c1348dcadd23cad682c417ca9 1258 mx-snapshot_23.1.dsc
+ 14c671587f71f99309e9bd33de5c3562540fdc0f 241084 mx-snapshot_23.1.tar.xz
+ c6959bb58017a14eef9c7d10902dbefb1da82f05 254128 iso-snapshot-cli_23.1_amd64.deb
+ 79692875af81652914b877620a65fc3fa761c9aa 11007 mx-snapshot_23.1_amd64.buildinfo
+ c96977ec9d35fd08b1e8923b46ef5ed167c7f3a4 288768 mx-snapshot_23.1_amd64.deb
 Checksums-Sha256:
- 4ff48229bf4b04a123df077ee0d3092840af1b1618eafc11484e3f5f468fa4c6 1258 mx-snapshot_23.1.dsc
- 08597061b8df4f2235884f41183854d10c37f74ea1d71c46c83b0f70e702715d 241380 mx-snapshot_23.1.tar.xz
- 55b45d7554cab077841b4b67174f1535d1598c89eb3035bb9d9975169903d960 254036 iso-snapshot-cli_23.1_amd64.deb
- 2ed791c53aa0e3f2298c446d2e17f1040985e8f60d92d370ab2aa97b764aab9e 11007 mx-snapshot_23.1_amd64.buildinfo
- 19975c73ddc8a6dddf7be5c7edaf64de0dfaf798d8f51c37ecdd29212c9412d5 288640 mx-snapshot_23.1_amd64.deb
+ 93812457d03c2957372aa49b5a872c82d77d20b90866e3fdab23486b5b6349f0 1258 mx-snapshot_23.1.dsc
+ dd250432e7a80c7fd9730fef4c49fa2da7cff46f2dc74e7850607d0ccf423ee7 241084 mx-snapshot_23.1.tar.xz
+ f222cbf3347bdaa7333c4e80e01d85c2ac71d0cd7302b5081538ca34efa8f9d2 254128 iso-snapshot-cli_23.1_amd64.deb
+ 4ea06e6ed8909f4a5feb10ca171b92c121131692d2ad36149deec8a7fc03cdb8 11007 mx-snapshot_23.1_amd64.buildinfo
+ 8d91836fd7cdbfb6ca964e4119c877078f8b1c6a0605958efdc857daa972ad8a 288768 mx-snapshot_23.1_amd64.deb
 Files:
- c4aff62be92bc5436f76542d2ba1dbe5 1258 admin optional mx-snapshot_23.1.dsc
- 0ac23766d55426e40cd4a579c9503e89 241380 admin optional mx-snapshot_23.1.tar.xz
- 1dc91fc1f95383f04871bf392b1779df 254036 admin optional iso-snapshot-cli_23.1_amd64.deb
- 400d79f43defedaf9b0a6fcdbf175a6b 11007 admin optional mx-snapshot_23.1_amd64.buildinfo
- 257b0211b6d043f581bf37b9a7488d76 288640 admin optional mx-snapshot_23.1_amd64.deb
+ c66275009b365376b39cfc5ac8598d2a 1258 admin optional mx-snapshot_23.1.dsc
+ c98ad74d2dec9efa23546db63e0ffa86 241084 admin optional mx-snapshot_23.1.tar.xz
+ 28da6613c3cd31d4351e10b380f1a10f 254128 admin optional iso-snapshot-cli_23.1_amd64.deb
+ 90cd8458f6adc18082d2ebf716e9e830 11007 admin optional mx-snapshot_23.1_amd64.buildinfo
+ a4acc7bcad8b81e6e4bebd4a55a21e15 288768 admin optional mx-snapshot_23.1_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPGIPcTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKY6B/9lMewpTp0a0HKXdHpg3QiMTVNUZ18l
-pCvf0bpYhi2qUNEwgNlZy4RZDMY+cEBrQdC0pUS8ZiRQdZ2A8UiPLXB+ZuZVTT1F
-W3FyQ6njJWDxqRzhkvmsKDyvvUjCxOrr1vfYGof3A4H+6cRaxxFwdKoOgzKVaaZP
-JOTCxtNIMX4IYLPGPmBMtpAj4r+PnV6CQ5aRtlz5pvKTNnK2KM4/3hvSj31+KJla
-tXfOEZ1dGVjKkRbcXUjnhieznF65Sd5zpot5geB+Ri7iJfVGMRZ4iPefnxif8qgz
-WoqW8Xnqsh53EKf0JxH74HkoGjvYtIu5aJK6fWbEJLCogeh9iwQ8KOMK
-=AlUO
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPGI7kTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHmACACYjisBaS12IPinKwFjZAaWsdWOdpzJ
+zhJHdCtiJVRxA3WRtsQE39aRIMPxe2bKIrxYD69SR7s5p3sYQFhfRp59yqBTBj4R
+4t+0jQLRPZaBivYHnBIx1MnPitJ5OSCms+StYlI2n/4Wfdy9Kwbes7apkg2oyjmb
+qxMuy/8vgbeo5cc31riSi8JHhfwoSlO7QeyQD3VpU99Y9Xv9x+EquFaGZ6pbyzZV
+XLKkZpUNr8cOBvUO6obx8ybBhz8t5hL6Jb/cHERyt3PlMY5H11NgBSyXBUAQIA0B
+a7U4Bwv/dc/3KfOuBK5HG2orTAq/gyqNi9SgGyQQcdS4XWLwq/B8qzgj
+=GF4J
 -----END PGP SIGNATURE-----
