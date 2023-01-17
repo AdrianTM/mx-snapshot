@@ -21,9 +21,8 @@ override_dh_auto_build:
 	dh_auto_clean
 	dh_auto_configure -- iso-snapshot-cli.pro
 	dh_auto_build
-	# before installing move binary back and make a iso-snapshot-cli copy of .conf and .list files
+	# before installing move binary back and make a iso-snapshot-cli copy of .list file
 	mv mx-snapshot-binary mx-snapshot
-	cp mx-snapshot.conf iso-snapshot-cli.conf
 	cp mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
 
 override_dh_shlibdeps:
