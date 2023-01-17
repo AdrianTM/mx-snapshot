@@ -107,7 +107,10 @@ int main(int argc, char *argv[])
                       QObject::tr("format")});
     parser.addOption({QStringLiteral("shutdown"), QObject::tr("Shutdown computer when done.")});
 
-    QStringList opts(argv, argv + argc);
+    QStringList opts;
+    opts.reserve(argc);
+    for (int i = 0; i < argc; ++i)
+        opts << QString(argv[i]);
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
