@@ -16,14 +16,14 @@ Changes:
  .
    * New translations
 Checksums-Sha1:
- 86d1aacca6c5d2bad349cd021097840e996778b5 259212 iso-snapshot-cli_23.1_i386.deb
- 6cee2cb12bf6b371a8b400d48e65af72c4989be4 10338 mx-snapshot_23.1_i386.buildinfo
- cbc95fcb3fe158393c7eb7e848a4cb36ef8e34f2 295012 mx-snapshot_23.1_i386.deb
+ 19c1eacc2649b1cca1a7bdeeef9f909d78566c05 259320 iso-snapshot-cli_23.1_i386.deb
+ ab39421eafd80dd7a0a44b8968455cbd48ead56d 10338 mx-snapshot_23.1_i386.buildinfo
+ c7c7ae1f9ed8514590a1bef08bfc0e9b10787a85 294844 mx-snapshot_23.1_i386.deb
 Checksums-Sha256:
- 81270e3ed74febdd28d1ff44686033f8ecf3174afeb6b2956a607eee992d0dbe 259212 iso-snapshot-cli_23.1_i386.deb
- 53a70a470fda48af50a764a56d1d4fb1d81e099ed9897284b6c98f8fc80ec9b5 10338 mx-snapshot_23.1_i386.buildinfo
- 56811acab1d243afd10c438088bde54746970564feeb933683162ce7e55df6cb 295012 mx-snapshot_23.1_i386.deb
+ 62554650d498dcfa62eea0dd59d9d068a5f9d014cf319c6cfd243cd4467a6d40 259320 iso-snapshot-cli_23.1_i386.deb
+ 337fdec7e87116f1da30ed2f0e86e4105efa66c25147d06a3a0b0587125b733d 10338 mx-snapshot_23.1_i386.buildinfo
+ 82276ed2e3efaa4dfdf7bb8b4761ab47763843c6ef5a1b3e53b01160bfacc92e 294844 mx-snapshot_23.1_i386.deb
 Files:
- 55a405499bf32a089d82fadd075bad37 259212 admin optional iso-snapshot-cli_23.1_i386.deb
- 67ae3264afa6545d4f29454ff326ccb4 10338 admin optional mx-snapshot_23.1_i386.buildinfo
- 9499c3da90e5629edf908ad7f1749cd3 295012 admin optional mx-snapshot_23.1_i386.deb
+ 13be4a669336bc4d6d10c84c56eef08e 259320 admin optional iso-snapshot-cli_23.1_i386.deb
+ b42e09d7cc96ecace375de989a12f931 10338 admin optional mx-snapshot_23.1_i386.buildinfo
+ 5984f11ba119374a705537136468ce82 294844 admin optional mx-snapshot_23.1_i386.deb

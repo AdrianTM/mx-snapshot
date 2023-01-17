@@ -745,17 +745,17 @@
     <message>
         <location filename="../work.cpp" line="111"/>
         <location filename="../work.cpp" line="119"/>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="282"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="150"/>
-        <location filename="../work.cpp" line="232"/>
-        <location filename="../work.cpp" line="255"/>
-        <location filename="../work.cpp" line="300"/>
-        <location filename="../work.cpp" line="358"/>
-        <location filename="../work.cpp" line="423"/>
+        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="301"/>
+        <location filename="../work.cpp" line="359"/>
+        <location filename="../work.cpp" line="424"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -775,97 +775,97 @@
         <translation>Если вы уверены, что у вас достаточно свободного места, повторно запустите программу с параметром «-o/--override-size»</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="179"/>
+        <location filename="../work.cpp" line="180"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Копирование новой файловой системы ISO...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="191"/>
+        <location filename="../work.cpp" line="192"/>
         <source>Could not create temp directory. </source>
         <translation>Не удалось создать временный каталог.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="229"/>
+        <location filename="../work.cpp" line="230"/>
         <source>Squashing filesystem...</source>
         <translation>Сжатие файловой системы...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="234"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Не удалось создать файл linuxfs, пожалуйста, проверьте, есть ли у Вас достаточно места на целевом разделе.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="252"/>
+        <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Создание файла образа CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Не удалось создать ISO файл, пожалуйста, проверьте, есть ли у Вас достаточно места на целевом разделе.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="264"/>
         <source>Making hybrid iso</source>
         <translation>Создание гибридного ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Success</source>
         <translation>Успешно</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="288"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot завершился успешно!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="289"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Создание снимка завершено за %1.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="289"/>
+        <location filename="../work.cpp" line="290"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Спасибо за использование MX Snapshot, следующим запустите MX Live USB Maker!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Installing </source>
         <translation>Установка</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="301"/>
         <source>Could not install </source>
         <translation>Не удалось установить</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="310"/>
+        <location filename="../work.cpp" line="311"/>
         <source>Calculating checksum...</source>
         <translation>Вычисление контрольной суммы...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="346"/>
+        <location filename="../work.cpp" line="347"/>
         <source>Building new initrd...</source>
         <translation>Формирую новый initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="359"/>
+        <location filename="../work.cpp" line="360"/>
         <source>Could not find %1 file, cannot continue</source>
         <translation>Не удалось найти файл %1, продолжение невозможно</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="424"/>
+        <location filename="../work.cpp" line="425"/>
         <source>Could not create working directory. </source>
         <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="571"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Вычисление общего размера исключённых файлов...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="581"/>
+        <location filename="../work.cpp" line="582"/>
         <source>Calculating size of root...</source>
         <translation>Вычисление размера root...</translation>
     </message>
