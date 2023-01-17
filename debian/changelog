@@ -1,3 +1,9 @@
+mx-snapshot (23.1) mx; urgency=medium
+
+  * New translations
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 16 Jan 2023 19:59:39 -0500
+
 mx-snapshot (22.12.04) mx; urgency=medium
 
   * Update copy-initrd-programs for luks2, see cli-shell-utils changelog

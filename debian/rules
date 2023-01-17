@@ -6,15 +6,29 @@ override_dh_auto_clean:
 	dh_auto_clean
 	rm -f src/translations/*.qm
 
+override_dh_auto_configure:
+	dh_auto_configure -- mx-snapshot.pro
+
 override_dh_auto_build:
 	lrelease mx-snapshot.pro
 	head -n1 debian/changelog | sed -e "s/.*(\([^(]*\)).*/#define VERSION \"\1\"/" > version.h
 	gzip -kf manual/mx-snapshot.8
+	gzip -kf manual/iso-snapshot-cli.8
+	# build mx-snapshot
 	dh_auto_build
+	mv mx-snapshot mx-snapshot-binary
+	# clean, reconfigure, and build iso-snapshot-cli
+	dh_auto_clean
+	dh_auto_configure -- iso-snapshot-cli.pro
+	dh_auto_build
+	# before installing move binary back and make a iso-snapshot-cli copy of .conf and .list files
+	mv mx-snapshot-binary mx-snapshot
+	cp mx-snapshot.conf iso-snapshot-cli.conf
+	cp mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
 
-# Uncomment if building in Virtual Box
 override_dh_shlibdeps:
 	dh_shlibdeps -- -xvirtualbox-guest-x11 --ignore-missing-info
 
 %:
 	dh $@ --no-automatic-dbgsym --parallel 
+
