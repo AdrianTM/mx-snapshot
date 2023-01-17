@@ -600,31 +600,31 @@ imagens anteriores e as cópias guardadas/copiadas:
         <translation>Desligar o computador quando finalizar a criação da imagem ISO.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
-        <location filename="../main.cpp" line="134"/>
-        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="175"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Ao que parece, você está acessando a sessão com o usuário root. Por favor, saia da sessão atual e entre novamente com o usuário normal para utilizar este programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="146"/>
-        <location filename="../main.cpp" line="180"/>
+        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="183"/>
         <source>version:</source>
         <translation>Versão:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="157"/>
         <source>You must run this program as root.</source>
         <translation>Você tem que executar este programa como administrador (root).</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="166"/>
         <source>MX Snapshot</source>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="171"/>
-        <location filename="../main.cpp" line="255"/>
+        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="258"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
         <location filename="../settings.cpp" line="625"/>
@@ -633,8 +633,8 @@ imagens anteriores e as cópias guardadas/copiadas:
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="249"/>
-        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="252"/>
+        <location filename="../main.cpp" line="254"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não suporta &apos;Squashfs&apos;. Por isso, não é possível continuar.</translation>

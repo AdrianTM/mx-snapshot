@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 16 Jan 2023 19:59:39 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.1
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.1) mx; urgency=medium
+ .
+   * New translations
+Checksums-Sha1:
+ d5bb712ec91a6eaa81f4c66cca6bd48c3ab73de6 1258 mx-snapshot_23.1.dsc
+ 881842a3d4f7536996f5302a56e071b6cf99620b 241788 mx-snapshot_23.1.tar.xz
+ fc6edda500ee1b892ecbfacfb49b017658b1d9bc 11007 mx-snapshot_23.1_amd64.buildinfo
+Checksums-Sha256:
+ 007d1b11d5ac7bd3f39e479e339bd2c3870969ef93cb6dcd89f6f4da35d3bb4a 1258 mx-snapshot_23.1.dsc
+ 17fec0d0954ac16f75de804182134a09459f35d02bf096b018fa13ec8127bfe4 241788 mx-snapshot_23.1.tar.xz
+ b37382086e4cf442ec96cf69b163d7ce651530c9ead599603681198c97ae9ecf 11007 mx-snapshot_23.1_amd64.buildinfo
+Files:
+ 14548e7c31fcd99609884e30eb46b4b4 1258 admin optional mx-snapshot_23.1.dsc
+ 5be3dcbd911ed19abe35e27b1cce15ac 241788 admin optional mx-snapshot_23.1.tar.xz
+ 9002213368e93c06ec68264446b535e8 11007 admin optional mx-snapshot_23.1_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPGG7YTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMVRCACVWLOzLG9otjxBCJo2ivGs6iK9FeZG
+PPEf8lEZCGWaPrbSq0UPQHWmibVImWEuhmI2jNIV+dAFxYOq9VgVVt5whIFj8R9J
+69X3BDC80YalZWu2NUTNlkca3gTD0yCm96wdSLdjn1RtQBgOIbHqsW5nybAikLsE
+y83wqa6LU6sJX1q1gD0Ng/w6AhAd2GYp+dVhF4+D4cRx8v426nxhtiQ+Q+7Tq0eJ
+qMmAb6WSzfgIrWOnZreZXm+JjmHktUtXLpwn965x8EB8BCiEjbyn1twGAR1KkA1C
+h32K5h2NJi33/3l0O6DQCE/3YJ3dnBMw1n11Au8REMsvdi3GjKBegpnQ
+=5yna
+-----END PGP SIGNATURE-----

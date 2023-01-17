@@ -599,31 +599,31 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Stäng av datorn när det är klart.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
-        <location filename="../main.cpp" line="134"/>
-        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="175"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Du verkar vara inloggad som root, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="146"/>
-        <location filename="../main.cpp" line="180"/>
+        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="183"/>
         <source>version:</source>
         <translation>version:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="157"/>
         <source>You must run this program as root.</source>
         <translation>Du måste köra detta program som administratör d.v.s med sudo.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="166"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="171"/>
-        <location filename="../main.cpp" line="255"/>
+        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="258"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
         <location filename="../settings.cpp" line="625"/>
@@ -632,8 +632,8 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="249"/>
-        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="252"/>
+        <location filename="../main.cpp" line="254"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>

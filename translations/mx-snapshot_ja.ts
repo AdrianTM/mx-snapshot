@@ -594,31 +594,31 @@
         <translation>完了したらコンピュータをシャットダウンする。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="124"/>
-        <location filename="../main.cpp" line="134"/>
-        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="127"/>
+        <location filename="../main.cpp" line="137"/>
+        <location filename="../main.cpp" line="175"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>root ユーザーとしてログインしているようです。このプログラムを使用するには、一度ログアウトして一般ユーザーとしてログインしてください。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="146"/>
-        <location filename="../main.cpp" line="180"/>
+        <location filename="../main.cpp" line="149"/>
+        <location filename="../main.cpp" line="183"/>
         <source>version:</source>
         <translation>バージョン:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="157"/>
         <source>You must run this program as root.</source>
         <translation>このプログラムは root 権限で実行する必要があります。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="166"/>
         <source>MX Snapshot</source>
         <translation>MX スナップショット</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="171"/>
-        <location filename="../main.cpp" line="255"/>
+        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="258"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
         <location filename="../settings.cpp" line="625"/>
@@ -627,8 +627,8 @@
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="249"/>
-        <location filename="../main.cpp" line="251"/>
+        <location filename="../main.cpp" line="252"/>
+        <location filename="../main.cpp" line="254"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
