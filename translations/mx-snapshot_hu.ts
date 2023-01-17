@@ -88,7 +88,7 @@
         <location filename="../mainwindow.ui" line="308"/>
         <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="338"/>
@@ -599,31 +599,31 @@
         <translation>A számítógép leállítása amikor kész.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
-        <location filename="../main.cpp" line="137"/>
-        <location filename="../main.cpp" line="174"/>
+        <location filename="../main.cpp" line="124"/>
+        <location filename="../main.cpp" line="134"/>
+        <location filename="../main.cpp" line="172"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Úgy tűnik, hogy root felhasználóként van bejelentkezve. Jelentkezzen ki és jelentkezzen be normál felhasználóként a program használatához.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
-        <location filename="../main.cpp" line="182"/>
+        <location filename="../main.cpp" line="146"/>
+        <location filename="../main.cpp" line="180"/>
         <source>version:</source>
         <translation>verzió:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="156"/>
+        <location filename="../main.cpp" line="154"/>
         <source>You must run this program as root.</source>
         <translation>Root felhasználóként kell futtatnia ezt a programot.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="165"/>
+        <location filename="../main.cpp" line="163"/>
         <source>MX Snapshot</source>
         <translation>MX pillanatkép</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="173"/>
-        <location filename="../main.cpp" line="257"/>
+        <location filename="../main.cpp" line="171"/>
+        <location filename="../main.cpp" line="255"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
         <location filename="../settings.cpp" line="625"/>
@@ -632,8 +632,8 @@
         <translation>Hiba</translation>
     </message>
     <message>
+        <location filename="../main.cpp" line="249"/>
         <location filename="../main.cpp" line="251"/>
-        <location filename="../main.cpp" line="253"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>A jelenlegi kernel nem támogatja Squashfs fájlrendszert. Nem folytatható.</translation>
