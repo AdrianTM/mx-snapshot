@@ -169,8 +169,9 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 // copyModules(mod_dir/kernel kernel)
 void Work::copyModules(const QString &to, const QString &kernel)
 {
-    RUN(QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-modules -t=\"%1\" -k=\"%2\"").arg(to, kernel));
-    RUN(QStringLiteral("/usr/share/mx-snapshot/scripts/copy-initrd-programs --to=\"%1\"").arg(to));
+    RUN(QStringLiteral("/usr/share/%1/scripts/copy-initrd-modules -t=\"%2\" -k=\"%3\"")
+            .arg(qApp->applicationName(), to, kernel));
+    RUN(QStringLiteral("/usr/share/%1/scripts/copy-initrd-programs --to=\"%2\"").arg(qApp->applicationName(), to));
 }
 
 // Copying the iso-template filesystem
