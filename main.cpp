@@ -107,10 +107,7 @@ int main(int argc, char *argv[])
                       QObject::tr("format")});
     parser.addOption({QStringLiteral("shutdown"), QObject::tr("Shutdown computer when done.")});
 
-    QStringList opts;
-    opts.reserve(argc);
-    for (int i = 0; i < argc; ++i)
-        opts << QString(argv[i]);
+    QStringList opts(argv, argv + argc);
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
@@ -146,9 +143,10 @@ int main(int argc, char *argv[])
     if (getuid() == 0) {
         qputenv("HOME", "/root");
         setLog();
-        qDebug().noquote() << qApp->applicationName() << QObject::tr("version:") << qApp->applicationVersion();
+        qDebug().noquote() << QCoreApplication::applicationName() << QObject::tr("version:")
+                           << QCoreApplication::applicationVersion();
         if (argc > 1)
-            qDebug().noquote() << "Args:" << qApp->arguments();
+            qDebug().noquote() << "Args:" << QCoreApplication::arguments();
         Batchprocessing batch(parser);
         QTimer::singleShot(0, &app, &QCoreApplication::quit);
         return QCoreApplication::exec();
@@ -179,9 +177,10 @@ else
     if (getuid() == 0) {
         qputenv("HOME", "/root");
         setLog();
-        qDebug().noquote() << qApp->applicationName() << QObject::tr("version:") << qApp->applicationVersion();
+        qDebug().noquote() << QApplication::applicationName() << QObject::tr("version:")
+                           << QApplication::applicationVersion();
         if (argc > 1)
-            qDebug().noquote() << "Args:" << qApp->arguments();
+            qDebug().noquote() << "Args:" << QApplication::arguments();
         MainWindow w(nullptr, parser);
         w.show();
         exit(QApplication::exec());
@@ -224,16 +223,15 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 void setTranslation()
 {
-    if (qtTran.load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"),
-                    QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-        qApp->installTranslator(&qtTran);
+    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+        QCoreApplication::installTranslator(&qtTran);
 
     if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
-        qApp->installTranslator(&qtBaseTran);
+        QCoreApplication::installTranslator(&qtBaseTran);
 
-    if (appTran.load(qApp->applicationName() + "_" + QLocale().name(),
-                     "/usr/share/" + qApp->applicationName() + "/locale"))
-        qApp->installTranslator(&appTran);
+    if (appTran.load("mx-snapshot_" + QLocale().name(),
+                     "/usr/share/" + QCoreApplication::applicationName() + "/locale"))
+        QCoreApplication::installTranslator(&appTran);
 }
 
 // Check if SQUASHFS is available
@@ -251,7 +249,7 @@ void checkSquashfs()
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #else
             QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-            if (qApp->metaObject()->className() != QLatin1String("QApplication"))
+            if (QCoreApplication::staticMetaObject.className() != QLatin1String("QApplication"))
                 qDebug() << message;
             else
                 QMessageBox::critical(nullptr, QObject::tr("Error"), message);
@@ -262,7 +260,7 @@ void checkSquashfs()
 
 void setLog()
 {
-    QString log_name = "/var/log/" + qApp->applicationName() + ".log";
+    QString log_name = "/var/log/" + QCoreApplication::applicationName() + ".log";
     if (QFileInfo::exists(log_name)) {
         QFile::remove(log_name + ".old");
         QFile::rename(log_name, log_name + ".old");
@@ -288,5 +286,5 @@ void signalHandler(int signal)
         qDebug() << "\nSIGTERM";
         break;
     }
-    qApp->quit(); // quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
+    QCoreApplication::quit(); // quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
 }
