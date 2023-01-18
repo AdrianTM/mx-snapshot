@@ -39,7 +39,7 @@ public:
     enum HashType { md5, sha512 };
     Q_ENUM(HashType)
 
-    Work(Settings *settings);
+    Work(Settings *settings, QObject *parent = nullptr);
     virtual ~Work();
 
     QElapsedTimer e_timer;

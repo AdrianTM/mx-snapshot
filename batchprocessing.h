@@ -34,7 +34,7 @@ class Batchprocessing : public QObject, public Settings
 {
     Q_OBJECT
 public:
-    Batchprocessing(const QCommandLineParser &arg_parser);
+    Batchprocessing(const QCommandLineParser &arg_parser, QObject *parent = nullptr);
     ~Batchprocessing();
 
     void setConnections();
