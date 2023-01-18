@@ -34,8 +34,9 @@
 #define RUN settings->shell->run
 const extern QFile logFile;
 
-Work::Work(Settings *settings)
-    : settings(settings)
+Work::Work(Settings *settings, QObject *parent)
+    : QObject(parent)
+    , settings(settings)
 {
 }
 

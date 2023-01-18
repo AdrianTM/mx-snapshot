@@ -184,7 +184,7 @@ else
                            << QApplication::applicationVersion();
         if (argc > 1)
             qDebug().noquote() << "Args:" << QApplication::arguments();
-        MainWindow w(nullptr, parser);
+        MainWindow w(parser);
         w.show();
         exit(QApplication::exec());
     } else {

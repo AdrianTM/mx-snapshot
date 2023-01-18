@@ -32,8 +32,9 @@
 
 using namespace std::chrono_literals;
 
-Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser)
-    : Settings(arg_parser)
+Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *parent)
+    : QObject(parent)
+    , Settings(arg_parser)
     , work(this)
 {
     connect(qApp, &QCoreApplication::aboutToQuit, [this] { work.cleanUp(); });

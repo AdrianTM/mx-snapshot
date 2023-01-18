@@ -45,7 +45,7 @@ class MainWindow : public QDialog, public Settings
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr, const QCommandLineParser &arg_parser = QCommandLineParser());
+    MainWindow(const QCommandLineParser &arg_parser = QCommandLineParser(), QWidget *parent = nullptr);
     ~MainWindow();
 
     [[noreturn]] void cleanUp();

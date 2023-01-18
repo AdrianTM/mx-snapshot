@@ -39,7 +39,7 @@
 
 using namespace std::chrono_literals;
 
-MainWindow::MainWindow(QWidget *parent, const QCommandLineParser &arg_parser)
+MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     : QDialog(parent)
     , Settings(arg_parser)
     , ui(new Ui::MainWindow)
