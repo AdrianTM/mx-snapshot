@@ -354,13 +354,6 @@ void Work::openInitrd(const QString &file, const QString &initrd_dir)
 void Work::replaceMenuStrings()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-
-    if (!QFileInfo::exists(QStringLiteral("/etc/lsb-release"))) {
-        emit messageBox(BoxType::critical, tr("Error"),
-                        tr("Could not find %1 file, cannot continue").arg(QStringLiteral("/etc/lsb-release")));
-        cleanUp();
-    }
-
     QString full_distro_name_space = settings->full_distro_name;
     full_distro_name_space.replace(QLatin1String("_"), QLatin1String(" "));
 

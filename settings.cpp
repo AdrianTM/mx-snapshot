@@ -255,20 +255,23 @@ void Settings::setVariables()
     else if (QFileInfo::exists(QStringLiteral("/etc/mx-version")))
         distro_version_file = QStringLiteral("/etc/mx-version");
 
-    project_name = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release"));
+    if (QFileInfo::exists("/etc/lsb-release"))
+        project_name = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release"));
+    else
+        project_name = shell->getCmdOut("lsb_release -i | cut -f2");
     project_name.replace(QLatin1String("\""), QLatin1String(""));
     if (!distro_version_file.isEmpty()) {
         distro_version = shell->getCmdOut("cut -f1 -d'_' " + distro_version_file);
         distro_version.remove(QRegularExpression("^" + project_name + "_|^" + project_name + "-"));
-        full_distro_name
-            = project_name + "-" + distro_version + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
     } else {
-        distro_version
-            = project_name + QStringLiteral("_") + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
-        full_distro_name = distro_version;
+        distro_version = shell->getCmdOut("lsb_release -r | cut -f2");
     }
+    full_distro_name = project_name + "-" + distro_version + "_" + QString(i686 ? "386" : "x64");
     release_date = QDate::currentDate().toString(QStringLiteral("MMMM dd, yyyy"));
-    codename = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
+    if (QFileInfo::exists("/etc/lsb-release"))
+        codename = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
+    else
+        codename = shell->getCmdOut("lsb_release -c | cut -f2");
     codename.replace(QLatin1String("\""), QLatin1String(""));
     boot_options = live ? readKernelOpts() : filterOptions(readKernelOpts());
 }
