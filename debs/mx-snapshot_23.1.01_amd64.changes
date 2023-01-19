@@ -19,32 +19,32 @@ Changes:
  .
    * Better handling if /etc/lsb-release is missing
 Checksums-Sha1:
- e095688c9b56d19fde02bc7e4d1eead9455fc986 1270 mx-snapshot_23.1.01.dsc
- 196c75bbcef4e0fe81a3f10dea10fc2584ebf2df 239788 mx-snapshot_23.1.01.tar.xz
- 4e4f561fd618af23d79612bc9dd17a79cb8599dd 253492 iso-snapshot-cli_23.1.01_amd64.deb
- 92266e11563a6e57be29ec7b2dc097724321d5e1 11040 mx-snapshot_23.1.01_amd64.buildinfo
+ 122dd46561003ac90edf936455d8d70864c8da49 1270 mx-snapshot_23.1.01.dsc
+ f900753e87ec44451e5e37c17f548d49e82ca512 239784 mx-snapshot_23.1.01.tar.xz
+ cc6924ac02ee31a73b16f8af2bada3a6ece934f1 253444 iso-snapshot-cli_23.1.01_amd64.deb
+ 5908e5e91884a48815a522d8bebb01f71412f3af 11040 mx-snapshot_23.1.01_amd64.buildinfo
  c737565af83af4e0f724ccf32acff0cd48fba1b3 288384 mx-snapshot_23.1.01_amd64.deb
 Checksums-Sha256:
- 2e722159473b0214d5a48f4e548fa77e354c157894b763dc0a6152261fe7f663 1270 mx-snapshot_23.1.01.dsc
- 5d2a1a3f033a6a4fbf81e04c33e2ec7dd8a7c071c76f5b4c8999a032dcc4c2d3 239788 mx-snapshot_23.1.01.tar.xz
- 27dc57052ad1dfcf9fb1c8c83d3cda29b2c359c1699caf1037bb14486ec1bf3d 253492 iso-snapshot-cli_23.1.01_amd64.deb
- b18f112ac333f439bc2b73222df95b8e5381808cf4d06b3b5923bce39fcc68f8 11040 mx-snapshot_23.1.01_amd64.buildinfo
+ 9b0b5c828bd7d0d772ef06ac62f70d6fa7c7d47f3191bde17e3ff067daf610f2 1270 mx-snapshot_23.1.01.dsc
+ 6c97512ddc568ee3694569d4d7a1a6f55c443a801ad0b76230c54858b88389a1 239784 mx-snapshot_23.1.01.tar.xz
+ a68bcb72af5c2ac0f43ef6943a5b2e473e8d75a61b15a9c70e89899f29a60ed7 253444 iso-snapshot-cli_23.1.01_amd64.deb
+ cc0549cdf9ac660160cd29989ad1e4e7722b707889bcc1c60616f1668783d1e7 11040 mx-snapshot_23.1.01_amd64.buildinfo
  170ed96ec54f2b9163439e3ed4ca5f66c23dfe09c158346da3b10e6f3b08246e 288384 mx-snapshot_23.1.01_amd64.deb
 Files:
- e8bc91ede8f802c1b6626f94fa9866c9 1270 admin optional mx-snapshot_23.1.01.dsc
- a28a8370e5316a69b8b76ad6296f63c0 239788 admin optional mx-snapshot_23.1.01.tar.xz
- 0dc18f69e09395d0fab8006ab1661ed8 253492 admin optional iso-snapshot-cli_23.1.01_amd64.deb
- cc33634de0f5c67dd2588e76ce081ce5 11040 admin optional mx-snapshot_23.1.01_amd64.buildinfo
+ 21393c5e8ffaaa88d73db18451b721e7 1270 admin optional mx-snapshot_23.1.01.dsc
+ d4876a5dc12e0351bca018579c4ecb03 239784 admin optional mx-snapshot_23.1.01.tar.xz
+ 06a73d64e5048201adb276aa792c1fa5 253444 admin optional iso-snapshot-cli_23.1.01_amd64.deb
+ 84659814e7eeaf1fc8e72a4415d9afe1 11040 admin optional mx-snapshot_23.1.01_amd64.buildinfo
  0f66c89bbc04f97e4b705e9ef74cd5ba 288384 admin optional mx-snapshot_23.1.01_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPI3EMTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumE6MCACuFBakkC4oKmXE6qTx2X1IiuDNObhn
-OD+yvtM36+hYIWJMoR987XGhW6To941eh3nCWk1m4+EqJbFhaRN8gDUrVFfZ/TDu
-OT+xQE6xGjPde2Yg9nvQje5nvnF80nZuSOy2keKxq8keZrwDGPK5OJKYbdelZD36
-F40TyYkEc4c9U7VzyfJWEK0ycbhahfNMZVk5/lTIeoxZejJ4+qlUstKQvowsmN3A
-ODiutR/5Y3AsCs+ZqNTPFvJg4Ljk+UDGmrnxbGU8Rv7nCKKjSz3r6dDu3AGWA+NH
-mDuS/pdUZfHo3PFKSJBcbqiAeRqe8Rv9O09vo/ugoRQuzYH1C3JqHG6T
-=3pBR
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPI4BcTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumL8zB/9lrHmh1VPchCM1x1yhsARFHsZrLD0i
+ffdA0szm+2Snur74bivwsse/pbgvUVfGw6nSbBRstnidyhz1pBdQFUOQIjnaJCHI
+IkYM1BN1c8UiGTKICgxX3BwkKtYeRKE2XkhLxNQXcpj2tBy5pNte9wmL3mrulu/8
+NHLz/d3TCkE3A762tTqddGMsvHvNNCDcSnGWs9Zh5HybycGwFsbOlBLtjCIBfZrZ
+O7QEDTd36n61MhiYSfDlW2hBjtfAF2u/7QNsts2TUSCF9Knwe1jK5639YHwaSrRH
+5jNmzwjxvlu2gEEKemgKXnkDNrCSNWvoCjmp1ZQuE7sBgRQO2H+VuTfS
+=7KmI
 -----END PGP SIGNATURE-----
