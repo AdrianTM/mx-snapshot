@@ -448,27 +448,6 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="52"/>
-        <source>License</source>
-        <translation>Ruhsat</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="53"/>
-        <location filename="../about.cpp" line="62"/>
-        <source>Changelog</source>
-        <translation>Değişim günlüğü</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="54"/>
-        <source>Cancel</source>
-        <translation>İptal</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="74"/>
-        <source>&amp;Close</source>
-        <translation>&amp;Kapat</translation>
-    </message>
-    <message>
         <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Program, yapımı duraklatacak ve metin düzenleyicinizde önyükleme menüsünü açacaktır. </translation>
@@ -733,6 +712,27 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Kesintiye uğradı veya tamamlanamadı</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="52"/>
+        <source>License</source>
+        <translation>Ruhsat</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="62"/>
+        <source>Changelog</source>
+        <translation>Değişim günlüğü</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="54"/>
+        <source>Cancel</source>
+        <translation>İptal</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="74"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Kapat</translation>
     </message>
 </context>
 <context>

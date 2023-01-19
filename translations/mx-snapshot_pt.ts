@@ -448,27 +448,6 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="52"/>
-        <source>License</source>
-        <translation>Licença</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="53"/>
-        <location filename="../about.cpp" line="62"/>
-        <source>Changelog</source>
-        <translation>Registo de alterações</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="54"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="74"/>
-        <source>&amp;Close</source>
-        <translation>&amp;Fechar</translation>
-    </message>
-    <message>
         <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>O programa suspenderá o processo e abrirá o menu do arranque (boot menu) no editor de texto.</translation>
@@ -733,6 +712,27 @@
         <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Interrupção ou falha no processo</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="52"/>
+        <source>License</source>
+        <translation>Licença</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="62"/>
+        <source>Changelog</source>
+        <translation>Registo de alterações</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="54"/>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="74"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Fechar</translation>
     </message>
 </context>
 <context>

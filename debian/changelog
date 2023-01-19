@@ -1,3 +1,9 @@
+mx-snapshot (23.1.01) mx; urgency=medium
+
+  * Better handling if /etc/lsb-release is missing
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 18 Jan 2023 00:59:14 -0500
+
 mx-snapshot (23.1) mx; urgency=medium
 
   * New translations

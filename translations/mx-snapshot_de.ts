@@ -450,27 +450,6 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../about.cpp" line="52"/>
-        <source>License</source>
-        <translation>Lizenz</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="53"/>
-        <location filename="../about.cpp" line="62"/>
-        <source>Changelog</source>
-        <translation>Änderungsprotokoll</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="54"/>
-        <source>Cancel</source>
-        <translation>Abbrechen</translation>
-    </message>
-    <message>
-        <location filename="../about.cpp" line="74"/>
-        <source>&amp;Close</source>
-        <translation>&amp;Schließen</translation>
-    </message>
-    <message>
         <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Das Programm pausiert während das Bootmenü im Texteditor geöffnet wird.</translation>
@@ -735,6 +714,27 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Fertigstellung fehlgeschlagen oder Ausführung unterbrochen.</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="52"/>
+        <source>License</source>
+        <translation>Lizenz</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="53"/>
+        <location filename="../about.cpp" line="62"/>
+        <source>Changelog</source>
+        <translation>Änderungsprotokoll</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="54"/>
+        <source>Cancel</source>
+        <translation>Abbrechen</translation>
+    </message>
+    <message>
+        <location filename="../about.cpp" line="74"/>
+        <source>&amp;Close</source>
+        <translation>&amp;Schließen</translation>
     </message>
 </context>
 <context>
