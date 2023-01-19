@@ -4,12 +4,12 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../batchprocessing.cpp" line="43"/>
+        <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="44"/>
+        <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>El kernel actual no admite el algoritmo de compresión seleccionado, por favor edite el archivo de configuración y seleccione un algoritmo diferente.</translation>
     </message>
@@ -469,7 +469,7 @@
         <translation>&amp;Cerrar</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="66"/>
+        <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>El programa pausará la construcción y abrirá el menú de inicio en su editor de texto.</translation>
     </message>
@@ -626,8 +626,8 @@
         <location filename="../main.cpp" line="258"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="625"/>
-        <location filename="../settings.cpp" line="715"/>
+        <location filename="../settings.cpp" line="628"/>
+        <location filename="../settings.cpp" line="718"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -654,27 +654,27 @@
         <translation>No se pudo encontrar un kernel utilizable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="343"/>
+        <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
         <translation>Espacio usado en / (root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="346"/>
+        <location filename="../settings.cpp" line="349"/>
         <source>estimated</source>
         <translation>estimado</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="357"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
         <translation>Espacio usado en /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="408"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espacio libre en %1, donde se colocará la imagen del sistema: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="412"/>
+        <location filename="../settings.cpp" line="415"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -689,48 +689,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="430"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
         <translation>Escritorio</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="432"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="434"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
         <translation>Descargas</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Networks</source>
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
         <translation>Imágenes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="619"/>
-        <location filename="../settings.cpp" line="709"/>
+        <location filename="../settings.cpp" line="622"/>
+        <location filename="../settings.cpp" line="712"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El archivo de salida %1 ya existe. Utilice otro nombre de archivo o elimine el archivo existente.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Interrumpido o no se pudo completar</translation>
     </message>
@@ -738,49 +738,48 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="87"/>
+        <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
         <translation>Limpiando...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="111"/>
-        <location filename="../work.cpp" line="119"/>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="276"/>
         <source>Done</source>
         <translation>Hecho</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="151"/>
         <location filename="../work.cpp" line="233"/>
         <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="359"/>
-        <location filename="../work.cpp" line="424"/>
+        <location filename="../work.cpp" line="295"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="151"/>
+        <location filename="../work.cpp" line="152"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hay suficiente espacio libre en el disco de destino, necesita al menos %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="154"/>
+        <location filename="../work.cpp" line="155"/>
         <source>You have %1 free space on %2</source>
         <translation>Tienes %1  de espacio libre en %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="156"/>
+        <location filename="../work.cpp" line="157"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si está seguro de que tiene suficiente espacio libre, vuelva a ejecutar el programa con la opción -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="180"/>
+        <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiando el sistema de archivos new-iso...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="192"/>
+        <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
         <translation>No se pudo crear el directorio temporal.</translation>
     </message>
@@ -805,67 +804,66 @@
         <translation>No se pudo crear un archivo ISO; por favor revise si tiene suficiente espacio en la partición de destino.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="264"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
         <translation>Creando un iso híbrido</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Success</source>
         <translation>Éxito</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="282"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>¡MX Snapshot completada con éxito!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="289"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>La imagen tardó 1% en finalizar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="290"/>
+        <location filename="../work.cpp" line="284"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gracias por usar MX Snapshot, ejecute MX Creador de Live-USB a continuación!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
         <translation>Instalando</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="301"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
         <translation>No se pudo instalar</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="311"/>
+        <location filename="../work.cpp" line="305"/>
         <source>Calculating checksum...</source>
         <translation>Calculando suma de comprobación...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="347"/>
+        <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
         <translation>Construyendo nuevo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="360"/>
         <source>Could not find %1 file, cannot continue</source>
-        <translation>No se pudo encontrar el archivo %1, no puede continuar </translation>
+        <translation type="vanished">No se pudo encontrar el archivo %1, no puede continuar </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="425"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>No se pudo crear el directorio de trabajo.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="571"/>
+        <location filename="../work.cpp" line="558"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando el tamaño total de los archivos excluidos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="582"/>
+        <location filename="../work.cpp" line="569"/>
         <source>Calculating size of root...</source>
         <translation>Calculando el tamaño de root...</translation>
     </message>

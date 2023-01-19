@@ -4,12 +4,12 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../batchprocessing.cpp" line="43"/>
+        <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="44"/>
+        <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Текущее ядро не поддерживает выбранный алгоритм сжатия, пожалуйста, измените конфигурационный файл и выберите другой алгоритм.</translation>
     </message>
@@ -469,7 +469,7 @@
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../batchprocessing.cpp" line="66"/>
+        <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Программа приостановит сборку и откроет меню загрузки в вашем текстовом редакторе.</translation>
     </message>
@@ -626,8 +626,8 @@
         <location filename="../main.cpp" line="258"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="625"/>
-        <location filename="../settings.cpp" line="715"/>
+        <location filename="../settings.cpp" line="628"/>
+        <location filename="../settings.cpp" line="718"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -654,27 +654,27 @@
         <translation>Не удалось найти пригодное для использования ядро</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="343"/>
+        <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
         <translation>Используемое место на / (корневом) разделе:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="346"/>
+        <location filename="../settings.cpp" line="349"/>
         <source>estimated</source>
         <translation>предполагаемый</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="357"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
         <translation>Используемое место на домашнем разделе:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="408"/>
+        <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="412"/>
+        <location filename="../settings.cpp" line="415"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -689,48 +689,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="430"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
         <translation>Рабочий стол</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="432"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
         <translation>Документы</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="434"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
         <translation>Загрузки</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
         <translation>Музыка</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Networks</source>
         <translation>Сети</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="619"/>
-        <location filename="../settings.cpp" line="709"/>
+        <location filename="../settings.cpp" line="622"/>
+        <location filename="../settings.cpp" line="712"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Прервано или не удалось завершить</translation>
     </message>
@@ -738,49 +738,48 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="87"/>
+        <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
         <translation>Очистка...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="111"/>
-        <location filename="../work.cpp" line="119"/>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="276"/>
         <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="151"/>
         <location filename="../work.cpp" line="233"/>
         <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="359"/>
-        <location filename="../work.cpp" line="424"/>
+        <location filename="../work.cpp" line="295"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="151"/>
+        <location filename="../work.cpp" line="152"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>На вашем целевом диске недостаточно свободного места, нужно как минимум %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="154"/>
+        <location filename="../work.cpp" line="155"/>
         <source>You have %1 free space on %2</source>
         <translation>У вас свободно %1 на %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="156"/>
+        <location filename="../work.cpp" line="157"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Если вы уверены, что у вас достаточно свободного места, повторно запустите программу с параметром «-o/--override-size»</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="180"/>
+        <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Копирование новой файловой системы ISO...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="192"/>
+        <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
         <translation>Не удалось создать временный каталог.</translation>
     </message>
@@ -805,67 +804,66 @@
         <translation>Не удалось создать ISO файл, пожалуйста, проверьте, есть ли у Вас достаточно места на целевом разделе.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="264"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
         <translation>Создание гибридного ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Success</source>
         <translation>Успешно</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="282"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot завершился успешно!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="289"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Создание снимка завершено за %1.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="290"/>
+        <location filename="../work.cpp" line="284"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Спасибо за использование MX Snapshot, следующим запустите MX Live USB Maker!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
         <translation>Установка</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="301"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
         <translation>Не удалось установить</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="311"/>
+        <location filename="../work.cpp" line="305"/>
         <source>Calculating checksum...</source>
         <translation>Вычисление контрольной суммы...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="347"/>
+        <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
         <translation>Формирую новый initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="360"/>
         <source>Could not find %1 file, cannot continue</source>
-        <translation>Не удалось найти файл %1, продолжение невозможно</translation>
+        <translation type="vanished">Не удалось найти файл %1, продолжение невозможно</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="425"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="571"/>
+        <location filename="../work.cpp" line="558"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Вычисление общего размера исключённых файлов...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="582"/>
+        <location filename="../work.cpp" line="569"/>
         <source>Calculating size of root...</source>
         <translation>Вычисление размера root...</translation>
     </message>
