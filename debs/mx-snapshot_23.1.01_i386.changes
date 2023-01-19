@@ -16,14 +16,14 @@ Changes:
  .
    * Better handling if /etc/lsb-release is missing
 Checksums-Sha1:
- 39fdd14c72e9d3b12cecf5edd971f94542b5d997 258304 iso-snapshot-cli_23.1.01_i386.deb
- 84a9d9678af02db9673995dbcdd57d029618419d 10362 mx-snapshot_23.1.01_i386.buildinfo
+ 41c248a9f50cd0c3539b1da2b932126426e124d2 258412 iso-snapshot-cli_23.1.01_i386.deb
+ c50936458d92bbf006b7c28d545148eda0c43d05 10362 mx-snapshot_23.1.01_i386.buildinfo
  291c97e6d71ade637567dedad677287d77cdc575 294592 mx-snapshot_23.1.01_i386.deb
 Checksums-Sha256:
- 35236e614960a943e776fb400e29918d69c569c3a7691ca2ec843beb55856283 258304 iso-snapshot-cli_23.1.01_i386.deb
- 5c89dc2495bf88fb02eb55ae8e1b92649d4bcdf434b2997eb38a28da1de103a9 10362 mx-snapshot_23.1.01_i386.buildinfo
+ ad224a027a662e6f0a39aaca667725ec31d7c2d22085ad04f0feef306b4d7ff9 258412 iso-snapshot-cli_23.1.01_i386.deb
+ d80727a40a88a52d2df1198c557350fbd74cfc046434ea06e268a12436889c46 10362 mx-snapshot_23.1.01_i386.buildinfo
  2250bb6eed892678eb768b4011626fc50f5de4cc0772878fa4f7084965bec469 294592 mx-snapshot_23.1.01_i386.deb
 Files:
- b7d4bc4992ccb5281d123a861ce52e81 258304 admin optional iso-snapshot-cli_23.1.01_i386.deb
- 17c3e0dae569ec033db67120cf906e6c 10362 admin optional mx-snapshot_23.1.01_i386.buildinfo
+ d3fb0146e56cf7a7a955a8502fb466eb 258412 admin optional iso-snapshot-cli_23.1.01_i386.deb
+ 2c7e28279692c04142792a2b40aee755 10362 admin optional mx-snapshot_23.1.01_i386.buildinfo
  c9509b1e63e99c41dcd681e76ccc50fd 294592 admin optional mx-snapshot_23.1.01_i386.deb
