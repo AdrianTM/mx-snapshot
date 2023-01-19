@@ -58,6 +58,7 @@ Comment[sl]=Ustvari živ iso posnetek zagnanega sistema
 Comment[sq]=Krijoni një fotografim të sistemit që xhironi, për të krijuar një iso instalimi sistemi “live”.
 Comment[sv]=Skapa ett live iso snapshot av det system du kör.
 Comment[tr]=Çalışmakta olan sisteminizin bir canlı iso kalıbını oluşturun
+Comment[zh_CN]=创建当前系统的ISO快照。
 Comment[zh_HK]=將本電腦上正在運行的系統做成現場版映像檔
 Comment[zh_TW]=將本電腦上正在運行的系統做成現場版映像檔
 Comment=Create a live iso snapshot of your running system.

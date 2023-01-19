@@ -1,0 +1,50 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 18 Jan 2023 00:59:14 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: source amd64
+Version: 23.1.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.1.01) mx; urgency=medium
+ .
+   * Better handling if /etc/lsb-release is missing
+Checksums-Sha1:
+ e095688c9b56d19fde02bc7e4d1eead9455fc986 1270 mx-snapshot_23.1.01.dsc
+ 196c75bbcef4e0fe81a3f10dea10fc2584ebf2df 239788 mx-snapshot_23.1.01.tar.xz
+ 4e4f561fd618af23d79612bc9dd17a79cb8599dd 253492 iso-snapshot-cli_23.1.01_amd64.deb
+ 92266e11563a6e57be29ec7b2dc097724321d5e1 11040 mx-snapshot_23.1.01_amd64.buildinfo
+ c737565af83af4e0f724ccf32acff0cd48fba1b3 288384 mx-snapshot_23.1.01_amd64.deb
+Checksums-Sha256:
+ 2e722159473b0214d5a48f4e548fa77e354c157894b763dc0a6152261fe7f663 1270 mx-snapshot_23.1.01.dsc
+ 5d2a1a3f033a6a4fbf81e04c33e2ec7dd8a7c071c76f5b4c8999a032dcc4c2d3 239788 mx-snapshot_23.1.01.tar.xz
+ 27dc57052ad1dfcf9fb1c8c83d3cda29b2c359c1699caf1037bb14486ec1bf3d 253492 iso-snapshot-cli_23.1.01_amd64.deb
+ b18f112ac333f439bc2b73222df95b8e5381808cf4d06b3b5923bce39fcc68f8 11040 mx-snapshot_23.1.01_amd64.buildinfo
+ 170ed96ec54f2b9163439e3ed4ca5f66c23dfe09c158346da3b10e6f3b08246e 288384 mx-snapshot_23.1.01_amd64.deb
+Files:
+ e8bc91ede8f802c1b6626f94fa9866c9 1270 admin optional mx-snapshot_23.1.01.dsc
+ a28a8370e5316a69b8b76ad6296f63c0 239788 admin optional mx-snapshot_23.1.01.tar.xz
+ 0dc18f69e09395d0fab8006ab1661ed8 253492 admin optional iso-snapshot-cli_23.1.01_amd64.deb
+ cc33634de0f5c67dd2588e76ce081ce5 11040 admin optional mx-snapshot_23.1.01_amd64.buildinfo
+ 0f66c89bbc04f97e4b705e9ef74cd5ba 288384 admin optional mx-snapshot_23.1.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPI3EMTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumE6MCACuFBakkC4oKmXE6qTx2X1IiuDNObhn
+OD+yvtM36+hYIWJMoR987XGhW6To941eh3nCWk1m4+EqJbFhaRN8gDUrVFfZ/TDu
+OT+xQE6xGjPde2Yg9nvQje5nvnF80nZuSOy2keKxq8keZrwDGPK5OJKYbdelZD36
+F40TyYkEc4c9U7VzyfJWEK0ycbhahfNMZVk5/lTIeoxZejJ4+qlUstKQvowsmN3A
+ODiutR/5Y3AsCs+ZqNTPFvJg4Ljk+UDGmrnxbGU8Rv7nCKKjSz3r6dDu3AGWA+NH
+mDuS/pdUZfHo3PFKSJBcbqiAeRqe8Rv9O09vo/ugoRQuzYH1C3JqHG6T
+=3pBR
+-----END PGP SIGNATURE-----
