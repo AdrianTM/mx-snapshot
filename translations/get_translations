@@ -14,7 +14,7 @@ if [ ! -s  .tx/config ]; then
 [main]
 host = https://www.transifex.com
 
-[antix-development.$APPNAME]
+[o:anticapitalista:p:antix-development:r:$APPNAME]
 file_filter = ./${APPNAME}_<lang>.ts
 source_file = ${APPNAME}_en.ts
 source_lang = en
