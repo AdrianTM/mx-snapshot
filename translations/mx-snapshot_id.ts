@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="id">
+<TS version="2.1" language="id_ID">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation>Galat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -193,17 +193,17 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation>Tentang aplikasi ini</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation>Tentang</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation>Alt+B</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
@@ -213,12 +213,12 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation>Alt+N</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
@@ -233,17 +233,17 @@
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation>Tampilkan bantuan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation>Bantuan</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation>Alt+H</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation>Galat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation>Tutup</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation>Versi:</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,7 +412,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
@@ -464,6 +464,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
+        <location filename="../main.cpp" line="100"/>
         <source>path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -543,71 +544,76 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="100"/>
+        <source>Work directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="102"/>
         <source>Exclude main folders, valid choices: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="105"/>
         <source>one item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="107"/>
         <source>Compression format, valid choices: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="108"/>
         <source>format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="109"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
-        <location filename="../main.cpp" line="137"/>
-        <location filename="../main.cpp" line="175"/>
+        <location filename="../main.cpp" line="128"/>
+        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="176"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
-        <location filename="../main.cpp" line="183"/>
+        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="184"/>
         <source>version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="157"/>
+        <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation>Anda harus menjalankan program ini sebagai root</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="174"/>
-        <location filename="../main.cpp" line="258"/>
+        <location filename="../main.cpp" line="175"/>
+        <location filename="../main.cpp" line="259"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="628"/>
-        <location filename="../settings.cpp" line="718"/>
+        <location filename="../settings.cpp" line="633"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation>Galat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="252"/>
-        <location filename="../main.cpp" line="254"/>
+        <location filename="../main.cpp" line="253"/>
+        <location filename="../main.cpp" line="255"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation type="unfinished"></translation>
@@ -693,8 +699,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="622"/>
-        <location filename="../settings.cpp" line="712"/>
+        <location filename="../settings.cpp" line="627"/>
+        <location filename="../settings.cpp" line="717"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -706,23 +712,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation>Lisensi</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation>Changelog</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation>Batal</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation>&amp;Tutup</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -746,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation>Galat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>

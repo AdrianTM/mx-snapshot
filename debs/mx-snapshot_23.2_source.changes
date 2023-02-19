@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 19 Feb 2023 13:53:25 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.2) mx; urgency=medium
+ .
+   * Add -w/--workdir option
+   * Update translations
+Checksums-Sha1:
+ 6a99fe2d8888b18931ffa91de8e27750004b8055 1258 mx-snapshot_23.2.dsc
+ 70e3b0e16c6b183e91eaa8825d80590e2c05ce30 149520 mx-snapshot_23.2.tar.xz
+ 8ac562c1b3e529276c423fae79ac226636ad4c88 11007 mx-snapshot_23.2_amd64.buildinfo
+Checksums-Sha256:
+ a9a8f8acf16152055d36b67a0fef4adb1d82ee0e628ce0da5ce435d0a02345ce 1258 mx-snapshot_23.2.dsc
+ e8c0cb1bec568250517371d359e82d40df76c660dbaf23c9a87a49a943c9d577 149520 mx-snapshot_23.2.tar.xz
+ 8f9e0981f101826721edba0e010392c4bcb23a933a43e95ead547057b7647523 11007 mx-snapshot_23.2_amd64.buildinfo
+Files:
+ 34fb598d9c7d2d58a77e5fb16628f2a8 1258 admin optional mx-snapshot_23.2.dsc
+ f005a81b5001e5dc51002fdbfe5467f2 149520 admin optional mx-snapshot_23.2.tar.xz
+ bdd857d8991eaa46abfc392b8c9f3862 11007 admin optional mx-snapshot_23.2_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmPycJITHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNYyB/9O+gRYsBEcPBWDfJNxEIRJw4gBFKKL
+qvy1qAC7UJ/vf1uPAXDhAXnxV5SDFk+hVD6tGLDqzFjqc+SL81NPfxaRIYLm9prv
+/23Pfvelm9cmbXAicqKlUOD03126DndUROsq4z0EOfY96BxiTxMTJAkqW+sK+/kj
+LpM5KB0n2E0Lnz0QgPWCIyW0fX1c9jSqzyJnnW2oTSpdnbHFV6LTU8coPXBPo3W1
+BXygo8pE/5LC+/HOqRXH93nXrqTFj71cXMHU073UjnQtJ4kyM1c74xJzqGvsulcX
+m/Wk3gRhj2IbYqPzNnDYNHf3EKCmMnGcovVfsLjct1vOKjYHzxorodtG
+=K84E
+-----END PGP SIGNATURE-----

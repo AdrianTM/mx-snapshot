@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko">
+<TS version="2.1" language="ko_KR">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation>바탕화면</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation>다음으로</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation>뒤로</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation>도움말</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation>설정</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation>닫기</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -464,6 +464,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
+        <location filename="../main.cpp" line="100"/>
         <source>path</source>
         <translation type="unfinished"></translation>
     </message>
@@ -543,71 +544,76 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="101"/>
+        <location filename="../main.cpp" line="100"/>
+        <source>Work directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="102"/>
         <source>Exclude main folders, valid choices: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="105"/>
         <source>one item</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="107"/>
         <source>Compression format, valid choices: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="108"/>
         <source>format</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="108"/>
+        <location filename="../main.cpp" line="109"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="127"/>
-        <location filename="../main.cpp" line="137"/>
-        <location filename="../main.cpp" line="175"/>
+        <location filename="../main.cpp" line="128"/>
+        <location filename="../main.cpp" line="138"/>
+        <location filename="../main.cpp" line="176"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="149"/>
-        <location filename="../main.cpp" line="183"/>
+        <location filename="../main.cpp" line="150"/>
+        <location filename="../main.cpp" line="184"/>
         <source>version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="157"/>
+        <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="166"/>
+        <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="174"/>
-        <location filename="../main.cpp" line="258"/>
+        <location filename="../main.cpp" line="175"/>
+        <location filename="../main.cpp" line="259"/>
         <location filename="../settings.cpp" line="222"/>
         <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="628"/>
-        <location filename="../settings.cpp" line="718"/>
+        <location filename="../settings.cpp" line="633"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="252"/>
-        <location filename="../main.cpp" line="254"/>
+        <location filename="../main.cpp" line="253"/>
+        <location filename="../main.cpp" line="255"/>
         <location filename="../settings.cpp" line="230"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation type="unfinished"></translation>
@@ -660,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation>바탕화면</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
@@ -693,8 +699,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="622"/>
-        <location filename="../settings.cpp" line="712"/>
+        <location filename="../settings.cpp" line="627"/>
+        <location filename="../settings.cpp" line="717"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -717,7 +723,7 @@
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation>취소</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>

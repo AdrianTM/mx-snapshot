@@ -1,0 +1,30 @@
+Format: 1.8
+Date: Sun, 19 Feb 2023 13:53:25 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.2) mx; urgency=medium
+ .
+   * Add -w/--workdir option
+   * Update translations
+Checksums-Sha1:
+ 284db325c751f20826491518a6baadb83b8a9eb9 174164 iso-snapshot-cli_23.2_i386.deb
+ bde91bae88c8598e6a583beb75641230b458d2b0 10338 mx-snapshot_23.2_i386.buildinfo
+ 0b38f1ddf5c9e2af3c2cedbcc954f8afe361cee4 210500 mx-snapshot_23.2_i386.deb
+Checksums-Sha256:
+ 8eb0b405f7886f7ae6fd8deaac6d9629c88059cc31d2a5e434a54c0e3ab483bb 174164 iso-snapshot-cli_23.2_i386.deb
+ 064f193d435e132ecf3f6f8cc596df4092d74ccc1d37e70831874705d028f337 10338 mx-snapshot_23.2_i386.buildinfo
+ cf903e4bf5ca16d38ce3460bf7b354ccd23df4fa82b0041e9174853cfed424ce 210500 mx-snapshot_23.2_i386.deb
+Files:
+ 921986c5ebc43dd8f538b042d06a7a78 174164 admin optional iso-snapshot-cli_23.2_i386.deb
+ 8d10940dfbcc96c1d372e15f170b7e3e 10338 admin optional mx-snapshot_23.2_i386.buildinfo
+ 83088039cfbf7676c58b0663cc28e659 210500 admin optional mx-snapshot_23.2_i386.deb

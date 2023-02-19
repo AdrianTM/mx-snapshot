@@ -1,3 +1,10 @@
+mx-snapshot (23.2) mx; urgency=medium
+
+  * Add -w/--workdir option
+  * Update translations 
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 19 Feb 2023 13:53:25 -0500
+
 mx-snapshot (23.1.01) mx; urgency=medium
 
   * Better handling if /etc/lsb-release is missing
