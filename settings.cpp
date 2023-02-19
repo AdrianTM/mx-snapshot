@@ -610,6 +610,11 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         && QFileInfo::exists(arg_parser.value(QStringLiteral("directory"))))
         snapshot_dir = arg_parser.value(QStringLiteral("directory"))
                        + (snapshot_dir.endsWith(QLatin1String("/")) ? "snapshot" : "/snapshot");
+
+    if (!arg_parser.value(QStringLiteral("workdir")).isEmpty()
+        && QFileInfo::exists(arg_parser.value(QStringLiteral("workdir"))))
+        tempdir_parent = arg_parser.value(QStringLiteral("workdir"));
+
     if (!arg_parser.value(QStringLiteral("file")).isEmpty())
         snapshot_name
             = arg_parser.value(QStringLiteral("file"))
