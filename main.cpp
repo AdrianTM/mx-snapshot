@@ -97,6 +97,7 @@ int main(int argc, char *argv[])
     parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
     parser.addOption(
         {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
+    parser.addOption({{"w", "workdir"}, QObject::tr("Work directory"), QObject::tr("path")});
     parser.addOption({{"x", "exclude"},
                       QObject::tr("Exclude main folders, valid choices: ")
                           + "Desktop, Documents, Downloads, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
