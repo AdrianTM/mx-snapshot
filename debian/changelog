@@ -1,3 +1,10 @@
+mx-snapshot (23.2.01) mx; urgency=medium
+
+  * Allow to put wordir in tmpfs or ramfs
+  * -- For ramfs you need to pass -o/--override-size because ramfs grows dynamically
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 22 Feb 2023 10:27:12 -0500
+
 mx-snapshot (23.2) mx; urgency=medium
 
   * Add -w/--workdir option
