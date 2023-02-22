@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 22 Feb 2023 10:27:12 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.2.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.2.01) mx; urgency=medium
+ .
+   * Allow to put wordir in tmpfs or ramfs
+   * -- For ramfs you need to pass -o/--override-size because ramfs grows dynamically
+Checksums-Sha1:
+ 6307d595b50f31f84e00999c958788fd99ffeaa7 1270 mx-snapshot_23.2.01.dsc
+ 51a34744efed3d8b5564c83e38de5240ade9bec8 149464 mx-snapshot_23.2.01.tar.xz
+ 9d73e1840a3245fc3f36ff68f19fb31398292114 11120 mx-snapshot_23.2.01_amd64.buildinfo
+Checksums-Sha256:
+ d7ec5fa8f207cabe0fd3ce4a6564a6292eb1da1f435aed8db1085f23bbc90c4f 1270 mx-snapshot_23.2.01.dsc
+ 8d15a0304c6c1dc466951c6893cd3018e8b61b5188aa1cbd76feb52ed7b5d64f 149464 mx-snapshot_23.2.01.tar.xz
+ 3ef8d50df0230bfeb1a9e902799a96ed248d453c9ad86a78838328a4a32ccecf 11120 mx-snapshot_23.2.01_amd64.buildinfo
+Files:
+ 307209f7d3e24b3eb1da50898dba0433 1270 admin optional mx-snapshot_23.2.01.dsc
+ 434fc0093b0373f09e601d0660d96082 149464 admin optional mx-snapshot_23.2.01.tar.xz
+ e209c441c4db896e9935ec62aca38ebf 11120 admin optional mx-snapshot_23.2.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmP2NZETHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumN26CACj5RkgczQU7GqjMUq8/2amNOhLtfyg
+A20iOnyKvc7TnfrC2iXmT3M646igztV+ByPWA56XFFJ2hfrPMzAbb5s2e26xVgxZ
+hUf4QVJ9CptrJR0cKYtLUoxtQv7PhQrP+4o6xIjbvKu/9Yv1H7zo0kUL/5832D4d
+fy7idVlWhmL05aTYUVD5oMM3AUUjdIVPJiH0eO2ANJiyMpJpEgnwwKvw7+zr4zx+
+fBVsIoPTBratGHIdsKcAVZWimFZSFE/9IpXEjKG33bDmrcnXLaBaGRU1G+bQqNHV
+XEhiQR7XI4YDWsCXfALVSSS4qd8XLg2gCm/TnO6CMTRLcPjt26lNU9tp
+=d/3b
+-----END PGP SIGNATURE-----

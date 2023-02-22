@@ -1,0 +1,51 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 22 Feb 2023 10:27:12 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: source amd64
+Version: 23.2.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.2.01) mx; urgency=medium
+ .
+   * Allow to put wordir in tmpfs or ramfs
+   * -- For ramfs you need to pass -o/--override-size because ramfs grows dynamically
+Checksums-Sha1:
+ 6307d595b50f31f84e00999c958788fd99ffeaa7 1270 mx-snapshot_23.2.01.dsc
+ 51a34744efed3d8b5564c83e38de5240ade9bec8 149464 mx-snapshot_23.2.01.tar.xz
+ f0329e8bf116dea9fcc73f4f1475b8479188972a 169404 iso-snapshot-cli_23.2.01_amd64.deb
+ 9d73e1840a3245fc3f36ff68f19fb31398292114 11120 mx-snapshot_23.2.01_amd64.buildinfo
+ 198f78cc4071e43f30b7f02f3633d8110c4af22e 204488 mx-snapshot_23.2.01_amd64.deb
+Checksums-Sha256:
+ d7ec5fa8f207cabe0fd3ce4a6564a6292eb1da1f435aed8db1085f23bbc90c4f 1270 mx-snapshot_23.2.01.dsc
+ 8d15a0304c6c1dc466951c6893cd3018e8b61b5188aa1cbd76feb52ed7b5d64f 149464 mx-snapshot_23.2.01.tar.xz
+ d30b972d0d2599515e4cffbee0fc2319581aba97ad808e2bda336f75c6787b8c 169404 iso-snapshot-cli_23.2.01_amd64.deb
+ 3ef8d50df0230bfeb1a9e902799a96ed248d453c9ad86a78838328a4a32ccecf 11120 mx-snapshot_23.2.01_amd64.buildinfo
+ 59297c4af5d06bae17b0dd7564db01bfea1e6b5c0068f340fe77cc802b19d97a 204488 mx-snapshot_23.2.01_amd64.deb
+Files:
+ 307209f7d3e24b3eb1da50898dba0433 1270 admin optional mx-snapshot_23.2.01.dsc
+ 434fc0093b0373f09e601d0660d96082 149464 admin optional mx-snapshot_23.2.01.tar.xz
+ d5aac3d756cb0568d2b6b7e1988f1835 169404 admin optional iso-snapshot-cli_23.2.01_amd64.deb
+ e209c441c4db896e9935ec62aca38ebf 11120 admin optional mx-snapshot_23.2.01_amd64.buildinfo
+ 4404925ccb88b2246e8f657952792415 204488 admin optional mx-snapshot_23.2.01_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmP2NZATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumIpRCADPVCHusDMPAhexYGbH0t04vaZPBF0D
+iHSOvrRL0tUlvVnpT9tOaRdisp33eWl8yERAl/hECyFcIMBc3AgJ5lfumlg5aMtC
+D9IL0bHSayLw+Gx5UtcB06qmRp89creMLBeJKOubOJwnzh391X0jw2iNVPSxhzHQ
+aJDfLm7STLalHVPcRFLVR1RiwwWGq2PGIFmI5VU9m3461tJd9gHpqQMJDJosrHj+
+K51546WhZBX5POHhsXekJgccVDkfieOdWYpWBfrnDwciNiVoauSM/WOMZDqLupNe
+wTcFv1Blxp4F7cuNQGzRu7Id+uqcGy69P0Fbs29cjWNVAHkml215dD7O
+=Mlqk
+-----END PGP SIGNATURE-----
