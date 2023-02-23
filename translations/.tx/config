@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[antix-development.mx-snapshot]
+[o:anticapitalista:p:antix-development:r:mx-snapshot]
 file_filter = ./mx-snapshot_<lang>.ts
 source_file = mx-snapshot_en.ts
 source_lang = en

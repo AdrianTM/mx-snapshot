@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sr_RS">
+<TS version="2.1" language="sr">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Радна Површ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Одустани</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Помоћ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Близу</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -609,7 +609,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Радна Површ</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
@@ -723,7 +723,7 @@
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Одустани</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
@@ -752,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>

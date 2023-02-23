@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko_KR">
+<TS version="2.1" language="ko">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>바탕화면</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
@@ -213,7 +213,7 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
@@ -223,12 +223,12 @@
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>다음으로</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>뒤로</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>도움말</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>설정</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>닫기</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>바탕화면</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
@@ -723,7 +723,7 @@
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>취소</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>

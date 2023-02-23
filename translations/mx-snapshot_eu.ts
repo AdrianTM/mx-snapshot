@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="eu_ES">
+<TS version="2.1" language="eu">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mahaigaina</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
@@ -238,7 +238,7 @@
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Laguntza</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Irten</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mahaigaina</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>

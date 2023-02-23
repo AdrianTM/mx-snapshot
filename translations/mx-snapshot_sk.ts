@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="sk_SK">
+<TS version="2.1" language="sk">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -21,7 +21,7 @@
         <location filename="../mainwindow.cpp" line="158"/>
         <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot je aplikácia na tvorbu spustiteľných (ISO) obrazov vášho funkčného systému, ktoré môžete použiť pre zálohovanie alebo distribúciu. Počas tvorby zálohy môžete paralelne používať nemej náročné aplikácie.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Použitý priestor na diskoch / (root) a /home:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
@@ -71,24 +71,24 @@
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Zložka obrazu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte inú zložku pre obraz</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Názov obrazu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
         <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>Textové označenie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="338"/>
@@ -98,37 +98,37 @@
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Hudba</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
-        <translation type="unfinished"></translation>
+        <translation>Všetko uvedené vyššie</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumenty</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiahnuté</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Pracovná plocha</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videá</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -143,27 +143,27 @@
     <message>
         <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"></translation>
+        <translation>Zachovať kontá (pre vlastné zazálohovanie)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>Typ obrazu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Táto voľba zresetuje heslá pre &amp;quot;demo&amp;quot; a &amp;quot;root&amp;quot; na MX Linux predvolené a neprenesie žiadne uživateľom vytvorené kontá.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetovať kontá (distribúcia iným)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation>Upraviť zoznam vynechaných</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="577"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenia:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -193,57 +193,57 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>O tejto aplikácii</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>O Programe</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>Zatvoriť aplikáciu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Nasledujúce</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Späť</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Zobraziť nápovedu</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Pomocník</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -273,7 +273,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Voľné miesto na disku %1, na ktorom je obraz umiestnený: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -283,23 +283,28 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Voľné miesto musí byť dostatočné pre umiestnenie komprimovaných dát z diskov / a /home
+
+Ak to bude nutné, môžete uvoľnit miesto
+odstránením predošlých obrazov alebo kópií systému:
+%1 obrazy zaberajú %2 diskového priestoru.
+</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Inštalácia</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>Čakajte prosím...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation type="unfinished"></translation>
+        <translation>Čakajte prosím, vypočítava sa použité miesto na disku...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="312"/>
@@ -307,7 +312,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -317,22 +322,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nastavenia</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
-        <translation type="unfinished"></translation>
+        <translation>Použijú sa nasledujúce nastavenia:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>- Zložka pre umiestnenie obrazu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
-        <translation type="unfinished"></translation>
+        <translation>- Linuxové jadro:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="341"/>
@@ -342,22 +347,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="348"/>
         <source>Final chance</source>
-        <translation type="unfinished"></translation>
+        <translation>Posledná šanca</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="350"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot má všetky potrebné informácie k vytvoreniu súboru ISO z vášho funkčného systému.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="351"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvorba obrazu zaberie nejaký čas, v závislosti na veľkosti nainštalovaného systému a výkone vášho PC. </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
-        <translation type="unfinished"></translation>
+        <translation>Chcete začať?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
@@ -377,67 +382,67 @@
     <message>
         <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Výstup</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Upraviť štartovnú ponuku</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>Program sa pozastaví aby Vám umožnil upraviť súbory v pracovnej zložke. Zvoľte Ano pre editáciu štartovnej ponuky alebo Nie ak si prajete preskočiť tento krok a pokračovať v tvorbe obrazu.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Zavrieť</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Okolo %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Verzia:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Program pre tvorbu Live-CD z funkčného operačného systému MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Licencia</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Pomoc</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Zvoľte zložku pre snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Potvrdenie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation type="unfinished"></translation>
+        <translation>Skutočne si prajete ukončiť program?</translation>
     </message>
 </context>
 <context>
@@ -531,7 +536,7 @@
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Resetovať kontá (distribúcia iným)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -594,12 +599,12 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento program musíte spustiť ako užívateľ root.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="175"/>
@@ -609,7 +614,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -636,7 +641,7 @@
     <message>
         <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished"></translation>
+        <translation>Použitý priestor na disku / (root):</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="349"/>
@@ -646,12 +651,12 @@
     <message>
         <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished"></translation>
+        <translation>Použitý priestor na disku /home:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Voľné miesto na disku %1, na ktorom je obraz umiestnený: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="415"/>
@@ -661,27 +666,32 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Voľné miesto musí byť dostatočné pre umiestnenie komprimovaných dát z diskov / a /home
+
+Ak to bude nutné, môžete uvoľnit miesto
+odstránením predošlých obrazov alebo kópií systému:
+%1 obrazy zaberajú %2 diskového priestoru.
+</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Pracovná plocha</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumenty</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Stiahnuté</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Hudba</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
@@ -691,12 +701,12 @@
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Obrázky</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videá</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,23 +722,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencia</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>História zmien</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Zrušiť</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Zatvoriť</translation>
     </message>
 </context>
 <context>
@@ -736,14 +746,14 @@
     <message>
         <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"></translation>
+        <translation>Čistenie...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="112"/>
         <location filename="../work.cpp" line="120"/>
         <location filename="../work.cpp" line="276"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Hotovo</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
@@ -752,7 +762,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Chyba</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -772,7 +782,7 @@
     <message>
         <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopíruje sa nový ISO systém súborov....</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="193"/>
@@ -782,32 +792,32 @@
     <message>
         <location filename="../work.cpp" line="230"/>
         <source>Squashing filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvorba systému súborov...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="234"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa vytvoriť súbor linuxfs, prosím skontrolujte, či máte v cieľom umiestnení dostatok voľného miesta </translation>
     </message>
     <message>
         <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Vytváranie CD/DVD obrazu...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa vytvoriť ISO súbor, prosím skontrolujte, či máte v cieľom umiestnení dostatok voľného miesta.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvorba hybridného ISO</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Úspech</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,12 +837,12 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Inštalácia</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepodarilo sa nainštalovať</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="305"/>
@@ -842,7 +852,7 @@
     <message>
         <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
-        <translation type="unfinished"></translation>
+        <translation>Tvorba nového initrd...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="412"/>

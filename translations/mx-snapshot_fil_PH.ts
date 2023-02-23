@@ -6,7 +6,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>May error</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ang Snapshot ay isang kagamitan na gumagawa ng bootable na image (ISO) ng iyong umaandar na sistema at maaring gamitin para sa pagsisinop o pamamahagi. Maari kang magpatuloy sa pagtatrabaho sa mga application na hindi mapagkailangan samantalang ito ay umaandar.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ang lugar na nagagamitsa / (root) at /home partition:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
@@ -71,24 +71,24 @@
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kinaroroonan ng Snapshot location:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pumili ng ibang directory ng snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Pangalan ng Snapshot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
         <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="338"/>
@@ -98,37 +98,37 @@
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictures</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Music</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
-        <translation type="unfinished"></translation>
+        <translation>Lahat ng mga nasa taas.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Documents</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -143,12 +143,12 @@
     <message>
         <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagpapanatili ng kwenta (para sa pansariling backup)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uri ng snapshot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
@@ -158,12 +158,12 @@
     <message>
         <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagsasagawa ng resetting ng kwenta (para sa pamamahagi sa iba)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit Exclusion File</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="577"/>
@@ -188,62 +188,62 @@
     <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>ISO compression scheme:</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO compression scheme:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>Patungkol sa application na ito</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>Patungkol sa...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>Iwan ang application</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>I-cancel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Kasunod</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Magbalik</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Maghanap ng tulong</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Tulong</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -273,7 +273,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas na espasyo sa %1, kung saan ang snapshot ay nakalulan: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -283,13 +283,18 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Ang bakanteng espasyo ay dapat sapat para maisagawa ang compress na data mula sa / at /home
+
+      Kung kinakailangan ay magbukas pa ng mas malaking lugar
+      sa pamamagitan ng pag-aalis ng nakaraang snapshot at mga naka tagong mga kopya:
+     Ang %1 snapshot ay umuukupa ng hanggang %2 ng bakanteng lugar.
+</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Nag-iinstall</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
@@ -307,7 +312,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>May error</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -392,17 +397,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Isara</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Patungkol sa %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Bersyon: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,17 +417,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Karapatan (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Pahintulot</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 Tulong</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
@@ -531,7 +536,7 @@
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagsasagawa ng resetting ng kwenta (para sa pamamahagi sa iba)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -594,7 +599,7 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dapat paandaring ang program na ito bilang root.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
@@ -609,7 +614,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>May error</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -636,7 +641,7 @@
     <message>
         <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished"></translation>
+        <translation>Nagamit na espasyo sa / (root): </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="349"/>
@@ -646,12 +651,12 @@
     <message>
         <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished"></translation>
+        <translation>Nagamit na espasyo sa /home: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Bukas na espasyo sa %1, kung saan ang snapshot ay nakalulan: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="415"/>
@@ -661,27 +666,32 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>Ang bakanteng espasyo ay dapat sapat para maisagawa ang compress na data mula sa / at /home
+
+      Kung kinakailangan ay magbukas pa ng mas malaking lugar
+      sa pamamagitan ng pag-aalis ng nakaraang snapshot at mga naka tagong mga kopya:
+     Ang %1 snapshot ay umuukupa ng hanggang %2 ng bakanteng lugar.
+</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Desktop</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Documents</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Downloads</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Music</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
@@ -691,12 +701,12 @@
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Pictures</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Videos</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,23 +722,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Lisensya</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Ulat na mga pagbabago</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Huwag ituloy</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Isara</translation>
     </message>
 </context>
 <context>
@@ -752,7 +762,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>May error</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -772,7 +782,7 @@
     <message>
         <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kumokopya ng new-iso filesystem...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="193"/>
@@ -782,22 +792,22 @@
     <message>
         <location filename="../work.cpp" line="230"/>
         <source>Squashing filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>Squashing ng filesystem...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="234"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Di maaring makagawa ng linuxfs file, tiyakin kung mayroong sapat ng lugar na paglalagyan sa tinutungong partition.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagsasagawa ng image file ng CD/DVD ...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Di maaring makagawa ng ISO file, tingnan kung may sapat na espasyo sa pinatutunguhang partition.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="263"/>
@@ -807,7 +817,7 @@
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Tagumpay</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,12 +837,12 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Nag-iinstall</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
-        <translation type="unfinished"></translation>
+        <translation>Hindi maaring makapag-install</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="305"/>
@@ -842,7 +852,7 @@
     <message>
         <location filename="../work.cpp" line="341"/>
         <source>Building new initrd...</source>
-        <translation type="unfinished"></translation>
+        <translation>Nagtatatag ng bagong initrd...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="412"/>

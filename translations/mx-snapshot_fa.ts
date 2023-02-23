@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fa_IR">
+<TS version="2.1" language="fa">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -123,12 +123,12 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>میزکار </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>ویدیوها</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -193,32 +193,32 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>درباره این نرم افزار</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>درباره...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>خروج از برنامه</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>لغو</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
@@ -233,17 +233,17 @@
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>نمایش راهنما</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>راهنما </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -392,17 +392,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>بستن</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>درباره 1%</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>نسخه:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,17 +412,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>مجوز 1%</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>راهنمای 1%</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
@@ -594,7 +594,7 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>شما باید این برنامه را در حالت root اجرا کنید.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>میزکار </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
@@ -696,7 +696,7 @@
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>ویدیوها</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,23 +712,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>لایسنس</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>لیست موارد بهبود یافته</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>لغو</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>و بستن</translation>
     </message>
 </context>
 <context>

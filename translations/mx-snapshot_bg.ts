@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="bg_BG">
+<TS version="2.1" language="bg">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -123,7 +123,7 @@
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Работен плот</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
@@ -193,17 +193,17 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>Относно това приложение</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>Относно...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
@@ -213,37 +213,37 @@
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отмяна</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Следващ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Помощ за дисплея</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Затвори</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -402,7 +402,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Версия:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,7 +412,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
@@ -594,7 +594,7 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>Трябва да стартирате тази програма като администратор.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
@@ -609,7 +609,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -666,7 +666,7 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Работен плот</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
@@ -712,23 +712,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Лиценз</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Промени</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Отказ</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Затвори</translation>
     </message>
 </context>
 <context>
@@ -736,7 +736,7 @@
     <message>
         <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"></translation>
+        <translation>Почистване...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="112"/>
@@ -752,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Грешка</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -802,7 +802,7 @@
     <message>
         <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
-        <translation type="unfinished"></translation>
+        <translation>Създаване на хибридно </translation>
     </message>
     <message>
         <location filename="../work.cpp" line="281"/>
