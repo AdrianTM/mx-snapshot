@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="lt_LT">
+<TS version="2.1" language="lt">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaida</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -21,7 +21,7 @@
         <location filename="../mainwindow.cpp" line="158"/>
         <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX momentinė kopija</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
@@ -61,7 +61,7 @@
     <message>
         <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>Panaudota vieta / (šaknies) ir /home skaidiniuose:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
@@ -71,18 +71,18 @@
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>Momentinės kopijos vieta:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasirinkti kitą momentinės kopijos katalogą</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Momentinės kopijos pavadinimas:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
@@ -98,37 +98,37 @@
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Paveikslai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Muzika</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
-        <translation type="unfinished"></translation>
+        <translation>Viskas iš aukščiau paminėtų</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsiuntimai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Darbalaukis</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaizdo įrašai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -138,17 +138,17 @@
     <message>
         <location filename="../mainwindow.ui" line="467"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>Tinklai</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"></translation>
+        <translation>Išsaugant paskyras (asmeninei atsarginei kopijai)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>Momentinės kopijos tipas:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
@@ -158,7 +158,7 @@
     <message>
         <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Atstatant paskyras (platinimui kitiems žmonėms)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="554"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Parametrai:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -188,62 +188,62 @@
     <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>ISO compression scheme:</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO glaudinimo schema:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie šią programą</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>Išeiti iš programos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>Tolesnis</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>Atgal</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>Rodyti žinyną</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Žinynas</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -273,7 +273,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Laisva vieta %1 skaidinyje, kuriame yra patalpintas momentinės kopijos aplankas: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -289,17 +289,17 @@
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Įdiegiama </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prašome palaukti.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation type="unfinished"></translation>
+        <translation>Prašome palaukti. Apskaičiuojama panaudota disko vieta...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="312"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaida</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -317,22 +317,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Nuostatos</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
-        <translation type="unfinished"></translation>
+        <translation>Momentinė kopija naudos šiuos nustatymus:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>- Momentinės kopijos katalogas:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
-        <translation type="unfinished"></translation>
+        <translation>- Bus naudojamas branduolys:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="341"/>
@@ -357,7 +357,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
-        <translation type="unfinished"></translation>
+        <translation>Galima pradėti?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
@@ -367,7 +367,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti darbinio katalogo.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
@@ -377,7 +377,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>Išvestis</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
@@ -392,17 +392,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Užverti</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Apie %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>Versija: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,32 +412,32 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>Autorių teisės (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 licencija</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 žinynas</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pasirinkite momentinės kopijos katalogą</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>Patvirtinimas</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ar tikrai norite išeiti iš programos?</translation>
     </message>
 </context>
 <context>
@@ -531,7 +531,7 @@
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>Atstatant paskyras (platinimui kitiems žmonėms)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -589,17 +589,17 @@
         <location filename="../main.cpp" line="150"/>
         <location filename="../main.cpp" line="184"/>
         <source>version:</source>
-        <translation type="unfinished"></translation>
+        <translation>versija:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>Privalote paleisti šią programą kaip pagrindinis (root) naudotojas.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX momentinė kopija</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="175"/>
@@ -609,7 +609,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaida</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -621,12 +621,12 @@
     <message>
         <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti darbinio katalogo.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti laikinojo katalogo.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="217"/>
@@ -636,7 +636,7 @@
     <message>
         <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished"></translation>
+        <translation>Panaudota vieta / (šaknies) skaidinyje: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="349"/>
@@ -646,12 +646,12 @@
     <message>
         <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished"></translation>
+        <translation>Panaudota vieta /home skaidinyje: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>Laisva vieta %1 skaidinyje, kuriame yra patalpintas momentinės kopijos aplankas: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="415"/>
@@ -666,37 +666,37 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Darbalaukis</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokumentai</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsiuntimai</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>Muzika</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>Tinklai</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>Paveikslai</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaizdo įrašai</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,23 +712,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>Licencija</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>Keitinių žurnalas</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Atsisakyti</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Užverti</translation>
     </message>
 </context>
 <context>
@@ -736,14 +736,14 @@
     <message>
         <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"></translation>
+        <translation>Išvaloma...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="112"/>
         <location filename="../work.cpp" line="120"/>
         <location filename="../work.cpp" line="276"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Atlikta</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
@@ -752,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Klaida</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -772,12 +772,12 @@
     <message>
         <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kopijuojama new-iso failų sistema...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti laikinojo katalogo.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="230"/>
@@ -787,17 +787,17 @@
     <message>
         <location filename="../work.cpp" line="234"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti linuxfs failo, prašome patikrinti ar paskirties skaidinyje yra pakankamai vietos.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished"></translation>
+        <translation>Kuriamas CD/DVD atvaizdžio failas...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti ISO failo, prašome patikrinti ar paskirties skaidinyje yra pakankamai vietos.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="263"/>
@@ -807,7 +807,7 @@
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>Pavyko</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,12 +827,12 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>Įdiegiama </translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko įdiegti</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="305"/>
@@ -847,7 +847,7 @@
     <message>
         <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nepavyko sukurti darbinio katalogo.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="558"/>

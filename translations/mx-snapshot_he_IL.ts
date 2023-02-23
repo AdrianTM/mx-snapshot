@@ -6,7 +6,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>שגיאה</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -21,7 +21,7 @@
         <location filename="../mainwindow.cpp" line="158"/>
         <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>תמונות מערכת MX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
@@ -71,7 +71,7 @@
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>מיקום תמונת המערכת:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -82,7 +82,7 @@
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>שם תמונת המערכת:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
@@ -98,12 +98,12 @@
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>תמונות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>מוזיקה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
@@ -113,22 +113,22 @@
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>מסמכים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>הורדות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>שולחן עבודה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>סרטונים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -138,7 +138,7 @@
     <message>
         <location filename="../mainwindow.ui" line="467"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>רשתות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="505"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>אפשרויות:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -193,57 +193,57 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>על אודות יישום זה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>על אודות…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>יציאה מהיישום</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>ביטול</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>קדימה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>אחורה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>הצגת עזרה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>עזרה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -289,12 +289,12 @@
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>מתבצעת התקנה</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>נא להמתין.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>שגיאה</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -317,7 +317,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>הגדרות</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
@@ -367,22 +367,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Could not create temporary directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא היה ניתן ליצור תיקייה זמנית.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>יציאה</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>עריכת תפריט טעינה</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
@@ -392,17 +392,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>סגירה</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>על אודות %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>גירסה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
@@ -412,32 +412,32 @@
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>זכויות היוצרים (c) שמורות ל־MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>רישיון של %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>עזרה עבור %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>בחירת תיקייה לתמונות המערכת</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>אישור</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation type="unfinished"></translation>
+        <translation>לצאת מהיישום?</translation>
     </message>
 </context>
 <context>
@@ -460,7 +460,7 @@
     <message>
         <location filename="../main.cpp" line="75"/>
         <source>Output directory</source>
-        <translation type="unfinished"></translation>
+        <translation>תיקיית פלט</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
@@ -594,12 +594,12 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>חובה להריץ את התכנית הזו כמשתמש שורש (root).</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>תמונות מערכת MX</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="175"/>
@@ -609,7 +609,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>שגיאה</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -621,7 +621,7 @@
     <message>
         <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
@@ -666,37 +666,37 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>שולחן עבודה</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>מסמכים</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>הורדות</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>מוזיקה</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>רשתות</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>תמונות</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>סרטונים</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,23 +712,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>רישיון</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>יומן שינויים</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>ביטול</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;סגירה</translation>
     </message>
 </context>
 <context>
@@ -743,7 +743,7 @@
         <location filename="../work.cpp" line="120"/>
         <location filename="../work.cpp" line="276"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>בוצע</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
@@ -752,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>שגיאה</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -807,7 +807,7 @@
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>הצלחה</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,7 +827,7 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>כעת בהתקנה</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
@@ -847,7 +847,7 @@
     <message>
         <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="558"/>

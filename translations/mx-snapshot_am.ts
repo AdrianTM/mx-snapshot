@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="am_ET">
+<TS version="2.1" language="am">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ስህተት</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -21,7 +21,7 @@
         <location filename="../mainwindow.cpp" line="158"/>
         <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX የ መመልከቻ ፎቶ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
@@ -56,12 +56,12 @@
     <message>
         <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;የ መመልከቻ ፎቶ የ (ISO) ማስነሻ ምስል መፍጠሪያ መሳሪያ ነው: ከ እርስዎ የ መስሪያ ስርአት ውስጥ:  እርስዎ ሊጠቀሙበት የሚችሉት ለ ማጠራቀሚያ ወይንም ለ ስርጭት: እርስዎ መጠቀም መቀጠል ይችላሉ በርካታ ትኩረት የማይፈልግ መተግበሪያ ይህን በሚያስኬዱ ጊዜ&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ተጠቀሙት ቦታ በ / (root) እና በ /ቤት ክፍልፋይ ውስጥ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
@@ -71,24 +71,24 @@
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ አካባቢ: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ተለየ የ መመልከቻ ፎቶ ዳይሬክቶሪ ይምረጡ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ ስም: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
         <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ጽሁፍ ምልክት</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="338"/>
@@ -98,37 +98,37 @@
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>ስእሎች</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>ሙዚቃ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
-        <translation type="unfinished"></translation>
+        <translation>ሁሉንም ከ ላይ ያሉ </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>ሰነዶች</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ወረዱ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>ዴስክቶፕ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>ቪዲዮ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
@@ -143,12 +143,12 @@
     <message>
         <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"></translation>
+        <translation>መግለጫ በ ማስቀመጥ ላይ (ለ ግል ተተኪ)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ አይነት</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
@@ -158,12 +158,12 @@
     <message>
         <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>መግለጫ እንደ ነበር ማሰናጃ (ለሌሎች ስርጭቶች)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation>የማይካተቱ ፋይሎች ማረሚያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="577"/>
@@ -173,7 +173,7 @@
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>ምርጫዎች</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
@@ -193,57 +193,57 @@
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>ስለዚህ መተግበሪያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>ስለ...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>መተግበሪያ ማጥፊያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>መሰረዣ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>ይቀጥሉ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>ወደ ኋላ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>እርዳታ ማሳያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>እርዳታ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
@@ -273,7 +273,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>ነፃ ቦታ በ %1, የ መመልከቻ ፎቶ ፎልደር የሚቀመጥበት:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -289,17 +289,17 @@
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>በ መግጠም ላይ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>እባክዎን ይቆዩ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation type="unfinished"></translation>
+        <translation>እባክዎን ይቆዩ: የ ተጠቀሙትን የ ዲስክ ቦታ በ ማስላት ላይ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="312"/>
@@ -307,7 +307,7 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ስህተት</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
@@ -317,22 +317,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>ማሰናጃ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ የሚቀጥለውን ማሰናጃ ይጠቀማል:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ ዳይሬክቶሪ </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
-        <translation type="unfinished"></translation>
+        <translation>- Kernel የሚጠቀሙት:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="341"/>
@@ -342,22 +342,22 @@
     <message>
         <location filename="../mainwindow.cpp" line="348"/>
         <source>Final chance</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መጨረሻ ዕድል</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="350"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ አሁን በቂ መረጃ አለው ISO ለ መፍጠር እርስዎ ከሚያስኬዱት ስርአት ውስጥ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="351"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>ይህ ትንሽ ጊዜ ይወስዳል ለ መጨረስ: እንደ ተገጠመው ስርአት መጠን እና የ እርስዎ ኮምፒዩተር ፍጥነት </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
-        <translation type="unfinished"></translation>
+        <translation>እሺ ለ ማስጀመር?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
@@ -377,12 +377,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>ውጤት</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ማስነሻ ዝርዝር ማረሚያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
@@ -392,7 +392,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>መዝጊያ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
@@ -402,17 +402,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>እትም</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>እርስዎ ከሚያስኬዱት በ ቀጥታ-ሲዲ የ MX ሊነክስ ለ መፍጠር የሚያስችል ፕሮግራም </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ቅጂ መብት (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
@@ -427,17 +427,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>የ መመልከቻ ፎቶ ዳይሬክቶሪ ይምረጡ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>ማረጋገጫ</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation type="unfinished"></translation>
+        <translation>እርስዎ በ እርግጥ መተግበሪያውን ማቋረጥ ይፈልጋሉ?  </translation>
     </message>
 </context>
 <context>
@@ -531,7 +531,7 @@
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>መግለጫ እንደ ነበር ማሰናጃ (ለሌሎች ስርጭቶች)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -594,12 +594,12 @@
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>ይህን ፕሮግራም እንደ root ማስኬድ አለብዎት</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX የ መመልከቻ ፎቶ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="175"/>
@@ -609,7 +609,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ስህተት</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -636,7 +636,7 @@
     <message>
         <location filename="../settings.cpp" line="346"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished"></translation>
+        <translation>የ ተጠቀሙት ቦታ በ / (root): </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="349"/>
@@ -646,12 +646,12 @@
     <message>
         <location filename="../settings.cpp" line="360"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished"></translation>
+        <translation>የ ተጠቀሙት ቦታ በ /home: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>ነፃ ቦታ በ %1, የ መመልከቻ ፎቶ ፎልደር የሚቀመጥበት:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="415"/>
@@ -666,22 +666,22 @@
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>ዴስክቶፕ</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>ሰነዶች</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ወረዱ</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>ሙዚቃ</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
@@ -691,12 +691,12 @@
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>ስእሎች</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>ቪዲዮ</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
@@ -712,7 +712,7 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>ፍቃድ</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
@@ -723,12 +723,12 @@
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>መሰረዣ</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;መዝጊያ</translation>
     </message>
 </context>
 <context>
@@ -736,14 +736,14 @@
     <message>
         <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
-        <translation type="unfinished"></translation>
+        <translation>በ መፍጠር ላይ...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="112"/>
         <location filename="../work.cpp" line="120"/>
         <location filename="../work.cpp" line="276"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>ጨርሷል</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
@@ -752,7 +752,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>ስህተት</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -772,7 +772,7 @@
     <message>
         <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>አዲሱን የ ፋይል ስርአት ኮፒ በ ማድረግ ላይ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="193"/>
@@ -782,32 +782,32 @@
     <message>
         <location filename="../work.cpp" line="230"/>
         <source>Squashing filesystem...</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ፋይል ስርአት በ ማመቅ ላይ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="234"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>የ linuxfs ፋይል መፍጠር አልተቻለም: እባክዎን በቂ ነፃ ቦታ እንዳለዎት ያረጋግጡ በ መድረሻው ክፍልፋይ ላይ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ሲዲ/ዲቪዲ ምስል ፋይል በ መፍጠር ላይ...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation type="unfinished"></translation>
+        <translation>የ ISO ፋይል መፍጠር አልተቻለም: እባክዎን በቂ ነፃ ቦታ እንዳለዎት ያረጋግጡ በ መድረሻው ክፍልፋይ ላይ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="263"/>
         <source>Making hybrid iso</source>
-        <translation type="unfinished"></translation>
+        <translation>የ hybrid iso ማሰናጃ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>ተሳክቷል</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,12 +827,12 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>በ መግጠም ላይ</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
         <source>Could not install </source>
-        <translation type="unfinished"></translation>
+        <translation>መግጠም አልተቻለም</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="305"/>

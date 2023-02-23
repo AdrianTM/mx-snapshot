@@ -6,12 +6,12 @@
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="unfinished"></translation>
+        <translation>当前内核不支持选择的压缩算法，请编辑配置文件并选择不同的算法。</translation>
     </message>
 </context>
 <context>
@@ -21,259 +21,259 @@
         <location filename="../mainwindow.cpp" line="158"/>
         <location filename="../mainwindow.cpp" line="415"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="30"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>可选定制项</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="43"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>启动选项：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="70"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>发布日期：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="91"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>项目名称：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="98"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>发布版本：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="112"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>发布代号：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot 是一种实用工具，可以为您的工作系统创建可引导镜像 (ISO)，您可以将其用于存储或分发。您可以在运行时继续使用要求不高的应用程序。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="151"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>/ (root) 和 /home 分区上的已用空间：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="161"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>位置和 ISO 名称</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="188"/>
         <source>Snapshot location:</source>
-        <translation type="unfinished"></translation>
+        <translation>快照位置：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>选择不同的快照目录</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="206"/>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Snapshot name:</source>
-        <translation type="unfinished"></translation>
+        <translation>快照名称：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="308"/>
         <location filename="../mainwindow.ui" line="370"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="338"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation type="unfinished"></translation>
+        <translation>您还可以通过勾选下面的常用选项来排除某些目录，或者通过单击按钮直接编辑 /etc/mx-snapshot-exclude.list。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="395"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="412"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="419"/>
         <source>All of the above</source>
-        <translation type="unfinished"></translation>
+        <translation>以上全部</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="426"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>文档</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="433"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="440"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>视频</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="464"/>
         <source>exclude network configurations</source>
-        <translation type="unfinished"></translation>
+        <translation>排除网络配置</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="467"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>网络</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="505"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation type="unfinished"></translation>
+        <translation>保留帐户（用于个人备份）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="515"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>快照类型：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="535"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;此选项会将“demo”和“root”密码重置为 MX Linux 默认值，并且不会复制任何已创建的个人帐户。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="538"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>重置帐户（用于分发给他人）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="554"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑排除文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="577"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="584"/>
         <source>Options:</source>
-        <translation type="unfinished"></translation>
+        <translation>选项：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="604"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="611"/>
         <source>Calculate checksums:</source>
-        <translation type="unfinished"></translation>
+        <translation>计算校验和：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>ISO compression scheme:</source>
-        <translation type="unfinished"></translation>
+        <translation>ISO压缩方案：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="733"/>
         <source>About this application</source>
-        <translation type="unfinished"></translation>
+        <translation>关于此软件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="736"/>
         <source>About...</source>
-        <translation type="unfinished"></translation>
+        <translation>关于…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="743"/>
         <source>Alt+B</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="759"/>
         <source>Quit application</source>
-        <translation type="unfinished"></translation>
+        <translation>退出应用程序</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="762"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="769"/>
         <source>Alt+N</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="801"/>
         <source>Next</source>
-        <translation type="unfinished"></translation>
+        <translation>下一页</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="849"/>
         <source>Back</source>
-        <translation type="unfinished"></translation>
+        <translation>后退</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="866"/>
         <source>Display help </source>
-        <translation type="unfinished"></translation>
+        <translation>显示帮助</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="869"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>帮助</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="876"/>
         <source>Alt+H</source>
-        <translation type="unfinished"></translation>
+        <translation>Alt+H</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
         <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
+        <translation>最快，最差的压缩</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="164"/>
         <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
+        <translation>快速，较差的压缩</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="165"/>
         <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
+        <translation>慢，更好的压缩</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="165"/>
         <source>best compromise</source>
-        <translation type="unfinished"></translation>
+        <translation>最好的这种</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="166"/>
         <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
+        <translation>最慢，最好的压缩</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="193"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>%1 上的可用空间，其中放置快照文件夹:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="196"/>
@@ -283,23 +283,28 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>可用空间应足以容纳来自 / 和 /home 的压缩数据
+
+  如有必要，您可以创建更多可用空间
+  通过删除以前的快照和保存的副本：
+  %1 个快照占用了 %2 的磁盘空间。
+</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="206"/>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>正在安装</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="297"/>
         <source>Please wait.</source>
-        <translation type="unfinished"></translation>
+        <translation>请稍等。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="299"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation type="unfinished"></translation>
+        <translation>请稍等。正在计算已用磁盘空间...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="312"/>
@@ -307,137 +312,137 @@
         <location filename="../mainwindow.cpp" line="369"/>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>输出文件 %1 已经存在。请使用其他文件名，或删除现有文件。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="320"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="325"/>
         <source>Snapshot will use the following settings:*</source>
-        <translation type="unfinished"></translation>
+        <translation>快照将使用以下设置：*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="327"/>
         <source>- Snapshot directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>- 快照目录：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>- Kernel to be used:</source>
-        <translation type="unfinished"></translation>
+        <translation>- 要使用的内核：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="341"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="unfinished"></translation>
+        <translation>当前内核不支持选择的压缩算法，请编辑配置文件并选择不同的算法。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="348"/>
         <source>Final chance</source>
-        <translation type="unfinished"></translation>
+        <translation>最后确认</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="350"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot 现在拥有从正在运行的系统创建 ISO 所需的所有信息。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="351"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
-        <translation type="unfinished"></translation>
+        <translation>这将需要一些时间才能完成，具体时长取决于已安装系统的大小和计算机的容量。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
         <source>OK to start?</source>
-        <translation type="unfinished"></translation>
+        <translation>准备好要开始了吗？</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>完成后关闭计算机。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建工作目录。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Could not create temporary directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建临时目录。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="381"/>
         <source>Output</source>
-        <translation type="unfinished"></translation>
+        <translation>输出</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Edit Boot Menu</source>
-        <translation type="unfinished"></translation>
+        <translation>编辑启动菜单</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="394"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation type="unfinished"></translation>
+        <translation>程序现在将暂停以允许您编辑工作目录中的任何文件。选择“是”来编辑启动菜单或选择“否”绕过此步骤并继续创建快照。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="407"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="489"/>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>关于 %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="491"/>
         <source>Version: </source>
-        <translation type="unfinished"></translation>
+        <translation>版本:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="492"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>从正在运行的 MX Linux 系统创建 live-CD 的程序</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="494"/>
         <source>Copyright (c) MX Linux</source>
-        <translation type="unfinished"></translation>
+        <translation>版权所有(c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="496"/>
         <source>%1 License</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 许可证</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="510"/>
         <source>%1 Help</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 帮助</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="518"/>
         <source>Select Snapshot Directory</source>
-        <translation type="unfinished"></translation>
+        <translation>选择快照目录</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Confirmation</source>
-        <translation type="unfinished"></translation>
+        <translation>确认</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="540"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation type="unfinished"></translation>
+        <translation>您确定要退出吗？</translation>
     </message>
 </context>
 <context>
@@ -445,12 +450,12 @@
     <message>
         <location filename="../batchprocessing.cpp" line="67"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
-        <translation type="unfinished"></translation>
+        <translation>程序将暂停构建并在你的文本编辑器中打开启动菜单。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="69"/>
         <source>Tool used for creating a live-CD from the running system</source>
-        <translation type="unfinished"></translation>
+        <translation>用于从正在运行的系统创建 live-CD 的工具</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="73"/>
@@ -460,23 +465,23 @@
     <message>
         <location filename="../main.cpp" line="75"/>
         <source>Output directory</source>
-        <translation type="unfinished"></translation>
+        <translation>输出目录</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="75"/>
         <location filename="../main.cpp" line="100"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>目录</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="76"/>
         <source>Output filename</source>
-        <translation type="unfinished"></translation>
+        <translation>输出文件名</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="76"/>
         <source>name</source>
-        <translation type="unfinished"></translation>
+        <translation>名称</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="78"/>
@@ -531,7 +536,7 @@
     <message>
         <location filename="../main.cpp" line="96"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation type="unfinished"></translation>
+        <translation>重置帐户（用于分发给他人）</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -576,30 +581,30 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>完成后关闭计算机。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="128"/>
         <location filename="../main.cpp" line="138"/>
         <location filename="../main.cpp" line="176"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"></translation>
+        <translation>您似乎是以 root 身份登录的，请注销并以普通用户身份登录以使用该程序。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="150"/>
         <location filename="../main.cpp" line="184"/>
         <source>version:</source>
-        <translation type="unfinished"></translation>
+        <translation>版本：</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="158"/>
         <source>You must run this program as root.</source>
-        <translation type="unfinished"></translation>
+        <translation>您必须以 root 用户身份运行该程序。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="167"/>
         <source>MX Snapshot</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="175"/>
@@ -609,7 +614,7 @@
         <location filename="../settings.cpp" line="633"/>
         <location filename="../settings.cpp" line="723"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
@@ -621,7 +626,7 @@
     <message>
         <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建工作目录。</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
@@ -651,7 +656,7 @@
     <message>
         <location filename="../settings.cpp" line="411"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation type="unfinished"></translation>
+        <translation>%1 上的可用空间，其中放置快照文件夹:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="415"/>
@@ -661,48 +666,52 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>可用空间应足以容纳来自 / 和 /home 的压缩数据
+
+  如有必要，您可以创建更多可用空间
+  通过删除以前的快照和保存的副本：
+  %1 个快照占用了 %2 的磁盘空间。</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="433"/>
         <source>Desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>桌面</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="435"/>
         <source>Documents</source>
-        <translation type="unfinished"></translation>
+        <translation>文档</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="437"/>
         <source>Downloads</source>
-        <translation type="unfinished"></translation>
+        <translation>下载</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="439"/>
         <source>Music</source>
-        <translation type="unfinished"></translation>
+        <translation>音乐</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="441"/>
         <source>Networks</source>
-        <translation type="unfinished"></translation>
+        <translation>网络</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="443"/>
         <source>Pictures</source>
-        <translation type="unfinished"></translation>
+        <translation>图片</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="447"/>
         <source>Videos</source>
-        <translation type="unfinished"></translation>
+        <translation>视频</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="627"/>
         <location filename="../settings.cpp" line="717"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>输出文件 %1 已经存在。请使用其他文件名，或删除现有文件。</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="121"/>
@@ -712,23 +721,23 @@
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation type="unfinished"></translation>
+        <translation>许可证</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>
         <location filename="../about.cpp" line="62"/>
         <source>Changelog</source>
-        <translation type="unfinished"></translation>
+        <translation>更新日志</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="54"/>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <translation>关闭(&amp;C)</translation>
     </message>
 </context>
 <context>
@@ -743,7 +752,7 @@
         <location filename="../work.cpp" line="120"/>
         <location filename="../work.cpp" line="276"/>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
@@ -752,7 +761,7 @@
         <location filename="../work.cpp" line="295"/>
         <location filename="../work.cpp" line="411"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>错误</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>
@@ -792,7 +801,7 @@
     <message>
         <location filename="../work.cpp" line="253"/>
         <source>Creating CD/DVD image file...</source>
-        <translation type="unfinished"></translation>
+        <translation>创建 CD/DVD 镜像文件...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
@@ -807,7 +816,7 @@
     <message>
         <location filename="../work.cpp" line="281"/>
         <source>Success</source>
-        <translation type="unfinished"></translation>
+        <translation>成功</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="282"/>
@@ -827,7 +836,7 @@
     <message>
         <location filename="../work.cpp" line="292"/>
         <source>Installing </source>
-        <translation type="unfinished"></translation>
+        <translation>正在安装</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="295"/>
@@ -847,7 +856,7 @@
     <message>
         <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>无法创建工作目录。</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="558"/>
