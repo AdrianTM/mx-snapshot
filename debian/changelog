@@ -1,3 +1,9 @@
+mx-snapshot (23.2.03) mx; urgency=medium
+
+  * If using a ramfs as a workdir, use available RAM instead of having to run with -o/--override-size
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 24 Feb 2023 22:08:15 -0500
+
 mx-snapshot (23.2.02) mx; urgency=medium
 
   * Fixed translations
@@ -6,7 +12,7 @@ mx-snapshot (23.2.02) mx; urgency=medium
 
 mx-snapshot (23.2.01) mx; urgency=medium
 
-  * Allow to put wordir in tmpfs or ramfs
+  * Allow to put workdir in tmpfs or ramfs
   * -- For ramfs you need to pass -o/--override-size because ramfs grows dynamically
 
  -- Adrian <adrian@mxlinux.org>  Wed, 22 Feb 2023 10:27:12 -0500

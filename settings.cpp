@@ -166,8 +166,11 @@ int Settings::getSnapshotCount() const
 quint64 Settings::getFreeSpace(const QString &path) const
 {
     bool ok = false;
-    quint64 result
-        = shell->getCmdOut(QStringLiteral("df -k --output=avail \"%1\" |tail -n1").arg(path)).toULongLong(&ok);
+    quint64 result {};
+    if (shell->getCmdOut("stat --file-system --format=%T \"" + path + "\"").trimmed() == "ramfs")
+        result = shell->getCmdOut("free |awk '/^Mem/ {print $7}'").toULongLong(&ok);
+    else
+        result = shell->getCmdOut(QStringLiteral("df -k --output=avail \"%1\" |tail -n1").arg(path)).toULongLong(&ok);
     if (!ok) {
         qDebug() << "Can't calculate free space on" << path;
         return 0;
