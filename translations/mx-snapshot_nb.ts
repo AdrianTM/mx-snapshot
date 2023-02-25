@@ -609,17 +609,17 @@
     <message>
         <location filename="../main.cpp" line="175"/>
         <location filename="../main.cpp" line="259"/>
-        <location filename="../settings.cpp" line="222"/>
-        <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="633"/>
-        <location filename="../settings.cpp" line="723"/>
+        <location filename="../settings.cpp" line="225"/>
+        <location filename="../settings.cpp" line="238"/>
+        <location filename="../settings.cpp" line="636"/>
+        <location filename="../settings.cpp" line="726"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
         <location filename="../main.cpp" line="255"/>
-        <location filename="../settings.cpp" line="230"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Gjeldende kjerne støtter ikke Squashfs. Kan ikke fortsette.</translation>
     </message>
@@ -634,32 +634,32 @@
         <translation>Klarte ikke å opprette midlertidig mappe.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="217"/>
+        <location filename="../settings.cpp" line="220"/>
         <source>Could not find a usable kernel</source>
         <translation>Fant ingen brukbar kjerne</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="346"/>
+        <location filename="../settings.cpp" line="349"/>
         <source>Used space on / (root): </source>
         <translation>Brukt plass på / (rot):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="349"/>
+        <location filename="../settings.cpp" line="352"/>
         <source>estimated</source>
         <translation>estimert</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="360"/>
+        <location filename="../settings.cpp" line="363"/>
         <source>Used space on /home: </source>
         <translation>Brukt plass på /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="414"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ledig plass på %1, der mappa til ISO-bildet legges:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="415"/>
+        <location filename="../settings.cpp" line="418"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -674,43 +674,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="436"/>
         <source>Desktop</source>
         <translation>Skrivebord</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="438"/>
         <source>Documents</source>
         <translation>Dokumenter</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="440"/>
         <source>Downloads</source>
         <translation>Nedlastinger</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Music</source>
         <translation>Musikk</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="441"/>
+        <location filename="../settings.cpp" line="444"/>
         <source>Networks</source>
         <translation>Nettverk</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="443"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="447"/>
+        <location filename="../settings.cpp" line="450"/>
         <source>Videos</source>
         <translation>Videoer</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="627"/>
-        <location filename="../settings.cpp" line="717"/>
+        <location filename="../settings.cpp" line="630"/>
+        <location filename="../settings.cpp" line="720"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Utfila %1 finnes allerede. Velg et annet filnavn eller slett eksisterende fil.</translation>
     </message>

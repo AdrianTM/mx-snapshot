@@ -609,17 +609,17 @@
     <message>
         <location filename="../main.cpp" line="175"/>
         <location filename="../main.cpp" line="259"/>
-        <location filename="../settings.cpp" line="222"/>
-        <location filename="../settings.cpp" line="235"/>
-        <location filename="../settings.cpp" line="633"/>
-        <location filename="../settings.cpp" line="723"/>
+        <location filename="../settings.cpp" line="225"/>
+        <location filename="../settings.cpp" line="238"/>
+        <location filename="../settings.cpp" line="636"/>
+        <location filename="../settings.cpp" line="726"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="253"/>
         <location filename="../main.cpp" line="255"/>
-        <location filename="../settings.cpp" line="230"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Tämänhetkinen ydin ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
     </message>
@@ -634,32 +634,32 @@
         <translation>Tilapäiskansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="217"/>
+        <location filename="../settings.cpp" line="220"/>
         <source>Could not find a usable kernel</source>
         <translation>Ei löydetty sopivaa kerneliä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="346"/>
+        <location filename="../settings.cpp" line="349"/>
         <source>Used space on / (root): </source>
         <translation>Käytetty tila kohteessa / (root-juurihakemisto):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="349"/>
+        <location filename="../settings.cpp" line="352"/>
         <source>estimated</source>
         <translation>arvioitu</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="360"/>
+        <location filename="../settings.cpp" line="363"/>
         <source>Used space on /home: </source>
         <translation>Käytetty tila /home -hakemistossa: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="411"/>
+        <location filename="../settings.cpp" line="414"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa kohteessa %1, johon snapshot-järjestelmävedoksen kansio sijoitetaan:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="415"/>
+        <location filename="../settings.cpp" line="418"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -674,43 +674,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="436"/>
         <source>Desktop</source>
         <translation>Työpöytä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="438"/>
         <source>Documents</source>
         <translation>Tiedostot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="440"/>
         <source>Downloads</source>
         <translation>Lataukset</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="439"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Music</source>
         <translation>Musiikki</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="441"/>
+        <location filename="../settings.cpp" line="444"/>
         <source>Networks</source>
         <translation>Verkot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="443"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>Pictures</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="447"/>
+        <location filename="../settings.cpp" line="450"/>
         <source>Videos</source>
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="627"/>
-        <location filename="../settings.cpp" line="717"/>
+        <location filename="../settings.cpp" line="630"/>
+        <location filename="../settings.cpp" line="720"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
