@@ -748,16 +748,16 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../work.cpp" line="112"/>
         <location filename="../work.cpp" line="120"/>
-        <location filename="../work.cpp" line="276"/>
+        <location filename="../work.cpp" line="277"/>
         <source>Done</source>
         <translation>Zaključeno</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="151"/>
-        <location filename="../work.cpp" line="233"/>
-        <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="295"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="234"/>
+        <location filename="../work.cpp" line="257"/>
+        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
@@ -787,82 +787,82 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <translation>Začasne mape ni mogoče ustvariti</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="230"/>
+        <location filename="../work.cpp" line="231"/>
         <source>Squashing filesystem...</source>
         <translation>Stiskam datotečni sistem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="234"/>
+        <location filename="../work.cpp" line="235"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Neuspelo ustvarjanje linuxfs datoteke. Preverite ali je na ciljnem razdelku dovolj prostora.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="253"/>
+        <location filename="../work.cpp" line="254"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Ustvarjam posnetek CD/DVD nosilca...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="257"/>
+        <location filename="../work.cpp" line="258"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Neuspelo ustvarjanje ISO datoteke. Preverite ali je na ciljnem razdelku dovolj prostora.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="264"/>
         <source>Making hybrid iso</source>
         <translation>Ustvarjam hibridni iso</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="282"/>
         <source>Success</source>
         <translation>Uspešno</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="283"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX posnetek je uspešno zaključil delo!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="284"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Posnetek je potreboval %1 za dokončanje.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="285"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Hvala, ker uporabljate MX posnetek. Zdaj zaženite MX ustvarjalec živih usb nosilcev</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="292"/>
+        <location filename="../work.cpp" line="293"/>
         <source>Installing </source>
         <translation>Nameščanje</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="295"/>
+        <location filename="../work.cpp" line="296"/>
         <source>Could not install </source>
         <translation>Namesitev ni uspela</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="305"/>
+        <location filename="../work.cpp" line="306"/>
         <source>Calculating checksum...</source>
         <translation>Računanje nadzorne vsote...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="341"/>
+        <location filename="../work.cpp" line="342"/>
         <source>Building new initrd...</source>
         <translation>Ustvarjam nov initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="413"/>
         <source>Could not create working directory. </source>
         <translation>Delovne mape ni mogoče ustvariti</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="558"/>
+        <location filename="../work.cpp" line="559"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Računanje skupne velikosti izločenih datotek</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="569"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating size of root...</source>
         <translation>Računanje velikosti korena...</translation>
     </message>
