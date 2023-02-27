@@ -35,12 +35,20 @@ etc/resolv.conf
 home/timeshift/snapshots
 home/snapshot
 root/.bash_history
+root/.local/share/mc/history
+root/.local/share/recently-used.xbel
+root/.local/share/Trash/*
 root/.dbus
 root/.gconf
 root/.gnome2
+root/.lesshst
+root/.Trash*
+root/.sudo_as_admin_successful
+root/.xsession-errors*
 root/keyfile
 timeshift/snapshots
 var/cache/apt/archives/*.deb
+var/cache/apt/archives/partial/*
 var/cache/apt-xapian-index/index.*
 var/cache/apt-show-versions/*
 var/cache/apt/*.bin
@@ -49,6 +57,7 @@ var/cache/debconf/*-old
 var/cache/lightdm
 var/cache/samba/browse.dat
 var/lib/apt/lists/*
+var/lib/apt/periodic/*
 var/lib/dbus/machine-id
 var/lib/dhcp/*
 var/lib/dpkg/*-old
@@ -64,6 +73,7 @@ var/log/clamav/*
 var/log/samba/*
 var/mail/*
 var/spool/mail/*
+var/spool/anacron/*
 var/tmp/*
 var/cache/brightness-settings-cache/*
 
@@ -73,21 +83,29 @@ var/cache/brightness-settings-cache/*
 
 home/*/.cache/mozilla/firefox/*/cache2/*
 home/*/.cache/mozilla/firefox/*/thumbnails/*
+home/*/.cache/librewolf/*/cache2/*
+home/*/.cache/librewolf/*/thumbnails/*
 home/*/.cache/thumbnails/*
+home/*/.cache/vivaldi/Default/Cache/*
 home/*/.mozilla/firefox/*/Cache/*
 home/*/.mozilla/firefox/*/cache2/*
 home/*/.mozilla/seamonkey/*/Cache/*
 home/*/.adobe
+home/*/.dbus
 home/*/.keyfileDONOTdelete
 home/*/.macromedia
+home/*/.sudo_as_admin_successful
 home/*/.thumbnails/*
 home/*/.Trash*
 home/*/.local/share/Trash/*
 # home/*/.cache
 home/*/.gvfs
 home/*/.bash_history
+home/*/.lesshst
 home/*/.recently-used
 home/*/.recently-used.xbel
+home/*/.local/share/recently-used.xbel
+home/*/.local/share/mc/history
 home/*/.xsession-errors*
 home/*/.xfce4-session.verbose-log*
 
