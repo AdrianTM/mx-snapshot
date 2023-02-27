@@ -207,6 +207,7 @@ void Work::copyNewIso()
 
     // Overwrite with this file, probably a better location _if_ the file exists
     RUN("test -r /etc/initrd-release && cp /etc/initrd-release \"" + path + "/etc\"");
+    RUN("test -r /etc/initrd_release && cp /etc/initrd_release \"" + path + "/etc\"");
     if (initrd_dir.isValid()) {
         copyModules(path, settings->kernel);
         closeInitrd(path, settings->work_dir + "/iso-template/antiX/initrd.gz");
