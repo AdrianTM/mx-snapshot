@@ -65,6 +65,11 @@ int main(int argc, char *argv[])
     signal(SIGHUP, signalHandler);
     // signal(SIGQUIT, signalHandler); // allow SIGQUIT CTRL-\?
 
+    QProcess proc;
+    proc.start("logname", {}, QIODevice::ReadOnly);
+    proc.waitForFinished();
+    auto const logname = QString::fromLatin1(proc.readAllStandardOutput().trimmed());
+
     QCommandLineParser parser;
     parser.setApplicationDescription(QObject::tr("Tool used for creating a live-CD from the running system"));
     parser.addHelpOption();
@@ -124,7 +129,7 @@ int main(int argc, char *argv[])
 
 #ifdef CLI_BUILD
     // root guard
-    if (QProcess::execute("/bin/bash", {"-c", "logname |grep -q ^root$"}) == 0) {
+    if (logname == "root") {
         qDebug() << QObject::tr(
             "You seem to be logged in as root, please log out and log in as normal user to use this program.");
         exit(EXIT_FAILURE);
@@ -134,7 +139,7 @@ int main(int argc, char *argv[])
     if (parser.isSet(QStringLiteral("cli")) || parser.isSet(QStringLiteral("help"))) {
         QCoreApplication app(argc, argv);
         // root guard
-        if (QProcess::execute(QStringLiteral("/bin/bash"), {"-c", "logname |grep -q ^root$"}) == 0) {
+        if (logname == "root") {
             qDebug() << QObject::tr(
                 "You seem to be logged in as root, please log out and log in as normal user to use this program.");
             exit(EXIT_FAILURE);
@@ -170,7 +175,7 @@ else
     checkSquashfs();
 
     // root guard
-    if (QProcess::execute(QStringLiteral("/bin/bash"), {"-c", "logname |grep -q ^root$"}) == 0) {
+    if (logname == "root") {
         QMessageBox::critical(
             nullptr, QObject::tr("Error"),
             QObject::tr(
@@ -187,7 +192,14 @@ else
             qDebug().noquote() << "Args:" << QApplication::arguments();
         MainWindow w(parser);
         w.show();
-        exit(QApplication::exec());
+        auto const exit_code = QApplication::exec();
+        proc.start("grep", {"^" + logname + ":", "/etc/passwd"});
+        proc.waitForFinished();
+        auto const home = QString::fromLatin1(proc.readAllStandardOutput().trimmed()).section(":", 5, 5);
+        auto const file_name = home + "/.config/" + QApplication::applicationName() + "rc";
+        if (QFile::exists(file_name))
+            QProcess::execute("chown", {logname + ":", file_name});
+        return exit_code;
     } else {
         QProcess::startDetached(QStringLiteral("/usr/bin/mx-snapshot-launcher"), {});
     }
@@ -264,7 +276,7 @@ void checkSquashfs()
 
 void setLog()
 {
-    QString log_name = "/var/log/" + QCoreApplication::applicationName() + ".log";
+    auto const log_name = "/var/log/" + QCoreApplication::applicationName() + ".log";
     if (QFileInfo::exists(log_name)) {
         QFile::remove(log_name + ".old");
         QFile::rename(log_name, log_name + ".old");
