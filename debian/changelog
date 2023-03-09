@@ -1,3 +1,9 @@
+mx-snapshot (23.3) mx; urgency=medium
+
+  * Add option to change the default live kernel
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 08 Mar 2023 22:48:00 -0500
+
 mx-snapshot (23.2.04) mx; urgency=medium
 
   * Copy /etc/initrd_release into live initrd if exist

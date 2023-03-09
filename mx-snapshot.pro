@@ -73,6 +73,7 @@ TRANSLATIONS += translations/mx-snapshot_am.ts \
                 translations/mx-snapshot_eu.ts \
                 translations/mx-snapshot_fa.ts \
                 translations/mx-snapshot_fi.ts \
+                translations/mx-snapshot_fi_FI.ts \
                 translations/mx-snapshot_fil_PH.ts \
                 translations/mx-snapshot_fr.ts \
                 translations/mx-snapshot_fr_BE.ts \
