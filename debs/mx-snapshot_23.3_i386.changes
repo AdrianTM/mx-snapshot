@@ -17,13 +17,13 @@ Changes:
    * Add option to change the default live kernel
 Checksums-Sha1:
  41b0e9258847445905d262231d6001d14fff4a88 260060 iso-snapshot-cli_23.3_i386.deb
- 84ce31e6ef90854a2768ea55529e8621e694a71b 10338 mx-snapshot_23.3_i386.buildinfo
- db60a2068a30d3a9a0198967841d8eca0f03bb8f 297120 mx-snapshot_23.3_i386.deb
+ 550ca4489151e31d06b17d9758f9b6af6eaa151c 10338 mx-snapshot_23.3_i386.buildinfo
+ fb5eb13f4bfee5fa1abb7405cf84deba3c070373 296980 mx-snapshot_23.3_i386.deb
 Checksums-Sha256:
  160487a4c181430c31c02c9236ffb77b27ba7614a9e730a8b6c882a45ee9b289 260060 iso-snapshot-cli_23.3_i386.deb
- b814f3ebdb03cf9876eaafec54cd8a98dc113da76cc50a079056d3ffc8a16b98 10338 mx-snapshot_23.3_i386.buildinfo
- 39814a41e0b6b9af0bf628849054f4eadb7f249e778079229a023ec3e297984f 297120 mx-snapshot_23.3_i386.deb
+ 8d188ba6a7afacb544d0953110aa18933ef4ed879e3b3ed56b3853ddb8968933 10338 mx-snapshot_23.3_i386.buildinfo
+ 4bb297f52317bdabfa380941ff8f15fa12cb5e398b968449a94b3debcc51f759 296980 mx-snapshot_23.3_i386.deb
 Files:
  be9066bd01713b0bf7615972f5cc0a2c 260060 admin optional iso-snapshot-cli_23.3_i386.deb
- 195a7e9d71542c6bd61a23f46586e954 10338 admin optional mx-snapshot_23.3_i386.buildinfo
- 11ed1f9ad99f35623edfa89f3dfb12c6 297120 admin optional mx-snapshot_23.3_i386.deb
+ 88ddf466644a37101cd7b1cca58cd24d 10338 admin optional mx-snapshot_23.3_i386.buildinfo
+ 23609acc410e0b504fa7a28f910b5a61 296980 admin optional mx-snapshot_23.3_i386.deb
