@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Wed, 08 Mar 2023 22:48:00 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.3
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.3) mx; urgency=medium
+ .
+   * Add option to change the default live kernel
+Checksums-Sha1:
+ d13336432731871ff844214c73e10d202d5221c7 1258 mx-snapshot_23.3.dsc
+ ea31d7fcf692b83cf93451a81c70cebce30b2af7 241760 mx-snapshot_23.3.tar.xz
+ 327b160f302d561eb6166a090b642849492ff5b3 11007 mx-snapshot_23.3_amd64.buildinfo
+Checksums-Sha256:
+ 34f1c91e0c9d217d1cc50b59a9b9eb640c05f2b2d1a20cbe3e7292551983a2b1 1258 mx-snapshot_23.3.dsc
+ 2a3e441673da5fe72adbcce722425cdd6f75f8d8088b3e54652b07095770b553 241760 mx-snapshot_23.3.tar.xz
+ a7f70edf8417d566c692ec1228de4e63382beb4a2d4ce35062f092c0e01fd46b 11007 mx-snapshot_23.3_amd64.buildinfo
+Files:
+ 0d06e1986b88e018d54fb16021be1b29 1258 admin optional mx-snapshot_23.3.dsc
+ ea6aee489aa8b327e06b6cd84209baf5 241760 admin optional mx-snapshot_23.3.tar.xz
+ 257abeedc6796d3da9fc96017b6c0104 11007 admin optional mx-snapshot_23.3_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQJWLwTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKrfCADYFJxRRDZelLOSE4eWu/LQAHNWd7y7
+6pKlhq7JgxE4sQB3Qqwja0sU8P54WCmOAvmlJMpwiwYU/V7pc6gillwWUKscSxsp
+l2f7oyR1GH7FZOJh9frK/2D9tf3ut6A9M8csuNQA7+sD36YHUJSqx9MQ0vyVtodj
+v94c1pawG0KoUdvyEr5Aq7rFi7iKFnt8OjO4/Q3U+/KSGa8VLGRKXgGAXxabW5NM
+N2wKZ5iM+JihKeuBt2w81DnulItYrNT3IaAfovJsIzsqiDuT2Gqq+Y7pzade4G84
+xhBTHjNYcbvshg7Ki4I95cpd31qlK1Ogm2xILOSeWc0blqA1bNVR0Y7J
+=/9rP
+-----END PGP SIGNATURE-----
