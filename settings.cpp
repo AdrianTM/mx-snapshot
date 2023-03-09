@@ -214,7 +214,7 @@ void Settings::selectKernel()
         if (!QFileInfo::exists(
                 "/boot/vmlinuz-"
                 + kernel)) { // if current kernel doesn't exist for some reason (e.g. WSL) in /boot pick latest kernel
-            kernel = shell->getCmdOut(QStringLiteral("ls -1 /boot/vmlinuz* |sort |tail -n1"))
+            kernel = shell->getCmdOut(QStringLiteral("ls -1 /boot/vmlinuz-* |sort |tail -n1"))
                          .remove(QRegularExpression(QStringLiteral("^/boot/vmlinuz-")));
             if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                 QString message = QObject::tr("Could not find a usable kernel");

@@ -26,14 +26,68 @@
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="14" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox">
+         <property name="cursor">
+          <cursorShape>CrossCursor</cursorShape>
+         </property>
          <property name="title">
           <string>Optional customization</string>
          </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
          <layout class="QGridLayout" name="gridLayout_6">
-          <item row="5" column="1">
-           <widget class="QLineEdit" name="textReleaseDate">
+          <item row="5" column="0">
+           <widget class="QLabel" name="labelDate">
+            <property name="text">
+             <string>Release date:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="labelCodeName">
+            <property name="text">
+             <string>Release codename:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="labelKernel">
+            <property name="text">
+             <string>Live kernel:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="textKernel">
+            <property name="cursor">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="mouseTracking">
+             <bool>false</bool>
+            </property>
+            <property name="focusPolicy">
+             <enum>Qt::NoFocus</enum>
+            </property>
+            <property name="acceptDrops">
+             <bool>false</bool>
+            </property>
+            <property name="autoFillBackground">
+             <bool>false</bool>
+            </property>
             <property name="text">
              <string notr="true"/>
+            </property>
+            <property name="frame">
+             <bool>true</bool>
+            </property>
+            <property name="dragEnabled">
+             <bool>false</bool>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string/>
             </property>
            </widget>
           </item>
@@ -44,30 +98,10 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="2">
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="textOptions">
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="textReleaseDate">
             <property name="text">
              <string notr="true"/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="labelDate">
-            <property name="text">
-             <string>Release date:</string>
             </property>
            </widget>
           </item>
@@ -85,17 +119,10 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="labelProjectName">
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="textOptions">
             <property name="text">
-             <string>Project name:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
-           <widget class="QLabel" name="labelDistro">
-            <property name="text">
-             <string>Release version:</string>
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -106,10 +133,37 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="labelCodeName">
+          <item row="2" column="0">
+           <widget class="QLabel" name="labelDistro">
             <property name="text">
-             <string>Release codename:</string>
+             <string>Release version:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="3">
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="7" column="2">
+           <widget class="QPushButton" name="btnKernel">
+            <property name="text">
+             <string>Change live kernel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelProjectName">
+            <property name="text">
+             <string>Project name:</string>
             </property>
            </widget>
           </item>
@@ -303,9 +357,9 @@ color: rgb(0, 0, 0);</string>
      <widget class="QWidget" name="settingsPage">
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="0" column="0" colspan="4">
-        <widget class="QLabel" name="label_1">
+        <widget class="QLabel" name="labelTitleSummary">
          <property name="text">
-          <string>TextLabel</string>
+          <string notr="true">TextLabel</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -318,19 +372,6 @@ color: rgb(0, 0, 0);</string>
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
-       </item>
-       <item row="14" column="0">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
        </item>
        <item row="4" column="0" colspan="4">
         <widget class="QLabel" name="labelExclude">
@@ -357,7 +398,7 @@ color: rgb(0, 0, 0);</string>
         </widget>
        </item>
        <item row="1" column="0" colspan="4">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="labelSummary">
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 205);
 border-color: rgb(0, 0, 0);
@@ -367,7 +408,7 @@ color: rgb(0, 0, 0);</string>
           <enum>QFrame::Box</enum>
          </property>
          <property name="text">
-          <string>TextLabel</string>
+          <string notr="true">TextLabel</string>
          </property>
          <property name="wordWrap">
           <bool>true</bool>
@@ -624,6 +665,19 @@ color: rgb(0, 0, 0);</string>
           </item>
          </layout>
         </widget>
+       </item>
+       <item row="14" column="0" colspan="4">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -889,6 +943,8 @@ p, li { white-space: pre-wrap; }
   <tabstop>textCodename</tabstop>
   <tabstop>textReleaseDate</tabstop>
   <tabstop>textOptions</tabstop>
+  <tabstop>textKernel</tabstop>
+  <tabstop>btnKernel</tabstop>
   <tabstop>btnAbout</tabstop>
   <tabstop>btnHelp</tabstop>
   <tabstop>btnBack</tabstop>
