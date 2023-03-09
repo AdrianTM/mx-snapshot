@@ -68,6 +68,8 @@ MainWindow::~MainWindow() { delete ui; }
 void MainWindow::loadSettings()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    ui->labelTitleSummary->clear();
+    ui->labelSummary->clear();
     ui->labelSnapshotDir->setText(snapshot_dir);
     if (snapshot_name.isEmpty())
         ui->lineEditName->setText(getFilename());
@@ -78,6 +80,9 @@ void MainWindow::loadSettings()
     ui->textProjectName->setText(project_name);
     ui->textOptions->setText(boot_options);
     ui->textReleaseDate->setText(release_date);
+    ui->textKernel->setText(kernel);
+    if (shell->getCmdOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2)
+        ui->btnKernel->setHidden(true);
 }
 
 void MainWindow::setOtherOptions()
@@ -103,13 +108,14 @@ void MainWindow::setConnections()
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
     connect(ui->btnEditExclude, &QPushButton::clicked, this, &MainWindow::btnEditExclude_clicked);
     connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
+    connect(ui->btnKernel, &QPushButton::clicked, this, &MainWindow::btnSelectKernel_clicked);
     connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
             &MainWindow::cbCompression_currentIndexChanged);
-    connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
     connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
+    connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
@@ -322,11 +328,11 @@ void MainWindow::btnNext_clicked()
         ui->btnBack->setHidden(false);
         ui->btnBack->setEnabled(true);
         selectKernel();
-        ui->label_1->setText(tr("Snapshot will use the following settings:*"));
+        ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
 
-        ui->label_2->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
-                             + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " " + kernel
-                             + "\n");
+        ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
+                                  + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
+                                  + kernel + "\n");
         codename = ui->textCodename->text();
         distro_version = ui->textDistroVersion->text();
         project_name = ui->textProjectName->text();
@@ -407,6 +413,15 @@ void MainWindow::btnNext_clicked()
         ui->btnCancel->setText(tr("Close"));
     } else {
         QApplication::quit();
+    }
+}
+
+void MainWindow::btnSelectKernel_clicked()
+{
+    QString selected = QFileDialog::getOpenFileName(this, tr("Select kernel"), "/boot", "vmlinuz-*");
+    if (QFile::exists(selected)) {
+        ui->textKernel->setText(selected.remove(QRegularExpression("^/boot/vmlinuz-")));
+        kernel = ui->textKernel->text();
     }
 }
 
@@ -513,8 +528,6 @@ void MainWindow::btnHelp_clicked()
 // Select snapshot directory
 void MainWindow::btnSelectSnapshot_clicked()
 {
-    QFileDialog dialog;
-
     QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
                                                          QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {

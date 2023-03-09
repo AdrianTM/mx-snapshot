@@ -80,6 +80,7 @@ private slots:
     void btnEditExclude_clicked();
     void btnHelp_clicked();
     void btnNext_clicked();
+    void btnSelectKernel_clicked();
     void btnSelectSnapshot_clicked();
     void cbCompression_currentIndexChanged();
     void checkMd5_toggled(bool checked);
