@@ -27,7 +27,7 @@
        <item row="14" column="0" colspan="2">
         <widget class="QGroupBox" name="groupBox">
          <property name="cursor">
-          <cursorShape>CrossCursor</cursorShape>
+          <cursorShape>ArrowCursor</cursorShape>
          </property>
          <property name="title">
           <string>Optional customization</string>
