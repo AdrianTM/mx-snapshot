@@ -29,24 +29,9 @@
         <translation>Personnalisation facultative</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>Options de démarrage:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>Date de parution:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>Nom du projet:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>Version:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>Options de démarrage:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>Version:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>Nom du projet:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>Nom de l&apos;instantané:</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">Texte de l&apos;étiquette</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -330,10 +326,6 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>Paramètres</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">Snapshot utilisera les réglages suivants:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

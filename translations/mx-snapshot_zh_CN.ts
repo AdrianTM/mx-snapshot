@@ -29,24 +29,9 @@
         <translation>可选定制项</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>启动选项：</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>发布日期：</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>项目名称：</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>发布版本：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>启动选项：</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>发布版本：</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>项目名称：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>快照名称：</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -331,10 +327,6 @@
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>设置</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">快照将使用以下设置：*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

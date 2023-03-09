@@ -29,24 +29,9 @@
         <translation>Opcijska prilagoditev</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>Zagonske možnosti:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>Datum izdaje:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>Ime projekta:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>Različica izdaje:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>Zagonske možnosti:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>Različica izdaje:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>Ime projekta:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>Ime posnetka:</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">TekstovnaOznaka</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -331,10 +327,6 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>Nastavitve</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">Posnetek bo uporabljal naslednje nastavitve:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

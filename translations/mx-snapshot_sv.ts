@@ -29,24 +29,9 @@
         <translation>Valfri anpassning</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>Boot-alternativ:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>Utgivningsdatum:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>Projektnamn:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>Utgåvans version:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>Boot-alternativ:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>Utgåvans version:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>Projektnamn:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>Snapshotets namn</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">Text-Etikett</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -331,10 +327,6 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>Inställningar</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">Snapshot kommer att använda följande inställningar.*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

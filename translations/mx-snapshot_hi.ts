@@ -95,10 +95,6 @@
         <translation>स्नैपशॉट नाम :</translation>
     </message>
     <message>
-        <source>TextLabel</source>
-        <translation type="vanished">लेख उपनाम</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="379"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>इच्छित डायरेक्टरी अपवर्जन हेतु नीचे दी गई सूची से उन्हें चिन्हित करें या बटन पर क्लिक द्वारा /etc/mx-snapshot-exclude.list संपादित करें।</translation>
@@ -254,6 +250,31 @@
         <translation>Alt+H</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <source>fastest, worst compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <source>fast, worse compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="171"/>
+        <source>slow, better compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="171"/>
+        <source>best compromise</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="172"/>
+        <source>slowest, best compression</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../mainwindow.cpp" line="199"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
@@ -298,43 +319,14 @@
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="326"/>
-        <source>Settings</source>
-        <translation>सेटिंग्स</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">स्नैपशॉट हेतु निम्नलिखित सेटिंग्स उपयोग होंगी :*</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="170"/>
-        <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="170"/>
-        <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="171"/>
-        <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="171"/>
-        <source>best compromise</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="172"/>
-        <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="319"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="326"/>
+        <source>Settings</source>
+        <translation>सेटिंग्स</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

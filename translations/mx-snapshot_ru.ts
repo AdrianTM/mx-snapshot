@@ -29,24 +29,9 @@
         <translation>Дополнительная настройка</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>Параметры загрузки:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>Дата выпуска:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>Имя проекта:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>Версия выпуска:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>Параметры загрузки:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>Версия выпуска:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>Имя проекта:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>Имя снимка:</translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">TextLabel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -331,10 +327,6 @@
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">Снимок будет использовать следующие параметры:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

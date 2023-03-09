@@ -15,26 +15,26 @@ Changes:
  .
    * Add option to change the default live kernel
 Checksums-Sha1:
- d13336432731871ff844214c73e10d202d5221c7 1258 mx-snapshot_23.3.dsc
- ea31d7fcf692b83cf93451a81c70cebce30b2af7 241760 mx-snapshot_23.3.tar.xz
- 327b160f302d561eb6166a090b642849492ff5b3 11007 mx-snapshot_23.3_amd64.buildinfo
+ d9df52a4e8136dbbd9777f2299c142b120080f77 1258 mx-snapshot_23.3.dsc
+ 541b74c8ad23adf8335312a620904c966376a6dd 244040 mx-snapshot_23.3.tar.xz
+ 32f0232736d9f75878a8b67f4f1e2f919c4f9ee1 11007 mx-snapshot_23.3_amd64.buildinfo
 Checksums-Sha256:
- 34f1c91e0c9d217d1cc50b59a9b9eb640c05f2b2d1a20cbe3e7292551983a2b1 1258 mx-snapshot_23.3.dsc
- 2a3e441673da5fe72adbcce722425cdd6f75f8d8088b3e54652b07095770b553 241760 mx-snapshot_23.3.tar.xz
- a7f70edf8417d566c692ec1228de4e63382beb4a2d4ce35062f092c0e01fd46b 11007 mx-snapshot_23.3_amd64.buildinfo
+ d493bec7eaf1ffe182bc39dbe2fbd443a3f7c01912edd85adb35b7bb5980cbcb 1258 mx-snapshot_23.3.dsc
+ 50008f926f271e4b6ab92bdf3d5c5c858b87748bd9838927cd38ce0a152fb48e 244040 mx-snapshot_23.3.tar.xz
+ 250c39edc644f9d0014f6a4087db6a5ff762c659b4a7a5030cbce7413c6240b6 11007 mx-snapshot_23.3_amd64.buildinfo
 Files:
- 0d06e1986b88e018d54fb16021be1b29 1258 admin optional mx-snapshot_23.3.dsc
- ea6aee489aa8b327e06b6cd84209baf5 241760 admin optional mx-snapshot_23.3.tar.xz
- 257abeedc6796d3da9fc96017b6c0104 11007 admin optional mx-snapshot_23.3_amd64.buildinfo
+ ed9b2d9b1a9558ac7afd9854080f36f4 1258 admin optional mx-snapshot_23.3.dsc
+ 691408c73f5f0a049160e9464e9180a0 244040 admin optional mx-snapshot_23.3.tar.xz
+ b1c7aca8ed68804d734b7a53644f9eb1 11007 admin optional mx-snapshot_23.3_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQJWLwTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKrfCADYFJxRRDZelLOSE4eWu/LQAHNWd7y7
-6pKlhq7JgxE4sQB3Qqwja0sU8P54WCmOAvmlJMpwiwYU/V7pc6gillwWUKscSxsp
-l2f7oyR1GH7FZOJh9frK/2D9tf3ut6A9M8csuNQA7+sD36YHUJSqx9MQ0vyVtodj
-v94c1pawG0KoUdvyEr5Aq7rFi7iKFnt8OjO4/Q3U+/KSGa8VLGRKXgGAXxabW5NM
-N2wKZ5iM+JihKeuBt2w81DnulItYrNT3IaAfovJsIzsqiDuT2Gqq+Y7pzade4G84
-xhBTHjNYcbvshg7Ki4I95cpd31qlK1Ogm2xILOSeWc0blqA1bNVR0Y7J
-=/9rP
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQJdyATHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJC3CADACJhS73DwQU9a25+j4+mF8dcSqv9L
+W0/tpm6wY/sA+3dCI+t/FS1WMWSaEF1zasXvp5bXMyWakzZSK10zOpljhEPZCtj4
+JustM3vU2cqdjGS6JCYXIg3tJYv95CGXojMwi45QA0VpiBahZW9dCglPOR0XRGcT
+G3Ts51jLqjTwzntKhxFo2c9Pj2IjwECryn0MavisBdzd7tALkfUK1Br9ZjtuOC6y
+G7dK1VoAVgg7ywy5SlgkLTl4vBVm8+Bk/5qxMoGXoai3n3ZDjQ3WUP46vVgYyI17
+SSpzNiUIFGyIg0hrOhKR+m5XnPWVso6PG3m5YUmgkSy1TmxB3U6wh6kP
+=ZZVb
 -----END PGP SIGNATURE-----

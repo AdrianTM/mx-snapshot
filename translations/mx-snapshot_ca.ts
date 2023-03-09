@@ -29,24 +29,9 @@
         <translation>Personalització opcional</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
-        <source>Boot options:</source>
-        <translation>Opcions d&apos;arrencada:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
         <translation>Data de llançament:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="166"/>
-        <source>Project name:</source>
-        <translation>Nom de projecte:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="139"/>
-        <source>Release version:</source>
-        <translation>Versió de llançament:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
@@ -59,9 +44,24 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="97"/>
+        <source>Boot options:</source>
+        <translation>Opcions d&apos;arrencada:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="139"/>
+        <source>Release version:</source>
+        <translation>Versió de llançament:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="166"/>
+        <source>Project name:</source>
+        <translation>Nom de projecte:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -93,10 +93,6 @@
         <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot name:</source>
         <translation>Nom de la instantània: </translation>
-    </message>
-    <message>
-        <source>TextLabel</source>
-        <translation type="vanished">Etiqueta</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -331,10 +327,6 @@
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
         <translation>Paràmetres</translation>
-    </message>
-    <message>
-        <source>Snapshot will use the following settings:*</source>
-        <translation type="vanished">La instantània usarà aquests paràmetres:*</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
