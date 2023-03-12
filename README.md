@@ -85,6 +85,9 @@ recommend it for anything other than MX or antiX compatible systems.
   - **-o**, **--override-size**  
     Skip calculating free space to see if the resulting ISO will fit
 
+  - **-w**, **--workdir**
+    Specify a work directory
+
   - **-x**, **--exclude** \<one item\>  
     Exclude main folders, valid choices: Desktop, Documents, Downloads,
     Music, Networks, Pictures, Steam, Videos, VirtualBox. Use the option
