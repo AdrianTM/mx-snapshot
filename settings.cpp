@@ -253,10 +253,10 @@ void Settings::setVariables()
     i686 = isi686();
 
     QString distro_version_file;
-    if (QFileInfo::exists(QStringLiteral("/etc/antix-version")))
-        distro_version_file = QStringLiteral("/etc/antix-version");
-    else if (QFileInfo::exists(QStringLiteral("/etc/mx-version")))
-        distro_version_file = QStringLiteral("/etc/mx-version");
+    if (QFileInfo::exists("/etc/mx-version"))
+        distro_version_file = "/etc/mx-version";
+    else if (QFileInfo::exists("/etc/antix-version"))
+        distro_version_file = "/etc/antix-version";
 
     if (QFileInfo::exists("/etc/lsb-release"))
         project_name = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release"));
@@ -709,12 +709,15 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         name = shell->getCmdOut(QStringLiteral("cat /etc/mx-version |cut -f1 -d' '"));
     } else {
         qDebug() << "/etc/mx-version not found. Not MX Linux?";
-        name = QStringLiteral("MX_") + (i686 ? QStringLiteral("386") : QStringLiteral("x64"));
+        name = "MX_" + QString(i686 ? "386" : "x64");
     }
-    if (arg_parser.value(QStringLiteral("file")).isEmpty())
-        snapshot_name = name.section(QStringLiteral("_"), 0, 0) + "_"
-                        + QDate::currentDate().toString(QStringLiteral("MMMM")) + "_"
-                        + name.section(QStringLiteral("_"), 1, 1) + ".iso";
+    if (arg_parser.value("file").isEmpty()) {
+        auto month = QDate::currentDate().toString("MMMM");
+        auto suffix = name.section("_", 1, 1);
+        if (qgetenv("DESKTOP_SESSION") == "plasma")
+            suffix = "KDE";
+        snapshot_name = name.section("_", 0, 0) + "_" + month + "_" + suffix + ".iso";
+    }
     if (QFile::exists(snapshot_dir + "/" + snapshot_name)) {
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
