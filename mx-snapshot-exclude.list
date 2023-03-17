@@ -35,6 +35,7 @@ etc/resolv.conf
 home/timeshift/snapshots
 home/snapshot
 root/.bash_history
+root/.cache
 root/.local/share/mc/history
 root/.local/share/recently-used.xbel
 root/.local/share/Trash/*
