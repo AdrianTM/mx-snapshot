@@ -621,7 +621,7 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="726"/>
+        <location filename="../settings.cpp" line="729"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -719,7 +719,7 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
     </message>
     <message>
         <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Çıktı dosyası %1 zaten var. Lütfen başka bir dosya adı kullanın veya mevcut dosyayı silin.</translation>
     </message>
