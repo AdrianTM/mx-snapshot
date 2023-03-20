@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"/>
+        <translation>Kernel live:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -54,7 +54,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar el kernel live</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -329,7 +329,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"/>
+        <translation>Snapshot utilizará la siguiente configuración:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
@@ -404,7 +404,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>

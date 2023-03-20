@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kernel live:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambia il kernel live</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -331,7 +331,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Istantanea userà le seguenti impostazioni:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
@@ -406,7 +406,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleziona kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -621,7 +621,7 @@ rimuovendo precedenti snapshots e copie salvate:
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="726"/>
+        <location filename="../settings.cpp" line="729"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -719,7 +719,7 @@ rimuovendo precedenti snapshots e copie salvate:
     </message>
     <message>
         <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>

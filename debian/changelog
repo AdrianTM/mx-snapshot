@@ -1,3 +1,11 @@
+mx-snapshot (23.3.01) mx; urgency=medium
+
+  * Exclude /root/.cache by default
+  * Minor fix for monthly snapshot build helper
+  * Make sure GUI is active while displaying help
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 16 Mar 2023 23:46:25 -0400
+
 mx-snapshot (23.3) mx; urgency=medium
 
   * Add option to change the default live kernel

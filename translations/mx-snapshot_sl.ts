@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Živo jedro:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Spremeni živo jedro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../mainwindow.ui" line="249"/>
         <source>Select a different snapshot directory</source>
-        <translation>Določite drugo mapo posnetka</translation>
+        <translation>Določite drugo direktorij posnetka</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
@@ -331,12 +331,12 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Posnetek bo uporabljal naslednje nastavitve:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
         <source>- Snapshot directory:</source>
-        <translation>- Mapa posnetka:</translation>
+        <translation>- Direktorij posnetka:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="334"/>
@@ -376,12 +376,12 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="375"/>
         <source>Could not create working directory. </source>
-        <translation>Delovne mape ni mogoče ustvariti</translation>
+        <translation>Delovnega direktorija ni bilo mogoče ustvariti</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="379"/>
         <source>Could not create temporary directory. </source>
-        <translation>Začasne mape ni bilo mogoče ustvariti.</translation>
+        <translation>Začasnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="387"/>
@@ -396,7 +396,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="400"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>Program se bo sedaj zaustavil in omogočil urejanje datotek v delovnem imeniku. Izberite Yes/ da za urejanje zagonskega menija ali No/ ne, če želite zaobiti ta korak in nadaljevati ustvarjanje posnetka.</translation>
+        <translation>Program se bo sedaj zaustavil in omogočil urejanje datotek v delovnem direktoriju. Izberite Yes/ da za urejanje zagonskega menija ali No/ ne, če želite zaobiti ta korak in nadaljevati ustvarjanje posnetka.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="413"/>
@@ -406,7 +406,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Izberite jedro</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -441,7 +441,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="531"/>
         <source>Select Snapshot Directory</source>
-        <translation>Določite mapo posnetka</translation>
+        <translation>Določite direktorij posnetka</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="553"/>
@@ -474,7 +474,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Output directory</source>
-        <translation>Izhodna mapa</translation>
+        <translation>Izhodni direktorij</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -560,7 +560,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Work directory</source>
-        <translation>Delovna mapa</translation>
+        <translation>Delovni direktorij</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
@@ -621,7 +621,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="726"/>
+        <location filename="../settings.cpp" line="729"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
@@ -635,12 +635,12 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../settings.cpp" line="87"/>
         <source>Could not create working directory. </source>
-        <translation>Delovne mape ni mogoče ustvariti</translation>
+        <translation>Delovnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
         <source>Could not create temp directory. </source>
-        <translation>Začasne mape ni mogoče ustvariti</translation>
+        <translation>Začasnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="220"/>
@@ -716,7 +716,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     </message>
     <message>
         <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Izhodna datoteka %1 že obstaja. Uporabite drugo ime ali izbirišite obstoječo datoteko.</translation>
     </message>
@@ -793,7 +793,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
-        <translation>Začasne mape ni mogoče ustvariti</translation>
+        <translation>Začasnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="231"/>
@@ -863,7 +863,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../work.cpp" line="413"/>
         <source>Could not create working directory. </source>
-        <translation>Delovne mape ni mogoče ustvariti</translation>
+        <translation>Delovnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="559"/>

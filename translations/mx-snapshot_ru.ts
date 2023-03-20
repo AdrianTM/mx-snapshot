@@ -406,7 +406,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбор ядра</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -621,7 +621,7 @@
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="726"/>
+        <location filename="../settings.cpp" line="729"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
@@ -719,7 +719,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>

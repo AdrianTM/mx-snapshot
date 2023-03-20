@@ -1,0 +1,42 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Thu, 16 Mar 2023 23:46:25 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 23.3.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.3.01) mx; urgency=medium
+ .
+   * Exclude /root/.cache by default
+   * Minor fix for monthly snapshot build helper
+   * Make sure GUI is active while displaying help
+Checksums-Sha1:
+ c0791c7f493c10d33bbd74912225e41326d3bf3f 1270 mx-snapshot_23.3.01.dsc
+ 022c239980a2ba66f210b40439eaba5e8dbb97b9 245056 mx-snapshot_23.3.01.tar.xz
+ 64f5c75d757a249c6809ba87c22a0351dd2f97db 11040 mx-snapshot_23.3.01_amd64.buildinfo
+Checksums-Sha256:
+ 9a0911ef28d57954505db6543adf71df50311e9586cb71d38392c1b94df700b1 1270 mx-snapshot_23.3.01.dsc
+ aa9c5a19e45506cbb5ae6a9977bbf1d97143f708f9910d93329d0770c0810c3d 245056 mx-snapshot_23.3.01.tar.xz
+ 905b37c31bbcc71d7619bf40d9f4586dd73cf208952792b89a1f2eaa2d1c09b6 11040 mx-snapshot_23.3.01_amd64.buildinfo
+Files:
+ 52eb184b63f604b9aea1690482a934de 1270 admin optional mx-snapshot_23.3.01.dsc
+ 8b3ce94cef27e09cf68adbe0b4fbef8d 245056 admin optional mx-snapshot_23.3.01.tar.xz
+ 650b0e1fef8a64abe4b0b1a9909ac9f6 11040 admin optional mx-snapshot_23.3.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmQX5WwTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumLOeB/9l+qUfZs/0iuLJZhvhxo4GPUm3DniN
+QVW1PevCKhbkGxlcqnkoMQ84x07zeewKIllB8HWYB6Biau16j9N/kpErsmFnbV/1
+4X0IhSJm+UfF931PzX0tB45DJhDxk3rQ5CCV2Na/AqDkP6jqGPT0VRAg/rQoMG80
+4Ze+5jYJUIgoDO6Esds9TunIMymgkx8d/AUBKLtQd3LswzYCDGE5a4wV+29P6fhL
+S7C3Ppjig5kN137YY4L9jOjz0ErNyi4DnmHhwkEWXr0n+RfhYKmxP81fBRBfQbO8
+cWABufq2BGI0yxDvvk7c9KwOPkNMzJECOkP2T7qHrrcmnrP17gJcuyJo
+=mZBW
+-----END PGP SIGNATURE-----

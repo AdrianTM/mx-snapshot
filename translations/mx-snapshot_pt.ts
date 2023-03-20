@@ -11,7 +11,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>O núcleo actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
+        <translation>O kernel actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
     </message>
 </context>
 <context>
@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Alterar live kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../mainwindow.ui" line="855"/>
         <source>Next</source>
-        <translation>Próximo</translation>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="903"/>
@@ -331,7 +331,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>A captura utilizará as seguintes definições:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
@@ -341,12 +341,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="334"/>
         <source>- Kernel to be used:</source>
-        <translation>- Núcleo a ser usado:</translation>
+        <translation>- Kernel a ser usado:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>O núcleo actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
+        <translation>O kernel actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="354"/>
@@ -406,7 +406,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecionar kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../main.cpp" line="83"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Indicar um núcleo a usar, que não o núcleo predefinido em execução; usar o formato dado por &apos;uname -r&apos;</translation>
+        <translation>Indicar um kernel a usar, que não o núcleo predefinido em execução; usar o formato dado por &apos;uname -r&apos;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="85"/>
@@ -540,7 +540,7 @@
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation>Opção para resolver um problema no cálculo de somas de controlo (checksums) em núcleos com correcção preempt_rt</translation>
+        <translation>Opção para resolver um problema no cálculo de somas de controlo (checksums) em kernels com correcção preempt_rt</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="101"/>
@@ -621,7 +621,7 @@
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="726"/>
+        <location filename="../settings.cpp" line="729"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -630,7 +630,7 @@
         <location filename="../main.cpp" line="267"/>
         <location filename="../settings.cpp" line="233"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation>O núcleo actual não suporta Squashfs. Não é possível continuar.</translation>
+        <translation>O kernel actual não suporta Squashfs. Não é possível continuar.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="87"/>
@@ -645,7 +645,7 @@
     <message>
         <location filename="../settings.cpp" line="220"/>
         <source>Could not find a usable kernel</source>
-        <translation>Não foi encontrado nenhum núcleo utilizável</translation>
+        <translation>Não foi encontrado nenhum kernel utilizável</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="349"/>
@@ -719,7 +719,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="723"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O ficheiro de resultados %1 já existe. Usar outro nome de ficheiro ou eliminar o ficheiro existente.</translation>
     </message>
