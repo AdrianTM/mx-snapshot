@@ -620,8 +620,8 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
-        <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="729"/>
+        <location filename="../settings.cpp" line="657"/>
+        <location filename="../settings.cpp" line="750"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -718,8 +718,8 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="723"/>
+        <location filename="../settings.cpp" line="651"/>
+        <location filename="../settings.cpp" line="744"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
