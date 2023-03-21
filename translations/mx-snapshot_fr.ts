@@ -619,8 +619,8 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
-        <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="729"/>
+        <location filename="../settings.cpp" line="657"/>
+        <location filename="../settings.cpp" line="750"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -716,8 +716,8 @@ Si nécessaire, vous pouvez obtenir de l&apos;espace supplémentaire en supprima
         <translation>Vidéos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="723"/>
+        <location filename="../settings.cpp" line="651"/>
+        <location filename="../settings.cpp" line="744"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>

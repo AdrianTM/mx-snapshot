@@ -620,8 +620,8 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
-        <location filename="../settings.cpp" line="636"/>
-        <location filename="../settings.cpp" line="729"/>
+        <location filename="../settings.cpp" line="657"/>
+        <location filename="../settings.cpp" line="750"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
@@ -715,8 +715,8 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="630"/>
-        <location filename="../settings.cpp" line="723"/>
+        <location filename="../settings.cpp" line="651"/>
+        <location filename="../settings.cpp" line="744"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Izhodna datoteka %1 že obstaja. Uporabite drugo ime ali izbirišite obstoječo datoteko.</translation>
     </message>
