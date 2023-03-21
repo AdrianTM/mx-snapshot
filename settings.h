@@ -128,6 +128,7 @@ public:
     void excludeNetworks(bool exclude);
     void excludePictures(bool exclude);
     void excludeSteam(bool exclude);
+    void excludeSwapFile();
     void excludeVideos(bool exclude);
     void excludeVirtualBox(bool exclude);
     void loadConfig();

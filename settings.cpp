@@ -525,6 +525,26 @@ void Settings::excludeSteam(bool exclude)
     addRemoveExclusion(exclude, QStringLiteral("home/*/.local/share/Steam"));
 }
 
+void Settings::excludeSwapFile()
+{
+    QFile file("/etc/fstab");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qWarning() << "Failed to open /etc/fstab";
+        return;
+    }
+
+    while (!file.atEnd()) {
+        QString line = QString::fromUtf8(file.readLine()).trimmed();
+        if (line.startsWith("/") && !line.startsWith("/dev/")) {
+            QStringList parts = line.split(QRegExp("\\s+"));
+            if (parts.size() > 3) {
+                if (parts.at(2) == "swap")
+                    addRemoveExclusion(true, parts[0].remove(0, 1));
+            }
+        }
+    }
+}
+
 void Settings::excludeVideos(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -602,6 +622,7 @@ void Settings::otherExclusions()
             && shell->getCmdOut(QStringLiteral("cat /etc/timezone")) != QLatin1String("America/New_York"))
             addRemoveExclusion(true, QStringLiteral("/etc/localtime"));
     }
+    excludeSwapFile();
 }
 
 void Settings::processArgs(const QCommandLineParser &arg_parser)
