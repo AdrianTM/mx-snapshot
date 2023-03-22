@@ -621,7 +621,7 @@
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="657"/>
-        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="748"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
@@ -719,7 +719,7 @@
     </message>
     <message>
         <location filename="../settings.cpp" line="651"/>
-        <location filename="../settings.cpp" line="744"/>
+        <location filename="../settings.cpp" line="742"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>
