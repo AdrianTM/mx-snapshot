@@ -623,7 +623,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
         <location filename="../settings.cpp" line="225"/>
         <location filename="../settings.cpp" line="238"/>
         <location filename="../settings.cpp" line="657"/>
-        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="748"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -721,7 +721,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     </message>
     <message>
         <location filename="../settings.cpp" line="651"/>
-        <location filename="../settings.cpp" line="744"/>
+        <location filename="../settings.cpp" line="742"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Die Ausgabedatei %1 existiert bereits. Bitte verwenden Sie einen anderen Dateinamen, oder löschen Sie die existierende Datei.</translation>
     </message>
