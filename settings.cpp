@@ -716,10 +716,8 @@ QString Settings::readKernelOpts() const
 
 QString Settings::filterOptions(QString options)
 {
-    options.remove(QRegularExpression("initrd=\\S* ?"));
-    options.remove(QRegularExpression("init=\\S* ?"));
-    options.remove(QRegularExpression("root=\\S* ?"));
-    options.remove(QRegularExpression("\\bro ?\\b"));
+    options.remove(QRegularExpression(R"(\b(initrd|init|root|resume|resume_offset|cryptsetup)=\S*\s?)"));
+    options.remove(QRegularExpression(R"(\bro\s?\b)"));
     return options.trimmed();
 }
 
