@@ -276,7 +276,7 @@ void Settings::setVariables()
     else
         codename = shell->getCmdOut("lsb_release -c | cut -f2");
     codename.replace(QLatin1String("\""), QLatin1String(""));
-    boot_options = live ? readKernelOpts() : filterOptions(readKernelOpts());
+    boot_options = filterOptions(readKernelOpts());
 }
 
 // Create the output filename
