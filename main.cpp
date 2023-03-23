@@ -160,7 +160,7 @@ int main(int argc, char *argv[])
         QTimer::singleShot(0, &app, &QCoreApplication::quit);
         return QCoreApplication::exec();
     } else {
-        qDebug().noquote() << QObject::tr("You must run this program as root.");
+        qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
         return EXIT_FAILURE;
     }
 #ifndef CLI_BUILD
