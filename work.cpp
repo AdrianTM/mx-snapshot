@@ -40,8 +40,6 @@ Work::Work(Settings *settings, QObject *parent)
 {
 }
 
-Work::~Work() = default;
-
 // Checks if there's enough space on partitions, if not post error, cleanup and exit
 // We don't yet take /home used space into considerations (need to calculate how much is excluded)
 void Work::checkEnoughSpace()

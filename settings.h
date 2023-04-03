@@ -53,7 +53,6 @@ public:
     Q_DECLARE_FLAGS(Exclusions, Exclude)
 
     Settings(const QCommandLineParser &arg_parser);
-    ~Settings();
 
     Cmd *shell;
     Exclusions exclusions;

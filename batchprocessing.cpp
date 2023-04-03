@@ -72,8 +72,6 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     work.createIso(snapshot_name);
 }
 
-Batchprocessing::~Batchprocessing() = default;
-
 void Batchprocessing::setConnections()
 {
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
