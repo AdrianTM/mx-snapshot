@@ -40,7 +40,6 @@ public:
     Q_ENUM(HashType)
 
     Work(Settings *settings, QObject *parent = nullptr);
-    virtual ~Work();
 
     QElapsedTimer e_timer;
     bool done = false;

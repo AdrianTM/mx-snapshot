@@ -51,8 +51,6 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     processExclArgs(arg_parser);
 }
 
-Settings::~Settings() = default;
-
 // check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
