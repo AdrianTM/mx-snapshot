@@ -1,3 +1,10 @@
+mx-snapshot (23.4) mx; urgency=medium
+
+  * Update icon
+  * Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 13 Apr 2023 23:52:41 -0400
+
 mx-snapshot (23.3.03) mx; urgency=medium
 
   * Remove resume, resume_offset, and cryptsetup from kernel options 
