@@ -1,7 +1,7 @@
-docs/*				            usr/share/doc/iso-snapshot-cli
-iso-snapshot-cli		        usr/bin
-iso-snapshot-cli-exclude.list	etc
-iso-snapshot-cli.conf		    etc
-manual/iso-snapshot-cli.8.gz	usr/share/man/man8
-scripts/*			            usr/share/iso-snapshot-cli/scripts
-translations/*.qm		        usr/share/iso-snapshot-cli/locale
+docs/*                          usr/share/doc/iso-snapshot-cli
+iso-snapshot-cli                usr/bin
+iso-snapshot-cli-exclude.list   etc
+iso-snapshot-cli.conf           etc
+manual/iso-snapshot-cli.8.gz    usr/share/man/man8
+scripts/*                       usr/share/iso-snapshot-cli/scripts
+translations/*.qm               usr/share/iso-snapshot-cli/locale

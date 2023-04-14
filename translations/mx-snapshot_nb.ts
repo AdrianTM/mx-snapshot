@@ -607,8 +607,12 @@
     </message>
     <message>
         <location filename="../main.cpp" line="163"/>
+        <source>You must run this program with sudo or pkexec.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>You must run this program as root.</source>
-        <translation>Du må kjøre dette programmet som root.</translation>
+        <translation type="vanished">Du må kjøre dette programmet som root.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>
@@ -618,57 +622,57 @@
     <message>
         <location filename="../main.cpp" line="180"/>
         <location filename="../main.cpp" line="271"/>
-        <location filename="../settings.cpp" line="225"/>
-        <location filename="../settings.cpp" line="238"/>
-        <location filename="../settings.cpp" line="657"/>
-        <location filename="../settings.cpp" line="748"/>
+        <location filename="../settings.cpp" line="223"/>
+        <location filename="../settings.cpp" line="236"/>
+        <location filename="../settings.cpp" line="655"/>
+        <location filename="../settings.cpp" line="746"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="265"/>
         <location filename="../main.cpp" line="267"/>
-        <location filename="../settings.cpp" line="233"/>
+        <location filename="../settings.cpp" line="231"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Gjeldende kjerne støtter ikke Squashfs. Kan ikke fortsette.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="87"/>
+        <location filename="../settings.cpp" line="85"/>
         <source>Could not create working directory. </source>
         <translation>Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="109"/>
+        <location filename="../settings.cpp" line="107"/>
         <source>Could not create temp directory. </source>
         <translation>Klarte ikke å opprette midlertidig mappe.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="220"/>
+        <location filename="../settings.cpp" line="218"/>
         <source>Could not find a usable kernel</source>
         <translation>Fant ingen brukbar kjerne</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="349"/>
+        <location filename="../settings.cpp" line="347"/>
         <source>Used space on / (root): </source>
         <translation>Brukt plass på / (rot):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="352"/>
+        <location filename="../settings.cpp" line="350"/>
         <source>estimated</source>
         <translation>estimert</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="363"/>
+        <location filename="../settings.cpp" line="361"/>
         <source>Used space on /home: </source>
         <translation>Brukt plass på /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="414"/>
+        <location filename="../settings.cpp" line="412"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ledig plass på %1, der mappa til ISO-bildet legges:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="418"/>
+        <location filename="../settings.cpp" line="416"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -683,48 +687,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="434"/>
         <source>Desktop</source>
         <translation>Skrivebord</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="436"/>
         <source>Documents</source>
         <translation>Dokumenter</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="438"/>
         <source>Downloads</source>
         <translation>Nedlastinger</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="442"/>
+        <location filename="../settings.cpp" line="440"/>
         <source>Music</source>
         <translation>Musikk</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Networks</source>
         <translation>Nettverk</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="446"/>
+        <location filename="../settings.cpp" line="444"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="450"/>
+        <location filename="../settings.cpp" line="448"/>
         <source>Videos</source>
         <translation>Videoer</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="651"/>
-        <location filename="../settings.cpp" line="742"/>
+        <location filename="../settings.cpp" line="649"/>
+        <location filename="../settings.cpp" line="740"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Utfila %1 finnes allerede. Velg et annet filnavn eller slett eksisterende fil.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="121"/>
+        <location filename="../work.cpp" line="119"/>
         <source>Interrupted or failed to complete</source>
         <translation>Avbrutt, eller klarte ikke fullføre</translation>
     </message>
@@ -753,128 +757,128 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="88"/>
+        <location filename="../work.cpp" line="86"/>
         <source>Cleaning...</source>
         <translation>Rengjøring …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="112"/>
-        <location filename="../work.cpp" line="120"/>
-        <location filename="../work.cpp" line="277"/>
+        <location filename="../work.cpp" line="110"/>
+        <location filename="../work.cpp" line="118"/>
+        <location filename="../work.cpp" line="275"/>
         <source>Done</source>
         <translation>Ferdig</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="151"/>
-        <location filename="../work.cpp" line="234"/>
-        <location filename="../work.cpp" line="257"/>
-        <location filename="../work.cpp" line="296"/>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="149"/>
+        <location filename="../work.cpp" line="232"/>
+        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="152"/>
+        <location filename="../work.cpp" line="150"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Det er ikke nok ledig plass på måldisken. Det trengs minst %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="155"/>
+        <location filename="../work.cpp" line="153"/>
         <source>You have %1 free space on %2</source>
         <translation>Det er %1 ledig plass på %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="157"/>
+        <location filename="../work.cpp" line="155"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Kjør programmet på nytt med valget -o/--override-size hvis det er nok ledig diskplass</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="181"/>
+        <location filename="../work.cpp" line="179"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopierer det nye ISO-filsystemet …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="193"/>
+        <location filename="../work.cpp" line="191"/>
         <source>Could not create temp directory. </source>
         <translation>Klarte ikke å opprette midlertidig mappe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="231"/>
+        <location filename="../work.cpp" line="229"/>
         <source>Squashing filesystem...</source>
         <translation>Pakker filsystemet …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="235"/>
+        <location filename="../work.cpp" line="233"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Klarte ikke å opprette linuxfs-fil. Se etter om det er nok ledig plass på målpartisjonen.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="254"/>
+        <location filename="../work.cpp" line="252"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Oppretter CD-/DVD-bildefil …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="258"/>
+        <location filename="../work.cpp" line="256"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Klarte ikke å opprette ISO-fil. Se etter om det er nok ledig plass på målpartisjonen.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="264"/>
+        <location filename="../work.cpp" line="262"/>
         <source>Making hybrid iso</source>
         <translation>Lager hybrid-ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="280"/>
         <source>Success</source>
         <translation>Vellykket</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="281"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Opprettet ISO-bilde </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="282"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Tidsbruk %1.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Takk for at du brukte MX ISO-bilde – nå kan du kjøre MX Live-USB.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="293"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Installing </source>
         <translation>Installerer</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="294"/>
         <source>Could not install </source>
         <translation>Klarte ikke å installere</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="306"/>
+        <location filename="../work.cpp" line="304"/>
         <source>Calculating checksum...</source>
         <translation>Beregner sjekksum …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="342"/>
+        <location filename="../work.cpp" line="340"/>
         <source>Building new initrd...</source>
         <translation>Bygger ny initrd …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="413"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Could not create working directory. </source>
         <translation>Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="559"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beregner den totale størrelsen til utelukkede filer …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="568"/>
         <source>Calculating size of root...</source>
         <translation>Beregner størrelsen til root …</translation>
     </message>
