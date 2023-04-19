@@ -611,10 +611,6 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Bu programı root olarak çalıştırmalısınız.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>MX Sistem Anlık Görüntüsü</translation>

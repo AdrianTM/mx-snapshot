@@ -608,11 +608,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Ta program morate zagnati korensko</translation>
+        <translation>Ta program morate zagnati s sudo ali pkexec</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>

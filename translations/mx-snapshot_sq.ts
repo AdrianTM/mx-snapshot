@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kernel “live”:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Ndryshoni kernel “live”</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -608,11 +608,7 @@
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Ju duhet të lëshoni këtë program si root.</translation>
+        <translation>Këtë program duhet ta xhironi me sudo ose pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>

@@ -1,3 +1,9 @@
+mx-snapshot (23.4.01) mx; urgency=medium
+
+  * Fix iso-snapshot-cli-exclude.list link
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 19 Apr 2023 16:44:03 -0400
+
 mx-snapshot (23.4) mx; urgency=medium
 
   * Update icon

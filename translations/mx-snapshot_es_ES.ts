@@ -608,11 +608,7 @@
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Debe ejecutar este programa como root.</translation>
+        <translation>Debe ejecutar este programa con sudo o pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>

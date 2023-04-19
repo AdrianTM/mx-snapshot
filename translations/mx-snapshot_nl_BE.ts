@@ -612,10 +612,6 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">U dient deze toepassing als &apos;root&apos; uit te voeren.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>

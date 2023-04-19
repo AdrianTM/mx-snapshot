@@ -606,10 +606,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">आपण हा प्रोग्राम रूट म्हणूनच चालवावा.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation type="unfinished"></translation>

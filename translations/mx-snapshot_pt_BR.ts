@@ -609,11 +609,7 @@ imagens anteriores e as cópias guardadas/copiadas:
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Você tem que executar este programa como administrador (root).</translation>
+        <translation>Você tem que executar este programa com o comando ‘sudo’ ou o ‘pkexec’ para ter as permissões necessárias.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>
