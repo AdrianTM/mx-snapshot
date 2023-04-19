@@ -611,10 +611,6 @@ odstránením predošlých obrazov alebo kópií systému:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Tento program musíte spustiť ako užívateľ root.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>

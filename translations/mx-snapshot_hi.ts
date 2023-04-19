@@ -611,10 +611,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">यह प्रोग्राम निष्पादित करने हेतु आपका रुट होना आवश्यक है।</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>एमएक्स स्नैपशॉट</translation>

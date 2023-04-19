@@ -611,10 +611,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Du skal køre programmet som root.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>MX Øjebliksbillede</translation>

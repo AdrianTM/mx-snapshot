@@ -610,10 +610,6 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Musisz uruchomić ten program jako administrator. </translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="172"/>
         <source>MX Snapshot</source>
         <translation>MX Zrzut systemu</translation>

@@ -608,11 +608,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Devi eseguire questo programma come utente root</translation>
+        <translation>Devi eseguire questo programma con sudo o pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>

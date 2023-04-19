@@ -11,7 +11,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="unfinished"></translation>
+        <translation>הליבה הנוכחית לא תומכת באלגוריתם הדחיסה שנבחר, נא לערוך את קובץ ההגדרות ולבחור באלגוריתם אחר.</translation>
     </message>
 </context>
 <context>
@@ -26,17 +26,17 @@
     <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>התאמות כרשות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>תאריך הוצאה לאור:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>שם קוד המהדורה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
@@ -46,12 +46,12 @@
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>אפשרויות טעינה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסת המהדורה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
@@ -61,7 +61,7 @@
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>שם המיזם:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -71,12 +71,12 @@
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation type="unfinished"></translation>
+        <translation>מקום תפוס במחיצות / (תיקיית העל) ו־‎/home:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>מיקום ושם ה־ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
@@ -86,7 +86,7 @@
     <message>
         <location filename="../mainwindow.ui" line="249"/>
         <source>Select a different snapshot directory</source>
-        <translation type="unfinished"></translation>
+        <translation>נא לבחור תיקיית תמונות מצב שונה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../mainwindow.ui" line="556"/>
         <source>Type of snapshot:</source>
-        <translation type="unfinished"></translation>
+        <translation>סוג תמונת המצב:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="576"/>
@@ -167,12 +167,12 @@
     <message>
         <location filename="../mainwindow.ui" line="595"/>
         <source>Edit Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation>עריכת קובץ החרגות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="625"/>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../mainwindow.ui" line="645"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="652"/>
@@ -341,7 +341,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation type="unfinished"></translation>
+        <translation>הליבה הנוכחית לא תומכת באלגוריתם הדחיסה שנבחר, נא לערוך את קובץ ההגדרות ולבחור באלגוריתם אחר.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="354"/>
@@ -366,7 +366,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="363"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>כיבוי המחשב עם הסיום.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="375"/>
@@ -475,17 +475,17 @@
         <location filename="../main.cpp" line="80"/>
         <location filename="../main.cpp" line="105"/>
         <source>path</source>
-        <translation type="unfinished"></translation>
+        <translation>נתיב</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>Output filename</source>
-        <translation type="unfinished"></translation>
+        <translation>שם קובץ הפלט</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>name</source>
-        <translation type="unfinished"></translation>
+        <translation>שם</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -495,17 +495,17 @@
     <message>
         <location filename="../main.cpp" line="85"/>
         <source>Or the full path: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>או הנתיב המלא: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="86"/>
         <source>version, or path</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסה, או נתיב</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation>אפשרויות רמת דחיסה.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
@@ -555,37 +555,37 @@
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>תיקיית עבודה</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation type="unfinished"></translation>
+        <translation>החרגה מתיקיות ראשית, בחירות תקפות:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Use the option one time for each item you want to exclude</source>
-        <translation type="unfinished"></translation>
+        <translation>להשתמש באפשרות פעם אחת לכל פריט שמיועד להחרגה</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="110"/>
         <source>one item</source>
-        <translation type="unfinished"></translation>
+        <translation>פריט אחד</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
         <source>Compression format, valid choices: </source>
-        <translation type="unfinished"></translation>
+        <translation>תצורת דחיסה, אפשרויות תקפות:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="113"/>
         <source>format</source>
-        <translation type="unfinished"></translation>
+        <translation>תצורה</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="114"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>כיבוי המחשב עם הסיום.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="133"/>
@@ -598,16 +598,12 @@
         <location filename="../main.cpp" line="155"/>
         <location filename="../main.cpp" line="189"/>
         <source>version:</source>
-        <translation type="unfinished"></translation>
+        <translation>גרסה:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">חובה להריץ את התכנית הזו כמשתמש שורש (root).</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>
@@ -629,7 +625,7 @@
         <location filename="../main.cpp" line="267"/>
         <location filename="../settings.cpp" line="231"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation type="unfinished"></translation>
+        <translation>הליבה הקיימת לא תומכת ב־Squashfs, אי אפשר להמשיך.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="85"/>
@@ -639,27 +635,27 @@
     <message>
         <location filename="../settings.cpp" line="107"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא ניתן ליצור תיקיית זמניים.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="218"/>
         <source>Could not find a usable kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>לא ניתן למצוא ליבה שמישה</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="347"/>
         <source>Used space on / (root): </source>
-        <translation type="unfinished"></translation>
+        <translation>מקום תפוס ב־/ (תיקיית העל):</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="350"/>
         <source>estimated</source>
-        <translation type="unfinished"></translation>
+        <translation>משוערך</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="361"/>
         <source>Used space on /home: </source>
-        <translation type="unfinished"></translation>
+        <translation>מקום תפוס ב־‎/home:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="412"/>
@@ -790,7 +786,7 @@
     <message>
         <location filename="../work.cpp" line="191"/>
         <source>Could not create temp directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>לא ניתן ליצור תיקיית זמניים.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="229"/>
@@ -855,7 +851,7 @@
     <message>
         <location filename="../work.cpp" line="340"/>
         <source>Building new initrd...</source>
-        <translation type="unfinished"></translation>
+        <translation>initrd חדש נבנה…</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="411"/>
@@ -865,12 +861,12 @@
     <message>
         <location filename="../work.cpp" line="557"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
+        <translation>הגודל הכללי של הקבצים המוחרגים מחושב…</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="568"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>גודל תיקיית העל מחושב…</translation>
     </message>
 </context>
 </TS>

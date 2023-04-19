@@ -603,11 +603,7 @@
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">このプログラムは root 権限で実行する必要があります。</translation>
+        <translation>このプログラムは、sudo または pkexec で実行する必要があります。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>

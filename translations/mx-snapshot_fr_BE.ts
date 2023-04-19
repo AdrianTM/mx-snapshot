@@ -400,7 +400,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../mainwindow.cpp" line="413"/>
         <source>Close</source>
-        <translation>Fermer</translation>
+        <translation>Quitter</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
@@ -607,11 +607,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You must run this program as root.</source>
-        <translation type="vanished">Vous devez exécuter cette application en tant qu’administrateur.</translation>
+        <translation>Vous devez exécuter ce programme avec sudo ou pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="172"/>
@@ -749,7 +745,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../about.cpp" line="74"/>
         <source>&amp;Close</source>
-        <translation>&amp;Fermer</translation>
+        <translation>&amp;Quitter</translation>
     </message>
 </context>
 <context>
