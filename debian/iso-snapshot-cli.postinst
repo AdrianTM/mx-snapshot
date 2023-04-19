@@ -1,0 +1,1 @@
+ln -fs /etc/iso-snapshot-cli-exclude.list /usr/local/share/excludes/iso-snapshot-cli-exclude.list
