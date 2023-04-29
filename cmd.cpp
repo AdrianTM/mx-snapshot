@@ -14,14 +14,12 @@ Cmd::Cmd(QObject *parent)
 
 bool Cmd::run(const QString &cmd, bool quiet)
 {
-    out_buffer.clear();
     QString output;
     return run(cmd, output, quiet);
 }
 
 QString Cmd::getCmdOut(const QString &cmd, bool quiet)
 {
-    out_buffer.clear();
     QString output;
     run(cmd, output, quiet);
     return output;
@@ -30,8 +28,7 @@ QString Cmd::getCmdOut(const QString &cmd, bool quiet)
 bool Cmd::run(const QString &cmd, QString &output, bool quiet)
 {
     out_buffer.clear();
-    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Cmd::finished,
-            Qt::UniqueConnection);
+    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), this, &Cmd::finished);
     if (this->state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
