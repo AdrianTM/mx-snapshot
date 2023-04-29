@@ -1,9 +1,9 @@
+
 #ifndef CMD_H
 #define CMD_H
 
 #include <QProcess>
 
-class QString;
 class QTextStream;
 
 class Cmd : public QProcess
