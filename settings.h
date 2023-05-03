@@ -33,8 +33,8 @@
 
 extern QString current_kernel;
 
-static QHash<QString, uint> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
-                                                {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
+static QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
+                                                  {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
 class Settings
 {
@@ -83,7 +83,7 @@ public:
     bool cli_mode;
     bool edit_boot_menu {};
     bool force_installer {};
-    bool i686 {};
+    bool i386 {};
     bool live {};
     bool make_isohybrid {};
     bool make_md5sum {};
@@ -109,9 +109,9 @@ public:
     bool checkCompression() const;
     bool checkSnapshotDir() const;
     bool checkTempDir();
-    bool isLive() const;
+    static bool isLive();
     bool isOnSupportedPart(const QString &dir) const;
-    bool isi686() const;
+    static bool isi386();
     int getSnapshotCount() const;
     quint64 getFreeSpace(const QString &path) const;
     quint64 getLiveRootSpace() const;

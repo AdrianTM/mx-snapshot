@@ -248,7 +248,7 @@ void Settings::setVariables()
 
     live = isLive();
     users = listUsers();
-    i686 = isi686();
+    i386 = isi386();
 
     QString distro_version_file;
     if (QFileInfo::exists("/etc/mx-version"))
@@ -267,7 +267,7 @@ void Settings::setVariables()
     } else {
         distro_version = shell->getCmdOut("lsb_release -r | cut -f2");
     }
-    full_distro_name = project_name + "-" + distro_version + "_" + QString(i686 ? "386" : "x64");
+    full_distro_name = project_name + "-" + distro_version + "_" + QString(i386 ? "386" : "x64");
     release_date = QDate::currentDate().toString(QStringLiteral("MMMM dd, yyyy"));
     if (QFileInfo::exists("/etc/lsb-release"))
         codename = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
@@ -313,21 +313,14 @@ quint64 Settings::getLiveRootSpace() const
     const quint8 default_factor = 30;
     quint8 c_factor = default_factor;
     // gzip, xz, or lz4
-    if (linuxfs_compression_type == QLatin1String("1"))
-        c_factor = compression_factor.value(QStringLiteral("gzip"));
-    else if (linuxfs_compression_type == QLatin1String("2"))
-        c_factor = compression_factor.value(QStringLiteral("lzo")); // lzo, not used by antiX
-    else if (linuxfs_compression_type == QLatin1String("3"))
-        c_factor = compression_factor.value(QStringLiteral("lzma")); // lzma, not used by antiX
-    else if (linuxfs_compression_type == QLatin1String("4"))
-        c_factor = compression_factor.value(QStringLiteral("xz"));
-    else if (linuxfs_compression_type == QLatin1String("5"))
-        c_factor = compression_factor.value(QStringLiteral("lz4"));
-    else if (linuxfs_compression_type == QLatin1String("6"))
-        c_factor = compression_factor.value(QStringLiteral("zstd"));
-    else
-        c_factor = default_factor; // anything else or linuxfs not reachable (toram), should be pretty conservative
-
+    QMap<QString, QString> compression_types
+        = {{"1", "gzip"}, {"2", "lzo"}, {"3", "lzma"}, {"4", "xz"}, {"5", "lz4"}, {"6", "zstd"}};
+    if (compression_types.contains(linuxfs_compression_type)) {
+        c_factor = compression_factor.value(compression_types.value(linuxfs_compression_type));
+    } else {
+        c_factor = default_factor;
+        qWarning() << "Unknown compression type:" << linuxfs_compression_type;
+    }
     quint64 rootfs_file_size = 0;
     quint64 linuxfs_file_size
         = shell->getCmdOut(QStringLiteral("df -k /live/linux --output=used --total |tail -n1")).toULongLong() * 100
@@ -367,10 +360,10 @@ QString Settings::getUsedSpace()
 }
 
 // Check if running from a 32bit environment
-bool Settings::isi686() const { return (shell->getCmdOut(QStringLiteral("uname -m"), true) == QLatin1String("i686")); }
+bool Settings::isi386() { return (QSysInfo::currentCpuArchitecture() == QLatin1String("i386")); }
 
 // Check if running from a live envoronment
-bool Settings::isLive() const { return (shell->run(QStringLiteral("mountpoint -q /live/aufs"), true)); }
+bool Settings::isLive() { return (QProcess::execute("mountpoint", {"-q", "/live/aufs"}) == 0); }
 
 // checks if the directory is on a Linux partition
 bool Settings::isOnSupportedPart(const QString &dir) const
@@ -657,30 +650,22 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         exit(EXIT_FAILURE);
     }
     reset_accounts = arg_parser.isSet(QStringLiteral("reset"));
-    if (reset_accounts) {
+    if (reset_accounts)
         excludeAll();
-    }
-    if (arg_parser.isSet(QStringLiteral("month"))) {
+    if (arg_parser.isSet(QStringLiteral("month")))
         reset_accounts = true;
-    }
-    if (arg_parser.isSet(QStringLiteral("checksums"))) {
-        make_sha512sum = true;
-        make_md5sum = true;
-    }
+    if (arg_parser.isSet(QStringLiteral("checksums")))
+        make_sha512sum = make_md5sum = true;
     if (arg_parser.isSet(QStringLiteral("month"))) {
         make_sha512sum = true;
         make_md5sum = false;
     }
-    if (arg_parser.isSet(QStringLiteral("no-checksums"))) {
-        make_sha512sum = false;
-        make_md5sum = false;
-    }
-    if (!arg_parser.value(QStringLiteral("compression")).isEmpty()) {
+    if (arg_parser.isSet(QStringLiteral("no-checksums")))
+        make_sha512sum = make_md5sum = false;
+    if (!arg_parser.value(QStringLiteral("compression")).isEmpty())
         compression = arg_parser.value(QStringLiteral("compression"));
-    }
-    if (!arg_parser.value(QStringLiteral("compression-level")).isEmpty()) {
+    if (!arg_parser.value(QStringLiteral("compression-level")).isEmpty())
         mksq_opt = arg_parser.value(QStringLiteral("compression-level"));
-    }
     selectKernel();
 }
 
@@ -726,7 +711,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         name = shell->getCmdOut(QStringLiteral("cat /etc/mx-version |cut -f1 -d' '"));
     } else {
         qDebug() << "/etc/mx-version not found. Not MX Linux?";
-        name = "MX_" + QString(i686 ? "386" : "x64");
+        name = "MX_" + QString(i386 ? "386" : "x64");
     }
     if (arg_parser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");

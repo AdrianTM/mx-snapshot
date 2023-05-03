@@ -337,7 +337,7 @@ void MainWindow::btnNext_clicked()
         distro_version = ui->textDistroVersion->text();
         project_name = ui->textProjectName->text();
         full_distro_name
-            = project_name + "-" + distro_version + "_" + QString(i686 ? QStringLiteral("386") : QStringLiteral("x64"));
+            = project_name + "-" + distro_version + "_" + QString(i386 ? QStringLiteral("386") : QStringLiteral("x64"));
         boot_options = ui->textOptions->text();
         release_date = ui->textReleaseDate->text();
         // on settings page
