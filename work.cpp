@@ -92,11 +92,13 @@ void Work::cleanUp()
     if (QFileInfo::exists(QStringLiteral("/tmp/installed-to-live/cleanup.conf")))
         QProcess::execute(QStringLiteral("installed-to-live"), {"cleanup"});
 
-    if (!settings->live && !settings->reset_accounts)
-        for (const QString &user : QDir(QStringLiteral("/home")).entryList()) {
-            for (const QString &filename : QDir("/home/" + user + "/Desktop").entryList({"minstall.desktop"}))
-                QFile::remove("/home/" + user + "/Desktop/" + filename);
+    if (!settings->live && !settings->reset_accounts) {
+        QDir homeDir("/home");
+        for (const QString &user : homeDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+            QString desktopPath = QString("/home/%1/Desktop/minstall.desktop").arg(user);
+            QFile::remove(desktopPath);
         }
+    }
 
     QFile::remove(QStringLiteral("/usr/local/share/live-files/files/etc/mx-version"));
     QFile::remove(QStringLiteral("/usr/local/share/live-files/files/etc/lsb-release"));
@@ -195,17 +197,26 @@ void Work::copyNewIso()
     openInitrd(settings->work_dir + "/iso-template/antiX/initrd.gz", path);
 
     // Strip modules; make sure initrd_dir is correct to avoid disaster
-    if (path.startsWith(QLatin1String("/tmp/")) && QFileInfo::exists(path + "/lib/modules"))
-        RUN("rm -r \"" + path + "/lib/modules\"");
+    if (path.startsWith(QStringLiteral("/tmp/"))) {
+        QDir modulesDir(path + QStringLiteral("/lib/modules"));
+        if (modulesDir.exists())
+            modulesDir.removeRecursively();
+    }
 
-    // We cannot count on this file in the future versions
-    RUN("test -r /usr/local/share/live-files/files/etc/initrd-release && cp "
-        "/usr/local/share/live-files/files/etc/initrd-release \""
-        + path + "/etc\"");
+    // For old versions we copy initrd-release for newere ones we copy initrd_release
+    QString sourcePath = "/etc/initrd-release";
+    QString destinationPath = path + "/etc/initrd-release";
+    QFileInfo sourceFileInfo(sourcePath);
+    if (sourceFileInfo.exists() && sourceFileInfo.isFile())
+        if (!QFile::exists(destinationPath) || QFile::remove(destinationPath))
+            QFile::copy(sourcePath, destinationPath);
+    sourcePath = "/etc/initrd_release";
+    destinationPath = path + "/etc/initrd_release";
+    sourceFileInfo.setFile(sourcePath);
+    if (sourceFileInfo.exists() && sourceFileInfo.isFile())
+        if (!QFile::exists(destinationPath) || QFile::remove(destinationPath))
+            QFile::copy(sourcePath, destinationPath);
 
-    // Overwrite with this file, probably a better location _if_ the file exists
-    RUN("test -r /etc/initrd-release && cp /etc/initrd-release \"" + path + "/etc\"");
-    RUN("test -r /etc/initrd_release && cp /etc/initrd_release \"" + path + "/etc\"");
     if (initrd_dir.isValid()) {
         copyModules(path, settings->kernel);
         closeInitrd(path, settings->work_dir + "/iso-template/antiX/initrd.gz");
