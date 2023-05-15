@@ -248,7 +248,7 @@ void Settings::setVariables()
 
     live = isLive();
     users = listUsers();
-    i386 = isi386();
+    x86 = isi386();
 
     QString distro_version_file;
     if (QFileInfo::exists("/etc/mx-version"))
@@ -267,7 +267,7 @@ void Settings::setVariables()
     } else {
         distro_version = shell->getCmdOut("lsb_release -r | cut -f2");
     }
-    full_distro_name = project_name + "-" + distro_version + "_" + QString(i386 ? "386" : "x64");
+    full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
     release_date = QDate::currentDate().toString(QStringLiteral("MMMM dd, yyyy"));
     if (QFileInfo::exists("/etc/lsb-release"))
         codename = shell->getCmdOut(QStringLiteral("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release"));
@@ -711,7 +711,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         name = shell->getCmdOut(QStringLiteral("cat /etc/mx-version |cut -f1 -d' '"));
     } else {
         qDebug() << "/etc/mx-version not found. Not MX Linux?";
-        name = "MX_" + QString(i386 ? "386" : "x64");
+        name = "MX_" + QString(x86 ? "386" : "x64");
     }
     if (arg_parser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");
