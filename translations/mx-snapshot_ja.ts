@@ -615,8 +615,8 @@
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="655"/>
-        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="648"/>
+        <location filename="../settings.cpp" line="731"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -643,27 +643,27 @@
         <translation>使用可能なカーネルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="347"/>
+        <location filename="../settings.cpp" line="340"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="350"/>
+        <location filename="../settings.cpp" line="343"/>
         <source>estimated</source>
         <translation>推定</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="354"/>
         <source>Used space on /home: </source>
         <translation>/home の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="412"/>
+        <location filename="../settings.cpp" line="405"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>スナップショットを作成するフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="416"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -673,48 +673,48 @@
         <translation>/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:&#x3000;スナップショット %1 は空き容量の %2 を消費しています。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="434"/>
+        <location filename="../settings.cpp" line="427"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="429"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="442"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="448"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="649"/>
-        <location filename="../settings.cpp" line="740"/>
+        <location filename="../settings.cpp" line="642"/>
+        <location filename="../settings.cpp" line="725"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="119"/>
+        <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>中断されたか、または完了できませんでした</translation>
     </message>
@@ -748,123 +748,123 @@
         <translation>クリーニング中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="110"/>
-        <location filename="../work.cpp" line="118"/>
-        <location filename="../work.cpp" line="275"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Done</source>
         <translation>完了</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="149"/>
-        <location filename="../work.cpp" line="232"/>
-        <location filename="../work.cpp" line="255"/>
-        <location filename="../work.cpp" line="294"/>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="151"/>
+        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="266"/>
+        <location filename="../work.cpp" line="305"/>
+        <location filename="../work.cpp" line="421"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="152"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>作成するディスクに十分な空き領域がありません。最低でも %1 必要です</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="153"/>
+        <location filename="../work.cpp" line="155"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 に %1 の空き領域があります</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="155"/>
+        <location filename="../work.cpp" line="157"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>充分な空き容量があると分かっているのであれば、-o/--override-size オプションを付けてプログラムを再実行してください。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="179"/>
+        <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>新たな iso ファイルシステムをコピー中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="191"/>
+        <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="229"/>
+        <location filename="../work.cpp" line="240"/>
         <source>Squashing filesystem...</source>
         <translation>ファイルシステムに Squash を適用中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="244"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>linuxfsファイルを作成できませんでした。目的のパーティションに十分な空き容量があるか確認してください。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="252"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD イメージファイルを生成中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISOファイルを作成できませんでした。パーティションに十分な空き容量があるかご確認ください。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="262"/>
+        <location filename="../work.cpp" line="273"/>
         <source>Making hybrid iso</source>
         <translation>ハイブリット ISO を作成中</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="280"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Success</source>
         <translation>成功</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="292"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX スナップショットは正常に完了！</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="293"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>スナップショットの作成が完了するまで %1 かかりました。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="294"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX ライブ USB メーカー を起動してください！</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="291"/>
+        <location filename="../work.cpp" line="302"/>
         <source>Installing </source>
         <translation>インストール中</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="305"/>
         <source>Could not install </source>
         <translation>インストールできません</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="304"/>
+        <location filename="../work.cpp" line="315"/>
         <source>Calculating checksum...</source>
         <translation>チェックサムの計算中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="340"/>
+        <location filename="../work.cpp" line="351"/>
         <source>Building new initrd...</source>
         <translation>新しい initrd を構築中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="422"/>
         <source>Could not create working directory. </source>
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="557"/>
+        <location filename="../work.cpp" line="568"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="568"/>
+        <location filename="../work.cpp" line="579"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>

@@ -620,8 +620,8 @@
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="655"/>
-        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="648"/>
+        <location filename="../settings.cpp" line="731"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
@@ -648,27 +648,27 @@
         <translation>Nem sikerült egy használható kernel találni</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="347"/>
+        <location filename="../settings.cpp" line="340"/>
         <source>Used space on / (root): </source>
         <translation>Foglalt terület a / (gyökér) partíción:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="350"/>
+        <location filename="../settings.cpp" line="343"/>
         <source>estimated</source>
         <translation>becsült</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="354"/>
         <source>Used space on /home: </source>
         <translation>Foglalt terület a /home-on:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="412"/>
+        <location filename="../settings.cpp" line="405"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Szabad hely a %1 alatt, ahol a pillanatkép mappa található:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="416"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -683,48 +683,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="434"/>
+        <location filename="../settings.cpp" line="427"/>
         <source>Desktop</source>
         <translation>Asztal</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="429"/>
         <source>Documents</source>
         <translation>Dokumentumok</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Downloads</source>
         <translation>Letöltések</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Music</source>
         <translation>Zene</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="442"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Networks</source>
         <translation>Hálózatok</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Pictures</source>
         <translation>Képek</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="448"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Videos</source>
         <translation>Videók</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="649"/>
-        <location filename="../settings.cpp" line="740"/>
+        <location filename="../settings.cpp" line="642"/>
+        <location filename="../settings.cpp" line="725"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="119"/>
+        <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Megszakítva vagy nem sikerült befejezni</translation>
     </message>
@@ -758,123 +758,123 @@
         <translation>Takarítás...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="110"/>
-        <location filename="../work.cpp" line="118"/>
-        <location filename="../work.cpp" line="275"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Done</source>
         <translation>Kész</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="149"/>
-        <location filename="../work.cpp" line="232"/>
-        <location filename="../work.cpp" line="255"/>
-        <location filename="../work.cpp" line="294"/>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="151"/>
+        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="266"/>
+        <location filename="../work.cpp" line="305"/>
+        <location filename="../work.cpp" line="421"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="152"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Nincs elég szabad hely a céllemezen, legalább %1 szükséges</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="153"/>
+        <location filename="../work.cpp" line="155"/>
         <source>You have %1 free space on %2</source>
         <translation>%1 üres terület van ezen: %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="155"/>
+        <location filename="../work.cpp" line="157"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Ha biztos benne, hogy van elég hely, futtassa újra a programot a -o/--override-size opcióval</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="179"/>
+        <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Az új ISO fájlrendszer másolása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="191"/>
+        <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
         <translation>Nem sikerült létrehozni az ideiglenes könyvtárat.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="229"/>
+        <location filename="../work.cpp" line="240"/>
         <source>Squashing filesystem...</source>
         <translation>Fájlrendszer tömörítése...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="244"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Nem sikerült létrehozni a linuxfs fájlt, ellenőrizze, hogy van-e elég hely a célpartíción.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="252"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD képfájl létrehozása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Nem sikerült létrehozni az ISO fájlt, ellenőrizze, hogy van-e elég hely a célpartíción.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="262"/>
+        <location filename="../work.cpp" line="273"/>
         <source>Making hybrid iso</source>
         <translation>Hibrid ISO készítése</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="280"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Success</source>
         <translation>Sikeres</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="292"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>A pillanatkép sikeresen elkészült!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="293"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>A pillanatkép készítése %1 időt vett igénybe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="294"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Köszönjük, hogy használta az MX pillanatkép készítőt, futtassa a Live USB készítőt a következőként!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="291"/>
+        <location filename="../work.cpp" line="302"/>
         <source>Installing </source>
         <translation>Telepítés</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="305"/>
         <source>Could not install </source>
         <translation>Telepítés nem sikerült</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="304"/>
+        <location filename="../work.cpp" line="315"/>
         <source>Calculating checksum...</source>
         <translation>Ellenőrzőösszeg számítása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="340"/>
+        <location filename="../work.cpp" line="351"/>
         <source>Building new initrd...</source>
         <translation>Új initrd össeállítása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="422"/>
         <source>Could not create working directory. </source>
         <translation>Nem sikerült létrehozni a munkakönyvtárat.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="557"/>
+        <location filename="../work.cpp" line="568"/>
         <source>Calculating total size of excluded files...</source>
         <translation>A kihagyott fájlok méretének kiszámítása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="568"/>
+        <location filename="../work.cpp" line="579"/>
         <source>Calculating size of root...</source>
         <translation>A gyökérkönyvtár méretének kiszámítása...</translation>
     </message>

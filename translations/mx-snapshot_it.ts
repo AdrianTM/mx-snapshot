@@ -620,8 +620,8 @@ rimuovendo precedenti snapshots e copie salvate:
         <location filename="../main.cpp" line="271"/>
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="655"/>
-        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="648"/>
+        <location filename="../settings.cpp" line="731"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -648,27 +648,27 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Impossibile trovare un kernel utilizzabile</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="347"/>
+        <location filename="../settings.cpp" line="340"/>
         <source>Used space on / (root): </source>
         <translation>Spazio utilizzato su / (root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="350"/>
+        <location filename="../settings.cpp" line="343"/>
         <source>estimated</source>
         <translation>stimato</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="354"/>
         <source>Used space on /home: </source>
         <translation>Spazio utilizzato su /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="412"/>
+        <location filename="../settings.cpp" line="405"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Spazio libero su %1, dove la cartella della snapshot è localizzata: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="416"/>
+        <location filename="../settings.cpp" line="409"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -683,48 +683,48 @@ rimuovendo precedenti snapshots e copie salvate:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="434"/>
+        <location filename="../settings.cpp" line="427"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="436"/>
+        <location filename="../settings.cpp" line="429"/>
         <source>Documents</source>
         <translation>Documenti</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="438"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>Downloads</source>
         <translation>Download</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="433"/>
         <source>Music</source>
         <translation>Musica</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="442"/>
+        <location filename="../settings.cpp" line="435"/>
         <source>Networks</source>
         <translation>Reti</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="437"/>
         <source>Pictures</source>
         <translation>Immagini</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="448"/>
+        <location filename="../settings.cpp" line="441"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="649"/>
-        <location filename="../settings.cpp" line="740"/>
+        <location filename="../settings.cpp" line="642"/>
+        <location filename="../settings.cpp" line="725"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="119"/>
+        <location filename="../work.cpp" line="121"/>
         <source>Interrupted or failed to complete</source>
         <translation>Completamento interrotto o fallito</translation>
     </message>
@@ -758,123 +758,123 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Pulizia in corso...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="110"/>
-        <location filename="../work.cpp" line="118"/>
-        <location filename="../work.cpp" line="275"/>
+        <location filename="../work.cpp" line="112"/>
+        <location filename="../work.cpp" line="120"/>
+        <location filename="../work.cpp" line="286"/>
         <source>Done</source>
         <translation>Fatto</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="149"/>
-        <location filename="../work.cpp" line="232"/>
-        <location filename="../work.cpp" line="255"/>
-        <location filename="../work.cpp" line="294"/>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="151"/>
+        <location filename="../work.cpp" line="243"/>
+        <location filename="../work.cpp" line="266"/>
+        <location filename="../work.cpp" line="305"/>
+        <location filename="../work.cpp" line="421"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="150"/>
+        <location filename="../work.cpp" line="152"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Non c&apos;è sufficiente spazio libero sul tuo disco di destinazione, hai bisogno di almeno</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="153"/>
+        <location filename="../work.cpp" line="155"/>
         <source>You have %1 free space on %2</source>
         <translation>Hai spazio libero su</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="155"/>
+        <location filename="../work.cpp" line="157"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Se sei sicuro di avere abbastanza spazio libero, esegui nuovamente il programma con l&apos;opzione -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="179"/>
+        <location filename="../work.cpp" line="181"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copia del filesystem della nuova-iso ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="191"/>
+        <location filename="../work.cpp" line="193"/>
         <source>Could not create temp directory. </source>
         <translation>Impossibile creare una directory temporanea.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="229"/>
+        <location filename="../work.cpp" line="240"/>
         <source>Squashing filesystem...</source>
         <translation>Compressione del filesystem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="244"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Impossibile creare il file linuxfs, verifica di avere spazio a sufficienza sulla partizione di destinazione.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="252"/>
+        <location filename="../work.cpp" line="263"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creazione del file immagine CD/DVD in corso...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="256"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Impossibile creare il file ISO, verifica di avere spazio a sufficienza sulla partizione di destinazione.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="262"/>
+        <location filename="../work.cpp" line="273"/>
         <source>Making hybrid iso</source>
         <translation>Creazione di un&apos;ISO ibrida in corso</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="280"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Success</source>
         <translation>Operazione riuscita</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="281"/>
+        <location filename="../work.cpp" line="292"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Istantanea-MX completata con successo! </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="293"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>L&apos;istantanea ha richeisto l&apos;1% per terminare</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="294"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Grazie per aver usato MX Snapshot, prova anche MX Live Maker!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="291"/>
+        <location filename="../work.cpp" line="302"/>
         <source>Installing </source>
         <translation>Installazione in corso</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="305"/>
         <source>Could not install </source>
         <translation>Non è stato possibile installare</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="304"/>
+        <location filename="../work.cpp" line="315"/>
         <source>Calculating checksum...</source>
         <translation>Calcolo checksum...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="340"/>
+        <location filename="../work.cpp" line="351"/>
         <source>Building new initrd...</source>
         <translation>Realizzazione del nuovo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="422"/>
         <source>Could not create working directory. </source>
         <translation>Impossibile creare una directory attiva.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="557"/>
+        <location filename="../work.cpp" line="568"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="568"/>
+        <location filename="../work.cpp" line="579"/>
         <source>Calculating size of root...</source>
         <translation>Calcolo la dimensione di root...</translation>
     </message>

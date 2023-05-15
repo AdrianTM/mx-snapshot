@@ -1,0 +1,51 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 14 May 2023 22:19:34 -0400
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: source amd64
+Version: 23.5
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.5) mx; urgency=medium
+ .
+   * Update icon
+   * Refresh translations
+Checksums-Sha1:
+ 2a4cf0ea6d1fe1977cb8c0056bcd66c1fe6863ca 1258 mx-snapshot_23.5.dsc
+ d2ff5be9fa4b53c2f69a115c48308f16322ed46d 246380 mx-snapshot_23.5.tar.xz
+ 2a53c59b0bb4bfd5e0cf21b17319826d0fd93875 265456 iso-snapshot-cli_23.5_amd64.deb
+ 18c2f22ac32c7d1ea5a9c06285f9439afc557c6c 11007 mx-snapshot_23.5_amd64.buildinfo
+ 8d40606c295eac7f7696569ca671c051dabfd3ab 304684 mx-snapshot_23.5_amd64.deb
+Checksums-Sha256:
+ 571527af95450859a3f87994fd078af8089f7383c7fe9e6f611a7b2c97ec02e5 1258 mx-snapshot_23.5.dsc
+ 123e47caa98fb03bfa66771bfa0f1fef8774cf6638a1c3b384c0a8c80f01c310 246380 mx-snapshot_23.5.tar.xz
+ 5e344d855bfd15a0432397f69be75b47ce3f014d2f923ea3da550924128741fb 265456 iso-snapshot-cli_23.5_amd64.deb
+ f6bcaacad7a92c1bbcabe476cae138e1aa29dd297f408661fb74579dbd20beee 11007 mx-snapshot_23.5_amd64.buildinfo
+ eca822250db733cd3ce4f6024abe4bd653dad0fd1c342cb6cb0ebb364ea776e8 304684 mx-snapshot_23.5_amd64.deb
+Files:
+ 70ed0f85cdb74ab3eb93473f4fbd3936 1258 admin optional mx-snapshot_23.5.dsc
+ d1d797a06dda2f241847f219f010f90e 246380 admin optional mx-snapshot_23.5.tar.xz
+ 24e21aed70cb439bac74fb3e5e54a78c 265456 admin optional iso-snapshot-cli_23.5_amd64.deb
+ 467cbb05266651052c0304407365bcea 11007 admin optional mx-snapshot_23.5_amd64.buildinfo
+ cf88567eec1190a9386a0c65a40cbc74 304684 admin optional mx-snapshot_23.5_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmRhnGYTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHRjB/9dyZqKxc716dDHlXhxPrd+Za+BYgd7
+WM6CAPGcQimLDwcDmxIs0Q0sGAz8QkS/dFfFwrhbH0BnxR9P48QMmwVCwycicMeg
+0qBjayDCxmEaY3CTcHm/eISlBSkKf161FGu/pmyWFAss4QQAqPAvL/Q2XKZKqLed
+30f5QpLAJsTImwWxWAayNVikXu2VCOiqtdeIKheGV5XhLMGA+jhsq9bglhIihDd0
+1y/+8rybpmBSbOkJ76ugFdYyx8bB2JGIrKqsQRAwIzkoQvcCzBSbC5U8M9CuxwYe
+50a1TsJ4yQStk3hixmkRMU+Qaq1TRX5mrsNHQsnVzQCMfkkzomLu5IDd
+=itrn
+-----END PGP SIGNATURE-----
