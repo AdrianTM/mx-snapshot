@@ -80,7 +80,7 @@ for param in $CMD_LINE; do
             fancyprompt|fprompt)  ;;
                autologin|alogin)  ;;
 
-                  toram|toram=*)  ;;
+#                  toram|toram=*)  ;;
 
                      noremaster)  ;;
                        rollback)  ;;
