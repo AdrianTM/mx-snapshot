@@ -560,7 +560,7 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Çalışma dizini</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
