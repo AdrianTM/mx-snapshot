@@ -1,11 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 #---------------------------------------------------------
-# script to list bootu parame to be shown with bootparamterfield
+# list boot parameter to be shown with boot paramter field
 #---------------------------------------------------------
 
 PROC_CMDLINE=$(cat /proc/cmdline)
 CONF_CMDLINE=$(grep ^CONFIG_CMDLINE= /boot/config-$(uname -r) 2>/dev/null | cut -d\" -f2 | tail -1)
 
+# find build in kernel parameter par to be ignored
 CMD_LINE=""
 for param in $PROC_CMDLINE; do
     x=x
@@ -15,8 +16,19 @@ for param in $PROC_CMDLINE; do
     [ -n "$x" ] &&  CMD_LINE="$CMD_LINE $param"
 done
 
-for param in $CMD_LINE; do
-    case $param in
+# regexp to get all kernel and live boot parameter 
+# inclding any quoted with spaces
+
+par_list=$(echo "$CMD_LINE " | 
+    grep -oP '((?<=\s)|^)[[:alnum:]._-]+(=([^\s\n]*?)?|)(?=[\s\n])|((?<=\s)|^)("[[:alnum:]._-]+=[^"]*?")' | 
+    sed -r 's/"([[:alnum:]._-]+=)/\1"/')
+
+readarray -t PAR_LIST <<<"$par_list"
+
+OUT_LIST=()
+
+for param in "${PAR_LIST[@]}"; do
+    case "$param" in
 
                           menus)  ;;
                         menus=*)  ;;
@@ -196,8 +208,45 @@ for param in $CMD_LINE; do
         # luks paramter
             [bfp]luks*) ;;
         # anything else
-            quiet|splash) ;;
+           quiet|splash) ;;
 
-        *) printf "%s\n" "$param"
+        *) OUT_LIST+=("$param")
     esac
-done | sort -u
+done
+
+# revert list REV_LIST to keep last parameter only
+readarray -t REV_LIST <<<$( printf "%s\n" "${OUT_LIST[@]}" | tac )
+
+# list of key-values paramter to keep only the last
+KEY_LIST=(
+	lang
+	kbd kbopt kbvar
+	tz
+	toram
+	splasht
+	)
+declare -A KEYS
+for key in "${KEY_LIST[@]}"; do
+	KEYS["$key"]="$key"
+done
+ 
+declare -A SEEN 
+OUT_PAR=()
+for par in "${REV_LIST[@]}"; do
+	key="${par}"
+	if [ "${par}" != "${par%%=*}" ]; then
+	   [ ${KEYS["${par%%=*}"]+set} ] && key="${par%%=*}"
+	fi
+	if [ ${SEEN["$key"]+set} ]; then
+		echo "seen: $par " 
+		continue 
+	fi
+	SEEN["$key"]="$key"
+	OUT_PAR+=("$par")
+done
+
+OUT_LIST=()
+
+readarray -t OUT_LIST <<<$( printf "%s\n" "${OUT_PAR[@]}" | tac )
+printf "%s\n" "${OUT_LIST[@]}"
+
