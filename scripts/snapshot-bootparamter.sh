@@ -1,12 +1,13 @@
 #!/bin/bash
+
 #---------------------------------------------------------
-# list boot parameter to be shown with boot paramter field
+# list boot parameter to be shown within the boot option field
 #---------------------------------------------------------
 
 PROC_CMDLINE=$(cat /proc/cmdline)
 CONF_CMDLINE=$(grep ^CONFIG_CMDLINE= /boot/config-$(uname -r) 2>/dev/null | cut -d\" -f2 | tail -1)
 
-# find build in kernel parameter par to be ignored
+# find build-in kernel parameter par to be ignored
 CMD_LINE=""
 for param in $PROC_CMDLINE; do
     x=x
@@ -16,12 +17,19 @@ for param in $PROC_CMDLINE; do
     [ -n "$x" ] &&  CMD_LINE="$CMD_LINE $param"
 done
 
-# regexp to get all kernel and live boot parameter 
+# regexp to get all kernel and live boot parameter
 # inclding any quoted with spaces
 
-par_list=$(echo "$CMD_LINE " | 
-    grep -oP '((?<=\s)|^)[[:alnum:]._-]+(=([^\s\n]*?)?|)(?=[\s\n])|((?<=\s)|^)("[[:alnum:]._-]+=[^"]*?")' | 
-    sed -r 's/"([[:alnum:]._-]+=)/\1"/')
+par_list=$(
+    echo " $CMD_LINE "                                       |
+    sed -r 's/\\//g;
+            s/ "([[:alnum:]._-]+=)/\n\1"/g;
+            s/ ([[:alnum:]._-]+=")/\n\1/g;
+            s/" /"\n/g;'                                     |
+    sed -r '/="[^"]+"/s/[[:space:]]/__SPACE_PLACEHOLDER__/g;
+            s/\s\s*/\n/g; s/__SPACE_PLACEHOLDER__/ /g;'      |
+    sed '/^\s*$/d'
+    )
 
 readarray -t PAR_LIST <<<"$par_list"
 
@@ -34,8 +42,8 @@ for param in "${PAR_LIST[@]}"; do
                         menus=*)  ;;
                        old-conf)  ;;
                        new-conf)  ;;
-                         splash)  ;;
-                       splash=*)  ;;
+#                        splash)  ;;
+#                      splash=*)  ;;
                        poweroff)  ;;
                          reboot)  ;;
                bootdir=*|bdir=*)  ;;
@@ -170,7 +178,7 @@ for param in "${PAR_LIST[@]}"; do
 #        desktop=*|dpi=*|fstab=*|hostname=*|kbd=*|kbopt=*|kbvar=*);;
 #        lang=*|mirror=*|mount=*|noloadkeys|noprompt);;
 #        nosplash|password|password=*|prompt|pw|pw=*|tz=*|ubp=*|ushow=*);;
-        nosplash|password|password=*|prompt|pw|pw=*|ubp=*|ushow=*);;
+        password|password=*|prompt|pw|pw=*|ubp=*|ushow=*);;
         uverb=*|xres=*|noxorg);;
         desktheme=*) ;;
         nosavestate|savestate|dbsavestate) ;;
@@ -184,7 +192,6 @@ for param in "${PAR_LIST[@]}"; do
 
         skylakeflicker)  ;;
         i915powersave) ;;
-
 #       aufs|overlayfs) ;;
 #       wicd|nowicd) ;;
 
@@ -207,8 +214,6 @@ for param in "${PAR_LIST[@]}"; do
 
         # luks paramter
             [bfp]luks*) ;;
-        # anything else
-           quiet|splash) ;;
 
         *) OUT_LIST+=("$param")
     esac
@@ -219,30 +224,30 @@ readarray -t REV_LIST <<<$( printf "%s\n" "${OUT_LIST[@]}" | tac )
 
 # list of key-values paramter to keep only the last
 KEY_LIST=(
-	lang
-	kbd kbopt kbvar
-	tz
-	toram
-	splasht
-	)
+    lang
+    kbd kbopt kbvar
+    tz
+    toram
+    splasht
+    )
+
 declare -A KEYS
 for key in "${KEY_LIST[@]}"; do
-	KEYS["$key"]="$key"
+    KEYS["$key"]="$key"
 done
- 
-declare -A SEEN 
+
+declare -A SEEN
 OUT_PAR=()
 for par in "${REV_LIST[@]}"; do
-	key="${par}"
-	if [ "${par}" != "${par%%=*}" ]; then
-	   [ ${KEYS["${par%%=*}"]+set} ] && key="${par%%=*}"
-	fi
-	if [ ${SEEN["$key"]+set} ]; then
-		echo "seen: $par " 
-		continue 
-	fi
-	SEEN["$key"]="$key"
-	OUT_PAR+=("$par")
+    key="${par}"
+    if [ "${par}" != "${par%%=*}" ]; then
+       [ ${KEYS["${par%%=*}"]+set} ] && key="${par%%=*}"
+    fi
+    if [ ${SEEN["$key"]+set} ]; then
+        continue
+    fi
+    SEEN["$key"]="$key"
+    OUT_PAR+=("$par")
 done
 
 OUT_LIST=()
