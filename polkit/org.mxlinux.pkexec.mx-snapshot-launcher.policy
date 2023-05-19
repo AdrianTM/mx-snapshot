@@ -9,7 +9,7 @@
   <vendor>MX Linux</vendor>
   <vendor_url>https://mxlinux.org</vendor_url>
   <action id="org.mxlinux.pkexec.mx-snapshot-launcher">
-  <message>MX Snapshot:  Authentication is required to proceed</message>
+  <message gettext-domain="mx-launcher-l10n">MX Snapshot</message>
     <description>Run MX Snapshot</description>
     <defaults>
       <allow_any>auth_admin</allow_any>
