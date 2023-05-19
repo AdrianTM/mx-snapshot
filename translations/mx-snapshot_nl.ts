@@ -622,7 +622,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
         <location filename="../settings.cpp" line="648"/>
-        <location filename="../settings.cpp" line="731"/>
+        <location filename="../settings.cpp" line="714"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -721,7 +721,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../settings.cpp" line="642"/>
-        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="708"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
