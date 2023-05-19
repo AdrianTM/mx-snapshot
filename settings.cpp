@@ -274,7 +274,7 @@ void Settings::setVariables()
     else
         codename = shell->getCmdOut("lsb_release -c | cut -f2");
     codename.replace(QLatin1String("\""), QLatin1String(""));
-    boot_options = filterOptions(readKernelOpts());
+    boot_options = readKernelOpts();
 }
 
 // Create the output filename
@@ -681,27 +681,10 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
     }
 }
 
-// Read kernel line and options from /proc/cmdline
+// Use script to return useful kernel options
 QString Settings::readKernelOpts() const
 {
-    QFile file(QStringLiteral("/proc/cmdline"));
-    if (!file.open(QIODevice::ReadOnly)) {
-        qDebug() << "Could not open file:" << file.fileName();
-        return QString();
-    }
-    QString proc_cmdline = file.readAll().trimmed();
-    QString conf_cmdline
-        = shell->getCmdOut("sed -nr 's/^CONFIG_CMDLINE=\"(.*)\"$/\\1/p' /boot/config-$(uname -r) 2>/dev/null");
-    QString krnl_cmdline = proc_cmdline.replace(conf_cmdline, "").trimmed();
-    krnl_cmdline.remove(QRegularExpression("^BOOT_IMAGE=\\S* ?"));
-    return krnl_cmdline.trimmed();
-}
-
-QString Settings::filterOptions(QString options)
-{
-    options.remove(QRegularExpression(R"(\b(initrd|init|root|resume|resume_offset|cryptsetup)=\S*\s?)"));
-    options.remove(QRegularExpression(R"(\bro\s?\b)"));
-    return options.trimmed();
+    return shell->getCmdOut("/usr/share/iso-snapshot-cli/scripts/snapshot-bootparamter.sh | tr '\n' ' '");
 }
 
 void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
