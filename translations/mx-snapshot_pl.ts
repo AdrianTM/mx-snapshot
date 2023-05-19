@@ -620,7 +620,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
         <location filename="../settings.cpp" line="648"/>
-        <location filename="../settings.cpp" line="731"/>
+        <location filename="../settings.cpp" line="714"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -717,7 +717,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     </message>
     <message>
         <location filename="../settings.cpp" line="642"/>
-        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="708"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Plik wyjściowy %1 już istnieje. Użyj innej nazwy pliku lub usuń istniejący plik.</translation>
     </message>

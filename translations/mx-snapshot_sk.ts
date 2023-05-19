@@ -621,7 +621,7 @@ odstránením predošlých obrazov alebo kópií systému:
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
         <location filename="../settings.cpp" line="648"/>
-        <location filename="../settings.cpp" line="731"/>
+        <location filename="../settings.cpp" line="714"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -719,7 +719,7 @@ odstránením predošlých obrazov alebo kópií systému:
     </message>
     <message>
         <location filename="../settings.cpp" line="642"/>
-        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="708"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
