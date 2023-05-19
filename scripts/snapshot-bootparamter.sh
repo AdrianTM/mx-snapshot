@@ -3,7 +3,7 @@
 #---------------------------------------------------------
 # list boot parameter to be shown within the boot option field
 #---------------------------------------------------------
-
+VERSION="230519-01"
 PROC_CMDLINE=$(cat /proc/cmdline)
 CONF_CMDLINE=$(grep ^CONFIG_CMDLINE= /boot/config-$(uname -r) 2>/dev/null | cut -d\" -f2 | tail -1)
 
@@ -214,6 +214,9 @@ for param in "${PAR_LIST[@]}"; do
 
         # luks paramter
             [bfp]luks*) ;;
+
+        # mount root device read-only on boot
+            ro) ;;
 
         *) OUT_LIST+=("$param")
     esac
