@@ -1,0 +1,30 @@
+Format: 1.8
+Date: Sun, 21 May 2023 13:47:51 -0400
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.5.04
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.5.04) mx; urgency=medium
+ .
+   * Addjust bootparmeter list
+   * Add icon to polkit-policy
+Checksums-Sha1:
+ f4c1c144b531203f854c110daba08048c9cb02bc 273744 iso-snapshot-cli_23.5.04_i386.deb
+ d2ef36d0d1c134d69b55f9e1c039149c74ecf7f4 10362 mx-snapshot_23.5.04_i386.buildinfo
+ 22d73eaec071e848e5062ecbaf80f3df217eb126 313100 mx-snapshot_23.5.04_i386.deb
+Checksums-Sha256:
+ 5f856b5d799c80e207b49ee04c1723c77c45fc115a3b94e9842286ba535a0942 273744 iso-snapshot-cli_23.5.04_i386.deb
+ a36399ee3cb3c9b25e320c9f2e21f564f8e99e0759d20a4f9df172520ee2abd5 10362 mx-snapshot_23.5.04_i386.buildinfo
+ 3e716c3f790605df6b5e2f574b53196ef89434e8a4c77788c925979244eb978b 313100 mx-snapshot_23.5.04_i386.deb
+Files:
+ 883a2af3be0b7a14805a78a38d20b4c4 273744 admin optional iso-snapshot-cli_23.5.04_i386.deb
+ dee83848bfb214b3ad337682689b3e07 10362 admin optional mx-snapshot_23.5.04_i386.buildinfo
+ fd2455f14e9c5a5fd3e6c9a8859e5696 313100 admin optional mx-snapshot_23.5.04_i386.deb
