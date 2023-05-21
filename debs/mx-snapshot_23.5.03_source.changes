@@ -1,0 +1,41 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 21 May 2023 12:00:59 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 23.5.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.5.03) mx; urgency=medium
+ .
+   * Fix path snapshot-bootparameter.sh
+   * Don't exclude live_swap=off
+Checksums-Sha1:
+ 4d41698d5a4e4ecf86eb22c4b7b0a4c3144ffee7 1270 mx-snapshot_23.5.03.dsc
+ 3ad47a9e916b269775b75516b62a10b84bca3227 248360 mx-snapshot_23.5.03.tar.xz
+ d2960047d75060bda7486cccc775369e0a0a5d6f 11040 mx-snapshot_23.5.03_amd64.buildinfo
+Checksums-Sha256:
+ 9c4ed3479bd5c704974b1e8fa1d1ffc0ad5f446f533742049fcf63aec8f98fdb 1270 mx-snapshot_23.5.03.dsc
+ abeed7623c2b449b42cc95475eebf7e8b1ffe1f81ae1c20de94a01231011c2a5 248360 mx-snapshot_23.5.03.tar.xz
+ bdea74844abb1f71803239c6d4e4d73dee7c055b2bed43f8d7a8a82eaca9a03a 11040 mx-snapshot_23.5.03_amd64.buildinfo
+Files:
+ 11f23fa3031a48347b114c29c80b11c4 1270 admin optional mx-snapshot_23.5.03.dsc
+ eadf7531b1b22eb82b95008986fbce8c 248360 admin optional mx-snapshot_23.5.03.tar.xz
+ 083d104f1c0c0bca2336eac9282619c0 11040 admin optional mx-snapshot_23.5.03_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmRqQdcTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumCbuCACc/0cgNcML62WkJ6iO03ymrlCREc1G
+CRL8P2KQGybkUC56FWkMcLEUaGqpuF1doSQrwHYzFBxDHwZwYCOUpoE0MbeodKbf
+/HzRoYdK8soHRPnCmBgdJQj+HFNobWOsRR/sCFxBrm89KxonnXGiiqivC5+XM3iL
+JJUibeCVsZnXOeGuq7Vu4XsOoj1egShUgsQeyACUx1UNlMIEj0/vECeeB+vN4M7y
+38QSgcRsJP/J13vr+Gnv/55xuZytl7uYP8Tu/DFbkZUj6M33awX45BRmv7y8jVS0
+MfNJE1zu/6Onum9XvpZ3qiQ+Y4XSprleI6HuxcAQVTaUNTLTj+WIUbjC
+=XpQM
+-----END PGP SIGNATURE-----

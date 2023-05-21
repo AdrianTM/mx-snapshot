@@ -160,7 +160,7 @@ for param in "${PAR_LIST[@]}"; do
                         dostore)  ;;
                    disablestore)  ;;
               fatuid=*|fatgid=*)  ;;
-                    live_swap=*)  ;;
+                    # live_swap=*)  ;;
                    mk_swap_file)  ;;
                  mk_swap_file=*)  ;;
                        notmptmp)  ;;
