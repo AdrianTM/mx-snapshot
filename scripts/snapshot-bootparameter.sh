@@ -51,7 +51,7 @@ for param in "${PAR_LIST[@]}"; do
              bootuuid=*|buuid=*)  ;;
                bootdev=*|bdev=*)  ;;
 
-                  try=*|retry=*)  ;;
+#                  try=*|retry=*)  ;;
 
             persistdir=*|pdir=*)  ;;
 
@@ -82,67 +82,67 @@ for param in "${PAR_LIST[@]}"; do
                        sqname=*)  ;;
                            sq=*)  ;;
 
-           verbose=*|verb=*|v=*)  ;;
+#          verbose=*|verb=*|v=*)  ;;
                            bp=*)  ;;
                            pk=*)  ;;
 
-             check|md5|checkmd5)  ;;
-                 hico|highcolor)  ;;
-                  loco|lowcolor)  ;;
-                   noco|nocolor)  ;;
+#            check|md5|checkmd5)  ;;
+#                hico|highcolor)  ;;
+#                 loco|lowcolor)  ;;
+#                  noco|nocolor)  ;;
 
-                         noxtra)  ;;
-                         doxtra)  ;;
+#                        noxtra)  ;;
+#                        doxtra)  ;;
 
                             db+)  ;;
                            db++)  ;;
 
-            fancyprompt|fprompt)  ;;
-               autologin|alogin)  ;;
+#           fancyprompt|fprompt)  ;;
+#              autologin|alogin)  ;;
 
-#                  toram|toram=*)  ;;
+#                 toram|toram=*)  ;;
 
                      noremaster)  ;;
                        rollback)  ;;
-#                         lang=*)  ;;
+#                        lang=*)  ;;
 
-                        noclear)  ;;
+#                       noclear)  ;;
               gfxsave|gfxsave=*)  ;;
 
-                        checkfs)  ;;
-                      nocheckfs)  ;;
+#                       checkfs)  ;;
+#                     nocheckfs)  ;;
 
-                       failsafe)  ;;
-                         load=*)  ;;
-#               bl=*|blacklist=*)  ;;
+#                      failsafe)  ;;
+#                        load=*)  ;;
+#              bl=*|blacklist=*)  ;;
 
-                       coldplug)  ;;
-                        hotplug)  ;;
-                      traceload)  ;;
-                 autoload|aload)  ;;
+#                      coldplug)  ;;
+#                       hotplug)  ;;
+#                     traceload)  ;;
+#                autoload|aload)  ;;
 
-                         init=*)  ;;
+#                        init=*)  ;;
 
-                  nousb2|noehci)  ;;
+#                 nousb2|noehci)  ;;
 
-                       noerrlog)  ;;
-                        errtest)  ;;
-                      errtest=*)  ;;
-                        noerr=*)  ;;
+#                      noerrlog)  ;;
+#                       errtest)  ;;
+#                     errtest=*)  ;;
+#                       noerr=*)  ;;
 
-                      vtblank=*)  ;;
+#                     vtblank=*)  ;;
 
                livedir=*|ldir=*)  ;;
         pw|passwd|pw=*|passwd=*)  ;;
               private|private=*)  ;;
-                      bootchart)  ;;
-                        noplink)  ;;
-                          plink)  ;;
+#                     bootchart)  ;;
+#                       noplink)  ;;
+#                         plink)  ;;
 
-                  disable=*|nosysv=*)  ;;
-     disable_srv=*|disable_service=*)  ;;
-           lean|mean|Xtralean|nodbus)  ;;
-        initcall_debug|printk.time=y)  ;;
+#                  disable=*|nosysv=*)  ;;
+#     disable_srv=*|disable_service=*)  ;;
+#           lean|mean|Xtralean|nodbus)  ;;
+#        initcall_debug|printk.time=y)  ;;
 
         # Convenience short cuts from our menus
                     persist_all)  ;;
@@ -156,21 +156,21 @@ for param in "${PAR_LIST[@]}"; do
                   f_static_root)  ;;
                     frugal_home)  ;;
                     frugal_only)  ;;
-                        nostore)  ;;
-                        dostore)  ;;
+#                       nostore)  ;;
+#                       dostore)  ;;
                    disablestore)  ;;
               fatuid=*|fatgid=*)  ;;
-                    # live_swap=*)  ;;
-                   mk_swap_file)  ;;
-                 mk_swap_file=*)  ;;
-                       notmptmp)  ;;
-                    nomicrocode)  ;;
-                     nosavelogs)  ;;
-                         tty1on)  ;;
-#                        splasht)  ;;
-#                      splasht=*)  ;;
-                       st_tty=*)  ;;
-                        vcard=*)  ;;
+                  # live_swap=*)  ;;
+#                  mk_swap_file)  ;;
+#                mk_swap_file=*)  ;;
+#                      notmptmp)  ;;
+#                   nomicrocode)  ;;
+#                    nosavelogs)  ;;
+#                        tty1on)  ;;
+#                       splasht)  ;;
+#                     splasht=*)  ;;
+#                      st_tty=*)  ;;
+#                       vcard=*)  ;;
 
         # Our Live params
 #        hwclock=utc|hwclock=local|xorg|xorg=*|noearlyvid|earlyvid) ;;
@@ -179,23 +179,23 @@ for param in "${PAR_LIST[@]}"; do
 #        lang=*|mirror=*|mount=*|noloadkeys|noprompt);;
 #        nosplash|password|password=*|prompt|pw|pw=*|tz=*|ubp=*|ushow=*);;
         password|password=*|prompt|pw|pw=*|ubp=*|ushow=*);;
-        uverb=*|xres=*|noxorg);;
-        desktheme=*) ;;
-        nosavestate|savestate|dbsavestate) ;;
-        deskdelay=*) ;;
-        udpi=*|sdpi=*) ;;
-        fontsize=*) ;;
+#        uverb=*|xres=*|noxorg);;
+#        desktheme=*) ;;
+#        nosavestate|savestate|dbsavestate) ;;
+#        deskdelay=*) ;;
+#        udpi=*|sdpi=*) ;;
+#        fontsize=*) ;;
 #        norepo|norepo=*) ;;
-        conwidth=*);;
+#        conwidth=*);;
 #        noautomount) ;;
-        vga=ask+save) ;;
+#        vga=ask+save) ;;
 
-        skylakeflicker)  ;;
-        i915powersave) ;;
+#        skylakeflicker)  ;;
+#        i915powersave) ;;
 #       aufs|overlayfs) ;;
 #       wicd|nowicd) ;;
 
-        nomicrocode) ;;
+#        nomicrocode) ;;
 #        live_swap=off)  ;;
 #        live_swap=force)  ;;
 #        live_swap=all-off)  ;;
