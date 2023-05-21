@@ -621,7 +621,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../settings.cpp" line="223"/>
         <location filename="../settings.cpp" line="236"/>
         <location filename="../settings.cpp" line="648"/>
-        <location filename="../settings.cpp" line="714"/>
+        <location filename="../settings.cpp" line="716"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -719,7 +719,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
     <message>
         <location filename="../settings.cpp" line="642"/>
-        <location filename="../settings.cpp" line="708"/>
+        <location filename="../settings.cpp" line="710"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>

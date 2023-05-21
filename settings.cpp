@@ -684,7 +684,9 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 // Use script to return useful kernel options
 QString Settings::readKernelOpts() const
 {
-    return shell->getCmdOut("/usr/share/iso-snapshot-cli/scripts/snapshot-bootparamter.sh | tr '\n' ' '");
+
+    return shell->getCmdOut((QString("/usr/share/%1/scripts/snapshot-bootparamter.sh | tr '\n' ' '")
+                                 .arg(QCoreApplication::applicationName())));
 }
 
 void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
