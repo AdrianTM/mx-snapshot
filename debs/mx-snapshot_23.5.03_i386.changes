@@ -17,14 +17,14 @@ Changes:
    * Fix path snapshot-bootparameter.sh
    * Don't exclude live_swap=off
 Checksums-Sha1:
- c10a2fe8db98caf42c30738ac30bc214b7492789 273808 iso-snapshot-cli_23.5.03_i386.deb
- ada06018c713fdc2fa6dd415a6660e711dc9d75b 10362 mx-snapshot_23.5.03_i386.buildinfo
- b401f8a2436ee03bbce705cc0e561be4701d4e37 312800 mx-snapshot_23.5.03_i386.deb
+ 719bb318b92060ad5a248bb135b87aaebcaf574f 273816 iso-snapshot-cli_23.5.03_i386.deb
+ d5a03e59d97e2d9f6576246ec58fa67d2bbe6332 10362 mx-snapshot_23.5.03_i386.buildinfo
+ e31fd001a8c0ca929302d03b2d209d2b387bff98 313092 mx-snapshot_23.5.03_i386.deb
 Checksums-Sha256:
- fce38f14a9c4b4fabb95b12a6124e69a27fc84407fe6e29564015c64108ff7aa 273808 iso-snapshot-cli_23.5.03_i386.deb
- f2c908936673ad7d316aceb44c7c398c0b998333d9f70bf046e6c6d13767f118 10362 mx-snapshot_23.5.03_i386.buildinfo
- 45c91a0959ff4ea465209441d60cbc39a67b1dc3fe5f9273636fc03211303736 312800 mx-snapshot_23.5.03_i386.deb
+ 2c2174fc651bd6b1fd59cb54e750af521bc75ea843c9715a1db083bc71890d89 273816 iso-snapshot-cli_23.5.03_i386.deb
+ 79f792cfa22f016a8ad9c7158548e3cd52a320c0dfc0f2eaa0ef99422759d375 10362 mx-snapshot_23.5.03_i386.buildinfo
+ 7095d21ef6bbc81bb9f23ea14a57545c64e9207bb29e893cb62b76e8feb3900d 313092 mx-snapshot_23.5.03_i386.deb
 Files:
- 0674dbd96d5878e1d4a4e46ecfcef62c 273808 admin optional iso-snapshot-cli_23.5.03_i386.deb
- 4c8f0747244f44a6ae77bccebea559d6 10362 admin optional mx-snapshot_23.5.03_i386.buildinfo
- 94f92e483bf3b74097e20b41054ab39b 312800 admin optional mx-snapshot_23.5.03_i386.deb
+ c9193a12c07f3bda2fe94c4e20e5fe8d 273816 admin optional iso-snapshot-cli_23.5.03_i386.deb
+ 2be433394ef864920659e5ffe7de0f32 10362 admin optional mx-snapshot_23.5.03_i386.buildinfo
+ 15d438563ed1acd0d4b271894e6c744f 313092 admin optional mx-snapshot_23.5.03_i386.deb
