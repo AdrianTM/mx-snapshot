@@ -685,7 +685,7 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 QString Settings::readKernelOpts() const
 {
 
-    return shell->getCmdOut((QString("/usr/share/%1/scripts/snapshot-bootparamter.sh | tr '\n' ' '")
+    return shell->getCmdOut((QString("/usr/share/%1/scripts/snapshot-bootparameter.sh | tr '\n' ' '")
                                  .arg(QCoreApplication::applicationName())));
 }
 
