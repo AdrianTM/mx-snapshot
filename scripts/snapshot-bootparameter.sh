@@ -242,6 +242,7 @@ done
 declare -A SEEN
 OUT_PAR=()
 for par in "${REV_LIST[@]}"; do
+    [ -n "$par" ] || continue
     key="${par}"
     if [ "${par}" != "${par%%=*}" ]; then
        [ ${KEYS["${par%%=*}"]+set} ] && key="${par%%=*}"
