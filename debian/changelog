@@ -1,3 +1,9 @@
+mx-snapshot (23.5.05) mx; urgency=medium
+
+  * Fix to handle empty resulting boot parameter list
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 22 May 2023 08:02:01 -0400
+
 mx-snapshot (23.5.04) mx; urgency=medium
 
   * Addjust bootparmeter list
