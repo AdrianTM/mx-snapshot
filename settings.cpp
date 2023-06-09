@@ -315,12 +315,10 @@ quint64 Settings::getLiveRootSpace() const
     // gzip, xz, or lz4
     QMap<QString, QString> compression_types
         = {{"1", "gzip"}, {"2", "lzo"}, {"3", "lzma"}, {"4", "xz"}, {"5", "lz4"}, {"6", "zstd"}};
-    if (compression_types.contains(linuxfs_compression_type)) {
+    if (compression_types.contains(linuxfs_compression_type))
         c_factor = compression_factor.value(compression_types.value(linuxfs_compression_type));
-    } else {
-        c_factor = default_factor;
+    else
         qWarning() << "Unknown compression type:" << linuxfs_compression_type;
-    }
     quint64 rootfs_file_size = 0;
     quint64 linuxfs_file_size
         = shell->getCmdOut(QStringLiteral("df -k /live/linux --output=used --total |tail -n1")).toULongLong() * 100
