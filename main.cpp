@@ -115,8 +115,7 @@ int main(int argc, char *argv[])
 
     QStringList opts;
     opts.reserve(argc);
-    for (int i = 0; i < argc; ++i)
-        opts << QString(argv[i]);
+    std::transform(argv, argv + argc, std::back_inserter(opts), [](const char *arg) { return QString::fromUtf8(arg); });
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
