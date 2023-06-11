@@ -239,7 +239,7 @@ bool Work::createIso(const QString &filename)
 
     emit message(tr("Squashing filesystem..."));
     QString out;
-    if (!RUN(cmd, out)) {
+    if (!RUN(cmd, &out)) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not create linuxfs file, please check whether you have enough space on the "
                            "destination partition."));
