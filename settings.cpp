@@ -182,7 +182,7 @@ QString Settings::getXdgUserDirs(const QString &folder)
     QString result;
     for (const QString &user : qAsConst(users)) {
         QString dir;
-        bool success = shell->run("runuser " + user + " -c \"xdg-user-dir " + folder + "\"", dir);
+        bool success = shell->run("runuser " + user + " -c \"xdg-user-dir " + folder + "\"", &dir);
         if (success) {
             if (englishDirs.value(folder) == dir.section(QStringLiteral("/"), -1) || dir.trimmed() == "/home/" + user
                 || dir.trimmed() == "/home/" + user + "/"
