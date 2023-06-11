@@ -45,8 +45,8 @@ class MainWindow : public QDialog, public Settings
     Q_OBJECT
 
 public:
-    MainWindow(const QCommandLineParser &arg_parser = QCommandLineParser(), QWidget *parent = nullptr);
-    ~MainWindow();
+    explicit MainWindow(const QCommandLineParser &arg_parser = QCommandLineParser(), QWidget *parent = nullptr);
+    ~MainWindow() override;
 
     [[noreturn]] void cleanUp();
     bool installPackage(const QString &package);
@@ -61,7 +61,7 @@ public:
     void setup();
 
 protected:
-    void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event) override;
 
 public slots:
     void disableOutput();
