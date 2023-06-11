@@ -48,9 +48,9 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     }
 
     QString path = snapshot_dir;
-    getFreeSpaceStrings(path.remove(QRegularExpression(QStringLiteral("/snapshot$"))));
+    qDebug() << "Free space:" << getFreeSpaceStrings(path.remove(QRegularExpression(QStringLiteral("/snapshot$"))));
     if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size")))
-        getUsedSpace();
+        qDebug() << "Unused space:" << getUsedSpace();
 
     work.started = true;
     work.e_timer.start();
