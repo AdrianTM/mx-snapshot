@@ -1,3 +1,10 @@
+mx-snapshot (23.6) mx; urgency=medium
+
+  * Improve file editor detection (for editing exclusion file)
+  * Refresh translations
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 18 Jun 2023 22:59:13 -0400
+
 mx-snapshot (23.5.05) mx; urgency=medium
 
   * Fix to handle empty resulting boot parameter list

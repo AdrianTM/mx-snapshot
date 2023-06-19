@@ -83,7 +83,6 @@ public:
     bool cli_mode;
     bool edit_boot_menu {};
     bool force_installer {};
-    bool x86 {};
     bool live {};
     bool make_isohybrid {};
     bool make_md5sum {};
@@ -92,6 +91,8 @@ public:
     bool preempt {}; // command line option
     bool reset_accounts {};
     bool shutdown {};
+    bool x86 {};
+    const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
     quint64 free_space {};
     quint64 free_space_work {};
     quint64 home_size {};
