@@ -93,8 +93,8 @@ void Work::cleanUp()
         QProcess::execute(QStringLiteral("installed-to-live"), {"cleanup"});
 
     if (!settings->live && !settings->reset_accounts) {
-        QDir homeDir("/home");
-        for (const QString &user : homeDir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+        auto homeDirs = QDir("/home").entryList(QDir::Dirs | QDir::NoDotAndDotDot);
+        for (const QString &user : homeDirs) {
             QString desktopPath = QString("/home/%1/Desktop/minstall.desktop").arg(user);
             QFile::remove(desktopPath);
         }
@@ -126,7 +126,7 @@ void Work::cleanUp()
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
-    // see first if the dir is on different partition otherwise it's irrelevant
+    // See first if the dir is on different partition otherwise it's irrelevant
     if (OUT("stat -c '%d' " + dir) != OUT("stat -c '%d' " + settings->snapshot_dir)
         && settings->getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists(QStringLiteral("/tmp/installed-to-live/cleanup.conf")))
@@ -228,7 +228,7 @@ void Work::copyNewIso()
 bool Work::createIso(const QString &filename)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    // squash the filesystem copy
+    // Squash the filesystem copy
     QDir::setCurrent(settings->work_dir);
     QString maybe_unbuffer = (settings->cli_mode && checkInstalled(QStringLiteral("expect")))
                                  ? QStringLiteral("unbuffer ")
@@ -247,14 +247,14 @@ bool Work::createIso(const QString &filename)
     }
     writeUnsquashfsSize(out);
 
-    // mv linuxfs files to iso-2/antiX folder
+    // Move linuxfs files to iso-2/antiX folder
     QDir().mkpath(QStringLiteral("iso-2/antiX"));
     RUN(QStringLiteral("mv iso-template/antiX/linuxfs* iso-2/antiX"));
     makeChecksum(HashType::md5, settings->work_dir + "/iso-2/antiX", QStringLiteral("linuxfs"));
 
     RUN(QStringLiteral("installed-to-live cleanup"));
 
-    // create the iso file
+    // Create the iso file
     QDir::setCurrent(settings->work_dir + "/iso-template");
     cmd = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table "
           "-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c "
@@ -268,13 +268,13 @@ bool Work::createIso(const QString &filename)
         return false;
     }
 
-    // make it isohybrid
+    // Make it isohybrid
     if (settings->make_isohybrid) {
         emit message(tr("Making hybrid iso"));
         RUN("isohybrid --uefi \"" + settings->snapshot_dir + "/" + filename + "\"");
     }
 
-    // make ISO checksums
+    // Make ISO checksums
     if (settings->make_md5sum)
         makeChecksum(HashType::md5, settings->snapshot_dir, filename);
     if (settings->make_sha512sum)
@@ -326,7 +326,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
                                .arg(ce);
 
     if (settings->preempt) {
-        // check free space available on /tmp
+        // Check free space available on /tmp
         RUN("TF=/tmp/snapsphot-checksum-temp/\"" + file_name + R"("; [ -f "$TF" ] && rm -f "$TF")");
         if (!RUN(
                 "DUF=$(du -BM " + file_name
@@ -337,7 +337,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     if (!settings->preempt) {
         cmd = checksum_cmd;
     } else {
-        // free pagecache
+        // Free pagecache
         RUN(QStringLiteral("sync; sleep 1; echo 1 > /proc/sys/vm/drop_caches; sleep 1"));
         cmd = checksum_tmp;
     }
@@ -431,7 +431,7 @@ void Work::savePackageList(const QString &file_name)
 void Work::setupEnv()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    // checks if work_dir looks OK
+    // Checks if work_dir looks OK
     if (!settings->work_dir.contains(QLatin1String("/mx-snapshot")))
         cleanUp();
 
@@ -442,7 +442,7 @@ void Work::setupEnv()
         bind_boot_too = QStringLiteral(",/boot");
     }
 
-    // install mx-installer if absent
+    // Install mx-installer if absent
     if (settings->force_installer && !checkInstalled(QStringLiteral("mx-installer")))
         installPackage(QStringLiteral("mx-installer"));
 
@@ -450,7 +450,7 @@ void Work::setupEnv()
     writeVersionFile();
     writeLsbRelease();
 
-    // setup environment if creating a respin (reset root/demo, remove personal accounts)
+    // Setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->reset_accounts) {
         RUN("installed-to-live -b /.bind-root start " + bind_boot + "empty=/home general version-file read-only");
     } else {
@@ -526,7 +526,7 @@ quint64 Work::getRequiredSpace()
     QStringList excludes;
     QFile *file = &settings->snapshot_excludes;
 
-    // open and read the excludes file
+    // Open and read the excludes file
     if (!file->open(QIODevice::ReadOnly))
         qDebug() << "Count not open file: " << file->fileName();
     while (!file->atEnd()) {
@@ -536,14 +536,15 @@ quint64 Work::getRequiredSpace()
     }
     file->close();
 
-    // add session excludes
+    // Add session excludes
     if (!settings->session_excludes.isEmpty()) {
-        QString set = settings->session_excludes;
-        set.remove(0, 3); // remove "-e "
-        for (QString tmp : set.split(QStringLiteral("\" \""))) {
-            tmp.remove(QStringLiteral("\""));
-            tmp.remove(0, 0);
-            excludes << tmp;
+        QString sessionExcludes = settings->session_excludes;
+        sessionExcludes.remove(0, 3); // Remove "-e "
+
+        QStringList excludeList = sessionExcludes.split("\" \"");
+        for (QString exclude : excludeList) {
+            exclude = exclude.replace("\"", "").trimmed();
+            excludes << exclude;
         }
     }
 
@@ -560,7 +561,7 @@ quint64 Work::getRequiredSpace()
         it.value().replace(QLatin1String("|"), QLatin1String("\\|"));
         it.value().prepend("/.bind-root/"); // check size occupied by excluded files on /.bind-root only
         it.value().remove(QRegularExpression(QStringLiteral("\\*$"))); // chop last *
-        // remove from list if files not on the same volume
+        // Remove from list if files not on the same volume
         if (root_dev
             != OUT(QStringLiteral("df ") + it.value() + QStringLiteral(" --output=target 2>/dev/null |tail -1"), true))
             it.remove();
