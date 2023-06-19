@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Živé jádro:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Změnit živé jádro</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -66,7 +66,7 @@
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot je program pro tvorbu bootovacích obrazů (ISO) z Vašeho funkčího systému, které můžete použít jako zálohu nebo pro distribuci. Počas tvorby zálohy můžete pracovat s méně náročnými aplikacemi.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot je program pro tvorbu bootovacích obrazů (ISO) z Vašeho funkčího systému, které můžete použít jako zálohu nebo pro distribuci. V průběhu tvorby obrazu můžete pracovat s méně náročnými aplikacemi.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../mainwindow.ui" line="379"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Můžete vyřadit některé složky zaškrtnutím voleb zobrazených níže, nebo kliknutím na tlačítko a přímo zeditovat soubor /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Můžete vyřadit některé složky zaškrtnutím voleb zobrazených níže, nebo kliknutím na tlačítko a přímo upravit soubor /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
@@ -187,7 +187,7 @@
     <message>
         <location filename="../mainwindow.ui" line="652"/>
         <source>Calculate checksums:</source>
-        <translation>Spočítat checksums:</translation>
+        <translation>Vypočítat kontrolní součty:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="659"/>
@@ -331,7 +331,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot použije následující nastavení:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
@@ -406,7 +406,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat jádro</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -535,12 +535,12 @@
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
-        <translation>Pro výsledný ISO soubor nepočítat checksums</translation>
+        <translation>Pro výsledný ISO soubor nepočítat kontrolní součty</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation>Možnost opravit problém s propočtem checksums na preempt_rt jádrech</translation>
+        <translation>Možnost opravit problém s propočtem kontrolních součtů na preempt_rt jádrech</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="101"/>
@@ -550,7 +550,7 @@
     <message>
         <location filename="../main.cpp" line="102"/>
         <source>Calculate checksums for resulting ISO file</source>
-        <translation>Pro výsledný ISO soubor propočítat checksums</translation>
+        <translation>Pro výsledný ISO soubor propočítat kontrolní součty</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="104"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Pracovní adresář</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
@@ -593,82 +593,82 @@
         <translation>Po dokončení vypnout počítač.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="133"/>
-        <location filename="../main.cpp" line="143"/>
-        <location filename="../main.cpp" line="181"/>
+        <location filename="../main.cpp" line="132"/>
+        <location filename="../main.cpp" line="142"/>
+        <location filename="../main.cpp" line="180"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Spuštěno pod účtem root-a, odhlašte se a přihlašte jako bězný uživatel.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="155"/>
-        <location filename="../main.cpp" line="189"/>
+        <location filename="../main.cpp" line="154"/>
+        <location filename="../main.cpp" line="188"/>
         <source>version:</source>
         <translation>verze:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="163"/>
+        <location filename="../main.cpp" line="162"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento program musíte spustit s příkazem sudo nebo pkexec.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="172"/>
+        <location filename="../main.cpp" line="171"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="180"/>
-        <location filename="../main.cpp" line="271"/>
-        <location filename="../settings.cpp" line="223"/>
-        <location filename="../settings.cpp" line="236"/>
-        <location filename="../settings.cpp" line="648"/>
-        <location filename="../settings.cpp" line="716"/>
+        <location filename="../main.cpp" line="179"/>
+        <location filename="../main.cpp" line="270"/>
+        <location filename="../settings.cpp" line="247"/>
+        <location filename="../settings.cpp" line="260"/>
+        <location filename="../settings.cpp" line="670"/>
+        <location filename="../settings.cpp" line="738"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="265"/>
-        <location filename="../main.cpp" line="267"/>
-        <location filename="../settings.cpp" line="231"/>
+        <location filename="../main.cpp" line="264"/>
+        <location filename="../main.cpp" line="266"/>
+        <location filename="../settings.cpp" line="255"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Současné jádro nepodporuje Squashfs, nelze pokračovat.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="85"/>
+        <location filename="../settings.cpp" line="86"/>
         <source>Could not create working directory. </source>
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="107"/>
+        <location filename="../settings.cpp" line="108"/>
         <source>Could not create temp directory. </source>
         <translation>Nebylo možné vytvořít dočasnou složku.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="218"/>
+        <location filename="../settings.cpp" line="242"/>
         <source>Could not find a usable kernel</source>
         <translation>Nepovedlo se najít použitelné jádro</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="340"/>
+        <location filename="../settings.cpp" line="362"/>
         <source>Used space on / (root): </source>
         <translation>Zabrané místo na disku / (root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="343"/>
+        <location filename="../settings.cpp" line="365"/>
         <source>estimated</source>
         <translation>odhad</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="354"/>
+        <location filename="../settings.cpp" line="376"/>
         <source>Used space on /home: </source>
         <translation>Zabrané místo na disku /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="405"/>
+        <location filename="../settings.cpp" line="427"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Volné místo na %1, kde je snapshot umístněn:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="409"/>
+        <location filename="../settings.cpp" line="431"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -683,43 +683,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="427"/>
+        <location filename="../settings.cpp" line="449"/>
         <source>Desktop</source>
         <translation>Pracovní plocha</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="429"/>
+        <location filename="../settings.cpp" line="451"/>
         <source>Documents</source>
         <translation>Dokumenty</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="431"/>
+        <location filename="../settings.cpp" line="453"/>
         <source>Downloads</source>
         <translation>Stažené soubory</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="433"/>
+        <location filename="../settings.cpp" line="455"/>
         <source>Music</source>
         <translation>Hudba</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="435"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Networks</source>
         <translation>Sítě</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="437"/>
+        <location filename="../settings.cpp" line="459"/>
         <source>Pictures</source>
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="441"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Videos</source>
         <translation>Videa</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="642"/>
-        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="664"/>
+        <location filename="../settings.cpp" line="732"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Výstupní soubor %1 již existuje. Prosím vyberte jiný název, nebo vymažte stávající soubor.</translation>
     </message>
@@ -856,7 +856,7 @@
     <message>
         <location filename="../work.cpp" line="315"/>
         <source>Calculating checksum...</source>
-        <translation>Počítaní checksum...</translation>
+        <translation>Počítání kontrolních součtů...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="351"/>
@@ -869,12 +869,12 @@
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="568"/>
+        <location filename="../work.cpp" line="569"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Výpočet celkové velikosti vyloučených souborů...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="579"/>
+        <location filename="../work.cpp" line="580"/>
         <source>Calculating size of root...</source>
         <translation>Výpoćet velikosti root...</translation>
     </message>

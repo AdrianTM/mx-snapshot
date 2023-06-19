@@ -1,0 +1,30 @@
+Format: 1.8
+Date: Sun, 18 Jun 2023 22:59:13 -0400
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.6
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.6) mx; urgency=medium
+ .
+   * Improve file editor detection (for editing exclusion file)
+   * Refresh translations
+Checksums-Sha1:
+ 03053afec0c6316e9515f021a949fb498a1e08fc 275088 iso-snapshot-cli_23.6_i386.deb
+ 8208dd4dff02c972db5b752c0d68549298d81b81 10338 mx-snapshot_23.6_i386.buildinfo
+ 2b2980e776a27e824ec28e8b66fe5f838b5a1287 314804 mx-snapshot_23.6_i386.deb
+Checksums-Sha256:
+ b26094b134c0e884713d5858bf73e979d4b2131f123e32f3415779c31df7d97d 275088 iso-snapshot-cli_23.6_i386.deb
+ a6f20da0898f50204cd7c972c3f0abab8ed814c0a8228f64d34924807522d101 10338 mx-snapshot_23.6_i386.buildinfo
+ 6e7bf31588381a0e420f19f4c550f43450f11fbeeeb6262709849b95fb4aff1b 314804 mx-snapshot_23.6_i386.deb
+Files:
+ 4c665eedeffeef0bf8ccac5db58e2a7a 275088 admin optional iso-snapshot-cli_23.6_i386.deb
+ 88f79b3afa94a4c30cfdf8db204e8ee0 10338 admin optional mx-snapshot_23.6_i386.buildinfo
+ 004181706ad6591ecd4d926cfa8005a8 314804 admin optional mx-snapshot_23.6_i386.deb
