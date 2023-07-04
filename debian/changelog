@@ -1,3 +1,9 @@
+mx-snapshot (23.7) mx; urgency=medium
+
+  * Remove rootflags and init from saved bootparamter
+
+ -- fehlix <fehlix@mxlinux.org>  Mon, 03 Jul 2023 19:12:11 -0500
+
 mx-snapshot (23.6) mx; urgency=medium
 
   * Improve file editor detection (for editing exclusion file)
