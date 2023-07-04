@@ -1,0 +1,53 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Mon, 03 Jul 2023 19:12:11 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.7
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Dolphin Oracle  <dolphinoracle@gmail.com>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.7) mx; urgency=medium
+ .
+   [ fehlix ]
+   * Remove rootflags and init from saved bootparamter
+ .
+   [ Dolphin Oracle ]
+   * new build
+Checksums-Sha1:
+ 44ad1b0a41d66b4dc036e096c6c2dfa078fcfa75 273184 iso-snapshot-cli_23.7_i386.deb
+ cd27716f774b2b8b13e5827c51f2ae0807864382 10463 mx-snapshot_23.7_i386.buildinfo
+ a9a4f878904a150224d31e1ffd05432a98e2df34 312768 mx-snapshot_23.7_i386.deb
+Checksums-Sha256:
+ e83152eb98bd555233ffe3b6836cfa90904ecb8e9e950bccb1512fa8ceee934c 273184 iso-snapshot-cli_23.7_i386.deb
+ 30d1f4057451a6fdadcb92d7dafb96d18b76e0b6d37e88a5f91b54852442deb0 10463 mx-snapshot_23.7_i386.buildinfo
+ 21526efb47624ea303e92cad308dda3e309d9b2b5c4c5a6fbc55e6ac12f38fc9 312768 mx-snapshot_23.7_i386.deb
+Files:
+ 3a20af349d55031dfd8a8cbdd8962c82 273184 admin optional iso-snapshot-cli_23.7_i386.deb
+ 033abd816e65fbf734d89106fd420fa9 10463 admin optional mx-snapshot_23.7_i386.buildinfo
+ bd72d739eec9d3db5f47fafa9dd6e965 312768 admin optional mx-snapshot_23.7_i386.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE9i7eqjrnCpyZ2sQYm2ih6Lm2N1wFAmSjbsQACgkQm2ih6Lm2
+N1yjBw//dj1IaLUaVjAgtnnUh3wObhlNYqVuque3s/8XOs+seUO5pfmKo304bcoy
+Xj+2x9lmF3mFebkS6OsB1Yhk2MU3Wb/aZ7D+5CJYVBxDJZsFy4ImJ1sqKzERQhLr
+v/qG4rrMp4ryi4ARBp8QerVABYA+kEJ8f1+9MBNvwJUOqTAtQDzDU+Ub8iatpvUF
+4snyK5eYeyZk9R9q4weTj0IMb1702P6BSQuiMbMboEir7ffKLVo3Qg6j0++i6M6G
+cg+KJZPfn6qlJm/CKOB0P/bb8W8SEW8qOYlwUEP+vHAhmRC1QJk4h2TOzzOR/+Rj
+CKlas8dwcQMbIWpRfThFoT6fLQFTWKp3JJL5121K9LeD9k0N7jckTI1ywqcW4atH
+aQWGnZ/lqWP86eFoEkXb4gfIrVrNDDzKCRwP0NhSDKxeZgMTC1YhiKSE0CbWTaNS
+zjR0jIL4s64NiuZFXwU+Pldm9LX0QnMbUnkpzT7yN+nj6qoWZC3U4IYgTyX2GPM5
++Ech+0cNFl4LI5kLQsD6Tvwr1HNusHy5pf5UFS3yqrSkcXJxvItt2o/LAhfm16Io
+6JtVCLzGOJnqh7l7v3v6t3znCAoJN1pIiKOWGCTszMlYjJJHbcvp9kuRhjfneIAd
++9c8RV9aVmcBlDkA1Fet0MgUmOTYf2z/D/iBGNnEKj+RZzO6G2U=
+=i1GO
+-----END PGP SIGNATURE-----
