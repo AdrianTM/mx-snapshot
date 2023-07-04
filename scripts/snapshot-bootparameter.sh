@@ -218,6 +218,12 @@ for param in "${PAR_LIST[@]}"; do
         # mount root device read-only on boot
             ro) ;;
 
+        # btrfs rootflags
+           rootflags|rootflags=*) ;;
+
+        # other inits
+           init=*) ;;
+
         *) OUT_LIST+=("$param")
     esac
 done
