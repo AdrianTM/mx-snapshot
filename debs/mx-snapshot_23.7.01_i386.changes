@@ -16,14 +16,14 @@ Changes:
  .
    * Update translations
 Checksums-Sha1:
- 5d46b6cc541ad873129acaa7bdb0bcc75e94f781 276264 iso-snapshot-cli_23.7.01_i386.deb
- c135f153667d457f23fba46117577f8c656e654e 10362 mx-snapshot_23.7.01_i386.buildinfo
- 4ee142f4ce704825dd058f4d9cfab725a78c7685 316024 mx-snapshot_23.7.01_i386.deb
+ 8e544a15e61402404e8f08eb2f8a2c3b1aefb1e1 276224 iso-snapshot-cli_23.7.01_i386.deb
+ 0b1f0114c1b72e6da08fa8fd799320066f8db007 10362 mx-snapshot_23.7.01_i386.buildinfo
+ 695f86fa7a4249eee68dcffb2d911248aefcf73a 316008 mx-snapshot_23.7.01_i386.deb
 Checksums-Sha256:
- 77caa8f00c2566b341700fa186bfbc04a940c6e38f9037f9534cd1db2c21f1a5 276264 iso-snapshot-cli_23.7.01_i386.deb
- 420b795f55338f888463c502f48681db976dc6288dad9202f7e23b6172eee36f 10362 mx-snapshot_23.7.01_i386.buildinfo
- 209660d2f8db5d7d43fd7f36120ad37824576f24dba796919f900ddbc89b0906 316024 mx-snapshot_23.7.01_i386.deb
+ 3cee2b17938d8f23b64881e5da019b9bf8a6c5cbd5f45e111a4c937d87009182 276224 iso-snapshot-cli_23.7.01_i386.deb
+ 64babf5edff6e909926063d18251a1bc25447ce9d783c16829c8c5b5558c6562 10362 mx-snapshot_23.7.01_i386.buildinfo
+ 996dcf8925b25020c2cec619e43a8edb55f3900861c97f1b196bba09da1fa080 316008 mx-snapshot_23.7.01_i386.deb
 Files:
- 9e90831f38790bd8a5e8019279719d5c 276264 admin optional iso-snapshot-cli_23.7.01_i386.deb
- df35fe23cde425556e8167b7e1cd113e 10362 admin optional mx-snapshot_23.7.01_i386.buildinfo
- 407da8aa03fc8578aad3fb30098d128c 316024 admin optional mx-snapshot_23.7.01_i386.deb
+ bb87c0fdcfa066c58ea25c08965805ad 276224 admin optional iso-snapshot-cli_23.7.01_i386.deb
+ 6be026e04ff64ad69e0f8a26ee0fd5aa 10362 admin optional mx-snapshot_23.7.01_i386.buildinfo
+ ee3972eefcd63fe6d8a31f227b98bff4 316008 admin optional mx-snapshot_23.7.01_i386.deb
