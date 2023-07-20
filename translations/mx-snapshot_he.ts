@@ -242,7 +242,7 @@
     <message>
         <location filename="../mainwindow.ui" line="923"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>עזרה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="930"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>הגדרות</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

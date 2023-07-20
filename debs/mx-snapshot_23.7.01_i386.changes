@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Thu, 20 Jul 2023 17:19:44 -0400
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.7.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.7.01) mx; urgency=medium
+ .
+   * Update translations
+Checksums-Sha1:
+ 5d46b6cc541ad873129acaa7bdb0bcc75e94f781 276264 iso-snapshot-cli_23.7.01_i386.deb
+ c135f153667d457f23fba46117577f8c656e654e 10362 mx-snapshot_23.7.01_i386.buildinfo
+ 4ee142f4ce704825dd058f4d9cfab725a78c7685 316024 mx-snapshot_23.7.01_i386.deb
+Checksums-Sha256:
+ 77caa8f00c2566b341700fa186bfbc04a940c6e38f9037f9534cd1db2c21f1a5 276264 iso-snapshot-cli_23.7.01_i386.deb
+ 420b795f55338f888463c502f48681db976dc6288dad9202f7e23b6172eee36f 10362 mx-snapshot_23.7.01_i386.buildinfo
+ 209660d2f8db5d7d43fd7f36120ad37824576f24dba796919f900ddbc89b0906 316024 mx-snapshot_23.7.01_i386.deb
+Files:
+ 9e90831f38790bd8a5e8019279719d5c 276264 admin optional iso-snapshot-cli_23.7.01_i386.deb
+ df35fe23cde425556e8167b7e1cd113e 10362 admin optional mx-snapshot_23.7.01_i386.buildinfo
+ 407da8aa03fc8578aad3fb30098d128c 316024 admin optional mx-snapshot_23.7.01_i386.deb

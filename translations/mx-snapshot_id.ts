@@ -321,7 +321,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurasi</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

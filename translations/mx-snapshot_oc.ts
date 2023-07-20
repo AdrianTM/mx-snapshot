@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_US">
+<TS version="2.1" language="oc">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -242,7 +242,7 @@
     <message>
         <location filename="../mainwindow.ui" line="923"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajuda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="930"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="326"/>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="331"/>

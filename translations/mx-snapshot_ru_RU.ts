@@ -6,7 +6,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
@@ -242,7 +242,7 @@
     <message>
         <location filename="../mainwindow.ui" line="923"/>
         <source>Help</source>
-        <translation type="unfinished"></translation>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="930"/>
@@ -311,7 +311,7 @@
         <location filename="../mainwindow.cpp" line="375"/>
         <location filename="../mainwindow.cpp" line="379"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="319"/>
@@ -396,7 +396,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="413"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
@@ -618,7 +618,7 @@
         <location filename="../settings.cpp" line="670"/>
         <location filename="../settings.cpp" line="738"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="264"/>
@@ -761,7 +761,7 @@
         <location filename="../work.cpp" line="305"/>
         <location filename="../work.cpp" line="421"/>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="152"/>

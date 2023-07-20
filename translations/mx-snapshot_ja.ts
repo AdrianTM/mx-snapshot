@@ -831,7 +831,7 @@
     <message>
         <location filename="../work.cpp" line="294"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX ライブ USB メーカー を起動してください！</translation>
+        <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX Live USB メーカー を起動してください！</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="302"/>

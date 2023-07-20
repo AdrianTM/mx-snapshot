@@ -607,7 +607,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     <message>
         <location filename="../main.cpp" line="162"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Musisz uruchomić ten program za pomocą sudo lub pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="171"/>
