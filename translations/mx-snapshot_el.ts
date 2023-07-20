@@ -66,7 +66,7 @@
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι ένα βοηθητικό πρόγραμμα για τη δημιουργία εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, την οποία μπορείτε να χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, την οποία μπορείτε να χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -321,7 +321,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="319"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Το αρχείο %1 υπάρχει. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
+        <translation>Υπάρχει το αρχείο %1. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="326"/>
@@ -426,7 +426,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="509"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation>Πνευματικά δικαιώματα (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="511"/>
@@ -469,7 +469,7 @@
     <message>
         <location filename="../main.cpp" line="78"/>
         <source>Use CLI only</source>
-        <translation>Χρήση μόνο CLI</translation>
+        <translation>Χρήση διεπαφής κειμένου</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -721,7 +721,7 @@
         <location filename="../settings.cpp" line="664"/>
         <location filename="../settings.cpp" line="732"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Το αρχείο %1 υπάρχει. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
+        <translation>Υπάρχει το αρχείο %1. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="121"/>
