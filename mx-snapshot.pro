@@ -83,7 +83,6 @@ TRANSLATIONS += translations/mx-snapshot_af.ts \
                 translations/mx-snapshot_et.ts \
                 translations/mx-snapshot_eu.ts \
                 translations/mx-snapshot_fa.ts \
-                translations/mx-snapshot_fi_FI.ts \
                 translations/mx-snapshot_fil_PH.ts \
                 translations/mx-snapshot_fil.ts \
                 translations/mx-snapshot_fi.ts \
@@ -144,7 +143,6 @@ TRANSLATIONS += translations/mx-snapshot_af.ts \
                 translations/mx-snapshot_pt.ts \
                 translations/mx-snapshot_ro.ts \
                 translations/mx-snapshot_rue.ts \
-                translations/mx-snapshot_ru_RU.ts \
                 translations/mx-snapshot_ru.ts \
                 translations/mx-snapshot_rw.ts \
                 translations/mx-snapshot_sd.ts \
