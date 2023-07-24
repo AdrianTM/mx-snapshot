@@ -1,3 +1,9 @@
+mx-snapshot (23.7.02) mx; urgency=medium
+
+  * Fix a couple of translations
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 24 Jul 2023 15:10:39 -0400
+
 mx-snapshot (23.7.01) mx; urgency=medium
 
   * Update translations
