@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel megváltoztatása</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -331,7 +331,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="331"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>A pillanatkép a következő beállításokat használja:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="333"/>
@@ -406,7 +406,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="421"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kernel kiválasztása</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="504"/>
@@ -560,7 +560,7 @@
     <message>
         <location filename="../main.cpp" line="105"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Munkakönyvtár</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
@@ -608,7 +608,7 @@
     <message>
         <location filename="../main.cpp" line="162"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ezt a programot sudo-val vagy pkexec-kel kell futtatnia.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="171"/>
