@@ -60,9 +60,9 @@ int main(int argc, char *argv[])
         qputenv("XDG_RUNTIME_DIR", "/run/user/0");
         qunsetenv("SESSION_MANAGER");
     }
-    signal(SIGINT, signalHandler);
-    signal(SIGTERM, signalHandler);
-    signal(SIGHUP, signalHandler);
+    (void)signal(SIGINT, signalHandler);
+    (void)signal(SIGTERM, signalHandler);
+    (void)signal(SIGHUP, signalHandler);
     // signal(SIGQUIT, signalHandler); // allow SIGQUIT CTRL-\?
 
     QProcess proc;

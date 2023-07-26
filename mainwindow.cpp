@@ -98,7 +98,7 @@ void MainWindow::setConnections()
     connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
     connect(&work, &Work::message, this, &MainWindow::processMsg);
     connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
-    connect(QApplication::instance(), &QApplication::aboutToQuit, [this] { cleanUp(); });
+    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
     connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
     connect(shell, &Cmd::finished, this, &MainWindow::procDone);
     connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
