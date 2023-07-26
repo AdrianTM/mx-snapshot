@@ -317,9 +317,9 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     QDir::setCurrent(folder);
     QString ce = QVariant::fromValue(hash_type).toString();
     QString cmd;
-    QString checksum_cmd = QString("%1sum \"" + file_name + "\">\"" + folder + "/" + file_name + ".%1\"").arg(ce);
+    QString checksum_cmd = ("%1sum \"" + file_name + "\">\"" + folder + "/" + file_name + ".%1\"").arg(ce);
     QString temp_dir = QStringLiteral("/tmp/snapsphot-checksum-temp");
-    QString checksum_tmp = QString("TD=" + temp_dir + "; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"" + file_name
+    QString checksum_tmp = ("TD=" + temp_dir + "; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"" + file_name
                                    + "\"; CF=\"" + folder
                                    + "/${FN}.%1\"; cp $FN $TD/$FN; pushd $TD>/dev/null; %1sum $FN > $FN.%1 ; cp $FN.%1 "
                                      "$CF; popd >/dev/null ; [ -e $KEEP ] || rm -rf $TD")
@@ -542,6 +542,7 @@ quint64 Work::getRequiredSpace()
         sessionExcludes.remove(0, 3); // Remove "-e "
 
         QStringList excludeList = sessionExcludes.split("\" \"");
+        excludes.reserve(excludeList.size());
         for (QString exclude : excludeList) {
             exclude = exclude.replace("\"", "").trimmed();
             excludes << exclude;

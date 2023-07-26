@@ -37,7 +37,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     , Settings(arg_parser)
     , work(this)
 {
-    connect(qApp, &QCoreApplication::aboutToQuit, [this] { work.cleanUp(); });
+    connect(qApp, &QCoreApplication::aboutToQuit, this, [this] { work.cleanUp(); });
     setConnections();
 
     if (!checkCompression()) {
@@ -75,8 +75,8 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
 void Batchprocessing::setConnections()
 {
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
-    connect(shell, &Cmd::started, [this] { timer.start(500ms); });
-    connect(shell, &Cmd::finished, [this] { timer.stop(); });
+    connect(shell, &Cmd::started, this, [this] { timer.start(500ms); });
+    connect(shell, &Cmd::finished, this, [this] { timer.stop(); });
     connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
     connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
