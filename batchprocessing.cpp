@@ -33,9 +33,9 @@
 using namespace std::chrono_literals;
 
 Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *parent)
-    : QObject(parent)
-    , Settings(arg_parser)
-    , work(this)
+    : QObject(parent),
+      Settings(arg_parser),
+      work(this)
 {
     connect(qApp, &QCoreApplication::aboutToQuit, this, [this] { work.cleanUp(); });
     setConnections();
@@ -49,17 +49,20 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
 
     QString path = snapshot_dir;
     qDebug() << "Free space:" << getFreeSpaceStrings(path.remove(QRegularExpression(QStringLiteral("/snapshot$"))));
-    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size")))
+    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size"))) {
         qDebug() << "Unused space:" << getUsedSpace();
+    }
 
     work.started = true;
     work.e_timer.start();
-    if (!checkSnapshotDir() || !checkTempDir())
+    if (!checkSnapshotDir() || !checkTempDir()) {
         work.cleanUp();
+    }
     otherExclusions();
     work.setupEnv();
-    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size")))
+    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size"))) {
         work.checkEnoughSpace();
+    }
     work.copyNewIso();
     work.savePackageList(snapshot_name);
 

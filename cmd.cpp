@@ -33,8 +33,9 @@ bool Cmd::run(const QString &cmd, QString *output, bool quiet)
         qDebug() << "Process already running:" << this->program() << this->arguments();
         return false;
     }
-    if (!quiet)
+    if (!quiet) {
         qDebug().noquote() << cmd;
+    }
     QEventLoop loop;
     connect(this, &Cmd::finished, &loop, &QEventLoop::quit);
     start(QStringLiteral("/bin/bash"), {QStringLiteral("-c"), cmd});
