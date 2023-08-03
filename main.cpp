@@ -153,8 +153,9 @@ int main(int argc, char *argv[])
         setLog();
         qDebug().noquote() << QCoreApplication::applicationName() << QObject::tr("version:")
                            << QCoreApplication::applicationVersion();
-        if (argc > 1)
+        if (argc > 1) {
             qDebug().noquote() << "Args:" << QCoreApplication::arguments();
+        }
         Batchprocessing batch(parser);
         QTimer::singleShot(0, &app, &QCoreApplication::quit);
         return QCoreApplication::exec();
@@ -187,8 +188,9 @@ else
         setLog();
         qDebug().noquote() << QApplication::applicationName() << QObject::tr("version:")
                            << QApplication::applicationVersion();
-        if (argc > 1)
+        if (argc > 1) {
             qDebug().noquote() << "Args:" << QApplication::arguments();
+        }
         MainWindow w(parser);
         w.show();
         auto const exit_code = QApplication::exec();
@@ -196,8 +198,9 @@ else
         proc.waitForFinished();
         auto const home = QString::fromLatin1(proc.readAllStandardOutput().trimmed()).section(":", 5, 5);
         auto const file_name = home + "/.config/" + QApplication::applicationName() + "rc";
-        if (QFile::exists(file_name))
+        if (QFile::exists(file_name)) {
             QProcess::execute("chown", {logname + ":", file_name});
+        }
         return exit_code;
     } else {
         QProcess::startDetached(QStringLiteral("/usr/bin/mx-snapshot-launcher"), {});
@@ -212,8 +215,9 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     QTextStream term_out(stdout);
     msg.contains(QLatin1String("\r")) ? term_out << msg : term_out << msg << "\n";
 
-    if (msg.startsWith(QLatin1String("\033[2KProcessing")))
+    if (msg.startsWith(QLatin1String("\033[2KProcessing"))) {
         return;
+    }
     QTextStream out(&logFile);
     out << QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss.zzz "));
     switch (type) {
@@ -238,15 +242,18 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
 
 void setTranslation()
 {
-    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         QCoreApplication::installTranslator(&qtTran);
+    }
 
-    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
+    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
         QCoreApplication::installTranslator(&qtBaseTran);
+    }
 
     if (appTran.load("mx-snapshot_" + QLocale().name(),
-                     "/usr/share/" + QCoreApplication::applicationName() + "/locale"))
+                     "/usr/share/" + QCoreApplication::applicationName() + "/locale")) {
         QCoreApplication::installTranslator(&appTran);
+    }
 }
 
 // Check if SQUASHFS is available
@@ -264,10 +271,11 @@ void checkSquashfs()
         qDebug() << QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #else
             QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-            if (QCoreApplication::staticMetaObject.className() != QLatin1String("QApplication"))
+            if (QCoreApplication::staticMetaObject.className() != QLatin1String("QApplication")) {
                 qDebug() << message;
-            else
+            } else {
                 QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+            }
 #endif
         exit(EXIT_FAILURE);
     }
