@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 22 Aug 2023 17:37:48 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 23.8
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.8) mx; urgency=medium
+ .
+   * Fix to make window fit lower resolution screens
+Checksums-Sha1:
+ 7528bc933ba4542e70fb14983760a839fe7fbcc6 1258 mx-snapshot_23.8.dsc
+ dfb6cb00637d76deee6f43285e431f05f814ebe6 252792 mx-snapshot_23.8.tar.xz
+ 7fefb96f955d441f5fc0ba5d345bf03aacf3fe61 11183 mx-snapshot_23.8_amd64.buildinfo
+Checksums-Sha256:
+ 028a023cbb1ebb9c583e7b85618a08e9977f56019a0dfa7e9f4c5b5c48d31b56 1258 mx-snapshot_23.8.dsc
+ 56129e8144dcf1b4f959b4a9a2509c95d430d2c499ff5d1f2a304aebbd261a74 252792 mx-snapshot_23.8.tar.xz
+ c8b398b48e5ad9ef221b430e05a25447e00d92c3fa9623e401c18ec7800e346e 11183 mx-snapshot_23.8_amd64.buildinfo
+Files:
+ 329c9ec246879f3dbdf0708a105ad283 1258 admin optional mx-snapshot_23.8.dsc
+ 1b3c111cfcc1ab8b5d69db8709775b51 252792 admin optional mx-snapshot_23.8.tar.xz
+ aa53fd3f0538085c1e4457d34530c5c9 11183 admin optional mx-snapshot_23.8_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmTlKzETHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumDjoCACXfVHkgE9etYAldJGw3Ic8HxEzZJcT
+pRUia5xfXMy2x8enT/kHMvJBT9AcpkU5teAdbZNvimGP1+YGvUepvko9gWzhf6+e
+3a4hzxt+u9YcC9fivUmd82JN0z5xy1Vs1x1jvsFKF01Yb/sVEJ5Oxb55XXsOdSVq
+xr6hucSEBqYZoGW0wazDrgX/hqXn618twCuaBfIwASUScwXUSnipjpgB5g/tKBg8
+TbQorIADnfB+6kC8ndcVu8mVMU4nvLHKO7qpP7B1LGZPEgTTGJiwvpO48K1qD2M3
+xGRknnht4qPkNQFCdricbM/J4Tx5xyweRm+42xv/Im01dKjhqECLDIWb
+=z2bV
+-----END PGP SIGNATURE-----
