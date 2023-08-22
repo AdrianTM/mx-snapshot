@@ -1,3 +1,9 @@
+mx-snapshot (23.8) mx; urgency=medium
+
+  * Fix to make window fit lower resolution screens
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 22 Aug 2023 17:37:48 -0400
+
 mx-snapshot (23.7.02) mx; urgency=medium
 
   * Fix a couple of translations
