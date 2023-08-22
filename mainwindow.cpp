@@ -205,9 +205,12 @@ void MainWindow::listFreeSpace()
                                 + "\n");
     ui->labelDiskSpaceHelp->setText(
         tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
-           "      If necessary, you can create more available space\n"
-           "      by removing previous snapshots and saved copies:\n"
-           "      %1 snapshots are taking up %2 of disk space.\n")
+           "      If necessary, you can create more available space by removing previous snapshots and saved copies: "
+           "%1 snapshots are taking up %2 of disk space.")
+            //        tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
+            //           "      If necessary, you can create more available space\n"
+            //           "      by removing previous snapshots and saved copies:\n"
+            //           "      %1 snapshots are taking up %2 of disk space.\n")
             .arg(QString::number(getSnapshotCount()), getSnapshotSize()));
 }
 
