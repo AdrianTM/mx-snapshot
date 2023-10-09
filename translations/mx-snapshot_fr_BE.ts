@@ -170,11 +170,6 @@
         <translation>Editer le fichier d’exclusion</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Options:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Méthode de compression de l’ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,24 +280,13 @@
         <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">L’espace libre doit pouvoir contenir les données compressées de / et /home
-
-Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
-%1 images occupent %2 de l’espace disque.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>L’espace libre doit être suffisant pour contenir les données compressées de / et de /home.
+
+      Si nécessaire, vous pouvez créer plus d’espace disponible en supprimant les instantanés précédents et les copies sauvegardées: les instantanés « snapshots » %1 occupent %2 de l’espace disque.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
@@ -680,10 +669,10 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>L’espace libre doit pouvoir contenir les données compressées de / et /home
+        <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
 
 Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
-%1 images occupent %2 de l’espace disque.
+Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 </translation>
     </message>
     <message>
@@ -835,7 +824,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../work.cpp" line="305"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>Instantané MX crée avec succès!</translation>
+        <translation>Instantané MX terminé avec succès!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="306"/>

@@ -170,11 +170,6 @@
         <translation>Править файл исключений</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Опции:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Методика сжатия ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,15 @@
         <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Свободного места должно быть достаточно для сжатых данных из / и /home
-
-Если нужно, Вы можете создать больше доступного места,
-удалив предыдущие снимки и сохраненные копии:
-%1 снимков занимают %2 дискового пространства.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Свободного места должно быть достаточно для сжатых данных из / и /home
+
+Если нужно, Вы можете создать больше доступного места,
+удалив предыдущие снимки и сохраненные копии:
+%1 снимков занимают %2 дискового пространства.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

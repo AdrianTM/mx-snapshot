@@ -170,6 +170,16 @@
         <translation>עריכת קובץ החרגות</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="618"/>
+        <source>Options:</source>
+        <translation>אפשרויות:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="638"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="645"/>
         <source>Calculate checksums:</source>
         <translation type="unfinished"></translation>
@@ -183,16 +193,6 @@
         <location filename="../mainwindow.ui" line="662"/>
         <source>sha512</source>
         <translation>sha512</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="618"/>
-        <source>Options:</source>
-        <translation>אפשרויות:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="638"/>
-        <source>md5</source>
-        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>

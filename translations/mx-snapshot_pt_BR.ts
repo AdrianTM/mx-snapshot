@@ -170,11 +170,6 @@
         <translation>Editar o arquivo de exclusão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opções:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Esquema de compactação/compressão da ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,26 +280,13 @@
         <translation>O espaço livre em %1, onde a pasta da imagem ISO está localizada no caminho:</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">O espaço livre deve ser suficiente para armazenar os dados compactados
-do / (root ou raiz) e da /home (pasta pessoal).
-
-Se necessário, você pode criar mais espaço disponível removendo as
-imagens anteriores e as cópias guardadas/copiadas:
-%1 imagens ocupam %2 de espaço em disco.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>O espaço livre deve ser suficiente para armazenar os dados compactados do / (‘root’ ou a raiz do sistema operacional) e a /home (pasta pessoal)
+
+      Se for necessário, você poderá criar mais espaço excluindo as imagens ISOs anteriores criadas pelo programa Snapshot e as cópias salvas em %1. As imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

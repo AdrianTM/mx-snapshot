@@ -41,7 +41,7 @@
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation>ライブカーネル:</translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
@@ -56,7 +56,7 @@
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation>ライブカーネルの変更</translation>
+        <translation>Live kernel の変更</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
@@ -170,11 +170,6 @@
         <translation>除外するファイルを編集</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>オプション:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO 圧縮方式：</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,20 +280,13 @@
         <translation>スナップショットのフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:&#x3000;スナップショット %1 は空き容量の %2 を消費しています。</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>空き容量は / と /home の圧縮データを保持するのに十分でなくてはなりません。
+
+      必要に応じて、以前作成したスナップショットや保存済みのコピーを削除して、使用可能な領域を増やすことができます。 %1 スナップショットはディスク領域の %2 を占有しています。</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
@@ -465,7 +458,7 @@
     <message>
         <location filename="../main.cpp" line="74"/>
         <source>Tool used for creating a live-CD from the running system</source>
-        <translation>稼働中のシステムから Live CD を作成するツール</translation>
+        <translation>稼働中のシステムから Live-CD を作成するツール</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="78"/>
@@ -827,7 +820,7 @@
     <message>
         <location filename="../work.cpp" line="305"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>MX スナップショットは正常に完了！</translation>
+        <translation>スナップショット作成は正常に完了しました！</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="306"/>

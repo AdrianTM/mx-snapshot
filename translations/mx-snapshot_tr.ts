@@ -170,11 +170,6 @@
         <translation>Hariç Bırakılacaklar Dosyasını Düzenle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Seçenekler:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO sıkıştırma biçimi</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -278,20 +278,6 @@
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Anlık Görüntü’nün bulunduğu %1’deki boş alan:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Boş alan, /’ ve / home /’dan sıkıştırılmış veriyi kaydetmek için yeterli olmalıdır.
-
-Gerekirse, önceki anlık görüntüleri kaldırarak
-daha fazla kullanılabilir alan oluşturabilirsiniz:
-%1 anlık görüntüler %2 disk alanı kaplıyor.
-</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>
@@ -737,7 +723,7 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
     <message>
         <location filename="../about.cpp" line="52"/>
         <source>License</source>
-        <translation>Ruhsat</translation>
+        <translation>Lisans</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="53"/>

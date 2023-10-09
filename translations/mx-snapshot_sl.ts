@@ -170,11 +170,6 @@
         <translation>Uredi izločitveno datoteko</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Možnosti:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Sheman za kompresiranje ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -277,28 +277,17 @@
     <message>
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Sprostite prostor na %1, na katerem se bo nahajala mapa posnetka:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Prazen prostor bi moral zadostovati, da lahko vsebuje stisnjene podatke za / in /home
-
-Po potrebi lahko ustvarite še več praznega prostora
-tako da zbrisšete starejše posnetke in shranjene kopije:
-%1 posnetki zavzemajo %2 prostora na disku.
-</translation>
+        <translation>Sprosti prostor na %1, na katerem se bo nahajala mapa posnetka:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Prazen prostor bi moral zadostovati, da lahko vsebuje stisnjene podatke za / in /home
+
+    Po potrebi lahko ustvarite še več praznega prostora, tako da zbrisšete starejše posnetke in shranjene kopije: %1 posnetki zavzemajo %2 prostora na disku.
+</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
@@ -314,7 +303,7 @@ tako da zbrisšete starejše posnetke in shranjene kopije:
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation>Prosimo, počakajte. Izračunavam porabo prostora na disku...</translation>
+        <translation>Prosimo, počakajte. Računam porabo prostora na disku...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="328"/>

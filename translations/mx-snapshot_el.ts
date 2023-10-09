@@ -170,11 +170,6 @@
         <translation>Επεξεργασία αρχείου εξαιρέσεων</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Επιλογές:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Συμπίεση ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -278,20 +278,6 @@
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ο ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Ο ελεύθερος χώρος πρέπει να είναι επαρκής για να χωρέσει τα συμπιεσμένα δεδομένα από το / και το /home
-
-      Εάν είναι απαραίτητο, μπορείτε να δημιουργήσετε περισσότερο χώρο
-      αφαιρώντας προηγούμενα στιγμιότυπα και αποθηκευμένα αντίγραφα:
-      %1 στιγμιότυπα καταλαμβάνουν %2 χώρο στο δίσκο.
-</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

@@ -250,25 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espazo libre en %1, onde o cartafol de capturas está colocado:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">O espazo libre debe ser suficiente para conter os datos comprimidos de / e de /home
-
-      Se é necesario, poderá ser liberado máis espazo no cartafol eliminando
-      capturas anteriores e copias gardadas, se existisen:
-      %1 capturas ocupan %2 do espazo no disco.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -292,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>Espazo libre en %1, onde o cartafol de capturas está colocado:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

@@ -250,25 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa kohteessa %1, johon snapshot-järjestelmävedoksen kansio sijoitetaan:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Vapaan tilan määrä pitäisi olla riittävä pakatulle datalle kohteista / ja /home 
-
-            Mikäli välttämätöntä, voit luoda lisää tilaa käytettäväksi
-            poistamalla edellisiä snapshot-järjestelmävedoksia sekä jäljennöksiä:
-            %1 snapshot-järjestelmävedokset vievät %2 levytilaa.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -292,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>Vapaata tilaa kohteessa %1, johon snapshot-järjestelmävedoksen kansio sijoitetaan:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

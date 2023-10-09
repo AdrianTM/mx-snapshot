@@ -250,25 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Bukas na espasyo sa %1, kung saan ang snapshot ay nakalulan: </translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Ang bakanteng espasyo ay dapat sapat para maisagawa ang compress na data mula sa / at /home
-
-      Kung kinakailangan ay magbukas pa ng mas malaking lugar
-      sa pamamagitan ng pag-aalis ng nakaraang snapshot at mga naka tagong mga kopya:
-     Ang %1 snapshot ay umuukupa ng hanggang %2 ng bakanteng lugar.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -292,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>Bukas na espasyo sa %1, kung saan ang snapshot ay nakalulan: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

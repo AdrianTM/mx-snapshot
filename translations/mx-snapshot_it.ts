@@ -170,11 +170,6 @@
         <translation>Edita il file delle esclusioni</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opzioni:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Schema di compressione ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Spazio libero su %1, dove la cartella della snapshot è localizzata: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Lo spazio libero dovrebbe essere sufficiente per contenere i dati compressi da / e da /home
-
-Se necessario, puoi creare più spazio disponibile
-rimuovendo precedenti snapshots e copie salvate:
-%1 snapshot occupa circa %2 di spazio del disco.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo spazio libero dovrebbe essere sufficiente per contenere i dati compressi da / e /home
+
+Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precedenti e copie salvate: %1 istantanea occupa circa %2 di spazio su disco.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

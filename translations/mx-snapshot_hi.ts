@@ -250,25 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">/ व /home के संपीड़ित डेटा के संचय हेतु अप्रयुक्त स्पेस उपयुक्त होना आवश्यक है
-
-      आवश्यक होने पर, आप पूर्व स्नैपशॉट व संचित प्रतिलिपियों
-      को हटाकर अधिक स्पेस उपलब्ध करा सकते हैं :
-      %1 स्नैपशॉट द्वारा %2 डिस्क स्पेस प्रयुक्त।
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -292,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

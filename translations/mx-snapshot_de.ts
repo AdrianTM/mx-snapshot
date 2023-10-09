@@ -170,11 +170,6 @@
         <translation>Ausschluss-Datei bearbeiten</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Auswahlmöglichkeiten:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO Kompressionschema :</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,15 @@
         <translation>Freier Platz auf %1, wo das Schnappschuss-Verzeichnis liegt:</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Der freie Platz sollte für die komprimierten Daten von / und /home ausreichen.
-
-Bei Bedarf können sie Platz gewinnen, indem sie
-gespeicherte Kopien von früheren Schnappschüssen löschen:
-%1 Schnappschuss verbraucht %2 Festplattenplatz.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der freie Platz sollte ausreichen, um die komprimierten Daten von / und /home aufzunehmen
+
+      Bei Bedarf können sie mehr freien Platz gewinnen, indem sie
+gespeicherte Kopien von früheren Schnappschüssen löschen:
+%1 Schnappschuss verbraucht %2 Festplattenplatz.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
@@ -403,7 +393,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../mainwindow.cpp" line="413"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>Das Programm wartet nun und ermöglicht Ihnen, alle Dateien im Arbeitsverzeichnis zu bearbeiten. Wählen sie &quot;Yes&quot;, um das Boot-Menü zu bearbeiten, oder &quot;No&quot;, um mit der Erstellung des Schnappschusses fortzufahren.</translation>
+        <translation>Das Programm wartet nun und ermöglicht, alle Dateien im Arbeitsverzeichnis zu bearbeiten.&quot;Yes&quot; wählen, um das Boot-Menü zu bearbeiten, oder &quot;No&quot;, um mit dem Erstellen des Schnappschusses fortzufahren.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="426"/>
@@ -763,7 +753,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../work.cpp" line="88"/>
         <source>Cleaning...</source>
-        <translation>Aufräumen...</translation>
+        <translation>Bereinigung läuft...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="116"/>
