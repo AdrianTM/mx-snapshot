@@ -86,7 +86,7 @@ for param in "${PAR_LIST[@]}"; do
                            bp=*)  ;;
                            pk=*)  ;;
 
-#            check|md5|checkmd5)  ;;
+             check|md5|checkmd5)  ;;
 #                hico|highcolor)  ;;
 #                 loco|lowcolor)  ;;
 #                  noco|nocolor)  ;;
@@ -220,6 +220,10 @@ for param in "${PAR_LIST[@]}"; do
 
         # btrfs rootflags
            rootflags|rootflags=*) ;;
+
+        # hibernate and resume parameter
+           hibernate=*|nohibernate) ;;
+           resume*) ;;
 
         # other inits
            init=*) ;;
