@@ -2,8 +2,13 @@
 
 export QT_SELECT=5
 
+DEB_BUILD_VERSION := $(shell dpkg-parsechangelog -S Version)
+
 override_dh_auto_clean:
 	dh_auto_clean
+	rm -f manual/*.gz
+	rm -f src/manual/*.gz
+	rm -f translations/*.qm
 	rm -f src/translations/*.qm
 
 override_dh_auto_configure:
@@ -11,14 +16,18 @@ override_dh_auto_configure:
 
 override_dh_auto_build:
 	lrelease mx-snapshot.pro
-	head -n1 debian/changelog | sed -e "s/.*(\([^(]*\)).*/const QString VERSION {\"\1\"};/" > version.h
+	mv version.h version.h~
+	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
 	gzip -kf manual/mx-snapshot.8
 	gzip -kf manual/iso-snapshot-cli.8
 	# build mx-snapshot
 	dh_auto_build
 	mv mx-snapshot mx-snapshot-binary
 	# clean, reconfigure, and build iso-snapshot-cli
+	mv version.h~ version.h
 	dh_auto_clean
+	mv version.h version.h~
+	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
 	dh_auto_configure -- iso-snapshot-cli.pro
 	dh_auto_build
 	# before installing move binary back and make a iso-snapshot-cli copy of .list file
@@ -27,6 +36,9 @@ override_dh_auto_build:
 
 override_dh_shlibdeps:
 	dh_shlibdeps -- -xvirtualbox-guest-x11 --ignore-missing-info
+
+execute_after_dh_builddeb:
+	mv version.h~ version.h
 
 %:
 	dh $@ --no-automatic-dbgsym --parallel 
