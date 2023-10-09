@@ -250,24 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>快照目錄所在的 %1 尚可利用的空間：</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">所餘空間當足以存放 / 和 /home 的壓縮資料
-
-      若有必要，可以移除早先的快照，以換取更多空間：
-      目前有 %1 組快照，使用了 %2 磁碟空間。
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -291,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>快照目錄所在的 %1 尚可利用的空間：</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

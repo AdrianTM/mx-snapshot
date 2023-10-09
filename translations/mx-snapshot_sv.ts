@@ -170,11 +170,6 @@
         <translation>Redigera Exklusionsfil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Alternativ:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO kompressions-schema:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Det fria utrymmet borde vara tillräckligt för att rymma den komprimerade datan från / och /home
-
-Om nödvändigt kan du skapa mer tillgängligt utrymme
-genom att avlägsna tidigare snapshots och sparade kopior:
-%1 snapshots upptar %2 av diskutrymmet
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det fria utrymmet ska vara tillräckligt för att innehålla den komprimerade datan från / och /home
+
+      Om det är nödvändigt, kan du skapa mer tillgängligt utrymme genom att ta bort tidigare snapshots och sparade kopior: %1 snapshots upptar %2 av diskutrymmet.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

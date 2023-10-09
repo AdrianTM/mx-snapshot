@@ -170,11 +170,6 @@
         <translation>Edita el fitxer d&apos;exclusions</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opcions</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Mètode de compressió de la ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">L&apos;espai lliure hauria de ser suficient per encabir les dades comprimides de / i /home
-
-      Si cal, podeu disposar de més espai eliminant
-      instantànies anteriors i còpies desades:
-      %1 instantànies usen fins a %2 d&apos;espai de disc.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hauria d&apos;haver-hi prou espai lliure per allotjar les dades comprimides de / i /home.
+
+    Si cal, podeu crear més espai lliure disponible per allotjar les instantànies anteriors i les còpies desades: per %1 instantànies cal fins a %2 d&apos;espai de disc.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

@@ -170,11 +170,6 @@
         <translation>Edytuj plik wykluczeń</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opcje:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Schemat kompresji ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,24 +280,13 @@
         <translation>Wolne miejsce na %1, zawierającej katalog zrzutu: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Ilość wolnej przestrzeni dyskowej powinna być wystarczająca do przechowywania
-skompresowanych danych z / oraz /home. Jeśli to konieczne, uwolnij więcej miejsca
-poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
-1% zrzuty zajmują %2 przestrzeni dyskowej.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wolna przestrzeń powinna być wystarczająca do przechowywania skompresowanych danych z / i /home
+
+     Jeśli to konieczne, możesz zwiększyć dostępną przestrzeń, usuwając poprzednie migawki i zapisane kopie: %1 migawki zajmują %2 miejsca na dysku.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

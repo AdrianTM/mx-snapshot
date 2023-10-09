@@ -170,11 +170,6 @@
         <translation>Kihagyási lista szerkesztése</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Beállítások:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO tömörítési séma:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -278,20 +278,6 @@
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Szabad hely a %1 alatt, ahol a pillanatkép mappa található:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">A szabad helynek elegendőnek kell lennie a / és /home fájlok tömörített adatainak tárolására.
-
-    Szükség esetén szabadíthat fel helyet a korábbi
-    pillanatképek és mentett másolatok törlésével:
-    %1 pillanatkép %2 lemezterületet foglal el.
-</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

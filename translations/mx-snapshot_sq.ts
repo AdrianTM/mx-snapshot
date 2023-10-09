@@ -170,11 +170,6 @@
         <translation>Përpunoni Kartelë Përjashtimesh</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Mundësi:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Skemë ngjeshjeje për ISO-n:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Hapësirë e lirë në %1, ku vendoset dosja e fotografimeve: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Hapësira e lirë duhet të jetë e mjaftueshme të mbajë të dhënat e ngjeshura të / dhe /home
-
-      Në qoftë e nevojshme, mund të krijoni më tepër hapësirë
-      duke hequr fotografime të mëparshme dhe kopje të ruajtura:
-      %1 fotografime, që zënë %2 hapësirë në disk.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hapësira e lirë duhet të jetë e mjaftueshme për mbajtjen e të dhënave të ngjeshura nga / dhe /home
+
+      Në u dashtë, mund të krijoni më tepër hapësirë të lirë, duke hequr fotografime të mëparshme dhe kopje të ruajtura: %1 fotografime zënë aktualisht %2 të hapësirës së diskut.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

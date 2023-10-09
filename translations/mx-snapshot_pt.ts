@@ -11,7 +11,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>O kernel actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
+        <translation>O núcleo actual não suporta o algoritmo de compressão seleccionado; editar o ficheiro de configuração e seleccionar outro algoritmo.</translation>
     </message>
 </context>
 <context>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
-        <translation>Local e nome da ISO</translation>
+        <translation>Localização e nome da ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
@@ -170,11 +170,6 @@
         <translation>Editar o ficheiro de exclusão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opções: </translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Esquema de compressão ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Espaço livre em %1, onde a pasta de capturas está colocada:</translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">O espaço livre deve ser suficiente para conter os dados comprimidos de /  e de /home
-
-      Se necessário, poderá ser libertado mais espaço na pasta removendo
-      capturas anteriores e cópias guardadas, se existentes:
-      %1 capturas acupam %2 do espaço em disco.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>O espaço livre deve ser suficiente para guardar os dados (comprimidos) de / e de /home
+
+      Se necessário, pode ser criado mais espaço livre disponível removendo capturas anteriores e cópias guardadas: %1 capturas estão a ocupar até %2 de espaço em disco.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

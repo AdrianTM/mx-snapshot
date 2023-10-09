@@ -170,11 +170,6 @@
         <translation>Editer le fichier d’exclusion</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Options :</translation>
@@ -192,7 +187,12 @@
     <message>
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
-        <translation>Méthode de compression de l’ISO :</translation>
+        <translation>Méthode de compression de l’ISO&#xa0;:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,24 +280,13 @@
         <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané : </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">L’espace libre doit pouvoir contenir les données compressées de / et /home
-
-Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant :
-%1 images occupent %2 de l’espace disque.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>L’espace libre doit être suffisant pour contenir les données compressées de / et de /home.
+
+      Si nécessaire, vous pouvez créer plus d’espace disponible en supprimant les instantanés précédents et les copies sauvegardées&#xa0;: les instantanés « snapshots » %1 occupent %2 de l’espace disque.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>
@@ -371,7 +360,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
         <source>OK to start?</source>
-        <translation>Prêt à démarrer ?</translation>
+        <translation>Prêt à démarrer&#xa0;?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
@@ -456,7 +445,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../mainwindow.cpp" line="576"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation>Êtes-vous sûr de vouloir quitter l’application ?</translation>
+        <translation>Êtes-vous sûr de vouloir quitter l’application&#xa0;?</translation>
     </message>
 </context>
 <context>
@@ -520,7 +509,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation>Utilisez les expressions : « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir mksquashfs man page</translation>
+        <translation>Utilisez les expressions&#xa0;: « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir mksquashfs man page</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
@@ -680,10 +669,10 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>L’espace libre doit pouvoir contenir les données compressées de / et /home
+        <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
 
-Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant :
-%1 images occupent %2 de l’espace disque.
+Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant&#xa0;:
+Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 </translation>
     </message>
     <message>
@@ -835,7 +824,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../work.cpp" line="305"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>Instantané MX crée avec succès !</translation>
+        <translation>Instantané MX terminé avec succès&#xa0;!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="306"/>
@@ -845,7 +834,7 @@ Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant 
     <message>
         <location filename="../work.cpp" line="307"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Merci d’utiliser MX Snapshot, lancez ensuite MX Live USB Création !</translation>
+        <translation>Merci d’utiliser MX Snapshot, lancez ensuite MX Live USB Création&#xa0;!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="315"/>

@@ -170,11 +170,6 @@
         <translation>Editovat soubor výjimek</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Možnosti:</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Schéma komprese ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -278,20 +278,6 @@
         <location filename="../mainwindow.cpp" line="204"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Volné místo na %1, kam bude obraz umístněn:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Velikost volného místa na disku by měla postačovat pro umístnění zkomprimovaného obsahu z / a /home
-
-      Ak je to nevyhnutné můžete vytvořit víc místa smazáním
-      předchozích obrazů a uložených kopií systému:
-      %1 obrazy zabírají %2 místa na disku.
-</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

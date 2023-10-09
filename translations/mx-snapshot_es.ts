@@ -170,11 +170,6 @@
         <translation>Editar archivo de exclusión</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="662"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="618"/>
         <source>Options:</source>
         <translation>Opciones</translation>
@@ -193,6 +188,11 @@
         <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Esquema de compresión ISO:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="662"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="790"/>
@@ -280,25 +280,13 @@
         <translation>Espacio libre en %1, donde se colocará la imagen del sistema: </translation>
     </message>
     <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">El espacio libre debería bastar para los datos comprimidos de  / y /home
-
-      De ser necesario, puede hacer más espacio
-      removiendo imágenes anteriores y copias guardadas:
-      %1 imágenes toman %2 del espacio en el disco.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>El espacio libre debe ser suficiente para contener los datos comprimidos de / y /home
+
+      Si es necesario, puede crear más espacio disponible eliminando instantáneas anteriores y copias guardadas: %1 instantáneas están ocupando %2 de espacio en disco.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="220"/>

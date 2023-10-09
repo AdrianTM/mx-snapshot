@@ -250,26 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">De vrije ruimte zou afdoende moeten zijn om de gecomprimeerde data van / en /home te bevatten
-
-Indien nodig kunt u meer beschikbare ruimte creëren
-door oudere snapshots en opgeslagen kopieën te verwijderen:
-%1 snapshots nemen %2 van de diskruimte in beslag.
- 
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -293,6 +273,11 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>

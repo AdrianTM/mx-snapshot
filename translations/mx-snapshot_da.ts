@@ -250,25 +250,6 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="204"/>
-        <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Ledig plads på %1, til placering af mappe til øjebliksbillede: </translation>
-    </message>
-    <message>
-        <source>The free space should be sufficient to hold the compressed data from / and /home
-
-      If necessary, you can create more available space
-      by removing previous snapshots and saved copies:
-      %1 snapshots are taking up %2 of disk space.
-</source>
-        <translation type="vanished">Den ledige plads bør være nok til de komprimerede data fra / og /home
-
-      Hvis det er nødvendigt, kan du oprette mere tilgængelig plads
-      ved at fjerne tidligere øjebliksbilleder og gemte kopier:
-      %1 øjebliksbilleder optager %2 displads.
-</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
@@ -292,6 +273,11 @@
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="204"/>
+        <source>Free space on %1, where snapshot folder is placed: </source>
+        <translation>Ledig plads på %1, til placering af mappe til øjebliksbillede: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>
