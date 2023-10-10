@@ -865,12 +865,12 @@ guardadas/copiadas:
         <translation>Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="594"/>
+        <location filename="../work.cpp" line="592"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando o tamanho total dos arquivos excluídos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="605"/>
+        <location filename="../work.cpp" line="603"/>
         <source>Calculating size of root...</source>
         <translation>Calculando o tamanho da raiz (root)...</translation>
     </message>

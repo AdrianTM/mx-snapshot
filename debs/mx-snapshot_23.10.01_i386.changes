@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Tue, 10 Oct 2023 12:49:43 -0400
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.10.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.10.01) mx; urgency=medium
+ .
+   * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
+Checksums-Sha1:
+ f13d70fe1ed62a305be2f7981cf4ca67c894c5a0 276404 iso-snapshot-cli_23.10.01_i386.deb
+ da04a838a88de4e421cfb3eea87582c996eb2d57 10371 mx-snapshot_23.10.01_i386.buildinfo
+ da18c18c205cf7ae8b6fd0351d7c86207d7c0275 316180 mx-snapshot_23.10.01_i386.deb
+Checksums-Sha256:
+ 0f9537ae1688567f22332e338d5bc00d2e0aec8960e038072c3393452f3cb996 276404 iso-snapshot-cli_23.10.01_i386.deb
+ 0dc48d61b38d8ffc278b28021fab15db1592cdcb3e599843511b8ba9775f0edc 10371 mx-snapshot_23.10.01_i386.buildinfo
+ 2abc48272ed14352bb0b5ddd9c91a57f1c9357abd037565fc74b735c3a2b64f4 316180 mx-snapshot_23.10.01_i386.deb
+Files:
+ fa7d42a40222ffc412f51e7aee19cbb3 276404 admin optional iso-snapshot-cli_23.10.01_i386.deb
+ 4e7e9deca5cec8066d9fbe479d6a111c 10371 admin optional mx-snapshot_23.10.01_i386.buildinfo
+ d6d1a5f21fe528c6ff8e510fa465ff35 316180 admin optional mx-snapshot_23.10.01_i386.deb

@@ -35,6 +35,7 @@ etc/resolv.conf
 etc/volkeys/*
 home/timeshift/snapshots
 home/snapshot
+home/*/.config/MX-Linux/xdg_check
 root/.bash_history
 root/.cache
 root/.local/share/mc/history
