@@ -1,3 +1,9 @@
+mx-snapshot (23.10.01) mx; urgency=medium
+
+  * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 10 Oct 2023 12:49:43 -0400
+
 mx-snapshot (23.10) mx; urgency=medium
 
   * Remove resume, hibernate, and checkmd5 from saved boot parameters

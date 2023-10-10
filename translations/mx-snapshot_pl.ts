@@ -862,12 +862,12 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <translation>Nie można utworzyć katalogu roboczego.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="594"/>
+        <location filename="../work.cpp" line="592"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Obliczanie całkowitego rozmiaru wykluczonych plików...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="605"/>
+        <location filename="../work.cpp" line="603"/>
         <source>Calculating size of root...</source>
         <translation>Obliczanie rozmiaru root...</translation>
     </message>

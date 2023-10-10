@@ -863,12 +863,12 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Impossibile creare una directory attiva.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="594"/>
+        <location filename="../work.cpp" line="592"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="605"/>
+        <location filename="../work.cpp" line="603"/>
         <source>Calculating size of root...</source>
         <translation>Calcolo la dimensione di root...</translation>
     </message>

@@ -1,0 +1,40 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Tue, 10 Oct 2023 12:49:43 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 23.10.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.10.01) mx; urgency=medium
+ .
+   * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
+Checksums-Sha1:
+ fc6b5465f28b2b62dbf8f4f1a4c9ca12bd7bfc20 1274 mx-snapshot_23.10.01.dsc
+ 90586bf6189adf118feed538f627d7e2e31d4b92 254752 mx-snapshot_23.10.01.tar.xz
+ f1b2e0a037a1eaef0c1c851b268246acebc7ca74 11228 mx-snapshot_23.10.01_amd64.buildinfo
+Checksums-Sha256:
+ 40dd74357212988ead816e3fc170c84331b39e04871e14c77a877382e80fccc3 1274 mx-snapshot_23.10.01.dsc
+ 3c7affff34743b05c75885d4143bd40b130624c6b0a3b63ed011246b1a564d49 254752 mx-snapshot_23.10.01.tar.xz
+ d774daac1c0ca2a494a50423e3e9a5fe3902c7f84a7c93f2a88d7b4b0b6f35d8 11228 mx-snapshot_23.10.01_amd64.buildinfo
+Files:
+ 328eb0e6bd4eda2720da4547c3564d04 1274 admin optional mx-snapshot_23.10.01.dsc
+ f2ad22f036cfa06ce4ef46415709077a 254752 admin optional mx-snapshot_23.10.01.tar.xz
+ de2bdf1a71db7742298085397b1a55c2 11228 admin optional mx-snapshot_23.10.01_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmUlggQTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNkcB/9AreyJZXpHTNJ8dYhzsEvk3zhgxPP/
+3usTZKE+zLp6StJn43qxSurrivZNespcjzZgvmAaW0iBPAqIXNK3y5dYXYG/6KTZ
+YZBnuNxVxcc6W7qTpUcVeTlGngky/BgbjcRD433MSah5DgmFBDD/vrLXOXHa3Oc0
+QFGiq6zHxp3gCB4C40Vr72WVmgc3FvpWS8Sd8hops36rfAfg9jOV+CajeYnWxO0I
+O6a3U7mPbMpg9inWnby+CrPDfNWu6gIYZOlcT3LmD3Y4XPfeEjJcBp5K4b8fZHBm
+Li807m5ClsZWBqt7g6ekewovJn8e/vxjlNOFc1YQAjPvf+S0TLPgkXBI
+=H5x2
+-----END PGP SIGNATURE-----

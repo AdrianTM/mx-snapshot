@@ -470,20 +470,18 @@ void Work::setupEnv()
     if (settings->reset_accounts) {
         RUN("installed-to-live -b /.bind-root start " + bind_boot + "empty=/home general version-file read-only");
     } else {
-        if (settings->force_installer) { // copy minstall.desktop to Desktop on all accounts
-            RUN(QStringLiteral(
-                "echo /home/*/Desktop |xargs -n1 cp /usr/share/applications/minstall.desktop 2>/dev/null"));
-            RUN(QStringLiteral(
-                "echo /home/*/Desktop/minstall.desktop |xargs -n1 sed -i 's/^NoDisplay=true/NoDisplay=false/'"));
-            // Needs write access to remove lock symbol on installer on desktop, executable to run it
-            RUN(QStringLiteral("chmod 777 /home/*/Desktop/minstall.desktop"));
-            if (!QFile::exists(QStringLiteral("/usr/bin/xdg-user-dirs-update.real"))) {
-                QDir().mkdir(QStringLiteral("/etc/skel/Desktop"));
-                QFile::copy(QStringLiteral("/usr/share/applications/minstall.desktop"),
-                            QStringLiteral("/etc/skel/Desktop/Installer.desktop"));
-                RUN(QStringLiteral("chmod 755 /etc/skel/Desktop/Installer.desktop"));
-            }
-        }
+        //        if (settings->force_installer) { // copy minstall.desktop to Desktop on all accounts
+        //            RUN("echo /home/*/Desktop |xargs -n1 cp /usr/share/applications/minstall.desktop 2>/dev/null");
+        //            RUN("echo /home/*/Desktop/minstall.desktop |xargs -n1 sed -i
+        //            's/^NoDisplay=true/NoDisplay=false/'");
+        //            // Needs write access to remove lock symbol on installer on desktop, executable to run it
+        //            RUN("chmod 777 /home/*/Desktop/minstall.desktop");
+        //            if (!QFile::exists("/usr/bin/xdg-user-dirs-update.real")) {
+        //                QDir().mkdir("/etc/skel/Desktop");
+        //                QFile::copy("/usr/share/applications/minstall.desktop",
+        //                "/etc/skel/Desktop/Installer.desktop"); RUN("chmod 755 /etc/skel/Desktop/Installer.desktop");
+        //            }
+        //        }
         RUN("installed-to-live -b /.bind-root start bind=/home" + bind_boot_too
             + " live-files version-file adjtime read-only");
     }
