@@ -15,7 +15,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- mx-snapshot.pro
 
 override_dh_auto_build:
-	lrelease *.cpp *.h *.ui -ts translations/*.ts
+	lrelease mx-snapshot.pro
 	mv version.h version.h~
 	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
 	gzip -kf manual/mx-snapshot.8
