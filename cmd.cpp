@@ -17,7 +17,7 @@ Cmd::Cmd(QObject *parent)
 QString Cmd::getOut(const QString &cmd, bool quiet, bool asRoot)
 {
     run(cmd, quiet, asRoot);
-    return readAll();
+    return readAll().trimmed();
 }
 
 QString Cmd::getOutAsRoot(const QString &cmd, bool quiet)

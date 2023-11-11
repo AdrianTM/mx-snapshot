@@ -15,26 +15,26 @@ Changes:
  .
    * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
 Checksums-Sha1:
- c2c7025fcb5e9461c24a29532f6777e18b5236e3 1277 mx-snapshot_23.10.01.dsc
- 6391a64719903f453e1aa702b05f620b28a26492 1671280 mx-snapshot_23.10.01.tar.xz
- 6010fb817719ef11bfa56050201134ba87344a89 10773 mx-snapshot_23.10.01_amd64.buildinfo
+ 0f56176d7b9859274fbf434e729a221bb5ed9bc6 1277 mx-snapshot_23.10.01.dsc
+ 76fb46f796ab926f4ce379ef9f7a2e33620bb2c4 1671176 mx-snapshot_23.10.01.tar.xz
+ eb7a856af731201ba7d6ca194341a4904d3193fe 10773 mx-snapshot_23.10.01_amd64.buildinfo
 Checksums-Sha256:
- 5b99bf616020889e637ff60928f5e17808b26695a0effe1e285ec939b82a1f3f 1277 mx-snapshot_23.10.01.dsc
- 82d341179ea022cbe3c310bf8b0e6e652176960e73b29bfff36fdc03228b5034 1671280 mx-snapshot_23.10.01.tar.xz
- ed89491e4df1ea3bafff4fd4c48120d41cbb39a8c30de444011d50c0bfd801a1 10773 mx-snapshot_23.10.01_amd64.buildinfo
+ b991cfe08725649b954ba73bb383e91859bbf41d31c2d80ea093802c778c3189 1277 mx-snapshot_23.10.01.dsc
+ 88d8051e8addeb0a4962f79d512c858de522299aa4c84fcd168c2f642739d5c4 1671176 mx-snapshot_23.10.01.tar.xz
+ 5b7f3fa8e32b31fade54485d1a984c8620539093e183f992dcbae2ad907113d9 10773 mx-snapshot_23.10.01_amd64.buildinfo
 Files:
- a7f85985c221a4edd1e1822a0a61f3de 1277 admin optional mx-snapshot_23.10.01.dsc
- 0eae8c4a6c169709fc964126ba5c3ed9 1671280 admin optional mx-snapshot_23.10.01.tar.xz
- 81c70c4eceaf98e6b11836a7cd4f1774 10773 admin optional mx-snapshot_23.10.01_amd64.buildinfo
+ a27b176e7587e18c801b50b3a7df3619 1277 admin optional mx-snapshot_23.10.01.dsc
+ e0832af40cee09bf1a1181c3d382d3ac 1671176 admin optional mx-snapshot_23.10.01.tar.xz
+ 1f17c705781f92ec7676bc162a1b7403 10773 admin optional mx-snapshot_23.10.01_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVPDlYTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKV2CACtGIQxco2QKeAb4LVRJjozu/H9ruLp
-2H7c0DovZ5/9p2Uey5LAT/qfg8jBQ1tRJohgR/hyGGjn0Q/kMM1BMQe9rmK5urRf
-CiYWnHM2alIwTciaVDprZybqPo4RgeTq39NoIINw7F1T07+yNl/WRZEzI8alwC5U
-3uJNtc90kQ0JqTHSc4xF1lHgWuSK39LaEIOXhMdNuOmQWnEDV0sXS5b4couGbHSp
-tswdQYHYT+JyOpjNjkOwmFnGvNX/eCfJ/L1y2b6wkkaCcJEH02JU/Vwi4qfj8dPC
-LQV+hp8AfVeCMj197Rf9E33jaMCtU22oJug+eXo7XWe6r/KFHuqph/sK
-=Pg6V
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVPHSYTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumMj9B/4pPDrr5YvJ6p18NfdHD8DLnEqWYZiJ
+Up80BCJCzDLFI3SmSXUzplIEAI5ou+uB6HNUiv2AkJjsQCKrjWWR6GhnvWVt1GhM
+04HbVf5Q7YusNWeyt71711+cFPyjFUpBfalxD6zH/etlSD4IaU3gXRyl85QYWVCs
+P131PuRi39B20xcDzbZO0dawiGM1A1Bu86kBLuPkKKpuYeep/5fTiovmyBe+WgBQ
+sW2CVKTHkc6V370f51dvUDBpIT+qdD6CYyEOcs+Bw4RdukwuuoYd+w84NBeqID7m
+00LS9dX3b4Ucj8H40J4YBe9/j5D4/RigeL5qaC+OnybJoePi08A5ksfr
+=Jx7w
 -----END PGP SIGNATURE-----
