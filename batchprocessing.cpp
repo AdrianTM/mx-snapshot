@@ -48,8 +48,8 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     }
 
     QString path = snapshot_dir;
-    qDebug() << "Free space:" << getFreeSpaceStrings(path.remove(QRegularExpression(QStringLiteral("/snapshot$"))));
-    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size"))) {
+    qDebug() << "Free space:" << getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
+    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size")) {
         qDebug() << "Unused space:" << getUsedSpace();
     }
 
@@ -60,7 +60,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     }
     otherExclusions();
     work.setupEnv();
-    if (!arg_parser.isSet(QStringLiteral("month")) && !arg_parser.isSet(QStringLiteral("override-size"))) {
+    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size")) {
         work.checkEnoughSpace();
     }
     work.copyNewIso();
@@ -69,7 +69,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     if (edit_boot_menu) {
         qDebug() << QObject::tr("The program will pause the build and open the boot menu in your text editor.");
         QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
-        shell->run(cmd);
+        Cmd().run(cmd);
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
     work.createIso(snapshot_name);
@@ -78,10 +78,12 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
 void Batchprocessing::setConnections()
 {
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
-    connect(shell, &Cmd::started, this, [this] { timer.start(500ms); });
-    connect(shell, &Cmd::finished, this, [this] { timer.stop(); });
-    connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
-    connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
+    connect(&shell, &Cmd::started, this, [this] { timer.start(500ms); });
+    connect(&shell, &Cmd::done, this, [this] { timer.stop(); });
+    connect(&shell, &Cmd::readyReadStandardOutput, this,
+            [this] { qDebug().noquote() << shell.readAllStandardOutput(); });
+    connect(&shell, &Cmd::readyReadStandardError, this,
+            [this] { qWarning().noquote() << shell.readAllStandardError(); });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work, &Work::messageBox,
             [](BoxType /*unused*/, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });

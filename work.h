@@ -48,7 +48,7 @@ public:
     QTemporaryDir initrd_dir;
     [[noreturn]] void cleanUp();
     bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
-    bool checkInstalled(const QString &package);
+    static bool checkInstalled(const QString &package);
     bool createIso(const QString &filename);
     bool installPackage(const QString &package);
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);

@@ -4,7 +4,7 @@ Encoding=UTF-8
 Name=MX Snapshot
 # # The desktop entry comment will be shown within the menu.
 Comment=Create a live iso snapshot of your running system.
-Exec=mx-snapshot-launcher
+Exec=mx-snapshot
 Terminal=false
 Type=Application
 Icon=mx-snapshot

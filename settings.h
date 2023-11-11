@@ -53,8 +53,8 @@ public:
     Q_DECLARE_FLAGS(Exclusions, Exclude)
 
     explicit Settings(const QCommandLineParser &arg_parser);
+    Cmd shell;
 
-    Cmd *shell;
     Exclusions exclusions;
     QFile config_file;
     QFile snapshot_excludes;
@@ -104,17 +104,17 @@ public:
     [[nodiscard]] QString getSnapshotSize() const;
     [[nodiscard]] QString getUsedSpace();
     [[nodiscard]] QString getXdgUserDirs(const QString &folder);
-    [[nodiscard]] QString largerFreeSpace(const QString &dir1, const QString &dir2) const;
-    [[nodiscard]] QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3) const;
-    [[nodiscard]] QString readKernelOpts() const;
-    [[nodiscard]] QStringList listUsers() const;
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2) ;
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3) ;
+    [[nodiscard]] static QString readKernelOpts();
+    [[nodiscard]] static QStringList listUsers();
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkSnapshotDir() const;
     [[nodiscard]] bool checkTempDir();
-    [[nodiscard]] bool isOnSupportedPart(const QString &dir) const;
+    [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
     [[nodiscard]] int getSnapshotCount() const;
-    [[nodiscard]] quint64 getFreeSpace(const QString &path) const;
-    [[nodiscard]] quint64 getLiveRootSpace() const;
+    [[nodiscard]] static quint64 getFreeSpace(const QString &path);
+    [[nodiscard]] static quint64 getLiveRootSpace();
     [[nodiscard]] static bool isLive();
     [[nodiscard]] static bool isi386();
     void addRemoveExclusion(bool add, QString exclusion);

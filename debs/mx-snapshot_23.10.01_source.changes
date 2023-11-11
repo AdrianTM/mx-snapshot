@@ -15,26 +15,26 @@ Changes:
  .
    * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
 Checksums-Sha1:
- bdac1eb717c658f71b433b88f178f5ad150f5378 1274 mx-snapshot_23.10.01.dsc
- fe2b1354cb217dab74b6f7e6d8d24c5fd184f612 254840 mx-snapshot_23.10.01.tar.xz
- a5d0894a7f07597d842e084fb27dd86d82b3241a 11228 mx-snapshot_23.10.01_amd64.buildinfo
+ c2c7025fcb5e9461c24a29532f6777e18b5236e3 1277 mx-snapshot_23.10.01.dsc
+ 6391a64719903f453e1aa702b05f620b28a26492 1671280 mx-snapshot_23.10.01.tar.xz
+ 6010fb817719ef11bfa56050201134ba87344a89 10773 mx-snapshot_23.10.01_amd64.buildinfo
 Checksums-Sha256:
- 1794f73512d58b9bbf6aaa864e29b97172147322da1dcd946861af3420afce6a 1274 mx-snapshot_23.10.01.dsc
- 15833b7effa8d10ae12fade943e94145950193147e9fc8a596b245446b60d2cf 254840 mx-snapshot_23.10.01.tar.xz
- 5fb24b21419d8793061aef7ca79c8cb80806d51c025c984b063182f14c2b36a1 11228 mx-snapshot_23.10.01_amd64.buildinfo
+ 5b99bf616020889e637ff60928f5e17808b26695a0effe1e285ec939b82a1f3f 1277 mx-snapshot_23.10.01.dsc
+ 82d341179ea022cbe3c310bf8b0e6e652176960e73b29bfff36fdc03228b5034 1671280 mx-snapshot_23.10.01.tar.xz
+ ed89491e4df1ea3bafff4fd4c48120d41cbb39a8c30de444011d50c0bfd801a1 10773 mx-snapshot_23.10.01_amd64.buildinfo
 Files:
- 9c4acc61a08ae05e5858fc60d28d9535 1274 admin optional mx-snapshot_23.10.01.dsc
- 6bbbd45faa7d2dc028e514ccb50ab87d 254840 admin optional mx-snapshot_23.10.01.tar.xz
- daf51c18a2b807c010b2dc80e63632b9 11228 admin optional mx-snapshot_23.10.01_amd64.buildinfo
+ a7f85985c221a4edd1e1822a0a61f3de 1277 admin optional mx-snapshot_23.10.01.dsc
+ 0eae8c4a6c169709fc964126ba5c3ed9 1671280 admin optional mx-snapshot_23.10.01.tar.xz
+ 81c70c4eceaf98e6b11836a7cd4f1774 10773 admin optional mx-snapshot_23.10.01_amd64.buildinfo
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmUlg08THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumLxQB/0TEibdbGR7Y4EUgnJQBwhghVtUlW5q
-g8m7X2Tv1gU7ZpaMalDfpyK66oqIStwC01Up113hEdgN/96xaGXQP3+nqiKEfRCf
-EH2lQ2h+Cr3yEB7lIQIg5xKBgrV77z1RO9qJ+js4yHIi7JJGKUzhmNONjF9oq8Ug
-sJZfVLrR2cHc5fpZuNNM1WvwWe+N1xa5SXWpiQzjokS14K+bK5wNw2w1yUT2ED6e
-uIPy2QA3bpS8o+c+0bPFoY3MytBQZnyZLrsve0uzUTDdnxibunCprqC98zf0E3Qb
-8IWvYmcVBfJcyyV+Bjp5HRs+mjMFLsSzFCLSb8hRsRFOaKnO2qCPka7T
-=uSJi
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVPDlYTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKV2CACtGIQxco2QKeAb4LVRJjozu/H9ruLp
+2H7c0DovZ5/9p2Uey5LAT/qfg8jBQ1tRJohgR/hyGGjn0Q/kMM1BMQe9rmK5urRf
+CiYWnHM2alIwTciaVDprZybqPo4RgeTq39NoIINw7F1T07+yNl/WRZEzI8alwC5U
+3uJNtc90kQ0JqTHSc4xF1lHgWuSK39LaEIOXhMdNuOmQWnEDV0sXS5b4couGbHSp
+tswdQYHYT+JyOpjNjkOwmFnGvNX/eCfJ/L1y2b6wkkaCcJEH02JU/Vwi4qfj8dPC
+LQV+hp8AfVeCMj197Rf9E33jaMCtU22oJug+eXo7XWe6r/KFHuqph/sK
+=Pg6V
 -----END PGP SIGNATURE-----
