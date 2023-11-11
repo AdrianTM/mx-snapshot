@@ -11,17 +11,18 @@ class Cmd : public QProcess
     Q_OBJECT
 public:
     explicit Cmd(QObject *parent = nullptr);
-    bool run(const QString &cmd, bool quiet = false);
-    bool run(const QString &cmd, QString *output, bool quiet = false);
-    [[nodiscard]] QString getCmdOut(const QString &cmd, bool quiet = false);
+
+    [[nodiscard]] QString getOut(const QString &cmd, bool quiet = false, bool asRoot = false);
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, bool quiet = false);
+    bool run(const QString &cmd, bool quiet = false, bool asRoot = false);
+    bool runAsRoot(const QString &cmd, bool quiet = false);
 
 signals:
-    void finished();
-    void errorAvailable(const QString &err);
-    void outputAvailable(const QString &out);
+    void done();
 
 private:
-    QString out_buffer;
+    QString elevate;
+    QString helper;
 };
 
 #endif // CMD_H

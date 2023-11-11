@@ -29,7 +29,6 @@
 #include <QSettings>
 #include <QTimer>
 
-#include "cmd.h"
 #include "settings.h"
 #include "work.h"
 
@@ -66,7 +65,7 @@ protected:
 public slots:
     void disableOutput();
     void displayOutput();
-    void outputAvailable(const QString &output);
+    void outputAvailable();
     void procDone();
     void procStart();
     void processMsg(const QString &msg);
@@ -101,8 +100,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer timer;
-    Work work;
     bool monthly;
+    Work work;
 };
 
 #endif // MainWindow_H

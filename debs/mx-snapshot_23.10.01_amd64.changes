@@ -19,32 +19,32 @@ Changes:
  .
    * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated
 Checksums-Sha1:
- bdac1eb717c658f71b433b88f178f5ad150f5378 1274 mx-snapshot_23.10.01.dsc
- fe2b1354cb217dab74b6f7e6d8d24c5fd184f612 254840 mx-snapshot_23.10.01.tar.xz
- c6733db7f774a8a01fcdc05addc5f25288e6b09e 270064 iso-snapshot-cli_23.10.01_amd64.deb
- a5d0894a7f07597d842e084fb27dd86d82b3241a 11228 mx-snapshot_23.10.01_amd64.buildinfo
- 518ce0a3b00f2bc7ab4c9c221e97145b769ec210 309032 mx-snapshot_23.10.01_amd64.deb
+ c2c7025fcb5e9461c24a29532f6777e18b5236e3 1277 mx-snapshot_23.10.01.dsc
+ 6391a64719903f453e1aa702b05f620b28a26492 1671280 mx-snapshot_23.10.01.tar.xz
+ 2df4ec3784ef29eb4f5d82928ab04adae14037cd 269144 iso-snapshot-cli_23.10.01_amd64.deb
+ 6010fb817719ef11bfa56050201134ba87344a89 10773 mx-snapshot_23.10.01_amd64.buildinfo
+ 7a6874f7008cc356fb326c6ead8e08d122f2f776 306644 mx-snapshot_23.10.01_amd64.deb
 Checksums-Sha256:
- 1794f73512d58b9bbf6aaa864e29b97172147322da1dcd946861af3420afce6a 1274 mx-snapshot_23.10.01.dsc
- 15833b7effa8d10ae12fade943e94145950193147e9fc8a596b245446b60d2cf 254840 mx-snapshot_23.10.01.tar.xz
- 490da6b3d185b2d9360268b21719e7b5ae63c52e4c7f4af49e51ac17dd5e0fbd 270064 iso-snapshot-cli_23.10.01_amd64.deb
- 5fb24b21419d8793061aef7ca79c8cb80806d51c025c984b063182f14c2b36a1 11228 mx-snapshot_23.10.01_amd64.buildinfo
- 61f63a54d0c54623a165d63b6fae27fae40abe7f429dc73b62f0a56bfef45eff 309032 mx-snapshot_23.10.01_amd64.deb
+ 5b99bf616020889e637ff60928f5e17808b26695a0effe1e285ec939b82a1f3f 1277 mx-snapshot_23.10.01.dsc
+ 82d341179ea022cbe3c310bf8b0e6e652176960e73b29bfff36fdc03228b5034 1671280 mx-snapshot_23.10.01.tar.xz
+ 1669ed2c179a47051f30a81c5dfd03033c2236343db27b20484f28bda84bd5b6 269144 iso-snapshot-cli_23.10.01_amd64.deb
+ ed89491e4df1ea3bafff4fd4c48120d41cbb39a8c30de444011d50c0bfd801a1 10773 mx-snapshot_23.10.01_amd64.buildinfo
+ a76e3d6e23c3f3882cff42ed92c121a734b884927a180adae251120e5fb151ca 306644 mx-snapshot_23.10.01_amd64.deb
 Files:
- 9c4acc61a08ae05e5858fc60d28d9535 1274 admin optional mx-snapshot_23.10.01.dsc
- 6bbbd45faa7d2dc028e514ccb50ab87d 254840 admin optional mx-snapshot_23.10.01.tar.xz
- b1bf4e134c807213ad06ce37b6aa5e5a 270064 admin optional iso-snapshot-cli_23.10.01_amd64.deb
- daf51c18a2b807c010b2dc80e63632b9 11228 admin optional mx-snapshot_23.10.01_amd64.buildinfo
- 66a764a7e4d6b4a8e548a1b5aa17e115 309032 admin optional mx-snapshot_23.10.01_amd64.deb
+ a7f85985c221a4edd1e1822a0a61f3de 1277 admin optional mx-snapshot_23.10.01.dsc
+ 0eae8c4a6c169709fc964126ba5c3ed9 1671280 admin optional mx-snapshot_23.10.01.tar.xz
+ a432cb51e245cdf58c337763694908a3 269144 admin optional iso-snapshot-cli_23.10.01_amd64.deb
+ 81c70c4eceaf98e6b11836a7cd4f1774 10773 admin optional mx-snapshot_23.10.01_amd64.buildinfo
+ 5637f970ffd1a7685e80ef1f6cbe246d 306644 admin optional mx-snapshot_23.10.01_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmUlg08THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumJk+B/41tTzT6c4KyZdbpODbidVvLl5co0KJ
-pmUrm7Cdm6CHJkr9q056dYTqqiwXI0frdOOYiQVtRDQNUZQt3IBwAM2ke4VTmmfk
-w4T6gvwXJoI//PePfc4GiutGFum8UP5wRNsDP7cZ0/CFcoLtpNpTjGBRnhvm2VEd
-GSd9YH8rHAzcw/ZpR0llGhVCHtlDSCU2CiOAV9712RUzrh0oY6DfhdIg7nWkgrkf
-nnwy2dgViF5vHSlDhKUB7SzKsGV3zN6aebqSMqdN7Z0+L+xIjGsi//IaUNDMgVvg
-QwwlK11ggjrRJuIWrQpPD3nPG+Dypr71yPDnwcx4yAM1YscpdmmYlW3b
-=OLUD
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVPDlUTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumNzrB/9dp7YqK7+xeR2c/Yg8cHe/B5YEKAYE
+wKd4VXomqBvAUh+E+zhe9q/WT9aYmlSLwGpukh31xcG7KVx9xCKNOcD8NzrXzVKc
+bnm0RDutr4qv0wyIXLO3sD9RTaMxFuxtkSV30ydgyT23fQhxpwLb+3e5i9kkd2mn
+m2EDIlacvIvOtvGwY1uLJLjl3uT4DgRvdgLxQc7KiRqpwUdOZSQzHewkNe5yF4eI
+jLvWA2ytBGYvlXGdenVsfo33DgjV0gsbqOdM2657VuY1ZXpL2pV0M2QG6LJQsfbv
+kIgzqcijamcJ/wdhAAoe5gaJHauxy0yMr/9v6DMr3qAbgQ/E550LqDuA
+=lNhS
 -----END PGP SIGNATURE-----

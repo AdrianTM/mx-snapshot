@@ -46,14 +46,13 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
       work(this)
 {
     ui->setupUi(this);
-    monthly = arg_parser.isSet(QStringLiteral("month"));
+    monthly = arg_parser.isSet("month");
     setConnections();
     setup();
     loadSettings();
     listFreeSpace();
     setExclusions();
     setOtherOptions();
-
     if (monthly) {
         ui->btnNext->click();
         ui->btnNext->click();
@@ -85,7 +84,7 @@ void MainWindow::loadSettings()
     ui->textOptions->setText(boot_options);
     ui->textReleaseDate->setText(release_date);
     ui->textKernel->setText(kernel);
-    if (shell->getCmdOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2) {
+    if (shell.getOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2) {
         ui->btnKernel->setHidden(true);
     }
 }
@@ -104,10 +103,12 @@ void MainWindow::setConnections()
     connect(&work, &Work::message, this, &MainWindow::processMsg);
     connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
     connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
-    connect(shell, &Cmd::errorAvailable, [](const QString &out) { qWarning().noquote() << out; });
-    connect(shell, &Cmd::finished, this, &MainWindow::procDone);
-    connect(shell, &Cmd::outputAvailable, [](const QString &out) { qDebug().noquote() << out; });
-    connect(shell, &Cmd::started, this, &MainWindow::procStart);
+    connect(&shell, &Cmd::readyReadStandardError, this,
+            [this] { qWarning().noquote() << shell.readAllStandardOutput(); });
+    connect(&shell, &Cmd::done, this, &MainWindow::procDone);
+    connect(&shell, &Cmd::readyReadStandardOutput, this,
+            [this] { qDebug().noquote() << shell.readAllStandardError(); });
+    connect(&shell, &Cmd::started, this, &MainWindow::procStart);
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -161,7 +162,7 @@ void MainWindow::setup()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     setWindowFlags(Qt::Window); // for the close, min and max buttons
-    QFont font(QStringLiteral("monospace"));
+    QFont font("monospace");
     font.setStyleHint(QFont::Monospace);
     ui->outputBox->setFont(font);
     ui->outputBox->setReadOnly(true);
@@ -198,7 +199,7 @@ void MainWindow::listFreeSpace()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QString path = snapshot_dir;
-    path.remove(QRegularExpression(QStringLiteral("/snapshot$")));
+    path.remove(QRegularExpression("/snapshot$"));
     QString free_space = getFreeSpaceStrings(path);
     ui->labelFreeSpace->clear();
     ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space
@@ -279,19 +280,20 @@ void MainWindow::procDone()
 
 void MainWindow::displayOutput()
 {
-    connect(shell, &Cmd::outputAvailable, this, &MainWindow::outputAvailable);
-    connect(shell, &Cmd::errorAvailable, this, &MainWindow::outputAvailable);
+    connect(&shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
+    connect(&shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
 }
 
 void MainWindow::disableOutput()
 {
-    disconnect(shell, &Cmd::outputAvailable, this, &MainWindow::outputAvailable);
-    disconnect(shell, &Cmd::errorAvailable, this, &MainWindow::outputAvailable);
+    disconnect(&shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
+    disconnect(&shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
 }
 
 // update output box
-void MainWindow::outputAvailable(const QString &output)
+void MainWindow::outputAvailable()
 {
+    const QString output = shell.readAll();
     ui->outputBox->moveCursor(QTextCursor::End);
     if (output.contains(QLatin1String("\r"))) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
@@ -346,8 +348,7 @@ void MainWindow::btnNext_clicked()
         codename = ui->textCodename->text();
         distro_version = ui->textDistroVersion->text();
         project_name = ui->textProjectName->text();
-        full_distro_name
-            = project_name + "-" + distro_version + "_" + QString(x86 ? QStringLiteral("386") : QStringLiteral("x64"));
+        full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
         boot_options = ui->textOptions->text();
         release_date = ui->textReleaseDate->text();
         // on settings page
@@ -416,7 +417,7 @@ void MainWindow::btnNext_clicked()
                     QMessageBox::Yes | QMessageBox::No)) {
                 this->hide();
                 QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
-                shell->run(cmd);
+                shell.run(cmd);
                 this->show();
             }
         }
@@ -450,7 +451,7 @@ void MainWindow::btnBack_clicked()
 void MainWindow::btnEditExclude_clicked()
 {
     this->hide();
-    shell->run(getEditor() + " " + snapshot_excludes.fileName());
+    shell.run(getEditor() + " " + snapshot_excludes.fileName());
     this->show();
 }
 
@@ -539,10 +540,10 @@ void MainWindow::btnHelp_clicked()
     QLocale locale;
     QString lang = locale.bcp47Name();
 
-    QString url = QStringLiteral("/usr/share/doc/mx-snapshot/mx-snapshot.html");
+    QString url {"/usr/share/doc/mx-snapshot/mx-snapshot.html"};
 
     if (lang.startsWith(QLatin1String("fr"))) {
-        url = QStringLiteral("https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane");
+        url = "https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane";
     }
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
 }
@@ -589,8 +590,8 @@ void MainWindow::btnCancel_clicked()
 void MainWindow::cbCompression_currentIndexChanged()
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    QString comp = ui->cbCompression->currentText().section(QStringLiteral(" "), 0, 0);
-    settings.setValue(QStringLiteral("compression"), comp);
+    QString comp = ui->cbCompression->currentText().section(" ", 0, 0);
+    settings.setValue("compression", comp);
     compression = comp;
 }
 
@@ -605,14 +606,14 @@ void MainWindow::excludeNetworks_toggled(bool checked)
 void MainWindow::checkMd5_toggled(bool checked)
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue(QStringLiteral("make_md5sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
+    settings.setValue("make_md5sum", checked ? "yes" : "no");
     make_md5sum = checked;
 }
 
 void MainWindow::checkSha512_toggled(bool checked)
 {
     QSettings settings(config_file.fileName(), QSettings::IniFormat);
-    settings.setValue(QStringLiteral("make_sha512sum"), checked ? QStringLiteral("yes") : QStringLiteral("no"));
+    settings.setValue("make_sha512sum", checked ? "yes" : "no");
     make_sha512sum = checked;
 }
 
