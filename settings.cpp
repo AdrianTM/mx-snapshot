@@ -48,6 +48,9 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     }
     override_size = arg_parser.isSet("override-size");
     cli_mode = arg_parser.isSet("cli");
+    if (QCoreApplication::staticMetaObject.className() != QLatin1String("QApplication")) {
+        cli_mode = true;
+    }
     processExclArgs(arg_parser);
 }
 
@@ -128,10 +131,7 @@ QString Settings::getEditor() const
     QProcess proc;
     // if specified editor doesn't exist get the default one
     if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
-        proc.start("xdg-mime", {"query", "default", "text/plain"});
-        proc.waitForFinished();
-        QString default_editor = proc.readAllStandardOutput().trimmed();
-
+        QString default_editor = Cmd().getOut("xdg-mime query default text/plain");
         // find first app with .desktop name that matches default_editors
         desktop_file
             = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
@@ -151,7 +151,6 @@ QString Settings::getEditor() const
             editor = "nano";
         }
     }
-    qDebug() << "Detected editor:" << editor;
     bool isEditorThatElevates = QRegularExpression("(kate|kwrite|featherpad)$").match(editor).hasMatch();
     bool isElectronBased = QRegularExpression("(atom\\.desktop|code\\.desktop)$").match(desktop_file).hasMatch();
     bool isCliEditor = QRegularExpression("nano|vi|vim|nvim|micro|emacs").match(editor).hasMatch();
@@ -195,7 +194,7 @@ quint64 Settings::getFreeSpace(const QString &path)
 {
     bool ok = false;
     quint64 result {};
-    if (Cmd().getOut("stat --file-system --format=%T \"" + path + "\"").trimmed() == "ramfs") {
+    if (Cmd().getOut("stat --file-system --format=%T \"" + path + "\"") == "ramfs") {
         result = Cmd().getOut("LC_ALL=C free |awk '/^Mem/ {print $7}'").toULongLong(&ok);
     } else {
         result = Cmd().getOut(QString("df -k --output=avail \"%1\" |tail -n1").arg(path)).toULongLong(&ok);
@@ -212,11 +211,11 @@ QString Settings::getXdgUserDirs(const QString &folder)
 {
     QString result;
     for (const QString &user : qAsConst(users)) {
-        QString dir = Cmd().getOut("xdg-user-dir \"" + folder + "\"").trimmed();
+        QString dir = Cmd().getOut("xdg-user-dir \"" + folder + "\"");
         if (!dir.isEmpty()) {
-            if (englishDirs.value(folder) == dir.section("/", -1) || dir.trimmed() == "/home/" + user
-                || dir.trimmed() == "/home/" + user + "/") { // skip if English name or of return folder is the home
-                                                             // folder (if XDG-USER-DIR not defined)
+            if (englishDirs.value(folder) == dir.section("/", -1) || dir == "/home/" + user
+                || dir == "/home/" + user + "/") { // skip if English name or of return folder is the home
+                                                   // folder (if XDG-USER-DIR not defined)
                 continue;
             }
             if (dir.startsWith(QLatin1String("/"))) {
@@ -344,7 +343,7 @@ quint64 Settings::getLiveRootSpace()
 
     // get compression factor by reading the linuxfs squasfs file, if available
     QString linuxfs_compression_type
-        = Cmd().getOut("dd if=" + sqfile_full + " bs=1 skip=20 count=2 status=none 2>/dev/null |od -An -tdI").trimmed();
+        = Cmd().getOut("dd if=" + sqfile_full + " bs=1 skip=20 count=2 status=none 2>/dev/null |od -An -tdI");
     const quint8 default_factor = 30;
     quint8 c_factor = default_factor;
     // gzip, xz, or lz4
@@ -411,7 +410,7 @@ bool Settings::isOnSupportedPart(const QString &dir)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Supported partition types (NTFS returns fuseblk)
     QStringList supported_partitions {"ext2/ext3", "btrfs", "jfs", "reiserfs", "xfs", "fuseblk", "ramfs", "tmpfs"};
-    QString part_type = Cmd().getOut("stat --file-system --format=%T \"" + dir + "\"").trimmed();
+    QString part_type = Cmd().getOut("stat --file-system --format=%T \"" + dir + "\"");
     qDebug() << "detected partition" << part_type << "supported part:" << supported_partitions.contains(part_type);
     return supported_partitions.contains(part_type);
 }
@@ -429,7 +428,7 @@ QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2)
 }
 
 // return the directory that has more free space available
-QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3) 
+QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     return largerFreeSpace(largerFreeSpace(dir1, dir2), dir3);
@@ -750,7 +749,6 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 // Use script to return useful kernel options
 QString Settings::readKernelOpts()
 {
-
     return Cmd().getOut((QString("/usr/share/%1/scripts/snapshot-bootparameter.sh | tr '\n' ' '")
                              .arg(QCoreApplication::applicationName())));
 }

@@ -84,7 +84,7 @@ void MainWindow::loadSettings()
     ui->textOptions->setText(boot_options);
     ui->textReleaseDate->setText(release_date);
     ui->textKernel->setText(kernel);
-    if (shell.getOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2) {
+    if (work.shell.getOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2) {
         ui->btnKernel->setHidden(true);
     }
 }
@@ -103,12 +103,12 @@ void MainWindow::setConnections()
     connect(&work, &Work::message, this, &MainWindow::processMsg);
     connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
     connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
-    connect(&shell, &Cmd::readyReadStandardError, this,
-            [this] { qWarning().noquote() << shell.readAllStandardOutput(); });
-    connect(&shell, &Cmd::done, this, &MainWindow::procDone);
-    connect(&shell, &Cmd::readyReadStandardOutput, this,
-            [this] { qDebug().noquote() << shell.readAllStandardError(); });
-    connect(&shell, &Cmd::started, this, &MainWindow::procStart);
+    connect(&work.shell, &Cmd::readyReadStandardError, this,
+            [this] { qWarning().noquote() << work.shell.readAllStandardOutput(); });
+    connect(&work.shell, &Cmd::done, this, &MainWindow::procDone);
+    connect(&work.shell, &Cmd::readyReadStandardOutput, this,
+            [this] { qDebug().noquote() << work.shell.readAllStandardError(); });
+    connect(&work.shell, &Cmd::started, this, &MainWindow::procStart);
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -280,20 +280,20 @@ void MainWindow::procDone()
 
 void MainWindow::displayOutput()
 {
-    connect(&shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
-    connect(&shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
+    connect(&work.shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
+    connect(&work.shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
 }
 
 void MainWindow::disableOutput()
 {
-    disconnect(&shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
-    disconnect(&shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
+    disconnect(&work.shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
+    disconnect(&work.shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
 }
 
 // update output box
 void MainWindow::outputAvailable()
 {
-    const QString output = shell.readAll();
+    const QString output = work.shell.readAll();
     ui->outputBox->moveCursor(QTextCursor::End);
     if (output.contains(QLatin1String("\r"))) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
@@ -417,7 +417,7 @@ void MainWindow::btnNext_clicked()
                     QMessageBox::Yes | QMessageBox::No)) {
                 this->hide();
                 QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
-                shell.run(cmd);
+                work.shell.run(cmd);
                 this->show();
             }
         }
@@ -451,7 +451,7 @@ void MainWindow::btnBack_clicked()
 void MainWindow::btnEditExclude_clicked()
 {
     this->hide();
-    shell.run(getEditor() + " " + snapshot_excludes.fileName());
+    work.shell.run(getEditor() + " " + snapshot_excludes.fileName());
     this->show();
 }
 

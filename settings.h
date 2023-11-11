@@ -53,7 +53,6 @@ public:
     Q_DECLARE_FLAGS(Exclusions, Exclude)
 
     explicit Settings(const QCommandLineParser &arg_parser);
-    Cmd shell;
 
     Exclusions exclusions;
     QFile config_file;
@@ -104,8 +103,8 @@ public:
     [[nodiscard]] QString getSnapshotSize() const;
     [[nodiscard]] QString getUsedSpace();
     [[nodiscard]] QString getXdgUserDirs(const QString &folder);
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2) ;
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3) ;
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
     [[nodiscard]] static QString readKernelOpts();
     [[nodiscard]] static QStringList listUsers();
     [[nodiscard]] bool checkCompression() const;

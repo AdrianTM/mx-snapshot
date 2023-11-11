@@ -41,6 +41,8 @@ public:
 
     explicit Work(Settings *settings, QObject *parent = nullptr);
 
+    Cmd shell;
+
     QElapsedTimer e_timer;
     bool done = false;
     bool started = false;
