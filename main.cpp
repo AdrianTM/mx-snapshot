@@ -79,6 +79,7 @@ int main(int argc, char *argv[])
 #ifndef CLI_BUILD
     parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
 #endif
+    parser.addOption({"cores", QObject::tr("Number of CPU cores to be used."), QObject::tr("number")});
     parser.addOption({{"d", "directory"}, QObject::tr("Output directory"), QObject::tr("path")});
     parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
     parser.addOption({{"k", "kernel"},
@@ -99,11 +100,15 @@ int main(int argc, char *argv[])
                  "will be ignored")});
     parser.addOption({{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file")});
     parser.addOption(
+        {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
+    parser.addOption(
         {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels")});
     parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
     parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
-    parser.addOption(
-        {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
+    parser.addOption({{"t", "throttle"},
+                      QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the "
+                                  "I/O and CPU consumption of Mksquashfs."),
+                      QObject::tr("number")});
     parser.addOption({{"w", "workdir"}, QObject::tr("Work directory"), QObject::tr("path")});
     parser.addOption({{"x", "exclude"},
                       QObject::tr("Exclude main folders, valid choices: ")
@@ -147,6 +152,7 @@ int main(int argc, char *argv[])
         }
 #endif
     QCoreApplication::setApplicationVersion(VERSION);
+    QCoreApplication::setOrganizationName("MX-Linux");
     parser.process(app);
     setTranslation();
     checkSquashfs();
@@ -171,6 +177,7 @@ else
 {
     QApplication app(argc, argv);
     QApplication::setApplicationVersion(VERSION);
+    QApplication::setOrganizationName("MX-Linux");
     QApplication::setApplicationDisplayName(QObject::tr("MX Snapshot"));
     parser.process(app);
     setTranslation();
@@ -184,11 +191,10 @@ else
                 "You seem to be logged in as root, please log out and log in as normal user to use this program."));
         exit(EXIT_FAILURE);
     }
-
     if (getuid() != 0) {
         if (!QFile::exists("/usr/bin/pkexec") && !QFile::exists("/usr/bin/gksu")) {
             QMessageBox::critical(nullptr, QObject::tr("Error"),
-                                  QObject::tr("You must run this program with admin access."));
+                                  QObject::tr("You must run this program with sudo or pkexec."));
             exit(EXIT_FAILURE);
         }
     }
@@ -217,11 +223,14 @@ else
 void messageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
-    msg.contains(QLatin1String("\r")) ? term_out << msg : term_out << msg << "\n";
 
-    if (msg.startsWith(QLatin1String("\033[2KProcessing"))) {
+    // Avoid saving endless mksquashfs output
+    if (msg.startsWith(QLatin1String("\r[")) || msg.startsWith(QLatin1String("\033[2K"))) {
+        term_out << msg;
         return;
     }
+    term_out << msg << "\n";
+
     QTextStream out(&logFile);
     out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
     switch (type) {

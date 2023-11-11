@@ -20,7 +20,7 @@
       <enum>QFrame::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectionPage">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -430,14 +430,31 @@ color: rgb(0, 0, 0);</string>
           <number>1</number>
          </property>
          <layout class="QGridLayout" name="gridLayout">
-          <item row="2" column="1">
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="excludeNetworks">
+            <property name="statusTip">
+             <string>exclude network configurations</string>
+            </property>
+            <property name="text">
+             <string>Networks</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QCheckBox" name="excludeAll">
+            <property name="text">
+             <string>All of the above</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
            <widget class="QCheckBox" name="excludePictures">
             <property name="text">
              <string>Pictures</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
+          <item row="2" column="1">
            <widget class="QCheckBox" name="excludeSteam">
             <property name="text">
              <string notr="true">Steam</string>
@@ -447,49 +464,14 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="excludeMusic">
-            <property name="text">
-             <string>Music</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QCheckBox" name="excludeAll">
-            <property name="text">
-             <string>All of the above</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="excludeDocuments">
-            <property name="text">
-             <string>Documents</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QCheckBox" name="excludeDownloads">
-            <property name="text">
-             <string>Downloads</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
+          <item row="0" column="2">
            <widget class="QCheckBox" name="excludeDesktop">
             <property name="text">
              <string>Desktop</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="3">
-           <widget class="QCheckBox" name="excludeVideos">
-            <property name="text">
-             <string>Videos</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="3">
+          <item row="2" column="2">
            <widget class="QCheckBox" name="excludeVirtualBox">
             <property name="text">
              <string notr="true">VirtualBox</string>
@@ -499,13 +481,31 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="excludeNetworks">
-            <property name="statusTip">
-             <string>exclude network configurations</string>
-            </property>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="excludeMusic">
             <property name="text">
-             <string>Networks</string>
+             <string>Music</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="excludeDownloads">
+            <property name="text">
+             <string>Downloads</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QCheckBox" name="excludeVideos">
+            <property name="text">
+             <string>Videos</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="excludeDocuments">
+            <property name="text">
+             <string>Documents</string>
             </property>
            </widget>
           </item>
@@ -540,6 +540,13 @@ color: rgb(0, 0, 0);</string>
           <number>0</number>
          </property>
          <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0">
+          <item row="2" column="1">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Type of snapshot:</string>
+            </property>
+           </widget>
+          </item>
           <item row="3" column="1">
            <widget class="QRadioButton" name="radioPersonal">
             <property name="text">
@@ -550,10 +557,13 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="2" column="1">
-           <widget class="QLabel" name="label">
+          <item row="4" column="1">
+           <widget class="QRadioButton" name="radioRespin">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
             <property name="text">
-             <string>Type of snapshot:</string>
+             <string>Resetting accounts (for distribution to others)</string>
             </property>
            </widget>
           </item>
@@ -569,16 +579,6 @@ color: rgb(0, 0, 0);</string>
              </size>
             </property>
            </spacer>
-          </item>
-          <item row="4" column="1">
-           <widget class="QRadioButton" name="radioRespin">
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string>Resetting accounts (for distribution to others)</string>
-            </property>
-           </widget>
           </item>
          </layout>
         </widget>
@@ -600,6 +600,19 @@ color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
+       <item row="14" column="0" colspan="4">
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>0</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
        <item row="8" column="0" colspan="4">
         <widget class="QFrame" name="frame_4">
          <property name="frameShape">
@@ -612,30 +625,36 @@ color: rgb(0, 0, 0);</string>
           <number>0</number>
          </property>
          <layout class="QGridLayout" name="gridLayout_5">
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+          <item row="1" column="1" colspan="3">
+           <widget class="QComboBox" name="cbCompression"/>
+          </item>
+          <item row="3" column="3">
+           <widget class="QCheckBox" name="checkSha512">
             <property name="text">
-             <string>Options:</string>
+             <string>sha512</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="4">
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
+          <item row="1" column="6">
+           <widget class="QSpinBox" name="spinCPU">
+            <property name="minimum">
+             <number>1</number>
             </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
+            <property name="maximum">
+             <number>999</number>
             </property>
-           </spacer>
+           </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="QCheckBox" name="checkMd5">
+          <item row="3" column="5">
+           <widget class="QLabel" name="label_5">
+            <property name="toolTip">
+             <string>Throttle the I/O input rate by the given percentage.</string>
+            </property>
+            <property name="lineWidth">
+             <number>1</number>
+            </property>
             <property name="text">
-             <string>md5</string>
+             <string>I/O throttle:</string>
             </property>
            </widget>
           </item>
@@ -653,31 +672,61 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="1" colspan="3">
-           <widget class="QComboBox" name="cbCompression"/>
-          </item>
-          <item row="3" column="3">
-           <widget class="QCheckBox" name="checkSha512">
+          <item row="1" column="5">
+           <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>sha512</string>
+             <string>Number of CPU cores to use:</string>
             </property>
            </widget>
           </item>
+          <item row="3" column="1">
+           <widget class="QCheckBox" name="checkMd5">
+            <property name="text">
+             <string>md5</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="6">
+           <widget class="QSpinBox" name="spinThrottle"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Options:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="4">
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="7">
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
          </layout>
         </widget>
-       </item>
-       <item row="14" column="0" colspan="4">
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
        </item>
       </layout>
      </widget>
@@ -730,6 +779,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </item>
        <item>
         <widget class="QProgressBar" name="progressBar">
+         <property name="maximum">
+          <number>100</number>
+         </property>
          <property name="value">
           <number>0</number>
          </property>

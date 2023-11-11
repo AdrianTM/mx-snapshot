@@ -66,7 +66,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-// load settings or use the default value
 void MainWindow::loadSettings()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -95,6 +94,9 @@ void MainWindow::setOtherOptions()
     ui->checkMd5->setChecked(make_md5sum);
     ui->checkSha512->setChecked(make_sha512sum);
     ui->radioRespin->setChecked(reset_accounts);
+    ui->spinCPU->setMaximum(static_cast<int>(max_cores));
+    ui->spinCPU->setValue(static_cast<int>(cores));
+    ui->spinThrottle->setValue(static_cast<int>(throttle));
 }
 
 void MainWindow::setConnections()
@@ -102,13 +104,11 @@ void MainWindow::setConnections()
     connect(&timer, &QTimer::timeout, this, &MainWindow::progress);
     connect(&work, &Work::message, this, &MainWindow::processMsg);
     connect(&work, &Work::messageBox, this, &MainWindow::processMsgBox);
-    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
-    connect(&work.shell, &Cmd::readyReadStandardError, this,
-            [this] { qWarning().noquote() << work.shell.readAllStandardOutput(); });
     connect(&work.shell, &Cmd::done, this, &MainWindow::procDone);
-    connect(&work.shell, &Cmd::readyReadStandardOutput, this,
-            [this] { qDebug().noquote() << work.shell.readAllStandardError(); });
+    connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) { qWarning().noquote() << out; });
+    connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work.shell, &Cmd::started, this, &MainWindow::procStart);
+    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -157,7 +157,6 @@ void MainWindow::setExclusions()
     ui->excludeVirtualBox->setChecked(exclusions.testFlag(Exclude::VirtualBox));
 }
 
-// setup/refresh versious items first time program runs
 void MainWindow::setup()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -180,7 +179,6 @@ void MainWindow::setup()
     this->show();
 }
 
-// List used space
 void MainWindow::listUsedSpace()
 {
     this->show();
@@ -194,7 +192,6 @@ void MainWindow::listUsedSpace()
     ui->labelUsedSpace->setText(out);
 }
 
-// List free space on drives
 void MainWindow::listFreeSpace()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -215,7 +212,6 @@ void MainWindow::listFreeSpace()
             .arg(QString::number(getSnapshotCount()), getSnapshotSize()));
 }
 
-// Installs package
 bool MainWindow::installPackage(const QString &package)
 {
     this->setWindowTitle(tr("Installing ") + package);
@@ -233,7 +229,6 @@ bool MainWindow::installPackage(const QString &package)
     return true;
 }
 
-// clean up changes before exit
 void MainWindow::cleanUp()
 {
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
@@ -280,34 +275,32 @@ void MainWindow::procDone()
 
 void MainWindow::displayOutput()
 {
-    connect(&work.shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
-    connect(&work.shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
+    connect(&work.shell, &Cmd::outputAvailable, this, &MainWindow::outputAvailable);
+    connect(&work.shell, &Cmd::errorAvailable, this, &MainWindow::outputAvailable);
 }
 
 void MainWindow::disableOutput()
 {
-    disconnect(&work.shell, &Cmd::readyReadStandardOutput, this, &MainWindow::outputAvailable);
-    disconnect(&work.shell, &Cmd::readyReadStandardError, this, &MainWindow::outputAvailable);
+    disconnect(&work.shell, &Cmd::outputAvailable, this, nullptr);
+    disconnect(&work.shell, &Cmd::errorAvailable, this, nullptr);
 }
 
-// update output box
-void MainWindow::outputAvailable()
+void MainWindow::outputAvailable(const QString &out)
 {
-    const QString output = work.shell.readAll();
     ui->outputBox->moveCursor(QTextCursor::End);
-    if (output.contains(QLatin1String("\r"))) {
+    if (out.startsWith(QLatin1String("\r"))) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
         ui->outputBox->moveCursor(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
     }
-    ui->outputBox->insertPlainText(output);
+    ui->outputBox->insertPlainText(out);
     ui->outputBox->verticalScrollBar()->setValue(ui->outputBox->verticalScrollBar()->maximum());
 }
 
 void MainWindow::progress()
 {
-    ui->progressBar->setValue((ui->progressBar->value() + 1) % ui->progressBar->maximum());
+    ui->progressBar->setValue((ui->progressBar->value() + 1) % ui->progressBar->maximum() + 1);
 
-    // in live environment and first page, blink text while calculating used disk space
+    // In live environment and first page, blink text while calculating used disk space
     if (live && (ui->stackedWidget->currentIndex() == 0)) {
         if (ui->progressBar->value() % 4 == 0) {
             ui->labelUsedSpace->setText("\n " + tr("Please wait."));
@@ -317,12 +310,11 @@ void MainWindow::progress()
     }
 }
 
-// Next button clicked
 void MainWindow::btnNext_clicked()
 {
     QString file_name = ui->lineEditName->text();
-    if (!file_name.endsWith(QLatin1String(".iso"))) {
-        file_name += QLatin1String(".iso");
+    if (!file_name.endsWith(".iso")) {
+        file_name += ".iso";
     }
 
     if (QFile::exists(snapshot_dir + "/" + file_name)) {
@@ -333,7 +325,7 @@ void MainWindow::btnNext_clicked()
         return;
     }
 
-    // on first page
+    // On first page
     if (ui->stackedWidget->currentWidget() == ui->selectionPage) {
         this->setWindowTitle(tr("Settings"));
         ui->stackedWidget->setCurrentWidget(ui->settingsPage);
@@ -351,7 +343,7 @@ void MainWindow::btnNext_clicked()
         full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
         boot_options = ui->textOptions->text();
         release_date = ui->textReleaseDate->text();
-        // on settings page
+        // On settings page
     } else if (ui->stackedWidget->currentWidget() == ui->settingsPage) {
         if (!checkCompression()) {
             processMsgBox(BoxType::critical, tr("Error"),
@@ -534,7 +526,6 @@ void MainWindow::btnAbout_clicked()
     this->show();
 }
 
-// Help button clicked
 void MainWindow::btnHelp_clicked()
 {
     QLocale locale;
@@ -548,7 +539,6 @@ void MainWindow::btnHelp_clicked()
     displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
 }
 
-// Select snapshot directory
 void MainWindow::btnSelectSnapshot_clicked()
 {
     QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
@@ -560,7 +550,6 @@ void MainWindow::btnSelectSnapshot_clicked()
     }
 }
 
-// process keystrokes
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Escape) {
@@ -568,10 +557,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
-// close application
 void MainWindow::closeApp()
 {
-    // ask for confirmation when on outputPage and not done
+    // Ask for confirmation when on outputPage and not done
     if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.done) {
         if (QMessageBox::Yes
             != QMessageBox::question(this, tr("Confirmation"), tr("Are you sure you want to quit the application?"),
@@ -589,7 +577,6 @@ void MainWindow::btnCancel_clicked()
 
 void MainWindow::cbCompression_currentIndexChanged()
 {
-    QSettings settings(config_file.fileName(), QSettings::IniFormat);
     QString comp = ui->cbCompression->currentText().section(" ", 0, 0);
     settings.setValue("compression", comp);
     compression = comp;
@@ -605,14 +592,12 @@ void MainWindow::excludeNetworks_toggled(bool checked)
 
 void MainWindow::checkMd5_toggled(bool checked)
 {
-    QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue("make_md5sum", checked ? "yes" : "no");
     make_md5sum = checked;
 }
 
 void MainWindow::checkSha512_toggled(bool checked)
 {
-    QSettings settings(config_file.fileName(), QSettings::IniFormat);
     settings.setValue("make_sha512sum", checked ? "yes" : "no");
     make_sha512sum = checked;
 }
@@ -645,4 +630,16 @@ void MainWindow::excludeVirtualBox_toggled(bool checked)
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
+}
+
+void MainWindow::on_spinCPU_valueChanged(int arg1)
+{
+    settings.setValue("cores", arg1);
+    cores = arg1;
+}
+
+void MainWindow::on_spinThrottle_valueChanged(int arg1)
+{
+    settings.setValue("throttle", arg1);
+    throttle = arg1;
 }
