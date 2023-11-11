@@ -66,14 +66,12 @@ void Work::checkEnoughSpace()
     }
 }
 
-// Checks if package is installed
 bool Work::checkInstalled(const QString &package)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     return (Cmd().run(QString("dpkg -s %1 |grep '^Status: install ok installed'").arg(package)));
 }
 
-// Clean up changes before exit
 void Work::cleanUp()
 {
     if (!started) {
@@ -81,45 +79,29 @@ void Work::cleanUp()
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
-    shell.close();
     emit message(tr("Cleaning..."));
+    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
+    shell.close();
     Cmd().run("sync");
-
-    Cmd().runAsRoot("pkill mksquashfs", true);
-    Cmd().runAsRoot("pkill md5sum", true);
     QDir::setCurrent("/");
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        Cmd().runAsRoot("installed-to-live cleanup");
+        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
     }
-
-    if (!settings->live && !settings->reset_accounts) {
-        auto homeDirs = QDir("/home").entryList(QDir::Dirs | QDir::NoDotAndDotDot);
-        for (const QString &user : homeDirs) {
-            QString desktopPath = QString("/home/%1/Desktop/minstall.desktop").arg(user);
-            QFile::remove(desktopPath);
-        }
-    }
-
-    Cmd().runAsRoot(
-        "rm /usr/local/share/live-files/files/etc/mx-version /usr/local/share/live-files/files/etc/lsb-release", true);
-
-    if (!settings->live) {
-        Cmd().runAsRoot("rm /etc/skel/Desktop/Installer.desktop", true);
-    }
-
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
-        qDebug().noquote() << tr("Done");
+        emit message(tr("Done"));
+        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
         if (settings->shutdown) {
             QFile::copy(logFile.fileName(), settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
             Cmd().run("sync");
-            Cmd().runAsRoot("shutdown -h now &");
+            Cmd().run("dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "
+                      "'org.freedesktop.login1.Manager.PowerOff' boolean:true");
         }
         exit(EXIT_SUCCESS);
     } else {
-        qDebug().noquote() << tr("Done") << "\n";
-        qDebug().noquote() << QObject::tr("Interrupted or failed to complete");
+        emit message(tr("Interrupted or failed to complete"));
+        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
         exit(EXIT_FAILURE);
     }
 }
@@ -131,7 +113,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     if (Cmd().getOut("stat -c '%d' " + dir) != Cmd().getOut("stat -c '%d' " + settings->snapshot_dir)
         && Settings::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-            shell.runAsRoot("installed-to-live cleanup");
+            Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
         }
         settings->tempdir_parent = dir;
         if (!settings->checkTempDir()) {
@@ -153,9 +135,10 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("There's not enough free space on your target disk, you need at least %1")
-                    .arg(QString::number(needed_space / factor, 'f', 2) + "GiB")
+                    .arg(QString::number(static_cast<double>(needed_space) / factor, 'f', 2) + "GiB")
                 + "\n"
-                + tr("You have %1 free space on %2").arg(QString::number(free_space / factor, 'f', 2) + "GiB", dir)
+                + tr("You have %1 free space on %2")
+                      .arg(QString::number(static_cast<double>(free_space) / factor, 'f', 2) + "GiB", dir)
                 + "\n"
                 + tr("If you are sure you have enough free space rerun the program with -o/--override-size option"));
         cleanUp();
@@ -175,7 +158,8 @@ void Work::copyModules(const QString &to, const QString &kernel)
 {
     shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -t="%2" -k="%3")")
                   .arg(qApp->applicationName(), to, kernel));
-    shell.run(QString("/usr/share/%1/scripts/copy-initrd-programs --to=\"%2\"").arg(qApp->applicationName(), to));
+    shell.runAsRoot(QString("/usr/share/%1/scripts/copy-initrd-programs --to=\"%2\"").arg(qApp->applicationName(), to));
+    shell.runAsRoot("chown -R $(logname): " + to);
 }
 
 // Copying the iso-template filesystem
@@ -237,11 +221,12 @@ bool Work::createIso(const QString &filename)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Squash the filesystem copy
-    QDir::setCurrent(settings->work_dir);
-    QString maybe_unbuffer = (settings->cli_mode && checkInstalled("expect")) ? "unbuffer " : "";
-    QString cmd = maybe_unbuffer + "mksquashfs /.bind-root " + settings->work_dir + "/iso-template/antiX/linuxfs -comp "
-                  + settings->compression + ((settings->mksq_opt.isEmpty()) ? "" : " " + settings->mksq_opt)
-                  + " -wildcards -ef " + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
+    QString unbuffer = (checkInstalled("expect")) ? "unbuffer " : "stdbuf -o0 ";
+    QString cmd = unbuffer + "mksquashfs /.bind-root " + settings->work_dir + "/iso-template/antiX/linuxfs -comp "
+                  + settings->compression + " -processors " + QString::number(settings->cores) + " -throttle "
+                  + QString::number(settings->throttle)
+                  + ((settings->mksq_opt.isEmpty()) ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
+                  + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
 
     emit message(tr("Squashing filesystem..."));
     if (!shell.runAsRoot(cmd)) {
@@ -250,14 +235,14 @@ bool Work::createIso(const QString &filename)
                            "destination partition."));
         return false;
     }
-    writeUnsquashfsSize(shell.readAll());
+    writeUnsquashfsSize(shell.readAllOutput());
 
     // Move linuxfs files to iso-2/antiX folder
     QDir().mkpath("iso-2/antiX");
     shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
     makeChecksum(HashType::md5, settings->work_dir + "/iso-2/antiX", "linuxfs");
 
-    shell.runAsRoot("installed-to-live cleanup");
+    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
 
     // Create the iso file
     QDir::setCurrent(settings->work_dir + "/iso-template");
@@ -286,10 +271,9 @@ bool Work::createIso(const QString &filename)
     if (settings->make_sha512sum) {
         makeChecksum(HashType::sha512, settings->snapshot_dir, filename);
     }
-    shell.runAsRoot("chown $(logname):$(logname) \"" + settings->snapshot_dir + "/" + filename + "\"*");
 
     QTime time(0, 0);
-    time = time.addMSecs(e_timer.elapsed());
+    time = time.addMSecs(static_cast<int>(e_timer.elapsed()));
     emit message(tr("Done"));
     if (settings->shutdown) {
         done = true;
@@ -303,7 +287,6 @@ bool Work::createIso(const QString &filename)
     return true;
 }
 
-// Installs package
 bool Work::installPackage(const QString &package)
 {
     emit message(tr("Installing ") + package);
@@ -346,7 +329,9 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         cmd = checksum_cmd;
     } else {
         // Free pagecache
-        shell.runAsRoot("sync; sleep 1; echo 1 > /proc/sys/vm/drop_caches; sleep 1");
+        shell.run("sync; sleep 1");
+        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib drop_caches");
+        shell.run("sleep 1");
         cmd = checksum_tmp;
     }
     shell.run(cmd);
@@ -461,18 +446,6 @@ void Work::setupEnv()
         shell.runAsRoot("installed-to-live -b /.bind-root start " + bind_boot
                         + "empty=/home general version-file read-only");
     } else {
-        //        if (settings->force_installer) { // copy minstall.desktop to Desktop on all accounts
-        //            shell.runAsRoot("echo /home/*/Desktop |xargs -n1 cp
-        //            /usr/share/applications/minstall.desktop 2>/dev/null"); shell.runAsRoot("echo
-        //            /home/*/Desktop/minstall.desktop |xargs -n1 sed -i 's/^NoDisplay=true/NoDisplay=false/'");
-        //            // Needs write access to remove lock symbol on installer on desktop, executable to run it
-        //            shell.runAsRoot("chmod 777 /home/*/Desktop/minstall.desktop");
-        //            if (!QFile::exists("/usr/bin/xdg-user-dirs-update.real")) {
-        //                QDir().mkdir("/etc/skel/Desktop");
-        //                QFile::copy("/usr/share/applications/minstall.desktop",
-        //                "/etc/skel/Desktop/Installer.desktop"); RUN("chmod 755 /etc/skel/Desktop/Installer.desktop");
-        //            }
-        //        }
         shell.runAsRoot("installed-to-live -b /.bind-root start bind=/home" + bind_boot_too
                         + " live-files version-file adjtime read-only");
     }
@@ -581,7 +554,7 @@ quint64 Work::getRequiredSpace()
     bool ok = false;
     QString cmd = settings->live ? "du -sc" : "du -sxc";
     quint64 excl_size
-        = shell.getOut(cmd + " {" + excludes.join(",").remove("/.bind-root,") + "} 2>/dev/null |tail -1 |cut -f1")
+        = shell.getOutAsRoot(cmd + " {" + excludes.join(",").remove("/.bind-root,") + "} 2>/dev/null |tail -1 |cut -f1")
               .toULongLong(&ok);
     if (!ok) {
         qDebug() << "Error: calculating size of excluded files\n"
@@ -590,7 +563,8 @@ quint64 Work::getRequiredSpace()
     }
     emit message(tr("Calculating size of root..."));
     cmd = settings->live ? "du -s" : "du -sx";
-    quint64 root_size = shell.getOut(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    quint64 root_size = shell.getOutAsRoot(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    qDebug() << "SIZE" << root_size;
     if (!ok) {
         qDebug() << "Error: calculating root size (/.bind-root)\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";

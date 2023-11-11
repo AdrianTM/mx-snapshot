@@ -79,7 +79,6 @@ public:
     QString version;
     QString work_dir;
     QStringList users; // list of users with /home folders
-    bool cli_mode;
     bool edit_boot_menu {};
     bool force_installer {};
     bool live {};
@@ -92,10 +91,13 @@ public:
     bool shutdown {};
     bool x86 {};
     const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
+    const uint max_cores {Cmd().getOut("nproc", true).trimmed().toUInt()};
     quint64 free_space {};
     quint64 free_space_work {};
     quint64 home_size {};
     quint64 root_size {};
+    uint cores {};
+    uint throttle {};
 
     [[nodiscard]] QString getEditor() const;
     [[nodiscard]] QString getFilename() const;

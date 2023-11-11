@@ -1,3 +1,12 @@
+mx-snapshot (23.11) mx; urgency=medium
+
+  * Run program as normal user and elevate only when needed
+  * Prioritize user settings over system settings. Settings available in ~/.conf/MX-Linux/ directory
+  * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
+        -- if you used to pass any of these options directly in .conf file might neet to remove those
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 11 Nov 2023 19:42:42 -0500
+
 mx-snapshot (23.10.01) mx; urgency=medium
 
   * Exclude ~/.config/MX-Linux/xdg_check to make sure default Desktop files (installer link) are recreated

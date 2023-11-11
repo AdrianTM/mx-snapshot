@@ -12,12 +12,17 @@ Cmd::Cmd(QObject *parent)
       elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"},
       helper {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
+    connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
+    connect(this, &Cmd::readyReadStandardError, [this] { emit errorAvailable(readAllStandardError()); });
+    connect(this, &Cmd::outputAvailable, [this](const QString &out) { out_buffer += out; });
+    connect(this, &Cmd::errorAvailable, [this](const QString &out) { out_buffer += out; });
 }
 
 QString Cmd::getOut(const QString &cmd, bool quiet, bool asRoot)
 {
+    out_buffer.clear();
     run(cmd, quiet, asRoot);
-    return readAll().trimmed();
+    return out_buffer.trimmed();
 }
 
 QString Cmd::getOutAsRoot(const QString &cmd, bool quiet)
@@ -49,4 +54,9 @@ bool Cmd::run(const QString &cmd, bool quiet, bool asRoot)
 bool Cmd::runAsRoot(const QString &cmd, bool quiet)
 {
     return run(cmd, quiet, true);
+}
+
+QString Cmd::readAllOutput()
+{
+    return out_buffer;
 }

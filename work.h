@@ -76,6 +76,7 @@ signals:
 
 private:
     Settings *settings;
+    QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
 };
 
 #endif // WORK_H

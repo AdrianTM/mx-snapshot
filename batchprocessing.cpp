@@ -80,10 +80,8 @@ void Batchprocessing::setConnections()
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
     connect(&work.shell, &Cmd::started, this, [this] { timer.start(500ms); });
     connect(&work.shell, &Cmd::done, this, [this] { timer.stop(); });
-    connect(&work.shell, &Cmd::readyReadStandardOutput, this,
-            [this] { qDebug().noquote() << work.shell.readAllStandardOutput(); });
-    connect(&work.shell, &Cmd::readyReadStandardError, this,
-            [this] { qWarning().noquote() << work.shell.readAllStandardError(); });
+    connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) { qDebug().noquote() << out; });
+    connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work, &Work::messageBox,
             [](BoxType /*unused*/, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });

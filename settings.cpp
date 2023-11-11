@@ -38,7 +38,8 @@
 Settings::Settings(const QCommandLineParser &arg_parser)
 {
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // cleanup installed-to-live from other sessions
-        Cmd().runAsRoot("installed-to-live cleanup");
+        QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
+        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
     }
     loadConfig(); // load settings from .conf file
     setVariables();
@@ -47,10 +48,6 @@ Settings::Settings(const QCommandLineParser &arg_parser)
         setMonthlySnapshot(arg_parser);
     }
     override_size = arg_parser.isSet("override-size");
-    cli_mode = arg_parser.isSet("cli");
-    if (QCoreApplication::staticMetaObject.className() != QLatin1String("QApplication")) {
-        cli_mode = true;
-    }
     processExclArgs(arg_parser);
 }
 
@@ -66,7 +63,7 @@ bool Settings::checkCompression() const
     return (Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel));
 }
 
-// adds or removes exclusion to the exclusion string
+// Adds or removes exclusion to the exclusion string
 void Settings::addRemoveExclusion(bool add, QString exclusion)
 {
     if (exclusion.startsWith(QLatin1String("/"))) {
@@ -89,11 +86,11 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p " + snapshot_dir)) {
+    if (!Cmd().runAsRoot("mkdir -p " + snapshot_dir, false)) {
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }
-    Cmd().runAsRoot("chown $(logname):$(logname) \"/" + snapshot_dir + "\"", false);
+    Cmd().runAsRoot("chown $(logname): \"/" + snapshot_dir + "\"");
     return true;
 }
 
@@ -180,7 +177,7 @@ QString Settings::getSnapshotSize() const
     return "0";
 }
 
-// return number of snapshots in snapshot_dir
+// Number of snapshots in snapshot_dir
 int Settings::getSnapshotCount() const
 {
     if (QFileInfo::exists(snapshot_dir)) {
@@ -313,7 +310,6 @@ void Settings::setVariables()
     boot_options = readKernelOpts();
 }
 
-// Create the output filename
 QString Settings::getFilename() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -372,20 +368,21 @@ QString Settings::getUsedSpace()
     QString out = "\n- " + QObject::tr("Used space on / (root): ");
     if (bool ok = false; live) {
         root_size = getLiveRootSpace();
-        out += QString::number(root_size / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
+        out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
     } else {
         root_size = Cmd().getOut("df -k --output=used / |tail -n1").toULongLong(&ok);
         if (!ok) {
             return "Can't calculate free space on root";
         }
-        out += QString::number(root_size / factor, 'f', 2) + "GiB";
+        out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB";
     }
     if (bool ok = false; Cmd().run("mountpoint -q /home")) {
         home_size = Cmd().getOut("df -k --output=used /home |tail -n1").toULongLong(&ok);
         if (!ok) {
             return "Can't calculate free space on /home";
         }
-        out.append("\n- " + QObject::tr("Used space on /home: ") + QString::number(home_size / factor, 'f', 2) + "GiB");
+        out.append("\n- " + QObject::tr("Used space on /home: ")
+                   + QString::number(static_cast<double>(home_size) / factor, 'f', 2) + "GiB");
     } else {
         home_size = 0; // /home on root
     }
@@ -438,7 +435,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
 {
     constexpr float factor = 1024 * 1024;
     free_space = getFreeSpace(path);
-    QString out = QString::number(free_space / factor, 'f', 2) + "GiB";
+    QString out = QString::number(static_cast<double>(free_space) / factor, 'f', 2) + "GiB";
 
     qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path)
                                   + out)
@@ -453,7 +450,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
     return out;
 }
 
-// return a list of users that have folders in /home
+// Return a list of users that have folders in /home
 QStringList Settings::listUsers()
 {
     return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", true).split("\n");
@@ -611,31 +608,48 @@ void Settings::excludeVirtualBox(bool exclude)
     addRemoveExclusion(exclude, QStringLiteral("home/*/VirtualBox VMs"));
 }
 
-// load settings from config file
+// Load settings from config file
 void Settings::loadConfig()
 {
     config_file.setFileName("/etc/" + qApp->applicationName() + ".conf");
-    QSettings settings(config_file.fileName(), QSettings::IniFormat);
+    QSettings settingsSystem(config_file.fileName(), QSettings::IniFormat);
+    QSettings settingsUser;
+
+    // Read all keys from system settings
+    settingsSystem.beginGroup("");
+    QStringList systemKeys = settingsSystem.allKeys();
+    settingsSystem.endGroup();
+
+    // Merge system settings into user settings
+    foreach (const QString &key, systemKeys) {
+        if (!settingsUser.contains(key)) {
+            QVariant value = settingsSystem.value(key);
+            settingsUser.setValue(key, value);
+        }
+    }
 
     session_excludes = QLatin1String("");
-    snapshot_dir = settings.value("snapshot_dir", "/home/snapshot").toString();
+    snapshot_dir = settingsUser.value("snapshot_dir", "/home/snapshot").toString();
     if (!snapshot_dir.endsWith(QLatin1String("/snapshot"))) {
         snapshot_dir += (snapshot_dir.endsWith(QLatin1String("/")) ? "snapshot" : "/snapshot");
     }
     snapshot_excludes.setFileName(
-        settings.value("snapshot_excludes", "/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list")
+        settingsUser
+            .value("snapshot_excludes", "/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list")
             .toString());
-    snapshot_basename = settings.value("snapshot_basename", "snapshot").toString();
-    make_md5sum = settings.value("make_md5sum", "no").toString() != QLatin1String("no");
-    make_sha512sum = settings.value("make_sha512sum", "no").toString() != QLatin1String("no");
-    make_isohybrid = settings.value("make_isohybrid", "yes").toString() == QLatin1String("yes");
-    compression = settings.value("compression", "zstd").toString();
-    mksq_opt = settings.value("mksq_opt").toString();
-    edit_boot_menu = settings.value("edit_boot_menu", "no").toString() != QLatin1String("no");
-    gui_editor = settings.value("gui_editor").toString();
-    stamp = settings.value("stamp").toString();
-    force_installer = settings.value("force_installer", "true").toBool();
-    tempdir_parent = settings.value("workdir").toString();
+    snapshot_basename = settingsUser.value("snapshot_basename", "snapshot").toString();
+    make_md5sum = settingsUser.value("make_md5sum", "no").toString() != QLatin1String("no");
+    make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != QLatin1String("no");
+    make_isohybrid = settingsUser.value("make_isohybrid", "yes").toString() == QLatin1String("yes");
+    compression = settingsUser.value("compression", "zstd").toString();
+    mksq_opt = settingsUser.value("mksq_opt").toString();
+    edit_boot_menu = settingsUser.value("edit_boot_menu", "no").toString() != QLatin1String("no");
+    gui_editor = settingsUser.value("gui_editor").toString();
+    stamp = settingsUser.value("stamp").toString();
+    force_installer = settingsUser.value("force_installer", "true").toBool();
+    tempdir_parent = settingsUser.value("workdir").toString();
+    cores = settingsUser.value("cores", max_cores).toUInt();
+    throttle = settingsUser.value("throttle", 0).toUInt();
     reset_accounts = false;
 }
 
@@ -728,6 +742,24 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
     }
     if (!arg_parser.value("compression-level").isEmpty()) {
         mksq_opt = arg_parser.value("compression-level");
+    }
+    if (!arg_parser.value("cores").isEmpty()) {
+        bool ok {false};
+        uint val = arg_parser.value("cores").toUInt(&ok);
+        if (!ok || val == 0 || val > max_cores) {
+            qDebug() << "Invalid number of cores argument, will use the default:" << cores;
+        } else {
+            cores = val;
+        }
+    }
+    if (!arg_parser.value("throttle").isEmpty()) {
+        bool ok {false};
+        uint val = arg_parser.value("throttle").toUInt(&ok);
+        if (!ok || val > 99) {
+            qDebug() << "Invalid argument for throttle, will use the default:" << throttle;
+        } else {
+            throttle = val;
+        }
     }
     selectKernel();
 }

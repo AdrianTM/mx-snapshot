@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Root level functions requiring password for mx-snapshot
+
+cleanup() {
+    /usr/sbin/installed-to-live cleanup
+}
+
+copy_log() {
+    [[ -f /var/log/mx-snapshot.log ]] && mv /var/log/mx-snapshot.log /var/log/mx-snapshot.log.old
+    cp /tmp/mx-snapshot.log /var/log
+}
+
+kill_mksquashfs() {
+    pkill mksquashfs
+}
+
+drop_caches() {
+    echo 1 > /proc/sys/vm/drop_caches
+}
+
+main() {
+case "$1" in 
+    cleanup) 
+        cleanup;;
+    copy_log) 
+        copy_log;;
+    kill_mksquashfs)
+        kill_mksquashfs;;
+    drop_caches)
+        drop_caches;;
+esac
+}
+
+main "$@"
