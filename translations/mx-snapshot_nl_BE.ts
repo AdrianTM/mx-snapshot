@@ -24,77 +24,6 @@
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>Snapshot locatie:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>Snapshot naam:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Afbeeldingen</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Muziek</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documenten</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Downloads</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Video&apos;s</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="436"/>
-        <source>exclude network configurations</source>
-        <translation>netwerkconfiguraties uitsluiten</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="439"/>
-        <source>Networks</source>
-        <translation>Netwerken</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>Type snapshot:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="595"/>
-        <source>Edit Exclusion File</source>
-        <translation>Bewerk Exclusion Bestand</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opties:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO compressieschema:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -150,9 +79,20 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>Snapshot locatie:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="249"/>
         <source>Select a different snapshot directory</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>Snapshot naam:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -160,9 +100,54 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="436"/>
+        <source>exclude network configurations</source>
+        <translation>netwerkconfiguraties uitsluiten</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="439"/>
+        <source>Networks</source>
+        <translation>Netwerken</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="446"/>
         <source>All of the above</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Afbeeldingen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Desktop</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Muziek</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Downloads</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Video&apos;s</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documenten</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>Type snapshot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
@@ -178,6 +163,11 @@
         <location filename="../mainwindow.ui" line="566"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Edit Exclusion File</source>
+        <translation>Bewerk Exclusion Bestand</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -200,6 +190,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO compressieschema:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
@@ -208,6 +203,11 @@
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opties:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>

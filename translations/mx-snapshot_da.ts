@@ -24,102 +24,6 @@
         <translation>MX Øjebliksbillede</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Øjebliksbillede er et redskab som opretter et opstartsbart aftryk (ISO) af det system du arbejder med som du kan bruge til at gemme eller distribuere. Mens det kører kan du fortsætte arbejde med programmer som ikke kræver meget.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>Anvendt plads på /- (rod) og /home-partitioner:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>Placering af øjebliksbillede:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>Vælg en anden mappe til øjebliksbillede</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>Navn på øjebliksbillede:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Billeder</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Musik</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Allesammen</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Dokumenter</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Downloads</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Skrivebord</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Videoer</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Bevar konti (til personlig sikkerhedskopiering)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>Øjebliksbilledetype:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="563"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valgmuligheden nulstiller &amp;quot;demo&amp;quot;- og &amp;quot;root&amp;quot;-adgangskoderne til standarderne for MX Linux og vil kopiere personlige konti som er blevet oprettet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="566"/>
-        <source>Resetting accounts (for distribution to others)</source>
-        <translation>Nulstiller konti (til distribution til andre)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="595"/>
-        <source>Edit Exclusion File</source>
-        <translation>Rediger eksklusionsfil</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Valgmuligheder:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO-komprimeringsskema:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -160,9 +64,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Øjebliksbillede er et redskab som opretter et opstartsbart aftryk (ISO) af det system du arbejder med som du kan bruge til at gemme eller distribuere. Mens det kører kan du fortsætte arbejde med programmer som ikke kræver meget.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>Anvendt plads på /- (rod) og /home-partitioner:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>Placering af øjebliksbillede:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>Vælg en anden mappe til øjebliksbillede</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>Navn på øjebliksbillede:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -178,6 +108,66 @@
         <location filename="../mainwindow.ui" line="439"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Allesammen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Billeder</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Skrivebord</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Musik</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Downloads</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Videoer</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Dokumenter</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>Øjebliksbilledetype:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Bevar konti (til personlig sikkerhedskopiering)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="563"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Valgmuligheden nulstiller &amp;quot;demo&amp;quot;- og &amp;quot;root&amp;quot;-adgangskoderne til standarderne for MX Linux og vil kopiere personlige konti som er blevet oprettet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="566"/>
+        <source>Resetting accounts (for distribution to others)</source>
+        <translation>Nulstiller konti (til distribution til andre)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Edit Exclusion File</source>
+        <translation>Rediger eksklusionsfil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -200,6 +190,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO-komprimeringsskema:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
@@ -208,6 +203,11 @@
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Valgmuligheder:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>

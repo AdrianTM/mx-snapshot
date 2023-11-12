@@ -11,7 +11,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Il kernel attuale non supporta l&apos;algoritmo di compressione selezionato, prego modifica il file di configurazione e scegli un algoritmo differente.</translation>
+        <translation>Il kernel attuale non supporta l&apos;algoritmo di compressione selezionato, prego modifica il file di configurazione e seleziona un algoritmo differente.</translation>
     </message>
 </context>
 <context>
@@ -100,41 +100,6 @@
         <translation>Puoi anche escludere alcune directory spuntando le scelte comuni di seguito, o facendo clic sul pulsante per modificare direttamente /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Immagini</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Musica</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Tutti gli elementi sopra</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documenti</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Download</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Video</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>escludi configurazioni di rete</translation>
@@ -145,14 +110,49 @@
         <translation>Reti</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Preservazione degli account (per un backup personale)</translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Tutti gli elementi sopra</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Immagini</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Desktop</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Musica</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Download</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documenti</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Tipo di snapshot:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Preservazione degli account (per un backup personale)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,14 +170,19 @@
         <translation>Edita il file delle esclusioni</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opzioni:</translation>
+        <location filename="../mainwindow.ui" line="634"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
+        <location filename="../mainwindow.ui" line="651"/>
+        <source>Throttle the I/O input rate by the given percentage.</source>
+        <translation>Limita la velocità di ingresso dell&apos;I/O della percentuale indicata.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>I/O throttle:</source>
+        <translation>Acceleratore I/O:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -190,24 +195,19 @@
         <translation>Schema di compressione ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="651"/>
-        <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero di core della CPU da usare:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opzioni:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -483,13 +483,13 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Numero di core della CPU che devono essere usati</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>numero</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -580,7 +580,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Limita la velocità di ingresso dell&apos;I/O della percentuale indicata. Questo può essere usato per ridurre il consumo di I/O e di CPU di Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -625,10 +625,6 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <translation>Sembra che tu sia loggato come root, fai il log out e poi il log in come utente normale per usare questo programma.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Devi eseguire questo programma come amministratore.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -638,7 +634,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Devi eseguire questo programma con sudo o pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -755,10 +751,6 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Completamento interrotto o fallito</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Licenza</translation>
@@ -796,7 +788,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Completamento interrotto o fallito</translation>
+        <translation>Completamento interrotto o fallito</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

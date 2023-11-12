@@ -24,77 +24,6 @@
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot je aplikácia na tvorbu spustiteľných (ISO) obrazov vášho funkčného systému, ktoré môžete použiť pre zálohovanie alebo distribúciu. Počas tvorby zálohy môžete paralelne používať nemej náročné aplikácie.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>Použitý priestor na diskoch / (root) a /home:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>Zložka obrazu:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>Zvoľte inú zložku pre obraz</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>Názov obrazu:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Obrázky</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Hudba</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Všetko uvedené vyššie</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Dokumenty</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Stiahnuté</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Pracovná plocha</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Videá</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Zachovať kontá (pre vlastné zazálohovanie)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>Typ obrazu:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -135,9 +64,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot je aplikácia na tvorbu spustiteľných (ISO) obrazov vášho funkčného systému, ktoré môžete použiť pre zálohovanie alebo distribúciu. Počas tvorby zálohy môžete paralelne používať nemej náročné aplikácie.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>Použitý priestor na diskoch / (root) a /home:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>Zložka obrazu:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>Zvoľte inú zložku pre obraz</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>Názov obrazu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -153,6 +108,51 @@
         <location filename="../mainwindow.ui" line="439"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Všetko uvedené vyššie</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Obrázky</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Pracovná plocha</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Hudba</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Stiahnuté</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Videá</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Dokumenty</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>Typ obrazu:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Zachovať kontá (pre vlastné zazálohovanie)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>

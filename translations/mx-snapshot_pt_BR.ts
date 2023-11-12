@@ -100,41 +100,6 @@
         <translation>Você também pode excluir alguns diretórios selecionando as opções comuns, abaixo, ou clicando no botão para editar diretamente o arquivo ‘/etc/mx-snapshot-exclude.list’.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Imagens</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Músicas</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Todos os itens acima</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documentos</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Baixados</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Área de Trabalho</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Vídeos</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>Excluir as configurações de rede</translation>
@@ -145,14 +110,49 @@
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Preservar a(s) conta(s) do(s) usuário(s) (cópia de segurança do Sistema Operacional para o uso pessoal)</translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Todos os itens acima</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Imagens</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Área de Trabalho</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Músicas</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Baixados</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Vídeos</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documentos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Tipo de snapshot:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Preservar a(s) conta(s) do(s) usuário(s) (cópia de segurança do Sistema Operacional para o uso pessoal)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,14 +170,19 @@
         <translation>Editar o arquivo de exclusão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opções:</translation>
+        <location filename="../mainwindow.ui" line="634"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
+        <location filename="../mainwindow.ui" line="651"/>
+        <source>Throttle the I/O input rate by the given percentage.</source>
+        <translation>Acelere a taxa de entrada de E/S ou I/O pela porcentagem fornecida.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>I/O throttle:</source>
+        <translation>Acelerador de E/S:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -190,24 +195,19 @@
         <translation>Esquema de compactação/compressão da ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="651"/>
-        <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Quantidade de núcleos do processador a serem utilizados:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opções:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -483,13 +483,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Quantidade de núcleos do processador a serem utilizados.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>Quantidade</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -580,7 +580,7 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Acelere a taxa de entrada de E/S ou I/O pela porcentagem fornecida. Isto pode ser utilizado para reduzir o consumo de E/S do processador e do Mksquashfs (ferramenta para criar e anexar sistemas de arquivos squashfs).</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -625,10 +625,6 @@
         <translation>Ao que parece, você está acessando a sessão com o usuário root. Por favor, saia da sessão atual e entre novamente com o usuário normal para utilizar este programa.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Você tem que executar este programa com o usuário administrador.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -638,7 +634,7 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Você tem que executar este programa com o comando ‘sudo’ ou o ‘pkexec’ para ter as permissões necessárias.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -757,10 +753,6 @@ guardadas/copiadas:
         <translation>O arquivo de saída %1 já existe. Por favor, utilize um outro nome de arquivo ou exclua o arquivo existente.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">O processo foi interrompido ou não foi concluído</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Licença</translation>
@@ -798,7 +790,7 @@ guardadas/copiadas:
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">O processo foi interrompido ou não foi concluído</translation>
+        <translation>O processo foi interrompido ou não foi concluído</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

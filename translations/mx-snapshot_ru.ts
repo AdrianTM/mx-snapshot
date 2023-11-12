@@ -100,41 +100,6 @@
         <translation>Вы также можете исключить определенные папки, отметив их ниже, или нажать на кнопку, чтобы напрямую изменить /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Изображения</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Музыка</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Все вышеперечисленное</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Документы</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Загрузки</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Рабочий стол</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Видео</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>исключить настройки сетей</translation>
@@ -145,14 +110,49 @@
         <translation>Сети</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Сохранение учетных записей (для личного резервного копирования)</translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Все вышеперечисленное</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Изображения</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Рабочий стол</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Музыка</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Загрузки</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Видео</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Документы</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Тип снимка:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Сохранение учетных записей (для личного резервного копирования)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,26 +170,6 @@
         <translation>Править файл исключений</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Опции:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>Calculate checksums:</source>
-        <translation>Вычислить контрольные суммы:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>Методика сжатия ISO:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
         <translation>sha512</translation>
@@ -205,9 +185,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>Calculate checksums:</source>
+        <translation>Вычислить контрольные суммы:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>Методика сжатия ISO:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Опции:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -636,7 +636,7 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы должны запустить эту программу с помощью sudo или pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -753,10 +753,6 @@
         <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Прервано или не удалось завершить</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Лицензия</translation>
@@ -794,7 +790,7 @@
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Прервано или не удалось завершить</translation>
+        <translation>Прервано или не удалось завершить</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

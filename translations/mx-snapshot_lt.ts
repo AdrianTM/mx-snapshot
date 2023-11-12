@@ -24,92 +24,6 @@
         <translation>MX momentinė kopija</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>Panaudota vieta / (šaknies) ir /home skaidiniuose:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>Momentinės kopijos vieta:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>Pasirinkti kitą momentinės kopijos katalogą</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>Momentinės kopijos pavadinimas:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Paveikslai</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Muzika</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Viskas iš aukščiau paminėtų</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Dokumentai</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Atsiuntimai</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Darbalaukis</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Vaizdo įrašai</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="439"/>
-        <source>Networks</source>
-        <translation>Tinklai</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Išsaugant paskyras (asmeninei atsarginei kopijai)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>Momentinės kopijos tipas:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="566"/>
-        <source>Resetting accounts (for distribution to others)</source>
-        <translation>Atstatant paskyras (platinimui kitiems žmonėms)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Parametrai:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO glaudinimo schema:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -155,9 +69,30 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>Panaudota vieta / (šaknies) ir /home skaidiniuose:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>Momentinės kopijos vieta:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>Pasirinkti kitą momentinės kopijos katalogą</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>Momentinės kopijos pavadinimas:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -170,9 +105,64 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="439"/>
+        <source>Networks</source>
+        <translation>Tinklai</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Viskas iš aukščiau paminėtų</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Paveikslai</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Darbalaukis</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Muzika</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Atsiuntimai</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Vaizdo įrašai</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Dokumentai</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>Momentinės kopijos tipas:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Išsaugant paskyras (asmeninei atsarginei kopijai)</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="563"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="566"/>
+        <source>Resetting accounts (for distribution to others)</source>
+        <translation>Atstatant paskyras (platinimui kitiems žmonėms)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
@@ -200,6 +190,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO glaudinimo schema:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
@@ -208,6 +203,11 @@
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Parametrai:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>

@@ -100,41 +100,6 @@
         <translation>É possível excluir alguns directórios; podem ser marcadas escolhas comuns, abaixo, ou clicado o botão para editar directamente o ficheiro /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Fotos</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Música</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Todos os acima</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documentos</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Transferências</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Área de trabalho</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Vídeos</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>excluir configurações de rede</translation>
@@ -145,14 +110,49 @@
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Preservando as contas criadas (para segurança pessoal)</translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Todos os acima</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Fotos</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Área de trabalho</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Transferências</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Vídeos</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documentos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Tipo de captura:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Preservando as contas criadas (para segurança pessoal)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,26 +170,6 @@
         <translation>Editar o ficheiro de exclusão</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opções: </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>Calculate checksums:</source>
-        <translation>Calcular as somas de controlo (checksums):</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>Esquema de compressão ISO:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
         <translation>sha512</translation>
@@ -205,9 +185,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>Calculate checksums:</source>
+        <translation>Calcular as somas de controlo (checksums):</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>Esquema de compressão ISO:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opções: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -625,10 +625,6 @@
         <translation>O utilizador parece ser o root; para usar este programa, sair e voltar a entrar como utilizador normal.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Deve executar este programa como administrador.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -638,7 +634,7 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Este programa tem que ser executado com sudo ou pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -755,10 +751,6 @@
         <translation>O ficheiro de resultados %1 já existe. Usar outro nome de ficheiro ou eliminar o ficheiro existente.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Interrupção ou falha no processo</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Licença</translation>
@@ -796,7 +788,7 @@
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Interrupção ou falha no processo</translation>
+        <translation>Interrupção ou falha no processo</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

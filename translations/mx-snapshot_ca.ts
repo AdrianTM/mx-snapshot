@@ -100,41 +100,6 @@
         <translation>També podeu excloure alguns directoris marcant les opcions comunes a sota, o clicant el botó per editar directament /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Imatges</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Música</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Tots els esmentats</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documents</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Baixades </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Escriptori</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Vídeos</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>configuracions d&apos;exclusió de xarxes</translation>
@@ -145,14 +110,49 @@
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Preservant els comptes (còpia de seguretat personal) </translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Tots els esmentats</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Imatges</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Escriptori</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Música</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Baixades </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Vídeos</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documents</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Tipus d&apos;instantània: </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Preservant els comptes (còpia de seguretat personal) </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,26 +170,6 @@
         <translation>Edita el fitxer d&apos;exclusions</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opcions</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>Calculate checksums:</source>
-        <translation>Calcula la suma de control:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>Mètode de compressió de la ISO:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
         <translation>sha512</translation>
@@ -205,9 +185,29 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>Calculate checksums:</source>
+        <translation>Calcula la suma de control:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>Mètode de compressió de la ISO:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opcions</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -625,10 +625,6 @@
         <translation>Sembla que esteu connectat com a administrador, si us plau sortiu i connecteu-vos com a usuari normal per a usar aquest programa.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Cal executar aquest programa com a administrador.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -638,7 +634,7 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Cal executar aquest programa amb sudo o pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -755,10 +751,6 @@
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Aturat o fallat en completar </translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Llicència</translation>
@@ -796,7 +788,7 @@
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Aturat o fallat en completar </translation>
+        <translation>Aturat o fallat en completar </translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

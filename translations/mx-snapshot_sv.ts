@@ -100,41 +100,6 @@
         <translation>Du kan också undanta speciella kataloger genom att kryssa för de vanliga valen nedan, eller genom att klicka på knappen för att direkt redigera  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Bilder</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Musik</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Alla ovan nämnda</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Dokument</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Nerladdningar</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Skrivbord</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Video</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="436"/>
         <source>exclude network configurations</source>
         <translation>undanta nätverkskonfigurationer</translation>
@@ -145,14 +110,49 @@
         <translation>Nätverk</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Bevara konton (för personlig backup)</translation>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Alla ovan nämnda</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Bilder</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Skrivbord</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Musik</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Nerladdningar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Dokument</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>Typ av snapshot:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Bevara konton (för personlig backup)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
@@ -170,14 +170,19 @@
         <translation>Redigera Exklusionsfil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Alternativ:</translation>
+        <location filename="../mainwindow.ui" line="634"/>
+        <source>sha512</source>
+        <translation>sha512</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
+        <location filename="../mainwindow.ui" line="651"/>
+        <source>Throttle the I/O input rate by the given percentage.</source>
+        <translation>Stryp I/O inmatningshastighet med given procentsats.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>I/O throttle:</source>
+        <translation>I/O strypning:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -190,24 +195,19 @@
         <translation>ISO kompressions-schema:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
-        <source>sha512</source>
-        <translation>sha512</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="651"/>
-        <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Antal CPU-kärnor att använda:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Alternativ:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -483,13 +483,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Antal CPU-kärnor som ska användas.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>antal</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -580,7 +580,7 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Stryp I/O inmatningshastighet med angiven procentsats. Detta kan användas för att reducera Mksquashfs I/O och CPU -konsumtion.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -625,10 +625,6 @@
         <translation>Du verkar vara inloggad som root, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Du måste köra detta program med administratörsrättigheter.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -638,7 +634,7 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du måste köra detta program med sudo eller pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
@@ -755,10 +751,6 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Avbruten eller kunde inte fullbordas</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Licens</translation>
@@ -796,7 +788,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Avbruten eller kunde inte fullbordas</translation>
+        <translation>Avbruten eller kunde inte fullbordas</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

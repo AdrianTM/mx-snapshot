@@ -22,32 +22,32 @@ Changes:
    * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
          -- if you used to pass any of these options directly in .conf file might neet to remove those
 Checksums-Sha1:
- cf1ffb1d0b83ad9939dbaff7f796606a5a9bfecb 1262 mx-snapshot_23.11.dsc
- 7481412f63a7ebb674f9750d49798e404b8953c5 253208 mx-snapshot_23.11.tar.xz
- 67a513845a198b590b013c134755cb3ede491003 272364 iso-snapshot-cli_23.11_amd64.deb
- b0b8ce10d4f79e43dee877fcf0d2150409e2f95f 10740 mx-snapshot_23.11_amd64.buildinfo
- 2280d5e8d81f4671d6f0c961eb36e689b94f7212 309560 mx-snapshot_23.11_amd64.deb
+ bd2aa770a8bb131ea5a9cac3ec664ae520c3da0b 1262 mx-snapshot_23.11.dsc
+ a9c80ee1d3117578490ecbc3efac151f56fc7ca1 256280 mx-snapshot_23.11.tar.xz
+ f44fb5f8c8625b3a73dbca7a0259ce36216be620 273608 iso-snapshot-cli_23.11_amd64.deb
+ f9d5a4fa320cea956631f4af91ff420b67b12874 11194 mx-snapshot_23.11_amd64.buildinfo
+ 1e73a7b39f2e351705666507d09730d5e00f482d 311084 mx-snapshot_23.11_amd64.deb
 Checksums-Sha256:
- fa5b84ab5784e2ca41b80180a9c722ffe3bdbf39d6751380d452d581f4e5acf7 1262 mx-snapshot_23.11.dsc
- d50c86f584c73df8807c5197cdaaa5504739ce112dfdc54eba85143f00f599a8 253208 mx-snapshot_23.11.tar.xz
- be5a7c5aaa39136e8766bf20574378122748c83fc9b851fb6a8888e3c48b4f7a 272364 iso-snapshot-cli_23.11_amd64.deb
- d8096020aaa1f7a900aac86b22d0b80b2fcf528a96dbb51f9d84af05d3172e6a 10740 mx-snapshot_23.11_amd64.buildinfo
- 87aaab9bca249bc8d4fe9690615711948f4388c5b680e6f58cb75bdb0ff983e4 309560 mx-snapshot_23.11_amd64.deb
+ 2c0c9105e4ec6b719b1e9316eff0dc7575824e56f96795deeee36d4468e2734e 1262 mx-snapshot_23.11.dsc
+ 47f309f417d49e7abb73511b571c597310d722daa8c81bf8b014e58a789a11e4 256280 mx-snapshot_23.11.tar.xz
+ e3a47ea553c457d0bef2f2bef9a352508d2630267305a6d7bf77bbd33e3076cc 273608 iso-snapshot-cli_23.11_amd64.deb
+ 38ec4722b01b21818588aeb423c565fec67bf861a36f8a039592de52eb6f9b3a 11194 mx-snapshot_23.11_amd64.buildinfo
+ c7e037e62f02fc305819b56d26fd398da3fffd98e01a03a4c307738471ff3766 311084 mx-snapshot_23.11_amd64.deb
 Files:
- 263a338e9b3650026307e240ff0d0cdf 1262 admin optional mx-snapshot_23.11.dsc
- 7d227403a4448cb01131edc99f7edc78 253208 admin optional mx-snapshot_23.11.tar.xz
- 08af90725d86e68e7f943ef0265c7a57 272364 admin optional iso-snapshot-cli_23.11_amd64.deb
- 790c469afdc02464702d1a2fcff4651c 10740 admin optional mx-snapshot_23.11_amd64.buildinfo
- 2578dfaefedf68105cfe5e0d4bde0f34 309560 admin optional mx-snapshot_23.11_amd64.deb
+ 8de4f9c6dd4ee4933329e1620545e621 1262 admin optional mx-snapshot_23.11.dsc
+ 24705518c16ff1a7243189ce541cfc4e 256280 admin optional mx-snapshot_23.11.tar.xz
+ d9029cf1fb7fda2250bbd1faab349a9f 273608 admin optional iso-snapshot-cli_23.11_amd64.deb
+ b0f260cb24d853ebf5fe27e4e5e29e98 11194 admin optional mx-snapshot_23.11_amd64.buildinfo
+ 4053b5998933266270ab955ac04016ff 311084 admin optional mx-snapshot_23.11_amd64.deb
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRAJ8THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBTkCACj3OxryAm8YhxinpGeu3t/YyZyUilz
-9sPxc1mEIzT2/ganBjMcVPmTLku/RTo3jOlswVdjGmAsKC8bt2+VbD6T6LB83T3T
-pTpnLrq0fu3qgBNE+0D0+grZ6u1WZiNVFYEIBw4oUHqhess4YyT0x/eXg4Z4jy/2
-U0i+ASFpiIurc58LFDzDn8a5xaYRVbGund/nWUvjVkyTDlD1CzSwjUSyqJaawPCl
-82eWgDhszWQIPRsC9NbgTNc55iWk9n0tLvAA+xpA6e8EEIeFhREP6RxaL6F8uLid
-yHYCsviKpxDVCBcMbzy64w283fAwoSovkLboLiqdB00Nvzw2MiTaTCIC
-=/e2T
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRPvQTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumFnKCADIL32R+faSCm6f159tCpA13s1LgHjm
+FNkPwRlOo8hFeU5b4Kqp8MuXrfIfAtqbHqXa0HleqGaKLRxLz9dvjJW5C7EvfUJ6
+bPGjUF9L9e2djRYyyfHXr89WgINZKnLak2DblAWrfN5yO+1y+e/gTLpg8UqvZ6eq
+1DNt1+FLj+WiiM3IOV5itpLXH7/cWy0XYU0WCTNDkFLJRl0MTqbc5ilTY0ICqca7
+ORpqHXztIsEiJUXv6vUDOp5/rIu+IPaownbCABLVY8XFPmYmjkTWkoMLDk4/Yose
+wYnZtGdIv1rZC3jIuH4aPqRDINGOo23+OqQfUQqevSxjIKjZOi/BA1Ox
+=50ON
 -----END PGP SIGNATURE-----

@@ -24,77 +24,6 @@
         <translation>MX የ መመልከቻ ፎቶ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;የ መመልከቻ ፎቶ የ (ISO) ማስነሻ ምስል መፍጠሪያ መሳሪያ ነው: ከ እርስዎ የ መስሪያ ስርአት ውስጥ:  እርስዎ ሊጠቀሙበት የሚችሉት ለ ማጠራቀሚያ ወይንም ለ ስርጭት: እርስዎ መጠቀም መቀጠል ይችላሉ በርካታ ትኩረት የማይፈልግ መተግበሪያ ይህን በሚያስኬዱ ጊዜ&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>የ ተጠቀሙት ቦታ በ / (root) እና በ /ቤት ክፍልፋይ ውስጥ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>የ መመልከቻ ፎቶ አካባቢ: </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>የ ተለየ የ መመልከቻ ፎቶ ዳይሬክቶሪ ይምረጡ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>የ መመልከቻ ፎቶ ስም: </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>ስእሎች</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>ሙዚቃ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>ሁሉንም ከ ላይ ያሉ </translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>ሰነዶች</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>የ ወረዱ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>ዴስክቶፕ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>ቪዲዮ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>መግለጫ በ ማስቀመጥ ላይ (ለ ግል ተተኪ)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>የ መመልከቻ ፎቶ አይነት</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -135,9 +64,35 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;የ መመልከቻ ፎቶ የ (ISO) ማስነሻ ምስል መፍጠሪያ መሳሪያ ነው: ከ እርስዎ የ መስሪያ ስርአት ውስጥ:  እርስዎ ሊጠቀሙበት የሚችሉት ለ ማጠራቀሚያ ወይንም ለ ስርጭት: እርስዎ መጠቀም መቀጠል ይችላሉ በርካታ ትኩረት የማይፈልግ መተግበሪያ ይህን በሚያስኬዱ ጊዜ&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>የ ተጠቀሙት ቦታ በ / (root) እና በ /ቤት ክፍልፋይ ውስጥ</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>የ መመልከቻ ፎቶ አካባቢ: </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>የ ተለየ የ መመልከቻ ፎቶ ዳይሬክቶሪ ይምረጡ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>የ መመልከቻ ፎቶ ስም: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -153,6 +108,51 @@
         <location filename="../mainwindow.ui" line="439"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>ሁሉንም ከ ላይ ያሉ </translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>ስእሎች</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>ዴስክቶፕ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>ሙዚቃ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>የ ወረዱ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>ቪዲዮ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>ሰነዶች</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>የ መመልከቻ ፎቶ አይነት</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>መግለጫ በ ማስቀመጥ ላይ (ለ ግል ተተኪ)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>

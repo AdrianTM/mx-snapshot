@@ -24,117 +24,6 @@
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is een software-gereedschap waarmee een bootable  (ISO)-bestand van je werkend systeem kan worden gemaakt dat kan worden gebruikt als  opslag of distributie. Je kunt blijven doorwerken met niet al te zware applicaties terwijl mx-snapshot bezig is. &lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>Gebruikte ruimte op / (root) en /home partities:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>Snapshot locatie:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>Selecteer een andere snapshot folder</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>Snapshot naam:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="379"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>U kunt ook zekere directories uitsluiten door de algemene keuzes hieronder aan te vinken, of door op de knop te klikken om rechtstreeks /etc/mx-snapshot-exclude.list te bewerken.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>Afbeeldingen</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>Muziek</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>Al het bovenstaande</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>Documenten</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>Downloads</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>Desktop</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>Video&apos;s</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="436"/>
-        <source>exclude network configurations</source>
-        <translation>netwerkconfiguraties uitsluiten</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="439"/>
-        <source>Networks</source>
-        <translation>Netwerken</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>Account bewaren (voor persoonlijke backup)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>Type snapshot:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="563"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Deze optie zal &amp;quot;demo&amp;quot; en &amp;quot;root&amp;quot; wachtwoorden resetten naar de standaardwaarden van MX Linux en zal geen persoonlijke accounts die gecreëerd zijn kopieëren.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="566"/>
-        <source>Resetting accounts (for distribution to others)</source>
-        <translation>Accounts opnieuw instellen (voor distributie naar anderen)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="595"/>
-        <source>Edit Exclusion File</source>
-        <translation>Bewerk Exclusion Bestand</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>Opties:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>ISO compressieschema:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -175,9 +64,110 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is een software-gereedschap waarmee een bootable  (ISO)-bestand van je werkend systeem kan worden gemaakt dat kan worden gebruikt als  opslag of distributie. Je kunt blijven doorwerken met niet al te zware applicaties terwijl mx-snapshot bezig is. &lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>Gebruikte ruimte op / (root) en /home partities:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>Snapshot locatie:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>Selecteer een andere snapshot folder</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>Snapshot naam:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="379"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>U kunt ook zekere directories uitsluiten door de algemene keuzes hieronder aan te vinken, of door op de knop te klikken om rechtstreeks /etc/mx-snapshot-exclude.list te bewerken.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="436"/>
+        <source>exclude network configurations</source>
+        <translation>netwerkconfiguraties uitsluiten</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="439"/>
+        <source>Networks</source>
+        <translation>Netwerken</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>Al het bovenstaande</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>Afbeeldingen</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>Desktop</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>Muziek</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>Downloads</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>Video&apos;s</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>Documenten</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>Type snapshot:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>Account bewaren (voor persoonlijke backup)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="563"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Deze optie zal &amp;quot;demo&amp;quot; en &amp;quot;root&amp;quot; wachtwoorden resetten naar de standaardwaarden van MX Linux en zal geen persoonlijke accounts die gecreëerd zijn kopieëren.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="566"/>
+        <source>Resetting accounts (for distribution to others)</source>
+        <translation>Accounts opnieuw instellen (voor distributie naar anderen)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Edit Exclusion File</source>
+        <translation>Bewerk Exclusion Bestand</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -200,6 +190,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>ISO compressieschema:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
@@ -208,6 +203,11 @@
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>Opties:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -623,10 +623,6 @@
         <translation>U lijkt ingelogd te zijn als root, gelieve uit te loggen en in te loggen als normale gebruiker om dit programma te gebruiken.</translation>
     </message>
     <message>
-        <source>You must run this program with admin access.</source>
-        <translation type="vanished">Je moet dit programma uitvoeren met admin-toegang.</translation>
-    </message>
-    <message>
         <location filename="../main.cpp" line="162"/>
         <location filename="../main.cpp" line="202"/>
         <source>version:</source>
@@ -754,10 +750,6 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">Onderbroken of niet af kunnen maken</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>Licentie</translation>
@@ -795,7 +787,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">Onderbroken of niet af kunnen maken</translation>
+        <translation>Onderbroken of niet af kunnen maken</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

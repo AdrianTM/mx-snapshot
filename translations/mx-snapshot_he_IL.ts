@@ -105,6 +105,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="439"/>
+        <source>Networks</source>
+        <translation>רשתות</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="446"/>
         <source>All of the above</source>
         <translation type="unfinished"></translation>
@@ -115,14 +120,14 @@
         <translation>תמונות</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>שולחן עבודה</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="487"/>
         <source>Music</source>
         <translation>מוזיקה</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>מסמכים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
@@ -130,39 +135,19 @@
         <translation>הורדות</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>שולחן עבודה</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="501"/>
         <source>Videos</source>
         <translation>סרטונים</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="439"/>
-        <source>Networks</source>
-        <translation>רשתות</translation>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>מסמכים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
         <translation>סוג תמונת המצב:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="595"/>
-        <source>Edit Exclusion File</source>
-        <translation>עריכת קובץ החרגות</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>אפשרויות:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="685"/>
-        <source>md5</source>
-        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
@@ -178,6 +163,11 @@
         <location filename="../mainwindow.ui" line="566"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Edit Exclusion File</source>
+        <translation>עריכת קובץ החרגות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -208,6 +198,16 @@
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="685"/>
+        <source>md5</source>
+        <translation>md5</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>אפשרויות:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
