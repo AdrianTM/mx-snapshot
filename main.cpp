@@ -225,7 +225,7 @@ void messageHandler(QtMsgType type, const QMessageLogContext &context, const QSt
     QTextStream term_out(stdout);
 
     // Avoid saving endless mksquashfs output
-    if (msg.startsWith(QLatin1String("\r"))) {
+    if (msg.startsWith(QLatin1String("\r")) || msg.startsWith(QLatin1String("\033[2K"))) {
         term_out << msg;
         return;
     }

@@ -19,14 +19,14 @@ Changes:
    * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
          -- if you used to pass any of these options directly in .conf file might neet to remove those
 Checksums-Sha1:
- 1cda589463258100101c4a9b6a63c855f849598e 279304 iso-snapshot-cli_23.11_i386.deb
- 74e4fed546bacfb8d582567fa1e5893ba67c856f 10346 mx-snapshot_23.11_i386.buildinfo
- b304b53f7716fc812714910218be8aeaa020beea 317944 mx-snapshot_23.11_i386.deb
+ 03bc4d804c0f8e1809c56561e0ed1d61843d6127 279396 iso-snapshot-cli_23.11_i386.deb
+ d37e846d42a15fe355d94abe00d4b7113fc71594 10346 mx-snapshot_23.11_i386.buildinfo
+ 0923f806bdfbe465bf7ded6a06a57d5be360b3ba 317748 mx-snapshot_23.11_i386.deb
 Checksums-Sha256:
- 84fcb9230294de51b8bc36be35492eaa47ae87cb8f3802803e0524a4b2d0ed82 279304 iso-snapshot-cli_23.11_i386.deb
- dcdcd665f2eb0d2f4c2d06d09c7bfd8935c04e9dea8b951bdb6ec1bdfd8332e4 10346 mx-snapshot_23.11_i386.buildinfo
- 7ae8fe6b31f371db313cebe1edcf0f5383ee1d0421f4052eeda05487e993f1e7 317944 mx-snapshot_23.11_i386.deb
+ 2c00583a0c197fdcf103d4140eb8131776822198de22c73cbcbb9b928679bc6a 279396 iso-snapshot-cli_23.11_i386.deb
+ 53e30e9d4fcf6de7d12cddf1ffb2b74494dd0f83226166f4948918a207136d97 10346 mx-snapshot_23.11_i386.buildinfo
+ f52e65ff4ae613bf56d1a9f95859fa251feb26d10e07496c36d0b20c1d021656 317748 mx-snapshot_23.11_i386.deb
 Files:
- 30623f218b2d1cbc810115a19705fd43 279304 admin optional iso-snapshot-cli_23.11_i386.deb
- 44137a8012b513e740af6446806cda27 10346 admin optional mx-snapshot_23.11_i386.buildinfo
- e4a056274e8953ede49d1c29d2541c26 317944 admin optional mx-snapshot_23.11_i386.deb
+ e2f0237dd6a157d9830614f40849fdc7 279396 admin optional iso-snapshot-cli_23.11_i386.deb
+ f476dacb02a4d7eb274af1ecc06047b1 10346 admin optional mx-snapshot_23.11_i386.buildinfo
+ b47e7a378b49134d33ee599710767d57 317748 admin optional mx-snapshot_23.11_i386.deb

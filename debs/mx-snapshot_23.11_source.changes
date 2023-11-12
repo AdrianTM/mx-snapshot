@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.8
 Date: Sat, 11 Nov 2023 19:42:42 -0500
 Source: mx-snapshot
@@ -15,14 +18,26 @@ Changes:
    * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
          -- if you used to pass any of these options directly in .conf file might neet to remove those
 Checksums-Sha1:
- bb1977234f82f413caa086ca84e3dc54232aa976 700 mx-snapshot_23.11.dsc
- ab6a51f93acbf6b75d3d70a5876540a272b55eec 256332 mx-snapshot_23.11.tar.xz
- 8b6d6521b7345dc3398d7c66caeacb1b40680d11 10391 mx-snapshot_23.11_arm64.buildinfo
+ e0f3b6ad5069961792b95d192fda42a5f4c92714 1262 mx-snapshot_23.11.dsc
+ 65dbbf08800700b611383c3f547d149a99d8a1aa 256224 mx-snapshot_23.11.tar.xz
+ 1de4d330f5b6c12d82a8aa398e1452e229d96d6f 11194 mx-snapshot_23.11_amd64.buildinfo
 Checksums-Sha256:
- 19af581d35ea7b6bf14114492d94655a6aa8d5511a28217dc4e2276a171a500b 700 mx-snapshot_23.11.dsc
- c70c651248d640d2951cf94fc935dd1968491170a1e6b0eaa2a1271829f83566 256332 mx-snapshot_23.11.tar.xz
- 77f5a411e158e9fc52f77af7804192693e300ac485d9ce663441305b78c38bcb 10391 mx-snapshot_23.11_arm64.buildinfo
+ c96c512acd1520fdff80a665ce76ab7c732a8d35b0e515dce8490603a491ae07 1262 mx-snapshot_23.11.dsc
+ 321e38dc1f3e1b20476048a5372bb1601442d06c97b5b0e13994dd3077938c3e 256224 mx-snapshot_23.11.tar.xz
+ c7bbba9c3487e0204ea37cc82016cc7be7bf20e6f0252ae5a7876f61fbe82b4c 11194 mx-snapshot_23.11_amd64.buildinfo
 Files:
- 6ba7698f80ab1ff347e1eb1d833f6b54 700 admin optional mx-snapshot_23.11.dsc
- 54ad1e9b736ac166300adcf84142d4fd 256332 admin optional mx-snapshot_23.11.tar.xz
- c55ad33be82e16ce634d1cf49d8553e9 10391 admin optional mx-snapshot_23.11_arm64.buildinfo
+ eb72cd4d7f883ccebbc872d7bdc85cc1 1262 admin optional mx-snapshot_23.11.dsc
+ 66c4f02d88ec8aea5184cf4fce441e84 256224 admin optional mx-snapshot_23.11.tar.xz
+ 4aa29b3278ddce4b77304af70ac363f8 11194 admin optional mx-snapshot_23.11_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRRE4THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumIeSCAC5JC6JwWroEjfX5EL3JpI+WIT9V44b
+iXq6vjBJZEpQUKYjVd0lciEcc161G7QcOVfXXH/xla5RRcbq98rrugpiC6PoLrEa
+XovIN6YhJZySXWTKxSAW+0nAmCHVhAsBgjyBdn55d/H+Wf0x/C4mJlAvTK7/l9Av
+KhKNReb0hGOCn9/gjIU7nIVeKOU2A8ahBaU0jQ3e+KwJnkxkE1OP/e4BsWUPnISc
+hxsWee+o9t9YSN1yBSLyaJZ363FU11snWA5S71+CTmsNEHt21QRXOT278QiZ36gZ
+jF6hVIytpI5T7cRbmH6Xy7wlHCy/VZKmPRid4FZD/z90itHTySO7YNbM
+=b2pS
+-----END PGP SIGNATURE-----
