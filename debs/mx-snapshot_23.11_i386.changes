@@ -1,0 +1,32 @@
+Format: 1.8
+Date: Sat, 11 Nov 2023 19:42:42 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.11
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.11) mx; urgency=medium
+ .
+   * Run program as normal user and elevate only when needed
+   * Prioritize user settings over system settings. Settings available in ~/.conf/MX-Linux/ directory
+   * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
+         -- if you used to pass any of these options directly in .conf file might neet to remove those
+Checksums-Sha1:
+ 1cda589463258100101c4a9b6a63c855f849598e 279304 iso-snapshot-cli_23.11_i386.deb
+ 74e4fed546bacfb8d582567fa1e5893ba67c856f 10346 mx-snapshot_23.11_i386.buildinfo
+ b304b53f7716fc812714910218be8aeaa020beea 317944 mx-snapshot_23.11_i386.deb
+Checksums-Sha256:
+ 84fcb9230294de51b8bc36be35492eaa47ae87cb8f3802803e0524a4b2d0ed82 279304 iso-snapshot-cli_23.11_i386.deb
+ dcdcd665f2eb0d2f4c2d06d09c7bfd8935c04e9dea8b951bdb6ec1bdfd8332e4 10346 mx-snapshot_23.11_i386.buildinfo
+ 7ae8fe6b31f371db313cebe1edcf0f5383ee1d0421f4052eeda05487e993f1e7 317944 mx-snapshot_23.11_i386.deb
+Files:
+ 30623f218b2d1cbc810115a19705fd43 279304 admin optional iso-snapshot-cli_23.11_i386.deb
+ 44137a8012b513e740af6446806cda27 10346 admin optional mx-snapshot_23.11_i386.buildinfo
+ e4a056274e8953ede49d1c29d2541c26 317944 admin optional mx-snapshot_23.11_i386.deb

@@ -24,117 +24,6 @@
         <translation>एमएक्स स्नैपशॉट</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;स्नैपशॉट एक साधन जिसके द्वारा आप संचय व वितरण हेतु अपने कार्यरत सिस्टम की बूट योग्य फाइल (आईएसओ) निर्मित कर सकते हैं। प्रक्रिया के दौरान आप सिस्टम पर सरल अनुप्रयोग उपयोग करना जारी रख सकते हैं।&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="205"/>
-        <source>Used space on / (root) and /home partitions:</source>
-        <translation>/ (रुट) व /home विभाजनों पर प्रयुक्त स्पेस :</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="242"/>
-        <source>Snapshot location:</source>
-        <translation>स्नैपशॉट फोल्डर :</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="249"/>
-        <source>Select a different snapshot directory</source>
-        <translation>विभिन्न स्नैपशॉट डायरेक्टरी चुनें</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
-        <source>Snapshot name:</source>
-        <translation>स्नैपशॉट नाम :</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="379"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>इच्छित डायरेक्टरी अपवर्जन हेतु नीचे दी गई सूची से उन्हें चिन्हित करें या बटन पर क्लिक द्वारा /etc/mx-snapshot-exclude.list संपादित करें।</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="453"/>
-        <source>Pictures</source>
-        <translation>चित्र</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="487"/>
-        <source>Music</source>
-        <translation>संगीत</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="446"/>
-        <source>All of the above</source>
-        <translation>ऊपर दिए सभी</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="508"/>
-        <source>Documents</source>
-        <translation>प्रलेख</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="494"/>
-        <source>Downloads</source>
-        <translation>डाउनलोड</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="470"/>
-        <source>Desktop</source>
-        <translation>डेस्कटॉप</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="501"/>
-        <source>Videos</source>
-        <translation>वीडियो</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="436"/>
-        <source>exclude network configurations</source>
-        <translation>अपवर्जित नेटवर्क विन्यास</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="439"/>
-        <source>Networks</source>
-        <translation>नेटवर्क</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="553"/>
-        <source>Preserving accounts (for personal backup)</source>
-        <translation>अकाउंट संरक्षण (व्यक्तिगत बैकअप हेतु)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="546"/>
-        <source>Type of snapshot:</source>
-        <translation>स्नैपशॉट प्रकार :</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="563"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;इस विकल्प से &amp;quot;डेमो&amp;quot; व &amp;quot;रूट&amp;quot; कूटशब्द एमएक्स लिनक्स डिफ़ॉल्ट पर सेट होंगे व बनाया गया कोई भी व्यक्तिगत अकाउंट कॉपी नहीं होगा।&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="566"/>
-        <source>Resetting accounts (for distribution to others)</source>
-        <translation>अकाउंट पुनः सेट करना जारी (अन्य को वितरण हेतु)</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="595"/>
-        <source>Edit Exclusion File</source>
-        <translation>अपवर्जन फाइल का संपादन</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="695"/>
-        <source>Options:</source>
-        <translation>विकल्प :</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="671"/>
-        <source>ISO compression scheme:</source>
-        <translation>आईएसओ संपीड़न विधि :</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
@@ -175,9 +64,110 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="195"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;स्नैपशॉट एक साधन जिसके द्वारा आप संचय व वितरण हेतु अपने कार्यरत सिस्टम की बूट योग्य फाइल (आईएसओ) निर्मित कर सकते हैं। प्रक्रिया के दौरान आप सिस्टम पर सरल अनुप्रयोग उपयोग करना जारी रख सकते हैं।&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="205"/>
+        <source>Used space on / (root) and /home partitions:</source>
+        <translation>/ (रुट) व /home विभाजनों पर प्रयुक्त स्पेस :</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="242"/>
+        <source>Snapshot location:</source>
+        <translation>स्नैपशॉट फोल्डर :</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="249"/>
+        <source>Select a different snapshot directory</source>
+        <translation>विभिन्न स्नैपशॉट डायरेक्टरी चुनें</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="260"/>
+        <location filename="../mainwindow.cpp" line="338"/>
+        <source>Snapshot name:</source>
+        <translation>स्नैपशॉट नाम :</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="379"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>इच्छित डायरेक्टरी अपवर्जन हेतु नीचे दी गई सूची से उन्हें चिन्हित करें या बटन पर क्लिक द्वारा /etc/mx-snapshot-exclude.list संपादित करें।</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="436"/>
+        <source>exclude network configurations</source>
+        <translation>अपवर्जित नेटवर्क विन्यास</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="439"/>
+        <source>Networks</source>
+        <translation>नेटवर्क</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="446"/>
+        <source>All of the above</source>
+        <translation>ऊपर दिए सभी</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="453"/>
+        <source>Pictures</source>
+        <translation>चित्र</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="470"/>
+        <source>Desktop</source>
+        <translation>डेस्कटॉप</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="487"/>
+        <source>Music</source>
+        <translation>संगीत</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="494"/>
+        <source>Downloads</source>
+        <translation>डाउनलोड</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="501"/>
+        <source>Videos</source>
+        <translation>वीडियो</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="508"/>
+        <source>Documents</source>
+        <translation>प्रलेख</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="546"/>
+        <source>Type of snapshot:</source>
+        <translation>स्नैपशॉट प्रकार :</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="553"/>
+        <source>Preserving accounts (for personal backup)</source>
+        <translation>अकाउंट संरक्षण (व्यक्तिगत बैकअप हेतु)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="563"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;इस विकल्प से &amp;quot;डेमो&amp;quot; व &amp;quot;रूट&amp;quot; कूटशब्द एमएक्स लिनक्स डिफ़ॉल्ट पर सेट होंगे व बनाया गया कोई भी व्यक्तिगत अकाउंट कॉपी नहीं होगा।&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="566"/>
+        <source>Resetting accounts (for distribution to others)</source>
+        <translation>अकाउंट पुनः सेट करना जारी (अन्य को वितरण हेतु)</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="595"/>
+        <source>Edit Exclusion File</source>
+        <translation>अपवर्जन फाइल का संपादन</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -200,6 +190,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="671"/>
+        <source>ISO compression scheme:</source>
+        <translation>आईएसओ संपीड़न विधि :</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
@@ -208,6 +203,11 @@
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="695"/>
+        <source>Options:</source>
+        <translation>विकल्प :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="842"/>
@@ -749,10 +749,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Interrupted or failed to complete</source>
-        <translation type="vanished">बाधित या पूर्ण होने विफल</translation>
-    </message>
-    <message>
         <location filename="../about.cpp" line="51"/>
         <source>License</source>
         <translation>लाइसेंस</translation>
@@ -790,7 +786,7 @@
     <message>
         <location filename="../work.cpp" line="103"/>
         <source>Interrupted or failed to complete</source>
-        <translation type="unfinished">बाधित या पूर्ण होने विफल</translation>
+        <translation>बाधित या पूर्ण होने विफल</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>

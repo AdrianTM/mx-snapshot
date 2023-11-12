@@ -1,6 +1,3 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Format: 1.8
 Date: Sat, 11 Nov 2023 19:42:42 -0500
 Source: mx-snapshot
@@ -18,26 +15,14 @@ Changes:
    * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
          -- if you used to pass any of these options directly in .conf file might neet to remove those
 Checksums-Sha1:
- cf1ffb1d0b83ad9939dbaff7f796606a5a9bfecb 1262 mx-snapshot_23.11.dsc
- 7481412f63a7ebb674f9750d49798e404b8953c5 253208 mx-snapshot_23.11.tar.xz
- b0b8ce10d4f79e43dee877fcf0d2150409e2f95f 10740 mx-snapshot_23.11_amd64.buildinfo
+ bb1977234f82f413caa086ca84e3dc54232aa976 700 mx-snapshot_23.11.dsc
+ ab6a51f93acbf6b75d3d70a5876540a272b55eec 256332 mx-snapshot_23.11.tar.xz
+ 8b6d6521b7345dc3398d7c66caeacb1b40680d11 10391 mx-snapshot_23.11_arm64.buildinfo
 Checksums-Sha256:
- fa5b84ab5784e2ca41b80180a9c722ffe3bdbf39d6751380d452d581f4e5acf7 1262 mx-snapshot_23.11.dsc
- d50c86f584c73df8807c5197cdaaa5504739ce112dfdc54eba85143f00f599a8 253208 mx-snapshot_23.11.tar.xz
- d8096020aaa1f7a900aac86b22d0b80b2fcf528a96dbb51f9d84af05d3172e6a 10740 mx-snapshot_23.11_amd64.buildinfo
+ 19af581d35ea7b6bf14114492d94655a6aa8d5511a28217dc4e2276a171a500b 700 mx-snapshot_23.11.dsc
+ c70c651248d640d2951cf94fc935dd1968491170a1e6b0eaa2a1271829f83566 256332 mx-snapshot_23.11.tar.xz
+ 77f5a411e158e9fc52f77af7804192693e300ac485d9ce663441305b78c38bcb 10391 mx-snapshot_23.11_arm64.buildinfo
 Files:
- 263a338e9b3650026307e240ff0d0cdf 1262 admin optional mx-snapshot_23.11.dsc
- 7d227403a4448cb01131edc99f7edc78 253208 admin optional mx-snapshot_23.11.tar.xz
- 790c469afdc02464702d1a2fcff4651c 10740 admin optional mx-snapshot_23.11_amd64.buildinfo
-
------BEGIN PGP SIGNATURE-----
-
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRAJ8THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumHWCB/9yHmr7gGhWao1o0SfXwyUlwfPV1+Yf
-a6Id3GyXy0M90e1hZVqNULtA1YkFm8Qr7evsMAzOUgzfVehNXz2ApkM5szuvqrh/
-y6JshLEfh+pw7XSWoISJQNy+D5UZxB6vMxWb/xJTuWcfNTlveMU8qcQGcxMFtt/l
-zxbpePLzxy7ZjRwZ6TX0kR4P0tp8Z9xRDGzwsDOIpx2DPHENlprs720vIWad3rpg
-RfHyNVxZhG5U8ivtcJsQdhAB9U+ZqPVzPX6YK4sJe5RXR6z2yT9F/bKrybNHp4fl
-WhRmveaRkxqgO4567v3e0944L+lxRr4LakEHNjRxW+HZjEsOa44uxZ49
-=bAah
------END PGP SIGNATURE-----
+ 6ba7698f80ab1ff347e1eb1d833f6b54 700 admin optional mx-snapshot_23.11.dsc
+ 54ad1e9b736ac166300adcf84142d4fd 256332 admin optional mx-snapshot_23.11.tar.xz
+ c55ad33be82e16ce634d1cf49d8553e9 10391 admin optional mx-snapshot_23.11_arm64.buildinfo
