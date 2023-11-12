@@ -1,0 +1,53 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sat, 11 Nov 2023 19:42:42 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: source amd64
+Version: 23.11
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.11) mx; urgency=medium
+ .
+   * Run program as normal user and elevate only when needed
+   * Prioritize user settings over system settings. Settings available in ~/.conf/MX-Linux/ directory
+   * Added -processors and -throttle options in the GUI and CLI arguments, see --help for CLI args
+         -- if you used to pass any of these options directly in .conf file might neet to remove those
+Checksums-Sha1:
+ cf1ffb1d0b83ad9939dbaff7f796606a5a9bfecb 1262 mx-snapshot_23.11.dsc
+ 7481412f63a7ebb674f9750d49798e404b8953c5 253208 mx-snapshot_23.11.tar.xz
+ 67a513845a198b590b013c134755cb3ede491003 272364 iso-snapshot-cli_23.11_amd64.deb
+ b0b8ce10d4f79e43dee877fcf0d2150409e2f95f 10740 mx-snapshot_23.11_amd64.buildinfo
+ 2280d5e8d81f4671d6f0c961eb36e689b94f7212 309560 mx-snapshot_23.11_amd64.deb
+Checksums-Sha256:
+ fa5b84ab5784e2ca41b80180a9c722ffe3bdbf39d6751380d452d581f4e5acf7 1262 mx-snapshot_23.11.dsc
+ d50c86f584c73df8807c5197cdaaa5504739ce112dfdc54eba85143f00f599a8 253208 mx-snapshot_23.11.tar.xz
+ be5a7c5aaa39136e8766bf20574378122748c83fc9b851fb6a8888e3c48b4f7a 272364 iso-snapshot-cli_23.11_amd64.deb
+ d8096020aaa1f7a900aac86b22d0b80b2fcf528a96dbb51f9d84af05d3172e6a 10740 mx-snapshot_23.11_amd64.buildinfo
+ 87aaab9bca249bc8d4fe9690615711948f4388c5b680e6f58cb75bdb0ff983e4 309560 mx-snapshot_23.11_amd64.deb
+Files:
+ 263a338e9b3650026307e240ff0d0cdf 1262 admin optional mx-snapshot_23.11.dsc
+ 7d227403a4448cb01131edc99f7edc78 253208 admin optional mx-snapshot_23.11.tar.xz
+ 08af90725d86e68e7f943ef0265c7a57 272364 admin optional iso-snapshot-cli_23.11_amd64.deb
+ 790c469afdc02464702d1a2fcff4651c 10740 admin optional mx-snapshot_23.11_amd64.buildinfo
+ 2578dfaefedf68105cfe5e0d4bde0f34 309560 admin optional mx-snapshot_23.11_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRAJ8THGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumBTkCACj3OxryAm8YhxinpGeu3t/YyZyUilz
+9sPxc1mEIzT2/ganBjMcVPmTLku/RTo3jOlswVdjGmAsKC8bt2+VbD6T6LB83T3T
+pTpnLrq0fu3qgBNE+0D0+grZ6u1WZiNVFYEIBw4oUHqhess4YyT0x/eXg4Z4jy/2
+U0i+ASFpiIurc58LFDzDn8a5xaYRVbGund/nWUvjVkyTDlD1CzSwjUSyqJaawPCl
+82eWgDhszWQIPRsC9NbgTNc55iWk9n0tLvAA+xpA6e8EEIeFhREP6RxaL6F8uLid
+yHYCsviKpxDVCBcMbzy64w283fAwoSovkLboLiqdB00Nvzw2MiTaTCIC
+=/e2T
+-----END PGP SIGNATURE-----
