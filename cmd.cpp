@@ -59,5 +59,5 @@ bool Cmd::runAsRoot(const QString &cmd, bool quiet)
 
 QString Cmd::readAllOutput()
 {
-    return out_buffer;
+    return out_buffer.trimmed();
 }
