@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="169"/>
-        <location filename="../mainwindow.cpp" line="436"/>
+        <location filename="../mainwindow.cpp" line="168"/>
+        <location filename="../mainwindow.cpp" line="435"/>
         <source>MX Snapshot</source>
         <translation>MX ISO-bilde</translation>
     </message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="337"/>
         <source>Snapshot name:</source>
         <translation>Bildets navn:</translation>
     </message>
@@ -176,126 +176,116 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="651"/>
-        <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
         <source>Calculate checksums:</source>
         <translation>Beregn sjekksummer:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="671"/>
+        <location filename="../mainwindow.ui" line="658"/>
         <source>ISO compression scheme:</source>
         <translation>Komprimeringstype for ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="678"/>
+        <location filename="../mainwindow.ui" line="665"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="685"/>
+        <location filename="../mainwindow.ui" line="672"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="695"/>
+        <location filename="../mainwindow.ui" line="679"/>
         <source>Options:</source>
         <translation>Valg:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="842"/>
+        <location filename="../mainwindow.ui" line="826"/>
         <source>About this application</source>
         <translation>Om programmet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="845"/>
+        <location filename="../mainwindow.ui" line="829"/>
         <source>About...</source>
         <translation>Om …</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="852"/>
+        <location filename="../mainwindow.ui" line="836"/>
         <source>Alt+B</source>
         <translation>Alt + B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="868"/>
+        <location filename="../mainwindow.ui" line="852"/>
         <source>Quit application</source>
         <translation>Avslutt programmet</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="871"/>
+        <location filename="../mainwindow.ui" line="855"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="878"/>
+        <location filename="../mainwindow.ui" line="862"/>
         <source>Alt+N</source>
         <translation>Alt + N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="910"/>
+        <location filename="../mainwindow.ui" line="894"/>
         <source>Next</source>
         <translation>Neste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="958"/>
+        <location filename="../mainwindow.ui" line="942"/>
         <source>Back</source>
         <translation>Tilbake</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="975"/>
+        <location filename="../mainwindow.ui" line="959"/>
         <source>Display help </source>
         <translation>Vis hjelp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="978"/>
+        <location filename="../mainwindow.ui" line="962"/>
         <source>Help</source>
         <translation>Hjelp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="985"/>
+        <location filename="../mainwindow.ui" line="969"/>
         <source>Alt+H</source>
         <translation>Alt + H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="175"/>
+        <location filename="../mainwindow.cpp" line="174"/>
         <source>fastest, worst compression</source>
         <translation>raskest, dårligst komprimering</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="175"/>
+        <location filename="../mainwindow.cpp" line="174"/>
         <source>fast, worse compression</source>
         <translation>rask, dårlig komprimering</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="176"/>
+        <location filename="../mainwindow.cpp" line="175"/>
         <source>slow, better compression</source>
         <translation>treig, bedre komprimering</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="176"/>
+        <location filename="../mainwindow.cpp" line="175"/>
         <source>best compromise</source>
         <translation>beste kompromiss</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>slowest, best compression</source>
         <translation>treigeste, beste komprimering</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="202"/>
+        <location filename="../mainwindow.cpp" line="201"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ledig plass på %1, der mappa til ISO-bildet legges:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="205"/>
+        <location filename="../mainwindow.cpp" line="204"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -306,161 +296,161 @@
     %1 ISO-bilder bruker %2 diskplass.</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="216"/>
         <location filename="../mainwindow.cpp" line="217"/>
-        <location filename="../mainwindow.cpp" line="218"/>
         <source>Installing </source>
         <translation>Installerer</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="306"/>
+        <location filename="../mainwindow.cpp" line="305"/>
         <source>Please wait.</source>
         <translation>Vennligst vent.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="308"/>
+        <location filename="../mainwindow.cpp" line="307"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Vennligst vent. Beregner brukt diskplass …</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="322"/>
-        <location filename="../mainwindow.cpp" line="349"/>
-        <location filename="../mainwindow.cpp" line="380"/>
-        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="321"/>
+        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="379"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="323"/>
+        <location filename="../mainwindow.cpp" line="322"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Utfila %1 finnes allerede. Velg et annet filnavn eller slett eksisterende fil.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="330"/>
+        <location filename="../mainwindow.cpp" line="329"/>
         <source>Settings</source>
         <translation>Innstillinger</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="335"/>
+        <location filename="../mainwindow.cpp" line="334"/>
         <source>Snapshot will use the following settings:</source>
         <translation>ISO-bilde vil bruke de følgende innstillingene:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="337"/>
+        <location filename="../mainwindow.cpp" line="336"/>
         <source>- Snapshot directory:</source>
         <translation>– ISO-bildets mappe:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="338"/>
+        <location filename="../mainwindow.cpp" line="337"/>
         <source>- Kernel to be used:</source>
         <translation>– Kjerne som skal brukes:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="350"/>
+        <location filename="../mainwindow.cpp" line="349"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Den gjeldende kjernen støtter ikke valgt komprimeringsalgoritme. Rediger oppsettsfila og velg en annen algoritme.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="356"/>
         <source>Final chance</source>
         <translation>Siste sjanse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="359"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Programmet har nå all nødvendig informasjon for å kunne opprette et ISO-bilde av det kjørende systemet.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="359"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Dette vil ta noe tid, avhengig av størrelsen til det installerte systemet og hvor kraftig datamaskinen er.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="362"/>
+        <location filename="../mainwindow.cpp" line="361"/>
         <source>OK to start?</source>
         <translation>Klar til start?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="365"/>
         <source>Shutdown computer when done.</source>
         <translation>Slå av datamaskinen ved fullføring.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="380"/>
+        <location filename="../mainwindow.cpp" line="379"/>
         <source>Could not create working directory. </source>
         <translation>Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source>Could not create temporary directory. </source>
         <translation>Klarte ikke å opprette midlertidig mappe.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="391"/>
         <source>Output</source>
         <translation>Utdata</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="405"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Edit Boot Menu</source>
         <translation>Rediger oppstartsmeny</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="406"/>
+        <location filename="../mainwindow.cpp" line="405"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programmet vil nå pause slik at du kan redigere filer i arbeidsmappa. Velg «Ja» for å redigere oppstartsmenyen eller «Nei» for å hoppe over dette trinnet og fortsette med opprettelsen av ISO-bildet.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="419"/>
+        <location filename="../mainwindow.cpp" line="418"/>
         <source>Close</source>
         <translation>Lukk</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="427"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>Select kernel</source>
         <translation>Velg kjerne</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="518"/>
+        <location filename="../mainwindow.cpp" line="517"/>
         <source>About %1</source>
         <translation>Om %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="520"/>
+        <location filename="../mainwindow.cpp" line="519"/>
         <source>Version: </source>
         <translation>Versjon:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="521"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program for å opprette en live-CD for det kjørende systemet, for MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="523"/>
+        <location filename="../mainwindow.cpp" line="522"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Opphavsrett (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="525"/>
+        <location filename="../mainwindow.cpp" line="524"/>
         <source>%1 License</source>
         <translation>Lisens for %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="539"/>
+        <location filename="../mainwindow.cpp" line="538"/>
         <source>%1 Help</source>
         <translation>Hjelpetekst for %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="544"/>
+        <location filename="../mainwindow.cpp" line="543"/>
         <source>Select Snapshot Directory</source>
         <translation>Velg mappe for ISO-bilde</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="565"/>
+        <location filename="../mainwindow.cpp" line="564"/>
         <source>Confirmation</source>
         <translation>Bekreft</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="565"/>
+        <location filename="../mainwindow.cpp" line="564"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Vil du virkelig avslutte dette programmet?</translation>
     </message>
@@ -489,7 +479,6 @@
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
-        <location filename="../main.cpp" line="111"/>
         <source>number</source>
         <translation type="unfinished"></translation>
     </message>
@@ -500,7 +489,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
-        <location filename="../main.cpp" line="112"/>
+        <location filename="../main.cpp" line="108"/>
         <source>path</source>
         <translation>sti</translation>
     </message>
@@ -580,83 +569,78 @@
         <translation>Hopp over beregning av ledig diskplass for å sjekke om resulterende ISO vil passe</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="109"/>
-        <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="112"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Work directory</source>
         <translation>Arbeidsmappe</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="114"/>
+        <location filename="../main.cpp" line="110"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Utelat hovedmapper; gyldige alternativer:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="112"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Bruk alternativet én gang for hvert element som skal utelates</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="117"/>
+        <location filename="../main.cpp" line="113"/>
         <source>one item</source>
         <translation>ett element</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="115"/>
         <source>Compression format, valid choices: </source>
         <translation>Komprimeringsformat; gyldige alternativer:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="120"/>
+        <location filename="../main.cpp" line="116"/>
         <source>format</source>
         <translation>format</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="117"/>
         <source>Shutdown computer when done.</source>
         <translation>Slå av datamaskinen ved fullføring.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="139"/>
-        <location filename="../main.cpp" line="149"/>
-        <location filename="../main.cpp" line="190"/>
+        <location filename="../main.cpp" line="135"/>
+        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="186"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Du er innlogget som root. Vennligst logg ut, og logg inn igjen som en vanlig bruker for å bruke dette programmet.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="162"/>
-        <location filename="../main.cpp" line="202"/>
+        <location filename="../main.cpp" line="158"/>
+        <location filename="../main.cpp" line="198"/>
         <source>version:</source>
         <translation>versjon:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="171"/>
-        <location filename="../main.cpp" line="197"/>
+        <location filename="../main.cpp" line="167"/>
+        <location filename="../main.cpp" line="193"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Dette programmet må kjøres med sudo eller pkexec.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="181"/>
+        <location filename="../main.cpp" line="177"/>
         <source>MX Snapshot</source>
         <translation>MX ISO-bilde</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="189"/>
-        <location filename="../main.cpp" line="196"/>
-        <location filename="../main.cpp" line="289"/>
+        <location filename="../main.cpp" line="185"/>
+        <location filename="../main.cpp" line="192"/>
+        <location filename="../main.cpp" line="285"/>
         <location filename="../settings.cpp" line="250"/>
         <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="718"/>
-        <location filename="../settings.cpp" line="814"/>
+        <location filename="../settings.cpp" line="717"/>
+        <location filename="../settings.cpp" line="804"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="283"/>
-        <location filename="../main.cpp" line="285"/>
+        <location filename="../main.cpp" line="279"/>
+        <location filename="../main.cpp" line="281"/>
         <location filename="../settings.cpp" line="259"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Gjeldende kjerne støtter ikke Squashfs. Kan ikke fortsette.</translation>
@@ -747,8 +731,8 @@
         <translation>Videoer</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="711"/>
-        <location filename="../settings.cpp" line="807"/>
+        <location filename="../settings.cpp" line="710"/>
+        <location filename="../settings.cpp" line="797"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Utfila %1 finnes allerede. Velg et annet filnavn eller slett eksisterende fil.</translation>
     </message>
@@ -783,7 +767,7 @@
     </message>
     <message>
         <location filename="../work.cpp" line="93"/>
-        <location filename="../work.cpp" line="277"/>
+        <location filename="../work.cpp" line="276"/>
         <source>Done</source>
         <translation>Ferdig</translation>
     </message>
@@ -794,10 +778,10 @@
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>
-        <location filename="../work.cpp" line="233"/>
-        <location filename="../work.cpp" line="256"/>
-        <location filename="../work.cpp" line="295"/>
-        <location filename="../work.cpp" line="409"/>
+        <location filename="../work.cpp" line="232"/>
+        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="294"/>
+        <location filename="../work.cpp" line="408"/>
         <source>Error</source>
         <translation>Feil</translation>
     </message>
@@ -827,82 +811,82 @@
         <translation>Klarte ikke å opprette midlertidig mappe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="231"/>
+        <location filename="../work.cpp" line="230"/>
         <source>Squashing filesystem...</source>
         <translation>Pakker filsystemet …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="234"/>
+        <location filename="../work.cpp" line="233"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Klarte ikke å opprette linuxfs-fil. Se etter om det er nok ledig plass på målpartisjonen.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="253"/>
+        <location filename="../work.cpp" line="252"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Oppretter CD-/DVD-bildefil …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="257"/>
+        <location filename="../work.cpp" line="256"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Klarte ikke å opprette ISO-fil. Se etter om det er nok ledig plass på målpartisjonen.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="262"/>
         <source>Making hybrid iso</source>
         <translation>Lager hybrid-ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="281"/>
         <source>Success</source>
         <translation>Vellykket</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="282"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Opprettet ISO-bilde </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Tidsbruk %1.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="284"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Takk for at du brukte MX ISO-bilde – nå kan du kjøre MX Live-USB.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="292"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Installing </source>
         <translation>Installerer</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="295"/>
+        <location filename="../work.cpp" line="294"/>
         <source>Could not install </source>
         <translation>Klarte ikke å installere</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="305"/>
+        <location filename="../work.cpp" line="304"/>
         <source>Calculating checksum...</source>
         <translation>Beregner sjekksum …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="344"/>
+        <location filename="../work.cpp" line="343"/>
         <source>Building new initrd...</source>
         <translation>Bygger ny initrd …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="409"/>
         <source>Could not create working directory. </source>
         <translation>Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="552"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beregner den totale størrelsen til utelukkede filer …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="563"/>
         <source>Calculating size of root...</source>
         <translation>Beregner størrelsen til root …</translation>
     </message>

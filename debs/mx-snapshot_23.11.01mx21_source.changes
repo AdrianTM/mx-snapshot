@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Sun, 12 Nov 2023 21:21:29 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.11.01mx21
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.11.01mx21) mx; urgency=medium
+ .
+   * Fix for Bullseys distro, remove -throttle option (not available in older mksquasfs)
+Checksums-Sha1:
+ 83602c94fc3f82f719f5c75cc30c5d6c513798d8 728 mx-snapshot_23.11.01mx21.dsc
+ 1892ea9e5deab1a5dfd8f98db1046dca6a405494 254380 mx-snapshot_23.11.01mx21.tar.xz
+ 759ef9f353fb1c18a23eb84847a0dcd815b15c01 10447 mx-snapshot_23.11.01mx21_arm64.buildinfo
+Checksums-Sha256:
+ 30dce30478678b080cab9e728b581b8c36b915587760141c73bddcab7a0e80bf 728 mx-snapshot_23.11.01mx21.dsc
+ d50d3bd597bf21caaf77f80c76294f2089e8dd7235e7172bd131d0a5f018a8e9 254380 mx-snapshot_23.11.01mx21.tar.xz
+ a5819f0dc18e9d76f9d4be4d53d6ea43ddeaab842cbb9a95755c65bbcc89b51b 10447 mx-snapshot_23.11.01mx21_arm64.buildinfo
+Files:
+ 38218c969d9e1484288dfaef8756b9c0 728 admin optional mx-snapshot_23.11.01mx21.dsc
+ 6c9fb1052d8675f3304bd948ca737648 254380 admin optional mx-snapshot_23.11.01mx21.tar.xz
+ d973da96eb6d908eb4ea61bffa127f65 10447 admin optional mx-snapshot_23.11.01mx21_arm64.buildinfo

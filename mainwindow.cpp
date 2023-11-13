@@ -96,7 +96,6 @@ void MainWindow::setOtherOptions()
     ui->radioRespin->setChecked(reset_accounts);
     ui->spinCPU->setMaximum(static_cast<int>(max_cores));
     ui->spinCPU->setValue(static_cast<int>(cores));
-    ui->spinThrottle->setValue(static_cast<int>(throttle));
 }
 
 void MainWindow::setConnections()
@@ -636,10 +635,4 @@ void MainWindow::on_spinCPU_valueChanged(int arg1)
 {
     settings.setValue("cores", arg1);
     cores = arg1;
-}
-
-void MainWindow::on_spinThrottle_valueChanged(int arg1)
-{
-    settings.setValue("throttle", arg1);
-    throttle = arg1;
 }

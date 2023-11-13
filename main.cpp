@@ -105,10 +105,6 @@ int main(int argc, char *argv[])
         {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels")});
     parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
     parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
-    parser.addOption({{"t", "throttle"},
-                      QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the "
-                                  "I/O and CPU consumption of Mksquashfs."),
-                      QObject::tr("number")});
     parser.addOption({{"w", "workdir"}, QObject::tr("Work directory"), QObject::tr("path")});
     parser.addOption({{"x", "exclude"},
                       QObject::tr("Exclude main folders, valid choices: ")

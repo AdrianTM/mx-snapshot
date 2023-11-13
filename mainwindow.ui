@@ -645,19 +645,6 @@ color: rgb(0, 0, 0);</string>
             </property>
            </widget>
           </item>
-          <item row="3" column="5">
-           <widget class="QLabel" name="label_5">
-            <property name="toolTip">
-             <string>Throttle the I/O input rate by the given percentage.</string>
-            </property>
-            <property name="lineWidth">
-             <number>1</number>
-            </property>
-            <property name="text">
-             <string>I/O throttle:</string>
-            </property>
-           </widget>
-          </item>
           <item row="3" column="0">
            <widget class="QLabel" name="label_4">
             <property name="text">
@@ -685,9 +672,6 @@ color: rgb(0, 0, 0);</string>
              <string>md5</string>
             </property>
            </widget>
-          </item>
-          <item row="3" column="6">
-           <widget class="QSpinBox" name="spinThrottle"/>
           </item>
           <item row="0" column="0">
            <widget class="QLabel" name="label_3">

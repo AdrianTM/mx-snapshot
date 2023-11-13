@@ -97,7 +97,6 @@ public:
     quint64 home_size {};
     quint64 root_size {};
     uint cores {};
-    uint throttle {};
 
     [[nodiscard]] QString getEditor() const;
     [[nodiscard]] QString getFilename() const;

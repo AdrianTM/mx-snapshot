@@ -649,7 +649,6 @@ void Settings::loadConfig()
     force_installer = settingsUser.value("force_installer", "true").toBool();
     tempdir_parent = settingsUser.value("workdir").toString();
     cores = settingsUser.value("cores", max_cores).toUInt();
-    throttle = settingsUser.value("throttle", 0).toUInt();
     reset_accounts = false;
 }
 
@@ -750,15 +749,6 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
             qDebug() << "Invalid number of cores argument, will use the default:" << cores;
         } else {
             cores = val;
-        }
-    }
-    if (!arg_parser.value("throttle").isEmpty()) {
-        bool ok {false};
-        uint val = arg_parser.value("throttle").toUInt(&ok);
-        if (!ok || val > 99) {
-            qDebug() << "Invalid argument for throttle, will use the default:" << throttle;
-        } else {
-            throttle = val;
         }
     }
     selectKernel();

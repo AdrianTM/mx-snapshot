@@ -95,7 +95,6 @@ private slots:
     void excludeVideos_toggled(bool checked);
     void excludeVirtualBox_toggled(bool checked);
     void on_spinCPU_valueChanged(int arg1);
-    void on_spinThrottle_valueChanged(int arg1);
     void radioPersonal_clicked(bool checked);
     void radioRespin_toggled(bool checked);
 

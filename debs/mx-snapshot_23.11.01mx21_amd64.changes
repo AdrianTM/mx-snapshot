@@ -1,0 +1,50 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+Format: 1.8
+Date: Sun, 12 Nov 2023 21:21:29 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: source amd64
+Version: 23.11.01mx21
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.11.01mx21) mx; urgency=medium
+ .
+   * Fix for Bullseys distro, remove -throttle option (not available in older mksquasfs)
+Checksums-Sha1:
+ e203e16636bf201de8c03a5af3e36b1b012ed6ea 1290 mx-snapshot_23.11.01mx21.dsc
+ c7ab87ef6602bbbfa8ef52d8c06094deaa498832 254196 mx-snapshot_23.11.01mx21.tar.xz
+ 5f46e7f89cf87609cc5e6467d1352bdd106a3173 273136 iso-snapshot-cli_23.11.01mx21_amd64.deb
+ 11f7e42b2c448c00698e31a9ec5bd144c3505b4d 11271 mx-snapshot_23.11.01mx21_amd64.buildinfo
+ 56f3ead71dfaed575394ecf4c637c4d96ac34758 310148 mx-snapshot_23.11.01mx21_amd64.deb
+Checksums-Sha256:
+ db2fb235c0eba18453b277a0cd474fa95e3adf7c9cea1bcd1c40626a15a17728 1290 mx-snapshot_23.11.01mx21.dsc
+ 2eabef19ccc8daf7aab815706f35a4b6cd28c2ae0fb3e72556cd6f47ec04234c 254196 mx-snapshot_23.11.01mx21.tar.xz
+ 29d9fc719378ad74c7c069a3089d948fe592274bbd7746ff82d1f8a6edc29c11 273136 iso-snapshot-cli_23.11.01mx21_amd64.deb
+ a9945f8a1bb7bd5c7b1e29a88394cd93003cb452b04211274c8980695561d8a4 11271 mx-snapshot_23.11.01mx21_amd64.buildinfo
+ b4cb8179b885098f1514acf0a7b4e46ab7a2de09c96be8407bc390666cedcb29 310148 mx-snapshot_23.11.01mx21_amd64.deb
+Files:
+ d6c2915658080aaff43a10a73addcc2e 1290 admin optional mx-snapshot_23.11.01mx21.dsc
+ 5fedf677be58407efbcd55cbff08253f 254196 admin optional mx-snapshot_23.11.01mx21.tar.xz
+ 6e977e515eefb495d01e6f4337f14d1d 273136 admin optional iso-snapshot-cli_23.11.01mx21_amd64.deb
+ c6cfa8a83b48382281302bd4547ec4c4 11271 admin optional mx-snapshot_23.11.01mx21_amd64.buildinfo
+ 40f2efe7fae441987be8e726d42b04bf 310148 admin optional mx-snapshot_23.11.01mx21_amd64.deb
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmVRiOUTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumFPLB/wOx+g/d7St4iWZprZviQOfIFHvpCYD
+ufarWRms3gbNvnbHWlR6I2cAUu7qAgkD7pzDex7SbIWhkRCFR0pT9X1ZgnVIEycb
+k7i+4uv0jt9MkutqInXusJRDdqcj3wWmxzs9sA0WC1Wy2BDSGggw/PJzuDb5k/Jw
+Mke4xeD0dQM1IXxOYWN46UfKcgu6Ztf0syPukV1EflXGJ9qY+NYuMgaGTo7zGQWr
+5emuLI+f6Zbo1XpFX79Ibqe0yPs0Vebw21nSFJtgds9kQqo3CM27Vz/Xrs200g1h
+YvWo5zNp/91u+OBbmKU2tkm/LCY+2JFUd5HTxPqjbuJ+6+0Yxsy0JjVc
+=jj+m
+-----END PGP SIGNATURE-----

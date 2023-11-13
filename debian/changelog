@@ -1,3 +1,9 @@
+mx-snapshot (23.11.01mx21) mx; urgency=medium
+
+  * Fix for Bullseys distro, remove -throttle option (not available in older mksquasfs)
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 12 Nov 2023 21:21:29 -0500
+
 mx-snapshot (23.11) mx; urgency=medium
 
   * Run program as normal user and elevate only when needed
