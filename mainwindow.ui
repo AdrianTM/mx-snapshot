@@ -20,7 +20,7 @@
       <enum>QFrame::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="selectionPage">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -646,7 +646,7 @@ color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item row="3" column="5">
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="labelThrottle">
             <property name="toolTip">
              <string>Throttle the I/O input rate by the given percentage.</string>
             </property>
@@ -659,7 +659,7 @@ color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="label_4">
+           <widget class="QLabel" name="labelChecksums">
             <property name="text">
              <string>Calculate checksums:</string>
             </property>
@@ -673,7 +673,7 @@ color: rgb(0, 0, 0);</string>
            </widget>
           </item>
           <item row="1" column="5">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="labelCPUs">
             <property name="text">
              <string>Number of CPU cores to use:</string>
             </property>
@@ -690,7 +690,7 @@ color: rgb(0, 0, 0);</string>
            <widget class="QSpinBox" name="spinThrottle"/>
           </item>
           <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="labelOptions_2">
             <property name="text">
              <string>Options:</string>
             </property>

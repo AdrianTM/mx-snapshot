@@ -90,7 +90,7 @@ bool Settings::checkSnapshotDir() const
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }
-    Cmd().runAsRoot("chown $(logname): \"/" + snapshot_dir + "\"");
+    Cmd().runAsRoot("chown $(logname): \"" + snapshot_dir + "\"");
     return true;
 }
 
@@ -395,6 +395,36 @@ QString Settings::getUsedSpace()
 bool Settings::isi386()
 {
     return (QSysInfo::currentCpuArchitecture() == QLatin1String("i386"));
+}
+
+int Settings::getDebianVerNum()
+{
+    QFile file("/etc/debian_version");
+    QStringList list;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        QTextStream in(&file);
+        QString line = in.readLine();
+        list = line.split(".");
+        file.close();
+    } else {
+        qCritical() << "Could not open /etc/debian_version:" << file.errorString() << "Assumes Bullseye";
+        return Release::Bullseye;
+    }
+    bool ok = false;
+    int ver = list.at(0).toInt(&ok);
+    if (ok) {
+        return ver;
+    } else {
+        QString verName = list.at(0).split("/").at(0);
+        if (verName == QLatin1String("bullseye")) {
+            return Release::Bullseye;
+        } else if (verName == QLatin1String("bookworm")) {
+            return Release::Bookworm;
+        } else {
+            qCritical() << "Unknown Debian version:" << ver << "Assumes Bullseye";
+            return Release::Bullseye;
+        }
+    }
 }
 
 // Check if running from a live envoronment

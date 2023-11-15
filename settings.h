@@ -36,6 +36,11 @@ extern QString current_kernel;
 static QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
                                                   {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
+namespace Release
+{
+enum { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
+}
+
 class Settings
 {
 public:
@@ -105,19 +110,20 @@ public:
     [[nodiscard]] QString getSnapshotSize() const;
     [[nodiscard]] QString getUsedSpace();
     [[nodiscard]] QString getXdgUserDirs(const QString &folder);
+    [[nodiscard]] bool checkCompression() const;
+    [[nodiscard]] bool checkSnapshotDir() const;
+    [[nodiscard]] bool checkTempDir();
+    [[nodiscard]] int getSnapshotCount() const;
     [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
     [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
     [[nodiscard]] static QString readKernelOpts();
     [[nodiscard]] static QStringList listUsers();
-    [[nodiscard]] bool checkCompression() const;
-    [[nodiscard]] bool checkSnapshotDir() const;
-    [[nodiscard]] bool checkTempDir();
+    [[nodiscard]] static bool isLive();
     [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
-    [[nodiscard]] int getSnapshotCount() const;
+    [[nodiscard]] static bool isi386();
+    [[nodiscard]] static int getDebianVerNum();
     [[nodiscard]] static quint64 getFreeSpace(const QString &path);
     [[nodiscard]] static quint64 getLiveRootSpace();
-    [[nodiscard]] static bool isLive();
-    [[nodiscard]] static bool isi386();
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
     void excludeDesktop(bool exclude);

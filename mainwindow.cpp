@@ -176,6 +176,11 @@ void MainWindow::setup()
                                  "gzip - " + tr("slow, better compression"), "zstd - " + tr("best compromise"),
                                  "xz - " + tr("slowest, best compression")});
     ui->cbCompression->blockSignals(false);
+    if (Settings::getDebianVerNum() < Release::Bookworm) {
+        ui->labelThrottle->hide();
+        ui->spinThrottle->hide();
+    }
+
     this->show();
 }
 
