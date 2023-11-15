@@ -177,12 +177,12 @@
     <message>
         <location filename="../mainwindow.ui" line="651"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajusta el règim d&apos;E/S amb el percentatge donat.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajust d&apos;E/S:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de nuclis de CPU a usar:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="685"/>
@@ -483,13 +483,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nombre de nuclis d&apos;E/S que s&apos;usaran.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>nombre</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -580,7 +580,7 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajusta el règim d&apos;entrada d&apos;E/S amb el percentatge donat. Es pot usar per reduir l&apos;E/S i el consum de CPU de Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -645,17 +645,17 @@
         <location filename="../main.cpp" line="189"/>
         <location filename="../main.cpp" line="196"/>
         <location filename="../main.cpp" line="289"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="718"/>
-        <location filename="../settings.cpp" line="814"/>
+        <location filename="../settings.cpp" line="252"/>
+        <location filename="../settings.cpp" line="267"/>
+        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="816"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="283"/>
         <location filename="../main.cpp" line="285"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no dóna suport a Squashfs, no puc continuar.</translation>
     </message>
@@ -665,37 +665,37 @@
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="113"/>
+        <location filename="../settings.cpp" line="115"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="246"/>
         <source>Could not find a usable kernel</source>
         <translation>No he trobat un kernel utilitzable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>Used space on / (root): </source>
         <translation>Espai usat a / (arrel): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="373"/>
         <source>estimated</source>
         <translation>estimat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on /home: </source>
         <translation>Espai usat a /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="464"/>
+        <location filename="../settings.cpp" line="466"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="467"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="472"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="475"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="476"/>
+        <location filename="../settings.cpp" line="478"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="711"/>
-        <location filename="../settings.cpp" line="807"/>
+        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="809"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>

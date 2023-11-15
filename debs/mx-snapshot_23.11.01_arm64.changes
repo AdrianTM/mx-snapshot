@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Wed, 15 Nov 2023 16:14:41 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: arm64
+Version: 23.11.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.11.01) mx; urgency=medium
+ .
+   * Fix: use /home/user instead of /home for temp directory (this solves a permission issue)
+Checksums-Sha1:
+ d39eb6eddc6a344d4bb9d1a776753e70dd1b715c 266140 iso-snapshot-cli_23.11.01_arm64.deb
+ 89791f0a55494adc18cc7392ba258a7ca0ba7587 10415 mx-snapshot_23.11.01_arm64.buildinfo
+ a509244a5e1e4b1b5e485dd9c6dd968ace44bdfa 300392 mx-snapshot_23.11.01_arm64.deb
+Checksums-Sha256:
+ 671ae1de368eca7dabfd924b1b95d32e9aebe35308d190896376d39305f285fd 266140 iso-snapshot-cli_23.11.01_arm64.deb
+ 69ca57bf3ddea1df191df6761e9e8e28120587332f93a6c4417ca6ebd3e59606 10415 mx-snapshot_23.11.01_arm64.buildinfo
+ f463e0d5d6027ca1f5488d21d6602821a563a202f4503d295f2e8d32ad1c928c 300392 mx-snapshot_23.11.01_arm64.deb
+Files:
+ 7f79d14aa16457e06c0a28704c42abdd 266140 admin optional iso-snapshot-cli_23.11.01_arm64.deb
+ 7c955a5ae9a02c7fa2bb6b15ea241cb8 10415 admin optional mx-snapshot_23.11.01_arm64.buildinfo
+ f0dda6c223312f2fb154f75ff763bf07 300392 admin optional mx-snapshot_23.11.01_arm64.deb
