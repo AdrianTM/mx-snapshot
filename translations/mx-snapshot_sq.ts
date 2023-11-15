@@ -489,7 +489,7 @@
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>numër</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -645,17 +645,17 @@
         <location filename="../main.cpp" line="189"/>
         <location filename="../main.cpp" line="196"/>
         <location filename="../main.cpp" line="289"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="718"/>
-        <location filename="../settings.cpp" line="814"/>
+        <location filename="../settings.cpp" line="252"/>
+        <location filename="../settings.cpp" line="267"/>
+        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="816"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="283"/>
         <location filename="../main.cpp" line="285"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Kerneli i tanishëm nuk mbulon Squashfs, s’vazhdohet dot.</translation>
     </message>
@@ -665,37 +665,37 @@
         <translation>S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="113"/>
+        <location filename="../settings.cpp" line="115"/>
         <source>Could not create temp directory. </source>
         <translation>S’u krijua dot drejtori e përkohshme. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="246"/>
         <source>Could not find a usable kernel</source>
         <translation>S’u gjet dot një kernel i përdorshëm</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>Used space on / (root): </source>
         <translation>Hapësirë e përdorur në / (rrënjë): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="373"/>
         <source>estimated</source>
         <translation>afërsisht</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on /home: </source>
         <translation>Hapësirë e përdorur në /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Hapësirë e lirë në %1, ku vendoset dosja e fotografimeve: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="464"/>
+        <location filename="../settings.cpp" line="466"/>
         <source>Documents</source>
         <translation>Dokumente</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="467"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Downloads</source>
         <translation>Shkarkime</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="472"/>
         <source>Music</source>
         <translation>Muzikë</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="475"/>
         <source>Networks</source>
         <translation>Rrjete</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="476"/>
+        <location filename="../settings.cpp" line="478"/>
         <source>Pictures</source>
         <translation>Foto</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="711"/>
-        <location filename="../settings.cpp" line="807"/>
+        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="809"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>

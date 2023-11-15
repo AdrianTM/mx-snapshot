@@ -177,12 +177,12 @@
     <message>
         <location filename="../mainwindow.ui" line="651"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uravnavanje vhodno-izhodno obremenitve glede na podani odstotek.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Uravnavanje vhoda-izhoda:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Število uporabljenih jeder:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="685"/>
@@ -484,13 +484,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Število jeder procesorja, ki naj se uporabijo.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>število</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -581,7 +581,7 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uravnavanje vhodno izhodne obremenitve za podani odstotek. To lahko uporabite zmanjšaje obrmenitve vhoda, izhoda in procesorja ob uporabi Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -646,17 +646,17 @@
         <location filename="../main.cpp" line="189"/>
         <location filename="../main.cpp" line="196"/>
         <location filename="../main.cpp" line="289"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="718"/>
-        <location filename="../settings.cpp" line="814"/>
+        <location filename="../settings.cpp" line="252"/>
+        <location filename="../settings.cpp" line="267"/>
+        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="816"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="283"/>
         <location filename="../main.cpp" line="285"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Trenutno jedro ne podpira Squashfs. Ne morem nadaljevati.</translation>
     </message>
@@ -666,37 +666,37 @@
         <translation>Delovnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="113"/>
+        <location filename="../settings.cpp" line="115"/>
         <source>Could not create temp directory. </source>
         <translation>Začasnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="246"/>
         <source>Could not find a usable kernel</source>
         <translation>Ni bilo mogoče najti uporabnega jedra</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>Used space on / (root): </source>
         <translation>Porabljen prostor na / (koren):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="373"/>
         <source>estimated</source>
         <translation>ocena</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on /home: </source>
         <translation>Porabljen prostor na /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Sprostite prostor na %1, na katerem se bo nahajala mapa posnetka:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -708,43 +708,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Desktop</source>
         <translation>Namizje</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="464"/>
+        <location filename="../settings.cpp" line="466"/>
         <source>Documents</source>
         <translation>Dokumenti</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="467"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Downloads</source>
         <translation>Prenosi</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="472"/>
         <source>Music</source>
         <translation>Glasba</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="475"/>
         <source>Networks</source>
         <translation>Omrežja</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="476"/>
+        <location filename="../settings.cpp" line="478"/>
         <source>Pictures</source>
         <translation>Slike</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="711"/>
-        <location filename="../settings.cpp" line="807"/>
+        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="809"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Izhodna datoteka %1 že obstaja. Uporabite drugo ime ali izbirišite obstoječo datoteko.</translation>
     </message>

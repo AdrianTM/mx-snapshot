@@ -177,12 +177,12 @@
     <message>
         <location filename="../mainwindow.ui" line="651"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drosselung der I/O-Eingangsrate um den angegebenen Prozentsatz.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>I/O Drosselung:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der zu verwendenden CPU-Kerne:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="685"/>
@@ -487,13 +487,13 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl der verwendeten CPU-Kerne:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>Anzahl</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -584,7 +584,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Drosselt die I/O-Eingangsrate um den angegebenen Prozentsatz. Dies kann verwendet werden, um den I/O- und CPU-Verbrauch von Mksquashfs zu reduzieren.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
@@ -649,17 +649,17 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
         <location filename="../main.cpp" line="189"/>
         <location filename="../main.cpp" line="196"/>
         <location filename="../main.cpp" line="289"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="718"/>
-        <location filename="../settings.cpp" line="814"/>
+        <location filename="../settings.cpp" line="252"/>
+        <location filename="../settings.cpp" line="267"/>
+        <location filename="../settings.cpp" line="720"/>
+        <location filename="../settings.cpp" line="816"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="283"/>
         <location filename="../main.cpp" line="285"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Der installierte Kernel unterstützt Squashfs nicht; Abbruch.</translation>
     </message>
@@ -669,37 +669,37 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-stick. Es ist typische
         <translation>Konnte kein Arbeitsverzeichnis anlegen.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="113"/>
+        <location filename="../settings.cpp" line="115"/>
         <source>Could not create temp directory. </source>
         <translation>Konnte kein Temporärverzeichnis anlegen.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="246"/>
         <source>Could not find a usable kernel</source>
         <translation>Kein verwendbarer Kernel vorhanden.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>Used space on / (root): </source>
         <translation>Benötigter Platz für das Wurzelverzeichnis &quot;/&quot; (root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="373"/>
         <source>estimated</source>
         <translation>geschätzt</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on /home: </source>
         <translation>Benötigter Platz für /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="440"/>
+        <location filename="../settings.cpp" line="442"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Freier Platz auf %1, wo das Schnappschuss-Verzeichnis liegt:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="444"/>
+        <location filename="../settings.cpp" line="446"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -714,43 +714,43 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Desktop</source>
         <translation>Benutzeroberfläche</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="464"/>
+        <location filename="../settings.cpp" line="466"/>
         <source>Documents</source>
         <translation>Dokumente</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="467"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="472"/>
         <source>Music</source>
         <translation>Musik</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="475"/>
         <source>Networks</source>
         <translation>Netzwerke</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="476"/>
+        <location filename="../settings.cpp" line="478"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Videos</source>
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="711"/>
-        <location filename="../settings.cpp" line="807"/>
+        <location filename="../settings.cpp" line="713"/>
+        <location filename="../settings.cpp" line="809"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Die Ausgabedatei %1 existiert bereits. Bitte verwenden sie einen anderen Dateinamen, oder löschen sie die existierende Datei.</translation>
     </message>

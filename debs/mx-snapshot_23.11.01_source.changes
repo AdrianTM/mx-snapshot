@@ -1,0 +1,25 @@
+Format: 1.8
+Date: Wed, 15 Nov 2023 16:14:41 -0500
+Source: mx-snapshot
+Architecture: source
+Version: 23.11.01
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Changes:
+ mx-snapshot (23.11.01) mx; urgency=medium
+ .
+   * Fix: use /home/user instead of /home for temp directory (this solves a permission issue)
+Checksums-Sha1:
+ c1d587d653b1b5923cde6874b227618638bddbbf 712 mx-snapshot_23.11.01.dsc
+ 421880642ec14b2b2b5f819cdc9383307a82b7ee 256876 mx-snapshot_23.11.01.tar.xz
+ 89791f0a55494adc18cc7392ba258a7ca0ba7587 10415 mx-snapshot_23.11.01_arm64.buildinfo
+Checksums-Sha256:
+ 92fecb9441de39f0fa7f2bb362624f9eaf49d01a6f8317ff1520c6e1173e6fdc 712 mx-snapshot_23.11.01.dsc
+ 0602875cecf0f8fb3242a0b501a748bf5c94e98c34e7733920c53c57d9650086 256876 mx-snapshot_23.11.01.tar.xz
+ 69ca57bf3ddea1df191df6761e9e8e28120587332f93a6c4417ca6ebd3e59606 10415 mx-snapshot_23.11.01_arm64.buildinfo
+Files:
+ 6a1901c263057d8fdb2b72adbf168207 712 admin optional mx-snapshot_23.11.01.dsc
+ bac7991de5851495ff3c8489d28943eb 256876 admin optional mx-snapshot_23.11.01.tar.xz
+ 7c955a5ae9a02c7fa2bb6b15ea241cb8 10415 admin optional mx-snapshot_23.11.01_arm64.buildinfo
