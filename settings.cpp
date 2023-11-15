@@ -107,7 +107,9 @@ bool Settings::checkTempDir()
             tempdir_parent = largerFreeSpace("/tmp", "/home", snapshot_dir);
         }
     }
-
+    if (tempdir_parent == "/home") { // replace /home with user home path
+        tempdir_parent = QDir::homePath();
+    }
     tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
         qDebug() << QObject::tr("Could not create temp directory. ") + tmpdir.data()->path();
