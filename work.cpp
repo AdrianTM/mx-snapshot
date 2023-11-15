@@ -222,9 +222,11 @@ bool Work::createIso(const QString &filename)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Squash the filesystem copy
     QString unbuffer = (checkInstalled("expect")) ? "unbuffer " : "stdbuf -o0 ";
+    using namespace Release;
+    QString throttle
+        = (Settings::getDebianVerNum() < Release::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
     QString cmd = unbuffer + "mksquashfs /.bind-root " + settings->work_dir + "/iso-template/antiX/linuxfs -comp "
-                  + settings->compression + " -processors " + QString::number(settings->cores) + " -throttle "
-                  + QString::number(settings->throttle)
+                  + settings->compression + " -processors " + QString::number(settings->cores) + throttle
                   + ((settings->mksq_opt.isEmpty()) ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
                   + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
 
