@@ -38,7 +38,7 @@ static QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"g
 
 namespace Release
 {
-enum { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
+enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
 }
 
 class Settings
