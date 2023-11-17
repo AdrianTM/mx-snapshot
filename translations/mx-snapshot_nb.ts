@@ -177,12 +177,12 @@
     <message>
         <location filename="../mainwindow.ui" line="651"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Strup I/U-forholdet med en gitt prosent.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>I/U-struping:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
@@ -197,7 +197,7 @@
     <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Antall CPU-kjerner å bruke:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="685"/>
@@ -485,13 +485,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Antall CPU-kjerner som skal brukes.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>antall</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -582,7 +582,7 @@
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Strup I/U-forholdet med den gitte prosenten. Dette reduserer I/U- og CPU-forbruket til Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
