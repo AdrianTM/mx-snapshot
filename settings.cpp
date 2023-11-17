@@ -210,7 +210,7 @@ QString Settings::getXdgUserDirs(const QString &folder)
 {
     QString result;
     for (const QString &user : qAsConst(users)) {
-        QString dir = Cmd().getOut("xdg-user-dir \"" + folder + "\"");
+        QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + "\"");
         if (!dir.isEmpty()) {
             if (englishDirs.value(folder) == dir.section("/", -1) || dir == "/home/" + user
                 || dir == "/home/" + user + "/") { // skip if English name or of return folder is the home

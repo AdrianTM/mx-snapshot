@@ -1,3 +1,9 @@
+mx-snapshot (23.11.03) mx; urgency=medium
+
+  * Fix: getting xdg-user-dir info
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 17 Nov 2023 02:50:01 -0500
+
 mx-snapshot (23.11.02) mx; urgency=medium
 
   * Unified builds for MX21 and MX23
