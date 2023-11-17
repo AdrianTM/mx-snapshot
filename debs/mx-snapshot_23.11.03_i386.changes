@@ -1,0 +1,29 @@
+Format: 1.8
+Date: Fri, 17 Nov 2023 02:50:01 -0500
+Source: mx-snapshot
+Binary: iso-snapshot-cli mx-snapshot
+Architecture: i386
+Version: 23.11.03
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Adrian <adrian@mxlinux.org>
+Description:
+ iso-snapshot-cli - ISO Snapshoti CLI
+ mx-snapshot - MX Snapshot
+Changes:
+ mx-snapshot (23.11.03) mx; urgency=medium
+ .
+   * Fix: getting xdg-user-dir info
+Checksums-Sha1:
+ 1b3613d09b3a478bcffbe8a89beae187d4ed3522 281144 iso-snapshot-cli_23.11.03_i386.deb
+ 1e2006e9c938f9e6e78e1d9e5b5d9c9d8b5dfb97 10370 mx-snapshot_23.11.03_i386.buildinfo
+ 97c446839ed446e410e02cb28094185a3e8d5f28 320120 mx-snapshot_23.11.03_i386.deb
+Checksums-Sha256:
+ f186a6df6e949ab129204c3fd0e9735189b3142e554ffef11e8d2c21ba30dbde 281144 iso-snapshot-cli_23.11.03_i386.deb
+ 234aa03a7abc7fa2d3769fba58ade559ac453899a848f4ec7190fb9651f62bc5 10370 mx-snapshot_23.11.03_i386.buildinfo
+ 6d128cdc3e6027780f417b5cb0067f10ac3d6ad4c57dec15681ea3ab01a2f08d 320120 mx-snapshot_23.11.03_i386.deb
+Files:
+ 2fb17f40bf01dc5eaef49eb18377240f 281144 admin optional iso-snapshot-cli_23.11.03_i386.deb
+ bb25fc5211a48bb10ae670ab48861415 10370 admin optional mx-snapshot_23.11.03_i386.buildinfo
+ e0df3aa0b44fcbf83cfcf117112b208d 320120 admin optional mx-snapshot_23.11.03_i386.deb
