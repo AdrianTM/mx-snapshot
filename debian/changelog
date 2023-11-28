@@ -1,3 +1,10 @@
+mx-snapshot (23.11.04) mx; urgency=medium
+
+  * Fix: spaces in snapshot and working directory
+  * Fix: relative directory path in commandline arguments
+
+ -- fehlix <fehlix@mxlinux.org>  Mon, 27 Nov 2023 20:03:18 -0500
+
 mx-snapshot (23.11.03) mx; urgency=medium
 
   * Fix: getting xdg-user-dir info
