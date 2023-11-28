@@ -647,8 +647,8 @@
         <location filename="../main.cpp" line="289"/>
         <location filename="../settings.cpp" line="252"/>
         <location filename="../settings.cpp" line="267"/>
-        <location filename="../settings.cpp" line="750"/>
-        <location filename="../settings.cpp" line="846"/>
+        <location filename="../settings.cpp" line="753"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -745,8 +745,8 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation>Videolar</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="743"/>
-        <location filename="../settings.cpp" line="839"/>
+        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Çıktı dosyası %1 zaten var. Lütfen başka bir dosya adı kullanın veya mevcut dosyayı silin.</translation>
     </message>

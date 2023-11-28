@@ -11,7 +11,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Nykyinen ydin ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
+        <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
 </context>
 <context>
@@ -21,52 +21,52 @@
         <location filename="../mainwindow.cpp" line="169"/>
         <location filename="../mainwindow.cpp" line="441"/>
         <source>MX Snapshot</source>
-        <translation>MX Tilannevedos</translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>Valinnainen mukautus</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>Julkaisupäivä:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Julkaisun nimi:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kerneli:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Käynnistyksen valinnat:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Julkaisuversio:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihda live kerneli</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Projektin nimi:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tilannevedos on apuohjelma joka luo käynnistyskuvakkeen (ISO) toimivasta järjestelmästäsi jota voit käyttää varastointia tai toisille jakamista varten. Voit käyttää järjestelmää ja työskennellä normaalisti tilannevedoksen luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot on apuohjelma joka luo käynnistyvän levykuvan (ISO) toimivasta järjestelmästäsi jota voit tallentaa tai jakaa sitä toisille. Voit käyttää järjestelmää normaalisti levykuvan luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
@@ -76,12 +76,12 @@
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>Paikka ja nimi ISO-tiedostolle</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
         <source>Snapshot location:</source>
-        <translation>Tilannevedoksen sijainti:</translation>
+        <translation>Tilannevedoksen paikka:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../mainwindow.ui" line="379"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Voit myös rajata ulos tiettyjä hakemistoja ruksaamalla allaolevat yleiset valinnat, tai sitten napsauttamalla painiketta muokataksesi suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Voit myös rajata pois hakemistoja ruksaamalla allaolevat yleiset valinnat tai painamalla painiketta ja muokata suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
@@ -162,47 +162,47 @@
     <message>
         <location filename="../mainwindow.ui" line="566"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>Käyttäjätilien tyhjennys (toisille jakelua varten)</translation>
+        <translation>Käyttäjätilien tyhjennys (toisille jakamista varten)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
         <source>Edit Exclusion File</source>
-        <translation>Muokkaa ulosrajaustiedostoa</translation>
+        <translation>Muokkaa rajaustiedostoa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="651"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohjaa I/O-nopeutta annetulla prosentilla.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>I/O-kuristin:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="664"/>
         <source>Calculate checksums:</source>
-        <translation type="unfinished"></translation>
+        <translation>Laske tarkistussumma:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="671"/>
         <source>ISO compression scheme:</source>
-        <translation>ISO-pakkausrakenteen:</translation>
+        <translation>ISO-pakkausrakenne:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="678"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytettävä prosessoriytimien määrä:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="685"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="695"/>
@@ -267,39 +267,42 @@
     <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
+        <translation>nopein, huonoin pakkaus</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="175"/>
         <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
+        <translation>nopea, huonompi pakkaus</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="176"/>
         <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
+        <translation>hidas, parempi pakkaus</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="176"/>
         <source>best compromise</source>
-        <translation type="unfinished"></translation>
+        <translation>paras kompromissi</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="177"/>
         <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
+        <translation>hitain, paras pakkaus</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="207"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa kohteessa %1, johon snapshot-järjestelmävedoksen kansio sijoitetaan:</translation>
+        <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="210"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Vapaan tilan pitäisi riittää pakatulle datalle kohteista / ja /home 
+
+Tarvittaessa voit tehdä vapaata tilaa poistamalla aiemmat
+tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
@@ -328,7 +331,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="328"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="335"/>
@@ -338,7 +341,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="340"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Tilannevedos käyttää seuraavia asetuksia:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="342"/>
@@ -348,12 +351,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="343"/>
         <source>- Kernel to be used:</source>
-        <translation>- Käytettävä ydin:</translation>
+        <translation>- Käytettävä kerneli:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="355"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Nykyinen ydin ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
+        <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="362"/>
@@ -363,7 +366,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="364"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation>Tilannevedoksen luontityökalulla on nyt kaikki tarvittava tieto, jotta se voi luoda ISO-kuvakkeen käynnissä olevasta järjestelmästäsi.</translation>
+        <translation>Tilannevedos työkalulla on nyt kaikki tarvittava tieto, jotta se voi tehdä ISO-levykuvan käynnissä olevasta järjestelmästäsi.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="365"/>
@@ -378,7 +381,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="371"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammuta tietokone, kun valmis.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="385"/>
@@ -413,7 +416,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="432"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Valitse kerneli</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="523"/>
@@ -481,13 +484,13 @@
     <message>
         <location filename="../main.cpp" line="82"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytettävä prosessoriytimien määrä.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="82"/>
         <location filename="../main.cpp" line="111"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>määrä</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
@@ -528,17 +531,17 @@
     <message>
         <location filename="../main.cpp" line="91"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Pakkaustason valinta.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="92"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"></translation>
+        <translation>Käytä lainausmerkkejä: &quot;-Compression-level &lt;level&gt;&quot;, &quot;-Algoritm &lt;algorithm&gt;&quot; tai &quot;-Xhc&quot;, katso tarvittaessa mksquashfs man-ohjetta</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="94"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;valinta&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="97"/>
@@ -563,7 +566,7 @@
     <message>
         <location filename="../main.cpp" line="106"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>Käyttäjätilien tyhjennys (toisille jakelua varten)</translation>
+        <translation>Käyttäjätilien tyhjennys (toisille jakamista varten)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
@@ -573,17 +576,17 @@
     <message>
         <location filename="../main.cpp" line="103"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Ohita vapaan tilan laskeminen näkemättä, sopiiko tuloksena oleva ISO</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurista I/O-nopeutta annetulla prosentilla. Tätä voidaan käyttää vähentämään Mksquashfs I/O ja prosessorin varaamaa tehoa.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="112"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Työkansio</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="114"/>
@@ -613,7 +616,7 @@
     <message>
         <location filename="../main.cpp" line="121"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sammuta tietokone, kun valmis.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="139"/>
@@ -632,12 +635,12 @@
         <location filename="../main.cpp" line="171"/>
         <location filename="../main.cpp" line="197"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sinun on suoritettava tämä ohjelma sudo:lla tai pkexec:llä.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="181"/>
         <source>MX Snapshot</source>
-        <translation>MX Tilannevedos</translation>
+        <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="189"/>
@@ -645,8 +648,8 @@
         <location filename="../main.cpp" line="289"/>
         <location filename="../settings.cpp" line="252"/>
         <location filename="../settings.cpp" line="267"/>
-        <location filename="../settings.cpp" line="750"/>
-        <location filename="../settings.cpp" line="846"/>
+        <location filename="../settings.cpp" line="753"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
@@ -655,7 +658,7 @@
         <location filename="../main.cpp" line="285"/>
         <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation>Tämänhetkinen ydin ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
+        <translation>Nykyinen kerneli ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="90"/>
@@ -690,7 +693,7 @@
     <message>
         <location filename="../settings.cpp" line="472"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa kohteessa %1, johon snapshot-järjestelmävedoksen kansio sijoitetaan:</translation>
+        <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="476"/>
@@ -743,10 +746,10 @@
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="743"/>
-        <location filename="../settings.cpp" line="839"/>
+        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="51"/>
@@ -810,7 +813,7 @@
     <message>
         <location filename="../work.cpp" line="143"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"></translation>
+        <translation>Jos olet varma, että sinulla on tarpeeksi vapaata tilaa, suorita ohjelma uudelleen -o/--override-size vailinnalla</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="168"/>
@@ -855,17 +858,17 @@
     <message>
         <location filename="../work.cpp" line="285"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>MX Snapshot-levykuvavedos valmistui onnistuneesti!</translation>
+        <translation>MX Snapshot valmistui onnistuneesti!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="286"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation>Snapshot-levykuvavedos vei %1 valmistuakseen.</translation>
+        <translation>Snapshot valmistuminen kesti %1.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="287"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Kiitos kun käytit MX Snapshot-järjestelmävedostyökalua, aja MX Live USB-tehtailija seuraavaksi!</translation>
+        <translation>Kiitos kun käytit MX Snapshot työkalua, aja MX Live USB Maker seuraavaksi!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="294"/>
@@ -895,12 +898,12 @@
     <message>
         <location filename="../work.cpp" line="555"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lasketaan poissuljettujen tiedostojen kokoa...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="566"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lasketaan root kokoa...</translation>
     </message>
 </context>
 </TS>
