@@ -253,7 +253,7 @@ bool Work::createIso(const QString &filename)
           "boot/isolinux/isolinux.cat -o \""
           + settings->snapshot_dir + "/" + filename + "\" . \"" + settings->work_dir + "/iso-2\"";
     emit message(tr("Creating CD/DVD image file..."));
-    if (!shell.run("eval '" + cmd + "'")) {
+    if (!shell.run(cmd)) {
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
