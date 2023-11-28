@@ -1,3 +1,9 @@
+mx-snapshot (23.11.05) mx; urgency=medium
+
+  * Fix: more quoting to allow for spaces in snapshot directory
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 28 Nov 2023 00:20:42 -0500
+
 mx-snapshot (23.11.04) mx; urgency=medium
 
   * Fix: spaces in snapshot and working directory

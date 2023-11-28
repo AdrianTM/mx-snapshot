@@ -86,7 +86,7 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p " + snapshot_dir, false)) {
+    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + "\"", false)) {
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }
