@@ -647,8 +647,8 @@
         <location filename="../main.cpp" line="289"/>
         <location filename="../settings.cpp" line="252"/>
         <location filename="../settings.cpp" line="267"/>
-        <location filename="../settings.cpp" line="750"/>
-        <location filename="../settings.cpp" line="846"/>
+        <location filename="../settings.cpp" line="753"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -745,8 +745,8 @@
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="743"/>
-        <location filename="../settings.cpp" line="839"/>
+        <location filename="../settings.cpp" line="746"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
