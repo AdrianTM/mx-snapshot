@@ -49,15 +49,15 @@ public:
 
     QTemporaryDir initrd_dir;
     [[noreturn]] void cleanUp();
-    bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
+    bool checkAndMoveWorkDir(const QString &dir, uint64_t req_size);
     static bool checkInstalled(const QString &package);
     bool createIso(const QString &filename);
     bool installPackage(const QString &package);
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
-    quint64 getRequiredSpace();
+    uint64_t getRequiredSpace();
     static void writeSnapshotInfo();
     void checkEnoughSpace();
-    void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
+    void checkNoSpaceAndExit(uint64_t needed_space, uint64_t free_space, const QString &dir);
     void closeInitrd(const QString &initrd_dir, const QString &file);
     void copyModules(const QString &to, const QString &kernel);
     void copyNewIso();
