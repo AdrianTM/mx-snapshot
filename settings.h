@@ -97,10 +97,10 @@ public:
     bool x86 {};
     const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
     const uint max_cores {Cmd().getOut("nproc", true).trimmed().toUInt()};
-    quint64 free_space {};
-    quint64 free_space_work {};
-    quint64 home_size {};
-    quint64 root_size {};
+    uint64_t free_space {};
+    uint64_t free_space_work {};
+    uint64_t home_size {};
+    uint64_t root_size {};
     uint cores {};
     uint throttle {};
 
@@ -122,8 +122,8 @@ public:
     [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
     [[nodiscard]] static bool isi386();
     [[nodiscard]] static int getDebianVerNum();
-    [[nodiscard]] static quint64 getFreeSpace(const QString &path);
-    [[nodiscard]] static quint64 getLiveRootSpace();
+    [[nodiscard]] static uint64_t getFreeSpace(const QString &path);
+    [[nodiscard]] static uint64_t getLiveRootSpace();
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
     void excludeDesktop(bool exclude);
