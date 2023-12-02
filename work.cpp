@@ -42,7 +42,7 @@ Work::Work(Settings *settings, QObject *parent)
 // We don't yet take /home used space into considerations (need to calculate how much is excluded)
 void Work::checkEnoughSpace()
 {
-    uint64_t required_space = getRequiredSpace();
+    quint64 required_space = getRequiredSpace();
     // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
     checkNoSpaceAndExit(required_space, settings->free_space, settings->snapshot_dir);
 
@@ -107,7 +107,7 @@ void Work::cleanUp()
 }
 
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
-bool Work::checkAndMoveWorkDir(const QString &dir, uint64_t req_size)
+bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
     // See first if the dir is on different partition otherwise it's irrelevant
     if (Cmd().getOut("stat -c '%d' " + dir) != Cmd().getOut("stat -c '%d' " + settings->snapshot_dir)
@@ -125,7 +125,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, uint64_t req_size)
     return false;
 }
 
-void Work::checkNoSpaceAndExit(uint64_t needed_space, uint64_t free_space, const QString &dir)
+void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     constexpr float factor = 1024 * 1024;
@@ -503,7 +503,7 @@ void Work::writeUnsquashfsSize(const QString &text)
                   text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
 }
 
-uint64_t Work::getRequiredSpace()
+quint64 Work::getRequiredSpace()
 {
     QStringList excludes;
     QFile *file = &settings->snapshot_excludes;
@@ -555,7 +555,7 @@ uint64_t Work::getRequiredSpace()
     emit message(tr("Calculating total size of excluded files..."));
     bool ok = false;
     QString cmd = settings->live ? "du -sc" : "du -sxc";
-    uint64_t excl_size
+    quint64 excl_size
         = shell.getOutAsRoot(cmd + " {" + excludes.join(",").remove("/.bind-root,") + "} 2>/dev/null |tail -1 |cut -f1")
               .toULongLong(&ok);
     if (!ok) {
@@ -565,7 +565,7 @@ uint64_t Work::getRequiredSpace()
     }
     emit message(tr("Calculating size of root..."));
     cmd = settings->live ? "du -s" : "du -sx";
-    uint64_t root_size = shell.getOutAsRoot(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    quint64 root_size = shell.getOutAsRoot(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
     qDebug() << "SIZE" << root_size;
     if (!ok) {
         qDebug() << "Error: calculating root size (/.bind-root)\n"
