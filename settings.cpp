@@ -189,10 +189,10 @@ int Settings::getSnapshotCount() const
     return 0;
 }
 
-quint64 Settings::getFreeSpace(const QString &path)
+uint64_t Settings::getFreeSpace(const QString &path)
 {
     bool ok = false;
-    quint64 result {};
+    uint64_t result {};
     if (Cmd().getOut("stat --file-system --format=%T \"" + path + "\"") == "ramfs") {
         result = Cmd().getOut("LC_ALL=C free |awk '/^Mem/ {print $7}'").toULongLong(&ok);
     } else {
@@ -330,7 +330,7 @@ QString Settings::getFilename() const
     }
 }
 
-quint64 Settings::getLiveRootSpace()
+uint64_t Settings::getLiveRootSpace()
 {
     // rootspaceneeded is the size of the linuxfs file * a compression factor + contents of the rootfs.  conservative
     // but fast factors are same as used in live-remaster
@@ -352,8 +352,8 @@ quint64 Settings::getLiveRootSpace()
     } else {
         qWarning() << "Unknown compression type:" << linuxfs_compression_type;
     }
-    quint64 rootfs_file_size = 0;
-    quint64 linuxfs_file_size
+    uint64_t rootfs_file_size = 0;
+    uint64_t linuxfs_file_size
         = Cmd().getOut("df -k /live/linux --output=used --total |tail -n1").toULongLong() * 100 / c_factor;
     if (QFileInfo::exists("/live/persist-root")) {
         rootfs_file_size = Cmd().getOut("df -k /live/persist-root --output=used --total |tail -n1").toULongLong();
@@ -451,8 +451,8 @@ QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2)
     if (Cmd().getOut("stat -c '%d' " + dir1) == Cmd().getOut("stat -c '%d' " + dir2)) {
         return dir1;
     }
-    quint64 dir1_free = getFreeSpace(dir1);
-    quint64 dir2_free = getFreeSpace(dir2);
+    uint64_t dir1_free = getFreeSpace(dir1);
+    uint64_t dir2_free = getFreeSpace(dir2);
     return dir1_free >= dir2_free ? dir1 : dir2;
 }
 
