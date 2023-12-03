@@ -793,7 +793,7 @@
         <location filename="../work.cpp" line="235"/>
         <location filename="../work.cpp" line="258"/>
         <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="409"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
@@ -888,17 +888,17 @@
         <translation>Ustvarjam nov initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Could not create working directory. </source>
         <translation>Delovnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Računanje skupne velikosti izločenih datotek</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="566"/>
+        <location filename="../work.cpp" line="564"/>
         <source>Calculating size of root...</source>
         <translation>Računanje velikosti korena...</translation>
     </message>

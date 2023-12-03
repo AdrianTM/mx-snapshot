@@ -794,7 +794,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <location filename="../work.cpp" line="235"/>
         <location filename="../work.cpp" line="258"/>
         <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="409"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
@@ -889,17 +889,17 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
         <translation>Budowanie nowego initrd ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Could not create working directory. </source>
         <translation>Nie można utworzyć katalogu roboczego.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Obliczanie całkowitego rozmiaru wykluczonych plików...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="566"/>
+        <location filename="../work.cpp" line="564"/>
         <source>Calculating size of root...</source>
         <translation>Obliczanie rozmiaru root...</translation>
     </message>
