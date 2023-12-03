@@ -795,7 +795,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../work.cpp" line="235"/>
         <location filename="../work.cpp" line="258"/>
         <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="409"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -890,17 +890,17 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Skapar ny initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Could not create working directory. </source>
         <translation>Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="566"/>
+        <location filename="../work.cpp" line="564"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>

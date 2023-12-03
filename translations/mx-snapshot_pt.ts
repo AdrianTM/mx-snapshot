@@ -795,7 +795,7 @@
         <location filename="../work.cpp" line="235"/>
         <location filename="../work.cpp" line="258"/>
         <location filename="../work.cpp" line="297"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="409"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -890,17 +890,17 @@
         <translation>A criar novo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Could not create working directory. </source>
         <translation>Não foi possível criar o directório de trabalho.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
         <translation>A calcular o tamanho total dos ficheiros excluídos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="566"/>
+        <location filename="../work.cpp" line="564"/>
         <source>Calculating size of root...</source>
         <translation>A calcular o tamanho da raíz (root)...</translation>
     </message>
