@@ -1,3 +1,10 @@
+mx-snapshot (23.12.01) mx; urgency=medium
+
+  * Fix: quoting in sed replacement file path
+  * Use entryFileInfolist instead of iterator to avoid I/O timing issues
+
+ -- fehlix <fehlix@mxlinux.org>  Sat, 02 Dec 2023 20:09:10 -0500
+
 mx-snapshot (23.11.05) mx; urgency=medium
 
   * Fix: more quoting to allow for spaces in snapshot directory
