@@ -36,4 +36,5 @@ if command -v tx >/dev/null; then
    echodo tx pull -r antix-development.$APPNAME --all
 fi
 
-lupdate ../*.pro
+lupdate ../*.pro # Update en.ts file
+lupdate ../*.cpp ../*.h ../*.ui -ts *.ts
