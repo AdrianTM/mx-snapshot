@@ -41,7 +41,7 @@ enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
 class Settings
 {
 public:
-    enum Exclude {
+    enum class Exclude {
         Desktop = 0x1,
         Documents = 0x2,
         Downloads = 0x4,
