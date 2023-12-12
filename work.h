@@ -21,9 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
-
-#ifndef WORK_H
-#define WORK_H
+#pragma once
 
 #include <QElapsedTimer>
 
@@ -78,5 +76,3 @@ private:
     Settings *settings;
     QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
 };
-
-#endif // WORK_H

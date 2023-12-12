@@ -21,9 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
-
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMessageBox>
 #include <QSettings>
@@ -94,10 +92,10 @@ private slots:
     void excludeSteam_toggled(bool checked);
     void excludeVideos_toggled(bool checked);
     void excludeVirtualBox_toggled(bool checked);
-    void on_spinCPU_valueChanged(int arg1);
-    void on_spinThrottle_valueChanged(int arg1);
     void radioPersonal_clicked(bool checked);
     void radioRespin_toggled(bool checked);
+    void spinCPU_valueChanged(int arg1);
+    void spinThrottle_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -106,5 +104,3 @@ private:
     Work work;
     QSettings settings;
 };
-
-#endif // MainWindow_H

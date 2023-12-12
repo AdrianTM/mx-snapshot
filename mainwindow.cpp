@@ -142,6 +142,9 @@ void MainWindow::setConnections()
     connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
     connect(ui->radioPersonal, &QRadioButton::clicked, this, &MainWindow::radioPersonal_clicked);
     connect(ui->radioRespin, &QRadioButton::toggled, this, &MainWindow::radioRespin_toggled);
+    connect(ui->spinCPU, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::spinCPU_valueChanged);
+    connect(ui->spinThrottle, QOverload<int>::of(&QSpinBox::valueChanged), this,
+            &MainWindow::spinThrottle_valueChanged);
 }
 
 void MainWindow::setExclusions()
@@ -637,13 +640,13 @@ void MainWindow::excludeVirtualBox_toggled(bool checked)
     }
 }
 
-void MainWindow::on_spinCPU_valueChanged(int arg1)
+void MainWindow::spinCPU_valueChanged(int arg1)
 {
     settings.setValue("cores", arg1);
     cores = arg1;
 }
 
-void MainWindow::on_spinThrottle_valueChanged(int arg1)
+void MainWindow::spinThrottle_valueChanged(int arg1)
 {
     settings.setValue("throttle", arg1);
     throttle = arg1;
