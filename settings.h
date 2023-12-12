@@ -21,9 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
-
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#pragma once
 
 #include <QCommandLineParser>
 #include <QFile>
@@ -32,7 +30,6 @@
 #include <cmd.h>
 
 extern QString current_kernel;
-
 static QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
                                                   {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
@@ -145,5 +142,3 @@ public:
     void setMonthlySnapshot(const QCommandLineParser &arg_parser);
     void setVariables();
 };
-
-#endif // SETTINGS_H

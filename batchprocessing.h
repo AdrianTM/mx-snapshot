@@ -21,9 +21,7 @@
  * You should have received a copy of the GNU General Public License
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
-
-#ifndef BATCHPROCESSING_H
-#define BATCHPROCESSING_H
+#pragma once
 
 #include <QTimer>
 
@@ -45,5 +43,3 @@ private:
     Work work;
     QTimer timer;
 };
-
-#endif // BATCHPROCESSING_H
