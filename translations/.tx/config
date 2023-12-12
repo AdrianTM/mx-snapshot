@@ -6,3 +6,4 @@ file_filter = ./mx-snapshot_<lang>.ts
 source_file = mx-snapshot_en.ts
 source_lang = en
 type = ts
+minimum_perc = 25

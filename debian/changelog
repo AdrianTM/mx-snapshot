@@ -1,3 +1,9 @@
+mx-snapshot (23.12.02) mx; urgency=medium
+
+  * Add minimum width for number of cores box
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 11 Dec 2023 23:00:41 -0500
+
 mx-snapshot (23.12.01) mx; urgency=medium
 
   * Fix: quoting in sed replacement file path
