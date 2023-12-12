@@ -20,12 +20,6 @@
 # * along with MX Tools.  If not, see <http://www.gnu.org/licenses/>.
 # **********************************************************************
 
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-12-14
-#
-#-------------------------------------------------
-
 QT       += core gui widgets
 CONFIG   += c++1z
 
@@ -61,6 +55,6 @@ FORMS    += \
 
 TRANSLATIONS += \
     translations/mx-snapshot_en.ts
-                 
+
 RESOURCES += \
     images.qrc

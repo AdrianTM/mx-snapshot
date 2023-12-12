@@ -20,12 +20,6 @@
 # * along with MX Tools.  If not, see <http://www.gnu.org/licenses/>.
 # **********************************************************************
 
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-12-14
-#
-#-------------------------------------------------
-
 DEFINES += "CLI_BUILD=1"
 
 QT       += core
@@ -58,6 +52,6 @@ HEADERS  += \
 
 TRANSLATIONS += \
     translations/mx-snapshot_en.ts
-                 
+
 RESOURCES += \
     images.qrc
