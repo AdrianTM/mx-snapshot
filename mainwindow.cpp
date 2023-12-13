@@ -169,7 +169,7 @@ void MainWindow::setup()
     ui->outputBox->setFont(font);
     ui->outputBox->setReadOnly(true);
 
-    this->setWindowTitle(tr("MX Snapshot"));
+    setWindowTitle(tr("MX Snapshot"));
     ui->btnBack->setHidden(true);
     ui->stackedWidget->setCurrentIndex(0);
     ui->btnCancel->setEnabled(true);
@@ -184,12 +184,12 @@ void MainWindow::setup()
         ui->spinThrottle->hide();
     }
 
-    this->show();
+    show();
 }
 
 void MainWindow::listUsedSpace()
 {
-    this->show();
+    show();
     ui->btnNext->setDisabled(true);
     ui->btnCancel->setDisabled(true);
     ui->btnSelectSnapshot->setDisabled(true);
@@ -221,7 +221,7 @@ void MainWindow::listFreeSpace()
 
 bool MainWindow::installPackage(const QString &package)
 {
-    this->setWindowTitle(tr("Installing ") + package);
+    setWindowTitle(tr("Installing ") + package);
     ui->outputLabel->setText(tr("Installing ") + package);
     ui->outputBox->clear();
     ui->btnNext->setDisabled(true);
@@ -334,7 +334,7 @@ void MainWindow::btnNext_clicked()
 
     // On first page
     if (ui->stackedWidget->currentWidget() == ui->selectionPage) {
-        this->setWindowTitle(tr("Settings"));
+        setWindowTitle(tr("Settings"));
         ui->stackedWidget->setCurrentWidget(ui->settingsPage);
         ui->btnBack->setHidden(false);
         ui->btnBack->setEnabled(true);
@@ -396,7 +396,7 @@ void MainWindow::btnNext_clicked()
         ui->btnNext->setEnabled(false);
         ui->btnBack->setEnabled(false);
         ui->stackedWidget->setCurrentWidget(ui->outputPage);
-        this->setWindowTitle(tr("Output"));
+        setWindowTitle(tr("Output"));
         ui->outputBox->clear();
         work.setupEnv();
         if (!monthly && !override_size) {
@@ -414,10 +414,10 @@ void MainWindow::btnNext_clicked()
                        "Select Yes to edit the boot menu or select No to bypass this step and continue creating the "
                        "snapshot."),
                     QMessageBox::Yes | QMessageBox::No)) {
-                this->hide();
+                hide();
                 QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
                 work.shell.run(cmd);
-                this->show();
+                show();
             }
         }
 
@@ -440,7 +440,7 @@ void MainWindow::btnSelectKernel_clicked()
 
 void MainWindow::btnBack_clicked()
 {
-    this->setWindowTitle(tr("MX Snapshot"));
+    setWindowTitle(tr("MX Snapshot"));
     ui->stackedWidget->setCurrentIndex(0);
     ui->btnNext->setEnabled(true);
     ui->btnBack->setHidden(true);
@@ -449,9 +449,9 @@ void MainWindow::btnBack_clicked()
 
 void MainWindow::btnEditExclude_clicked()
 {
-    this->hide();
+    hide();
     work.shell.run(getEditor() + " " + snapshot_excludes.fileName());
-    this->show();
+    show();
 }
 
 void MainWindow::excludeDocuments_toggled(bool checked)
@@ -520,7 +520,7 @@ void MainWindow::radioPersonal_clicked(bool checked)
 
 void MainWindow::btnAbout_clicked()
 {
-    this->hide();
+    hide();
     displayAboutMsgBox(
         tr("About %1").arg(QApplication::applicationDisplayName()),
         "<p align=\"center\"><b><h2>" + QApplication::applicationDisplayName() + "</h2></b></p><p align=\"center\">"
@@ -530,7 +530,7 @@ void MainWindow::btnAbout_clicked()
             + tr("Copyright (c) MX Linux") + "<br /><br /></p>",
         QStringLiteral("/usr/share/doc/mx-snapshot/license.html"),
         tr("%1 License").arg(QApplication::applicationDisplayName()));
-    this->show();
+    show();
 }
 
 void MainWindow::btnHelp_clicked()
@@ -543,7 +543,7 @@ void MainWindow::btnHelp_clicked()
     if (lang.startsWith(QLatin1String("fr"))) {
         url = "https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane";
     }
-    displayDoc(url, tr("%1 Help").arg(this->windowTitle()));
+    displayDoc(url, tr("%1 Help").arg(windowTitle()));
 }
 
 void MainWindow::btnSelectSnapshot_clicked()
