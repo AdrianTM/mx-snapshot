@@ -44,6 +44,7 @@ SOURCES += \
     work.cpp
 
 HEADERS  += \
+    common.h \
     version.h \
     cmd.h \
     settings.h \
