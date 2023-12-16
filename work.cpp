@@ -572,7 +572,7 @@ quint64 Work::getRequiredSpace()
     }
     qDebug() << "SIZE ROOT    " << root_size;
     qDebug() << "SIZE EXCLUDES" << excl_size;
-    uint c_factor = compression_factor.value(settings->compression);
+    uint c_factor = settings->compression_factor.value(settings->compression);
     qDebug() << "COMPRESSION  " << c_factor;
     qDebug() << "SIZE NEEDED  " << (root_size - excl_size) * c_factor / 100;
     qDebug() << "SIZE FREE    " << settings->free_space << "\n";

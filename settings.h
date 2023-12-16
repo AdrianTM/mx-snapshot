@@ -30,8 +30,6 @@
 #include <cmd.h>
 
 extern QString current_kernel;
-static QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
-                                                  {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
 namespace Release
 {
@@ -41,6 +39,53 @@ enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
 class Settings
 {
 public:
+    explicit Settings(const QCommandLineParser &arg_parser);
+    friend class Batchprocessing;
+    friend class MainWindow;
+    friend class Work;
+
+    [[nodiscard]] QString getEditor() const;
+    [[nodiscard]] QString getFilename() const;
+    [[nodiscard]] QString getFreeSpaceStrings(const QString &path);
+    [[nodiscard]] QString getSnapshotSize() const;
+    [[nodiscard]] QString getUsedSpace();
+    [[nodiscard]] QString getXdgUserDirs(const QString &folder);
+    [[nodiscard]] bool checkCompression() const;
+    [[nodiscard]] bool checkSnapshotDir() const;
+    [[nodiscard]] bool checkTempDir();
+    [[nodiscard]] int getSnapshotCount() const;
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
+    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
+    [[nodiscard]] static QString readKernelOpts();
+    [[nodiscard]] static QStringList listUsers();
+    [[nodiscard]] static bool isLive();
+    [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
+    [[nodiscard]] static bool isi386();
+    [[nodiscard]] static int getDebianVerNum();
+    [[nodiscard]] static quint64 getFreeSpace(const QString &path);
+    [[nodiscard]] quint64 getLiveRootSpace();
+    void addRemoveExclusion(bool add, QString exclusion);
+    void excludeAll();
+    void excludeDesktop(bool exclude);
+    void excludeDocuments(bool exclude);
+    void excludeDownloads(bool exclude);
+    void excludeItem(const QString &item);
+    void excludeMusic(bool exclude);
+    void excludeNetworks(bool exclude);
+    void excludePictures(bool exclude);
+    void excludeSteam(bool exclude);
+    void excludeSwapFile();
+    void excludeVideos(bool exclude);
+    void excludeVirtualBox(bool exclude);
+    void loadConfig();
+    void otherExclusions();
+    void processArgs(const QCommandLineParser &arg_parser);
+    void processExclArgs(const QCommandLineParser &arg_parser);
+    void selectKernel();
+    void setMonthlySnapshot(const QCommandLineParser &arg_parser);
+    void setVariables();
+
+private:
     enum class Exclude {
         Desktop = 0x1,
         Documents = 0x2,
@@ -53,8 +98,8 @@ public:
         VirtualBox = 0x256
     };
     Q_DECLARE_FLAGS(Exclusions, Exclude)
-
-    explicit Settings(const QCommandLineParser &arg_parser);
+    const QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
+                                                     {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
     Exclusions exclusions;
     QFile config_file;
@@ -100,45 +145,4 @@ public:
     quint64 root_size {};
     uint cores {};
     uint throttle {};
-
-    [[nodiscard]] QString getEditor() const;
-    [[nodiscard]] QString getFilename() const;
-    [[nodiscard]] QString getFreeSpaceStrings(const QString &path);
-    [[nodiscard]] QString getSnapshotSize() const;
-    [[nodiscard]] QString getUsedSpace();
-    [[nodiscard]] QString getXdgUserDirs(const QString &folder);
-    [[nodiscard]] bool checkCompression() const;
-    [[nodiscard]] bool checkSnapshotDir() const;
-    [[nodiscard]] bool checkTempDir();
-    [[nodiscard]] int getSnapshotCount() const;
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
-    [[nodiscard]] static QString readKernelOpts();
-    [[nodiscard]] static QStringList listUsers();
-    [[nodiscard]] static bool isLive();
-    [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
-    [[nodiscard]] static bool isi386();
-    [[nodiscard]] static int getDebianVerNum();
-    [[nodiscard]] static quint64 getFreeSpace(const QString &path);
-    [[nodiscard]] static quint64 getLiveRootSpace();
-    void addRemoveExclusion(bool add, QString exclusion);
-    void excludeAll();
-    void excludeDesktop(bool exclude);
-    void excludeDocuments(bool exclude);
-    void excludeDownloads(bool exclude);
-    void excludeItem(const QString &item);
-    void excludeMusic(bool exclude);
-    void excludeNetworks(bool exclude);
-    void excludePictures(bool exclude);
-    void excludeSteam(bool exclude);
-    void excludeSwapFile();
-    void excludeVideos(bool exclude);
-    void excludeVirtualBox(bool exclude);
-    void loadConfig();
-    void otherExclusions();
-    void processArgs(const QCommandLineParser &arg_parser);
-    void processExclArgs(const QCommandLineParser &arg_parser);
-    void selectKernel();
-    void setMonthlySnapshot(const QCommandLineParser &arg_parser);
-    void setVariables();
 };
