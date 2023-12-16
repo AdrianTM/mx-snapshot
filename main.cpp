@@ -46,6 +46,9 @@
 
 static QTranslator qtTran, qtBaseTran, appTran;
 
+QFile logFile {};
+QString current_kernel {};
+
 void checkSquashfs();
 void messageHandler(QtMsgType, QMessageLogContext, QString);
 void runApp(QCommandLineParser);
