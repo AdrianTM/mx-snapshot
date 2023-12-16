@@ -23,14 +23,13 @@
  **********************************************************************/
 
 #include "work.h"
+#include "common.h"
 
 #include <QDate>
 #include <QDebug>
 #include <QDirIterator>
 #include <QRegularExpression>
 #include <QSettings>
-
-const extern QFile logFile;
 
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
@@ -389,7 +388,8 @@ void Work::replaceMenuStrings()
     QDir themeDir(settings->work_dir + "/iso-template/boot/grub/theme");
     for (const QFileInfo &themeFile : themeDir.entryInfoList({"*.txt"}, QDir::Files)) {
         replaceStringInFile("%ASCII_CODE_NAME%", settings->codename, themeFile.absoluteFilePath());
-        replaceStringInFile("%DISTRO%", settings->project_name + "-" + settings->distro_version, themeFile.absoluteFilePath());
+        replaceStringInFile("%DISTRO%", settings->project_name + "-" + settings->distro_version,
+                            themeFile.absoluteFilePath());
     }
 }
 

@@ -21,7 +21,6 @@
  * You should have received a copy of the GNU General Public License
  * along with MX Snapshot.  If not, see <http://www.gnu.org/licenses/>.
  **********************************************************************/
-
 #ifdef CLI_BUILD
 #include <QCoreApplication>
 #else
@@ -39,14 +38,12 @@
 #include "mainwindow.h"
 #endif
 
+#include "common.h"
 #include "version.h"
 
 #include <csignal>
 #include <unistd.h>
 
-QFile logFile;
-QString current_kernel;
-extern const QString starting_home = qEnvironmentVariable("HOME");
 static QTranslator qtTran, qtBaseTran, appTran;
 
 void checkSquashfs();
