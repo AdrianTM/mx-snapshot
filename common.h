@@ -21,6 +21,6 @@
  **********************************************************************/
 #pragma once
 
-const QFile logFile {"/tmp/" + QCoreApplication::applicationName() + ".log"};
-const QString starting_home {qEnvironmentVariable("HOME")};
+inline const QFile logFile {"/tmp/" + QCoreApplication::applicationName() + ".log"};
+inline const QString starting_home {qEnvironmentVariable("HOME")};
 extern QString current_kernel;
