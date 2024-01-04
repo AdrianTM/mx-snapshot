@@ -46,8 +46,7 @@
 #include <unistd.h>
 
 static QTranslator qtTran, qtBaseTran, appTran;
-
-QString current_kernel {};
+inline QString current_kernel {};
 
 void checkSquashfs();
 void runApp(QCommandLineParser);
