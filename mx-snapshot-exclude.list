@@ -71,7 +71,7 @@ var/lib/nfs/rpc_pipefs/*
 var/lib/sudo/*
 var/lib/udisks/*
 var/lib/urandom/*
-var/log/!(apache2|samba|clamav)
+var/log/!(apache2|clamav|libvirt|samba)
 var/log/clamav/*
 var/log/samba/*
 var/mail/*
