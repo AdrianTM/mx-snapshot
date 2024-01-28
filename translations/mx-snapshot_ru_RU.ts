@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr_BE">
+<TS version="2.1" language="ru_RU">
 <context>
     <name>Batchprocessing</name>
     <message>
         <location filename="../batchprocessing.cpp" line="44"/>
         <source>Error</source>
-        <translation>Erreur</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="45"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Le noyau actuel ne supporte pas l’algorithme de compression choisi, veuillez éditer le fichier de configuration et sélectionner un algorithme différent.</translation>
+        <translation>Текущее ядро не поддерживает выбранный алгоритм сжатия, пожалуйста, измените конфигурационный файл и выберите другой алгоритм.</translation>
     </message>
 </context>
 <context>
@@ -22,182 +22,182 @@
         <location filename="../mainwindow.cpp" line="443"/>
         <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
-        <translation>MX Instantané - MX Snapshot</translation>
+        <translation>MX Снимок системы</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
         <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
-        <translation>Personnalisation facultative</translation>
+        <translation>Дополнительная настройка</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
-        <translation>Date de parution:</translation>
+        <translation>Дата выпуска:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
-        <translation>Nom de code de la version:</translation>
+        <translation>Кодовое имя выпуска:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
-        <translation>Noyau live:</translation>
+        <translation>Загружаемое ядро:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
-        <translation>Options de démarrage:</translation>
+        <translation>Параметры загрузки:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
-        <translation>Version:</translation>
+        <translation>Версия выпуска:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
-        <translation>Modifier le noyau live</translation>
+        <translation>Сменить загружаемое ядро</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
-        <translation>Nom du projet:</translation>
+        <translation>Имя проекта:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
         <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot est un utilitaire qui crée une image amorçable (ISO) de votre système actuel pour que vous puissiez la conserver ou la distribuer. Vous pouvez utiliser d’autres applications légères pendant son fonctionnement.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot — средство для создания загрузочного образа (ISO) вашей рабочей системы с целью хранения или распространения. Во время его использования вы можете работать с нетребовательными приложениями.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation>Espace utilisé sur les partitions /(root) et /home:</translation>
+        <translation>Используемое место на / (корневом) и домашнем разделах:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
-        <translation>Emplacement et nom de l’ISO</translation>
+        <translation>Расположение и название ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
         <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
-        <translation>Emplacement de l’instantané:</translation>
+        <translation>Расположение снимков:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
         <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
-        <translation>Choisir un répertoire différent pour l’instantané</translation>
+        <translation>Выбрать другую папку для снимка</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="345"/>
         <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
-        <translation>Nom de l’instantané:</translation>
+        <translation>Имя снимка:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
         <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Vous pouvez également exclure certains répertoires en sélectionnant les choix les plus courants ci-dessous, ou en cliquant sur le bouton pour éditer directement  /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Вы также можете исключить определенные папки, отметив их ниже, или нажать на кнопку, чтобы напрямую изменить /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
         <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
-        <translation>exclure les configurations réseau</translation>
+        <translation>исключить настройки сетей</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
         <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
-        <translation>Réseaux</translation>
+        <translation>Сети</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
         <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
-        <translation>Tout ce qui précède</translation>
+        <translation>Все вышеперечисленное</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
         <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
-        <translation>Photos</translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
         <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
-        <translation>Bureau</translation>
+        <translation>Рабочий стол</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
         <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
-        <translation>Musique</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
         <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
-        <translation>Téléchargements</translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
         <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
-        <translation>Vidéos</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
         <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
-        <translation>Documents</translation>
+        <translation>Документы</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
-        <translation>Type d’instantané:</translation>
+        <translation>Тип снимка:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
         <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation>Conservation des comptes (pour une sauvegarde personnelle)</translation>
+        <translation>Сохранение учетных записей (для личного резервного копирования)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
         <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cette option réinitialisera les mots de passe &amp;quot;demo&amp;quot; et &amp;quot;root&amp;quot; aux valeurs par défauts de MX Linux et ne copiera pas les comptes personnels.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Эта опция сбросит &amp;quot;demo&amp;quot; и &amp;quot;root&amp;quot; пароли MX Linux по умолчанию и не будет копировать какие-либо созданные персональные учетные записи.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
         <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>Réinitialisation des comptes (pour distribuer à d’autres personnes)</translation>
+        <translation>Сброс учетных записей (дистрибутив для других)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
         <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
-        <translation>Editer le fichier d’exclusion</translation>
+        <translation>Править файл исключений</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
@@ -209,31 +209,31 @@
         <location filename="../mainwindow.ui" line="657"/>
         <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation>Réduire le taux d’entrée des I/O - Entrées/Sorties - selon le pourcentage donné.</translation>
+        <translation>Ограничьте скорость ввода/вывода заданного процента.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
         <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
-        <translation>Limite des I/O:</translation>
+        <translation>I/O ограничение:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
         <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
-        <translation>Calculer les sommes de contrôle:</translation>
+        <translation>Рассчитать контрольные суммы:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
         <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
-        <translation>Méthode de compression de l’ISO:</translation>
+        <translation>Схема сжатия ISO:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
         <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
-        <translation>Nombre de cœurs du processeur à utiliser:</translation>
+        <translation>Количество используемых ядер ЦПУ:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
@@ -245,19 +245,19 @@
         <location filename="../mainwindow.ui" line="701"/>
         <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
-        <translation>Options:</translation>
+        <translation>Опции:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
         <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
-        <translation>À propos de cette application</translation>
+        <translation>Об этом приложении</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
         <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
-        <translation>À propos ...</translation>
+        <translation>О программе...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
@@ -269,13 +269,13 @@
         <location filename="../mainwindow.ui" line="874"/>
         <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
-        <translation>Quitter l’application</translation>
+        <translation>Выйти из приложения</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
         <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
@@ -287,25 +287,25 @@
         <location filename="../mainwindow.ui" line="916"/>
         <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
-        <translation>Suivant</translation>
+        <translation>Следующий</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
         <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
-        <translation>Retour</translation>
+        <translation>Назад</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
         <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
-        <translation>Afficher l’aide </translation>
+        <translation>Показать справку</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
         <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
-        <translation>Aide</translation>
+        <translation>Помощь</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
@@ -316,57 +316,59 @@
     <message>
         <location filename="../mainwindow.cpp" line="178"/>
         <source>fastest, worst compression</source>
-        <translation>compression la plus rapide et la plus mauvaise</translation>
+        <translation>самое быстрое, наихудшее сжатие</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="178"/>
         <source>fast, worse compression</source>
-        <translation>compression rapide et moins bonne</translation>
+        <translation>быстро, худшее сжатие</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <source>slow, better compression</source>
-        <translation>compression lente et bonne</translation>
+        <translation>медленное, лучше сжатие</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <source>best compromise</source>
-        <translation>meilleur compromis</translation>
+        <translation>наилучший компромисс</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="180"/>
         <source>slowest, best compression</source>
-        <translation>compression la plus lente et la meilleure</translation>
+        <translation>самое медленное, наилучшее сжатие</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="209"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané: </translation>
+        <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="212"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation>L’espace libre doit être suffisant pour contenir les données compressées de / et de /home.
+        <translation>Свободного места должно быть достаточно для сжатых данных из / и /home
 
-      Si nécessaire, vous pouvez créer plus d’espace disponible en supprimant les instantanés précédents et les copies sauvegardées: les instantanés « snapshots » %1 occupent %2 de l’espace disque.</translation>
+Если нужно, Вы можете создать больше доступного места,
+удалив предыдущие снимки и сохраненные копии:
+%1 снимков занимают %2 дискового пространства.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="224"/>
         <location filename="../mainwindow.cpp" line="225"/>
         <source>Installing </source>
-        <translation>Installation </translation>
+        <translation>Установка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="313"/>
         <source>Please wait.</source>
-        <translation>Veuillez patienter ...</translation>
+        <translation>Пожалуйста, ждите.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="315"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation>Veuillez patienter. Calcul de l’espace disque utilisé ...</translation>
+        <translation>Пожалуйста, ждите. Расчет используемого дискового пространства...</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="329"/>
@@ -374,112 +376,112 @@
         <location filename="../mainwindow.cpp" line="387"/>
         <location filename="../mainwindow.cpp" line="391"/>
         <source>Error</source>
-        <translation>Erreur</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="330"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
+        <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="337"/>
         <source>Settings</source>
-        <translation>Paramètres</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="342"/>
         <source>Snapshot will use the following settings:</source>
-        <translation>Snapshot utilisera les paramètres suivants:</translation>
+        <translation>Снимок будет использовать следующие настройки:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="344"/>
         <source>- Snapshot directory:</source>
-        <translation>- Répertoire de l’instantané:</translation>
+        <translation>- Папка снимков:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="345"/>
         <source>- Kernel to be used:</source>
-        <translation>- Noyau à utiliser:</translation>
+        <translation>- Используемое ядро:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="357"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Le noyau actuel ne supporte pas l’algorithme de compression choisi, veuillez éditer le fichier de configuration et sélectionner un algorithme différent.</translation>
+        <translation>Текущее ядро не поддерживает выбранный алгоритм сжатия, пожалуйста, измените конфигурационный файл и выберите другой алгоритм.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="364"/>
         <source>Final chance</source>
-        <translation>Dernière occasion d’arrêter le processus</translation>
+        <translation>Последний шанс</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="366"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation>Snapshot dispose désormais de toutes les informations nécessaires à la création du fichier ISO instantané de votre système.</translation>
+        <translation>Имеется вся информация Снимка, необходимая для создания ISO из рабочей системы.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="367"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
-        <translation>Selon la taille de votre image et la puissance de votre ordinateur, le processus peut durer un certain temps.</translation>
+        <translation>Это займёт некоторое время, в зависимости от размера установленной системы и способностей вашего компьютера.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="369"/>
         <source>OK to start?</source>
-        <translation>Prêt à démarrer?</translation>
+        <translation>OK для старта?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>Shutdown computer when done.</source>
-        <translation>Arrêtez l’ordinateur lorsque vous avez fini.</translation>
+        <translation>Выключить компьютер по завершении.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="387"/>
         <source>Could not create working directory. </source>
-        <translation>Impossible de créer le répertoire de travail. </translation>
+        <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="391"/>
         <source>Could not create temporary directory. </source>
-        <translation>Impossible de créer un répertoire temporaire. </translation>
+        <translation>Не удалось создать временный каталог.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="399"/>
         <source>Output</source>
-        <translation>Résultats</translation>
+        <translation>Вывод</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="412"/>
         <source>Edit Boot Menu</source>
-        <translation>Éditer le menu de démarrage</translation>
+        <translation>Изменить меню загрузки</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="413"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>Le programme va se mettre en pause afin de vous permettre d’éditer les fichiers du répertoire de travail. Veuillez choisir Yes pour éditer le menu de démarrage, ou No pour passer cette étape et continuer la création de l’instantané.</translation>
+        <translation>Теперь программа будет приостановлена, чтобы позволить вам править файлы в рабочем каталоге. Выберите Да, чтобы изменить меню загрузки, или выберите Нет, чтобы пропустить этот шаг и продолжить создание образа.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="426"/>
         <source>Close</source>
-        <translation>Quitter</translation>
+        <translation>Закрыть</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="434"/>
         <source>Select kernel</source>
-        <translation>Choisir le noyau</translation>
+        <translation>Выбор ядра</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="525"/>
         <source>About %1</source>
-        <translation>À propos %1</translation>
+        <translation>О %1</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="527"/>
         <source>Version: </source>
-        <translation>Version: </translation>
+        <translation>Версия: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="528"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
-        <translation>Programme créant un instantané du système MX Linux en fonctionnement sous forme d’un live CD.</translation>
+        <translation>Программа для создания live-CD из работающей системы для MX Linux</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="530"/>
@@ -489,27 +491,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="532"/>
         <source>%1 License</source>
-        <translation>%1 Licence</translation>
+        <translation>%1 Лицензия</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="546"/>
         <source>%1 Help</source>
-        <translation>%1 Aide</translation>
+        <translation>%1 Справка</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="551"/>
         <source>Select Snapshot Directory</source>
-        <translation>Choisissez un répertoire pour l’instantané</translation>
+        <translation>Выберите папку для снимков</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="572"/>
         <source>Confirmation</source>
-        <translation>Confirmation</translation>
+        <translation>Подтверждение</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="572"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation>Êtes-vous sûr de vouloir quitter l’application?</translation>
+        <translation>Вы уверены, что хотите выйти из приложения?</translation>
     </message>
 </context>
 <context>
@@ -517,178 +519,178 @@
     <message>
         <location filename="../batchprocessing.cpp" line="70"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
-        <translation>Le programme mettra en pause la compilation et ouvrira le menu de démarrage dans votre éditeur de texte.</translation>
+        <translation>Программа приостановит сборку и откроет меню загрузки в вашем текстовом редакторе.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="73"/>
         <source>Tool used for creating a live-CD from the running system</source>
-        <translation>Outil de création d’un live-CD à partir d’un système en cours de fonctionnement</translation>
+        <translation>Средство создания live-CD из работающей системы</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="77"/>
         <source>Use CLI only</source>
-        <translation>Utiliser seulement CLI</translation>
+        <translation>Использовать только интерфейс командной строки</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Number of CPU cores to be used.</source>
-        <translation>Nombre de cœurs du processeur devant être utilisés.</translation>
+        <translation>Количество используемых ядер ЦПУ:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <location filename="../main.cpp" line="108"/>
         <source>number</source>
-        <translation>nombre</translation>
+        <translation>Числа</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <source>Output directory</source>
-        <translation>Répertoire de destination</translation>
+        <translation>Выходной каталог</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
         <location filename="../main.cpp" line="109"/>
         <source>path</source>
-        <translation>chemin</translation>
+        <translation>путь</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>Output filename</source>
-        <translation>Nom du fichier de destination</translation>
+        <translation>Имя выходного файла</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="81"/>
         <source>name</source>
-        <translation>nom</translation>
+        <translation>имя</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="83"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Désigne un noyau différent devant être utilisé à la place du noyau fonctionnant par défaut, en utilisant le format renvoyé par « uname -r »</translation>
+        <translation>Назовите для использования другое ядро, отличное от запущенного по умолчанию; используйте формат, возвращаемый «uname -r»</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="85"/>
         <source>Or the full path: %1</source>
-        <translation>Ou le chemin entier: %1</translation>
+        <translation>Или полный путь: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="86"/>
         <source>version, or path</source>
-        <translation>version ou chemin</translation>
+        <translation>версия или путь</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Compression level options.</source>
-        <translation>Options du niveau de compression.</translation>
+        <translation>Параметры уровня сжатия.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation>Utilisez les expressions: « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir mksquashfs man page</translation>
+        <translation>Используйте кавычки: &quot;-Xcompression-level &lt;level&gt;&quot;, &quot;-Xalgorithm &lt;algorithm&gt;&quot; или &quot;-Xhc&quot;; смотрите справочную страницу mksquashfs</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
         <source>&quot;option&quot;</source>
-        <translation>« option »</translation>
+        <translation>&quot;параметр&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="94"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
-        <translation>Crée un instantané mensuel, ajoute le nom du « Mois » au nom de l’ISO, ignore le calcul de l’espace utilisé</translation>
+        <translation>Создать ежемесячный снимок, добавить название месяца в имя ISO, пропустить вычисление используемого места</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="95"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
-        <translation>Cette option définit les comptes de réinitialisation et la compression par défaut, les arguments modifiant ces éléments seront ignorés</translation>
+        <translation>Этот параметр устанавливает значения reset-accounts и compression по умолчанию, аргументы, меняющие эти записи, будут игнорироваться</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
-        <translation>Ne pas calculer les sommes de contrôle pour le fichier ISO obtenu</translation>
+        <translation>Не вычислять контрольные суммы для конечного ISO-файла</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation>Ne pas calculer l’espace libre pour voir si l’ISO qui en résulte tiendra dans l’espace.</translation>
+        <translation>Пропустить вычисление свободного места, чтобы посмотреть, поместится ли результирующий ISO</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="102"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation>Option permettant de régler les problèmes lors du calcul de la somme de contrôle des noyaux preempt_rt</translation>
+        <translation>Параметр для устранения проблемы с вычислением контрольных сумм в ядрах preempt_rt</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="103"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>Réinitialisation des comptes (pour distribuer à d’autres personnes)</translation>
+        <translation>Сброс учетных записей (дистрибутив для других)</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="104"/>
         <source>Calculate checksums for resulting ISO file</source>
-        <translation>Calculer les sommes de contrôle pour le fichier ISO obtenu</translation>
+        <translation>Вычисление контрольных сумм для конечного ISO-файла</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="106"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation>Réduire le taux d’entrée des I/O - Entrées/Sorties - selon le pourcentage donné. Cela peut être utilisé pour réduire les I/O et la consommation du CPU de Mksquashfs.</translation>
+        <translation>Ограничьте скорость ввода/вывода на заданный процент. Это может быть использовано для снижения нагрузки на ввод/вывод и процессор при работе с Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Work directory</source>
-        <translation>Répertoire de travail</translation>
+        <translation>Рабочий каталог</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="111"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation>Exclure les dossiers principaux, choix valables: </translation>
+        <translation>Исключить основные папки, допустимые варианты:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="113"/>
         <source>Use the option one time for each item you want to exclude</source>
-        <translation>Utilisez l’option une fois pour chaque élément que vous souhaitez exclure</translation>
+        <translation>Используйте этот параметр один раз для каждого объекта, который вы хотите исключить</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="114"/>
         <source>one item</source>
-        <translation>un élément</translation>
+        <translation>один элемент</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="116"/>
         <source>Compression format, valid choices: </source>
-        <translation>Format de compression, choix valables: </translation>
+        <translation>Формат сжатия, допустимые варианты:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="117"/>
         <source>format</source>
-        <translation>format</translation>
+        <translation>формат</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="118"/>
         <source>Shutdown computer when done.</source>
-        <translation>Arrêtez l’ordinateur lorsque vous avez fini.</translation>
+        <translation>Выключить компьютер по завершении.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="136"/>
         <location filename="../main.cpp" line="146"/>
         <location filename="../main.cpp" line="187"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation>Vous semblez être connecté en tant qu’administrateur, veuillez vous déconnecter et vous connecter en tant qu’utilisateur normal pour utiliser ce programme.</translation>
+        <translation>Программа запущена суперпользователем. Для использования программы войдите в систему как обычный пользователь.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="159"/>
         <location filename="../main.cpp" line="199"/>
         <source>version:</source>
-        <translation>version:</translation>
+        <translation>версия:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="168"/>
         <location filename="../main.cpp" line="194"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation>Vous devez exécuter ce programme avec sudo ou pkexec.</translation>
+        <translation>Вы должны запустить эту программу с помощью sudo или pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="178"/>
         <source>MX Snapshot</source>
-        <translation>MX Instantané - MX Snapshot</translation>
+        <translation>MX Снимок системы</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="186"/>
@@ -699,49 +701,49 @@
         <location filename="../settings.cpp" line="753"/>
         <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
-        <translation>Erreur</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
         <location filename="../settings.cpp" line="261"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
+        <translation>Текущее ядро не поддерживает Squashfs, невозможно продолжить.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="90"/>
         <source>Could not create working directory. </source>
-        <translation>Impossible de créer le répertoire de travail. </translation>
+        <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="115"/>
         <source>Could not create temp directory. </source>
-        <translation>Impossible de créer le répertoire temporaire. </translation>
+        <translation>Не удалось создать временный каталог.</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="246"/>
         <source>Could not find a usable kernel</source>
-        <translation>Impossible de trouver un noyau utilisable</translation>
+        <translation>Не удалось найти пригодное для использования ядро</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="370"/>
         <source>Used space on / (root): </source>
-        <translation>Espace utilisé dans /(root): </translation>
+        <translation>Используемое место на / (корневом) разделе:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="373"/>
         <source>estimated</source>
-        <translation>estimé</translation>
+        <translation>предполагаемый</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="386"/>
         <source>Used space on /home: </source>
-        <translation>Espace utilisé dans /home: </translation>
+        <translation>Используемое место на домашнем разделе:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="472"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané: </translation>
+        <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="476"/>
@@ -751,73 +753,74 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
+        <translation>Свободного места должно быть достаточно для сжатых данных из / и /home
 
-Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
-Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
+Если нужно, Вы можете создать больше доступного места,
+удалив предыдущие снимки и сохраненные копии:
+%1 снимков занимают %2 дискового пространства.
 </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="493"/>
         <source>Desktop</source>
-        <translation>Bureau</translation>
+        <translation>Рабочий стол</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="496"/>
         <source>Documents</source>
-        <translation>Documents</translation>
+        <translation>Документы</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="499"/>
         <source>Downloads</source>
-        <translation>Téléchargements</translation>
+        <translation>Загрузки</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="502"/>
         <source>Music</source>
-        <translation>Musique</translation>
+        <translation>Музыка</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="505"/>
         <source>Networks</source>
-        <translation>Réseaux</translation>
+        <translation>Сети</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="508"/>
         <source>Pictures</source>
-        <translation>Photos</translation>
+        <translation>Изображения</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="514"/>
         <source>Videos</source>
-        <translation>Vidéos</translation>
+        <translation>Видео</translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="746"/>
         <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
+        <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="70"/>
         <source>License</source>
-        <translation>Licence</translation>
+        <translation>Лицензия</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="71"/>
         <location filename="../about.cpp" line="81"/>
         <source>Changelog</source>
-        <translation>Journal des modifications</translation>
+        <translation>Список изменений</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="72"/>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation>Отмена</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="94"/>
         <source>&amp;Close</source>
-        <translation>&amp;Quitter</translation>
+        <translation>&amp;Закрыть</translation>
     </message>
 </context>
 <context>
@@ -825,18 +828,18 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../work.cpp" line="81"/>
         <source>Cleaning...</source>
-        <translation>Nettoyage ...</translation>
+        <translation>Очистка...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="92"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
-        <translation>Terminé</translation>
+        <translation>Готово</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="102"/>
         <source>Interrupted or failed to complete</source>
-        <translation>Interrompu ou non terminé</translation>
+        <translation>Прервано или не удалось завершить</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
@@ -845,112 +848,112 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <location filename="../work.cpp" line="296"/>
         <location filename="../work.cpp" line="409"/>
         <source>Error</source>
-        <translation>Erreur</translation>
+        <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="136"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
-        <translation>Il n’y a pas assez d’espace libre sur votre disque cible, vous avez besoin d’au moins %1</translation>
+        <translation>На вашем целевом диске недостаточно свободного места, нужно как минимум %1</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="139"/>
         <source>You have %1 free space on %2</source>
-        <translation>Vous avez %1 d’espace libre sur %2</translation>
+        <translation>У вас свободно %1 на %2</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="142"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation>Si vous êtes certain d’avoir assez d’espace libre, relancez le programme avec -o/--override-size option</translation>
+        <translation>Если вы уверены, что у вас достаточно свободного места, повторно запустите программу с параметром «-o/--override-size»</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="167"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation>Copie du nouveau système de fichiers iso en cours ... </translation>
+        <translation>Копирование новой файловой системы ISO...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="179"/>
         <source>Could not create temp directory. </source>
-        <translation>Impossible de créer le répertoire temporaire. </translation>
+        <translation>Не удалось создать временный каталог.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="232"/>
         <source>Squashing filesystem...</source>
-        <translation>Écrasement du système de fichiers ...</translation>
+        <translation>Сжатие файловой системы...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="235"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation>Impossible de créer le fichier linuxfs. Veuillez vérifier que l’espace sur la partition de destination est suffisant.</translation>
+        <translation>Не удалось создать файл linuxfs, пожалуйста, проверьте, есть ли у Вас достаточно места на целевом разделе.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="254"/>
         <source>Creating CD/DVD image file...</source>
-        <translation>Création du fichier image pour CD/DVD ...</translation>
+        <translation>Создание файла образа CD/DVD...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="258"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation>Impossible de créer le fichier ISO. Veuillez vérifier que l’espace sur la partition de destination est suffisant.</translation>
+        <translation>Не удалось создать ISO-файл, пожалуйста, проверьте, есть ли у вас достаточно места на целевом разделе.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="264"/>
         <source>Making hybrid iso</source>
-        <translation> Création d’une image ISO hybride</translation>
+        <translation>Создание гибридного ISO</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="283"/>
         <source>Success</source>
-        <translation>Installation réussie</translation>
+        <translation>Успешно</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="284"/>
         <source>MX Snapshot completed sucessfully!</source>
-        <translation>Instantané MX terminé avec succès!</translation>
+        <translation>MX Snapshot завершился успешно!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="285"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation>Instantané a pris %1 pour terminer.</translation>
+        <translation>Создание снимка завершено за %1.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="286"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Merci d’utiliser MX Snapshot, lancez ensuite MX Live USB Création!</translation>
+        <translation>Спасибо за использование MX Snapshot, следующим запустите MX Live USB Maker!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="293"/>
         <source>Installing </source>
-        <translation>Installation </translation>
+        <translation>Установка</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="296"/>
         <source>Could not install </source>
-        <translation>Installation impossible </translation>
+        <translation>Не удалось установить</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="306"/>
         <source>Calculating checksum...</source>
-        <translation>Calculer la somme de contrôle ...</translation>
+        <translation>Вычисление контрольной суммы...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="345"/>
         <source>Building new initrd...</source>
-        <translation>Nouvel initrd en cours de création ...</translation>
+        <translation>Формирую новый initrd...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="410"/>
         <source>Could not create working directory. </source>
-        <translation>Impossible de créer le répertoire de travail. </translation>
+        <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="553"/>
         <source>Calculating total size of excluded files...</source>
-        <translation>Calcul de la taille totale des fichiers exclus ...</translation>
+        <translation>Вычисление общего размера исключённых файлов...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="564"/>
         <source>Calculating size of root...</source>
-        <translation>Calcul de la taille de root ...</translation>
+        <translation>Вычисление размера root...</translation>
     </message>
 </context>
 </TS>

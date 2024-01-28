@@ -5,7 +5,7 @@
 # 
 # Translators:
 # Eugen Brodski <eugen.brodski@web.de>, 2022
-# Dolphin Oracle <dolphinoracle@gmail.com>, 2022
+# aer, 2024
 # 
 #, fuzzy
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-04 14:53-0500\n"
 "PO-Revision-Date: 2022-12-04 20:22+0000\n"
-"Last-Translator: Dolphin Oracle <dolphinoracle@gmail.com>, 2022\n"
+"Last-Translator: aer, 2024\n"
 "Language-Team: German (https://app.transifex.com/anticapitalista/teams/10162/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,5 +31,5 @@ msgstr "MX Schnappschuss"
 #: desktop-in/mx-snapshot.desktop.in:7
 msgid "Create a live iso snapshot of your running system."
 msgstr ""
-"Erzeugen eines Schnappschusses Ihres laufenden Systems als bootfähige Live-"
-"ISO"
+"Einen Schnappschuss Ihres laufenden Systems als bootfähige Live-ISO "
+"erzeugen."
