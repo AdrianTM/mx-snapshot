@@ -155,7 +155,7 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 // copyModules(mod_dir/kernel kernel)
 void Work::copyModules(const QString &to, const QString &kernel)
 {
-    shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -t="%2" -k="%3")")
+    shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -e -t="%2" -k="%3")")
                   .arg(qApp->applicationName(), to, kernel));
     shell.runAsRoot(QString("/usr/share/%1/scripts/copy-initrd-programs --to=\"%2\"").arg(qApp->applicationName(), to));
     shell.runAsRoot("chown -R $(logname): " + to);
