@@ -20,296 +20,247 @@
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="172"/>
         <location filename="../mainwindow.cpp" line="443"/>
-        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>תמונות מערכת MX</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
-        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>התאמות כרשות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
-        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>תאריך הוצאה לאור:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
-        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>שם קוד המהדורה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
-        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
-        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>אפשרויות טעינה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
-        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>גרסת המהדורה:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
-        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
-        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>שם המיזם:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>מקום תפוס במחיצות / (תיקיית העל) ו־‎/home:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
-        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>מיקום ושם ה־ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
-        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>מיקום תמונת המערכת:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
-        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>נא לבחור תיקיית תמונות מצב שונה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="345"/>
-        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>שם תמונת המערכת:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
-        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
-        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
-        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>רשתות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
-        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
-        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>תמונות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
-        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>שולחן עבודה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
-        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>מוזיקה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
-        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>הורדות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
-        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>סרטונים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
-        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>מסמכים</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
-        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>סוג תמונת המצב:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
-        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
-        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
-        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
-        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>עריכת קובץ החרגות</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
-        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
-        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
-        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
-        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
-        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
-        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
-        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
-        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>אפשרויות:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
-        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>על אודות יישום זה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
-        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>על אודות…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
-        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
-        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>יציאה מהיישום</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
-        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>ביטול</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
-        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
-        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>קדימה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
-        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>אחורה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
-        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>הצגת עזרה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
-        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>עזרה</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
-        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>

@@ -4,7 +4,6 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Eugen Brodski <eugen.brodski@web.de>, 2022
 # aer, 2024
 # 
 #, fuzzy
@@ -25,7 +24,7 @@ msgstr ""
 #. The desktop entry name will be displayed within the menu.
 #: desktop-in/mx-snapshot.desktop.in:5
 msgid "MX Snapshot"
-msgstr "MX Schnappschuss"
+msgstr "MX-Schnappschuss"
 
 #. # The desktop entry comment will be shown within the menu.
 #: desktop-in/mx-snapshot.desktop.in:7

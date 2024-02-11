@@ -20,296 +20,247 @@
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="172"/>
         <location filename="../mainwindow.cpp" line="443"/>
-        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>MX-Capturas ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
-        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>Personalização opcional</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
-        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>Data de lançamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
-        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>Nome de código do lançamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
-        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
-        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>Opções de arranque:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
-        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>Versão de lançamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
-        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation>Alterar live kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
-        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>Nome do projeto:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;O MX-Capturas ISO é um utilitário que cria imagens carregáveis (de arranque) do sistema, que podem ser usadas para guardar ou para distribuir. Permite trabalhar com aplicações pouco pesadas enquanto está em execução.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Espaço usado nas partições / (raiz ou root) e /home :</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
-        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>Localização e nome da ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
-        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>Localização da captura:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
-        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>Escolher outro directório de capturas</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="345"/>
-        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>Nome da captura:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
-        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>É possível excluir alguns directórios; podem ser marcadas escolhas comuns, abaixo, ou clicado o botão para editar directamente o ficheiro /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
-        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation>excluir configurações de rede</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
-        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>Redes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
-        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>Todos os acima</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
-        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>Fotos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
-        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>Área de trabalho</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
-        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
-        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>Transferências</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
-        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
-        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
-        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>Tipo de captura:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
-        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Preservando as contas criadas (para segurança pessoal)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
-        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Esta opção restabelecerá as senhas de &amp;quot;demo&amp;quot; e &amp;quot;root&amp;quot; para as senhas predefinidas do MX e não copiará quaisquer contas pessoais criadas.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
-        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Restablecendo as contas/senhas pré-definidas root e demo (para distribuição a outros)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
-        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>Editar o ficheiro de exclusão</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
-        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
-        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Acelera a taxa de entrada de E/S (I/O ) numa determinada percentagem.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
-        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation>Acelerador de E/S (I/O):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
-        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation>Calcular as somas de controlo (checksums):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
-        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>Esquema de compressão ISO:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
-        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation>Número de núcleos de CPU a utilizar:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
-        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
-        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>Opções: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
-        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>Sobre esta aplicação</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
-        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>Sobre...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
-        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
-        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>Sair da aplicação</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
-        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
-        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
-        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>Seguinte</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
-        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>Anterior</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
-        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>Mostrar ajuda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
-        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>Ajuda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
-        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>

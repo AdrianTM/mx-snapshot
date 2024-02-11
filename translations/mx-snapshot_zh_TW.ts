@@ -20,296 +20,247 @@
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="172"/>
         <location filename="../mainwindow.cpp" line="443"/>
-        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>MX 快照</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
-        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
-        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
-        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
-        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
-        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
-        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
-        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
-        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快照工具是為電腦正在運作的系統製作一份可開機映像檔（ISO），此檔案可以用來備份或流通。當它在執行的時候，你仍然可以繼續使用不太消耗資源的程式。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>/（根目錄）和 /home 磁碟區已使用的空間：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
-        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
-        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>快照存放位置：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
-        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>將快照存放在別的目錄</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="345"/>
-        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>快照檔名：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
-        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
-        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
-        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
-        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>以上全選</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
-        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>圖片</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
-        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
-        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>音樂</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
-        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>所有下載</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
-        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>影片</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
-        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
-        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>快照類型：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
-        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>保留帳密（個人備份用）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
-        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇此項，則會回復 MX Linux 預設的 demo 和 root 帳密，而不複製任何自訂的個人帳號資料。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
-        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>重新設定帳密（公開流通用）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
-        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>編輯排除檔</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
-        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
-        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
-        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
-        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
-        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>ISO 壓縮方案:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
-        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
-        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
-        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>選項：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
-        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>關於本程式</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
-        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>關於……</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
-        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
-        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>退出程式</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
-        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
-        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
-        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>下一個</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
-        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>後退</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
-        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>顯示說明</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
-        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>說明</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
-        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
