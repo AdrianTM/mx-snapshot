@@ -450,7 +450,7 @@ void MainWindow::btnBack_clicked()
 void MainWindow::btnEditExclude_clicked()
 {
     hide();
-    work.shell.run(getEditor() + " " + snapshot_excludes.fileName());
+    work.shell.run(getEditor() + " " + settings.fileName());
     show();
 }
 

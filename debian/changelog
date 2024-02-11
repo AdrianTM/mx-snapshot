@@ -1,3 +1,9 @@
+mx-snapshot (24.02) mx; urgency=medium
+
+  * Edit config file for user instead of system
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 10 Feb 2024 21:21:20 -0500
+
 mx-snapshot (24.01.01) mx; urgency=medium
 
   * Add device mapper modules to avoid Ventoy crashes
