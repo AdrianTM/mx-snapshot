@@ -49,7 +49,7 @@ public:
     bool installPackage(const QString &package);
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
     quint64 getRequiredSpace();
-    static void writeSnapshotInfo();
+    void writeSnapshotInfo();
     void checkEnoughSpace();
     void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
     void closeInitrd(const QString &initrd_dir, const QString &file);
