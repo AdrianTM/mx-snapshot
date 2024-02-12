@@ -897,12 +897,12 @@
         <translation>Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beregner den totale størrelsen til utelukkede filer …</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Beregner størrelsen til root …</translation>
     </message>

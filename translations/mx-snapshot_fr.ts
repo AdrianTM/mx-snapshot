@@ -894,12 +894,12 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root...</translation>
     </message>

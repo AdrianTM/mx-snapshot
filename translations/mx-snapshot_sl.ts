@@ -896,12 +896,12 @@
         <translation>Nisem mogel ustvariti delovne mape: </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Računanje skupne velikosti izločenih datotek</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Računanje velikosti korena...</translation>
     </message>

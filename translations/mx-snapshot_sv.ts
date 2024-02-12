@@ -895,12 +895,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>

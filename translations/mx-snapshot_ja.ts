@@ -890,12 +890,12 @@
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>

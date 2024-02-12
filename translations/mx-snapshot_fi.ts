@@ -896,12 +896,12 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Työkansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Lasketaan poissuljettujen tiedostojen kokoa...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Lasketaan root kokoa...</translation>
     </message>

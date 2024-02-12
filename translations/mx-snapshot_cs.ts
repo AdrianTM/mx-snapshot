@@ -893,12 +893,12 @@
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Výpočet celkové velikosti vyloučených souborů...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Výpoćet velikosti root...</translation>
     </message>

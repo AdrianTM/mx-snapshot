@@ -895,12 +895,12 @@
         <translation>Nem sikerült létrehozni a munkakönyvtárat.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>A kihagyott fájlok méretének kiszámítása...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>A gyökérkönyvtár méretének kiszámítása...</translation>
     </message>

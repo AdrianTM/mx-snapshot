@@ -888,12 +888,12 @@
         <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>הגודל הכללי של הקבצים המוחרגים מחושב…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>גודל תיקיית העל מחושב…</translation>
     </message>

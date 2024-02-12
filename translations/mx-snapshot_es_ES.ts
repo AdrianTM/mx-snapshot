@@ -895,12 +895,12 @@
         <translation>No se pudo crear el directorio de trabajo. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="553"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando el tamaño total de los archivos excluidos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="564"/>
+        <location filename="../work.cpp" line="557"/>
         <source>Calculating size of root...</source>
         <translation>Calculando el tamaño de root...</translation>
     </message>
