@@ -1,3 +1,9 @@
+mx-snapshot (24.02.01) mx; urgency=medium
+
+  * Fix: write actual snapshot date/time creation to /etc/snapshot_created
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 12 Feb 2024 11:58:40 -0500
+
 mx-snapshot (24.02) mx; urgency=medium
 
   * Edit config file for user instead of system

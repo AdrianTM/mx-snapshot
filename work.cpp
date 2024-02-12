@@ -472,14 +472,7 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    QFile file("/usr/local/share/live-files/files/etc/snapshot_created");
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        return;
-    }
-
-    QTextStream stream(&file);
-    stream << QDateTime::currentDateTime().toString("yyyyMMdd_HHmm");
-    file.close();
+    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib datetime_log", true);
 }
 
 void Work::writeVersionFile()
