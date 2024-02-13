@@ -505,7 +505,7 @@ quint64 Work::getRequiredSpace()
     }
     while (!file->atEnd()) {
         QString line = file->readLine().trimmed();
-        if (!line.startsWith(QLatin1String("#")) && !line.isEmpty() && !line.startsWith(QLatin1String(".bind-root"))) {
+        if (!line.startsWith("#") && !line.isEmpty() && !line.startsWith(".bind-root")) {
             excludes << line.trimmed();
         }
     }
@@ -528,14 +528,13 @@ quint64 Work::getRequiredSpace()
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
         it.next();
-        if (it.value().indexOf(QLatin1String("!")) != -1) { // remove things like "!(minstall.desktop)"
-            it.value().truncate(it.value().indexOf(QLatin1String("!")));
+        if (it.value().indexOf("!") != -1) { // remove things like "!(minstall.desktop)"
+            it.value().truncate(it.value().indexOf("!"));
         }
-        it.value().replace(QLatin1String(" "),
-                           QLatin1String("\\ ")); // escape special bash characters, might need to expand this
-        it.value().replace(QLatin1String("("), QLatin1String("\\("));
-        it.value().replace(QLatin1String(")"), QLatin1String("\\)"));
-        it.value().replace(QLatin1String("|"), QLatin1String("\\|"));
+        it.value().replace(" ", "\\ "); // escape special bash characters, might need to expand this
+        it.value().replace("(", "\\(");
+        it.value().replace(")", "\\)");
+        it.value().replace("|", "\\|");
         it.value().prepend("/.bind-root/");            // check size occupied by excluded files on /.bind-root only
         it.value().remove(QRegularExpression("\\*$")); // chop last *
         // Remove from list if files not on the same volume

@@ -295,7 +295,7 @@ void MainWindow::disableOutput()
 void MainWindow::outputAvailable(const QString &out)
 {
     ui->outputBox->moveCursor(QTextCursor::End);
-    if (out.startsWith(QLatin1String("\r"))) {
+    if (out.startsWith("\r")) {
         ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
         ui->outputBox->moveCursor(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
     }
@@ -403,7 +403,7 @@ void MainWindow::btnNext_clicked()
             work.checkEnoughSpace();
         }
         work.copyNewIso();
-        ui->outputLabel->setText(QLatin1String(""));
+        ui->outputLabel->setText("");
         work.savePackageList(file_name);
 
         if (edit_boot_menu) {
@@ -540,7 +540,7 @@ void MainWindow::btnHelp_clicked()
 
     QString url {"/usr/share/doc/mx-snapshot/mx-snapshot.html"};
 
-    if (lang.startsWith(QLatin1String("fr"))) {
+    if (lang.startsWith("fr")) {
         url = "https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane";
     }
     displayDoc(url, tr("%1 Help").arg(windowTitle()));
