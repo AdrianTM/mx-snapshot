@@ -70,16 +70,9 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
         exclusion.remove(0, 1); // Remove preceding slash
     }
     if (add) {
-        if (session_excludes.isEmpty()) {
-            session_excludes.append("-e \"" + exclusion + "\"");
-        } else {
-            session_excludes.append(" \"" + exclusion + "\"");
-        }
+        session_excludes.append("\"" + exclusion + "\" ");
     } else {
-        session_excludes.remove(" \"" + exclusion + "\"");
-        if (session_excludes == "-e") {
-            session_excludes.clear();
-        }
+        session_excludes.remove("\"" + exclusion + "\" ");
     }
 }
 
@@ -127,7 +120,7 @@ QString Settings::getEditor() const
 {
     QString editor = gui_editor;
     QString desktop_file;
-    QProcess proc;
+
     // If specified editor doesn't exist get the default one
     if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
         QString default_editor = Cmd().getOut("xdg-mime query default text/plain");
@@ -136,15 +129,14 @@ QString Settings::getEditor() const
             = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
         QFile file(desktop_file);
         if (file.open(QIODevice::ReadOnly)) {
-            QString line;
             while (!file.atEnd()) {
-                line = file.readLine();
+                QString line = file.readLine();
                 if (line.contains(QRegularExpression("^Exec="))) {
+                    editor = line.remove(QRegularExpression("^Exec=|%u|%U|%f|%F|%c|%C|-b")).trimmed();
                     break;
                 }
             }
             file.close();
-            editor = line.remove(QRegularExpression("^Exec=|%u|%U|%f|%F|%c|%C|-b")).trimmed();
         }
         if (editor.isEmpty()) { // Use nano as backup editor
             editor = "nano";
@@ -157,11 +149,11 @@ QString Settings::getEditor() const
     QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
     if (isEditorThatElevates || isElectronBased) {
         return editor;
-    } else if (isCliEditor) {
-        return "x-terminal-emulator -e " + elevate + " " + editor;
-    } else {
-        return elevate + " env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
     }
+    if (isCliEditor) {
+        return "x-terminal-emulator -e " + elevate + " " + editor;
+    }
+    return elevate + " env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
 }
 
 // Return the size of the snapshot folder
@@ -208,25 +200,31 @@ quint64 Settings::getFreeSpace(const QString &path)
 // Return the XDG User Directory for each user with different localizations than English
 QString Settings::getXdgUserDirs(const QString &folder)
 {
-    QString result;
+    QStringList resultParts;
+    resultParts.reserve(18); // For 3 users x 6 folders, not worth getting the number of users on the system
+
     for (const QString &user : qAsConst(users)) {
-        QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + "\"");
-        if (!dir.isEmpty()) {
-            if (englishDirs.value(folder) == dir.section("/", -1) || dir == "/home/" + user
-                || dir == "/home/" + user + "/") { // Skip if English name or of return folder is the home
-                                                   // folder (if XDG-USER-DIR not defined)
-                continue;
-            }
+        QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + '"');
+
+        // Skip if English name or of return folder is the home folder (if XDG-USER-DIR not defined)
+        if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user
+            && dir != "/home/" + user + '/') {
+
             if (dir.startsWith('/')) {
-                dir.remove(0, 1); // Remove training slash
+                dir.remove(0, 1); // Remove trailing slash
             }
-            (folder == "DESKTOP") ? dir.append("/!(minstall.desktop)") : dir.append("/*\" \"" + dir + "/.*");
-            (result.isEmpty()) ? result.append("\" \"" + dir) : result.append(" \"" + dir);
-            result.append('"'); // Close the quote for each user, will strip the last one before returning;
+
+            QString exclusion = folder == "DESKTOP" ? "/!(minstall.desktop)" : "/*\" \"" + dir + "/.*";
+            dir.append(exclusion);
+
+            resultParts << dir;
         }
     }
-    result.chop(1); // Chop the last quote, will be added later on in addRemoveExclusion
-    return result;
+    QString result = resultParts.join("\" \"");
+    if (result.isEmpty()) {
+        return {};
+    }
+    return "\" \"" + result;
 }
 
 void Settings::selectKernel()

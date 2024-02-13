@@ -226,8 +226,9 @@ bool Work::createIso(const QString &filename)
         = (Settings::getDebianVerNum() < Version::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
     QString cmd = unbuffer + "mksquashfs /.bind-root \"" + settings->work_dir + "/iso-template/antiX/linuxfs\" -comp "
                   + settings->compression + " -processors " + QString::number(settings->cores) + throttle
-                  + ((settings->mksq_opt.isEmpty()) ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
-                  + settings->snapshot_excludes.fileName() + " " + settings->session_excludes;
+                  + (settings->mksq_opt.isEmpty() ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
+                  + settings->snapshot_excludes.fileName()
+                  + (settings->session_excludes.isEmpty() ? "" : " -e " + settings->session_excludes);
 
     emit message(tr("Squashing filesystem..."));
     if (!shell.runAsRoot(cmd)) {
@@ -514,8 +515,6 @@ quint64 Work::getRequiredSpace()
     // Add session excludes
     if (!settings->session_excludes.isEmpty()) {
         QString sessionExcludes = settings->session_excludes;
-        sessionExcludes.remove(0, 3); // Remove "-e "
-
         QStringList excludeList = sessionExcludes.split("\" \"");
         excludes.reserve(excludeList.size());
         for (QString exclude : excludeList) {
@@ -523,7 +522,6 @@ quint64 Work::getRequiredSpace()
             excludes << exclude;
         }
     }
-
     QString root_dev = Cmd().getOut("df /.bind-root --output=target |tail -1", true);
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
@@ -531,13 +529,12 @@ quint64 Work::getRequiredSpace()
         if (it.value().indexOf("!") != -1) { // remove things like "!(minstall.desktop)"
             it.value().truncate(it.value().indexOf("!"));
         }
-        it.value().replace(" ", "\\ "); // escape special bash characters, might need to expand this
+        it.value().replace(" ", "\\ "); // Escape special bash characters, might need to expand this
         it.value().replace("(", "\\(");
         it.value().replace(")", "\\)");
         it.value().replace("|", "\\|");
-        it.value().prepend("/.bind-root/");            // check size occupied by excluded files on /.bind-root only
-        it.value().remove(QRegularExpression("\\*$")); // chop last *
-        // Remove from list if files not on the same volume
+        it.value().prepend("/.bind-root/"); // Check size occupied by excluded files on /.bind-root only
+        //  Remove from list if files not on the same volume
         if (root_dev != Cmd().getOut("df " + it.value() + " --output=target 2>/dev/null |tail -1", true)) {
             it.remove();
         }
