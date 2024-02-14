@@ -38,32 +38,35 @@ void Log::messageHandler(QtMsgType type, const QMessageLogContext &, const QStri
     QTextStream term_out(stdout);
 
     // Avoid saving endless mksquashfs output
-    if (msg.startsWith(QLatin1String("\r")) || msg.startsWith(QLatin1String("\033[2K"))) {
+    if (msg.startsWith('\r') || msg.startsWith("\033[2K")) {
         term_out << msg;
         return;
     }
-    term_out << msg << "\n";
+
+    term_out << msg << '\n';
 
     QTextStream out(&logFile);
-    out << QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss.zzz "));
+    out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
+
     switch (type) {
     case QtInfoMsg:
-        out << QStringLiteral("INF");
+        out << "INF";
         break;
     case QtDebugMsg:
-        out << QStringLiteral("DBG");
+        out << "DBG";
         break;
     case QtWarningMsg:
-        out << QStringLiteral("WRN");
+        out << "WRN";
         break;
     case QtCriticalMsg:
-        out << QStringLiteral("CRT");
+        out << "CRT";
         break;
     case QtFatalMsg:
-        out << QStringLiteral("FTL");
+        out << "FTL";
         break;
     }
-    out << QStringLiteral(": ") << msg << QStringLiteral("\n");
+
+    out << ": " << msg << '\n';
 }
 
 QString Log::getLog()

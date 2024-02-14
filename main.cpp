@@ -59,10 +59,10 @@ int main(int argc, char *argv[])
         qputenv("XDG_RUNTIME_DIR", "/run/user/0");
         qunsetenv("SESSION_MANAGER");
     }
-    (void)signal(SIGINT, signalHandler);
-    (void)signal(SIGTERM, signalHandler);
-    (void)signal(SIGHUP, signalHandler);
-    // signal(SIGQUIT, signalHandler); // allow SIGQUIT CTRL-\?
+    const std::initializer_list<int> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
+    for (int signalName : signalList) {
+        signal(signalName, signalHandler);
+    }
 
     QProcess proc;
     proc.start("logname", {}, QIODevice::ReadOnly);
@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
 #else
     if (parser.isSet("cli") || parser.isSet("help")) {
         QCoreApplication app(argc, argv);
-        // root guard
+        // Root guard
         if (logname == "root") {
             qDebug() << QObject::tr(
                 "You seem to be logged in as root, please log out and log in as normal user to use this program.");
@@ -272,5 +272,5 @@ void signalHandler(int signal)
         qDebug() << "\nSIGTERM";
         break;
     }
-    QCoreApplication::quit(); // quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
+    QCoreApplication::quit(); // Quit app anyway in case a subprocess was killed, but at least this calls aboutToQuit
 }

@@ -274,8 +274,7 @@ bool Work::createIso(const QString &filename)
         makeChecksum(HashType::sha512, settings->snapshot_dir, filename);
     }
 
-    QTime time(0, 0);
-    time = time.addMSecs(static_cast<int>(e_timer.elapsed()));
+    auto elapsedTime = QTime(0, 0).addMSecs(e_timer.elapsed());
     emit message(tr("Done"));
     if (settings->shutdown) {
         done = true;
@@ -283,7 +282,7 @@ bool Work::createIso(const QString &filename)
     }
     emit messageBox(BoxType::information, tr("Success"),
                     tr("MX Snapshot completed sucessfully!") + "\n"
-                        + tr("Snapshot took %1 to finish.").arg(time.toString("hh:mm:ss")) + "\n\n"
+                        + tr("Snapshot took %1 to finish.").arg(elapsedTime.toString("hh:mm:ss")) + "\n\n"
                         + tr("Thanks for using MX Snapshot, run MX Live USB Maker next!"));
     done = true;
     return true;
