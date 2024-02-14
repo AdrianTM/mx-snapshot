@@ -121,7 +121,6 @@ void MainWindow::setConnections()
             &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
     connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
-    connect(ui->excludeAll, &QCheckBox::clicked, this, &MainWindow::excludeAll_clicked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
@@ -392,6 +391,33 @@ void MainWindow::btnNext_clicked()
             cleanUp();
         }
 
+        if (ui->excludeDocuments->isChecked()) {
+            excludeDocuments(true);
+        }
+        if (ui->excludeDownloads->isChecked()) {
+            excludeDownloads(true);
+        }
+        if (ui->excludePictures->isChecked()) {
+            excludePictures(true);
+        }
+        if (ui->excludeMusic->isChecked()) {
+            excludeMusic(true);
+        }
+        if (ui->excludeVideos->isChecked()) {
+            excludeVideos(true);
+        }
+        if (ui->excludeDesktop->isChecked()) {
+            excludeDesktop(true);
+        }
+        if (ui->excludeNetworks->isChecked()) {
+            excludeNetworks(true);
+        }
+        if (ui->excludeSteam->isChecked()) {
+            excludeSteam(true);
+        }
+        if (ui->excludeVirtualBox->isChecked()) {
+            excludeVirtualBox(true);
+        }
         otherExclusions();
         ui->btnNext->setEnabled(false);
         ui->btnBack->setEnabled(false);
@@ -456,7 +482,6 @@ void MainWindow::btnEditExclude_clicked()
 
 void MainWindow::excludeDocuments_toggled(bool checked)
 {
-    excludeDocuments(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -464,7 +489,6 @@ void MainWindow::excludeDocuments_toggled(bool checked)
 
 void MainWindow::excludeDownloads_toggled(bool checked)
 {
-    excludeDownloads(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -472,7 +496,6 @@ void MainWindow::excludeDownloads_toggled(bool checked)
 
 void MainWindow::excludePictures_toggled(bool checked)
 {
-    excludePictures(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -480,7 +503,6 @@ void MainWindow::excludePictures_toggled(bool checked)
 
 void MainWindow::excludeMusic_toggled(bool checked)
 {
-    excludeMusic(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -488,7 +510,6 @@ void MainWindow::excludeMusic_toggled(bool checked)
 
 void MainWindow::excludeVideos_toggled(bool checked)
 {
-    excludeVideos(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -496,7 +517,6 @@ void MainWindow::excludeVideos_toggled(bool checked)
 
 void MainWindow::excludeDesktop_toggled(bool checked)
 {
-    excludeDesktop(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -591,7 +611,6 @@ void MainWindow::cbCompression_currentIndexChanged()
 
 void MainWindow::excludeNetworks_toggled(bool checked)
 {
-    excludeNetworks(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -609,14 +628,8 @@ void MainWindow::checkSha512_toggled(bool checked)
     make_sha512sum = checked;
 }
 
-void MainWindow::excludeAll_clicked(bool checked)
-{
-    qDebug() << "EXCLUDE ALL" << checked;
-}
-
 void MainWindow::excludeSteam_toggled(bool checked)
 {
-    excludeSteam(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }
@@ -624,7 +637,6 @@ void MainWindow::excludeSteam_toggled(bool checked)
 
 void MainWindow::excludeVirtualBox_toggled(bool checked)
 {
-    excludeVirtualBox(checked);
     if (!checked) {
         ui->excludeAll->setChecked(false);
     }

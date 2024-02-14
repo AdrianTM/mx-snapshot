@@ -82,7 +82,6 @@ private slots:
     void cbCompression_currentIndexChanged();
     void checkMd5_toggled(bool checked);
     void checkSha512_toggled(bool checked);
-    void excludeAll_clicked(bool checked);
     void excludeDesktop_toggled(bool checked);
     void excludeDocuments_toggled(bool checked);
     void excludeDownloads_toggled(bool checked);
