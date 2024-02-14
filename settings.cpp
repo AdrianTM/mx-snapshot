@@ -783,13 +783,16 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
 
 void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 {
-    if (!arg_parser.values("exclude").isEmpty()) {
+    static const QSet<QString> valid_options {"Desktop",  "Documents", "Downloads", "Music",     "Networks",
+                                              "Pictures", "Steam",     "Videos",    "VirtualBox"};
+    if (arg_parser.isSet("exclude")) {
         QStringList options = arg_parser.values("exclude");
-        QStringList valid_options {"Desktop",  "Documents", "Downloads", "Music",     "Networks",
-                                   "Pictures", "Steam",     "Videos",    "VirtualBox"};
         for (const QString &option : options) {
             if (valid_options.contains(option)) {
                 excludeItem(option);
+            } else {
+                qDebug() << "Unknown option:" << option << '\n'
+                         << "Please use one of these options" << valid_options.values();
             }
         }
     }
