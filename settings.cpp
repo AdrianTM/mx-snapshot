@@ -487,32 +487,20 @@ QStringList Settings::listUsers()
 
 void Settings::excludeItem(const QString &item)
 {
-    if (item == QObject::tr("Desktop") || item == "Desktop") {
-        excludeDesktop(true);
-    }
-    if (item == QObject::tr("Documents") || item == "Documents") {
-        excludeDocuments(true);
-    }
-    if (item == QObject::tr("Downloads") || item == "Downloads") {
-        excludeDownloads(true);
-    }
-    if (item == QObject::tr("Music") || item == "Music") {
-        excludeMusic(true);
-    }
-    if (item == QObject::tr("Networks") || item == "Networks") {
-        excludeNetworks(true);
-    }
-    if (item == QObject::tr("Pictures") || item == "Pictures") {
-        excludePictures(true);
-    }
-    if (item == "Steam") {
-        excludeSteam(true);
-    }
-    if (item == QObject::tr("Videos") || item == "Videos") {
-        excludeVideos(true);
-    }
-    if (item == "VirtualBox") {
-        excludeVirtualBox(true);
+    QMap<QString, std::function<void(bool)>> itemExclusions {
+        {QObject::tr("Desktop"), [this](bool value) { excludeDesktop(value); }},
+        {QObject::tr("Documents"), [this](bool value) { excludeDocuments(value); }},
+        {QObject::tr("Downloads"), [this](bool value) { excludeDownloads(value); }},
+        {QObject::tr("Music"), [this](bool value) { excludeMusic(value); }},
+        {QObject::tr("Networks"), [this](bool value) { excludeNetworks(value); }},
+        {QObject::tr("Pictures"), [this](bool value) { excludePictures(value); }},
+        {"Steam", [this](bool value) { excludeSteam(value); }},
+        {QObject::tr("Videos"), [this](bool value) { excludeVideos(value); }},
+        {"VirtualBox", [this](bool value) { excludeVirtualBox(value); }}};
+
+    auto it = itemExclusions.find(item);
+    if (it != itemExclusions.end()) {
+        it.value()(true);
     }
 }
 
