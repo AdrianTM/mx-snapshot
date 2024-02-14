@@ -505,8 +505,8 @@ quint64 Work::getRequiredSpace()
     }
     while (!file->atEnd()) {
         QString line = file->readLine().trimmed();
-        if (!line.startsWith("#") && !line.isEmpty() && !line.startsWith(".bind-root")) {
-            excludes << line.trimmed();
+        if (!line.startsWith('#') && !line.isEmpty() && !line.startsWith(".bind-root")) {
+            excludes << line;
         }
     }
     file->close();
@@ -517,7 +517,7 @@ quint64 Work::getRequiredSpace()
         QStringList excludeList = sessionExcludes.split("\" \"");
         excludes.reserve(excludeList.size());
         for (QString exclude : excludeList) {
-            exclude = exclude.replace("\"", "").trimmed();
+            exclude = exclude.replace('"', "").trimmed();
             excludes << exclude;
         }
     }
@@ -528,11 +528,12 @@ quint64 Work::getRequiredSpace()
         if (it.value().indexOf('!') != -1) { // Truncate things like "!(minstall.desktop)"
             it.value().truncate(it.value().indexOf('!'));
         }
-        it.value().replace(" ", "\\ "); // Escape special bash characters, might need to expand this
-        it.value().replace("(", "\\(");
-        it.value().replace(")", "\\)");
-        it.value().replace("|", "\\|");
+        it.value().replace(' ', "\\ "); // Escape special bash characters, might need to expand this
+        it.value().replace('(', "\\(");
+        it.value().replace(')', "\\)");
+        it.value().replace('|', "\\|");
         it.value().prepend("/.bind-root/"); // Check size occupied by excluded files on /.bind-root only
+        it.value().replace(QRegularExpression("/\\*$"), "/"); // Remove last *
         //  Remove from list if files not on the same volume
         if (root_dev != Cmd().getOut("df " + it.value() + " --output=target 2>/dev/null |tail -1", true)) {
             it.remove();
@@ -542,8 +543,7 @@ quint64 Work::getRequiredSpace()
     bool ok = false;
     QString cmd = settings->live ? "du -sc" : "du -sxc";
     quint64 excl_size
-        = shell.getOutAsRoot(cmd + " {" + excludes.join(",").remove("/.bind-root,") + "} 2>/dev/null |tail -1 |cut -f1")
-              .toULongLong(&ok);
+        = shell.getOutAsRoot(cmd + " {" + excludes.join(',') + "} 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
     if (!ok) {
         qDebug() << "Error: calculating size of excluded files\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
@@ -563,7 +563,7 @@ quint64 Work::getRequiredSpace()
     uint c_factor = settings->compression_factor.value(settings->compression);
     qDebug() << "COMPRESSION  " << c_factor;
     qDebug() << "SIZE NEEDED  " << (root_size - excl_size) * c_factor / 100;
-    qDebug() << "SIZE FREE    " << settings->free_space << "\n";
+    qDebug() << "SIZE FREE    " << settings->free_space << '\n';
 
     if (excl_size > root_size) {
         qDebug() << "Error: calculating excluded file size.\n"
