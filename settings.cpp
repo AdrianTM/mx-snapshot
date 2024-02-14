@@ -36,6 +36,7 @@
 #endif
 
 Settings::Settings(const QCommandLineParser &arg_parser)
+    : config_file("/etc/" + qApp->applicationName() + ".conf")
 {
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
         QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
@@ -628,7 +629,6 @@ void Settings::excludeVirtualBox(bool exclude)
 // Load settings from config file
 void Settings::loadConfig()
 {
-    config_file.setFileName("/etc/" + qApp->applicationName() + ".conf");
     QSettings settingsSystem(config_file.fileName(), QSettings::IniFormat);
     QSettings settingsUser;
 
