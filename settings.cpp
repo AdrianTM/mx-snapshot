@@ -648,11 +648,12 @@ void Settings::loadConfig()
     session_excludes.clear();
     snapshot_dir = settingsUser.value("snapshot_dir", "/home/snapshot").toString();
     if (!snapshot_dir.endsWith("/snapshot")) {
-        snapshot_dir += (snapshot_dir.endsWith('/') ? "snapshot" : "/snapshot");
+        snapshot_dir = QDir::cleanPath(snapshot_dir + "/snapshot");
     }
     snapshot_excludes.setFileName(
         settingsUser
-            .value("snapshot_excludes", "/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list")
+            .value("snapshot_excludes",
+                   QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list"))
             .toString());
     snapshot_basename = settingsUser.value("snapshot_basename", "snapshot").toString();
     make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
@@ -663,7 +664,7 @@ void Settings::loadConfig()
     edit_boot_menu = settingsUser.value("edit_boot_menu", "no").toString() != "no";
     gui_editor = settingsUser.value("gui_editor").toString();
     stamp = settingsUser.value("stamp").toString();
-    force_installer = settingsUser.value("force_installer", "true").toBool();
+    force_installer = settingsUser.value("force_installer", true).toBool();
     tempdir_parent = settingsUser.value("workdir").toString();
     cores = settingsUser.value("cores", max_cores).toUInt();
     throttle = settingsUser.value("throttle", 0).toUInt();
