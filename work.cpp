@@ -525,8 +525,8 @@ quint64 Work::getRequiredSpace()
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
         it.next();
-        if (it.value().indexOf("!") != -1) { // remove things like "!(minstall.desktop)"
-            it.value().truncate(it.value().indexOf("!"));
+        if (it.value().indexOf('!') != -1) { // Truncate things like "!(minstall.desktop)"
+            it.value().truncate(it.value().indexOf('!'));
         }
         it.value().replace(" ", "\\ "); // Escape special bash characters, might need to expand this
         it.value().replace("(", "\\(");

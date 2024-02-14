@@ -30,6 +30,7 @@
 #include <QRegularExpression>
 #include <QSettings>
 #include <QStandardPaths>
+#include <QStorageInfo>
 
 #ifndef CLI_BUILD
 #include <QMessageBox>
@@ -182,20 +183,19 @@ int Settings::getSnapshotCount() const
     return 0;
 }
 
+// Return KiB available space on the device
 quint64 Settings::getFreeSpace(const QString &path)
 {
-    bool ok = false;
-    quint64 result {};
-    if (Cmd().getOut("stat --file-system --format=%T \"" + path + "\"") == "ramfs") {
-        result = Cmd().getOut("LC_ALL=C free |awk '/^Mem/ {print $7}'").toULongLong(&ok);
-    } else {
-        result = Cmd().getOut(QString("df -k --output=avail \"%1\" |tail -n1").arg(path)).toULongLong(&ok);
-    }
-    if (!ok) {
-        qDebug() << "Can't calculate free space on" << path;
+    QStorageInfo storage(path);
+    if (!storage.isReady()) {
+        qDebug() << "Cannot determine free space for" << path << ": Drive not ready or does not exist.";
         return 0;
     }
-    return result;
+    if (storage.isReadOnly()) {
+        qDebug() << "Cannot determine free space for" << path << ": Drive is read-only.";
+        return 0;
+    }
+    return storage.bytesAvailable() / 1024;
 }
 
 // Return the XDG User Directory for each user with different localizations than English
