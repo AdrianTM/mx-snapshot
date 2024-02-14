@@ -612,15 +612,6 @@ void MainWindow::checkSha512_toggled(bool checked)
 void MainWindow::excludeAll_clicked(bool checked)
 {
     qDebug() << "EXCLUDE ALL" << checked;
-    excludeDesktop_toggled(checked);
-    excludeDocuments_toggled(checked);
-    excludeDownloads_toggled(checked);
-    excludeMusic_toggled(checked);
-    excludeNetworks_toggled(checked);
-    excludePictures_toggled(checked);
-    excludeSteam_toggled(checked);
-    excludeVideos_toggled(checked);
-    excludeVirtualBox_toggled(checked);
 }
 
 void MainWindow::excludeSteam_toggled(bool checked)
