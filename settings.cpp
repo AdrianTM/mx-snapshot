@@ -590,15 +590,15 @@ void Settings::excludeSwapFile()
         qWarning() << "Failed to open /etc/fstab";
         return;
     }
+    QByteArray content = file.readAll();
+    QStringList lines = QString::fromUtf8(content).split('\n');
 
-    while (!file.atEnd()) {
-        QString line = QString::fromUtf8(file.readLine()).trimmed();
-        if (line.startsWith("/") && !line.startsWith("/dev/")) {
-            QStringList parts = line.split(QRegExp("\\s+"));
-            if (parts.size() > 3) {
-                if (parts.at(2) == "swap") {
-                    addRemoveExclusion(true, parts[0].remove(0, 1));
-                }
+    for (const QString &line : lines) {
+        QString trimmedLine = line.trimmed();
+        if (trimmedLine.startsWith('/') && !trimmedLine.startsWith("/dev/")) {
+            QStringList parts = trimmedLine.split(QRegularExpression("\\s+"));
+            if (parts.size() > 3 && parts.at(2) == "swap") {
+                addRemoveExclusion(true, parts[0].remove(0, 1));
             }
         }
     }
