@@ -72,20 +72,20 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
         exclusion.remove(0, 1); // Remove preceding slash
     }
     if (add) {
-        session_excludes.append("\"" + exclusion + "\" ");
+        session_excludes.append('"' + exclusion + "\" ");
     } else {
-        session_excludes.remove("\"" + exclusion + "\" ");
+        session_excludes.remove('"' + exclusion + "\" ");
     }
 }
 
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + "\"", false)) {
+    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + '"', false)) {
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }
-    Cmd().runAsRoot("chown $(logname): \"" + snapshot_dir + "\"");
+    Cmd().runAsRoot("chown $(logname): \"" + snapshot_dir + '"');
     return true;
 }
 
@@ -292,7 +292,7 @@ void Settings::setVariables()
     } else {
         project_name = Cmd().getOut("lsb_release -i | cut -f2");
     }
-    project_name.replace("\"", "");
+    project_name.replace('"', "");
     if (!distro_version_file.isEmpty()) {
         distro_version = Cmd().getOut("cut -f1 -d'_' " + distro_version_file);
         distro_version.remove(QRegularExpression("^" + project_name + "_|^" + project_name + "-"));
@@ -306,7 +306,7 @@ void Settings::setVariables()
     } else {
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
-    codename.replace("\"", "");
+    codename.replace('"', "");
     boot_options = readKernelOpts();
 }
 
@@ -321,7 +321,7 @@ QString Settings::getFilename() const
         int n = 1;
         do {
             name = snapshot_basename + QString::number(n) + ".iso";
-            dir.setPath("\"" + snapshot_dir + "/" + name + "\"");
+            dir.setPath('"' + snapshot_dir + '/' + name + '"');
             n++;
         } while (QFileInfo::exists(dir.absolutePath()));
         return name;
@@ -402,7 +402,7 @@ int Settings::getDebianVerNum()
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
         QString line = in.readLine();
-        list = line.split(".");
+        list = line.split('.');
         file.close();
     } else {
         qCritical() << "Could not open /etc/debian_version:" << file.errorString() << "Assumes Bullseye";
@@ -413,7 +413,7 @@ int Settings::getDebianVerNum()
     if (ok) {
         return ver;
     } else {
-        QString verName = list.at(0).split("/").at(0);
+        QString verName = list.at(0).split('/').at(0);
         if (verName == "bullseye") {
             return Release::Bullseye;
         } else if (verName == "bookworm") {
@@ -437,7 +437,7 @@ bool Settings::isOnSupportedPart(const QString &dir)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Supported partition types (NTFS returns fuseblk)
     QStringList supported_partitions {"ext2/ext3", "btrfs", "jfs", "reiserfs", "xfs", "fuseblk", "ramfs", "tmpfs"};
-    QString part_type = Cmd().getOut("stat --file-system --format=%T \"" + dir + "\"");
+    QString part_type = Cmd().getOut("stat --file-system --format=%T \"" + dir + '"');
     qDebug() << "detected partition" << part_type << "supported part:" << supported_partitions.contains(part_type);
     return supported_partitions.contains(part_type);
 }
@@ -469,7 +469,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
 
     qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path)
                                   + out)
-                       << "\n";
+                       << '\n';
 
     qDebug().noquote() << QObject::tr(
                               "The free space should be sufficient to hold the compressed data from / and /home\n\n"
@@ -483,7 +483,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
 // Return a list of users that have folders in /home
 QStringList Settings::listUsers()
 {
-    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", true).split("\n");
+    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", true).split('\n');
 }
 
 void Settings::excludeItem(const QString &item)
@@ -723,10 +723,10 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
     } else {
         snapshot_name = getFilename();
     }
-    if (QFile::exists(snapshot_dir + "/" + snapshot_name)) {
+    if (QFile::exists(snapshot_dir + '/' + snapshot_name)) {
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
-                  .arg(snapshot_dir + "/" + snapshot_name);
+                  .arg(snapshot_dir + '/' + snapshot_name);
         if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
             qDebug().noquote() << message;
         }
@@ -816,16 +816,16 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
     }
     if (arg_parser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");
-        auto suffix = name.section("_", 1, 1);
+        auto suffix = name.section('_', 1, 1);
         if (qgetenv("DESKTOP_SESSION") == "plasma") {
             suffix = "KDE";
         }
-        snapshot_name = name.section("_", 0, 0) + "_" + month + "_" + suffix + ".iso";
+        snapshot_name = name.section('_', 0, 0) + '_' + month + '_' + suffix + ".iso";
     }
-    if (QFile::exists(snapshot_dir + "/" + snapshot_name)) {
+    if (QFile::exists(snapshot_dir + '/' + snapshot_name)) {
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
-                  .arg(snapshot_dir + "/" + snapshot_name);
+                  .arg(snapshot_dir + '/' + snapshot_name);
         if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
             qDebug().noquote() << message;
         }
