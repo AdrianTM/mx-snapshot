@@ -411,7 +411,7 @@ void Work::savePackageList(const QString &file_name)
     }
     QString full_name = settings->work_dir + "/iso-template/" + fi.completeBaseName() + "/package_list";
     QString cmd
-        = R"(dpkg -l |grep ^ii\ \ |awk '{print $2,$3}' |sed 's/:'$(dpkg --print-architecture)'//' |column -t >")"
+        = R"(dpkg -l |awk '/^ii /{print $2,$3}' |sed 's/:'$(dpkg --print-architecture)'//' |column -t >")"
           + full_name + "\"";
     shell.run(cmd);
 }
