@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
     checkSquashfs();
     if (getuid() == 0) {
         qputenv("HOME", "/root");
-        Log setLog(logFile.fileName());
+        Log setLog("/tmp/" + QCoreApplication::applicationName() + ".log");
         qDebug().noquote() << QCoreApplication::applicationName() << QObject::tr("version:")
                            << QCoreApplication::applicationVersion();
         if (argc > 1) {
@@ -195,7 +195,7 @@ else
             exit(EXIT_FAILURE);
         }
     }
-    Log setLog(logFile.fileName());
+    Log setLog("/tmp/" + QCoreApplication::applicationName() + ".log");
     qDebug().noquote() << QApplication::applicationName() << QObject::tr("version:")
                        << QApplication::applicationVersion();
     if (argc > 1) {

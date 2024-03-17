@@ -26,42 +26,42 @@
     <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>Opción de personalización opcional</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>Data de lanzamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome en clave de lanzamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcións do Boot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión de lanzamento:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cambiar o núcleo en directo</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nome do proxecto:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -76,7 +76,7 @@
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>Localización e nome ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
@@ -172,22 +172,22 @@
     <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Afrear a taxa de entrada de E/S polo porcentaxe indicado.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>I/O throttle:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
         <source>Calculate checksums:</source>
-        <translation type="unfinished"></translation>
+        <translation>Calcular as sumas de control (checksums):</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
@@ -197,12 +197,12 @@
     <message>
         <location filename="../mainwindow.ui" line="684"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de núcleos de CPU para usar:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
@@ -267,27 +267,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="177"/>
         <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
+        <translation>máis rápido, peor compresión</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="177"/>
         <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
+        <translation>máis rápido, peor compresión</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="178"/>
         <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
+        <translation>lento, mellor compresión</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="178"/>
         <source>best compromise</source>
-        <translation type="unfinished"></translation>
+        <translation>mellor compromiso</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
+        <translation>máis lento, mellor compresión</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="208"/>
@@ -299,7 +299,10 @@
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>O espazo libre debe ser suficiente para conter os datos comprimidos de / e de /home
+
+      Se é necesario, poderá ser liberado máis espazo no cartafol eliminando
+      capturas anteriores e copias gardadas, se existisen: %1 capturas ocupan %2 do espazo no disco.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="223"/>
@@ -328,7 +331,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="329"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiro de saída %1 xa existe. Por favor, utiliza outro nome de ficheiro ou elimina o ficheiro existente.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="336"/>
@@ -338,7 +341,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="341"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Capturas ISO usará as seguintes configuracións:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="343"/>
@@ -378,7 +381,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="372"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Apagar o ordenador cando rematado.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="386"/>
@@ -413,7 +416,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="460"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar Kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="545"/>
@@ -481,13 +484,13 @@
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Número de núcleos de CPU para usar.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
         <location filename="../main.cpp" line="108"/>
         <source>number</source>
-        <translation type="unfinished"></translation>
+        <translation>número</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -528,17 +531,17 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcións de nivel de compresión.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"></translation>
+        <translation>Usa comiñas: &quot;-Xcompression-level &lt;level&gt;&quot;, o &quot;-Xalgorithm &lt;algorithm&gt;&quot;, o &quot;-Xhc&quot;, ver a página do manual do mksquashfs</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
         <source>&quot;option&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;opción&quot;</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="94"/>
@@ -558,7 +561,7 @@
     <message>
         <location filename="../main.cpp" line="100"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Saltar o cálculo do espazo libre para ver se o ISO resultante encaixa.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="102"/>
@@ -578,12 +581,12 @@
     <message>
         <location filename="../main.cpp" line="106"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Limita a taxa de entrada/saída de E/S polo porcentaxe indicado. Isto pode ser usado para reducir o consumo de E/S e CPU de Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="109"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Directorio de traballo</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="111"/>
@@ -613,7 +616,7 @@
     <message>
         <location filename="../main.cpp" line="118"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Apagar o ordenador cando rematado.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="136"/>
@@ -632,7 +635,7 @@
         <location filename="../main.cpp" line="168"/>
         <location filename="../main.cpp" line="194"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Debes executar este programa con sudo ou pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="178"/>
@@ -746,7 +749,7 @@
         <location filename="../settings.cpp" line="728"/>
         <location filename="../settings.cpp" line="827"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ficheiro de saída %1 xa existe. Por favor, utiliza outro nome de ficheiro ou elimina o ficheiro existente.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="70"/>
@@ -773,12 +776,12 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="80"/>
         <source>Cleaning...</source>
         <translation>Limpando...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
+        <location filename="../work.cpp" line="91"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
         <translation>Feito</translation>
@@ -810,7 +813,7 @@
     <message>
         <location filename="../work.cpp" line="142"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"></translation>
+        <translation>Se estás seguro de que tes espazo abondo libre, executa de novo o programa coa opción -o/--override-size.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="167"/>
@@ -893,14 +896,14 @@
         <translation>Non se puido crear o directorio de traballo.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="540"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculando o tamaño total dos ficheiros excluídos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="550"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>Calculando o tamaño da raíz...</translation>
     </message>
 </context>
 </TS>

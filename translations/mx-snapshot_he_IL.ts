@@ -768,12 +768,12 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="80"/>
         <source>Cleaning...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
+        <location filename="../work.cpp" line="91"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
         <translation>בוצע</translation>
@@ -888,12 +888,12 @@
         <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="540"/>
         <source>Calculating total size of excluded files...</source>
         <translation>הגודל הכללי של הקבצים המוחרגים מחושב…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="550"/>
         <source>Calculating size of root...</source>
         <translation>גודל תיקיית העל מחושב…</translation>
     </message>

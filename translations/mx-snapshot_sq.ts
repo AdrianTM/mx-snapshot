@@ -775,12 +775,12 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="80"/>
         <source>Cleaning...</source>
         <translation>Po pastrohet…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
+        <location filename="../work.cpp" line="91"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
         <translation>U bë</translation>
@@ -895,12 +895,12 @@
         <translation>S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="540"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Po njehsohet madhësia gjithsej e kartelave të përjashtuara…</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="550"/>
         <source>Calculating size of root...</source>
         <translation>Po njehsohet madhësia e rrënjës…</translation>
     </message>

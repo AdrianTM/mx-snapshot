@@ -157,7 +157,7 @@
     <message>
         <location filename="../mainwindow.ui" line="563"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;このオプションは、MX Linux のデフォルト「demo」・「root」パスワードをリセットします。作成された個人アカウントにはコピーされません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;このオプションでは、MX Linux の「demo」と「root」パスワードを既定にリセットします。また、作成した個人アカウントはコピーしません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
@@ -515,7 +515,7 @@
     <message>
         <location filename="../main.cpp" line="83"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>uname -r で返されたフォーマットを使用して、デフォルトで動作しているカーネル以外に使用する別のカーネルの名前を付けます。</translation>
+        <translation>別のカーネル名を指定して、既定で動作しているカーネル以外を使用します。なお、&apos;uname -r&apos; が返す書式を利用します。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="85"/>
@@ -550,7 +550,7 @@
     <message>
         <location filename="../main.cpp" line="95"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
-        <translation>このオプションは reset-accounts と compression をデフォルトに設定し、これらの項目を変更する引数は無視します。</translation>
+        <translation>このオプションは reset-accounts と compression を既定に設定し、これらの項目を変更する引数は無視します。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="98"/>
@@ -770,12 +770,12 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="80"/>
         <source>Cleaning...</source>
         <translation>クリーニング中...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
+        <location filename="../work.cpp" line="91"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
         <translation>完了</translation>
@@ -890,12 +890,12 @@
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="540"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="550"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>

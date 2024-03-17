@@ -460,7 +460,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="592"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation>Êtes-vous sûr de vouloir quitter l’application?</translation>
+        <translation>Êtes-vous sûr•e de vouloir quitter l’application?</translation>
     </message>
 </context>
 <context>
@@ -774,12 +774,12 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="80"/>
         <source>Cleaning...</source>
         <translation>Nettoyage ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
+        <location filename="../work.cpp" line="91"/>
         <location filename="../work.cpp" line="278"/>
         <source>Done</source>
         <translation>Terminé</translation>
@@ -811,7 +811,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../work.cpp" line="142"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation>Si vous êtes certain d’avoir assez d’espace libre, relancez le programme avec -o/--override-size option</translation>
+        <translation>Si vous êtes certain•e d’avoir assez d’espace libre, relancez le programme avec -o/--override-size option</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="167"/>
@@ -894,12 +894,12 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="540"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="550"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root ...</translation>
     </message>

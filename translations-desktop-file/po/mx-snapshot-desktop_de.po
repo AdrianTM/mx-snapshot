@@ -30,5 +30,4 @@ msgstr "MX-Schnappschuss"
 #: desktop-in/mx-snapshot.desktop.in:7
 msgid "Create a live iso snapshot of your running system."
 msgstr ""
-"Einen Schnappschuss Ihres laufenden Systems als bootfähige Live-ISO "
-"erzeugen."
+"Einen Schnappschuss des laufenden Systems als bootfähige Live-ISO erzeugen."

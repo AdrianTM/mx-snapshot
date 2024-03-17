@@ -1,3 +1,9 @@
+mx-snapshot (24.3) mx; urgency=medium
+
+  * Fix: log creation
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 17 Mar 2024 10:04:19 -0400
+
 mx-snapshot (24.02.04) mx; urgency=medium
 
   * Faster exclusion checkbox selection
