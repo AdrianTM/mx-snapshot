@@ -229,7 +229,9 @@ bool Work::createIso(const QString &filename)
                   + (settings->mksq_opt.isEmpty() ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
                   + settings->snapshot_excludes.fileName()
                   + (settings->session_excludes.isEmpty() ? "" : " -e " + settings->session_excludes);
-
+    if (Cmd().getOut("umask", true) != "0022") {
+        cmd.prepend("umask 022; ");
+    }
     emit message(tr("Squashing filesystem..."));
     if (!shell.runAsRoot(cmd)) {
         emit messageBox(BoxType::critical, tr("Error"),
