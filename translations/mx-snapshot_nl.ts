@@ -780,7 +780,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../work.cpp" line="91"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="280"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
@@ -791,10 +791,10 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="235"/>
-        <location filename="../work.cpp" line="258"/>
-        <location filename="../work.cpp" line="296"/>
-        <location filename="../work.cpp" line="409"/>
+        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="260"/>
+        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -824,82 +824,82 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="235"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimeren van het bestandsysteem</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="236"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen linuxfs bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD image bestand maken...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="261"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen ISO bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="265"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Making hybrid iso</source>
         <translation>Hybride iso maken</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="285"/>
         <source>Success</source>
         <translation>Gelukt</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot nam %1 tijd in beslag.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dank u voor het gebruiken van MX Snapshot, voer MX Live USB Maker hierna uit!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="293"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Could not install </source>
         <translation>Kon niet installeren</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="306"/>
+        <location filename="../work.cpp" line="308"/>
         <source>Calculating checksum...</source>
         <translation>Bereken checksum...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="345"/>
+        <location filename="../work.cpp" line="347"/>
         <source>Building new initrd...</source>
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="540"/>
+        <location filename="../work.cpp" line="542"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="552"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

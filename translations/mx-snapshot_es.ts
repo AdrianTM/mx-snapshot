@@ -781,7 +781,7 @@
     </message>
     <message>
         <location filename="../work.cpp" line="91"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="280"/>
         <source>Done</source>
         <translation>Listo</translation>
     </message>
@@ -792,10 +792,10 @@
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="235"/>
-        <location filename="../work.cpp" line="258"/>
-        <location filename="../work.cpp" line="296"/>
-        <location filename="../work.cpp" line="409"/>
+        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="260"/>
+        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -825,82 +825,82 @@
         <translation>No se pudo crear el directorio temporal.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="235"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimiendo el sistema de archivos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="236"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>No se pudo crear un archivo linuxfs; por favor revise si tiene suficiente espacio en la partición de destino.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creando la imagen de CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="261"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No se pudo crear un archivo ISO; por favor revise si tiene suficiente espacio en la partición de destino.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="265"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Making hybrid iso</source>
         <translation>Creando un iso híbrido</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="285"/>
         <source>Success</source>
         <translation>Éxito</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>¡MX Snapshot completada con éxito!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>La imagen tardó 1% en finalizar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gracias por usar MX Snapshot, ejecute MX Creador de Live-USB a continuación!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="293"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Installing </source>
         <translation>Instalando</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Could not install </source>
         <translation>No se pudo instalar</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="306"/>
+        <location filename="../work.cpp" line="308"/>
         <source>Calculating checksum...</source>
         <translation>Calculando suma de comprobación...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="345"/>
+        <location filename="../work.cpp" line="347"/>
         <source>Building new initrd...</source>
         <translation>Construyendo nuevo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>No se pudo crear el directorio de trabajo.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="540"/>
+        <location filename="../work.cpp" line="542"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando el tamaño total de los archivos excluidos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="552"/>
         <source>Calculating size of root...</source>
         <translation>Calculando el tamaño de root...</translation>
     </message>

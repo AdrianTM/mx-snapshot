@@ -781,7 +781,7 @@
     </message>
     <message>
         <location filename="../work.cpp" line="91"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="280"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
@@ -792,10 +792,10 @@
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="235"/>
-        <location filename="../work.cpp" line="258"/>
-        <location filename="../work.cpp" line="296"/>
-        <location filename="../work.cpp" line="409"/>
+        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="260"/>
+        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -825,82 +825,82 @@
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="235"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="236"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>No s&apos;ha pogut crear el fitxer linuxfs; si us plau, comproveu que hi hagi prou espai a la partició de destí.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="261"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No s&apos;ha pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="265"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="285"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="293"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Installing </source>
         <translation>Instal·lant </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="306"/>
+        <location filename="../work.cpp" line="308"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="345"/>
+        <location filename="../work.cpp" line="347"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="540"/>
+        <location filename="../work.cpp" line="542"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="552"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>

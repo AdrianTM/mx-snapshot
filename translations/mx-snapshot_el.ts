@@ -781,7 +781,7 @@
     </message>
     <message>
         <location filename="../work.cpp" line="91"/>
-        <location filename="../work.cpp" line="278"/>
+        <location filename="../work.cpp" line="280"/>
         <source>Done</source>
         <translation>Ολοκληρώθηκε</translation>
     </message>
@@ -792,10 +792,10 @@
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="235"/>
-        <location filename="../work.cpp" line="258"/>
-        <location filename="../work.cpp" line="296"/>
-        <location filename="../work.cpp" line="409"/>
+        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="260"/>
+        <location filename="../work.cpp" line="298"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
@@ -825,82 +825,82 @@
         <translation>Δεν κατέστη δυνατή η δημιουργία προσωρινού καταλόγου. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="233"/>
+        <location filename="../work.cpp" line="235"/>
         <source>Squashing filesystem...</source>
         <translation>Συμπίεση αρχείων...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="236"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν κατέστη δυνατή η δημιουργία του αρχείου linuxfs, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="255"/>
+        <location filename="../work.cpp" line="257"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Δημιουργία αρχείου εικόνας CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="261"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν κατέστη δυνατή η δημιουργία του αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="265"/>
+        <location filename="../work.cpp" line="267"/>
         <source>Making hybrid iso</source>
         <translation>Δημιουργία υβριδικού ISO</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="283"/>
+        <location filename="../work.cpp" line="285"/>
         <source>Success</source>
         <translation>Επιτυχία</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="284"/>
+        <location filename="../work.cpp" line="286"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>Ολοκληρώθηκε με επιτυχία το MX Στιγμιότυπο συστήματος!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="285"/>
+        <location filename="../work.cpp" line="287"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Το στιγμιότυπο χρειάστηκε %1 για να ολοκληρωθεί.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="286"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Στιγμιότυπο συστήματος, τρέξτε στη συνέχεια το MX Δημιουργία Live USB!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="293"/>
+        <location filename="../work.cpp" line="295"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="296"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Could not install </source>
         <translation>Δεν κατέστη δυνατή η εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="306"/>
+        <location filename="../work.cpp" line="308"/>
         <source>Calculating checksum...</source>
         <translation>Υπολογισμός αθροίσματος ελέγχου...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="345"/>
+        <location filename="../work.cpp" line="347"/>
         <source>Building new initrd...</source>
         <translation>Δημιουργία νέου initrd ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="410"/>
+        <location filename="../work.cpp" line="412"/>
         <source>Could not create working directory. </source>
         <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="540"/>
+        <location filename="../work.cpp" line="542"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Υπολογισμός συνολικού μεγέθους των εξαιρούμενων αρχείων...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="550"/>
+        <location filename="../work.cpp" line="552"/>
         <source>Calculating size of root...</source>
         <translation>Υπολογισμός μεγέθους root...</translation>
     </message>
