@@ -162,9 +162,8 @@ QString Settings::getEditor() const
 QString Settings::getSnapshotSize() const
 {
     if (QFileInfo::exists(snapshot_dir)) {
-        QString cmd
-            = QString("find \"%1\" -maxdepth 1 -type f -name '*.iso' -exec du -shc {} + |tail -1 |awk '{print $1}'")
-                  .arg(snapshot_dir);
+        QString cmd = QString("find \"%1\" -maxdepth 1 -type f -name '*.iso' -exec du -shc {} + |awk 'END {print $1}'")
+                          .arg(snapshot_dir);
         auto size = Cmd().getOut(cmd);
         if (!size.isEmpty()) {
             return size;
