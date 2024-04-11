@@ -643,17 +643,17 @@
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="735"/>
-        <location filename="../settings.cpp" line="834"/>
+        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="264"/>
+        <location filename="../settings.cpp" line="734"/>
+        <location filename="../settings.cpp" line="833"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="258"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>वर्तमान कर्नेल द्वारा Squashfs समर्थित नहीं है, प्रक्रिया निरस्त।</translation>
     </message>
@@ -668,32 +668,32 @@
         <translation>अस्थायी डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="243"/>
         <source>Could not find a usable kernel</source>
         <translation>उपयोग हेतु कर्नेल प्राप्ति विफल</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="367"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>estimated</source>
         <translation>अनुमान</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="383"/>
         <source>Used space on /home: </source>
         <translation>/home पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="474"/>
+        <location filename="../settings.cpp" line="473"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -708,43 +708,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Desktop</source>
         <translation>डेस्कटॉप</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Documents</source>
         <translation>प्रलेख</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Downloads</source>
         <translation>डाउनलोड</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Music</source>
         <translation>संगीत</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Networks</source>
         <translation>नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="497"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Pictures</source>
         <translation>चित्र</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="499"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Videos</source>
         <translation>वीडियो</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="728"/>
-        <location filename="../settings.cpp" line="827"/>
+        <location filename="../settings.cpp" line="727"/>
+        <location filename="../settings.cpp" line="826"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -790,10 +790,10 @@
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <location filename="../work.cpp" line="260"/>
         <location filename="../work.cpp" line="298"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
@@ -828,9 +828,13 @@
         <translation>फाइल सिस्टम संपीड़न जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation>Linuxfs फाइल बनाना विफल, कृपया सुनिश्चित करें कि लक्षित विभाजन पर उपयुक्त स्पेस उपलब्ध है।</translation>
+        <translation type="vanished">Linuxfs फाइल बनाना विफल, कृपया सुनिश्चित करें कि लक्षित विभाजन पर उपयुक्त स्पेस उपलब्ध है।</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="239"/>
+        <source>Could not create linuxfs file, please check /var/log/%1.log</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
@@ -888,17 +892,17 @@
         <translation>नवीन initrd बनाना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Could not create working directory. </source>
         <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

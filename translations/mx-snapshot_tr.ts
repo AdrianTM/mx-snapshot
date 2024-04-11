@@ -645,17 +645,17 @@
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="735"/>
-        <location filename="../settings.cpp" line="834"/>
+        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="264"/>
+        <location filename="../settings.cpp" line="734"/>
+        <location filename="../settings.cpp" line="833"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="258"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Şu an kullanılan çekirdek squashfs dosya sistemini desteklemediği için devam edilemiyor.</translation>
     </message>
@@ -670,32 +670,32 @@
         <translation>Geçici dizin oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="243"/>
         <source>Could not find a usable kernel</source>
         <translation>Kullanılabilir bir çekirdek bulunamadı </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="367"/>
         <source>Used space on / (root): </source>
         <translation>/(root)’daki Kullanılan Alan:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>estimated</source>
         <translation>Tahminen</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="383"/>
         <source>Used space on /home: </source>
         <translation>/home’daki Kullanılan Alan:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Anlık Görüntü’nün bulunduğu %1’deki boş alan:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="474"/>
+        <location filename="../settings.cpp" line="473"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Desktop</source>
         <translation>Masaüstü</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Documents</source>
         <translation>Belgeler</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Downloads</source>
         <translation>İndirilenler</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Music</source>
         <translation>Müzik</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Networks</source>
         <translation>Ağlar</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="497"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Pictures</source>
         <translation>Resimler</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="499"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Videos</source>
         <translation>Videolar</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="728"/>
-        <location filename="../settings.cpp" line="827"/>
+        <location filename="../settings.cpp" line="727"/>
+        <location filename="../settings.cpp" line="826"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Çıktı dosyası %1 zaten var. Lütfen başka bir dosya adı kullanın veya mevcut dosyayı silin.</translation>
     </message>
@@ -792,10 +792,10 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <location filename="../work.cpp" line="260"/>
         <location filename="../work.cpp" line="298"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -830,9 +830,13 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation>Dosya sistemi sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation>linuxfs dosyası oluşturulamadı, lütfen hedef bölüm üzerinde yeterli alan olup olmadığını kontrol edin.</translation>
+        <translation type="vanished">linuxfs dosyası oluşturulamadı, lütfen hedef bölüm üzerinde yeterli alan olup olmadığını kontrol edin.</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="239"/>
+        <source>Could not create linuxfs file, please check /var/log/%1.log</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
@@ -890,17 +894,17 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation>Yeni initrd oluşturuluyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Could not create working directory. </source>
         <translation>Çalışma dizini oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Hariç tutulan dosyaların toplam boyutu hesaplanıyor...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
         <translation>Kök boyutu hesaplanıyor...</translation>
     </message>

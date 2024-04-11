@@ -645,17 +645,17 @@
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="735"/>
-        <location filename="../settings.cpp" line="834"/>
+        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="264"/>
+        <location filename="../settings.cpp" line="734"/>
+        <location filename="../settings.cpp" line="833"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="258"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
@@ -670,32 +670,32 @@
         <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="243"/>
         <source>Could not find a usable kernel</source>
         <translation>Kunde inte hitta en användbar kärna</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="367"/>
         <source>Used space on / (root): </source>
         <translation>Använt utrymme på / (root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>estimated</source>
         <translation>uppskattad</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="383"/>
         <source>Used space on /home: </source>
         <translation>Använt utrymme på/home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="474"/>
+        <location filename="../settings.cpp" line="473"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@ genom att avlägsna tidigare snapshots och sparade kopior:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Desktop</source>
         <translation>Skrivbord</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Documents</source>
         <translation>Dokument</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Downloads</source>
         <translation>Nerladdningar</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Music</source>
         <translation>Musik</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Networks</source>
         <translation>Nätverk</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="497"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="499"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="728"/>
-        <location filename="../settings.cpp" line="827"/>
+        <location filename="../settings.cpp" line="727"/>
+        <location filename="../settings.cpp" line="826"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
@@ -792,10 +792,10 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <location filename="../work.cpp" line="260"/>
         <location filename="../work.cpp" line="298"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -830,9 +830,13 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Squashing filsystem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation>Kunde inte skapa linuxfs fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
+        <translation type="vanished">Kunde inte skapa linuxfs fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="239"/>
+        <source>Could not create linuxfs file, please check /var/log/%1.log</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
@@ -890,17 +894,17 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Skapar ny initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Could not create working directory. </source>
         <translation>Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>

@@ -645,17 +645,17 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="250"/>
-        <location filename="../settings.cpp" line="265"/>
-        <location filename="../settings.cpp" line="735"/>
-        <location filename="../settings.cpp" line="834"/>
+        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="264"/>
+        <location filename="../settings.cpp" line="734"/>
+        <location filename="../settings.cpp" line="833"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="259"/>
+        <location filename="../settings.cpp" line="258"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Il kernel attuale non supporta Squashfs, non si può continuare.</translation>
     </message>
@@ -670,32 +670,32 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <translation>Impossibile creare una directory temporanea.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="244"/>
+        <location filename="../settings.cpp" line="243"/>
         <source>Could not find a usable kernel</source>
         <translation>Impossibile trovare un kernel utilizzabile</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="368"/>
+        <location filename="../settings.cpp" line="367"/>
         <source>Used space on / (root): </source>
         <translation>Spazio utilizzato su / (root):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="371"/>
+        <location filename="../settings.cpp" line="370"/>
         <source>estimated</source>
         <translation>stimato</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="384"/>
+        <location filename="../settings.cpp" line="383"/>
         <source>Used space on /home: </source>
         <translation>Spazio utilizzato su /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="470"/>
+        <location filename="../settings.cpp" line="469"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Spazio libero su %1, dove la cartella della snapshot è localizzata: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="474"/>
+        <location filename="../settings.cpp" line="473"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@ rimuovendo precedenti snapshots e copie salvate:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Documents</source>
         <translation>Documenti</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Downloads</source>
         <translation>Download</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Music</source>
         <translation>Musica</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Networks</source>
         <translation>Reti</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="497"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Pictures</source>
         <translation>Immagini</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="499"/>
+        <location filename="../settings.cpp" line="498"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="728"/>
-        <location filename="../settings.cpp" line="827"/>
+        <location filename="../settings.cpp" line="727"/>
+        <location filename="../settings.cpp" line="826"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Il file di uscita %1 esiste già. Utilizzare un altro nome file o eliminare il file esistente.</translation>
     </message>
@@ -792,10 +792,10 @@ rimuovendo precedenti snapshots e copie salvate:
     </message>
     <message>
         <location filename="../work.cpp" line="135"/>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <location filename="../work.cpp" line="260"/>
         <location filename="../work.cpp" line="298"/>
-        <location filename="../work.cpp" line="411"/>
+        <location filename="../work.cpp" line="410"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -830,9 +830,13 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Compressione del filesystem...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="238"/>
         <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation>Impossibile creare il file linuxfs, verifica di avere spazio a sufficienza sulla partizione di destinazione.</translation>
+        <translation type="vanished">Impossibile creare il file linuxfs, verifica di avere spazio a sufficienza sulla partizione di destinazione.</translation>
+    </message>
+    <message>
+        <location filename="../work.cpp" line="239"/>
+        <source>Could not create linuxfs file, please check /var/log/%1.log</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
@@ -890,17 +894,17 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Realizzazione del nuovo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="412"/>
+        <location filename="../work.cpp" line="411"/>
         <source>Could not create working directory. </source>
         <translation>Impossibile creare una directory attiva.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="542"/>
+        <location filename="../work.cpp" line="541"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="552"/>
+        <location filename="../work.cpp" line="551"/>
         <source>Calculating size of root...</source>
         <translation>Calcolo la dimensione di root...</translation>
     </message>
