@@ -46,7 +46,6 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
       work(this)
 {
     ui->setupUi(this);
-    monthly = arg_parser.isSet("month");
     setConnections();
     setup();
     loadSettings();

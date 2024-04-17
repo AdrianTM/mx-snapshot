@@ -99,7 +99,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer timer;
-    bool monthly;
     Work work;
     QSettings settings;
 };

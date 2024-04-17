@@ -47,6 +47,7 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     setVariables();
     processArgs(arg_parser);
     if (arg_parser.isSet("month")) {
+        monthly = true;
         setMonthlySnapshot(arg_parser);
     }
     override_size = arg_parser.isSet("override-size");
@@ -306,7 +307,7 @@ void Settings::setVariables()
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
     codename.replace('"', "");
-    boot_options = readKernelOpts();
+    boot_options = monthly ? "quiet splasht nosplash" : readKernelOpts();
 }
 
 QString Settings::getFilename() const

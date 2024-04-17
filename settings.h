@@ -132,6 +132,7 @@ private:
     bool make_isohybrid {};
     bool make_md5sum {};
     bool make_sha512sum {};
+    bool monthly {};
     bool override_size;
     bool preempt {}; // command line option
     bool reset_accounts {};
