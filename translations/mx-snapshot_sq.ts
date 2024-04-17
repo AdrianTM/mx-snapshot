@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="171"/>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>MX Snapshot</source>
         <translation>Fotografim MX Sistemi</translation>
     </message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>Snapshot name:</source>
         <translation>Emër fotografimi:</translation>
     </message>
@@ -265,37 +265,37 @@
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fastest, worst compression</source>
         <translation>më e shpejta, ngjeshja më e dobët</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fast, worse compression</source>
         <translation>e shpejtë, ngjeshje e dobët</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>slow, better compression</source>
         <translation>e ngadaltë, ngjeshje më e mirë</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>best compromise</source>
         <translation>kompromisi më i mirë</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>slowest, best compression</source>
         <translation>më e ngadalta, ngjeshja më e mirë</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="208"/>
+        <location filename="../mainwindow.cpp" line="207"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Hapësirë e lirë në %1, ku vendoset dosja e fotografimeve: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="211"/>
+        <location filename="../mainwindow.cpp" line="210"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -304,161 +304,161 @@
       Në u dashtë, mund të krijoni më tepër hapësirë të lirë, duke hequr fotografime të mëparshme dhe kopje të ruajtura: %1 fotografime zënë aktualisht %2 të hapësirës së diskut.</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="222"/>
         <location filename="../mainwindow.cpp" line="223"/>
-        <location filename="../mainwindow.cpp" line="224"/>
         <source>Installing </source>
         <translation>Po instalohet </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="312"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Please wait.</source>
         <translation>Ju lutemi, pritni.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Ju lutemi, pritni. Po llogaritet hapësira e përdorur në disk…</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <location filename="../mainwindow.cpp" line="355"/>
-        <location filename="../mainwindow.cpp" line="386"/>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="327"/>
+        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="329"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="336"/>
+        <location filename="../mainwindow.cpp" line="335"/>
         <source>Settings</source>
         <translation>Rregullime</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="340"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Fotografimi do të përdorë rregullimet vijuese:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="342"/>
         <source>- Snapshot directory:</source>
         <translation>- Drejtorimi fotografimesh:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>- Kernel to be used:</source>
         <translation>- Kernel për t’u përdorur:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Kerneli i tanishëm nuk mbulon algoritëm të përzgjedhur për ngjeshje, ju lutemi, përpunon kartelën e formësimit dhe përzgjidhni një tjetër logaritëm.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Final chance</source>
         <translation>Shansi i fundit</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="364"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Fotografimi tani ka krejt informacionin që i duhet për të krijuar një ISO nga sistemi që xhironi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="365"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Do të duhet ca kohë për ta përfunduar, në varësi të madhësisë së sistemit të instaluar dhe kapaciteteve të kompjuterit tuaj.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="368"/>
+        <location filename="../mainwindow.cpp" line="367"/>
         <source>OK to start?</source>
         <translation>OK të fillohet?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="372"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>Shutdown computer when done.</source>
         <translation>Fikni kompjuterin, kur të ketë mbaruar.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="385"/>
         <source>Could not create working directory. </source>
         <translation>S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Could not create temporary directory. </source>
         <translation>S’u arrit të krijohej një drejtori e përkohshme. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>Output</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="438"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>Edit Boot Menu</source>
         <translation>Përpunoni Menu Nisjeje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programi tani do të ndalet, për t’ju lejuar të përpunoni çfarëdo kartelash te drejtoria e punës. Përzgjidhni Po që të përpunoni menunë e nisjeve, ose përzgjidhni Jo, për të anashkaluar këtë hap dhe të vazhdoni me krijimin e fotografimit.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="452"/>
+        <location filename="../mainwindow.cpp" line="451"/>
         <source>Close</source>
         <translation>Mbylle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Select kernel</source>
         <translation>Përzgjidhni kernel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="545"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>About %1</source>
         <translation>Mbi %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Version: </source>
         <translation>Version:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program për krijimin e një CD-je sistemi MX Linux “live” që nga sistemi që po xhironi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="549"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Të drejta kopjimi (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="552"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>%1 License</source>
         <translation>Licencë %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>%1 Help</source>
         <translation>Ndihmë për %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="570"/>
         <source>Select Snapshot Directory</source>
         <translation>Përzgjidhni Drejtori Fotografimi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Confirmation</source>
         <translation>Ripohim</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Jeni i sigurt se doni të mbyllet aplikacioni?</translation>
     </message>
@@ -645,57 +645,57 @@
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="249"/>
-        <location filename="../settings.cpp" line="264"/>
-        <location filename="../settings.cpp" line="734"/>
-        <location filename="../settings.cpp" line="833"/>
+        <location filename="../settings.cpp" line="250"/>
+        <location filename="../settings.cpp" line="265"/>
+        <location filename="../settings.cpp" line="735"/>
+        <location filename="../settings.cpp" line="834"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="258"/>
+        <location filename="../settings.cpp" line="259"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Kerneli i tanishëm nuk mbulon Squashfs, s’vazhdohet dot.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="85"/>
+        <location filename="../settings.cpp" line="86"/>
         <source>Could not create working directory. </source>
         <translation>S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="110"/>
+        <location filename="../settings.cpp" line="111"/>
         <source>Could not create temp directory. </source>
         <translation>S’u krijua dot drejtori e përkohshme. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="243"/>
+        <location filename="../settings.cpp" line="244"/>
         <source>Could not find a usable kernel</source>
         <translation>S’u gjet dot një kernel i përdorshëm</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="367"/>
+        <location filename="../settings.cpp" line="368"/>
         <source>Used space on / (root): </source>
         <translation>Hapësirë e përdorur në / (rrënjë): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="371"/>
         <source>estimated</source>
         <translation>afërsisht</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="384"/>
         <source>Used space on /home: </source>
         <translation>Hapësirë e përdorur në /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="469"/>
+        <location filename="../settings.cpp" line="470"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Hapësirë e lirë në %1, ku vendoset dosja e fotografimeve: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="474"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +710,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="491"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Documents</source>
         <translation>Dokumente</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Downloads</source>
         <translation>Shkarkime</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Music</source>
         <translation>Muzikë</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Networks</source>
         <translation>Rrjete</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="497"/>
         <source>Pictures</source>
         <translation>Foto</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="498"/>
+        <location filename="../settings.cpp" line="499"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="727"/>
-        <location filename="../settings.cpp" line="826"/>
+        <location filename="../settings.cpp" line="728"/>
+        <location filename="../settings.cpp" line="827"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>
@@ -830,13 +830,9 @@
         <translation>Po ngjishet sistemi i kartelave…</translation>
     </message>
     <message>
-        <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="vanished">S’u krijua kartelë linuxfs, ju lutemi, kontrolloni nëse keni hapësirë të mjaftueshme te pjesa e synuar.</translation>
-    </message>
-    <message>
         <location filename="../work.cpp" line="239"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation type="unfinished"></translation>
+        <translation>S’u krijua dot kartelë linuxfs, ju lutemi, shihni te /var/log/%1.log</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>

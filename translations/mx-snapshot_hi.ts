@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="171"/>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>MX Snapshot</source>
         <translation>एमएक्स स्नैपशॉट</translation>
     </message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>Snapshot name:</source>
         <translation>स्नैपशॉट नाम :</translation>
     </message>
@@ -265,198 +265,198 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fast, worse compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>slow, better compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>best compromise</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="208"/>
+        <location filename="../mainwindow.cpp" line="207"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="211"/>
+        <location filename="../mainwindow.cpp" line="210"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="222"/>
         <location filename="../mainwindow.cpp" line="223"/>
-        <location filename="../mainwindow.cpp" line="224"/>
         <source>Installing </source>
         <translation>इंस्टॉल जारी</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="312"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Please wait.</source>
         <translation>प्रतीक्षा करें।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>प्रतीक्षा करें। प्रयुक्त डिस्क स्पेस गणना जारी...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <location filename="../mainwindow.cpp" line="355"/>
-        <location filename="../mainwindow.cpp" line="386"/>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="327"/>
+        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="329"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="336"/>
+        <location filename="../mainwindow.cpp" line="335"/>
         <source>Settings</source>
         <translation>सेटिंग्स</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="340"/>
         <source>Snapshot will use the following settings:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="342"/>
         <source>- Snapshot directory:</source>
         <translation>- स्नैपशॉट फोल्डर :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>- Kernel to be used:</source>
         <translation>- प्रयुक्त होने वाला कर्नेल :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>वर्तमान कर्नेल हेतु चयनित संपीड़न एल्गोरिथम असमर्थित है, कृपया विन्यास फाइल संपादित कर विभिन्न एल्गोरिथम चुनें।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Final chance</source>
         <translation>अंतिम पुष्टिकरण</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="364"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>आपके कार्यरत सिस्टम के आईएसओ सृजन हेतु आवश्यक सभी सूचना अब स्नैपशॉट को उपलब्ध है।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="365"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>इंस्टॉल हो रखें सिस्टम व कंप्यूटर क्षमता अनुसार प्रक्रिया पूर्ण होने में कुछ समय लग सकता है।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="368"/>
+        <location filename="../mainwindow.cpp" line="367"/>
         <source>OK to start?</source>
         <translation>आरंभ करें?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="372"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="385"/>
         <source>Could not create working directory. </source>
         <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Could not create temporary directory. </source>
         <translation>अस्थायी डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>Output</source>
         <translation>आउटपुट</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="438"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>Edit Boot Menu</source>
         <translation>बूट मेन्यू संपादन</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>आप द्वारा कार्यरत डायरेक्टरी में सम्मिलित फाइलों के संपादन हेतु प्रोग्राम अभी स्थगित है। बूट मेन्यू संपादन हेतु हाँ या यह चरण निरस्त कर स्नैपशॉट बनाना जारी रखने हेतु नहीं का चयन करें।</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="452"/>
+        <location filename="../mainwindow.cpp" line="451"/>
         <source>Close</source>
         <translation>बंद करें</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Select kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="545"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>About %1</source>
         <translation>%1 के बारे में</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Version: </source>
         <translation>संस्करण :</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>एमएक्स लिनक्स के कार्यरत सिस्टम से लाइव-सीडी बनाने हेतु प्रोग्राम</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="549"/>
         <source>Copyright (c) MX Linux</source>
         <translation>कॉपीराइट (c) एमएक्स लिनक्स</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="552"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>%1 License</source>
         <translation>%1 लाइसेंस</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>%1 Help</source>
         <translation>%1 सहायता</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="570"/>
         <source>Select Snapshot Directory</source>
         <translation>स्नैपशॉट फोल्डर चुनें</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Confirmation</source>
         <translation>पुष्टिकरण</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>क्या आप निश्चित ही अनुप्रयोग बंद करना चाहते हैं?</translation>
     </message>
@@ -643,57 +643,57 @@
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="249"/>
-        <location filename="../settings.cpp" line="264"/>
-        <location filename="../settings.cpp" line="734"/>
-        <location filename="../settings.cpp" line="833"/>
+        <location filename="../settings.cpp" line="250"/>
+        <location filename="../settings.cpp" line="265"/>
+        <location filename="../settings.cpp" line="735"/>
+        <location filename="../settings.cpp" line="834"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="258"/>
+        <location filename="../settings.cpp" line="259"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>वर्तमान कर्नेल द्वारा Squashfs समर्थित नहीं है, प्रक्रिया निरस्त।</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="85"/>
+        <location filename="../settings.cpp" line="86"/>
         <source>Could not create working directory. </source>
         <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="110"/>
+        <location filename="../settings.cpp" line="111"/>
         <source>Could not create temp directory. </source>
         <translation>अस्थायी डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="243"/>
+        <location filename="../settings.cpp" line="244"/>
         <source>Could not find a usable kernel</source>
         <translation>उपयोग हेतु कर्नेल प्राप्ति विफल</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="367"/>
+        <location filename="../settings.cpp" line="368"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="371"/>
         <source>estimated</source>
         <translation>अनुमान</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="384"/>
         <source>Used space on /home: </source>
         <translation>/home पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="469"/>
+        <location filename="../settings.cpp" line="470"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="474"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -708,43 +708,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="491"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Desktop</source>
         <translation>डेस्कटॉप</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Documents</source>
         <translation>प्रलेख</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Downloads</source>
         <translation>डाउनलोड</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Music</source>
         <translation>संगीत</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Networks</source>
         <translation>नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="497"/>
         <source>Pictures</source>
         <translation>चित्र</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="498"/>
+        <location filename="../settings.cpp" line="499"/>
         <source>Videos</source>
         <translation>वीडियो</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="727"/>
-        <location filename="../settings.cpp" line="826"/>
+        <location filename="../settings.cpp" line="728"/>
+        <location filename="../settings.cpp" line="827"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -826,10 +826,6 @@
         <location filename="../work.cpp" line="235"/>
         <source>Squashing filesystem...</source>
         <translation>फाइल सिस्टम संपीड़न जारी...</translation>
-    </message>
-    <message>
-        <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="vanished">Linuxfs फाइल बनाना विफल, कृपया सुनिश्चित करें कि लक्षित विभाजन पर उपयुक्त स्पेस उपलब्ध है।</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="239"/>

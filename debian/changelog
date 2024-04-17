@@ -1,3 +1,10 @@
+mx-snapshot (24.4.01) mx; urgency=medium
+
+  * Update translations
+  * Minor: for monthly snapshot use default kernel options
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 17 Apr 2024 19:24:18 -0400
+
 mx-snapshot (24.4) mx; urgency=medium
 
   * Add system language, keyboard, timezon to boot parameter field

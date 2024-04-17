@@ -18,8 +18,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="171"/>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="170"/>
+        <location filename="../mainwindow.cpp" line="468"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -90,7 +90,7 @@
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>Snapshot name:</source>
         <translation>Tilannevedoksen nimi:</translation>
     </message>
@@ -265,37 +265,37 @@
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fastest, worst compression</source>
         <translation>nopein, huonoin pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="177"/>
+        <location filename="../mainwindow.cpp" line="176"/>
         <source>fast, worse compression</source>
         <translation>nopea, huonompi pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>slow, better compression</source>
         <translation>hidas, parempi pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="178"/>
+        <location filename="../mainwindow.cpp" line="177"/>
         <source>best compromise</source>
         <translation>paras kompromissi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="178"/>
         <source>slowest, best compression</source>
         <translation>hitain, paras pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="208"/>
+        <location filename="../mainwindow.cpp" line="207"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="211"/>
+        <location filename="../mainwindow.cpp" line="210"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -305,161 +305,161 @@ Tarvittaessa voit tehdä vapaata tilaa poistamalla aiemmat
 tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     </message>
     <message>
+        <location filename="../mainwindow.cpp" line="222"/>
         <location filename="../mainwindow.cpp" line="223"/>
-        <location filename="../mainwindow.cpp" line="224"/>
         <source>Installing </source>
         <translation>Asennetaan</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="312"/>
+        <location filename="../mainwindow.cpp" line="311"/>
         <source>Please wait.</source>
         <translation>Odota, ole hyvä.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="314"/>
+        <location filename="../mainwindow.cpp" line="313"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Odota, ole hyvä. Lasketaan käytettyä levytilaa...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="328"/>
-        <location filename="../mainwindow.cpp" line="355"/>
-        <location filename="../mainwindow.cpp" line="386"/>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="327"/>
+        <location filename="../mainwindow.cpp" line="354"/>
+        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="329"/>
+        <location filename="../mainwindow.cpp" line="328"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="336"/>
+        <location filename="../mainwindow.cpp" line="335"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="341"/>
+        <location filename="../mainwindow.cpp" line="340"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Tilannevedos käyttää seuraavia asetuksia:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="343"/>
+        <location filename="../mainwindow.cpp" line="342"/>
         <source>- Snapshot directory:</source>
         <translation>- Tilannevedosten hakemisto:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="344"/>
+        <location filename="../mainwindow.cpp" line="343"/>
         <source>- Kernel to be used:</source>
         <translation>- Käytettävä kerneli:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="356"/>
+        <location filename="../mainwindow.cpp" line="355"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="363"/>
+        <location filename="../mainwindow.cpp" line="362"/>
         <source>Final chance</source>
         <translation>Viimeinen mahdollisuus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="365"/>
+        <location filename="../mainwindow.cpp" line="364"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Tilannevedos työkalulla on nyt kaikki tarvittava tieto, jotta se voi tehdä ISO-levykuvan käynnissä olevasta järjestelmästäsi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="366"/>
+        <location filename="../mainwindow.cpp" line="365"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Viimeistely tulee kestämään kotvasen aikaa, riippuen asennetun järjestelmän koosta sekä tietokoneesi kapasiteetista.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="368"/>
+        <location filename="../mainwindow.cpp" line="367"/>
         <source>OK to start?</source>
         <translation>Voidaanko aloittaa?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="372"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>Shutdown computer when done.</source>
         <translation>Sammuta tietokone, kun valmis.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="385"/>
         <source>Could not create working directory. </source>
         <translation>Työkansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="390"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Could not create temporary directory. </source>
         <translation>Tilapäistä kansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="438"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>Edit Boot Menu</source>
         <translation>Muokkaa käynnistysvalikkoa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="439"/>
+        <location filename="../mainwindow.cpp" line="438"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Tämä ohjelma tauotetaan nyt jotta voit muokata työkansion mitä tahansa tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa, tai valitse vaihtoehtoisesti Ei ohittaaksesi tämän vaiheen sekä jatkaaksesi snapshot-järjestelmävedoksen luomista.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="452"/>
+        <location filename="../mainwindow.cpp" line="451"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="460"/>
+        <location filename="../mainwindow.cpp" line="459"/>
         <source>Select kernel</source>
         <translation>Valitse kerneli</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="545"/>
+        <location filename="../mainwindow.cpp" line="544"/>
         <source>About %1</source>
         <translation>%1 lisätietoja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="547"/>
+        <location filename="../mainwindow.cpp" line="546"/>
         <source>Version: </source>
         <translation>Versio: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="548"/>
+        <location filename="../mainwindow.cpp" line="547"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Ohjelma jonka avulla voit luoda live-CD:n tällä hetkellä ajetusta järjestelmästä MX Linux:ille</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="550"/>
+        <location filename="../mainwindow.cpp" line="549"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="552"/>
+        <location filename="../mainwindow.cpp" line="551"/>
         <source>%1 License</source>
         <translation>%1 lupa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="566"/>
+        <location filename="../mainwindow.cpp" line="565"/>
         <source>%1 Help</source>
         <translation>%1 Apuopas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="571"/>
+        <location filename="../mainwindow.cpp" line="570"/>
         <source>Select Snapshot Directory</source>
         <translation>Valitse tilannevedosten hakemisto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Confirmation</source>
         <translation>Vahvistus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="592"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Oletko varma että haluat lopettaa sovelluksen?</translation>
     </message>
@@ -646,57 +646,57 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <location filename="../main.cpp" line="186"/>
         <location filename="../main.cpp" line="193"/>
         <location filename="../main.cpp" line="252"/>
-        <location filename="../settings.cpp" line="249"/>
-        <location filename="../settings.cpp" line="264"/>
-        <location filename="../settings.cpp" line="734"/>
-        <location filename="../settings.cpp" line="833"/>
+        <location filename="../settings.cpp" line="250"/>
+        <location filename="../settings.cpp" line="265"/>
+        <location filename="../settings.cpp" line="735"/>
+        <location filename="../settings.cpp" line="834"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="246"/>
         <location filename="../main.cpp" line="248"/>
-        <location filename="../settings.cpp" line="258"/>
+        <location filename="../settings.cpp" line="259"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kerneli ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="85"/>
+        <location filename="../settings.cpp" line="86"/>
         <source>Could not create working directory. </source>
         <translation>Työkansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="110"/>
+        <location filename="../settings.cpp" line="111"/>
         <source>Could not create temp directory. </source>
         <translation>Tilapäiskansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="243"/>
+        <location filename="../settings.cpp" line="244"/>
         <source>Could not find a usable kernel</source>
         <translation>Ei löydetty sopivaa kerneliä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="367"/>
+        <location filename="../settings.cpp" line="368"/>
         <source>Used space on / (root): </source>
         <translation>Käytetty tila kohteessa / (root-juurihakemisto):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="371"/>
         <source>estimated</source>
         <translation>arvioitu</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="384"/>
         <source>Used space on /home: </source>
         <translation>Käytetty tila /home -hakemistossa: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="469"/>
+        <location filename="../settings.cpp" line="470"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="473"/>
+        <location filename="../settings.cpp" line="474"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -711,43 +711,43 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="491"/>
+        <location filename="../settings.cpp" line="492"/>
         <source>Desktop</source>
         <translation>Työpöytä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="492"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Documents</source>
         <translation>Tiedostot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="493"/>
+        <location filename="../settings.cpp" line="494"/>
         <source>Downloads</source>
         <translation>Lataukset</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="494"/>
+        <location filename="../settings.cpp" line="495"/>
         <source>Music</source>
         <translation>Musiikki</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="495"/>
+        <location filename="../settings.cpp" line="496"/>
         <source>Networks</source>
         <translation>Verkot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="496"/>
+        <location filename="../settings.cpp" line="497"/>
         <source>Pictures</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="498"/>
+        <location filename="../settings.cpp" line="499"/>
         <source>Videos</source>
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="727"/>
-        <location filename="../settings.cpp" line="826"/>
+        <location filename="../settings.cpp" line="728"/>
+        <location filename="../settings.cpp" line="827"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
@@ -831,13 +831,9 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Puristetaan tiedostojärjestelmää...</translation>
     </message>
     <message>
-        <source>Could not create linuxfs file, please check whether you have enough space on the destination partition.</source>
-        <translation type="vanished">linuxfs-tiedostoa ei voitu luoda, varmista että sinulla on kohdeosiossa riittävä määrä tilaa.</translation>
-    </message>
-    <message>
         <location filename="../work.cpp" line="239"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation type="unfinished"></translation>
+        <translation>Ei voitu luoda linuxfs-tiedostoa, tarkista /var/log/%1.log</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="257"/>
