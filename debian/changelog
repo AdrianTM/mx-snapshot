@@ -1,3 +1,9 @@
+mx-snapshot (24.4.02) mx; urgency=medium
+
+  * Skip display of default keyboard options bootparameter (kbopt)
+
+ -- fehlix <fehlix@mxlinux.org>  Thu, 18 Apr 2024 18:55:15 -0400
+
 mx-snapshot (24.4.01) mx; urgency=medium
 
   * Update translations
