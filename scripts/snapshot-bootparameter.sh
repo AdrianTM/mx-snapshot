@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Thie script is part of MX Snapshot
+# This script is part of MX Snapshot
 #
+# to list the boot parameters to be displayed as boot options.
 #---------------------------------------------------------
-# list boot parameter to be shown within the boot option field of MX Snapshot
-#---------------------------------------------------------
-VERSION="240411-01"
+VERSION="240418-01"
 
+#---------------------------------------------------------
 # allow debug
 [ "$1" = "-d" -o  "$1" = "--debug" ] && SNAPSHOT_BOOTPARAMETER_DEBUG=true
 
@@ -18,8 +18,8 @@ SBP_DEBUG=$SNAPSHOT_BOOTPARAMETER_DEBUG
 #---------------------------------------------------------
 
 # default keyboard options
-DEFAULT_KBOPT_MX='grp:rctrl_rshift_toggle,terminate:ctrl_alt_bksp,grp:led_scroll'
-DEFAULT_KBOPT_ANTIX='grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp:led_scroll'
+DEFAULT_KBOPT_MX='grp:rctrl_rshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll'
+DEFAULT_KBOPT_ANTIX='grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll'
 
 # some lists
 unset CONF_LIST CONF_HASH OUT_LIST PAR_LIST CONF_HASH
@@ -45,7 +45,7 @@ main() {
 
     local param
     for param in "${PAR_LIST[@]}"; do
-        # build-in kernel parameter to be ignored
+        # built-in kernel parameters that should be ignored
         [[ -v CONF_HASH["$param"] ]] && continue
         case "$param" in
                               menus)  ;;
@@ -289,7 +289,7 @@ main() {
         SEEN["$key"]="$par"
         OUT_PAR+=("$par")
     done
-    # list of paramter to show only the last set
+    # list of parameters to display only the last set
     unset KEY_LAST
     KEY_LAST=(
         lang
@@ -367,7 +367,7 @@ prepare_par_list() {
 }
 
 #----------------------------------------------------------------------------
-# get system kyboard layout from /etc/default/keyboard
+# get system keyboard layout from /etc/default/keyboard
 prepare_keyboard() {
     local rex='^((xkb)?(layout|options|variant))([:=]["]?[[:space:]]*)([^"[:space:]]+)["]?'
     local layout
@@ -434,11 +434,11 @@ prepare_timezone() {
 }
 
 #-----------------------------------------------------------------------
-# clean bad chars from user adjusted boot paramters
+# clean bad chars from user adjusted boot parameters
 sanitize_bootparameter() {
     local p=$1
+    # "bad" characters that we do not want in the boot parameter
     local bad_chars='<>$()[]`|'
-    # "bad" charachters we don't want in boot parameter
     local r=$(LC_ALL=C tr -d -- "$bad_chars"  <<<"$p")
     printf '%s' "$r"
 }
@@ -463,7 +463,7 @@ debug() {
     printf '[DEBUG]: %s\n' "${s}" >&2
 }
 
-# print debug of paramter to stderr
+# print debug of parameter to stderr
 debug_param() {
     [ "$SBP_DEBUG" ] || return
     local param=$1
@@ -492,5 +492,5 @@ sorted_opts() {
     echo "$r"
 }
 #-----------------------------------------------------------------------
-
+# the main
 main "$@"
