@@ -82,7 +82,9 @@ void MainWindow::loadSettings()
     ui->textOptions->setText(boot_options);
     ui->textReleaseDate->setText(release_date);
     ui->textKernel->setText(kernel);
-    if (work.shell.getOut("ls -1 /boot/vmlinuz-* | wc -l").toUInt() < 2) {
+    QDir bootDir("/boot");
+    QStringList kernelFiles = bootDir.entryList(QStringList() << "vmlinuz-*", QDir::Files);
+    if (kernelFiles.count() < 2) {
         ui->btnKernel->setHidden(true);
     }
 }
