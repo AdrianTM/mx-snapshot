@@ -104,7 +104,11 @@ bool Settings::checkTempDir()
         }
     }
     if (tempdir_parent == "/home") { // Replace /home with user home path
-        tempdir_parent = "/home/" + Cmd().getOut("logname", true).trimmed();
+        QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
+        if (userName.isEmpty()) {
+            userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
+        }
+        tempdir_parent = "/home/" + userName;
     }
     tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
