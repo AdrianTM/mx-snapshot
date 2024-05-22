@@ -249,7 +249,7 @@ void Settings::selectKernel()
             }
             if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                 QString message = QObject::tr("Could not find a usable kernel");
-                if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
+                if (qApp->metaObject()->className() != "QApplication") {
                     qDebug().noquote() << message;
                 }
 #ifndef CLI_BUILD
@@ -734,7 +734,7 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshot_dir + '/' + snapshot_name);
-        if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
+        if (qApp->metaObject()->className() != "QApplication") {
             qDebug().noquote() << message;
         }
 #ifndef CLI_BUILD
@@ -833,7 +833,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshot_dir + '/' + snapshot_name);
-        if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
+        if (qApp->metaObject()->className() != "QApplication") {
             qDebug().noquote() << message;
         }
 #ifndef CLI_BUILD
