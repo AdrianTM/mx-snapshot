@@ -110,7 +110,7 @@ void Work::cleanUp()
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
     // See first if the dir is on different partition otherwise it's irrelevant
-    if (QStorageInfo(dir).device() != QStorageInfo(settings->snapshot_dir).device()) {
+    if (QStorageInfo(dir).device() != QStorageInfo(settings->snapshot_dir).device()
         && Settings::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
@@ -370,8 +370,10 @@ void Work::replaceMenuStrings()
     const QString boot_pararameter_regexp {"(lang|kbd|kbvar|kbopt|tz)=[^[:space:]]*"};
     shell.run(QString("printf '%s\\n' %1 | grep -E '^%2' >> '%3'")
                   .arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grubenv_cfg));
-    shell.run(QString(R"(sed -i "s|%OPTIONS%|$(sed -r 's/[[:space:]]%2/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g'<<<' %1')|" '%3')")
-                  .arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grub_cfg));
+    shell.run(
+        QString(
+            R"(sed -i "s|%OPTIONS%|$(sed -r 's/[[:space:]]%2/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g'<<<' %1')|" '%3')")
+            .arg(settings->boot_options, boot_pararameter_regexp, settings->work_dir + grub_cfg));
     const QString syslinux_cfg {"/iso-template/boot/syslinux/syslinux.cfg"};
     const QString isolinux_cfg {"/iso-template/boot/isolinux/isolinux.cfg"};
     for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
