@@ -242,8 +242,11 @@ void Settings::selectKernel()
         if (!QFileInfo::exists(
                 "/boot/vmlinuz-"
                 + kernel)) { // If current kernel doesn't exist for some reason (e.g. WSL) in /boot pick latest kernel
-            kernel
-                = Cmd().getOut("ls -1 /boot/vmlinuz-* |sort |tail -n1").remove(QRegularExpression("^/boot/vmlinuz-"));
+            QDir directory("/boot");
+            QStringList vmlinuzFiles = directory.entryList(QStringList() << "vmlinuz-*", QDir::Files, QDir::Name);
+            if (!vmlinuzFiles.isEmpty()) {
+                kernel = vmlinuzFiles.last().remove(QRegularExpression("^vmlinuz-"));
+            }
             if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                 QString message = QObject::tr("Could not find a usable kernel");
                 if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
