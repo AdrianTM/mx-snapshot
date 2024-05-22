@@ -697,8 +697,17 @@ void Settings::otherExclusions()
     if (reset_accounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
         // Exclude /etc/localtime if link and timezone not America/New_York
-        if (Cmd().run("test -L /etc/localtime") && Cmd().getOut("cat /etc/timezone") != "America/New_York") {
-            addRemoveExclusion(true, "/etc/localtime");
+        QFileInfo localtimeInfo("/etc/localtime");
+        QFile timezoneFile("/etc/timezone");
+        if (localtimeInfo.isSymLink()) {
+            if (timezoneFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                QTextStream in(&timezoneFile);
+                QString timezone = in.readLine();
+                if (timezone != "America/New_York") {
+                    addRemoveExclusion(true, "/etc/localtime");
+                }
+                timezoneFile.close();
+            }
         }
     }
     excludeSwapFile();
