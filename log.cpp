@@ -21,16 +21,16 @@
  **********************************************************************/
 #include "log.h"
 
-#include <QDate>
+#include <QDateTime>
 
 Log::Log(const QString &file_name)
 {
     logFile.setFileName(file_name);
-    if (!logFile.open(QIODevice::ReadWrite)) {
-        qDebug() << "Could not open log file:" << file_name;
-        return;
+    if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
+        qWarning() << "Could not open log file:" << file_name;
+    } else {
+        qInstallMessageHandler(Log::messageHandler);
     }
-    qInstallMessageHandler(Log::messageHandler);
 }
 
 void Log::messageHandler(QtMsgType type, const QMessageLogContext &, const QString &msg)

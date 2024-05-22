@@ -90,6 +90,5 @@ void Batchprocessing::setConnections()
 void Batchprocessing::progress()
 {
     static int i = 0;
-    (i % 2 == 1) ? qDebug() << "\033[2KProcessing command...\r" : qDebug() << "\033[2KProcessing command\r";
-    ++i;
+    qDebug() << "\033[2KProcessing command" << ((i++ % 2 == 1) ? "...\r" : "\r");
 }
