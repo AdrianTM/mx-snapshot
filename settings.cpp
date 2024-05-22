@@ -448,7 +448,7 @@ bool Settings::isOnSupportedPart(const QString &dir)
 QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (Cmd().getOut("stat -c '%d' " + dir1) == Cmd().getOut("stat -c '%d' " + dir2)) {
+    if (QStorageInfo(dir1).device() == QStorageInfo(dir2).device()) {
         return dir1;
     }
     quint64 dir1_free = getFreeSpace(dir1);
