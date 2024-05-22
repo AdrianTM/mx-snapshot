@@ -29,6 +29,7 @@
 #include <QDirIterator>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QStorageInfo>
 
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
@@ -48,7 +49,7 @@ void Work::checkEnoughSpace()
      * If both TMP work_dir and ISO don't fit on snapshot_dir, see if work_dir can be put on /home or /tmp
      * we already checked that ISO can fit on snapshot_dir so if TMP work fits on /home or /tmp move
      * the work_dir to the appropriate place and return */
-    if (Cmd().getOut("stat -c '%d' " + settings->work_dir) == Cmd().getOut("stat -c '%d' " + settings->snapshot_dir)) {
+    if (QStorageInfo(settings->work_dir).device() == QStorageInfo(settings->snapshot_dir).device()) {
         if (settings->free_space < required_space * 2) {
             if (checkAndMoveWorkDir("/tmp", required_space)) {
                 return;
@@ -109,7 +110,7 @@ void Work::cleanUp()
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
     // See first if the dir is on different partition otherwise it's irrelevant
-    if (Cmd().getOut("stat -c '%d' " + dir) != Cmd().getOut("stat -c '%d' " + settings->snapshot_dir)
+    if (QStorageInfo(dir).device() != QStorageInfo(settings->snapshot_dir).device()) {
         && Settings::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
