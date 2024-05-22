@@ -163,18 +163,18 @@ QString Settings::getEditor() const
     return elevate + " env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
 }
 
-// Return the size of the snapshot folder
+// Return the size of the snapshot folder in MiB
 QString Settings::getSnapshotSize() const
 {
+    qint64 totalSize = 0;
     if (QFileInfo::exists(snapshot_dir)) {
-        QString cmd = QString("find \"%1\" -maxdepth 1 -type f -name '*.iso' -exec du -shc {} + |awk 'END {print $1}'")
-                          .arg(snapshot_dir);
-        auto size = Cmd().getOut(cmd);
-        if (!size.isEmpty()) {
-            return size;
+        QDir directory(snapshot_dir);
+        QStringList isoFiles = directory.entryList(QStringList() << "*.iso", QDir::Files);
+        for (const QString &file : isoFiles) {
+            totalSize += QFileInfo(directory.absoluteFilePath(file)).size();
         }
     }
-    return "0";
+    return QString::number(totalSize / (1024 * 1024)) + " MiB";
 }
 
 // Number of snapshots in snapshot_dir
