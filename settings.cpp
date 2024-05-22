@@ -438,8 +438,8 @@ bool Settings::isOnSupportedPart(const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Supported partition types (NTFS returns fuseblk)
-    QStringList supported_partitions {"ext2/ext3", "btrfs", "jfs", "reiserfs", "xfs", "fuseblk", "ramfs", "tmpfs"};
-    QString part_type = Cmd().getOut("stat --file-system --format=%T \"" + dir + '"');
+    QStringList supported_partitions {"ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs"};
+    QString part_type = QStorageInfo(dir + "/").fileSystemType();
     qDebug() << "detected partition" << part_type << "supported part:" << supported_partitions.contains(part_type);
     return supported_partitions.contains(part_type);
 }
