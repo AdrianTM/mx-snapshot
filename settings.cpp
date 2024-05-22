@@ -190,7 +190,7 @@ int Settings::getSnapshotCount() const
 // Return KiB available space on the device
 quint64 Settings::getFreeSpace(const QString &path)
 {
-    QStorageInfo storage(path);
+    QStorageInfo storage(path + "/");
     if (!storage.isReady()) {
         qDebug() << "Cannot determine free space for" << path << ": Drive not ready or does not exist.";
         return 0;
@@ -358,9 +358,9 @@ quint64 Settings::getLiveRootSpace()
         qWarning() << "Unknown compression type:" << linuxfs_compression_type;
     }
     quint64 rootfs_file_size = 0;
-    quint64 linuxfs_file_size = QStorageInfo("/live/linux").bytesTotal() * 100 / c_factor;
+    quint64 linuxfs_file_size = QStorageInfo("/live/linux/").bytesTotal() * 100 / c_factor;
     if (QFileInfo::exists("/live/persist-root")) {
-        rootfs_file_size = QStorageInfo("/live/persist-root").bytesTotal();
+        rootfs_file_size = QStorageInfo("/live/persist-root/").bytesTotal();
     }
 
     // Add rootfs file size to the calculated linuxfs file size.  probaby conservative, as rootfs will likely have some
@@ -380,7 +380,7 @@ QString Settings::getUsedSpace()
         root_size = rootInfo.bytesTotal() - rootInfo.bytesFree();
         out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB";
     }
-    QStorageInfo homeInfo("/home");
+    QStorageInfo homeInfo("/home/");
     if (homeInfo.isValid() && homeInfo.isRoot()) {
         home_size = homeInfo.bytesTotal() - homeInfo.bytesFree();
         out.append("\n- " + QObject::tr("Used space on /home: ")
@@ -448,7 +448,7 @@ bool Settings::isOnSupportedPart(const QString &dir)
 QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (QStorageInfo(dir1).device() == QStorageInfo(dir2).device()) {
+    if (QStorageInfo(dir1 + "/").device() == QStorageInfo(dir2 + "/").device()) {
         return dir1;
     }
     quint64 dir1_free = getFreeSpace(dir1);
