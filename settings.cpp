@@ -174,7 +174,7 @@ QString Settings::getSnapshotSize() const
             totalSize += QFileInfo(directory.absoluteFilePath(file)).size();
         }
     }
-    return QString::number(totalSize / (1024 * 1024)) + " MiB";
+    return QString::number(totalSize / (1024 * 1024)) + "MiB";
 }
 
 // Number of snapshots in snapshot_dir
@@ -358,10 +358,9 @@ quint64 Settings::getLiveRootSpace()
         qWarning() << "Unknown compression type:" << linuxfs_compression_type;
     }
     quint64 rootfs_file_size = 0;
-    quint64 linuxfs_file_size
-        = Cmd().getOut("df -k /live/linux --output=used --total |tail -n1").toULongLong() * 100 / c_factor;
+    quint64 linuxfs_file_size = QStorageInfo("/live/linux").bytesTotal() * 100 / c_factor;
     if (QFileInfo::exists("/live/persist-root")) {
-        rootfs_file_size = Cmd().getOut("df -k /live/persist-root --output=used --total |tail -n1").toULongLong();
+        rootfs_file_size = QStorageInfo("/live/persist-root").bytesTotal();
     }
 
     // Add rootfs file size to the calculated linuxfs file size.  probaby conservative, as rootfs will likely have some
@@ -371,23 +370,19 @@ quint64 Settings::getLiveRootSpace()
 
 QString Settings::getUsedSpace()
 {
-    constexpr float factor = 1024 * 1024;
+    constexpr double factor = 1024 * 1024 * 1024;
     QString out = "\n- " + QObject::tr("Used space on / (root): ");
-    if (bool ok = false; live) {
+    if (live) {
         root_size = getLiveRootSpace();
         out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
     } else {
-        root_size = Cmd().getOut("df -k --output=used / |tail -n1").toULongLong(&ok);
-        if (!ok) {
-            return "Can't calculate free space on root";
-        }
+        QStorageInfo rootInfo("/");
+        root_size = rootInfo.bytesTotal() - rootInfo.bytesFree();
         out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB";
     }
-    if (bool ok = false; Cmd().run("mountpoint -q /home")) {
-        home_size = Cmd().getOut("df -k --output=used /home |tail -n1").toULongLong(&ok);
-        if (!ok) {
-            return "Can't calculate free space on /home";
-        }
+    QStorageInfo homeInfo("/home");
+    if (homeInfo.isValid() && homeInfo.isRoot()) {
+        home_size = homeInfo.bytesTotal() - homeInfo.bytesFree();
         out.append("\n- " + QObject::tr("Used space on /home: ")
                    + QString::number(static_cast<double>(home_size) / factor, 'f', 2) + "GiB");
     } else {
