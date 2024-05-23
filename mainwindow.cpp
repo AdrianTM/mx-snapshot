@@ -149,17 +149,12 @@ void MainWindow::setConnections()
 
 void MainWindow::setExclusions()
 {
-    QVector<QPair<QCheckBox*, Exclude>> exclusionPairs = {
-        {ui->excludeDesktop, Exclude::Desktop},
-        {ui->excludeDocuments, Exclude::Documents},
-        {ui->excludeDownloads, Exclude::Downloads},
-        {ui->excludeMusic, Exclude::Music},
-        {ui->excludeNetworks, Exclude::Networks},
-        {ui->excludePictures, Exclude::Pictures},
-        {ui->excludeSteam, Exclude::Steam},
-        {ui->excludeVideos, Exclude::Videos},
-        {ui->excludeVirtualBox, Exclude::VirtualBox}
-    };
+    QVector<QPair<QCheckBox *, Exclude>> exclusionPairs
+        = {{ui->excludeDesktop, Exclude::Desktop},      {ui->excludeDocuments, Exclude::Documents},
+           {ui->excludeDownloads, Exclude::Downloads},  {ui->excludeMusic, Exclude::Music},
+           {ui->excludeNetworks, Exclude::Networks},    {ui->excludePictures, Exclude::Pictures},
+           {ui->excludeSteam, Exclude::Steam},          {ui->excludeVideos, Exclude::Videos},
+           {ui->excludeVirtualBox, Exclude::VirtualBox}};
 
     for (const auto &pair : exclusionPairs) {
         pair.first->setChecked(exclusions.testFlag(pair.second));
@@ -257,22 +252,19 @@ void MainWindow::procStart()
 void MainWindow::processMsgBox(BoxType box_type, const QString &title, const QString &msg)
 {
     qDebug().noquote() << title << msg;
-    switch (box_type) {
-    case BoxType::warning:
-        QMessageBox::warning(this, title, msg);
-        break;
-    case BoxType::critical:
-        QMessageBox::critical(this, title, msg);
-        break;
-    case BoxType::question:
-        QMessageBox::question(this, title, msg);
-        break;
-    case BoxType::information:
-        QMessageBox::information(this, title, msg);
-        break;
-    }
-}
 
+    QMessageBox msgBox;
+    msgBox.setWindowTitle(title);
+    msgBox.setText(msg);
+
+    static const QMap<BoxType, QMessageBox::Icon> iconMap = {{BoxType::warning, QMessageBox::Warning},
+                                                             {BoxType::critical, QMessageBox::Critical},
+                                                             {BoxType::question, QMessageBox::Question},
+                                                             {BoxType::information, QMessageBox::Information}};
+
+    msgBox.setIcon(iconMap.value(box_type, QMessageBox::NoIcon));
+    msgBox.exec();
+}
 void MainWindow::processMsg(const QString &msg)
 {
     qDebug().noquote() << msg;
