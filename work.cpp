@@ -81,7 +81,7 @@ void Work::cleanUp()
     emit message(tr("Cleaning..."));
     Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
     shell.close();
-    Cmd().run("sync");
+    QProcess::execute("sync", {});
     QDir::setCurrent("/");
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
         Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
@@ -94,9 +94,10 @@ void Work::cleanUp()
         if (settings->shutdown) {
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
-            Cmd().run("sync");
-            Cmd().run("dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "
-                      "'org.freedesktop.login1.Manager.PowerOff' boolean:true");
+            QProcess::execute("sync", {});
+            QProcess::execute("dbus-send",
+                              {"--system", "--print-reply", "--dest=org.freedesktop.login1", "/org/freedesktop/login1",
+                               "org.freedesktop.login1.Manager.PowerOff", "boolean:true"});
         }
         exit(EXIT_SUCCESS);
     } else {
