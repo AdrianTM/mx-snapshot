@@ -208,6 +208,11 @@ QString Settings::getXdgUserDirs(const QString &folder)
     QStringList resultParts;
     resultParts.reserve(18); // For 3 users x 6 folders, not worth getting the number of users on the system
 
+    const static QHash<QString, QString> englishDirs {
+        {"DOCUMENTS", "Documents"}, {"DOWNLOAD", "Downloads"}, {"DESKTOP", "Desktop"},
+        {"MUSIC", "Music"},         {"PICTURES", "Pictures"},  {"VIDEOS", "Videos"},
+    };
+
     for (const QString &user : qAsConst(users)) {
         QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + '"');
 
@@ -278,11 +283,6 @@ void Settings::selectKernel()
 
 void Settings::setVariables()
 {
-    englishDirs = {
-        {"DOCUMENTS", "Documents"}, {"DOWNLOAD", "Downloads"}, {"DESKTOP", "Desktop"},
-        {"MUSIC", "Music"},         {"PICTURES", "Pictures"},  {"VIDEOS", "Videos"},
-    };
-
     live = isLive();
     users = listUsers();
     x86 = isi386();

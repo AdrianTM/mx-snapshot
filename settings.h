@@ -104,7 +104,6 @@ private:
     Exclusions exclusions;
     QFile config_file;
     QFile snapshot_excludes;
-    QHash<QString, QString> englishDirs; // English names of /home directories
     QScopedPointer<QTemporaryDir> tmpdir;
     QString boot_options;
     QString codename;
