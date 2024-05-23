@@ -490,20 +490,21 @@ QStringList Settings::listUsers()
 
 void Settings::excludeItem(const QString &item)
 {
-    QMap<QString, std::function<void(bool)>> itemExclusions {
-        {QObject::tr("Desktop"), [this](bool value) { excludeDesktop(value); }},
-        {QObject::tr("Documents"), [this](bool value) { excludeDocuments(value); }},
-        {QObject::tr("Downloads"), [this](bool value) { excludeDownloads(value); }},
-        {QObject::tr("Music"), [this](bool value) { excludeMusic(value); }},
-        {QObject::tr("Networks"), [this](bool value) { excludeNetworks(value); }},
-        {QObject::tr("Pictures"), [this](bool value) { excludePictures(value); }},
-        {"Steam", [this](bool value) { excludeSteam(value); }},
-        {QObject::tr("Videos"), [this](bool value) { excludeVideos(value); }},
-        {"VirtualBox", [this](bool value) { excludeVirtualBox(value); }}};
+    static const QMap<QString, void (Settings::*)(bool)> itemExclusions {
+        {QObject::tr("Desktop"), &Settings::excludeDesktop},
+        {QObject::tr("Documents"), &Settings::excludeDocuments},
+        {QObject::tr("Downloads"), &Settings::excludeDownloads},
+        {QObject::tr("Music"), &Settings::excludeMusic},
+        {QObject::tr("Networks"), &Settings::excludeNetworks},
+        {QObject::tr("Pictures"), &Settings::excludePictures},
+        {"Steam", &Settings::excludeSteam},
+        {QObject::tr("Videos"), &Settings::excludeVideos},
+        {"VirtualBox", &Settings::excludeVirtualBox}
+    };
 
     auto it = itemExclusions.find(item);
     if (it != itemExclusions.end()) {
-        it.value()(true);
+        (this->*(it.value()))(true);
     }
 }
 
