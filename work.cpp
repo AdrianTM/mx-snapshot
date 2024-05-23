@@ -68,7 +68,7 @@ void Work::checkEnoughSpace()
 bool Work::checkInstalled(const QString &package)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    return (Cmd().run(QString("dpkg -s %1 |grep '^Status: install ok installed'").arg(package)));
+    return (Cmd().run(QString("dpkg-query -W -f='${Status}' %1 | grep 'install ok installed'").arg(package)));
 }
 
 void Work::cleanUp()
