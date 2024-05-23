@@ -390,33 +390,15 @@ void MainWindow::btnNext_clicked()
             cleanUp();
         }
 
-        if (ui->excludeDocuments->isChecked()) {
-            excludeDocuments(true);
-        }
-        if (ui->excludeDownloads->isChecked()) {
-            excludeDownloads(true);
-        }
-        if (ui->excludePictures->isChecked()) {
-            excludePictures(true);
-        }
-        if (ui->excludeMusic->isChecked()) {
-            excludeMusic(true);
-        }
-        if (ui->excludeVideos->isChecked()) {
-            excludeVideos(true);
-        }
-        if (ui->excludeDesktop->isChecked()) {
-            excludeDesktop(true);
-        }
-        if (ui->excludeNetworks->isChecked()) {
-            excludeNetworks(true);
-        }
-        if (ui->excludeSteam->isChecked()) {
-            excludeSteam(true);
-        }
-        if (ui->excludeVirtualBox->isChecked()) {
-            excludeVirtualBox(true);
-        }
+        excludeDocuments(ui->excludeDocuments->isChecked());
+        excludeDownloads(ui->excludeDownloads->isChecked());
+        excludePictures(ui->excludePictures->isChecked());
+        excludeMusic(ui->excludeMusic->isChecked());
+        excludeVideos(ui->excludeVideos->isChecked());
+        excludeDesktop(ui->excludeDesktop->isChecked());
+        excludeNetworks(ui->excludeNetworks->isChecked());
+        excludeSteam(ui->excludeSteam->isChecked());
+        excludeVirtualBox(ui->excludeVirtualBox->isChecked());
         otherExclusions();
         ui->btnNext->setEnabled(false);
         ui->btnBack->setEnabled(false);
