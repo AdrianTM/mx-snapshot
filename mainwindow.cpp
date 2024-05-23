@@ -149,15 +149,21 @@ void MainWindow::setConnections()
 
 void MainWindow::setExclusions()
 {
-    ui->excludeDesktop->setChecked(exclusions.testFlag(Exclude::Desktop));
-    ui->excludeDocuments->setChecked(exclusions.testFlag(Exclude::Documents));
-    ui->excludeDownloads->setChecked(exclusions.testFlag(Exclude::Downloads));
-    ui->excludeMusic->setChecked(exclusions.testFlag(Exclude::Music));
-    ui->excludeNetworks->setChecked(exclusions.testFlag(Exclude::Networks));
-    ui->excludePictures->setChecked(exclusions.testFlag(Exclude::Pictures));
-    ui->excludeSteam->setChecked(exclusions.testFlag(Exclude::Steam));
-    ui->excludeVideos->setChecked(exclusions.testFlag(Exclude::Videos));
-    ui->excludeVirtualBox->setChecked(exclusions.testFlag(Exclude::VirtualBox));
+    QVector<QPair<QCheckBox*, Exclude>> exclusionPairs = {
+        {ui->excludeDesktop, Exclude::Desktop},
+        {ui->excludeDocuments, Exclude::Documents},
+        {ui->excludeDownloads, Exclude::Downloads},
+        {ui->excludeMusic, Exclude::Music},
+        {ui->excludeNetworks, Exclude::Networks},
+        {ui->excludePictures, Exclude::Pictures},
+        {ui->excludeSteam, Exclude::Steam},
+        {ui->excludeVideos, Exclude::Videos},
+        {ui->excludeVirtualBox, Exclude::VirtualBox}
+    };
+
+    for (const auto &pair : exclusionPairs) {
+        pair.first->setChecked(exclusions.testFlag(pair.second));
+    }
 }
 
 void MainWindow::setup()
