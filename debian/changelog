@@ -1,3 +1,11 @@
+mx-snapshot (24.5) mx; urgency=medium
+
+  * Run editor as user when editing exclusion file if the editor elevates
+    itself; added codium, removed atom from the list of possible editors
+  * Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 24 May 2024 13:42:23 -0400
+
 mx-snapshot (24.4.02) mx; urgency=medium
 
   * Skip display of default keyboard options bootparameter (kbopt)
