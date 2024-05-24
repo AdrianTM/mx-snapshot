@@ -32,6 +32,8 @@
 #include <QStandardPaths>
 #include <QStorageInfo>
 
+#include <unistd.h>
+
 #ifndef CLI_BUILD
 #include <QMessageBox>
 #endif
@@ -149,13 +151,17 @@ QString Settings::getEditor() const
             editor = "nano";
         }
     }
-    bool isEditorThatElevates = QRegularExpression("(kate|kwrite|featherpad)$").match(editor).hasMatch();
-    bool isElectronBased = QRegularExpression("(atom\\.desktop|code\\.desktop)$").match(desktop_file).hasMatch();
-    bool isCliEditor = QRegularExpression("nano|vi|vim|nvim|micro|emacs").match(editor).hasMatch();
+
+    const bool isRoot = getuid() == 0;
+    const bool isEditorThatElevates
+        = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editor).hasMatch();
+    const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editor).hasMatch();
 
     QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
-    if (isEditorThatElevates || isElectronBased) {
+    if (isEditorThatElevates && !isRoot) {
         return editor;
+    } else if (isRoot && isEditorThatElevates) {
+        elevate += " --user $(logname)";
     }
     if (isCliEditor) {
         return "x-terminal-emulator -e " + elevate + " " + editor;
@@ -499,8 +505,7 @@ void Settings::excludeItem(const QString &item)
         {QObject::tr("Pictures"), &Settings::excludePictures},
         {"Steam", &Settings::excludeSteam},
         {QObject::tr("Videos"), &Settings::excludeVideos},
-        {"VirtualBox", &Settings::excludeVirtualBox}
-    };
+        {"VirtualBox", &Settings::excludeVirtualBox}};
 
     auto it = itemExclusions.find(item);
     if (it != itemExclusions.end()) {
