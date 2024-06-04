@@ -138,12 +138,11 @@ int main(int argc, char *argv[])
     QStringList opts = QStringList::fromVector(QVector<QString>(argv, argv + argc));
     parser.parse(opts);
 
-    QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
-    if (!parser.value("compression").isEmpty()) {
-        if (!allowed_comp.contains(parser.value("compression"))) {
-            qDebug() << "Wrong compression format";
-            return EXIT_FAILURE;
-        }
+    QStringList allowedComp = {"lz4", "lzo", "gzip", "xz", "zstd"};
+    QString compressionValue = parser.value("compression");
+    if (!compressionValue.isEmpty() && !allowedComp.contains(compressionValue)) {
+        qDebug() << "Unsupported compression format:" << compressionValue;
+        return EXIT_FAILURE;
     }
 
 #ifdef CLI_BUILD
