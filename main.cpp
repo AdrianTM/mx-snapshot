@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
         qunsetenv("SESSION_MANAGER");
     }
     const std::initializer_list<int> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
-    for (int signalName : signalList) {
+    for (auto signalName : signalList) {
         signal(signalName, signalHandler);
     }
 
@@ -76,50 +76,66 @@ int main(int argc, char *argv[])
 #ifndef CLI_BUILD
     parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
 #endif
-    parser.addOption({"cores", QObject::tr("Number of CPU cores to be used."), QObject::tr("number")});
-    parser.addOption({{"d", "directory"}, QObject::tr("Output directory"), QObject::tr("path")});
-    parser.addOption({{"f", "file"}, QObject::tr("Output filename"), QObject::tr("name")});
-    parser.addOption({{"k", "kernel"},
-                      QObject::tr("Name a different kernel to use other than the default running kernel, use format "
-                                  "returned by 'uname -r'")
-                          + " " + QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."),
-                      QObject::tr("version, or path")});
-    parser.addOption({{"l", "compression-level"},
-                      QObject::tr("Compression level options.") + " "
-                          + QObject::tr("Use quotes: \"-Xcompression-level <level>\", "
-                                        "or \"-Xalgorithm <algorithm>\", or \"-Xhc\", see mksquashfs man page"),
-                      QObject::tr("\"option\"")});
-    parser.addOption(
+    struct Option {
+        QStringList keys;
+        QString description;
+        QString valueName;
+        QString defaultValue;
+    };
+
+    const QVector<Option> options = {
+        {{"cores"}, QObject::tr("Number of CPU cores to be used."), "number", ""},
+        {{"d", "directory"}, QObject::tr("Output directory"), "path", ""},
+        {{"f", "file"}, QObject::tr("Output filename"), "name", ""},
+        {{"k", "kernel"},
+         QObject::tr(
+             "Name a different kernel to use other than the default running kernel, use format returned by 'uname -r'")
+             + " " + QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."),
+         "version, or path",
+         ""},
+        {{"l", "compression-level"},
+         QObject::tr("Compression level options.") + " "
+             + QObject::tr("Use quotes: \"-Xcompression-level <level>\", or \"-Xalgorithm <algorithm>\", or \"-Xhc\", "
+                           "see mksquashfs man page"),
+         "\"option\"",
+         ""},
         {{"m", "month"},
          QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " "
-             + QObject::tr(
-                 "This option sets reset-accounts and compression to defaults, arguments changing those items "
-                 "will be ignored")});
-    parser.addOption({{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file")});
-    parser.addOption(
-        {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit")});
-    parser.addOption(
-        {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels")});
-    parser.addOption({{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)")});
-    parser.addOption({{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file")});
-    parser.addOption({{"t", "throttle"},
-                      QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the "
-                                  "I/O and CPU consumption of Mksquashfs."),
-                      QObject::tr("number")});
-    parser.addOption({{"w", "workdir"}, QObject::tr("Work directory"), QObject::tr("path")});
-    parser.addOption({{"x", "exclude"},
-                      QObject::tr("Exclude main folders, valid choices: ")
-                          + "Desktop, Documents, Downloads, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
-                          + QObject::tr("Use the option one time for each item you want to exclude"),
-                      QObject::tr("one item")});
-    parser.addOption({{"z", "compression"},
-                      QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
-                      QObject::tr("format")});
-    parser.addOption({"shutdown", QObject::tr("Shutdown computer when done.")});
+             + QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those "
+                           "items will be ignored"),
+         "",
+         ""},
+        {{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file"), "", ""},
+        {{"o", "override-size"},
+         QObject::tr("Skip calculating free space to see if the resulting ISO will fit"),
+         "",
+         ""},
+        {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels"), "", ""},
+        {{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)"), "", ""},
+        {{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file"), "", ""},
+        {{"t", "throttle"},
+         QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU "
+                     "consumption of Mksquashfs."),
+         "number",
+         ""},
+        {{"w", "workdir"}, QObject::tr("Work directory"), "path", ""},
+        {{"x", "exclude"},
+         QObject::tr("Exclude main folders, valid choices: ")
+             + "Desktop, Documents, Downloads, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
+             + QObject::tr("Use the option one time for each item you want to exclude"),
+         "one item",
+         ""},
+        {{"z", "compression"},
+         QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
+         "format",
+         ""},
+        {{"shutdown"}, QObject::tr("Shutdown computer when done."), "", ""}};
 
-    QStringList opts;
-    opts.reserve(argc);
-    std::transform(argv, argv + argc, std::back_inserter(opts), [](const char *arg) { return QString::fromUtf8(arg); });
+    for (const auto &option : options) {
+        parser.addOption({option.keys, option.description, option.valueName, option.defaultValue});
+    }
+
+    QStringList opts = QStringList::fromVector(QVector<QString>(argv, argv + argc));
     parser.parse(opts);
 
     QStringList allowed_comp {"lz4", "lzo", "gzip", "xz", "zstd"};
