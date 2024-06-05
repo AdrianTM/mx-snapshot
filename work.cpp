@@ -73,6 +73,7 @@ bool Work::checkInstalled(const QString &package)
 
 void Work::cleanUp()
 {
+    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib chown_conf", true);
     if (!started) {
         shell.close();
         initrd_dir.remove();

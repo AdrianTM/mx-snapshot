@@ -23,11 +23,18 @@ drop_caches() {
     echo 1 > /proc/sys/vm/drop_caches
 }
 
+chown_conf() {
+    FILE_NAME="/home/$(logname)/.config/MX-Linux/mx-snapshot.conf"
+    [[ -f "$FILE_NAME" ]] && chown $(logname): "$FILE_NAME"
+}
+
 main() {
-case "$1" in 
-    cleanup) 
+case "$1" in
+    chown_conf)
+        chown_conf;;
+    cleanup)
         cleanup;;
-    copy_log) 
+    copy_log)
         copy_log;;
     datetime_log)
         datetime_log;;
