@@ -1,3 +1,9 @@
+mx-snapshot (24.6) mx; urgency=medium
+
+  * Check whether linuxfs was copied to the ram during the live boot
+
+ -- fehlix <fehlix@mxlinux.org>  Wed, 05 Jun 2024 14:45:24 -0400
+
 mx-snapshot (24.5) mx; urgency=medium
 
   * Run editor as user when editing exclusion file if the editor elevates
