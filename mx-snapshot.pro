@@ -21,7 +21,7 @@
 # **********************************************************************
 
 QT       += core gui widgets
-CONFIG   += c++1z
+CONFIG   += c++17
 
 TARGET = mx-snapshot
 TEMPLATE = app
