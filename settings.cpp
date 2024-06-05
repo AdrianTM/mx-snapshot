@@ -349,6 +349,12 @@ quint64 Settings::getLiveRootSpace()
     // Load some live variables
     QSettings livesettings("/live/config/initrd.out", QSettings::NativeFormat);
     QString sqfile_full = livesettings.value("SQFILE_FULL", "/live/boot-dev/antiX/linuxfs").toString();
+    QString toram_mp = livesettings.value("TORAM_MP", "/live/to-ram").toString();
+    QString sqfile_path = livesettings.value("SQFILE_PATH", "antiX").toString().remove(QRegularExpression("^/+"));
+    QString sqfile_name = livesettings.value("SQFILE_NAME", "linuxfs").toString();
+    if (!toram_mp.isEmpty() && QFileInfo::exists(toram_mp + "/" + sqfile_path  + "/" + sqfile_name)) {
+        sqfile_full = toram_mp + "/" + sqfile_path  + "/" + sqfile_name;
+    }
 
     // Get compression factor by reading the linuxfs squasfs file, if available
     QString linuxfs_compression_type
