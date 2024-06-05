@@ -46,7 +46,6 @@ static QTranslator qtTran, qtBaseTran, appTran;
 inline QString current_kernel {};
 
 void checkSquashfs();
-void runApp(QCommandLineParser);
 void setTranslation();
 void signalHandler(int signal);
 
