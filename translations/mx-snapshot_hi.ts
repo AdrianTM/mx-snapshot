@@ -469,190 +469,167 @@
         <translation>प्रोग्राम द्वारा निर्माण अब स्थगित होगा व आपके टेक्स्ट संपादक में बूट मेन्यू खुलेगी।</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="73"/>
+        <location filename="../main.cpp" line="70"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>कार्यरत सिस्टम से लाइव-सीडी बनाने हेतु हेतु सहायक साधन</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="74"/>
         <source>Use CLI only</source>
         <translation>केवल कमांड लाइन उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="77"/>
         <source>Number of CPU cores to be used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
-        <location filename="../main.cpp" line="108"/>
-        <source>number</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="78"/>
         <source>Output directory</source>
         <translation>आउटपुट डायरेक्टरी</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
-        <location filename="../main.cpp" line="109"/>
         <source>path</source>
-        <translation>पथ</translation>
+        <translation type="vanished">पथ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="79"/>
         <source>Output filename</source>
         <translation>आउटपुट फाइल नाम</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
         <source>name</source>
-        <translation>नाम</translation>
+        <translation type="vanished">नाम</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="81"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>डिफ़ॉल्ट कार्यरत कर्नेल के स्थान पर अन्य कर्नेल उपयोग करने हेतु संबंधित नाम दर्ज करें, &apos;uname -r&apos; कमांड से प्राप्त प्रारूप उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="83"/>
         <source>Or the full path: %1</source>
         <translation>या पूर्ण पथ : %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
         <source>version, or path</source>
-        <translation>संस्करण या पथ</translation>
+        <translation type="vanished">संस्करण या पथ</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="86"/>
         <source>Compression level options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="87"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.cpp" line="91"/>
-        <source>&quot;option&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../main.cpp" line="94"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>मासिक स्नैपशॉट बनाने के दौरान आईएसओ नाम में &apos;माह&apos; नाम जोड़ें, स्पेस गणना निरस्त करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="95"/>
+        <location filename="../main.cpp" line="92"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>इस विकल्प से अकाउंट पुनः सेट करना व संपीड़न डिफ़ॉल्ट पर सेट होंगे, इन वस्तुओं को प्रभावित करने वाले मापदंड अनदेखे होंगे</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="95"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>प्रक्रिया परिणामस्वरूप निर्मित आईएसओ फाइल चेकसम की गणना न करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>preempt_rt कर्नेल पर चेकसम गणना समस्या के सुधार हेतु विकल्प</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="98"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>अकाउंट पुनः सेट करना जारी (अन्य को वितरण हेतु)</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="99"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>प्रक्रिया परिणामस्वरूप निर्मित आईएसओ फाइल चेकसम की गणना करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="109"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Work directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="111"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>मुख्य फोल्डर अपवर्जित, मान्य विकल्प :</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="113"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>इच्छित वस्तु के अपवर्जन हेतु विकल्प को प्रत्येक वस्तु हेतु एकल रूप से उपयोग करें</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="114"/>
         <source>one item</source>
-        <translation>एक वस्तु</translation>
+        <translation type="vanished">एक वस्तु</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Compression format, valid choices: </source>
         <translation>संपीड़न प्रारूप, मान्य विकल्प :</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="117"/>
         <source>format</source>
-        <translation>प्रारूप</translation>
+        <translation type="vanished">प्रारूप</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="118"/>
+        <location filename="../main.cpp" line="113"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
-        <location filename="../main.cpp" line="146"/>
-        <location filename="../main.cpp" line="187"/>
+        <location filename="../main.cpp" line="141"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>प्रतीत होता है कि आप रुट के रूप में लॉगिन हैं, प्रोग्राम उपयोग करने हेतु लॉगआउट कर सामान्य उपयोक्ता के रूप में लॉगिन करें।</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="159"/>
-        <location filename="../main.cpp" line="199"/>
+        <location filename="../main.cpp" line="163"/>
         <source>version:</source>
         <translation>संस्करण :</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
-        <location filename="../main.cpp" line="194"/>
+        <location filename="../main.cpp" line="159"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="178"/>
+        <location filename="../main.cpp" line="137"/>
         <source>MX Snapshot</source>
         <translation>एमएक्स स्नैपशॉट</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="186"/>
-        <location filename="../main.cpp" line="193"/>
-        <location filename="../main.cpp" line="252"/>
+        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="209"/>
         <location filename="../settings.cpp" line="268"/>
         <location filename="../settings.cpp" line="283"/>
-        <location filename="../settings.cpp" line="752"/>
-        <location filename="../settings.cpp" line="851"/>
+        <location filename="../settings.cpp" line="758"/>
+        <location filename="../settings.cpp" line="857"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="246"/>
-        <location filename="../main.cpp" line="248"/>
+        <location filename="../main.cpp" line="206"/>
         <location filename="../settings.cpp" line="277"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>वर्तमान कर्नेल द्वारा Squashfs समर्थित नहीं है, प्रक्रिया निरस्त।</translation>
@@ -673,27 +650,27 @@
         <translation>उपयोग हेतु कर्नेल प्राप्ति विफल</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="380"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="389"/>
         <source>estimated</source>
         <translation>अनुमान</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="392"/>
+        <location filename="../settings.cpp" line="398"/>
         <source>Used space on /home: </source>
         <translation>/home पर प्रयुक्त स्पेस :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 पर अप्रयुक्त स्पेस जहाँ स्नैपशॉट फोल्डर स्थित है :</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="488"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -708,43 +685,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="500"/>
+        <location filename="../settings.cpp" line="506"/>
         <source>Desktop</source>
         <translation>डेस्कटॉप</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="501"/>
+        <location filename="../settings.cpp" line="507"/>
         <source>Documents</source>
         <translation>प्रलेख</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="502"/>
+        <location filename="../settings.cpp" line="508"/>
         <source>Downloads</source>
         <translation>डाउनलोड</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="503"/>
+        <location filename="../settings.cpp" line="509"/>
         <source>Music</source>
         <translation>संगीत</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="504"/>
+        <location filename="../settings.cpp" line="510"/>
         <source>Networks</source>
         <translation>नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="505"/>
+        <location filename="../settings.cpp" line="511"/>
         <source>Pictures</source>
         <translation>चित्र</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="507"/>
+        <location filename="../settings.cpp" line="513"/>
         <source>Videos</source>
         <translation>वीडियो</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="745"/>
-        <location filename="../settings.cpp" line="844"/>
+        <location filename="../settings.cpp" line="751"/>
+        <location filename="../settings.cpp" line="850"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -773,132 +750,132 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="82"/>
         <source>Cleaning...</source>
         <translation>अनावश्यक वस्तुएँ हटाना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="93"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Done</source>
         <translation>पूर्ण</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="104"/>
+        <location filename="../work.cpp" line="105"/>
         <source>Interrupted or failed to complete</source>
         <translation>बाधित या पूर्ण होने विफल</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="137"/>
-        <location filename="../work.cpp" line="240"/>
-        <location filename="../work.cpp" line="262"/>
-        <location filename="../work.cpp" line="300"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="138"/>
+        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="301"/>
+        <location filename="../work.cpp" line="415"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="138"/>
+        <location filename="../work.cpp" line="139"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>लक्षित डिस्क पर पर्याप्त अप्रयुक्त स्पेस नहीं है, कम-से-कम %1 होना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="141"/>
+        <location filename="../work.cpp" line="142"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 पर %1 अप्रयुक्त स्पेस है</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="144"/>
+        <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="169"/>
+        <location filename="../work.cpp" line="170"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>नवीन-आईएसओ फाइल सिस्टम कॉपी करना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="181"/>
+        <location filename="../work.cpp" line="182"/>
         <source>Could not create temp directory. </source>
         <translation>अस्थायी डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Squashing filesystem...</source>
         <translation>फाइल सिस्टम संपीड़न जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="242"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="260"/>
         <source>Creating CD/DVD image file...</source>
         <translation>सीडी/डीवीडी फाइल बनाना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="264"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>आईएसओ फाइल बनाना विफल, कृपया सुनिश्चित करें कि लक्षित विभाजन पर उपयुक्त स्पेस उपलब्ध है।</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="269"/>
+        <location filename="../work.cpp" line="270"/>
         <source>Making hybrid iso</source>
         <translation>समग्र आईएसओ बनाना जारी</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Success</source>
         <translation>सफल</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>एमएक्स स्नैपशॉट सफलतापूर्वक पूर्ण!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="289"/>
+        <location filename="../work.cpp" line="290"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>स्नैपशॉट बनाने में %1 समय लगा। </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="290"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>एमएक्स स्नैपशॉट उपयोग करने हेतु धन्यवाद, अब एमएक्स लाइव यूएसबी निर्माता उपयोग करें!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Installing </source>
         <translation>इंस्टॉल जारी</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="301"/>
         <source>Could not install </source>
         <translation>इंस्टॉल विफल</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="310"/>
+        <location filename="../work.cpp" line="311"/>
         <source>Calculating checksum...</source>
         <translation>चेकसम गणना गणना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="349"/>
+        <location filename="../work.cpp" line="350"/>
         <source>Building new initrd...</source>
         <translation>नवीन initrd बनाना जारी...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="416"/>
         <source>Could not create working directory. </source>
         <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="556"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

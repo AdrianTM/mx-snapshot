@@ -471,190 +471,175 @@
         <translation>El programa aturarà la construcció i obrirà el menú d&apos;arrencada al vostre editor de text.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="73"/>
+        <location filename="../main.cpp" line="70"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>Eina per crear CD autònoms a partir del sistema en execució</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="77"/>
+        <location filename="../main.cpp" line="74"/>
         <source>Use CLI only</source>
         <translation>Useu només CLI</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
+        <location filename="../main.cpp" line="77"/>
         <source>Number of CPU cores to be used.</source>
         <translation>Nombre de nuclis d&apos;E/S que s&apos;usaran.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="79"/>
-        <location filename="../main.cpp" line="108"/>
         <source>number</source>
-        <translation>nombre</translation>
+        <translation type="vanished">nombre</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
+        <location filename="../main.cpp" line="78"/>
         <source>Output directory</source>
         <translation>Directori de sortida</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="80"/>
-        <location filename="../main.cpp" line="109"/>
         <source>path</source>
-        <translation>camí </translation>
+        <translation type="vanished">camí </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="79"/>
         <source>Output filename</source>
         <translation>Nom del fitxer de sortida</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
         <source>name</source>
-        <translation>nom </translation>
+        <translation type="vanished">nom </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="83"/>
+        <location filename="../main.cpp" line="81"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Anomeneu un kernel diferent que l&apos;usat per omissió, useu el format que retorna l&apos;ordre &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="85"/>
+        <location filename="../main.cpp" line="83"/>
         <source>Or the full path: %1</source>
         <translation>O el camí sencer: %1</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="86"/>
         <source>version, or path</source>
-        <translation>versió, o camí </translation>
+        <translation type="vanished">versió, o camí </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="86"/>
         <source>Compression level options.</source>
         <translation>Opcions del nivell de compressió.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="89"/>
+        <location filename="../main.cpp" line="87"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation>Useu cometes dobles: &quot;-Xcompression-level &lt;level&gt;&quot;, o &quot;-Xalgorithm &lt;algorithm&gt;&quot;, o &quot;-Xhc&quot;, vegeu la pàgina man de mksquashfs</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="91"/>
         <source>&quot;option&quot;</source>
-        <translation>&quot;opció&quot;</translation>
+        <translation type="vanished">&quot;opció&quot;</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="94"/>
+        <location filename="../main.cpp" line="91"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Crea una instantània mensual, afegiu el nom &apos;Mes&apos; al nom de la ISO, s&apos;omet l&apos;ús del càlcul de mida</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="95"/>
+        <location filename="../main.cpp" line="92"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Aquesta opció defineix reset-accounts i compression als valors per omissió, s&apos;ignoraran els arguments que canviïn aquests paràmetres</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="98"/>
+        <location filename="../main.cpp" line="95"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>No calcula la suma de verificació per a l&apos;ISO resultant</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="100"/>
+        <location filename="../main.cpp" line="96"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation>Ometre el càlcul d&apos;espai lliure per saber si el fitxer ISO resultant hi pot cabre</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="102"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Opció per esmenar el problema causat pel càlcul de les sumes de verificació als nuclis preempt_rt</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="103"/>
+        <location filename="../main.cpp" line="98"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Inicialitzant els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="104"/>
+        <location filename="../main.cpp" line="99"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Calcula la suma de verificació per a l&apos;ISO resultant</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="106"/>
+        <location filename="../main.cpp" line="101"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation>Ajusta el règim d&apos;entrada d&apos;E/S amb el percentatge donat. Es pot usar per reduir l&apos;E/S i el consum de CPU de Mksquashfs.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="109"/>
+        <location filename="../main.cpp" line="104"/>
         <source>Work directory</source>
         <translation>Directori de treball</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="111"/>
+        <location filename="../main.cpp" line="106"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Exclou les carpetes principals, opcions vàlides: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="113"/>
+        <location filename="../main.cpp" line="108"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Useu l&apos;opció un cop per cada ítem que vulgueu excloure</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="114"/>
         <source>one item</source>
-        <translation>un ítem</translation>
+        <translation type="vanished">un ítem</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="116"/>
+        <location filename="../main.cpp" line="111"/>
         <source>Compression format, valid choices: </source>
         <translation>Format de compressió, opcions vàlides: </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="117"/>
         <source>format</source>
-        <translation>format </translation>
+        <translation type="vanished">format </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="118"/>
+        <location filename="../main.cpp" line="113"/>
         <source>Shutdown computer when done.</source>
         <translation>Tanca l&apos;ordinador en acabar.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
-        <location filename="../main.cpp" line="146"/>
-        <location filename="../main.cpp" line="187"/>
+        <location filename="../main.cpp" line="141"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Sembla que esteu connectat com a administrador, si us plau sortiu i connecteu-vos com a usuari normal per a usar aquest programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="159"/>
-        <location filename="../main.cpp" line="199"/>
+        <location filename="../main.cpp" line="163"/>
         <source>version:</source>
         <translation>versió:</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
-        <location filename="../main.cpp" line="194"/>
+        <location filename="../main.cpp" line="159"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Cal executar aquest programa amb sudo o pkexec.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="178"/>
+        <location filename="../main.cpp" line="137"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="186"/>
-        <location filename="../main.cpp" line="193"/>
-        <location filename="../main.cpp" line="252"/>
+        <location filename="../main.cpp" line="145"/>
+        <location filename="../main.cpp" line="209"/>
         <location filename="../settings.cpp" line="268"/>
         <location filename="../settings.cpp" line="283"/>
-        <location filename="../settings.cpp" line="752"/>
-        <location filename="../settings.cpp" line="851"/>
+        <location filename="../settings.cpp" line="758"/>
+        <location filename="../settings.cpp" line="857"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="246"/>
-        <location filename="../main.cpp" line="248"/>
+        <location filename="../main.cpp" line="206"/>
         <location filename="../settings.cpp" line="277"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no dóna suport a Squashfs, no puc continuar.</translation>
@@ -675,27 +660,27 @@
         <translation>No he trobat un kernel utilitzable</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="380"/>
+        <location filename="../settings.cpp" line="386"/>
         <source>Used space on / (root): </source>
         <translation>Espai usat a / (arrel): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="383"/>
+        <location filename="../settings.cpp" line="389"/>
         <source>estimated</source>
         <translation>estimat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="392"/>
+        <location filename="../settings.cpp" line="398"/>
         <source>Used space on /home: </source>
         <translation>Espai usat a /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="488"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -710,43 +695,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="500"/>
+        <location filename="../settings.cpp" line="506"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="501"/>
+        <location filename="../settings.cpp" line="507"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="502"/>
+        <location filename="../settings.cpp" line="508"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="503"/>
+        <location filename="../settings.cpp" line="509"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="504"/>
+        <location filename="../settings.cpp" line="510"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="505"/>
+        <location filename="../settings.cpp" line="511"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="507"/>
+        <location filename="../settings.cpp" line="513"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="745"/>
-        <location filename="../settings.cpp" line="844"/>
+        <location filename="../settings.cpp" line="751"/>
+        <location filename="../settings.cpp" line="850"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
@@ -775,132 +760,132 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../work.cpp" line="81"/>
+        <location filename="../work.cpp" line="82"/>
         <source>Cleaning...</source>
         <translation>Endreçant... </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="92"/>
-        <location filename="../work.cpp" line="282"/>
+        <location filename="../work.cpp" line="93"/>
+        <location filename="../work.cpp" line="283"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="104"/>
+        <location filename="../work.cpp" line="105"/>
         <source>Interrupted or failed to complete</source>
         <translation>Aturat o fallat en completar </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="137"/>
-        <location filename="../work.cpp" line="240"/>
-        <location filename="../work.cpp" line="262"/>
-        <location filename="../work.cpp" line="300"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="138"/>
+        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="301"/>
+        <location filename="../work.cpp" line="415"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="138"/>
+        <location filename="../work.cpp" line="139"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hi ha prou espai lliure al vostre disc objectiu, us cal com a mínim %1</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="141"/>
+        <location filename="../work.cpp" line="142"/>
         <source>You have %1 free space on %2</source>
         <translation>Teniu un espai lliure de %1  a %2</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="144"/>
+        <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si esteu segurs de tenir prou espai lliure, torneu a executar el programa amb l&apos;opció -o/--override-size </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="169"/>
+        <location filename="../work.cpp" line="170"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiant el sistema de fitxers del nou-iso: </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="181"/>
+        <location filename="../work.cpp" line="182"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="237"/>
+        <location filename="../work.cpp" line="238"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="241"/>
+        <location filename="../work.cpp" line="242"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>No he pogut crear el fitxer linuxfs, si us plau comproveu /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="259"/>
+        <location filename="../work.cpp" line="260"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="263"/>
+        <location filename="../work.cpp" line="264"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No s&apos;ha pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="269"/>
+        <location filename="../work.cpp" line="270"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="287"/>
+        <location filename="../work.cpp" line="288"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="288"/>
+        <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed sucessfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="289"/>
+        <location filename="../work.cpp" line="290"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="290"/>
+        <location filename="../work.cpp" line="291"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="297"/>
+        <location filename="../work.cpp" line="298"/>
         <source>Installing </source>
         <translation>Instal·lant </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="300"/>
+        <location filename="../work.cpp" line="301"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="310"/>
+        <location filename="../work.cpp" line="311"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="349"/>
+        <location filename="../work.cpp" line="350"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="416"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="546"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="556"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>

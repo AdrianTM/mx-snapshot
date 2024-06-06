@@ -120,7 +120,7 @@ int main(int argc, char *argv[])
     QCoreApplication::setOrganizationName("MX-Linux");
     parser.process(QCoreApplication(argc, argv));
     const QString compressionValue = parser.value("compression");
-    const QStringList allowedComp = {"lz4", "lzo", "gzip", "xz", "zstd"};
+    const QStringList allowedComp {"lz4", "lzo", "gzip", "xz", "zstd"};
     if (!compressionValue.isEmpty() && !allowedComp.contains(compressionValue)) {
         qDebug() << "Unsupported compression format:" << compressionValue;
         return EXIT_FAILURE;
@@ -218,7 +218,7 @@ void checkSquashfs()
 
 void signalHandler(int signal)
 {
-    const char *signame = strsignal(signal);
+    const auto signame = strsignal(signal);
     qDebug() << "\nReceived signal:" << (signame ? signame : "Unknown signal");
     QCoreApplication::quit();
 }
