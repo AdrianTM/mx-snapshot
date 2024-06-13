@@ -87,15 +87,15 @@ public:
 
 private:
     enum class Exclude {
-        Desktop = 0x1,
-        Documents = 0x2,
-        Downloads = 0x4,
-        Music = 0x8,
-        Networks = 0x16,
-        Pictures = 0x32,
-        Videos = 0x64,
-        Steam = 0x128,
-        VirtualBox = 0x256
+        Desktop = 1 << 0,
+        Documents = 1 << 1,
+        Downloads = 1 << 2,
+        Music = 1 << 3,
+        Networks = 1 << 4,
+        Pictures = 1 << 5,
+        Videos = 1 << 6,
+        Steam = 1 << 7,
+        VirtualBox = 1 << 8
     };
     Q_DECLARE_FLAGS(Exclusions, Exclude)
     const QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
