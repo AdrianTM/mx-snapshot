@@ -352,8 +352,8 @@ quint64 Settings::getLiveRootSpace()
     QString toram_mp = livesettings.value("TORAM_MP", "/live/to-ram").toString();
     QString sqfile_path = livesettings.value("SQFILE_PATH", "antiX").toString().remove(QRegularExpression("^/+"));
     QString sqfile_name = livesettings.value("SQFILE_NAME", "linuxfs").toString();
-    if (!toram_mp.isEmpty() && QFileInfo::exists(toram_mp + "/" + sqfile_path  + "/" + sqfile_name)) {
-        sqfile_full = toram_mp + "/" + sqfile_path  + "/" + sqfile_name;
+    if (!toram_mp.isEmpty() && QFileInfo::exists(toram_mp + "/" + sqfile_path + "/" + sqfile_name)) {
+        sqfile_full = toram_mp + "/" + sqfile_path + "/" + sqfile_name;
     }
 
     // Get compression factor by reading the linuxfs squasfs file, if available
@@ -863,6 +863,6 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         compression = "zstd";
     }
     reset_accounts = true;
-    boot_options.remove("toram");
+    boot_options = "quiet splasht nosplash";
     excludeAll();
 }
