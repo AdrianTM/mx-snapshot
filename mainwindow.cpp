@@ -318,121 +318,157 @@ void MainWindow::progress()
 void MainWindow::btnNext_clicked()
 {
     QString file_name = ui->lineEditName->text();
-    if (!file_name.endsWith(".iso")) {
-        file_name += ".iso";
-    }
+    appendIsoExtension(file_name);
 
     if (QFile::exists(snapshot_dir + "/" + file_name)) {
-        QMessageBox::critical(
-            this, tr("Error"),
-            tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
-                .arg(snapshot_dir + "/" + file_name));
+        showErrorMessageBox(snapshot_dir + "/" + file_name);
         return;
     }
 
-    // On first page
     if (ui->stackedWidget->currentWidget() == ui->selectionPage) {
-        setWindowTitle(tr("Settings"));
-        ui->stackedWidget->setCurrentWidget(ui->settingsPage);
-        ui->btnBack->setHidden(false);
-        ui->btnBack->setEnabled(true);
-        selectKernel();
-        ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
-
-        ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
-                                  + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
-                                  + kernel + "\n");
-        codename = ui->textCodename->text();
-        distro_version = ui->textDistroVersion->text();
-        project_name = ui->textProjectName->text();
-        full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
-        boot_options = ui->textOptions->text();
-        release_date = ui->textReleaseDate->text();
-        // On settings page
+        handleSelectionPage(file_name);
     } else if (ui->stackedWidget->currentWidget() == ui->settingsPage) {
-        if (!checkCompression()) {
-            processMsgBox(BoxType::critical, tr("Error"),
-                          tr("Current kernel doesn't support selected compression algorithm, please edit the "
-                             "configuration file and select a different algorithm."));
-            return;
-        }
-
-        QMessageBox messageBox(this);
-        messageBox.setIcon(QMessageBox::Question);
-        messageBox.setWindowTitle(tr("Final chance"));
-        messageBox.setText(
-            tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n"
-            + tr("It will take some time to finish, depending on the size of the installed system and the capacity of "
-                 "your computer.")
-            + "\n\n" + tr("OK to start?"));
-        messageBox.addButton(QMessageBox::Ok);
-        auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
-        auto *checkShutdown = new QCheckBox(this);
-        checkShutdown->setText(tr("Shutdown computer when done."));
-        if (shutdown) {
-            checkShutdown->setCheckState(Qt::Checked);
-        }
-        messageBox.setCheckBox(checkShutdown);
-        messageBox.exec();
-        if (messageBox.clickedButton() == pushCancel) {
-            return;
-        }
-        shutdown = checkShutdown->isChecked();
-
-        work.started = true;
-        work.e_timer.start();
-        if (!checkSnapshotDir()) {
-            QMessageBox::critical(this, tr("Error"), tr("Could not create working directory. ") + snapshot_dir);
-            cleanUp();
-        }
-        if (!checkTempDir()) {
-            QMessageBox::critical(this, tr("Error"), tr("Could not create temporary directory. ") + snapshot_dir);
-            cleanUp();
-        }
-
-        excludeDocuments(ui->excludeDocuments->isChecked());
-        excludeDownloads(ui->excludeDownloads->isChecked());
-        excludePictures(ui->excludePictures->isChecked());
-        excludeMusic(ui->excludeMusic->isChecked());
-        excludeVideos(ui->excludeVideos->isChecked());
-        excludeDesktop(ui->excludeDesktop->isChecked());
-        excludeNetworks(ui->excludeNetworks->isChecked());
-        excludeSteam(ui->excludeSteam->isChecked());
-        excludeVirtualBox(ui->excludeVirtualBox->isChecked());
-        otherExclusions();
-        ui->btnNext->setEnabled(false);
-        ui->btnBack->setEnabled(false);
-        ui->stackedWidget->setCurrentWidget(ui->outputPage);
-        setWindowTitle(tr("Output"));
-        ui->outputBox->clear();
-        work.setupEnv();
-        if (!monthly && !override_size) {
-            work.checkEnoughSpace();
-        }
-        work.copyNewIso();
-        ui->outputLabel->setText("");
-        work.savePackageList(file_name);
-
-        if (edit_boot_menu) {
-            if (QMessageBox::Yes
-                == QMessageBox::question(
-                    this, tr("Edit Boot Menu"),
-                    tr("The program will now pause to allow you to edit any files in the work directory. "
-                       "Select Yes to edit the boot menu or select No to bypass this step and continue creating the "
-                       "snapshot."),
-                    QMessageBox::Yes | QMessageBox::No)) {
-                hide();
-                QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
-                work.shell.run(cmd);
-                show();
-            }
-        }
-
-        displayOutput();
-        work.createIso(file_name);
-        ui->btnCancel->setText(tr("Close"));
+        handleSettingsPage(file_name);
     } else {
         QApplication::quit();
+    }
+}
+
+void MainWindow::appendIsoExtension(QString &file_name) const
+{
+    if (!file_name.endsWith(".iso")) {
+        file_name += ".iso";
+    }
+}
+
+void MainWindow::showErrorMessageBox(const QString &file_path)
+{
+    QMessageBox::critical(
+        this, tr("Error"),
+        tr("Output file %1 already exists. Please use another file name, or delete the existent file.").arg(file_path));
+}
+
+void MainWindow::handleSelectionPage(const QString &file_name)
+{
+    setWindowTitle(tr("Settings"));
+    ui->stackedWidget->setCurrentWidget(ui->settingsPage);
+    ui->btnBack->setHidden(false);
+    ui->btnBack->setEnabled(true);
+    selectKernel();
+    ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
+
+    ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
+                              + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
+                              + kernel + "\n");
+    codename = ui->textCodename->text();
+    distro_version = ui->textDistroVersion->text();
+    project_name = ui->textProjectName->text();
+    full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
+    boot_options = ui->textOptions->text();
+    release_date = ui->textReleaseDate->text();
+}
+
+void MainWindow::handleSettingsPage(const QString &file_name)
+{
+    if (!checkCompression()) {
+        processMsgBox(BoxType::critical, tr("Error"),
+                      tr("Current kernel doesn't support selected compression algorithm, please edit the "
+                         "configuration file and select a different algorithm."));
+        return;
+    }
+
+    if (!confirmStart()) {
+        return;
+    }
+
+    work.started = true;
+    work.e_timer.start();
+    if (!checkSnapshotDir() || !checkTempDir()) {
+        cleanUp();
+        return;
+    }
+
+    applyExclusions();
+    prepareForOutput(file_name);
+}
+
+bool MainWindow::confirmStart()
+{
+    QMessageBox messageBox(this);
+    messageBox.setIcon(QMessageBox::Question);
+    messageBox.setWindowTitle(tr("Final chance"));
+    messageBox.setText(
+        tr("Snapshot now has all the information it needs to create an ISO from your running system.") + "\n\n"
+        + tr("It will take some time to finish, depending on the size of the installed system and the capacity of "
+             "your computer.")
+        + "\n\n" + tr("OK to start?"));
+    messageBox.addButton(QMessageBox::Ok);
+    auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
+    auto *checkShutdown = new QCheckBox(this);
+    checkShutdown->setText(tr("Shutdown computer when done."));
+    if (shutdown) {
+        checkShutdown->setCheckState(Qt::Checked);
+    }
+    messageBox.setCheckBox(checkShutdown);
+    messageBox.exec();
+    if (messageBox.clickedButton() == pushCancel) {
+        return false;
+    }
+    shutdown = checkShutdown->isChecked();
+    return true;
+}
+
+void MainWindow::applyExclusions()
+{
+    excludeDocuments(ui->excludeDocuments->isChecked());
+    excludeDownloads(ui->excludeDownloads->isChecked());
+    excludePictures(ui->excludePictures->isChecked());
+    excludeMusic(ui->excludeMusic->isChecked());
+    excludeVideos(ui->excludeVideos->isChecked());
+    excludeDesktop(ui->excludeDesktop->isChecked());
+    excludeNetworks(ui->excludeNetworks->isChecked());
+    excludeSteam(ui->excludeSteam->isChecked());
+    excludeVirtualBox(ui->excludeVirtualBox->isChecked());
+    otherExclusions();
+}
+
+void MainWindow::prepareForOutput(const QString &file_name)
+{
+    ui->btnNext->setEnabled(false);
+    ui->btnBack->setEnabled(false);
+    ui->stackedWidget->setCurrentWidget(ui->outputPage);
+    setWindowTitle(tr("Output"));
+    ui->outputBox->clear();
+    work.setupEnv();
+    if (!monthly && !override_size) {
+        work.checkEnoughSpace();
+    }
+    work.copyNewIso();
+    ui->outputLabel->clear();
+    work.savePackageList(file_name);
+
+    if (edit_boot_menu) {
+        editBootMenu();
+    }
+
+    displayOutput();
+    work.createIso(file_name);
+    ui->btnCancel->setText(tr("Close"));
+}
+
+void MainWindow::editBootMenu()
+{
+    if (QMessageBox::Yes
+        == QMessageBox::question(
+            this, tr("Edit Boot Menu"),
+            tr("The program will now pause to allow you to edit any files in the work directory. "
+               "Select Yes to edit the boot menu or select No to bypass this step and continue creating the "
+               "snapshot."),
+            QMessageBox::Yes | QMessageBox::No)) {
+        hide();
+        QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
+        work.shell.run(cmd);
+        show();
     }
 }
 
