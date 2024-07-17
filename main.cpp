@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
         qunsetenv("SESSION_MANAGER");
         qputenv("HOME", "/root");
     }
+
     const std::initializer_list<int> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
     for (auto signalName : signalList) {
         signal(signalName, signalHandler);
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
     QProcess proc;
     proc.start("logname", {}, QIODevice::ReadOnly);
     proc.waitForFinished();
-    auto const logname = QString::fromLatin1(proc.readAllStandardOutput().trimmed());
+    const QString logname = QString::fromLatin1(proc.readAllStandardOutput().trimmed());
 
     QCommandLineParser parser;
     parser.setApplicationDescription(QObject::tr("Tool used for creating a live-CD from the running system"));
@@ -73,6 +74,7 @@ int main(int argc, char *argv[])
 #ifndef CLI_BUILD
     parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
 #endif
+
     const QVector<QCommandLineOption> options {
         {"cores", QObject::tr("Number of CPU cores to be used."), "number"},
         {{"d", "directory"}, QObject::tr("Output directory"), "path"},
@@ -137,6 +139,7 @@ int main(int argc, char *argv[])
         QApplication::setApplicationDisplayName(QObject::tr("MX Snapshot"));
     }
 #endif
+
     if (logname == "root") {
         const QString message = QObject::tr(
             "You seem to be logged in as root, please log out and log in as normal user to use this program.");
@@ -150,6 +153,7 @@ int main(int argc, char *argv[])
             return EXIT_FAILURE;
         }
     }
+
     setTranslation();
     checkSquashfs();
 
@@ -159,11 +163,13 @@ int main(int argc, char *argv[])
         qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
         return EXIT_FAILURE;
     }
+
     const Log setLog("/tmp/" + app->applicationName() + ".log");
     qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
     if (argc > 1) {
         qDebug().noquote() << "Args:" << app->arguments();
     }
+
     if (!isGuiApp) {
         Batchprocessing batch(parser);
         QTimer::singleShot(0, app, &QCoreApplication::quit);
@@ -180,16 +186,19 @@ int main(int argc, char *argv[])
 
 void setTranslation()
 {
-    if (qtTran.load("qt_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+    const QString localeName = QLocale().name();
+    const QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    const QString appName = QCoreApplication::applicationName();
+
+    if (qtTran.load("qt_" + localeName, translationsPath)) {
         QCoreApplication::installTranslator(&qtTran);
     }
 
-    if (qtBaseTran.load("qtbase_" + QLocale().name(), QLibraryInfo::location(QLibraryInfo::TranslationsPath))) {
+    if (qtBaseTran.load("qtbase_" + localeName, translationsPath)) {
         QCoreApplication::installTranslator(&qtBaseTran);
     }
 
-    if (appTran.load("mx-snapshot_" + QLocale().name(),
-                     "/usr/share/" + QCoreApplication::applicationName() + "/locale")) {
+    if (appTran.load("mx-snapshot_" + localeName, "/usr/share/" + appName + "/locale")) {
         QCoreApplication::installTranslator(&appTran);
     }
 }
@@ -201,9 +210,10 @@ void checkSquashfs()
     proc.waitForFinished();
     current_kernel = proc.readAllStandardOutput().trimmed();
 
-    if (QFile::exists("/boot/config-" + current_kernel)
-        && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + current_kernel}) != 0) {
-        QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
+    const QString configPath = "/boot/config-" + current_kernel;
+    if (QFile::exists(configPath)
+        && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
+        const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #ifndef CLI_BUILD
         if (QCoreApplication::instance()->inherits("QApplication")) {
             QMessageBox::critical(nullptr, QObject::tr("Error"), message);

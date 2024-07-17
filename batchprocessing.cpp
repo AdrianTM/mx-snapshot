@@ -26,9 +26,9 @@
 
 #include <QDebug>
 #include <QRegularExpression>
+#include <chrono>
 
 #include "work.h"
-#include <chrono>
 
 using namespace std::chrono_literals;
 
@@ -41,9 +41,9 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     setConnections();
 
     if (!checkCompression()) {
-        qDebug().noquote() << tr("Error")
-                           << tr("Current kernel doesn't support selected compression algorithm, "
-                                 "please edit the configuration file and select a different algorithm.");
+        qCritical().noquote() << tr("Error")
+                              << tr("Current kernel doesn't support selected compression algorithm, "
+                                    "please edit the configuration file and select a different algorithm.");
         return;
     }
 
@@ -57,6 +57,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     work.e_timer.start();
     if (!checkSnapshotDir() || !checkTempDir()) {
         work.cleanUp();
+        return;
     }
     otherExclusions();
     work.setupEnv();
@@ -67,7 +68,7 @@ Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *
     work.savePackageList(snapshot_name);
 
     if (edit_boot_menu) {
-        qDebug() << QObject::tr("The program will pause the build and open the boot menu in your text editor.");
+        qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");
         QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
         Cmd().run(cmd);
     }

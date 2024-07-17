@@ -1,5 +1,5 @@
 /**********************************************************************
- *
+ * Log.cpp
  **********************************************************************
  * Copyright (C) 2023-2024 MX Authors
  *
@@ -44,6 +44,11 @@ void Log::messageHandler(QtMsgType type, const QMessageLogContext &, const QStri
     }
 
     term_out << msg << '\n';
+
+    if (!logFile.isOpen()) {
+        qWarning() << "Log file is not open for writing:" << logFile.fileName();
+        return;
+    }
 
     QTextStream out(&logFile);
     out << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss.zzz ");
