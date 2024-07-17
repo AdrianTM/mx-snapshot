@@ -59,21 +59,16 @@ Settings::Settings(const QCommandLineParser &arg_parser)
 // Check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
-    if (compression == "gzip") { // Don't check for gzip
+    if (compression == "gzip" || !QFileInfo::exists("/boot/config-" + kernel)) { // Don't check for gzip or if the kernel config file is missing
         return true;
     }
-    if (!QFileInfo::exists("/boot/config-" + kernel)) { // Return true if cannot check config file
-        return true;
-    }
-    return (Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel));
+    return Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel);
 }
 
 // Adds or removes exclusion to the exclusion string
 void Settings::addRemoveExclusion(bool add, QString exclusion)
 {
-    if (exclusion.startsWith('/')) {
-        exclusion.remove(0, 1); // Remove preceding slash
-    }
+    exclusion.remove(QRegularExpression("^/"));
     if (add) {
         session_excludes.append('"' + exclusion + "\" ");
     } else {
@@ -97,15 +92,9 @@ bool Settings::checkTempDir()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
     if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !isOnSupportedPart(tempdir_parent)) {
-        tempdir_parent = snapshot_dir;
-        if (!isOnSupportedPart(
-                snapshot_dir)) { // If not saving snapshot on a supported partition, put working dir in /tmp or /home
-            tempdir_parent = largerFreeSpace("/tmp", "/home");
-        } else {
-            tempdir_parent = largerFreeSpace("/tmp", "/home", snapshot_dir);
-        }
+        tempdir_parent = isOnSupportedPart(snapshot_dir) ? largerFreeSpace("/tmp", "/home", snapshot_dir) : largerFreeSpace("/tmp", "/home");
     }
-    if (tempdir_parent == "/home") { // Replace /home with user home path
+    if (tempdir_parent == "/home") {
         QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
         if (userName.isEmpty()) {
             userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
@@ -114,10 +103,10 @@ bool Settings::checkTempDir()
     }
     tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
-        qDebug() << QObject::tr("Could not create temp directory. ") + tmpdir.data()->path();
+        qDebug() << QObject::tr("Could not create temp directory. ") + tmpdir->path();
         return false;
     }
-    work_dir = tmpdir.data()->path();
+    work_dir = tmpdir->path();
     free_space_work = getFreeSpace(work_dir);
 
     QDir().mkpath(work_dir + "/iso-template/antiX");
@@ -128,14 +117,9 @@ bool Settings::checkTempDir()
 QString Settings::getEditor() const
 {
     QString editor = gui_editor;
-    QString desktop_file;
-
-    // If specified editor doesn't exist get the default one
     if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
         QString default_editor = Cmd().getOut("xdg-mime query default text/plain");
-        // Find first app with .desktop name that matches default_editors
-        desktop_file
-            = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
+        QString desktop_file = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
         QFile file(desktop_file);
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
@@ -157,7 +141,7 @@ QString Settings::getEditor() const
         = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editor).hasMatch();
     const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editor).hasMatch();
 
-    QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
+    QString elevate = QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu";
     if (isEditorThatElevates && !isRoot) {
         return editor;
     } else if (isRoot && isEditorThatElevates) {
@@ -197,12 +181,8 @@ int Settings::getSnapshotCount() const
 quint64 Settings::getFreeSpace(const QString &path)
 {
     QStorageInfo storage(path + "/");
-    if (!storage.isReady()) {
-        qDebug() << "Cannot determine free space for" << path << ": Drive not ready or does not exist.";
-        return 0;
-    }
-    if (storage.isReadOnly()) {
-        qDebug() << "Cannot determine free space for" << path << ": Drive is read-only.";
+    if (!storage.isReady() || storage.isReadOnly()) {
+        qDebug() << "Cannot determine free space for" << path << ": Drive not ready, or does not exist, or is read-only.";
         return 0;
     }
     return storage.bytesAvailable() / 1024;
@@ -221,38 +201,24 @@ QString Settings::getXdgUserDirs(const QString &folder)
 
     for (const QString &user : qAsConst(users)) {
         QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + '"');
-
-        // Skip if English name or of return folder is the home folder (if XDG-USER-DIR not defined)
-        if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user
-            && dir != "/home/" + user + '/') {
-
-            if (dir.startsWith('/')) {
-                dir.remove(0, 1); // Remove trailing slash
-            }
-
+        if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user && dir != "/home/" + user + '/') {
+            dir.remove(QRegularExpression("^/"));
             QString exclusion = folder == "DESKTOP" ? "/!(minstall.desktop)" : "/*\" \"" + dir + "/.*";
             dir.append(exclusion);
-
             resultParts << dir;
         }
     }
     QString result = resultParts.join("\" \"");
-    if (result.isEmpty()) {
-        return {};
-    }
-    return "\" \"" + result;
+    return result.isEmpty() ? QString() : "\" \"" + result;
 }
 
 void Settings::selectKernel()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    kernel.remove(QRegularExpression("^/boot/vmlinuz-")); // Remove path and part of name if passed as arg
-    if (kernel.isEmpty()
-        || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) { // If kernel version not passed as arg, or incorrect
+    kernel.remove(QRegularExpression("^/boot/vmlinuz-"));
+    if (kernel.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
         kernel = current_kernel;
-        if (!QFileInfo::exists(
-                "/boot/vmlinuz-"
-                + kernel)) { // If current kernel doesn't exist for some reason (e.g. WSL) in /boot pick latest kernel
+        if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
             QDir directory("/boot");
             QStringList vmlinuzFiles = directory.entryList(QStringList() << "vmlinuz-*", QDir::Files, QDir::Name);
             if (!vmlinuzFiles.isEmpty()) {
@@ -406,7 +372,7 @@ QString Settings::getUsedSpace()
 // Check if running from a 32bit environment
 bool Settings::isi386()
 {
-    return (QSysInfo::currentCpuArchitecture() == "i386");
+    return QSysInfo::currentCpuArchitecture() == "i386";
 }
 
 int Settings::getDebianVerNum()
@@ -442,7 +408,7 @@ int Settings::getDebianVerNum()
 // Check if running from a live envoronment
 bool Settings::isLive()
 {
-    return (QProcess::execute("mountpoint", {"-q", "/live/aufs"}) == 0);
+    return QProcess::execute("mountpoint", {"-q", "/live/aufs"}) == 0;
 }
 
 // Check if the directory is on a Linux partition
