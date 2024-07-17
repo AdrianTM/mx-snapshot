@@ -68,7 +68,7 @@ void Work::checkEnoughSpace()
 bool Work::checkInstalled(const QString &package)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    return (Cmd().run(QString("dpkg-query -W -f='${Status}' %1 | grep 'install ok installed'").arg(package)));
+    return Cmd().run(QString("dpkg-query -W -f='${Status}' %1 | grep 'install ok installed'").arg(package));
 }
 
 void Work::cleanUp()
@@ -193,7 +193,7 @@ void Work::copyNewIso()
         }
     }
 
-    // For old versions we copy initrd-release for newere ones we copy initrd_release
+    // For old versions we copy initrd-release for newer ones we copy initrd_release
     QString sourcePath = "/etc/initrd-release";
     QString destinationPath = path + "/etc/initrd-release";
     QFileInfo sourceFileInfo(sourcePath);
@@ -223,7 +223,7 @@ bool Work::createIso(const QString &filename)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Squash the filesystem copy
-    QString unbuffer = (checkInstalled("expect")) ? "unbuffer " : "stdbuf -o0 ";
+    QString unbuffer = checkInstalled("expect") ? "unbuffer " : "stdbuf -o0 ";
     using Release::Version;
     QString throttle
         = (Settings::getDebianVerNum() < Version::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
@@ -286,7 +286,7 @@ bool Work::createIso(const QString &filename)
         cleanUp();
     }
     emit messageBox(BoxType::information, tr("Success"),
-                    tr("MX Snapshot completed sucessfully!") + '\n'
+                    tr("MX Snapshot completed successfully!") + '\n'
                         + tr("Snapshot took %1 to finish.").arg(elapsedTime.toString("hh:mm:ss")) + "\n\n"
                         + tr("Thanks for using MX Snapshot, run MX Live USB Maker next!"));
     done = true;
@@ -313,21 +313,20 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     QDir::setCurrent(folder);
     QString ce = QVariant::fromValue(hash_type).toString();
     QString cmd;
-    QString checksum_cmd = ("%1sum \"" + file_name + "\">\"" + folder + "/" + file_name + ".%1\"").arg(ce);
+    QString checksum_cmd = QString("%1sum \"%2\">\"%3/%2.%1\"").arg(ce, file_name, folder);
     QString temp_dir {"/tmp/snapsphot-checksum-temp"};
     QString checksum_tmp
-        = ("TD=" + temp_dir + "; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"" + file_name + "\"; CF=\"" + folder
-           + "/${FN}.%1\"; cp $FN $TD/$FN; pushd $TD>/dev/null; %1sum $FN > $FN.%1 ; cp $FN.%1 "
-             "$CF; popd >/dev/null ; [ -e $KEEP ] || rm -rf $TD")
-              .arg(ce);
+        = QString(
+              "TD=%1; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"%2\"; CF=\"%3/${FN}.%4\"; cp $FN $TD/$FN; pushd "
+              "$TD>/dev/null; %4sum $FN > $FN.%4 ; cp $FN.%4 $CF; popd >/dev/null ; [ -e $KEEP ] || rm -rf $TD")
+              .arg(temp_dir, file_name, folder, ce);
 
     if (settings->preempt) {
         // Check free space available on /tmp
-        shell.run("TF=/tmp/snapsphot-checksum-temp/\"" + file_name + R"("; [ -f "$TF" ] && rm -f "$TF")");
-        if (!shell.run(
-                "DUF=$(du -BM " + file_name
-                + "|grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE '^[[:digit:]]+'); ((TDA/10*8 "
-                  ">= DUF))")) {
+        shell.run(QString("TF=%1/\"%2\"; [ -f \"$TF\" ] && rm -f \"$TF\"").arg(temp_dir, file_name));
+        if (!shell.run(QString("DUF=$(du -BM \"%1\" |grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE "
+                               "'^[[:digit:]]+'); ((TDA/10*8 >= DUF))")
+                           .arg(file_name))) {
             settings->preempt = false;
         }
     }
@@ -416,7 +415,7 @@ void Work::savePackageList(const QString &file_name)
                         tr("Could not create working directory. ") + dir.absolutePath());
     }
     QString full_name = settings->work_dir + "/iso-template/" + fi.completeBaseName() + "/package_list";
-    QString cmd = R"(dpkg -l |awk '/^ii /{print $2,$3}' |column -t >")" + full_name + "\"";
+    QString cmd = QString(R"(dpkg -l |awk '/^ii /{print $2,$3}' |column -t >")" + full_name + "\"");
     shell.run(cmd);
 }
 
@@ -571,7 +570,7 @@ quint64 Work::getRequiredSpace()
 
     if (excl_size > root_size) {
         qDebug() << "Error: calculating excluded file size.\n"
-                    "If you are sure you have enough free space rerun the program with -o/--overrde-size option";
+                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
     return (root_size - excl_size) * c_factor / 100;
