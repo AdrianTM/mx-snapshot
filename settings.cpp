@@ -59,7 +59,9 @@ Settings::Settings(const QCommandLineParser &arg_parser)
 // Check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
-    if (compression == "gzip" || !QFileInfo::exists("/boot/config-" + kernel)) { // Don't check for gzip or if the kernel config file is missing
+    if (compression == "gzip"
+        || !QFileInfo::exists("/boot/config-"
+                              + kernel)) { // Don't check for gzip or if the kernel config file is missing
         return true;
     }
     return Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel);
@@ -92,7 +94,8 @@ bool Settings::checkTempDir()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
     if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !isOnSupportedPart(tempdir_parent)) {
-        tempdir_parent = isOnSupportedPart(snapshot_dir) ? largerFreeSpace("/tmp", "/home", snapshot_dir) : largerFreeSpace("/tmp", "/home");
+        tempdir_parent = isOnSupportedPart(snapshot_dir) ? largerFreeSpace("/tmp", "/home", snapshot_dir)
+                                                         : largerFreeSpace("/tmp", "/home");
     }
     if (tempdir_parent == "/home") {
         QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
@@ -119,7 +122,8 @@ QString Settings::getEditor() const
     QString editor = gui_editor;
     if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
         QString default_editor = Cmd().getOut("xdg-mime query default text/plain");
-        QString desktop_file = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
+        QString desktop_file
+            = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
         QFile file(desktop_file);
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
@@ -182,7 +186,8 @@ quint64 Settings::getFreeSpace(const QString &path)
 {
     QStorageInfo storage(path + "/");
     if (!storage.isReady() || storage.isReadOnly()) {
-        qDebug() << "Cannot determine free space for" << path << ": Drive not ready, or does not exist, or is read-only.";
+        qDebug() << "Cannot determine free space for" << path
+                 << ": Drive not ready, or does not exist, or is read-only.";
         return 0;
     }
     return storage.bytesAvailable() / 1024;
@@ -201,7 +206,8 @@ QString Settings::getXdgUserDirs(const QString &folder)
 
     for (const QString &user : qAsConst(users)) {
         QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + '"');
-        if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user && dir != "/home/" + user + '/') {
+        if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user
+            && dir != "/home/" + user + '/') {
             dir.remove(QRegularExpression("^/"));
             QString exclusion = folder == "DESKTOP" ? "/!(minstall.desktop)" : "/*\" \"" + dir + "/.*";
             dir.append(exclusion);

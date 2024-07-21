@@ -102,29 +102,6 @@ private:
     Work work;
     QSettings settings;
 
-    bool edit_boot_menu;
-    bool live;
-    bool make_md5sum;
-    bool make_sha512sum;
-    bool monthly;
-    bool override_size;
-    bool reset_accounts;
-    bool shutdown;
-    int cores;
-    int max_cores;
-    int throttle;
-    QFlags<Exclude> exclusions;
-    QString boot_options;
-    QString codename;
-    QString distro_version;
-    QString full_distro_name;
-    QString kernel;
-    QString project_name;
-    QString release_date;
-    QString snapshot_dir;
-    QString snapshot_name;
-    QString work_dir;
-
     [[nodiscard]] bool confirmStart();
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();
