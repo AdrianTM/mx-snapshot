@@ -16,7 +16,27 @@ jobs:
       - name: Get Latest Changelog Entry
         id: get-changelog
         run: |
-          changelog=$(awk '/^mx-snapshot/{i++} i==1' debian/changelog | grep '^[[:space:]]*\*')
+          changelog=$(awk '
+              BEGIN { changes = ""; release_found = 0; in_changes = 0 }
+              /^mx-snapshot/ {
+                  if (release_found == 1) exit
+                  release_found = 1
+                  next
+              }
+              release_found == 1 && /^\s*\*/ {
+                  in_changes = 1
+              }
+              release_found == 1 && in_changes == 1 {
+                  if ($0 ~ /^\s*\*/) {
+                      changes = changes $0 "\n"
+                  } else if ($0 ~ /^\s+/) {
+                      changes = changes $0 "\n"
+                  } else {
+                      exit
+                  }
+              }
+              END { print changes }
+          ' debian/changelog)
           echo "changelog<<EOF" >> $GITHUB_ENV
           echo "$changelog" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
