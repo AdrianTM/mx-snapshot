@@ -1,3 +1,11 @@
+mx-snapshot (24.7) mx; urgency=medium
+
+  * Add prompt when detecting nvidia and add xorg=nvidia to kernel
+    options if the user plans to use the ISO on the same/similar
+    computer
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 24 Jul 2024 07:33:17 -0400
+
 mx-snapshot (24.6) mx; urgency=medium
 
   * Check whether linuxfs was copied to the ram during the live boot
