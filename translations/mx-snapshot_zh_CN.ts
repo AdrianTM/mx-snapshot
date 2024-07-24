@@ -39,248 +39,297 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="508"/>
+        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
+        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>可选定制项</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
+        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>发布日期：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
+        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>发布代号：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
+        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>启动选项：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
+        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>发布版本：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
+        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
+        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>项目名称：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot 是一种实用工具，可以为您的工作系统创建可引导镜像 (ISO)，您可以将其用于存储或分发。您可以在运行时继续使用要求不高的应用程序。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>/ (root) 和 /home 分区上的已用空间：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>位置和 ISO 名称</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
+        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>快照位置：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>选择不同的快照目录</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>快照名称：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
+        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>您还可以通过勾选下面的常用选项来排除某些目录，或者通过单击按钮直接编辑 /etc/mx-snapshot-exclude.list。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation>排除网络配置</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
+        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>网络</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
+        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>以上全部</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
+        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>图片</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>音乐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>下载</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
+        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>视频</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>文档</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>快照类型：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>保留帐户（用于个人备份）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
+        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;此选项会将“demo”和“root”密码重置为 MX Linux 默认值，并且不会复制任何已创建的个人帐户。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
+        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>重置帐户（用于分发给他人）</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>编辑排除文件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
+        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
+        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation>计算校验和：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
+        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>ISO压缩方案：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>选项：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
+        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>关于此软件</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>关于…</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
+        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>退出应用程序</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
+        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
+        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>下一页</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
+        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>后退</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>显示帮助</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
+        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
@@ -339,7 +388,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="395"/>
+        <location filename="../mainwindow.cpp" line="396"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
@@ -370,7 +419,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="376"/>
-        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="386"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -380,47 +429,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="382"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>当前内核不支持选择的压缩算法，请编辑配置文件并选择不同的算法。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="421"/>
         <source>Final chance</source>
         <translation>最后确认</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="422"/>
+        <location filename="../mainwindow.cpp" line="423"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Snapshot 现在拥有从正在运行的系统创建 ISO 所需的所有信息。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>这将需要一些时间才能完成，具体时长取决于已安装系统的大小和计算机的容量。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>OK to start?</source>
         <translation>准备好要开始了吗？</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="430"/>
         <source>Shutdown computer when done.</source>
         <translation>完成后关闭计算机。</translation>
     </message>
@@ -433,72 +482,72 @@
         <translation type="vanished">无法创建临时目录。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="461"/>
+        <location filename="../mainwindow.cpp" line="462"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="485"/>
         <source>Edit Boot Menu</source>
         <translation>编辑启动菜单</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="485"/>
+        <location filename="../mainwindow.cpp" line="486"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>程序现在将暂停以允许您编辑工作目录中的任何文件。选择“是”来编辑启动菜单或选择“否”绕过此步骤并继续创建快照。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="478"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Select kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="584"/>
         <source>About %1</source>
         <translation>关于 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="586"/>
         <source>Version: </source>
         <translation>版本:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="587"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>从正在运行的 MX Linux 系统创建 live-CD 的程序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="588"/>
+        <location filename="../mainwindow.cpp" line="589"/>
         <source>Copyright (c) MX Linux</source>
         <translation>版权所有(c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="590"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>%1 License</source>
         <translation>%1 许可证</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>%1 Help</source>
         <translation>%1 帮助</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>Select Snapshot Directory</source>
         <translation>选择快照目录</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>您确定要退出吗？</translation>
     </message>

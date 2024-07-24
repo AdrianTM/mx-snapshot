@@ -39,248 +39,297 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="508"/>
+        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
+        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>Personalització opcional</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
+        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>Data d&apos;edició:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
+        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>Nom en clau de l&apos;edició:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
+        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation>Kernel autònom:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>Opcions d&apos;arrencada:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
+        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>Versió de l&apos;edició:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
+        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation>Canvia el kernel autònom</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
+        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>Nom de projecte:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot és una eina que crea una imatge arrencable (ISO) del vostre sistema en funcionament, que podeu usar per a emmagatzematge o distribució. Podeu continuar usant aplicacions poc intensives mentre s&apos;executa.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Espai usat a les particions / (arrel) i /home: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>Ubicació i nom de l&apos;ISO</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
+        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>Ubicació de la instantània:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>Trieu un directori diferent per a la instantània </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>Nom de la instantània: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
+        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>També podeu excloure alguns directoris marcant les opcions comunes a sota, o clicant el botó per editar directament /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation>configuracions d&apos;exclusió de xarxes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
+        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
+        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>Tots els esmentats</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
+        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
+        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>Tipus d&apos;instantània: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Preservant els comptes (còpia de seguretat personal) </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
+        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Aquesta opció inicialitzarà les contrasenyes per &amp;quot;demo&amp;quot; i &amp;quot;root&amp;quot; als valors per omissió de MX Linux i no copiarà cap compte personal que s&apos;hagi creat.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
+        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Inicialitzant els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>Edita el fitxer d&apos;exclusions</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
+        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Ajusta el règim d&apos;E/S amb el percentatge donat.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation>Ajust d&apos;E/S:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
+        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation>Calcula la suma de control:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
+        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>Mètode de compressió de l&apos;ISO:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation>Nombre de nuclis de CPU a usar:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>Opcions:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
+        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>Quant a aquest programa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>Quant a...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
+        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>Surt de l&apos;aplicació</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
+        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
+        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>Següent</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
+        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>Enrere</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>Mostra l&apos;ajuda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
+        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>Ajuda </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
@@ -341,7 +390,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="395"/>
+        <location filename="../mainwindow.cpp" line="396"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -372,7 +421,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="376"/>
-        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="386"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -382,47 +431,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="382"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>El kernel actual no dona suport a l&apos;algoritme de compressió seleccionat, si us plau editeu el fitxer de configuració i trieu un algoritme diferent.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="421"/>
         <source>Final chance</source>
         <translation>Darrera oportunitat </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="422"/>
+        <location filename="../mainwindow.cpp" line="423"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>La instantània ara té tota la informació necessària per crear un ISO a partir del vostre sistema en execució. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Cal un cert temps per acabar, depenent de la mida del vostre sistema instal·lat i de la potència de l&apos;ordinador. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>OK to start?</source>
         <translation>D&apos;acord per començar?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="430"/>
         <source>Shutdown computer when done.</source>
         <translation>Tanca l&apos;ordinador en acabar.</translation>
     </message>
@@ -435,72 +484,72 @@
         <translation type="vanished">No he pogut crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="461"/>
+        <location filename="../mainwindow.cpp" line="462"/>
         <source>Output</source>
         <translation>Sortida </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="485"/>
         <source>Edit Boot Menu</source>
         <translation>Edita el Menú d&apos;Arrencada </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="485"/>
+        <location filename="../mainwindow.cpp" line="486"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>El programa ara farà una pausa per permetre-us editar fitxers al directori de treball. Trieu Sí per editar el menú d&apos;arrencada, o No per saltar aquest pas i continuar creant la instantània. </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="478"/>
         <source>Close</source>
         <translation>Tanca</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Select kernel</source>
         <translation>Trieu el kernel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="584"/>
         <source>About %1</source>
         <translation>Quant a %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="586"/>
         <source>Version: </source>
         <translation>Versió: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="587"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Programa de MX Linux per crear un CD autònom a partir del sistema en execució </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="588"/>
+        <location filename="../mainwindow.cpp" line="589"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="590"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>%1 License</source>
         <translation>Llicència de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>%1 Help</source>
         <translation>Ajuda de %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>Select Snapshot Directory</source>
         <translation>Trieu el directori de la instantània </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Confirmation</source>
         <translation>Confirmació</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Esteu segurs de voler sortir de l&apos;aplicació?</translation>
     </message>

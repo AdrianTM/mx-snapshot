@@ -1,4 +1,4 @@
-mx-snapshot (24.7) mx; urgency=medium
+mx-snapshot (24.7.01) mx; urgency=medium
 
   * Add prompt when detecting nvidia and add xorg=nvidia to kernel
     options if the user plans to use the ISO on the same/similar

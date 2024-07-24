@@ -39,248 +39,297 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="507"/>
+        <location filename="../mainwindow.cpp" line="508"/>
+        <location filename="../ui_mainwindow.h" line="778"/>
         <source>MX Snapshot</source>
         <translation>MX スナップショット</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
+        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>カスタムオプション</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
+        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>リリースの日付</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
+        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>リリースのコード名:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
+        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>起動オプション:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
+        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>リリースのバージョン:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
+        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation>Live kernel の変更</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
+        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>プロジェクト名:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX スナップショットは、稼働中のシステムからストレージへのインストールまたは他人へ配布する用途で、起動可能なイメージ (ISO) を作製するユーティリティです。少ない手順で作業を進める事ができます。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>/ (root) および /home パーティションの空き容量を使用します: </translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>場所と ISO の名称</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
+        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>スナップショットを保存する場所:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>差分スナップショットのディレクトリを選択</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>スナップショットのファイル名:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
+        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>以下の一般的な選択肢にチェックを入れるか、またはボタンをクリックして /etc/mx-snapshot-exclude.list を直接編集することによっても、特定のディレクトリを除外することができます。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation>ネットワークの設定を除外します</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
+        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
+        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>上記すべて</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
+        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
+        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>スナップショットの種類:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>アカウントの保存 (個人的なバックアップ用途)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
+        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;このオプションでは、MX Linux の「demo」と「root」パスワードを既定にリセットします。また、作成した個人アカウントはコピーしません。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
+        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>アカウントのリセット (他人へ配布する用途)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>除外するファイルを編集</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
+        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>I/O 入力レートを指定したパーセンテージに制御します。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation>I/O スロットリング:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
+        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation>チェックサムの生成:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
+        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>ISO 圧縮方式：</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation>使用する CPU コア数:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>オプション:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
+        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>このアプリケーションについて</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>情報...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
+        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>アプリケーションの終了</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
+        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>キャンセル</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
+        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>次へ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
+        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>戻る</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>ヘルプを表示</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
+        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
@@ -341,7 +390,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="395"/>
+        <location filename="../mainwindow.cpp" line="396"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -372,7 +421,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="376"/>
-        <location filename="../mainwindow.cpp" line="385"/>
+        <location filename="../mainwindow.cpp" line="386"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"></translation>
     </message>
@@ -382,47 +431,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="381"/>
+        <location filename="../mainwindow.cpp" line="382"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="383"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="387"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="397"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>現在のカーネルは選択された圧縮アルゴリズムをサポートしていないので、設定ファイルを編集して別のアルゴリズムを選択してください。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="420"/>
+        <location filename="../mainwindow.cpp" line="421"/>
         <source>Final chance</source>
         <translation>最終確認</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="422"/>
+        <location filename="../mainwindow.cpp" line="423"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>MX スナップショットには現在、稼働しているシステムから ISO を生成するために必要な全情報を含んでいます。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="424"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>作業完了までにかかる時間は、インストールを行うシステムのサイズとコンピュータの性能によって異なります。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="425"/>
+        <location filename="../mainwindow.cpp" line="426"/>
         <source>OK to start?</source>
         <translation>OK で開始します</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="429"/>
+        <location filename="../mainwindow.cpp" line="430"/>
         <source>Shutdown computer when done.</source>
         <translation>完了したらコンピュータをシャットダウンする。</translation>
     </message>
@@ -435,72 +484,72 @@
         <translation type="vanished">一時ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="461"/>
+        <location filename="../mainwindow.cpp" line="462"/>
         <source>Output</source>
         <translation>出力</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="484"/>
+        <location filename="../mainwindow.cpp" line="485"/>
         <source>Edit Boot Menu</source>
         <translation>起動メニューの編集</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="485"/>
+        <location filename="../mainwindow.cpp" line="486"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>プログラムは、作業ディレクトリで任意ファイルを編集できるように、一時休止しています。「はい」を選んで起動メニューを編集するか、「いいえ」を選んでこのステップを飛ばしてスナップショットの作成を継続するかを選んでください。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="477"/>
+        <location filename="../mainwindow.cpp" line="478"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Select kernel</source>
         <translation>カーネルの選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="583"/>
+        <location filename="../mainwindow.cpp" line="584"/>
         <source>About %1</source>
         <translation> %1 について</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="585"/>
+        <location filename="../mainwindow.cpp" line="586"/>
         <source>Version: </source>
         <translation>バージョン: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="587"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>起動中の MX Linux を元にして Live CD を生成するプログラム</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="588"/>
+        <location filename="../mainwindow.cpp" line="589"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="590"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>%1 License</source>
         <translation>%1 ライセンス</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>%1 Help</source>
         <translation>%1 のヘルプ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>Select Snapshot Directory</source>
         <translation>スナップショットを保存するディレクトリを選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Confirmation</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="630"/>
+        <location filename="../mainwindow.cpp" line="631"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>本当にこのアプリを終了しますか？</translation>
     </message>
