@@ -42,4 +42,6 @@ public slots:
 private:
     Work work;
     QTimer timer;
+
+    void checkNvidiaGraphicsCard();
 };

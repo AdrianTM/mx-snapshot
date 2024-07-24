@@ -105,6 +105,7 @@ private:
     [[nodiscard]] bool confirmStart();
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();
+    void checkNvidiaGraphicsCard();
     void editBootMenu();
     void handleSelectionPage(const QString &file_name);
     void handleSettingsPage(const QString &file_name);

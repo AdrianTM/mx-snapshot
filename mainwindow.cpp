@@ -366,6 +366,27 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
     boot_options = ui->textOptions->text();
     release_date = ui->textReleaseDate->text();
+    checkNvidiaGraphicsCard();
+}
+
+void MainWindow::checkNvidiaGraphicsCard()
+{
+    if (work.shell.run("glxinfo | grep -q NVIDIA")) {
+        if (QMessageBox::Yes
+            == QMessageBox::question(this, tr("NVIDIA Detected"),
+                                     tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
+                                        "resulting ISO on the same computer or another computer with an NVIDIA card?"),
+                                     QMessageBox::Yes | QMessageBox::No)) {
+            boot_options += " xorg=nvidia";
+            QMessageBox::information(this, tr("NVIDIA Selected"),
+                                     tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
+                                        "you will likely need to remove 'xorg=nvidia' from the boot options."));
+        } else {
+            QMessageBox::information(this, tr("NVIDIA Detected"),
+                                     tr("Note: If you use the resulting ISO on a computer with an NVIDIA card, "
+                                        "you may need to add 'xorg=nvidia' to the boot options."));
+        }
+    }
 }
 
 void MainWindow::handleSettingsPage(const QString &file_name)
