@@ -1,3 +1,10 @@
+mx-snapshot (24.7.02) mx; urgency=medium
+
+  * Fix: run nvidia check only once and only if it xorg=nvidia is not
+    already added
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 24 Jul 2024 13:35:06 -0400
+
 mx-snapshot (24.7.01) mx; urgency=medium
 
   * Add prompt when detecting nvidia and add xorg=nvidia to kernel

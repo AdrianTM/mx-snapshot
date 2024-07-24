@@ -16,7 +16,7 @@
     <message>
         <location filename="../batchprocessing.cpp" line="71"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
-        <translation type="unfinished">Programmet kommer att pausa byggandet och öppna boot-menyn i din textredigerare.</translation>
+        <translation>Programmet kommer att pausa byggandet och öppna boot-menyn i din textredigerare.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
@@ -39,297 +39,248 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="508"/>
-        <location filename="../ui_mainwindow.h" line="778"/>
+        <location filename="../mainwindow.cpp" line="515"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="33"/>
-        <location filename="../ui_mainwindow.h" line="779"/>
         <source>Optional customization</source>
         <translation>Valfri anpassning</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
-        <location filename="../ui_mainwindow.h" line="780"/>
         <source>Release date:</source>
         <translation>Utgivningsdatum:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
-        <location filename="../ui_mainwindow.h" line="781"/>
         <source>Release codename:</source>
         <translation>Utgåvans kodnamn:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
-        <location filename="../ui_mainwindow.h" line="782"/>
         <source>Live kernel:</source>
         <translation>Live-kärna:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
-        <location filename="../ui_mainwindow.h" line="784"/>
         <source>Boot options:</source>
         <translation>Boot-alternativ:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
-        <location filename="../ui_mainwindow.h" line="785"/>
         <source>Release version:</source>
         <translation>Utgåvans version:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
-        <location filename="../ui_mainwindow.h" line="786"/>
         <source>Change live kernel</source>
         <translation>Byt live-kärna</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
-        <location filename="../ui_mainwindow.h" line="787"/>
         <source>Project name:</source>
         <translation>Projektnamn:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
-        <location filename="../ui_mainwindow.h" line="788"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot är ett verktyg som skapar en bootbar avbild (ISO) av ditt nuvarande system som du kan använda för lagring eller distribuering. Du kan fortsätta att arbeta med lätta program medan det körs.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="205"/>
-        <location filename="../ui_mainwindow.h" line="789"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Använt utrymme på / (root) och /home partitioner:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
-        <location filename="../ui_mainwindow.h" line="790"/>
         <source>Location and ISO name</source>
         <translation>Område och ISO-namn:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
-        <location filename="../ui_mainwindow.h" line="792"/>
         <source>Snapshot location:</source>
         <translation>Snapshotets plats</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
-        <location filename="../ui_mainwindow.h" line="793"/>
         <source>Select a different snapshot directory</source>
         <translation>Välj en annan snapshot katalog</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="361"/>
-        <location filename="../ui_mainwindow.h" line="794"/>
         <source>Snapshot name:</source>
         <translation>Snapshotets namn</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
-        <location filename="../ui_mainwindow.h" line="798"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Du kan också undanta speciella kataloger genom att kryssa för de vanliga valen nedan, eller genom att klicka på knappen för att direkt redigera  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="436"/>
-        <location filename="../ui_mainwindow.h" line="800"/>
         <source>exclude network configurations</source>
         <translation>undanta nätverkskonfigurationer</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="439"/>
-        <location filename="../ui_mainwindow.h" line="802"/>
         <source>Networks</source>
         <translation>Nätverk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="446"/>
-        <location filename="../ui_mainwindow.h" line="803"/>
         <source>All of the above</source>
         <translation>Alla ovan nämnda</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="453"/>
-        <location filename="../ui_mainwindow.h" line="804"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="470"/>
-        <location filename="../ui_mainwindow.h" line="805"/>
         <source>Desktop</source>
         <translation>Skrivbord</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="487"/>
-        <location filename="../ui_mainwindow.h" line="806"/>
         <source>Music</source>
         <translation>Musik</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="494"/>
-        <location filename="../ui_mainwindow.h" line="807"/>
         <source>Downloads</source>
         <translation>Nerladdningar</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="501"/>
-        <location filename="../ui_mainwindow.h" line="808"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="508"/>
-        <location filename="../ui_mainwindow.h" line="809"/>
         <source>Documents</source>
         <translation>Dokument</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="546"/>
-        <location filename="../ui_mainwindow.h" line="810"/>
         <source>Type of snapshot:</source>
         <translation>Typ av snapshot:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
-        <location filename="../ui_mainwindow.h" line="811"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Bevara konton (för personlig backup)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="563"/>
-        <location filename="../ui_mainwindow.h" line="813"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Detta alternativ kommer att återställa &amp;quot;demo&amp;quot; och &amp;quot;root&amp;quot; lösenorden till MX Linux standardvärde och kommer inte att kopiera några personliga konton som skapats.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="566"/>
-        <location filename="../ui_mainwindow.h" line="815"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Återställa konton (för distribution till andra)</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="595"/>
-        <location filename="../ui_mainwindow.h" line="816"/>
         <source>Edit Exclusion File</source>
         <translation>Redigera Exklusionsfil</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="634"/>
-        <location filename="../ui_mainwindow.h" line="817"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
-        <location filename="../ui_mainwindow.h" line="819"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Stryp I/O inmatningshastighet med given procentsats.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
-        <location filename="../ui_mainwindow.h" line="821"/>
         <source>I/O throttle:</source>
         <translation>I/O strypning:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
-        <location filename="../ui_mainwindow.h" line="822"/>
         <source>Calculate checksums:</source>
         <translation>Beräkna kontrollsummor:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
-        <location filename="../ui_mainwindow.h" line="823"/>
         <source>ISO compression scheme:</source>
         <translation>ISO kompressions-schema:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="684"/>
-        <location filename="../ui_mainwindow.h" line="824"/>
         <source>Number of CPU cores to use:</source>
         <translation>Antal CPU-kärnor att använda:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
-        <location filename="../ui_mainwindow.h" line="825"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
-        <location filename="../ui_mainwindow.h" line="826"/>
         <source>Options:</source>
         <translation>Alternativ:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
-        <location filename="../ui_mainwindow.h" line="829"/>
         <source>About this application</source>
         <translation>Om detta program</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="851"/>
-        <location filename="../ui_mainwindow.h" line="831"/>
         <source>About...</source>
         <translation>Om...</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="858"/>
-        <location filename="../ui_mainwindow.h" line="833"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="874"/>
-        <location filename="../ui_mainwindow.h" line="836"/>
         <source>Quit application</source>
         <translation>Avsluta programmet</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="877"/>
-        <location filename="../ui_mainwindow.h" line="838"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="884"/>
-        <location filename="../ui_mainwindow.h" line="840"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="916"/>
-        <location filename="../ui_mainwindow.h" line="842"/>
         <source>Next</source>
         <translation>Nästa</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="964"/>
-        <location filename="../ui_mainwindow.h" line="847"/>
         <source>Back</source>
         <translation>Bakåt</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="981"/>
-        <location filename="../ui_mainwindow.h" line="849"/>
         <source>Display help </source>
         <translation>Visa hjälp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="984"/>
-        <location filename="../ui_mainwindow.h" line="851"/>
         <source>Help</source>
         <translation>Hjälp</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="991"/>
-        <location filename="../ui_mainwindow.h" line="853"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
@@ -390,7 +341,7 @@
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="396"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -420,146 +371,134 @@
         <translation>-Linuxkärna som ska användas:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="376"/>
-        <location filename="../mainwindow.cpp" line="386"/>
+        <location filename="../mainwindow.cpp" line="383"/>
+        <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="377"/>
+        <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="382"/>
+        <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
+        <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="387"/>
+        <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="397"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Nuvarande kärna stöder inte vald kompressionsalgoritm, var vänlig redigera konfigurationsfilen och välj en annan algoritm.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="421"/>
+        <location filename="../mainwindow.cpp" line="428"/>
         <source>Final chance</source>
         <translation>Sista chansen</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="423"/>
+        <location filename="../mainwindow.cpp" line="430"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Snapshot har nu all information det behöver för att skapa en ISO av systemet du kör.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="424"/>
+        <location filename="../mainwindow.cpp" line="431"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Det kommer att ta en del tid att avsluta, beroende på storleken av det installerade systemet och din dators prestanda.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="426"/>
+        <location filename="../mainwindow.cpp" line="433"/>
         <source>OK to start?</source>
         <translation>OK att börja?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="430"/>
+        <location filename="../mainwindow.cpp" line="437"/>
         <source>Shutdown computer when done.</source>
         <translation>Stäng av datorn när det är klart.</translation>
     </message>
     <message>
-        <source>Could not create working directory. </source>
-        <translation type="vanished">Kunde inte skapa fungerande katalog.</translation>
-    </message>
-    <message>
-        <source>Could not create temporary directory. </source>
-        <translation type="vanished">Kunde inte skapa temp-katalog.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="462"/>
+        <location filename="../mainwindow.cpp" line="469"/>
         <source>Output</source>
         <translation>Output</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="485"/>
-        <source>Edit Boot Menu</source>
-        <translation>Redigera Boot Menu</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="486"/>
-        <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>Programmet kommer nu ta en paus för att låta dig redigera filer i arbetskatalogen. Välj Ja för att redigera boot menyn eller välj Nej för att hoppa över detta steg och fortsätta skapandet av snapshotet.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="478"/>
         <source>Close</source>
         <translation>Stäng</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="499"/>
+        <location filename="../mainwindow.cpp" line="492"/>
+        <source>Edit Boot Menu</source>
+        <translation>Redigera Boot Menu</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="493"/>
+        <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
+        <translation>Programmet kommer nu ta en paus för att låta dig redigera filer i arbetskatalogen. Välj Ja för att redigera boot menyn eller välj Nej för att hoppa över detta steg och fortsätta skapandet av snapshotet.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Select kernel</source>
         <translation>Välj kärna</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="584"/>
+        <location filename="../mainwindow.cpp" line="591"/>
         <source>About %1</source>
         <translation>Om %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="586"/>
+        <location filename="../mainwindow.cpp" line="593"/>
         <source>Version: </source>
         <translation>Version:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="587"/>
+        <location filename="../mainwindow.cpp" line="594"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program för att skapa en live-CD från systemet som körs för MX-Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="589"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="598"/>
         <source>%1 License</source>
         <translation>%1 Licens</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="612"/>
         <source>%1 Help</source>
         <translation>%1 Hjälp</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="610"/>
+        <location filename="../mainwindow.cpp" line="617"/>
         <source>Select Snapshot Directory</source>
         <translation>Välj Snapshot Katalog</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="631"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Confirmation</source>
         <translation>Bekräftelse</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="631"/>
+        <location filename="../mainwindow.cpp" line="638"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Är du säker på att du vill avsluta programmet?</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>The program will pause the build and open the boot menu in your text editor.</source>
-        <translation type="vanished">Programmet kommer att pausa byggandet och öppna boot-menyn i din textredigerare.</translation>
-    </message>
     <message>
         <location filename="../main.cpp" line="71"/>
         <source>Tool used for creating a live-CD from the running system</source>
@@ -905,10 +844,6 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>MX Snapshot completed sucessfully!</source>
-        <translation type="vanished">MX Snapshot fullföljdes framgångsrikt!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
