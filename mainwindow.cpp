@@ -371,13 +371,19 @@ void MainWindow::handleSelectionPage(const QString &file_name)
 
 void MainWindow::checkNvidiaGraphicsCard()
 {
+    static bool hasRun = false;
+    QString currentOptions = ui->textOptions->text();
+
+    if (hasRun || currentOptions.contains("xorg=nvidia")) {
+        return;
+    }
+
     if (work.shell.run("glxinfo | grep -q NVIDIA")) {
         if (QMessageBox::Yes
             == QMessageBox::question(this, tr("NVIDIA Detected"),
                                      tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
                                         "resulting ISO on the same computer or another computer with an NVIDIA card?"),
                                      QMessageBox::Yes | QMessageBox::No)) {
-            QString currentOptions = ui->textOptions->text();
             ui->textOptions->setText(currentOptions.isEmpty() ? "xorg=nvidia" : currentOptions + " xorg=nvidia");
             QMessageBox::information(this, tr("NVIDIA Selected"),
                                      tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
@@ -388,6 +394,7 @@ void MainWindow::checkNvidiaGraphicsCard()
                                         "you may need to add 'xorg=nvidia' to the boot options."));
         }
     }
+    hasRun = true;
 }
 
 void MainWindow::handleSettingsPage(const QString &file_name)
