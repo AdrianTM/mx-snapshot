@@ -377,7 +377,8 @@ void MainWindow::checkNvidiaGraphicsCard()
                                      tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
                                         "resulting ISO on the same computer or another computer with an NVIDIA card?"),
                                      QMessageBox::Yes | QMessageBox::No)) {
-            boot_options += " xorg=nvidia";
+            QString currentOptions = ui->textOptions->text();
+            ui->textOptions->setText(currentOptions.isEmpty() ? "xorg=nvidia" : currentOptions + " xorg=nvidia");
             QMessageBox::information(this, tr("NVIDIA Selected"),
                                      tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
                                         "you will likely need to remove 'xorg=nvidia' from the boot options."));
