@@ -4,7 +4,7 @@
 #
 # to list the boot parameters to be displayed as boot options.
 #---------------------------------------------------------
-VERSION="240418-01"
+VERSION="240725-01"
 
 #---------------------------------------------------------
 # allow debug
@@ -247,6 +247,9 @@ main() {
             #    ;;
 
             init=*) ;;
+
+            # remove the nvidia boot option that may have been added with a previous snapshot
+            xorg=nvidia) ;;
 
             *) OUT_LIST+=("$(vquote "$param")")
         esac
