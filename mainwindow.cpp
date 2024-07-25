@@ -372,28 +372,37 @@ void MainWindow::handleSelectionPage(const QString &file_name)
 void MainWindow::checkNvidiaGraphicsCard()
 {
     static bool hasRun = false;
-    QString currentOptions = ui->textOptions->text();
-
-    if (hasRun || currentOptions.contains("xorg=nvidia")) {
+    if (hasRun) {
         return;
     }
 
-    if (work.shell.run("glxinfo | grep -q NVIDIA")) {
-        if (QMessageBox::Yes
-            == QMessageBox::question(this, tr("NVIDIA Detected"),
-                                     tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
-                                        "resulting ISO on the same computer or another computer with an NVIDIA card?"),
-                                     QMessageBox::Yes | QMessageBox::No)) {
-            ui->textOptions->setText(currentOptions.isEmpty() ? "xorg=nvidia" : currentOptions + " xorg=nvidia");
+    QString currentOptions = ui->textOptions->text();
+    bool nvidiaDetected = work.shell.run("glxinfo | grep -q NVIDIA");
+
+    if (nvidiaDetected) {
+        bool useNvidia = QMessageBox::Yes == QMessageBox::question(
+            this, tr("NVIDIA Detected"),
+            tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
+               "resulting ISO on the same computer or another computer with an NVIDIA card?"),
+            QMessageBox::Yes | QMessageBox::No);
+
+        if (useNvidia) {
+            if (!currentOptions.contains("xorg=nvidia")) {
+                ui->textOptions->setText(currentOptions.isEmpty() ? "xorg=nvidia" : currentOptions + " xorg=nvidia");
+            }
             QMessageBox::information(this, tr("NVIDIA Selected"),
                                      tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
                                         "you will likely need to remove 'xorg=nvidia' from the boot options."));
         } else {
+            if (currentOptions.contains("xorg=nvidia")) {
+                ui->textOptions->setText(currentOptions.remove("xorg=nvidia").trimmed());
+            }
             QMessageBox::information(this, tr("NVIDIA Detected"),
                                      tr("Note: If you use the resulting ISO on a computer with an NVIDIA card, "
                                         "you may need to add 'xorg=nvidia' to the boot options."));
         }
     }
+
     hasRun = true;
 }
 

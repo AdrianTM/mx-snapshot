@@ -102,15 +102,17 @@ void Batchprocessing::checkNvidiaGraphicsCard()
                        "resulting ISO on the same computer or another computer with an NVIDIA card?")
                         + " yes/no";
         QString response;
-        QTextStream stdinStream(stdin);
-        stdinStream >> response;
+        QTextStream(stdin) >> response;
 
         response = response.toLower();
         if (response == "yes" || response == "y") {
-            boot_options += " xorg=nvidia";
+            if (!boot_options.contains("xorg=nvidia")) {
+                boot_options.append(" xorg=nvidia");
+            }
             qDebug() << tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
                            "you will likely need to remove 'xorg=nvidia' from the boot options.");
         } else {
+            boot_options.remove("xorg=nvidia");
             qDebug() << tr("Note: If you use the resulting ISO on a computer with an NVIDIA card, "
                            "you may need to add 'xorg=nvidia' to the boot options.");
         }
