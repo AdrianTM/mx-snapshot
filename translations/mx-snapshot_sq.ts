@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ky kompjuter përdor një kartë grafike NVIDIA. Keni në plan ta përdorni IOS-n e prodhuar keni në plan ta përdorni në të njëjtin kompjuter, apo në një tjetër kompjuter me një kartë NVIDIA?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter pa një kartë NVIDIA, gjasat janë t’ju duhet të hiqni &apos;xorg=nvidia&apos; nga mundësitë e nisjes.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter me një kartë NVIDIA, mund t’ju duhet të shtoni &apos;xorg=nvidia&apos; te mundësitë e nisjes.</translation>
     </message>
 </context>
 <context>
@@ -374,27 +374,27 @@
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>U pikas NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Ky kompjuter përdor një kartë grafike NVIDIA. Keni në plan ta përdorni IOS-n e prodhuar keni në plan ta përdorni në të njëjtin kompjuter, apo në një tjetër kompjuter me një kartë NVIDIA?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>U përzgjodh NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter pa një kartë NVIDIA, gjasat janë t’ju duhet të hiqni &apos;xorg=nvidia&apos; nga mundësitë e nisjes.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter me një kartë NVIDIA, mund t’ju duhet të shtoni &apos;xorg=nvidia&apos; te mundësitë e nisjes.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot u plotësua me sukses!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

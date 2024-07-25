@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Den här datorn använder ett NVIDIA grafikkort. Tänker du använda resulterande ISO på samma datorr eller en annan dator med ett NVIDIA-kort?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmärkning: om du använder resulterande ISO på en dator utan ett NVIDIA kort, behöver du troligen ta bort &apos;xorg=nvidia&apos; från boot-alternativen.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmärkning: om du använder resulterande ISO på en dator med ett NVIDIA kort, behöver du troligen lägga till &apos;xorg=nvidia&apos; till boot-alternativen.</translation>
     </message>
 </context>
 <context>
@@ -374,27 +374,27 @@
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA Upptäckt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Den här datorn använder ett NVIDIA grafikkort. Tänker du använda resulterande ISO på samma datorr eller en annan dator med ett NVIDIA-kort?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA Vald</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmärkning: om du använder resulterande ISO på en dator utan ett NVIDIA kort, behöver du troligen ta bort &apos;xorg=nvidia&apos; från boot-alternativen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmärkning: om du använder resulterande ISO på en dator med ett NVIDIA kort, behöver du troligen lägga till &apos;xorg=nvidia&apos; till boot-alternativen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -843,7 +843,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot cframgångsrikt avslutat!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
