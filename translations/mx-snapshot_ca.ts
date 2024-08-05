@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Aquest ordinador usa una targeta gràfica NVIDIA. Teniu previst usar l&apos;ISO obtingut en el mateix ordinador o un altre amb targeta NVIDIA?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Si voleu usar l&apos;ISO obtingut en un ordinador sense targeta NVIDIA, probablement necessitareu eliminar &apos;xorg=nvidia&apos; de les opcions d&apos;arrencada.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Si useu l&apos;ISO obtingut en on ordinador amb targeta NVIDIA, probablement necessitareu afegir &apos;xorg=nvidia&apos; a les opcions d&apos;arrencada.</translation>
     </message>
 </context>
 <context>
@@ -374,27 +374,27 @@
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Detectada NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Aquest ordinador usa una targeta gràfica NVIDIA. Teniu previst usar el ISO obtingut en el mateix ordinador o un altre amb targeta NVIDIA?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionada NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Si voleu usar l&apos;ISO obtingut en un ordinador sense targeta NVIDIA, probablement necessitareu eliminar &apos;xorg=nvidia&apos; de les opcions d&apos;arrencada.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Si useu l&apos;ISO obtingut en on ordinador amb targeta NVIDIA, probablement necessitareu afegir &apos;xorg=nvidia&apos; a les opcions d&apos;arrencada.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -634,8 +634,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="240"/>
         <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="730"/>
-        <location filename="../settings.cpp" line="829"/>
+        <location filename="../settings.cpp" line="732"/>
+        <location filename="../settings.cpp" line="831"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -676,12 +676,12 @@
         <translation>Espai usat a /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="456"/>
+        <location filename="../settings.cpp" line="458"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="462"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -696,43 +696,43 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="723"/>
-        <location filename="../settings.cpp" line="822"/>
+        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="824"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

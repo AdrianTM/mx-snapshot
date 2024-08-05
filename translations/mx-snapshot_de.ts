@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieser Computer verwendet eine NVIDIA Grafikkarte. Möchten Sie die erstellte ISO auf demselben Computer oder auf einem anderen Computer mit einer NVIDIA-Grafikkarte verwenden?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinweis: Wenn Sie die erstellte ISO auf einem Computer ohne NVIDIA-Grafikkarte verwenden, müssen Sie gegebenenfalls &quot;xorg=nvidia&quot; aus den Boot-Optionen entfernen.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinweis: Wenn Sie die erstellte ISO auf einem Computer mit einer NVIDIA-Grafikkarte verwenden, müssen Sie gegebenenfalls &quot;xorg=nvidia&quot; zu den Boot-Optionen hinzufügen. </translation>
     </message>
 </context>
 <context>
@@ -376,27 +376,27 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA-Grafikkarte wurde erkannt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Dieser Computer verwendet eine NVIDIA Grafikkarte. Möchten Sie die erstellte ISO auf demselben Computer oder auf einem anderen Computer mit einer NVIDIA-Grafikkarte verwenden?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA-Grafikkarte ausgewählt</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinweis: Wenn Sie die erstellte ISO auf einem Computer ohne NVIDIA-Grafikkarte verwenden, müssen Sie gegebenfalls &quot;xorg=nvidia&quot; aus den Boot-Optionen entfernen.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hinweis: Wenn Sie die erstellte ISO auf einem Computer mit einer NVIDIA-Grafikkarte verwenden, müssen Sie gegebenenfalls &quot;xorg=nvidia&quot; zu den Boot-Optionen hinzufügen. </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -637,8 +637,8 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="240"/>
         <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="730"/>
-        <location filename="../settings.cpp" line="829"/>
+        <location filename="../settings.cpp" line="732"/>
+        <location filename="../settings.cpp" line="831"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -679,12 +679,12 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
         <translation>Benötigter Platz für /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="456"/>
+        <location filename="../settings.cpp" line="458"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Freier Platz auf %1, wo das Schnappschuss-Verzeichnis liegt:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="462"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -699,43 +699,43 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Desktop</source>
         <translation>Benutzeroberfläche</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Documents</source>
         <translation>Dokumente</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Musik</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Netzwerke</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="723"/>
-        <location filename="../settings.cpp" line="822"/>
+        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="824"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Die Ausgabedatei %1 existiert bereits. Bitte verwenden Sie einen anderen Dateinamen, oder löschen Sie die existierende Datei.</translation>
     </message>
@@ -846,7 +846,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX-Schnappschuss erfolgreich abgeschlossen!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

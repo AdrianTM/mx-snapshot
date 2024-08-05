@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze computer gebruikt een NVIDIA grafische kaart. Ben je van plan om de resulterende ISO op dezelfde computer te gebruiken of op een andere computer met een NVIDIA-kaart?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opmerking: Als je de resulterende ISO gebruikt op een computer zonder NVIDIA kaart, moet je waarschijnlijk &apos;xorg=nvidia&apos; verwijderen uit de opstartopties.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opmerking: Als je de resulterende ISO gebruikt op een computer met een NVIDIA kaart, moet je misschien &apos;xorg=nvidia&apos; toevoegen aan de opstartopties.</translation>
     </message>
 </context>
 <context>
@@ -46,42 +46,42 @@
     <message>
         <location filename="../mainwindow.ui" line="33"/>
         <source>Optional customization</source>
-        <translation type="unfinished"></translation>
+        <translation>Optioneel maatwerk</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
-        <translation type="unfinished"></translation>
+        <translation>Verschijningsdatum:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Release codename:</source>
-        <translation type="unfinished"></translation>
+        <translation>Codenaam release:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>Boot options:</source>
-        <translation type="unfinished"></translation>
+        <translation>Opstartopties:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>Release version:</source>
-        <translation type="unfinished"></translation>
+        <translation>Releaseversie:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Live kernel wijzigen</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <source>Project name:</source>
-        <translation type="unfinished"></translation>
+        <translation>Naam project:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -96,7 +96,7 @@
     <message>
         <location filename="../mainwindow.ui" line="215"/>
         <source>Location and ISO name</source>
-        <translation type="unfinished"></translation>
+        <translation>Locatie en ISO-naam</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="242"/>
@@ -192,22 +192,22 @@
     <message>
         <location filename="../mainwindow.ui" line="634"/>
         <source>sha512</source>
-        <translation type="unfinished"></translation>
+        <translation>sha512</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="657"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Smoor de I/O-invoersnelheid met het opgegeven percentage.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="663"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>I/O-invoersnelheid:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="670"/>
         <source>Calculate checksums:</source>
-        <translation type="unfinished"></translation>
+        <translation>Bereken checksums:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
@@ -217,12 +217,12 @@
     <message>
         <location filename="../mainwindow.ui" line="684"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal CPU cores om te gebruiken:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="691"/>
         <source>md5</source>
-        <translation type="unfinished"></translation>
+        <translation>md5</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="701"/>
@@ -287,27 +287,27 @@
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <source>fastest, worst compression</source>
-        <translation type="unfinished"></translation>
+        <translation>snelste, slechtste compressie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="179"/>
         <source>fast, worse compression</source>
-        <translation type="unfinished"></translation>
+        <translation>snelle, slechtere compressie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="180"/>
         <source>slow, better compression</source>
-        <translation type="unfinished"></translation>
+        <translation>langzame, betere compressie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="180"/>
         <source>best compromise</source>
-        <translation type="unfinished"></translation>
+        <translation>beste compromis</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="181"/>
         <source>slowest, best compression</source>
-        <translation type="unfinished"></translation>
+        <translation>langzaamste, beste compressie</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="210"/>
@@ -319,7 +319,9 @@
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>De vrije ruimte moet voldoende zijn voor de gecomprimeerde gegevens van / en /home
+
+     Indien nodig kunt u meer beschikbare ruimte creëren door eerdere snapshots en opgeslagen kopieën te verwijderen: %1 snapshots nemen %2 van de schijfruimte in beslag.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="225"/>
@@ -346,7 +348,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="348"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitvoerbestand %1 bestaat al. Gebruik een andere bestandsnaam of verwijder het bestaande bestand.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="353"/>
@@ -356,7 +358,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="358"/>
         <source>Snapshot will use the following settings:</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshot gebruikt de volgende instellingen:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="360"/>
@@ -372,27 +374,27 @@
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA gedetecteerd</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Deze computer gebruikt een NVIDIA grafische kaart. Ben je van plan om de resulterende ISO op dezelfde computer te gebruiken of op een andere computer met een NVIDIA-kaart?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA Geselecteerd</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opmerking: Als je de resulterende ISO gebruikt op een computer zonder NVIDIA kaart, moet je waarschijnlijk &apos;xorg=nvidia&apos; verwijderen uit de opstartopties.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opmerking: Als je de resulterende ISO gebruikt op een computer met een NVIDIA kaart, moet je misschien &apos;xorg=nvidia&apos; toevoegen aan de opstartopties.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -422,7 +424,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="437"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluit de computer af als je klaar bent.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="469"/>
@@ -447,7 +449,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="506"/>
         <source>Select kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Select kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="591"/>
@@ -510,7 +512,7 @@
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Aantal CPU cores dat gebruikt moet worden.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -535,12 +537,12 @@
     <message>
         <location filename="../main.cpp" line="88"/>
         <source>Compression level options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Opties voor compressieniveau.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation type="unfinished"></translation>
+        <translation>Gebruik aanhalingstekens: &quot;-Xcompression-level &lt;level&gt;&quot;, of &quot;-Xalgorithm &lt;algorithm&gt;&quot;, of &quot;-Xhc&quot;, zie mksquashfs man pagina</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
@@ -560,7 +562,7 @@
     <message>
         <location filename="../main.cpp" line="98"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation type="unfinished"></translation>
+        <translation>Sla het berekenen van vrije ruimte over om te zien of de resulterende ISO zal passen</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="99"/>
@@ -580,12 +582,12 @@
     <message>
         <location filename="../main.cpp" line="103"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Beperkt de I/O-invoersnelheid met het opgegeven percentage. Dit kan gebruikt worden om het I/O- en CPU-verbruik van Mksquashfs te verminderen.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="106"/>
         <source>Work directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Werkmap</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="108"/>
@@ -605,7 +607,7 @@
     <message>
         <location filename="../main.cpp" line="115"/>
         <source>Shutdown computer when done.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluit de computer af als je klaar bent.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="144"/>
@@ -620,7 +622,7 @@
     <message>
         <location filename="../main.cpp" line="163"/>
         <source>You must run this program with sudo or pkexec.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je moet dit programma uitvoeren met sudo of pkexec.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="139"/>
@@ -632,8 +634,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="240"/>
         <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="730"/>
-        <location filename="../settings.cpp" line="829"/>
+        <location filename="../settings.cpp" line="732"/>
+        <location filename="../settings.cpp" line="831"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -674,12 +676,12 @@
         <translation>Gebruikte ruimte op /home:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="456"/>
+        <location filename="../settings.cpp" line="458"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="462"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -695,45 +697,45 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Documents</source>
         <translation>Documenten</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Muziek</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Netwerken</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Video&apos;s</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="723"/>
-        <location filename="../settings.cpp" line="822"/>
+        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="824"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitvoerbestand %1 bestaat al. Gebruik een andere bestandsnaam of verwijder het bestaande bestand.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="70"/>
@@ -797,7 +799,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation type="unfinished"></translation>
+        <translation>Als je zeker weet dat je genoeg vrije ruimte hebt, voer dan het programma opnieuw uit met de -o/--override-size optie</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>
@@ -817,7 +819,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../work.cpp" line="242"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation type="unfinished"></translation>
+        <translation>Kan geen linuxfs-bestand aanmaken, controleer /var/log/%1.log</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="260"/>
@@ -842,7 +844,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
@@ -882,12 +884,12 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../work.cpp" line="545"/>
         <source>Calculating total size of excluded files...</source>
-        <translation type="unfinished"></translation>
+        <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="555"/>
         <source>Calculating size of root...</source>
-        <translation type="unfinished"></translation>
+        <translation>Grootte van root berekenen...</translation>
     </message>
 </context>
 </TS>

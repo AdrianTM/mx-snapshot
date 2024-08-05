@@ -421,6 +421,7 @@ bool Settings::isLive()
 bool Settings::isOnSupportedPart(const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    // Supported partition types (NTFS returns fuseblk)
     static const QSet<QString> supportedPartitions
         = {"ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs"};
     const QString partType = QStorageInfo(dir + "/").fileSystemType();

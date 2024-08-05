@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cet ordinateur utilise une carte graphique NVIDIA. Prévoyez-vous d’utiliser l’ISO obtenu sur le même ordinateur ou sur un autre ordinateur équipé d’une carte NVIDIA&#xa0;?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Remarque&#xa0;: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Remarque&#xa0;: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
     </message>
 </context>
 <context>
@@ -51,27 +51,27 @@
     <message>
         <location filename="../mainwindow.ui" line="42"/>
         <source>Release date:</source>
-        <translation>Date de parution :</translation>
+        <translation>Date de parution&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="49"/>
         <source>Release codename:</source>
-        <translation>Nom de code de la version :</translation>
+        <translation>Nom de code de la version&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="56"/>
         <source>Live kernel:</source>
-        <translation>Noyau live :</translation>
+        <translation>Noyau live&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="97"/>
         <source>Boot options:</source>
-        <translation>Options de démarrage :</translation>
+        <translation>Options de démarrage&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="139"/>
         <source>Release version:</source>
-        <translation>Version :</translation>
+        <translation>Version&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="159"/>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="166"/>
         <source>Project name:</source>
-        <translation>Nom du projet :</translation>
+        <translation>Nom du projet&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="195"/>
@@ -91,7 +91,7 @@
     <message>
         <location filename="../mainwindow.ui" line="205"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation>Espace utilisé sur les partitions /(root) et /home :</translation>
+        <translation>Espace utilisé sur les partitions /(root) et /home&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="215"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../mainwindow.ui" line="242"/>
         <source>Snapshot location:</source>
-        <translation>Emplacement de l’instantané :</translation>
+        <translation>Emplacement de l’instantané&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="249"/>
@@ -112,7 +112,7 @@
         <location filename="../mainwindow.ui" line="260"/>
         <location filename="../mainwindow.cpp" line="361"/>
         <source>Snapshot name:</source>
-        <translation>Nom de l’instantané :</translation>
+        <translation>Nom de l’instantané&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="379"/>
@@ -167,7 +167,7 @@
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Type of snapshot:</source>
-        <translation>Type d’instantané :</translation>
+        <translation>Type d’instantané&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
@@ -207,7 +207,7 @@
     <message>
         <location filename="../mainwindow.ui" line="670"/>
         <source>Calculate checksums:</source>
-        <translation>Calculer les sommes de contrôle :</translation>
+        <translation>Calculer les sommes de contrôle&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="677"/>
@@ -227,7 +227,7 @@
     <message>
         <location filename="../mainwindow.ui" line="701"/>
         <source>Options:</source>
-        <translation>Options :</translation>
+        <translation>Options&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="848"/>
@@ -312,7 +312,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="210"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané : </translation>
+        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané&#xa0;: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="213"/>
@@ -358,43 +358,43 @@
     <message>
         <location filename="../mainwindow.cpp" line="358"/>
         <source>Snapshot will use the following settings:</source>
-        <translation>Snapshot utilisera les paramètres suivants :</translation>
+        <translation>Snapshot utilisera les paramètres suivants&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="360"/>
         <source>- Snapshot directory:</source>
-        <translation>- Répertoire de l’instantané :</translation>
+        <translation>- Répertoire de l’instantané&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="361"/>
         <source>- Kernel to be used:</source>
-        <translation>- Noyau à utiliser :</translation>
+        <translation>- Noyau à utiliser&#xa0;:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="383"/>
         <location filename="../mainwindow.cpp" line="392"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA détecté</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="384"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Cet ordinateur utilise une carte graphique NVIDIA. Prévoyez-vous d’utiliser l’ISO obtenu sur le même ordinateur ou sur un autre ordinateur équipé d’une carte NVIDIA&#xa0;?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="388"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA sélectionné</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="389"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Remarque&#xa0;: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="393"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Remarque&#xa0;: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
@@ -459,7 +459,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="593"/>
         <source>Version: </source>
-        <translation>Version : </translation>
+        <translation>Version&#xa0;: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="594"/>
@@ -532,7 +532,7 @@
     <message>
         <location filename="../main.cpp" line="85"/>
         <source>Or the full path: %1</source>
-        <translation>Ou le chemin entier : %1</translation>
+        <translation>Ou le chemin entier&#xa0;: %1</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="88"/>
@@ -592,7 +592,7 @@
     <message>
         <location filename="../main.cpp" line="108"/>
         <source>Exclude main folders, valid choices: </source>
-        <translation>Exclure les dossiers principaux, choix valables : </translation>
+        <translation>Exclure les dossiers principaux, choix valables&#xa0;: </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="110"/>
@@ -602,7 +602,7 @@
     <message>
         <location filename="../main.cpp" line="113"/>
         <source>Compression format, valid choices: </source>
-        <translation>Format de compression, choix valables : </translation>
+        <translation>Format de compression, choix valables&#xa0;: </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="115"/>
@@ -617,7 +617,7 @@
     <message>
         <location filename="../main.cpp" line="168"/>
         <source>version:</source>
-        <translation>version :</translation>
+        <translation>version&#xa0;:</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="163"/>
@@ -634,8 +634,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="240"/>
         <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="730"/>
-        <location filename="../settings.cpp" line="829"/>
+        <location filename="../settings.cpp" line="732"/>
+        <location filename="../settings.cpp" line="831"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -663,7 +663,7 @@
     <message>
         <location filename="../settings.cpp" line="358"/>
         <source>Used space on / (root): </source>
-        <translation>Espace utilisé dans /(root) : </translation>
+        <translation>Espace utilisé dans /(root)&#xa0;: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="361"/>
@@ -673,15 +673,15 @@
     <message>
         <location filename="../settings.cpp" line="370"/>
         <source>Used space on /home: </source>
-        <translation>Espace utilisé dans /home : </translation>
+        <translation>Espace utilisé dans /home&#xa0;: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="456"/>
+        <location filename="../settings.cpp" line="458"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané : </translation>
+        <translation>Espace libre disponible dans %1 où sera mis le dossier de l’instantané&#xa0;: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="460"/>
+        <location filename="../settings.cpp" line="462"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -691,47 +691,47 @@
         <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
 
 Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant&#xa0;:
-Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
+Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="478"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Desktop</source>
         <translation>Bureau</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Downloads</source>
         <translation>Téléchargements</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Musique</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Réseaux</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Photos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Vidéos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="723"/>
-        <location filename="../settings.cpp" line="822"/>
+        <location filename="../settings.cpp" line="725"/>
+        <location filename="../settings.cpp" line="824"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
@@ -842,7 +842,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Le processus de MX Snapshot s’est terminé avec succès&#xa0;!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
