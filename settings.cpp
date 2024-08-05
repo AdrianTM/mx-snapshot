@@ -421,11 +421,12 @@ bool Settings::isLive()
 bool Settings::isOnSupportedPart(const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    // Supported partition types (NTFS returns fuseblk)
-    QStringList supported_partitions {"ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs"};
-    QString part_type = QStorageInfo(dir + "/").fileSystemType();
-    qDebug() << "detected partition" << part_type << "supported part:" << supported_partitions.contains(part_type);
-    return supported_partitions.contains(part_type);
+    static const QSet<QString> supportedPartitions
+        = {"ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs"};
+    const QString partType = QStorageInfo(dir + "/").fileSystemType();
+    const bool isSupported = supportedPartitions.contains(partType);
+    qDebug() << "Detected partition:" << partType << "Supported part:" << isSupported;
+    return isSupported;
 }
 
 // Return the directory that has more free space available
