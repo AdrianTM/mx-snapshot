@@ -49,6 +49,26 @@
         <translation>Valgfri tilpasning</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Utgitt versjon:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Oppstartsalternativer:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Live-kjerne:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Prosjektnavn:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Utgivelsesdato:</translation>
@@ -59,33 +79,9 @@
         <translation>Utgivelsens kodenavn:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Live-kjerne:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Oppstartsalternativer:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Utgitt versjon:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Endre live-kjerne</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Prosjektnavn:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Gjeldende dato</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Velg utgivelsesdato</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -456,10 +452,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programmet vil nå pause slik at du kan redigere filer i arbeidsmappa. Velg «Ja» for å redigere oppstartsmenyen eller «Nei» for å hoppe over dette trinnet og fortsette med opprettelsen av ISO-bildet.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Velg kjerne</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

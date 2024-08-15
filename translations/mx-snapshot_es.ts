@@ -49,6 +49,26 @@
         <translation>Personalización opcional</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Versión del lanzamiento:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Opciones de arranque:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Kernel live:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Nombre del proyecto:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Fecha de lanzamiento:</translation>
@@ -57,30 +77,6 @@
         <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>Nombre clave del lanzamiento:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Kernel live:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Opciones de arranque:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Versión del lanzamiento:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Cambiar kernel live</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Nombre del proyecto:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>El programa efectuará una pausa para que edite cualquier archivo en el directorio de trabajo.  Seleccione Sí para editar el menú de inicio o No para saltarse este paso y seguir con la creación de la imagen.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Seleccionar kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

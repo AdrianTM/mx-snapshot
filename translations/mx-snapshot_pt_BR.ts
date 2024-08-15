@@ -49,6 +49,26 @@
         <translation>Opções de Personalização</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Versão do lançamento:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Opções de inicialização:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Núcleo ativo:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Nome do projeto:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Data do lançamento:</translation>
@@ -59,33 +79,9 @@
         <translation>Codinome do lançamento:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Núcleo ativo:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Opções de inicialização:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Versão do lançamento:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Alterar o Núcleo Ativo</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Nome do projeto:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data atual</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -294,7 +290,7 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecionar a data do lançamento</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -457,10 +453,6 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>O programa irá parar agora para permitir que você edite quaisquer arquivos que estão na pasta de trabalho. Clique na opção ‘Sim’ para editar o menu de inicialização ou clique na opção ‘Não’ para ignorar esta etapa e continuar com a criação da imagem ISO.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Selecionar o núcleo/kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

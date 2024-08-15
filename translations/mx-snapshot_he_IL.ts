@@ -49,6 +49,26 @@
         <translation>התאמות כרשות</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>גרסת המהדורה:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>אפשרויות טעינה:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>שם המיזם:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>תאריך הוצאה לאור:</translation>
@@ -57,26 +77,6 @@
         <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>שם קוד המהדורה:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>אפשרויות טעינה:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>גרסת המהדורה:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>שם המיזם:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>

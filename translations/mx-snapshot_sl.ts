@@ -49,6 +49,26 @@
         <translation>Možnosti prilagajanja</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Različica izdaje:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Zagonske možnosti:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Zagonsko jedro:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Ime projekta:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Datum izdaje:</translation>
@@ -59,33 +79,9 @@
         <translation>Kodno ime raličice:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Zagonsko jedro:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Zagonske možnosti:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Različica izdaje:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Zamenjaj zagonsko jedro</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Ime projekta:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Trenutni datum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Izbira datuma izdaje</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -455,10 +451,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Program se bo sedaj zaustavil in omogočil urejanje datotek v delovnem direktoriju. Izberite Yes/ da za urejanje zagonskega menija ali No/ ne, če želite zaobiti ta korak in nadaljevati ustvarjanje posnetka.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Izberite jedro</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

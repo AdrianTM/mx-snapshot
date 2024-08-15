@@ -49,6 +49,26 @@
         <translation>Personalização opcional</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Versão de lançamento:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Opções de arranque:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Live kernel:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Nome do projeto:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Data de lançamento:</translation>
@@ -59,33 +79,9 @@
         <translation>Nome de código do lançamento:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Live kernel:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Opções de arranque:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Versão de lançamento:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Alterar live kernel</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Nome do projeto:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data actual</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar a data do lançamento</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -388,12 +384,12 @@
     <message>
         <location filename="../mainwindow.cpp" line="395"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation>Este computador usa uma placa gráfica NVIDIA. Deseja usar a ISO resultante no mesmo computador ou em outro computador com uma placa NVIDIA?</translation>
+        <translation>Este computador usa uma placa gráfica NVIDIA. Pretende usar a ISO resultante no mesmo computador ou em outro computador com uma placa NVIDIA?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="399"/>
         <source>NVIDIA Selected</source>
-        <translation>Selecionou NVIDIA</translation>
+        <translation>NVIDIA seleccionada</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="400"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>O programa será suspenso agora para permitir a edição de quaisquer ficheiros no directório de trabalho. Clicar em Sim para editar o menu de arranque ou em Não para ignorar este passo e continuar a criação da imagem.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Selecionar kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

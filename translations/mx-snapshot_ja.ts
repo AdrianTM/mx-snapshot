@@ -49,6 +49,26 @@
         <translation>カスタムオプション</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>リリースのバージョン:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>起動オプション:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Live kernel:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>プロジェクト名:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>リリースの日付</translation>
@@ -57,30 +77,6 @@
         <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>リリースのコード名:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Live kernel:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>起動オプション:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>リリースのバージョン:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Live kernel の変更</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>プロジェクト名:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>プログラムは、作業ディレクトリで任意ファイルを編集できるように、一時休止しています。「はい」を選んで起動メニューを編集するか、「いいえ」を選んでこのステップを飛ばしてスナップショットの作成を継続するかを選んでください。</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">カーネルの選択</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

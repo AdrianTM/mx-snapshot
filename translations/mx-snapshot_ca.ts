@@ -49,6 +49,26 @@
         <translation>Personalització opcional</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Versió de l&apos;edició:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Opcions d&apos;arrencada:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Kernel autònom:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Nom de projecte:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Data d&apos;edició:</translation>
@@ -59,33 +79,9 @@
         <translation>Nom en clau de l&apos;edició:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Kernel autònom:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Opcions d&apos;arrencada:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Versió de l&apos;edició:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Canvia el kernel autònom</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Nom de projecte:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data actual</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Trieu la data de llançament</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>El programa ara farà una pausa per permetre-us editar fitxers al directori de treball. Trieu Sí per editar el menú d&apos;arrencada, o No per saltar aquest pas i continuar creant la instantània. </translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Trieu el kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

@@ -49,6 +49,26 @@
         <translation>Personnalisation facultative</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Version&#xa0;:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Options de démarrage&#xa0;:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Noyau live&#xa0;:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Nom du projet&#xa0;:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Date de parution&#xa0;:</translation>
@@ -59,33 +79,9 @@
         <translation>Nom de code de la version&#xa0;:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Noyau live&#xa0;:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Options de démarrage&#xa0;:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Version&#xa0;:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Modifier le noyau live</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Nom du projet&#xa0;:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Date du jour</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Choisir la date de publication</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Le programme va se mettre en pause afin de vous permettre d’éditer les fichiers du répertoire de travail. Veuillez choisir Yes pour éditer le menu de démarrage, ou No pour passer cette étape et continuer la création de l’instantané.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Choisir le noyau</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

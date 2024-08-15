@@ -1,3 +1,11 @@
+mx-snapshot (24.8.02) mx; urgency=medium
+
+  * Fix terminal output for progress bar and pulsing "Progress ..."
+  * Minor: replaced use of "column" with printf to avoid bsdextrautils
+    dependency
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 15 Aug 2024 19:12:42 -0400
+
 mx-snapshot (24.8.01) mx; urgency=medium
 
   * Use QCalendarWidget to select release date and combobox to select

@@ -49,6 +49,26 @@
         <translation>Optionale Anpassungen</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Release Version:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Boot-Optionen:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Live-Kernel:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Projektname:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Datum der Freigabe:</translation>
@@ -57,30 +77,6 @@
         <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>Codename der Freigabe:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Live-Kernel:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Boot-Optionen:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Release Version:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Live-Kernel wechseln</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Projektname:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
@@ -456,10 +452,6 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Das Programm wartet nun und ermöglicht, alle Dateien im Arbeitsverzeichnis zu bearbeiten.&quot;Yes&quot; wählen, um das Boot-Menü zu bearbeiten, oder &quot;No&quot;, um mit dem Erstellen des Schnappschusses fortzufahren.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Kernel auswählen</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

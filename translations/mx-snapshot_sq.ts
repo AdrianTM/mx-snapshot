@@ -49,6 +49,26 @@
         <translation>Përshtatje opsionale</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Version hedhjeje në qarkullim:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Mundësi nisjeje:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Kernel “live”:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Emër projekti:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Datë hedhjeje në qarkullim:</translation>
@@ -59,33 +79,9 @@
         <translation>Emër kod për hedhjen në qarkullim:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Kernel “live”:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Mundësi nisjeje:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Version hedhjeje në qarkullim:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Ndryshoni kernel “live”</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Emër projekti:</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data e sotme</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -291,7 +287,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="145"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Përzgjidhni Datë Hedhjeje Në Qarkullim</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="189"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programi tani do të ndalet, për t’ju lejuar të përpunoni çfarëdo kartelash te drejtoria e punës. Përzgjidhni Po që të përpunoni menunë e nisjeve, ose përzgjidhni Jo, për të anashkaluar këtë hap dhe të vazhdoni me krijimin e fotografimit.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Përzgjidhni kernel</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>

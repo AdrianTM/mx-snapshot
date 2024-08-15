@@ -49,6 +49,26 @@
         <translation>Προαιρετική παραμετροποίηση</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="65"/>
+        <source>Release version:</source>
+        <translation>Έκδοση:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="79"/>
+        <source>Boot options:</source>
+        <translation>Ρυθμίσεις φορτωτή εκκίνησης:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="86"/>
+        <source>Live kernel:</source>
+        <translation>Ενεργός πυρήνας:</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="93"/>
+        <source>Project name:</source>
+        <translation>Όνομα προϊόντος:</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Ημερομηνία κυκλοφορίας:</translation>
@@ -57,30 +77,6 @@
         <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>Κωδικό όνομα έκδοσης:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="86"/>
-        <source>Live kernel:</source>
-        <translation>Ενεργός πυρήνας:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="79"/>
-        <source>Boot options:</source>
-        <translation>Ρυθμίσεις φορτωτή εκκίνησης:</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="65"/>
-        <source>Release version:</source>
-        <translation>Έκδοση:</translation>
-    </message>
-    <message>
-        <source>Change live kernel</source>
-        <translation type="vanished">Αλλαγή ενεργού πυρήνα</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="93"/>
-        <source>Project name:</source>
-        <translation>Όνομα προϊόντος:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="133"/>
@@ -454,10 +450,6 @@
         <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Το πρόγραμμα θα σταματήσει τώρα για να σας επιτρέψει να επεξεργαστείτε αρχεία στον κατάλογο εργασίας σας. Επιλέξτε Ναι για να επεξεργαστείτε το μενού του φορτωτή εκκίνησης ή Όχι για να παρακάμψετε αυτό το βήμα και να συνεχίσετε.</translation>
-    </message>
-    <message>
-        <source>Select kernel</source>
-        <translation type="vanished">Επιλογή πυρήνα</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="593"/>
