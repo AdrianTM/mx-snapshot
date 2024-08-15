@@ -21,25 +21,25 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietokone käyttää Nvidia näytönohjainta. Käytätkö tuloksena olevaa ISO:a tässä tietokoneessa vai toisessa tietokoneessa, jossa on Nvidia?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistyksen asetuksista.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistyksen asetuksiin.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="515"/>
+        <location filename="../mainwindow.cpp" line="183"/>
+        <location filename="../mainwindow.cpp" line="517"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -49,273 +49,282 @@
         <translation>Valinnainen mukautus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="42"/>
+        <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Julkaisupäivä:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="49"/>
+        <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>Julkaisun nimi:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="56"/>
+        <location filename="../mainwindow.ui" line="86"/>
         <source>Live kernel:</source>
         <translation>Live kerneli:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../mainwindow.ui" line="79"/>
         <source>Boot options:</source>
         <translation>Käynnistyksen valinnat:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="139"/>
+        <location filename="../mainwindow.ui" line="65"/>
         <source>Release version:</source>
         <translation>Julkaisuversio:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation>Vaihda live kerneli</translation>
+        <translation type="vanished">Vaihda live kerneli</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="166"/>
+        <location filename="../mainwindow.ui" line="93"/>
         <source>Project name:</source>
         <translation>Projektin nimi:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../mainwindow.ui" line="133"/>
+        <source>Current date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="172"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot on apuohjelma joka luo käynnistyvän levykuvan (ISO) toimivasta järjestelmästäsi jota voit tallentaa tai jakaa sitä toisille. Voit käyttää järjestelmää normaalisti levykuvan luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="182"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Käytetty tila / (root) ja /home osioissa:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="192"/>
         <source>Location and ISO name</source>
         <translation>Paikka ja nimi ISO-tiedostolle</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="242"/>
+        <location filename="../mainwindow.ui" line="219"/>
         <source>Snapshot location:</source>
         <translation>Tilannevedoksen paikka:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../mainwindow.ui" line="226"/>
         <source>Select a different snapshot directory</source>
         <translation>Valitse toinen tilannevedosten hakemisto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.ui" line="236"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>Snapshot name:</source>
         <translation>Tilannevedoksen nimi:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="379"/>
+        <location filename="../mainwindow.ui" line="355"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Voit myös rajata pois hakemistoja ruksaamalla allaolevat yleiset valinnat tai painamalla painiketta ja muokata suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../mainwindow.ui" line="412"/>
         <source>exclude network configurations</source>
         <translation>jätä verkkomääritykset pois</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="439"/>
+        <location filename="../mainwindow.ui" line="415"/>
         <source>Networks</source>
         <translation>Verkot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="446"/>
+        <location filename="../mainwindow.ui" line="422"/>
         <source>All of the above</source>
         <translation>Kaikki yläpuolella olevat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
+        <location filename="../mainwindow.ui" line="429"/>
         <source>Pictures</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="446"/>
         <source>Desktop</source>
         <translation>Työpöytä</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../mainwindow.ui" line="463"/>
         <source>Music</source>
         <translation>Musiikki</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../mainwindow.ui" line="470"/>
         <source>Downloads</source>
         <translation>Lataukset</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="501"/>
+        <location filename="../mainwindow.ui" line="477"/>
         <source>Videos</source>
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../mainwindow.ui" line="484"/>
         <source>Documents</source>
         <translation>Tiedostot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../mainwindow.ui" line="522"/>
         <source>Type of snapshot:</source>
         <translation>Tilannevedoksen tyyppi:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../mainwindow.ui" line="529"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Säilytä käyttäjätilit (henkilökohtaista varmuuskopiointia varten)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="563"/>
+        <location filename="../mainwindow.ui" line="539"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tämä valinta nollaa &amp;quot;demo&amp;quot; ja &amp;quot;root&amp;quot; salasanat MX:n vakiollisiin eikä kopioi mitään henkilökohtaisia luotuja tilejä.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="566"/>
+        <location filename="../mainwindow.ui" line="542"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Käyttäjätilien tyhjennys (toisille jakamista varten)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../mainwindow.ui" line="571"/>
         <source>Edit Exclusion File</source>
         <translation>Muokkaa rajaustiedostoa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../mainwindow.ui" line="609"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="657"/>
+        <location filename="../mainwindow.ui" line="632"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Ohjaa I/O-nopeutta annetulla prosentilla.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../mainwindow.ui" line="638"/>
         <source>I/O throttle:</source>
         <translation>I/O-kuristin:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="670"/>
+        <location filename="../mainwindow.ui" line="645"/>
         <source>Calculate checksums:</source>
         <translation>Laske tarkistussumma:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="677"/>
+        <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>ISO-pakkausrakenne:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../mainwindow.ui" line="659"/>
         <source>Number of CPU cores to use:</source>
         <translation>Käytettävä prosessoriytimien määrä:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../mainwindow.ui" line="666"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../mainwindow.ui" line="676"/>
         <source>Options:</source>
         <translation>Asetukset:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="848"/>
+        <location filename="../mainwindow.ui" line="823"/>
         <source>About this application</source>
         <translation>Tietoja tästä sovelluksesta</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../mainwindow.ui" line="826"/>
         <source>About...</source>
         <translation>Tietoja...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../mainwindow.ui" line="832"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="874"/>
+        <location filename="../mainwindow.ui" line="848"/>
         <source>Quit application</source>
         <translation>Lopeta sovellus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="877"/>
+        <location filename="../mainwindow.ui" line="851"/>
         <source>Cancel</source>
         <translation>Peru</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../mainwindow.ui" line="857"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="916"/>
+        <location filename="../mainwindow.ui" line="889"/>
         <source>Next</source>
         <translation>Seuraava</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="964"/>
+        <location filename="../mainwindow.ui" line="936"/>
         <source>Back</source>
         <translation>Takaisin</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../mainwindow.ui" line="952"/>
         <source>Display help </source>
         <translation>Näytä ohje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="984"/>
+        <location filename="../mainwindow.ui" line="955"/>
         <source>Help</source>
         <translation>Ohje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../mainwindow.ui" line="961"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="145"/>
+        <source>Select Release Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>fastest, worst compression</source>
         <translation>nopein, huonoin pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>fast, worse compression</source>
         <translation>nopea, huonompi pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="180"/>
+        <location filename="../mainwindow.cpp" line="190"/>
         <source>slow, better compression</source>
         <translation>hidas, parempi pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="180"/>
+        <location filename="../mainwindow.cpp" line="190"/>
         <source>best compromise</source>
         <translation>paras kompromissi</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="181"/>
+        <location filename="../mainwindow.cpp" line="191"/>
         <source>slowest, best compression</source>
         <translation>hitain, paras pakkaus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="210"/>
+        <location filename="../mainwindow.cpp" line="220"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="213"/>
+        <location filename="../mainwindow.cpp" line="223"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -325,175 +334,174 @@ Tarvittaessa voit tehdä vapaata tilaa poistamalla aiemmat
 tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="225"/>
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="235"/>
+        <location filename="../mainwindow.cpp" line="236"/>
         <source>Installing </source>
         <translation>Asennetaan</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Please wait.</source>
         <translation>Odota, ole hyvä.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="313"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Odota, ole hyvä. Lasketaan käytettyä levytilaa...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="363"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Tilannevedos käyttää seuraavia asetuksia:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>- Snapshot directory:</source>
         <translation>- Tilannevedosten hakemisto:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>- Kernel to be used:</source>
         <translation>- Käytettävä kerneli:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="394"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Nvidia havaittu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tietokone käyttää Nvidia näytönohjainta. Käytätkö tuloksena olevaa ISO:a tässä tietokoneessa vai toisessa tietokoneessa, jossa on Nvidia?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="399"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Nvidia valittu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="400"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.cpp" line="393"/>
-        <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistyksen asetuksista.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="404"/>
+        <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistyksen asetuksiin.</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="415"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="439"/>
         <source>Final chance</source>
         <translation>Viimeinen mahdollisuus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="430"/>
+        <location filename="../mainwindow.cpp" line="441"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Tilannevedos työkalulla on nyt kaikki tarvittava tieto, jotta se voi tehdä ISO-levykuvan käynnissä olevasta järjestelmästäsi.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="442"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Viimeistely tulee kestämään kotvasen aikaa, riippuen asennetun järjestelmän koosta sekä tietokoneesi kapasiteetista.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>OK to start?</source>
         <translation>Voidaanko aloittaa?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="448"/>
         <source>Shutdown computer when done.</source>
         <translation>Sammuta tietokone, kun valmis.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="480"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="485"/>
+        <location filename="../mainwindow.cpp" line="496"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="503"/>
         <source>Edit Boot Menu</source>
         <translation>Muokkaa käynnistysvalikkoa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="493"/>
+        <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Tämä ohjelma tauotetaan nyt jotta voit muokata työkansion mitä tahansa tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa, tai valitse vaihtoehtoisesti Ei ohittaaksesi tämän vaiheen sekä jatkaaksesi snapshot-järjestelmävedoksen luomista.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
         <source>Select kernel</source>
-        <translation>Valitse kerneli</translation>
+        <translation type="vanished">Valitse kerneli</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="593"/>
         <source>About %1</source>
         <translation>%1 lisätietoja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="593"/>
+        <location filename="../mainwindow.cpp" line="595"/>
         <source>Version: </source>
         <translation>Versio: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="594"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Ohjelma jonka avulla voit luoda live-CD:n tällä hetkellä ajetusta järjestelmästä MX Linux:ille</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="598"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="600"/>
         <source>%1 License</source>
         <translation>%1 lupa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="614"/>
         <source>%1 Help</source>
         <translation>%1 Apuopas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>Select Snapshot Directory</source>
         <translation>Valitse tilannevedosten hakemisto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Confirmation</source>
         <translation>Vahvistus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Oletko varma että haluat lopettaa sovelluksen?</translation>
     </message>
@@ -844,7 +852,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot valmistui onnistuneesti!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

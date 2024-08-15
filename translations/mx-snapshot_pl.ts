@@ -38,8 +38,8 @@
     <name>MainWindow</name>
     <message>
         <location filename="../mainwindow.ui" line="14"/>
-        <location filename="../mainwindow.cpp" line="173"/>
-        <location filename="../mainwindow.cpp" line="515"/>
+        <location filename="../mainwindow.cpp" line="183"/>
+        <location filename="../mainwindow.cpp" line="517"/>
         <source>MX Snapshot</source>
         <translation>MX Zrzut systemu</translation>
     </message>
@@ -49,273 +49,282 @@
         <translation>Opcjonalna personalizacja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="42"/>
+        <location filename="../mainwindow.ui" line="100"/>
         <source>Release date:</source>
         <translation>Data wydania:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="49"/>
+        <location filename="../mainwindow.ui" line="107"/>
         <source>Release codename:</source>
         <translation>Nazwa kodowa wydania:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="56"/>
+        <location filename="../mainwindow.ui" line="86"/>
         <source>Live kernel:</source>
         <translation>Live kernel:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="97"/>
+        <location filename="../mainwindow.ui" line="79"/>
         <source>Boot options:</source>
         <translation>Opcje rozruchu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="139"/>
+        <location filename="../mainwindow.ui" line="65"/>
         <source>Release version:</source>
         <translation>Wersja wydania:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="159"/>
         <source>Change live kernel</source>
-        <translation>Zmień live kernel</translation>
+        <translation type="vanished">Zmień live kernel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="166"/>
+        <location filename="../mainwindow.ui" line="93"/>
         <source>Project name:</source>
         <translation>Nazwa projektu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="195"/>
+        <location filename="../mainwindow.ui" line="133"/>
+        <source>Current date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="172"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;MX Zrzut systemu tworzy obraz uruchomieniowy ISO Twojego systemu, który możesz użyć jako backup, dysk ratunkowy lub do redystrybucji. Podczas jego pracy staraj się nie korzystać z aplikacji mocno obciążających Twój system.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="205"/>
+        <location filename="../mainwindow.ui" line="182"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Wykorzystane miejsce na partycji głównej (root) / i partycji /home:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="215"/>
+        <location filename="../mainwindow.ui" line="192"/>
         <source>Location and ISO name</source>
         <translation>Lokalizacja i nazwa ISO</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="242"/>
+        <location filename="../mainwindow.ui" line="219"/>
         <source>Snapshot location:</source>
         <translation>Lokalizacja zrzutu danych:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="249"/>
+        <location filename="../mainwindow.ui" line="226"/>
         <source>Select a different snapshot directory</source>
         <translation>Wybierz inny katalog zrzutu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="260"/>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.ui" line="236"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>Snapshot name:</source>
         <translation>Nazwa pliku obrazu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="379"/>
+        <location filename="../mainwindow.ui" line="355"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Możesz również wykluczyć niektóre katalogi, zaznaczając typowe opcje poniżej lub klikając przycisk, aby bezpośrednio edytować /etc/mx-snapshot-exclude.list</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="436"/>
+        <location filename="../mainwindow.ui" line="412"/>
         <source>exclude network configurations</source>
         <translation>wyklucz konfiguracje sieciowe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="439"/>
+        <location filename="../mainwindow.ui" line="415"/>
         <source>Networks</source>
         <translation>Sieci</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="446"/>
+        <location filename="../mainwindow.ui" line="422"/>
         <source>All of the above</source>
         <translation>Wszystkie powyższe</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="453"/>
+        <location filename="../mainwindow.ui" line="429"/>
         <source>Pictures</source>
         <translation>Obrazy</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="470"/>
+        <location filename="../mainwindow.ui" line="446"/>
         <source>Desktop</source>
         <translation>Pulpit</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="487"/>
+        <location filename="../mainwindow.ui" line="463"/>
         <source>Music</source>
         <translation>Muzyka</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="494"/>
+        <location filename="../mainwindow.ui" line="470"/>
         <source>Downloads</source>
         <translation>Pobrane</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="501"/>
+        <location filename="../mainwindow.ui" line="477"/>
         <source>Videos</source>
         <translation>Wideo</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="508"/>
+        <location filename="../mainwindow.ui" line="484"/>
         <source>Documents</source>
         <translation>Dokumenty</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="546"/>
+        <location filename="../mainwindow.ui" line="522"/>
         <source>Type of snapshot:</source>
         <translation>Typ zrzutu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="553"/>
+        <location filename="../mainwindow.ui" line="529"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Zachowanie kont i prywatnych danych (przydatne gdy wykonujesz kopię zapasową)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="563"/>
+        <location filename="../mainwindow.ui" line="539"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Ta opcja zresetuje hasła użytkowników &amp;quot;demo&amp;quot; i &amp;quot;root&amp;quot; do domyślnych haseł MX Linux i nie skopiuje żadnych utworzonych w systemie kont i danych użytkowników.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="566"/>
+        <location filename="../mainwindow.ui" line="542"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Resetowanie kont (przydatne gdy chcesz podzielić się obrazem systemu z innymi)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="595"/>
+        <location filename="../mainwindow.ui" line="571"/>
         <source>Edit Exclusion File</source>
         <translation>Edytuj plik wykluczeń</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="634"/>
+        <location filename="../mainwindow.ui" line="609"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="657"/>
+        <location filename="../mainwindow.ui" line="632"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Ogranicz szybkość wejścia I/O o podany procent.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="663"/>
+        <location filename="../mainwindow.ui" line="638"/>
         <source>I/O throttle:</source>
         <translation>Ograniczenie I/O:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="670"/>
+        <location filename="../mainwindow.ui" line="645"/>
         <source>Calculate checksums:</source>
         <translation>Oblicz sumy kontrolne:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="677"/>
+        <location filename="../mainwindow.ui" line="652"/>
         <source>ISO compression scheme:</source>
         <translation>Schemat kompresji ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="684"/>
+        <location filename="../mainwindow.ui" line="659"/>
         <source>Number of CPU cores to use:</source>
         <translation>Liczba rdzeni CPU do użycia:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="691"/>
+        <location filename="../mainwindow.ui" line="666"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="701"/>
+        <location filename="../mainwindow.ui" line="676"/>
         <source>Options:</source>
         <translation>Opcje:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="848"/>
+        <location filename="../mainwindow.ui" line="823"/>
         <source>About this application</source>
         <translation>O programie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="851"/>
+        <location filename="../mainwindow.ui" line="826"/>
         <source>About...</source>
         <translation>O...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="858"/>
+        <location filename="../mainwindow.ui" line="832"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="874"/>
+        <location filename="../mainwindow.ui" line="848"/>
         <source>Quit application</source>
         <translation>Zakończ aplikację</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="877"/>
+        <location filename="../mainwindow.ui" line="851"/>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="884"/>
+        <location filename="../mainwindow.ui" line="857"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="916"/>
+        <location filename="../mainwindow.ui" line="889"/>
         <source>Next</source>
         <translation>Dalej</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="964"/>
+        <location filename="../mainwindow.ui" line="936"/>
         <source>Back</source>
         <translation>Wstecz</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="981"/>
+        <location filename="../mainwindow.ui" line="952"/>
         <source>Display help </source>
         <translation>Wyświetl pomoc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="984"/>
+        <location filename="../mainwindow.ui" line="955"/>
         <source>Help</source>
         <translation>Pomoc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="991"/>
+        <location filename="../mainwindow.ui" line="961"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="145"/>
+        <source>Select Release Date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>fastest, worst compression</source>
         <translation>najszybsza, najgorsza kompresja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="179"/>
+        <location filename="../mainwindow.cpp" line="189"/>
         <source>fast, worse compression</source>
         <translation>szybka, gorsza kompresja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="180"/>
+        <location filename="../mainwindow.cpp" line="190"/>
         <source>slow, better compression</source>
         <translation>wolna, lepsza kompresja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="180"/>
+        <location filename="../mainwindow.cpp" line="190"/>
         <source>best compromise</source>
         <translation>najlepszy kompromis</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="181"/>
+        <location filename="../mainwindow.cpp" line="191"/>
         <source>slowest, best compression</source>
         <translation>najwolniejsza, najlepsza kompresja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="210"/>
+        <location filename="../mainwindow.cpp" line="220"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Wolne miejsce na %1, zawierającej katalog zrzutu: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="213"/>
+        <location filename="../mainwindow.cpp" line="223"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -324,175 +333,174 @@
      Jeśli to konieczne, możesz zwiększyć dostępną przestrzeń, usuwając poprzednie migawki i zapisane kopie: %1 migawki zajmują %2 miejsca na dysku.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="225"/>
-        <location filename="../mainwindow.cpp" line="226"/>
+        <location filename="../mainwindow.cpp" line="235"/>
+        <location filename="../mainwindow.cpp" line="236"/>
         <source>Installing </source>
         <translation>Instalowanie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="311"/>
+        <location filename="../mainwindow.cpp" line="321"/>
         <source>Please wait.</source>
         <translation>Proszę czekać.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="313"/>
+        <location filename="../mainwindow.cpp" line="323"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Proszę czekać. Obliczanie wykorzystywanej przestrzeni dyskowej...</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="347"/>
-        <location filename="../mainwindow.cpp" line="403"/>
+        <location filename="../mainwindow.cpp" line="357"/>
+        <location filename="../mainwindow.cpp" line="414"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="348"/>
+        <location filename="../mainwindow.cpp" line="358"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Plik wyjściowy %1 już istnieje. Użyj innej nazwy pliku lub usuń istniejący plik.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="353"/>
+        <location filename="../mainwindow.cpp" line="363"/>
         <source>Settings</source>
         <translation>Ustawienia</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="358"/>
+        <location filename="../mainwindow.cpp" line="369"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Migawka użyje następujących ustawień:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="360"/>
+        <location filename="../mainwindow.cpp" line="371"/>
         <source>- Snapshot directory:</source>
         <translation>- Katalog zrzutu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="361"/>
+        <location filename="../mainwindow.cpp" line="372"/>
         <source>- Kernel to be used:</source>
         <translation>- Jądro systemu:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="383"/>
-        <location filename="../mainwindow.cpp" line="392"/>
+        <location filename="../mainwindow.cpp" line="394"/>
+        <location filename="../mainwindow.cpp" line="403"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="384"/>
+        <location filename="../mainwindow.cpp" line="395"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="388"/>
+        <location filename="../mainwindow.cpp" line="399"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="389"/>
+        <location filename="../mainwindow.cpp" line="400"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="393"/>
+        <location filename="../mainwindow.cpp" line="404"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="404"/>
+        <location filename="../mainwindow.cpp" line="415"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Bieżące jądro (kernel) nie obsługuje wybranego algorytmu kompresji, proszę edytować plik konfiguracyjny i wybrać inny algorytm.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="428"/>
+        <location filename="../mainwindow.cpp" line="439"/>
         <source>Final chance</source>
         <translation>Ostatnia szansa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="430"/>
+        <location filename="../mainwindow.cpp" line="441"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Zrzut zawiera teraz wszystkie informacje potrzebne do utworzenia obrazu ISO z Twojego systemu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="431"/>
+        <location filename="../mainwindow.cpp" line="442"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Zakończenie pracy może chwilę potrwać, w zależności od rozmiaru zainstalowanego systemu oraz możliwości sprzętowych Twojego komputera.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="433"/>
+        <location filename="../mainwindow.cpp" line="444"/>
         <source>OK to start?</source>
         <translation>Zaczynamy?</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="437"/>
+        <location filename="../mainwindow.cpp" line="448"/>
         <source>Shutdown computer when done.</source>
         <translation>Wyłącz komputer po zakończeniu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="469"/>
+        <location filename="../mainwindow.cpp" line="480"/>
         <source>Output</source>
         <translation>Log:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="485"/>
+        <location filename="../mainwindow.cpp" line="496"/>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="492"/>
+        <location filename="../mainwindow.cpp" line="503"/>
         <source>Edit Boot Menu</source>
         <translation>Edytuj menu rozruchu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="493"/>
+        <location filename="../mainwindow.cpp" line="504"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Program zatrzyma pracę, aby pozwolić Ci na edycję plików w katalogu roboczym. Wybierz Tak by edytować menu rozruchu lub Nie by kontynuować tworzenie zrzutu.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
         <source>Select kernel</source>
-        <translation>Wybierz kernel</translation>
+        <translation type="vanished">Wybierz kernel</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="591"/>
+        <location filename="../mainwindow.cpp" line="593"/>
         <source>About %1</source>
         <translation>O %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="593"/>
+        <location filename="../mainwindow.cpp" line="595"/>
         <source>Version: </source>
         <translation>Wersja:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="594"/>
+        <location filename="../mainwindow.cpp" line="596"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program do tworzenia obrazów Live-CD z działającego systemu dla dystrybucji MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="596"/>
+        <location filename="../mainwindow.cpp" line="598"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Prawa autorskie © MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="598"/>
+        <location filename="../mainwindow.cpp" line="600"/>
         <source>%1 License</source>
         <translation>%1 Licencja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="612"/>
+        <location filename="../mainwindow.cpp" line="614"/>
         <source>%1 Help</source>
         <translation>%1 Pomoc</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="617"/>
+        <location filename="../mainwindow.cpp" line="619"/>
         <source>Select Snapshot Directory</source>
         <translation>Wybierz katalog zrzutu</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Confirmation</source>
         <translation>Potwierdzenie</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="638"/>
+        <location filename="../mainwindow.cpp" line="640"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Czy na pewno chcesz zamknąć aplikację?</translation>
     </message>

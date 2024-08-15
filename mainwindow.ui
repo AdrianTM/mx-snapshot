@@ -43,21 +43,17 @@
             </property>
            </widget>
           </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="textOptions">
-            <property name="text">
-             <string notr="true"/>
-            </property>
-           </widget>
-          </item>
           <item row="7" column="2">
            <spacer name="horizontalSpacer_4">
             <property name="orientation">
              <enum>Qt::Orientation::Horizontal</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Minimum</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>213</width>
               <height>20</height>
              </size>
             </property>
@@ -131,13 +127,20 @@
              <string notr="true"/>
             </property>
             <property name="styleSheet">
-             <string notr="true">text-align: left; padding-left: 3px;</string>
+             <string notr="true">text-align: left; padding-left: 5px;</string>
             </property>
             <property name="text">
              <string>Current date</string>
             </property>
             <property name="autoDefault">
              <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="textOptions">
+            <property name="text">
+             <string notr="true"/>
             </property>
            </widget>
           </item>

@@ -1,3 +1,10 @@
+mx-snapshot (24.8.01) mx; urgency=medium
+
+  * Use QCalendarWidget to select release date and combobox to select
+    the kernel
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 14 Aug 2024 22:23:48 -0400
+
 mx-snapshot (24.8) mx; urgency=medium
 
   * Add support for ext2 and zfs for temporary work directory
