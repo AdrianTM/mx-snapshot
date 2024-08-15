@@ -25,6 +25,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QCalendarWidget>
 #include <QDebug>
 #include <QFileDialog>
 #include <QKeyEvent>
@@ -80,13 +81,13 @@ void MainWindow::loadSettings()
     ui->textDistroVersion->setText(distro_version);
     ui->textProjectName->setText(project_name);
     ui->textOptions->setText(boot_options);
-    ui->textReleaseDate->setText(release_date);
-    ui->textKernel->setText(kernel);
+    ui->pushReleaseDate->setText(release_date);
     QDir bootDir("/boot");
-    QStringList kernelFiles = bootDir.entryList(QStringList() << "vmlinuz-*", QDir::Files);
-    if (kernelFiles.count() < 2) {
-        ui->btnKernel->setHidden(true);
-    }
+    QStringList kernelFiles = bootDir.entryList({"vmlinuz-*"}, QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
+    std::transform(kernelFiles.begin(), kernelFiles.end(), kernelFiles.begin(),
+                   [](const QString &file) { return file.mid(QStringLiteral("vmlinuz-").length()); });
+    ui->comboLiveKernel->addItems(kernelFiles);
+    ui->comboLiveKernel->setCurrentText(kernel);
 }
 
 void MainWindow::setOtherOptions()
@@ -115,7 +116,6 @@ void MainWindow::setConnections()
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
     connect(ui->btnEditExclude, &QPushButton::clicked, this, &MainWindow::btnEditExclude_clicked);
     connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
-    connect(ui->btnKernel, &QPushButton::clicked, this, &MainWindow::btnSelectKernel_clicked);
     connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
     connect(ui->cbCompression, QOverload<int>::of(&QComboBox::currentIndexChanged), this,
@@ -140,6 +140,16 @@ void MainWindow::setConnections()
     connect(ui->excludeSteam, &QCheckBox::toggled, this, &MainWindow::excludeSteam_toggled);
     connect(ui->excludeVideos, &QCheckBox::toggled, this, &MainWindow::excludeVideos_toggled);
     connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
+    connect(ui->pushReleaseDate, &QPushButton::clicked, this, [this] {
+        QCalendarWidget *calendarWidget = new QCalendarWidget(this);
+        calendarWidget->setWindowTitle(tr("Select Release Date"));
+        calendarWidget->setWindowFlags(Qt::Dialog | Qt::WindowTitleHint | Qt::WindowSystemMenuHint);
+        connect(calendarWidget, &QCalendarWidget::activated, this, [this, calendarWidget](const QDate date) {
+            ui->pushReleaseDate->setText(date.toString("MMMM dd, yyyy"));
+            calendarWidget->deleteLater();
+        });
+        calendarWidget->show();
+    });
     connect(ui->radioPersonal, &QRadioButton::clicked, this, &MainWindow::radioPersonal_clicked);
     connect(ui->radioRespin, &QRadioButton::toggled, this, &MainWindow::radioRespin_toggled);
     connect(ui->spinCPU, QOverload<int>::of(&QSpinBox::valueChanged), this, &MainWindow::spinCPU_valueChanged);
@@ -354,6 +364,7 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     ui->stackedWidget->setCurrentWidget(ui->settingsPage);
     ui->btnBack->setHidden(false);
     ui->btnBack->setEnabled(true);
+    kernel = ui->comboLiveKernel->currentText();
     selectKernel();
     ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
 
@@ -365,7 +376,7 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     project_name = ui->textProjectName->text();
     full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
     boot_options = ui->textOptions->text();
-    release_date = ui->textReleaseDate->text();
+    release_date = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();
 }
 
@@ -498,15 +509,6 @@ void MainWindow::editBootMenu()
         QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
         work.shell.run(cmd);
         show();
-    }
-}
-
-void MainWindow::btnSelectKernel_clicked()
-{
-    QString selected = QFileDialog::getOpenFileName(this, tr("Select kernel"), "/boot", "vmlinuz-*");
-    if (QFile::exists(selected)) {
-        ui->textKernel->setText(selected.remove(QRegularExpression("^/boot/vmlinuz-")));
-        kernel = ui->textKernel->text();
     }
 }
 
