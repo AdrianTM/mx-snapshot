@@ -37,10 +37,10 @@ void Log::messageHandler(QtMsgType type, const QMessageLogContext &, const QStri
 {
     QTextStream term_out(stdout);
 
-    // Avoid saving endless mksquashfs output
-    if (msg.startsWith('\r') || msg.startsWith("\033[2K")) {
-        term_out << msg;
-        return;
+    // Check if the message contains carriage return or starts with the escape sequence for clearing the line
+    if (msg.contains('\r') || msg.startsWith("\033[2K")) {
+        term_out << "\033[?25l" << msg;
+        return; // Skip writing to the log file
     }
 
     term_out << msg << '\n';

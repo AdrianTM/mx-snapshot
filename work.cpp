@@ -79,7 +79,7 @@ void Work::cleanUp()
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
-    emit message(tr("Cleaning..."));
+    emit message(tr("Cleaning...") + "\033[?25h"); // Restore the cursor visibility
     Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
     shell.close();
     QProcess::execute("sync", {});
