@@ -533,9 +533,9 @@ void Settings::excludeFlatpaks(bool exclude)
     if (exclude) {
         exclusions.setFlag(Exclude::Flatpaks);
     }
-    QString exclusion = "home/*/.local/share/flatpak/*\" \"home/*/.local/share/flatpak/.* "
-                        "var/lib/flatpak/*\" \"var/lib/flatpak/.* "
-                        "home/*/.var/app/*\" \"home/*/.var/app/.*";
+    QString exclusion = "home/*/.local/share/flatpak/*\" \"home/*/.local/share/flatpak/.*\" "
+                        "\"var/lib/flatpak/*\" \"var/lib/flatpak/.*\" "
+                        "\"home/*/.var/app/*\" \"home/*/.var/app/.*";
     addRemoveExclusion(exclude, exclusion);
 }
 
