@@ -202,7 +202,7 @@
     <message>
         <location filename="../mainwindow.ui" line="664"/>
         <source>exclude network configurations</source>
-        <translation>configuracions d&apos;exclusió de xarxes</translation>
+        <translation>exclou configuracions de xarxes</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="667"/>
