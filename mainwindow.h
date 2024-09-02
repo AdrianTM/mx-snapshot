@@ -72,6 +72,7 @@ private slots:
     void excludeDesktop_toggled(bool checked);
     void excludeDocuments_toggled(bool checked);
     void excludeDownloads_toggled(bool checked);
+    void excludeFlatpaks_toggled(bool checked);
     void excludeMusic_toggled(bool checked);
     void excludeNetworks_toggled(bool checked);
     void excludePictures_toggled(bool checked);

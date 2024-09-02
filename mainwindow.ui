@@ -20,7 +20,7 @@
       <enum>QFrame::Shadow::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="selectionPage">
       <layout class="QGridLayout" name="gridLayout_2">
@@ -342,168 +342,6 @@ color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
-       <item row="11" column="0" colspan="4">
-        <widget class="Line" name="line">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="4" column="0" colspan="4">
-        <widget class="QLabel" name="labelExclude">
-         <property name="text">
-          <string>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="7" column="0" colspan="4">
-        <widget class="Line" name="line_5">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="0" colspan="4">
-        <widget class="Line" name="line_2">
-         <property name="orientation">
-          <enum>Qt::Orientation::Horizontal</enum>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="0" colspan="4">
-        <widget class="QLabel" name="labelSummary">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgb(255, 255, 205);
-border-color: rgb(0, 0, 0);
-color: rgb(0, 0, 0);</string>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::Shape::Box</enum>
-         </property>
-         <property name="text">
-          <string notr="true">TextLabel</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="0" colspan="4">
-        <widget class="QFrame" name="frame">
-         <property name="frameShape">
-          <enum>QFrame::Shape::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Shadow::Sunken</enum>
-         </property>
-         <property name="lineWidth">
-          <number>0</number>
-         </property>
-         <property name="midLineWidth">
-          <number>1</number>
-         </property>
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="2" column="0">
-           <widget class="QCheckBox" name="excludeNetworks">
-            <property name="statusTip">
-             <string>exclude network configurations</string>
-            </property>
-            <property name="text">
-             <string>Networks</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QCheckBox" name="excludeAll">
-            <property name="text">
-             <string>All of the above</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QCheckBox" name="excludePictures">
-            <property name="text">
-             <string>Pictures</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1">
-           <widget class="QCheckBox" name="excludeSteam">
-            <property name="text">
-             <string notr="true">Steam</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QCheckBox" name="excludeDesktop">
-            <property name="text">
-             <string>Desktop</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="2">
-           <widget class="QCheckBox" name="excludeVirtualBox">
-            <property name="text">
-             <string notr="true">VirtualBox</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QCheckBox" name="excludeMusic">
-            <property name="text">
-             <string>Music</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QCheckBox" name="excludeDownloads">
-            <property name="text">
-             <string>Downloads</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="2">
-           <widget class="QCheckBox" name="excludeVideos">
-            <property name="text">
-             <string>Videos</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QCheckBox" name="excludeDocuments">
-            <property name="text">
-             <string>Documents</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="2" column="0">
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Policy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>10</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
        <item row="13" column="0" colspan="4">
         <widget class="QFrame" name="frame_3">
          <property name="frameShape">
@@ -559,19 +397,68 @@ color: rgb(0, 0, 0);</string>
          </layout>
         </widget>
        </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="btnEditExclude">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+       <item row="2" column="0">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Policy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>10</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="0" colspan="4">
+        <widget class="QLabel" name="labelSummary">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 205);
+border-color: rgb(0, 0, 0);
+color: rgb(0, 0, 0);</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::Shape::Box</enum>
          </property>
          <property name="text">
-          <string>Edit Exclusion File</string>
+          <string notr="true">TextLabel</string>
          </property>
-         <property name="icon">
-          <iconset theme="edit"/>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0" colspan="4">
+        <widget class="Line" name="line_5">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0" colspan="4">
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0" colspan="4">
+        <widget class="QLabel" name="labelExclude">
+         <property name="text">
+          <string>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="4">
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
          </property>
         </widget>
        </item>
@@ -709,6 +596,126 @@ color: rgb(0, 0, 0);</string>
          </layout>
         </widget>
        </item>
+       <item row="6" column="0">
+        <widget class="QPushButton" name="btnEditExclude">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>Edit Exclusion File</string>
+         </property>
+         <property name="icon">
+          <iconset theme="edit"/>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="4">
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::Shape::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Shadow::Sunken</enum>
+         </property>
+         <property name="lineWidth">
+          <number>0</number>
+         </property>
+         <property name="midLineWidth">
+          <number>1</number>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="4">
+           <widget class="QCheckBox" name="excludeVirtualBox">
+            <property name="text">
+             <string notr="true">VirtualBox</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QCheckBox" name="excludePictures">
+            <property name="text">
+             <string>Pictures</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="3">
+           <widget class="QCheckBox" name="excludeVideos">
+            <property name="text">
+             <string>Videos</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QCheckBox" name="excludeAll">
+            <property name="text">
+             <string>All of the above</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QCheckBox" name="excludeNetworks">
+            <property name="statusTip">
+             <string>exclude network configurations</string>
+            </property>
+            <property name="text">
+             <string>Networks</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QCheckBox" name="excludeDownloads">
+            <property name="text">
+             <string>Downloads</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QCheckBox" name="excludeDesktop">
+            <property name="text">
+             <string>Desktop</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QCheckBox" name="excludeDocuments">
+            <property name="text">
+             <string>Documents</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="3">
+           <widget class="QCheckBox" name="excludeFlatpaks">
+            <property name="text">
+             <string>Flatpaks</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="4">
+           <widget class="QCheckBox" name="excludeMusic">
+            <property name="text">
+             <string>Music</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QCheckBox" name="excludeSteam">
+            <property name="text">
+             <string notr="true">Steam</string>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="outputPage">
@@ -795,22 +802,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <property name="spacing">
       <number>5</number>
      </property>
-     <item row="0" column="2">
-      <spacer name="horizontalSpacer1">
-       <property name="orientation">
-        <enum>Qt::Orientation::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Policy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>100</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
      <item row="0" column="0">
       <widget class="QPushButton" name="btnAbout">
        <property name="sizePolicy">
@@ -833,6 +824,53 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
        <property name="autoDefault">
         <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="8">
+      <widget class="QPushButton" name="btnNext">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Next</string>
+       </property>
+       <property name="icon">
+        <iconset theme="go-next"/>
+       </property>
+       <property name="shortcut">
+        <string/>
+       </property>
+       <property name="autoDefault">
+        <bool>true</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="btnHelp">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Display help </string>
+       </property>
+       <property name="text">
+        <string>Help</string>
+       </property>
+       <property name="icon">
+        <iconset theme="help-contents"/>
+       </property>
+       <property name="shortcut">
+        <string>Alt+H</string>
        </property>
       </widget>
      </item>
@@ -877,31 +915,6 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
       </spacer>
      </item>
-     <item row="0" column="8">
-      <widget class="QPushButton" name="btnNext">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Next</string>
-       </property>
-       <property name="icon">
-        <iconset theme="go-next"/>
-       </property>
-       <property name="shortcut">
-        <string/>
-       </property>
-       <property name="autoDefault">
-        <bool>true</bool>
-       </property>
-       <property name="default">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="3">
       <widget class="QLabel" name="labelMX">
        <property name="maximumSize">
@@ -940,27 +953,21 @@ li.checked::marker { content: &quot;\2612&quot;; }
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="btnHelp">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer1">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
-       <property name="toolTip">
-        <string>Display help </string>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Expanding</enum>
        </property>
-       <property name="text">
-        <string>Help</string>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
        </property>
-       <property name="icon">
-        <iconset theme="help-contents"/>
-       </property>
-       <property name="shortcut">
-        <string>Alt+H</string>
-       </property>
-      </widget>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -979,15 +986,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>btnNext</tabstop>
   <tabstop>btnCancel</tabstop>
   <tabstop>excludeDocuments</tabstop>
-  <tabstop>excludeMusic</tabstop>
-  <tabstop>excludeNetworks</tabstop>
-  <tabstop>excludeAll</tabstop>
   <tabstop>excludeDownloads</tabstop>
-  <tabstop>excludePictures</tabstop>
-  <tabstop>excludeSteam</tabstop>
-  <tabstop>excludeDesktop</tabstop>
-  <tabstop>excludeVideos</tabstop>
-  <tabstop>excludeVirtualBox</tabstop>
   <tabstop>btnEditExclude</tabstop>
   <tabstop>cbCompression</tabstop>
   <tabstop>checkMd5</tabstop>

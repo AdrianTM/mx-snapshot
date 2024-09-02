@@ -125,6 +125,7 @@ void MainWindow::setConnections()
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
+    connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeFlatpaks, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeMusic, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeNetworks, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludePictures, &QCheckBox::setChecked);
@@ -134,6 +135,7 @@ void MainWindow::setConnections()
     connect(ui->excludeDesktop, &QCheckBox::toggled, this, &MainWindow::excludeDesktop_toggled);
     connect(ui->excludeDocuments, &QCheckBox::toggled, this, &MainWindow::excludeDocuments_toggled);
     connect(ui->excludeDownloads, &QCheckBox::toggled, this, &MainWindow::excludeDownloads_toggled);
+    connect(ui->excludeFlatpaks, &QCheckBox::toggled, this, &MainWindow::excludeFlatpaks_toggled);
     connect(ui->excludeMusic, &QCheckBox::toggled, this, &MainWindow::excludeMusic_toggled);
     connect(ui->excludeNetworks, &QCheckBox::toggled, this, &MainWindow::excludeNetworks_toggled);
     connect(ui->excludePictures, &QCheckBox::toggled, this, &MainWindow::excludePictures_toggled);
@@ -536,6 +538,13 @@ void MainWindow::excludeDocuments_toggled(bool checked)
 }
 
 void MainWindow::excludeDownloads_toggled(bool checked)
+{
+    if (!checked) {
+        ui->excludeAll->setChecked(false);
+    }
+}
+
+void MainWindow::excludeFlatpaks_toggled(bool checked)
 {
     if (!checked) {
         ui->excludeAll->setChecked(false);

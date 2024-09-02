@@ -69,6 +69,7 @@ public:
     void excludeDesktop(bool exclude);
     void excludeDocuments(bool exclude);
     void excludeDownloads(bool exclude);
+    void excludeFlatpaks(bool exclude);
     void excludeItem(const QString &item);
     void excludeMusic(bool exclude);
     void excludeNetworks(bool exclude);
@@ -90,12 +91,13 @@ private:
         Desktop = 1 << 0,
         Documents = 1 << 1,
         Downloads = 1 << 2,
-        Music = 1 << 3,
-        Networks = 1 << 4,
-        Pictures = 1 << 5,
-        Videos = 1 << 6,
+        Flatpaks = 1 << 3,
+        Music = 1 << 4,
+        Networks = 1 << 5,
+        Pictures = 1 << 6,
         Steam = 1 << 7,
-        VirtualBox = 1 << 8
+        Videos = 1 << 8,
+        VirtualBox = 1 << 9
     };
     Q_DECLARE_FLAGS(Exclusions, Exclude)
     const QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},

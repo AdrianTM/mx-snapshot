@@ -106,7 +106,7 @@ int main(int argc, char *argv[])
         {{"w", "workdir"}, QObject::tr("Work directory"), "path"},
         {{"x", "exclude"},
          QObject::tr("Exclude main folders, valid choices: ")
-             + "Desktop, Documents, Downloads, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
+             + "Desktop, Documents, Downloads, Flatpaks, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
              + QObject::tr("Use the option one time for each item you want to exclude"),
          "one item"},
         {{"z", "compression"},
@@ -211,8 +211,7 @@ void checkSquashfs()
     current_kernel = proc.readAllStandardOutput().trimmed();
 
     const QString configPath = "/boot/config-" + current_kernel;
-    if (QFile::exists(configPath)
-        && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
+    if (QFile::exists(configPath) && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
         const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
 #ifndef CLI_BUILD
         if (QCoreApplication::instance()->inherits("QApplication")) {
