@@ -1,3 +1,9 @@
+mx-snapshot (24.9) mx; urgency=medium
+
+  * Add exclude Flatpak option
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 01 Sep 2024 22:12:04 -0400
+
 mx-snapshot (24.8.02) mx; urgency=medium
 
   * Fix terminal output for progress bar and pulsing "Progress ..."
