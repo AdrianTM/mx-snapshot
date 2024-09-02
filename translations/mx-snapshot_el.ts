@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="185"/>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>MX Snapshot</source>
         <translation>MX Στιγμιότυπο συστήματος</translation>
     </message>
@@ -115,56 +115,6 @@
         <translation>Το όνομα του στιγμιότυπου:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="451"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Μπορείτε να εξαιρέσετε καταλόγους τσεκάροντας τις πιο κάτω επιλογές, ή κάνοντας κλικ στο κάτω κουμπί για να επεξεργαστείτε άμεσα το /etc/mx-snapshot-exclude.list.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>exclude network configurations</source>
-        <translation>εξαίρεση της παραμετροποίησης δικτύου</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="667"/>
-        <source>Networks</source>
-        <translation>Δίκτυα</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>All of the above</source>
-        <translation>Όλα τα παραπάνω</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="643"/>
-        <source>Pictures</source>
-        <translation>Εικόνες</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="681"/>
-        <source>Desktop</source>
-        <translation>Επιφάνεια εργασίας</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="702"/>
-        <source>Music</source>
-        <translation>Μουσική</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <source>Downloads</source>
-        <translation>Λήψεις</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Videos</source>
-        <translation>Βίντεο</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="688"/>
-        <source>Documents</source>
-        <translation>&apos;Εγγραφα</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Type of snapshot:</source>
         <translation>Μορφή στιγμιότυπου:</translation>
@@ -185,9 +135,9 @@
         <translation>Επαναφορά λογαριασμών (για διανομή σε άλλους)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="608"/>
-        <source>Edit Exclusion File</source>
-        <translation>Επεξεργασία αρχείου εξαιρέσεων</translation>
+        <location filename="../mainwindow.ui" line="451"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>Μπορείτε να εξαιρέσετε καταλόγους τσεκάροντας τις πιο κάτω επιλογές, ή κάνοντας κλικ στο κάτω κουμπί για να επεξεργαστείτε άμεσα το /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
@@ -230,9 +180,59 @@
         <translation>Επιλογές:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="608"/>
+        <source>Edit Exclusion File</source>
+        <translation>Επεξεργασία αρχείου εξαιρέσεων</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Pictures</source>
+        <translation>Εικόνες</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="650"/>
+        <source>Videos</source>
+        <translation>Βίντεο</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>All of the above</source>
+        <translation>Όλα τα παραπάνω</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>exclude network configurations</source>
+        <translation>εξαίρεση της παραμετροποίησης δικτύου</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="667"/>
+        <source>Networks</source>
+        <translation>Δίκτυα</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="674"/>
+        <source>Downloads</source>
+        <translation>Λήψεις</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="681"/>
+        <source>Desktop</source>
+        <translation>Επιφάνεια εργασίας</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <source>Documents</source>
+        <translation>&apos;Εγγραφα</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="702"/>
+        <source>Music</source>
+        <translation>Μουσική</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="814"/>
@@ -250,29 +250,9 @@
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="886"/>
-        <source>Quit application</source>
-        <translation>Κλείσιμο εφαρμογής</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="889"/>
-        <source>Cancel</source>
-        <translation>Άκυρο</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="895"/>
-        <source>Alt+N</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="839"/>
         <source>Next</source>
         <translation>Επόμενο</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="949"/>
-        <source>Back</source>
-        <translation>Πίσω</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="864"/>
@@ -288,6 +268,26 @@
         <location filename="../mainwindow.ui" line="873"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Quit application</source>
+        <translation>Κλείσιμο εφαρμογής</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="889"/>
+        <source>Cancel</source>
+        <translation>Άκυρο</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <source>Alt+N</source>
+        <translation>Alt+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="949"/>
+        <source>Back</source>
+        <translation>Πίσω</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
@@ -437,67 +437,67 @@
         <translation>Τερματισμός του υπολογιστή όταν τελειώσει.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Output</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Edit Boot Menu</source>
         <translation>Επεξεργασία μενού του φορτωτή εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Το πρόγραμμα θα σταματήσει τώρα για να σας επιτρέψει να επεξεργαστείτε αρχεία στον κατάλογο εργασίας σας. Επιλέξτε Ναι για να επεξεργαστείτε το μενού του φορτωτή εκκίνησης ή Όχι για να παρακάμψετε αυτό το βήμα και να συνεχίσετε.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>About %1</source>
         <translation>Περί του %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Version: </source>
         <translation>Έκδοση: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Πρόγραμμα δημιουργίας live-CD από ενεργό σύστημα του MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Πνευματικά δικαιώματα (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>%1 License</source>
         <translation>Άδεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>%1 Help</source>
         <translation>Βοήθεια %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Select Snapshot Directory</source>
         <translation>Επιλογή καταλόγου για το στιγμιότυπο</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Θέλετε σίγουρα να τερματίσετε την εφαρμογή;</translation>
     </message>
@@ -637,16 +637,16 @@
     <message>
         <location filename="../main.cpp" line="148"/>
         <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="240"/>
-        <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="746"/>
-        <location filename="../settings.cpp" line="845"/>
+        <location filename="../settings.cpp" line="239"/>
+        <location filename="../settings.cpp" line="254"/>
+        <location filename="../settings.cpp" line="745"/>
+        <location filename="../settings.cpp" line="844"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="215"/>
-        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Ο ενεργός πυρήνας δεν υποστηρίζει Squashfs, δεν μπορεί να προχωρήσει.</translation>
     </message>
@@ -661,32 +661,32 @@
         <translation>Δεν κατέστη δυνατή η δημιουργία προσωρινού καταλόγου. </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Could not find a usable kernel</source>
         <translation>Δεν κατέστη δυνατή η εύρεση χρήσιμου πυρήνα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
         <translation>Ο χώρος που χρησιμοποιεί το / (root): </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>estimated</source>
         <translation>κατ&apos; εκτίμηση</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
         <translation>Ο χώρος που χρησιμοποιεί το /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="458"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ο ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="461"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -701,48 +701,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="479"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Documents</source>
         <translation>&apos;Εγγραφα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Downloads</source>
         <translation>Λήψεις</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Μουσική</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Δίκτυα</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="486"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Εικόνες</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="488"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Βίντεο</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="739"/>
-        <location filename="../settings.cpp" line="838"/>
+        <location filename="../settings.cpp" line="738"/>
+        <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Υπάρχει το αρχείο %1. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>

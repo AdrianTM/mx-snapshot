@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="185"/>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>MX Snapshot</source>
         <translation>MX スナップショット</translation>
     </message>
@@ -115,56 +115,6 @@
         <translation>スナップショットのファイル名:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="451"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>以下の一般的な選択肢にチェックを入れるか、またはボタンをクリックして /etc/mx-snapshot-exclude.list を直接編集することによっても、特定のディレクトリを除外することができます。</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>exclude network configurations</source>
-        <translation>ネットワークの設定を除外します</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="667"/>
-        <source>Networks</source>
-        <translation>ネットワーク</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>All of the above</source>
-        <translation>上記すべて</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="643"/>
-        <source>Pictures</source>
-        <translation>画像</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="681"/>
-        <source>Desktop</source>
-        <translation>デスクトップ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="702"/>
-        <source>Music</source>
-        <translation>音楽</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <source>Downloads</source>
-        <translation>ダウンロード</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Videos</source>
-        <translation>動画</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="688"/>
-        <source>Documents</source>
-        <translation>文書</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Type of snapshot:</source>
         <translation>スナップショットの種類:</translation>
@@ -185,9 +135,9 @@
         <translation>アカウントのリセット (他人へ配布する用途)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="608"/>
-        <source>Edit Exclusion File</source>
-        <translation>除外するファイルを編集</translation>
+        <location filename="../mainwindow.ui" line="451"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>以下の一般的な選択肢にチェックを入れるか、またはボタンをクリックして /etc/mx-snapshot-exclude.list を直接編集することによっても、特定のディレクトリを除外することができます。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
@@ -230,9 +180,59 @@
         <translation>オプション:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="608"/>
+        <source>Edit Exclusion File</source>
+        <translation>除外するファイルを編集</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Pictures</source>
+        <translation>画像</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="650"/>
+        <source>Videos</source>
+        <translation>動画</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>All of the above</source>
+        <translation>上記すべて</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>exclude network configurations</source>
+        <translation>ネットワークの設定を除外します</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="667"/>
+        <source>Networks</source>
+        <translation>ネットワーク</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="674"/>
+        <source>Downloads</source>
+        <translation>ダウンロード</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="681"/>
+        <source>Desktop</source>
+        <translation>デスクトップ</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <source>Documents</source>
+        <translation>文書</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="702"/>
+        <source>Music</source>
+        <translation>音楽</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="814"/>
@@ -250,29 +250,9 @@
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="886"/>
-        <source>Quit application</source>
-        <translation>アプリケーションの終了</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="889"/>
-        <source>Cancel</source>
-        <translation>キャンセル</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="895"/>
-        <source>Alt+N</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="839"/>
         <source>Next</source>
         <translation>次へ</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="949"/>
-        <source>Back</source>
-        <translation>戻る</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="864"/>
@@ -288,6 +268,26 @@
         <location filename="../mainwindow.ui" line="873"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Quit application</source>
+        <translation>アプリケーションの終了</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="889"/>
+        <source>Cancel</source>
+        <translation>キャンセル</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <source>Alt+N</source>
+        <translation>Alt+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="949"/>
+        <source>Back</source>
+        <translation>戻る</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
@@ -437,67 +437,67 @@
         <translation>完了したらコンピュータをシャットダウンする。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Output</source>
         <translation>出力</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Edit Boot Menu</source>
         <translation>起動メニューの編集</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>プログラムは、作業ディレクトリで任意ファイルを編集できるように、一時休止しています。「はい」を選んで起動メニューを編集するか、「いいえ」を選んでこのステップを飛ばしてスナップショットの作成を継続するかを選んでください。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>About %1</source>
         <translation> %1 について</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Version: </source>
         <translation>バージョン: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>起動中の MX Linux を元にして Live CD を生成するプログラム</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>%1 License</source>
         <translation>%1 ライセンス</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>%1 Help</source>
         <translation>%1 のヘルプ</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Select Snapshot Directory</source>
         <translation>スナップショットを保存するディレクトリを選択</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Confirmation</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>本当にこのアプリを終了しますか？</translation>
     </message>
@@ -637,16 +637,16 @@
     <message>
         <location filename="../main.cpp" line="148"/>
         <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="240"/>
-        <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="746"/>
-        <location filename="../settings.cpp" line="845"/>
+        <location filename="../settings.cpp" line="239"/>
+        <location filename="../settings.cpp" line="254"/>
+        <location filename="../settings.cpp" line="745"/>
+        <location filename="../settings.cpp" line="844"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="215"/>
-        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
@@ -661,32 +661,32 @@
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Could not find a usable kernel</source>
         <translation>使用可能なカーネルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>estimated</source>
         <translation>推定</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
         <translation>/home の空き容量: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="458"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>スナップショットを作成するフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="461"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -696,48 +696,48 @@
         <translation>/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:&#x3000;スナップショット %1 は空き容量の %2 を消費しています。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="479"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="486"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="488"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="739"/>
-        <location filename="../settings.cpp" line="838"/>
+        <location filename="../settings.cpp" line="738"/>
+        <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>

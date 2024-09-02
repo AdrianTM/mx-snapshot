@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="185"/>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -115,56 +115,6 @@
         <translation>Tilannevedoksen nimi:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="451"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Voit myös rajata pois hakemistoja ruksaamalla allaolevat yleiset valinnat tai painamalla painiketta ja muokata suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>exclude network configurations</source>
-        <translation>jätä verkkomääritykset pois</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="667"/>
-        <source>Networks</source>
-        <translation>Verkot</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>All of the above</source>
-        <translation>Kaikki yläpuolella olevat</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="643"/>
-        <source>Pictures</source>
-        <translation>Kuvat</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="681"/>
-        <source>Desktop</source>
-        <translation>Työpöytä</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="702"/>
-        <source>Music</source>
-        <translation>Musiikki</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <source>Downloads</source>
-        <translation>Lataukset</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Videos</source>
-        <translation>Videot</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="688"/>
-        <source>Documents</source>
-        <translation>Tiedostot</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Type of snapshot:</source>
         <translation>Tilannevedoksen tyyppi:</translation>
@@ -185,9 +135,9 @@
         <translation>Käyttäjätilien tyhjennys (toisille jakamista varten)</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="608"/>
-        <source>Edit Exclusion File</source>
-        <translation>Muokkaa rajaustiedostoa</translation>
+        <location filename="../mainwindow.ui" line="451"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>Voit myös rajata pois hakemistoja ruksaamalla allaolevat yleiset valinnat tai painamalla painiketta ja muokata suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
@@ -230,9 +180,59 @@
         <translation>Asetukset:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="608"/>
+        <source>Edit Exclusion File</source>
+        <translation>Muokkaa rajaustiedostoa</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Pictures</source>
+        <translation>Kuvat</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="650"/>
+        <source>Videos</source>
+        <translation>Videot</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>All of the above</source>
+        <translation>Kaikki yläpuolella olevat</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>exclude network configurations</source>
+        <translation>jätä verkkomääritykset pois</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="667"/>
+        <source>Networks</source>
+        <translation>Verkot</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="674"/>
+        <source>Downloads</source>
+        <translation>Lataukset</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="681"/>
+        <source>Desktop</source>
+        <translation>Työpöytä</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <source>Documents</source>
+        <translation>Tiedostot</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpakit</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="702"/>
+        <source>Music</source>
+        <translation>Musiikki</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="814"/>
@@ -250,29 +250,9 @@
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="886"/>
-        <source>Quit application</source>
-        <translation>Lopeta sovellus</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="889"/>
-        <source>Cancel</source>
-        <translation>Peru</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="895"/>
-        <source>Alt+N</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="839"/>
         <source>Next</source>
         <translation>Seuraava</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="949"/>
-        <source>Back</source>
-        <translation>Takaisin</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="864"/>
@@ -288,6 +268,26 @@
         <location filename="../mainwindow.ui" line="873"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Quit application</source>
+        <translation>Lopeta sovellus</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="889"/>
+        <source>Cancel</source>
+        <translation>Peru</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <source>Alt+N</source>
+        <translation>Alt+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="949"/>
+        <source>Back</source>
+        <translation>Takaisin</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
@@ -438,67 +438,67 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Sammuta tietokone, kun valmis.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Edit Boot Menu</source>
         <translation>Muokkaa käynnistysvalikkoa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Tämä ohjelma tauotetaan nyt jotta voit muokata työkansion mitä tahansa tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa, tai valitse vaihtoehtoisesti Ei ohittaaksesi tämän vaiheen sekä jatkaaksesi snapshot-järjestelmävedoksen luomista.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>About %1</source>
         <translation>%1 lisätietoja</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Version: </source>
         <translation>Versio: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Ohjelma jonka avulla voit luoda live-CD:n tällä hetkellä ajetusta järjestelmästä MX Linux:ille</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>%1 License</source>
         <translation>%1 lupa</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>%1 Help</source>
         <translation>%1 Apuopas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Select Snapshot Directory</source>
         <translation>Valitse tilannevedosten hakemisto</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Confirmation</source>
         <translation>Vahvistus</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Oletko varma että haluat lopettaa sovelluksen?</translation>
     </message>
@@ -638,16 +638,16 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../main.cpp" line="148"/>
         <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="240"/>
-        <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="746"/>
-        <location filename="../settings.cpp" line="845"/>
+        <location filename="../settings.cpp" line="239"/>
+        <location filename="../settings.cpp" line="254"/>
+        <location filename="../settings.cpp" line="745"/>
+        <location filename="../settings.cpp" line="844"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="215"/>
-        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kerneli ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
     </message>
@@ -662,32 +662,32 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Tilapäiskansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Could not find a usable kernel</source>
         <translation>Ei löydetty sopivaa kerneliä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
         <translation>Käytetty tila kohteessa / (root-juurihakemisto):</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>estimated</source>
         <translation>arvioitu</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
         <translation>Käytetty tila /home -hakemistossa: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="458"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="461"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -702,48 +702,48 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="479"/>
         <source>Desktop</source>
         <translation>Työpöytä</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Documents</source>
         <translation>Tiedostot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Downloads</source>
         <translation>Lataukset</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpakit</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Musiikki</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Verkot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="486"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="488"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="739"/>
-        <location filename="../settings.cpp" line="838"/>
+        <location filename="../settings.cpp" line="738"/>
+        <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>

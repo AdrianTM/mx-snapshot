@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="185"/>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -115,56 +115,6 @@
         <translation>快照名称：</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="451"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>您还可以通过勾选下面的常用选项来排除某些目录，或者通过单击按钮直接编辑 /etc/mx-snapshot-exclude.list。</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>exclude network configurations</source>
-        <translation>排除网络配置</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="667"/>
-        <source>Networks</source>
-        <translation>网络</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>All of the above</source>
-        <translation>以上全部</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="643"/>
-        <source>Pictures</source>
-        <translation>图片</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="681"/>
-        <source>Desktop</source>
-        <translation>桌面</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="702"/>
-        <source>Music</source>
-        <translation>音乐</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <source>Downloads</source>
-        <translation>下载</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Videos</source>
-        <translation>视频</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="688"/>
-        <source>Documents</source>
-        <translation>文档</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Type of snapshot:</source>
         <translation>快照类型：</translation>
@@ -185,9 +135,9 @@
         <translation>重置帐户（用于分发给他人）</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="608"/>
-        <source>Edit Exclusion File</source>
-        <translation>编辑排除文件</translation>
+        <location filename="../mainwindow.ui" line="451"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>您还可以通过勾选下面的常用选项来排除某些目录，或者通过单击按钮直接编辑 /etc/mx-snapshot-exclude.list。</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
@@ -230,9 +180,59 @@
         <translation>选项：</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="608"/>
+        <source>Edit Exclusion File</source>
+        <translation>编辑排除文件</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Pictures</source>
+        <translation>图片</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="650"/>
+        <source>Videos</source>
+        <translation>视频</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>All of the above</source>
+        <translation>以上全部</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>exclude network configurations</source>
+        <translation>排除网络配置</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="667"/>
+        <source>Networks</source>
+        <translation>网络</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="674"/>
+        <source>Downloads</source>
+        <translation>下载</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="681"/>
+        <source>Desktop</source>
+        <translation>桌面</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <source>Documents</source>
+        <translation>文档</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="702"/>
+        <source>Music</source>
+        <translation>音乐</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="814"/>
@@ -250,29 +250,9 @@
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="886"/>
-        <source>Quit application</source>
-        <translation>退出应用程序</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="889"/>
-        <source>Cancel</source>
-        <translation>取消</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="895"/>
-        <source>Alt+N</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="839"/>
         <source>Next</source>
         <translation>下一页</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="949"/>
-        <source>Back</source>
-        <translation>后退</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="864"/>
@@ -288,6 +268,26 @@
         <location filename="../mainwindow.ui" line="873"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Quit application</source>
+        <translation>退出应用程序</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="889"/>
+        <source>Cancel</source>
+        <translation>取消</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <source>Alt+N</source>
+        <translation>Alt+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="949"/>
+        <source>Back</source>
+        <translation>后退</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
@@ -435,67 +435,67 @@
         <translation>完成后关闭计算机。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Output</source>
         <translation>输出</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Close</source>
         <translation>关闭</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Edit Boot Menu</source>
         <translation>编辑启动菜单</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>程序现在将暂停以允许您编辑工作目录中的任何文件。选择“是”来编辑启动菜单或选择“否”绕过此步骤并继续创建快照。</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>About %1</source>
         <translation>关于 %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Version: </source>
         <translation>版本:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>从正在运行的 MX Linux 系统创建 live-CD 的程序</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Copyright (c) MX Linux</source>
         <translation>版权所有(c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>%1 License</source>
         <translation>%1 许可证</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>%1 Help</source>
         <translation>%1 帮助</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Select Snapshot Directory</source>
         <translation>选择快照目录</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Confirmation</source>
         <translation>确认</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>您确定要退出吗？</translation>
     </message>
@@ -635,16 +635,16 @@
     <message>
         <location filename="../main.cpp" line="148"/>
         <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="240"/>
-        <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="746"/>
-        <location filename="../settings.cpp" line="845"/>
+        <location filename="../settings.cpp" line="239"/>
+        <location filename="../settings.cpp" line="254"/>
+        <location filename="../settings.cpp" line="745"/>
+        <location filename="../settings.cpp" line="844"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="215"/>
-        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -659,32 +659,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Could not find a usable kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>estimated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="458"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 上的可用空间，其中放置快照文件夹:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="461"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -698,48 +698,48 @@
   %1 个快照占用了 %2 的磁盘空间。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="479"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Documents</source>
         <translation>文档</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Downloads</source>
         <translation>下载</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>音乐</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="486"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="488"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>视频</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="739"/>
-        <location filename="../settings.cpp" line="838"/>
+        <location filename="../settings.cpp" line="738"/>
+        <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>输出文件 %1 已经存在。请使用其他文件名，或删除现有文件。</translation>
     </message>

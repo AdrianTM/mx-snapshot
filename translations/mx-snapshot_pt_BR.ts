@@ -39,7 +39,7 @@
     <message>
         <location filename="../mainwindow.ui" line="14"/>
         <location filename="../mainwindow.cpp" line="185"/>
-        <location filename="../mainwindow.cpp" line="519"/>
+        <location filename="../mainwindow.cpp" line="520"/>
         <source>MX Snapshot</source>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
@@ -117,57 +117,6 @@ com programas que sejam pouco exigentes enquanto o ‘Snapshot’ estiver em exe
         <translation>Nome da imagem ISO:</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="451"/>
-        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Se você quiser pode selecionar as pastas que não serão incluídas na imagem ISO, ou pode clicar no botão ‘Editar o Arquivo de Exclusão’
-para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude.list’.</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="664"/>
-        <source>exclude network configurations</source>
-        <translation>Excluir as configurações de rede</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="667"/>
-        <source>Networks</source>
-        <translation>Redes</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="657"/>
-        <source>All of the above</source>
-        <translation>Todos os itens acima</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="643"/>
-        <source>Pictures</source>
-        <translation>Imagens</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="681"/>
-        <source>Desktop</source>
-        <translation>Área de Trabalho</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="702"/>
-        <source>Music</source>
-        <translation>Músicas</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="674"/>
-        <source>Downloads</source>
-        <translation>Baixados</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="650"/>
-        <source>Videos</source>
-        <translation>Vídeos</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="688"/>
-        <source>Documents</source>
-        <translation>Documentos</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="360"/>
         <source>Type of snapshot:</source>
         <translation>Tipo da imagem ISO:</translation>
@@ -188,9 +137,10 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
         <translation>Redefinir as contas e as senhas dos usuários ‘demo’ e ‘root’ para distribuir a imagem ISO para outras pessoas</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="608"/>
-        <source>Edit Exclusion File</source>
-        <translation>Editar o Arquivo de Exclusão</translation>
+        <location filename="../mainwindow.ui" line="451"/>
+        <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
+        <translation>Se você quiser pode selecionar as pastas que não serão incluídas na imagem ISO, ou pode clicar no botão ‘Editar o Arquivo de Exclusão’
+para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude.list’.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="496"/>
@@ -233,9 +183,59 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
         <translation>Opções:</translation>
     </message>
     <message>
+        <location filename="../mainwindow.ui" line="608"/>
+        <source>Edit Exclusion File</source>
+        <translation>Editar o Arquivo de Exclusão</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="643"/>
+        <source>Pictures</source>
+        <translation>Imagens</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="650"/>
+        <source>Videos</source>
+        <translation>Vídeos</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="657"/>
+        <source>All of the above</source>
+        <translation>Todos os itens acima</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="664"/>
+        <source>exclude network configurations</source>
+        <translation>Excluir as configurações de rede</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="667"/>
+        <source>Networks</source>
+        <translation>Redes</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="674"/>
+        <source>Downloads</source>
+        <translation>Baixados</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="681"/>
+        <source>Desktop</source>
+        <translation>Área de Trabalho</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="688"/>
+        <source>Documents</source>
+        <translation>Documentos</translation>
+    </message>
+    <message>
         <location filename="../mainwindow.ui" line="695"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="702"/>
+        <source>Music</source>
+        <translation>Músicas</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="814"/>
@@ -253,29 +253,9 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../mainwindow.ui" line="886"/>
-        <source>Quit application</source>
-        <translation>Sair do aplicativo</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="889"/>
-        <source>Cancel</source>
-        <translation>Cancelar</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="895"/>
-        <source>Alt+N</source>
-        <translation>Alt+N</translation>
-    </message>
-    <message>
         <location filename="../mainwindow.ui" line="839"/>
         <source>Next</source>
         <translation>Próximo</translation>
-    </message>
-    <message>
-        <location filename="../mainwindow.ui" line="949"/>
-        <source>Back</source>
-        <translation>Anterior</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="864"/>
@@ -291,6 +271,26 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
         <location filename="../mainwindow.ui" line="873"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="886"/>
+        <source>Quit application</source>
+        <translation>Sair do aplicativo</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="889"/>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="895"/>
+        <source>Alt+N</source>
+        <translation>Alt+N</translation>
+    </message>
+    <message>
+        <location filename="../mainwindow.ui" line="949"/>
+        <source>Back</source>
+        <translation>Anterior</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
@@ -440,67 +440,67 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Desligar o computador quando finalizar a criação da imagem ISO.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="482"/>
+        <location filename="../mainwindow.cpp" line="483"/>
         <source>Output</source>
         <translation>Resultado</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="498"/>
+        <location filename="../mainwindow.cpp" line="499"/>
         <source>Close</source>
         <translation>Fechar</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="505"/>
+        <location filename="../mainwindow.cpp" line="506"/>
         <source>Edit Boot Menu</source>
         <translation>Editar o Menu de Inicialização</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="506"/>
+        <location filename="../mainwindow.cpp" line="507"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>O programa irá parar agora para permitir que você edite quaisquer arquivos que estão na pasta de trabalho. Clique na opção ‘Sim’ para editar o menu de inicialização ou clique na opção ‘Não’ para ignorar esta etapa e continuar com a criação da imagem ISO.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="602"/>
+        <location filename="../mainwindow.cpp" line="603"/>
         <source>About %1</source>
         <translation>Sobre o %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="604"/>
+        <location filename="../mainwindow.cpp" line="605"/>
         <source>Version: </source>
         <translation>Versão: </translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="605"/>
+        <location filename="../mainwindow.cpp" line="606"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>O ‘Snapshot’ é um programa que permite criar uma imagem ISO do sistema operacional MX Linux em execução, podendo a imagem ISO ser executada em uma mídia de CD/DVD/USB e ainda possibilita a instalação em um computador.</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="607"/>
+        <location filename="../mainwindow.cpp" line="608"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Direitos de Autor (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="609"/>
+        <location filename="../mainwindow.cpp" line="610"/>
         <source>%1 License</source>
         <translation>Licença do %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="623"/>
+        <location filename="../mainwindow.cpp" line="624"/>
         <source>%1 Help</source>
         <translation>Ajuda do %1</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="628"/>
+        <location filename="../mainwindow.cpp" line="629"/>
         <source>Select Snapshot Directory</source>
         <translation>Selecione a Pasta para o Snapshot</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Confirmation</source>
         <translation>Confirmação</translation>
     </message>
     <message>
-        <location filename="../mainwindow.cpp" line="649"/>
+        <location filename="../mainwindow.cpp" line="650"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Você tem certeza de que deseja encerrar o aplicativo?</translation>
     </message>
@@ -640,16 +640,16 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     <message>
         <location filename="../main.cpp" line="148"/>
         <location filename="../main.cpp" line="218"/>
-        <location filename="../settings.cpp" line="240"/>
-        <location filename="../settings.cpp" line="255"/>
-        <location filename="../settings.cpp" line="746"/>
-        <location filename="../settings.cpp" line="845"/>
+        <location filename="../settings.cpp" line="239"/>
+        <location filename="../settings.cpp" line="254"/>
+        <location filename="../settings.cpp" line="745"/>
+        <location filename="../settings.cpp" line="844"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="215"/>
-        <location filename="../settings.cpp" line="249"/>
+        <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>
     </message>
@@ -664,32 +664,32 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Não foi possível criar a pasta temporária.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="234"/>
+        <location filename="../settings.cpp" line="233"/>
         <source>Could not find a usable kernel</source>
         <translation>Não foi possível encontrar um núcleo/kernel utilizável</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="358"/>
+        <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
         <translation>O espaço utilizado na / (raiz ou ‘root’) é de </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="361"/>
+        <location filename="../settings.cpp" line="360"/>
         <source>estimated</source>
         <translation>foi estimado</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="370"/>
+        <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
         <translation>O espaço utilizado na /home é de </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="458"/>
+        <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>O espaço livre na %1 onde a pasta que armazena a imagem ISO é de </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="462"/>
+        <location filename="../settings.cpp" line="461"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -701,48 +701,48 @@ pessoal). Se for necessário, você pode liberar mais espaço excluindo as image
 As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="479"/>
         <source>Desktop</source>
         <translation>Área de Trabalho</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="480"/>
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="481"/>
         <source>Downloads</source>
         <translation>Baixados</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="482"/>
         <source>Flatpaks</source>
-        <translation type="unfinished"></translation>
+        <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="483"/>
         <source>Music</source>
         <translation>Músicas</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="484"/>
         <source>Networks</source>
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="486"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Pictures</source>
         <translation>Imagens</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="488"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="739"/>
-        <location filename="../settings.cpp" line="838"/>
+        <location filename="../settings.cpp" line="738"/>
+        <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo da saída %1 já existe. Por favor, utilize um outro nome para o arquivo ou exclua o arquivo existente.</translation>
     </message>

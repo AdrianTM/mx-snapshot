@@ -1,6 +1,7 @@
-mx-snapshot (24.9) mx; urgency=medium
+mx-snapshot (24.9.01) mx; urgency=medium
 
   * Add exclude Flatpak option
+  * Fix: ignore error when reading xdg-user-dir output
 
  -- Adrian <adrian@mxlinux.org>  Sun, 01 Sep 2024 22:12:04 -0400
 
