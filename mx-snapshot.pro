@@ -21,7 +21,14 @@
 # **********************************************************************
 
 QT       += core gui widgets
-CONFIG   += c++17
+CONFIG   += debug_and_release warn_on strict_c++ c++17
+CONFIG(release, debug|release) {
+    DEFINES += NDEBUG
+    QMAKE_CXXFLAGS += -flto=auto
+    QMAKE_LFLAGS += -flto=auto
+}
+
+QMAKE_CXXFLAGS += -Wpedantic -pedantic -Werror
 
 TARGET = mx-snapshot
 TEMPLATE = app

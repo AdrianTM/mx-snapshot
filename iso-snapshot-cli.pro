@@ -20,12 +20,20 @@
 # * along with MX Tools.  If not, see <http://www.gnu.org/licenses/>.
 # **********************************************************************
 
-DEFINES += "CLI_BUILD=1"
+DEFINES += CLI_BUILD=1
 
 QT       += core
 QT       -= gui
 
-CONFIG   += c++17
+CONFIG   += debug_and_release warn_on strict_c++ c++17
+CONFIG(release, debug|release) {
+    DEFINES += NDEBUG
+    QMAKE_CXXFLAGS += -flto=auto
+    QMAKE_LFLAGS += -flto=auto
+}
+
+QMAKE_CXXFLAGS += -Wpedantic -pedantic -Werror
+
 
 TARGET = iso-snapshot-cli
 TEMPLATE = app
