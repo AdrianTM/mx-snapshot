@@ -267,7 +267,8 @@ copy_symlink() {
     fi
 
     # 2. Create the symlink pointing to it
-    local sym_source="$dest_dir/$(basename "$symlink")"
+    local sym_source
+    sym_source="$dest_dir/$(basename "$symlink")"
     if [[ ! -e "$sym_source" ]]; then
         pretend ln -s "$(basename "$real_file")" "$sym_source" || \
             fatal "Failed to create symlink at:\n  %s" "$sym_source"

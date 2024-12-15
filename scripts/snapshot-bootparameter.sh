@@ -441,6 +441,7 @@ prepare_timezone() {
 sanitize_bootparameter() {
     local p=$1
     # "bad" characters that we do not want in the boot parameter
+    # shellcheck disable=SC2016
     local bad_chars='<>$()[]`|'
     printf '%s' "$(LC_ALL=C tr -d -- "$bad_chars"  <<<"$p")"
 }
