@@ -1,39 +1,39 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script is part of MX Snapshot
 #
 # to list the boot parameters to be displayed as boot options.
 #---------------------------------------------------------
-VERSION="240725-01"
+VERSION="241424"
 
 #---------------------------------------------------------
-# allow debug
-[ "$1" = "-d" -o  "$1" = "--debug" ] && SNAPSHOT_BOOTPARAMETER_DEBUG=true
+# Allow debug
+[[ "$1" = "-d" ||  "$1" = "--debug" ]] && SNAPSHOT_BOOTPARAMETER_DEBUG=true
 
-[ -z "${SNAPSHOT_BOOTPARAMETER_DEBUG}" ] ||  SNAPSHOT_BOOTPARAMETER_DEBUG=true
+[[ -z "${SNAPSHOT_BOOTPARAMETER_DEBUG}" ]] ||  SNAPSHOT_BOOTPARAMETER_DEBUG=true
 SBP_DEBUG=$SNAPSHOT_BOOTPARAMETER_DEBUG
 
 #---------------------------------------------------------
-# some globals
+# Some globals
 #---------------------------------------------------------
 
-# default keyboard options
+# Default keyboard options
 DEFAULT_KBOPT_MX='grp:rctrl_rshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll'
 DEFAULT_KBOPT_ANTIX='grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll'
 
-# some lists
+# Some lists
 unset CONF_LIST CONF_HASH OUT_LIST PAR_LIST CONF_HASH
 declare -a CONF_LIST OUT_LIST PAR_LIST
-# hash of config cmdline paramter
+# Hash of config cmdline paramter
 declare -A CONF_HASH
 
 unset KBD      ; declare -A KBD
 unset KBD_LIST ; declare -a KBD_LIST
 
 #---------------------------------------------------------
-# allow override
-: ${PROC_CMDLINE:=$(cat /proc/cmdline)}
-: ${CONF_CMDLINE:=$(grep ^CONFIG_CMDLINE= /boot/config-$(uname -r) 2>/dev/null | cut -d '"' -f2 | tail -1)}
+# Allow override
+: "${PROC_CMDLINE:=$(</proc/cmdline)}"
+: "${CONF_CMDLINE:=$(grep -m1 '^CONFIG_CMDLINE=' /boot/config-"$(uname -r)" 2>/dev/null | sed -E 's/^CONFIG_CMDLINE="(.*)"/\1/')}"
 
 #-----------------------------------------------------------------------
 main() {
@@ -45,7 +45,7 @@ main() {
 
     local param
     for param in "${PAR_LIST[@]}"; do
-        # built-in kernel parameters that should be ignored
+        # Built-in kernel parameters that should be ignored
         [[ -v CONF_HASH["$param"] ]] && continue
         case "$param" in
                               menus)  ;;
@@ -143,7 +143,6 @@ main() {
     #                     vtblank=*)  ;;
 
                    livedir=*|ldir=*)  ;;
-            pw|passwd|pw=*|passwd=*)  ;;
                   private|private=*)  ;;
     #                     bootchart)  ;;
     #                       noplink)  ;;
@@ -188,7 +187,7 @@ main() {
     #        desktop=*|dpi=*|fstab=*|hostname=*|kbd=*|kbopt=*|kbvar=*);;
     #        lang=*|mirror=*|mount=*|noloadkeys|noprompt);;
     #        nosplash|password|password=*|prompt|pw|pw=*|tz=*|ubp=*|ushow=*);;
-            password|password=*|prompt|pw|pw=*|ubp=*|ushow=*);;
+            password|password=*|prompt|pw|pw=*|ubp=*|ushow=*|passwd|passwd=*)  ;;
     #        uverb=*|xres=*|noxorg);;
     #        desktheme=*) ;;
     #        nosavestate|savestate|dbsavestate) ;;
@@ -222,24 +221,24 @@ main() {
             kernel=*)  ;;
              extra=*)  ;;
 
-            # luks paramter
+            # Luks paramter
                 [bfp]luks*) ;;
 
-            # mount root device read-only on boot
+            # Mount root device read-only on boot
                 ro) ;;
 
-            # btrfs rootflags
+            # Btrfs rootflags
                rootflags|rootflags=*) ;;
 
-            # hibernate and resume parameter
+            # Hibernate and resume parameter
                hibernate=*|nohibernate) ;;
                resume*) ;;
 
-            # default inits
+            # Default inits
             init=/sbin/init) ;;
             init=/usr/sbin/init) ;;
 
-            # other inits only for supported live system currently available within mx-iso-template
+            # Other inits only for supported live system currently available within mx-iso-template
             # init=*)
             #    if dpkg --compare-versions "$(dpkg-query -f '${Version}' -W mx-iso-template)" ge "24.03.01mx23"; then
             #       OUT_LIST+=("$(vquote "$param")")
@@ -248,25 +247,25 @@ main() {
 
             init=*) ;;
 
-            # remove the nvidia boot option that may have been added with a previous snapshot
+            # Remove the nvidia boot option that may have been added with a previous snapshot
             xorg=nvidia) ;;
 
             *) OUT_LIST+=("$(vquote "$param")")
         esac
     done
 
-    [ -z "$tz" ] ||  OUT_LIST+=("$(vquote "tz=$tz")")
+    [[ -z "$tz" ]] ||  OUT_LIST+=("$(vquote "tz=$tz")")
 
-    # revert list REV_LIST to keep last parameter only
+    # Revert list REV_LIST to keep last parameter only
     unset REV_LIST KEYS KEYS_LIST OUT_PAR
     REV_LIST=()
 
-    [ -z "$language" ] || REV_LIST=(lang="$language")
+    [[ -z "$language" ]] || REV_LIST=(lang="$language")
 
     i=${#OUT_LIST[@]};
     while ((i--)); do REV_LIST+=("${OUT_LIST[$i]}"); done
 
-    # list of paramter to keep only the last set
+    # List of paramter to keep only the last set
 
     KEY_LIST=(
         lang
@@ -287,12 +286,12 @@ main() {
 
     for par in "${REV_LIST[@]}"; do
         key="${par%%=*}"
-        [ -n "$key" ] || continue
-        [ ${KEYS["$key"]+set} ] && [ ${SEEN["$key"]+set} ] &&  continue
+        [[ -n "$key" ]] || continue
+        [[ ${KEYS["$key"]+set} ]] && [[ ${SEEN["$key"]+set} ]] &&  continue
         SEEN["$key"]="$par"
         OUT_PAR+=("$par")
     done
-    # list of parameters to display only the last set
+    # List of parameters to display only the last set
     unset KEY_LAST
     KEY_LAST=(
         lang
@@ -316,34 +315,34 @@ main() {
     done
 
 
-    [ -e /etc/antix-version ] && KBOPT_DEFAULT="$DEFAULT_KBOPT_ANTIX"
-    [ -e /etc/mx-version    ] && KBOPT_DEFAULT="$DEFAULT_KBOPT_MX"
+    [[ -e /etc/antix-version ]] && KBOPT_DEFAULT="$DEFAULT_KBOPT_ANTIX"
+    [[ -e /etc/mx-version    ]] && KBOPT_DEFAULT="$DEFAULT_KBOPT_MX"
 
     local kbopt_sorted
     local kbopt_sorted_default
 
     for key in "${KEY_LAST[@]}"; do
         [[ -v SEEN["$key"] ]] || continue
-        if [ "$key" = "kbopt" ]; then
+        if [[ "$key" = "kbopt" ]]; then
            local seen="${SEEN["$key"]}"
            seen="${seen#kbopt=}"
            kbopt_sorted=$(sorted_opts "$seen")
            kbopt_sorted_default=$(sorted_opts "${KBOPT_DEFAULT}")
-           [ x"$kbopt_sorted" = x"${kbopt_sorted_default}" ] && continue
+           [[ "$kbopt_sorted" = "${kbopt_sorted_default}" ]] && continue
         fi
         par=${SEEN["$key"]}
         val="${par##*=}"
-        [ -n "$val" ] || continue
+        [[ -n "$val" ]] || continue
         printf '%s\n' "${par}"
     done
 }
 
 #---------------------------------------------------------
-# some functions
+# Some functions
 #---------------------------------------------------------
 
 #----------------------------------------------------------------------------
-# combine boot parameter with system keyboard parameter
+# Combine boot parameter with system keyboard parameter
 prepare_par_list() {
     PROC_CMDLINE=$(sanitize_bootparameter "$PROC_CMDLINE")
     CONF_CMDLINE=$(sanitize_bootparameter "$CONF_CMDLINE")
@@ -353,10 +352,10 @@ prepare_par_list() {
     debug_param PROC_CMDLINE
     debug_param CONF_CMDLINE
 
-    [ -n "$PROC_CMDLINE" ] && eval PAR_LIST=("$PROC_CMDLINE")
+    [[ -n "$PROC_CMDLINE" ]] && readarray -d ' ' -t PAR_LIST <<< "$PROC_CMDLINE"
     debug_list PAR_LIST
 
-    [ -n "$CONF_CMDLINE" ] && eval CONF_LIST=("$CONF_CMDLINE")
+    [[ -n "$CONF_CMDLINE" ]] && readarray -d ' ' -t CONF_LIST <<< "$CONF_CMDLINE"
     debug_list CONF_LIST
 
     debug_list PAR_LIST
@@ -370,130 +369,132 @@ prepare_par_list() {
 }
 
 #----------------------------------------------------------------------------
-# get system keyboard layout from /etc/default/keyboard
+# Get system keyboard layout from /etc/default/keyboard
 prepare_keyboard() {
     local rex='^((xkb)?(layout|options|variant))([:=]["]?[[:space:]]*)([^"[:space:]]+)["]?'
     local layout
 
-:<<'NotUsed'
+:<<NotUsed
     if false && setxkbmap -query 1>/dev/null  2>&1; then
         layout=$(setxkbmap -query 2>/dev/null)
     else
-        layout=$(cat /etc/default/keyboard 2>/dev/null \
-                | sed '/^XKB/! d; s/^XKB//;' \
+    else
+        layout=$(sed '/^XKB/! d; s/^XKB//;' /etc/default/keyboard 2>/dev/null \
                 | tr '[:upper:]' '[:lower:]')
     fi
 NotUsed
 
-    layout=$(cat /etc/default/keyboard 2>/dev/null \
-            | sed '/^XKB/! d; s/^XKB//;' \
+    layout=$(sed '/^XKB/! d; s/^XKB//;' /etc/default/keyboard 2>/dev/null \
             | tr '[:upper:]' '[:lower:]')
 
     unset LAYOUT
-    eval declare -A LAYOUT=($(echo "$layout" |sed -nr  's/'"$rex"'/"\1" "\5"/p'))
+    # shellcheck disable=SC1083,SC2046
+    eval "declare -A LAYOUT=( $(sed -nr "s/$rex/\"\1\" \"\5\"/p" <<< "$layout") )"
 
     debug_list "LAYOUT"
     unset KEY_MAP
     declare -A KEY_MAP=(
-        layout  kbd
-        variant kbvar
-        options kbopt
-        )
+        [layout]=kbd
+        [variant]=kbvar
+        [options]=kbopt
+    )
     debug_list KEY_MAP
 
 
-    for l in ${!KEY_MAP[@]}; do
+    for l in "${!KEY_MAP[@]}"; do
         k=${KEY_MAP[$l]}
+        # shellcheck disable=SC2153
         KBD[$k]="${LAYOUT[$l]}"
-        KBD_LIST+=("$k"="${KBD[$k]}")
+        KBD_LIST+=("$k=${KBD[$k]}")
     done
     debug_list KBD
     debug_list KBD_LIST
     }
 
 #----------------------------------------------------------------------------
-# get system language from /etc/default/locale
+# Get system language from /etc/default/locale
 prepare_language() {
     local lang
     local default_locale=/etc/default/locale
     language=
-    if [ -r "$default_locale" ]; then
+    if [[ -r "$default_locale" ]]; then
         lang=$(grep ^LANG=  "$default_locale" | tr -d '"' | tail -1)
         lang=$( grep ^LANG= "$default_locale" 2>/dev/null | \
                 tail -1 | tr -d '"' | \
                 sed -nr 's/LANG=//; s/^([[:alpha:]_]+).*/\1/p' )
     fi
-    [ -n "$lang" ] && language="$lang"
+    [[ -n "$lang" ]] && language="$lang"
 
 }
 
 #----------------------------------------------------------------------------
-# get current system timezone from /etc/timezone
+# Get current system timezone from /etc/timezone
 prepare_timezone() {
-    # allow TZ override
+    # Allow TZ override
     tz=$TZ
-    [ -z "$TZ" ] && [ -r /etc/timezone ] && tz="$(head -1 /etc/timezone)"
-    [ -n "$tz" ] || tz=
+    [[ -z "$TZ" ]] && [[ -r /etc/timezone ]] && tz="$(head -1 /etc/timezone)"
+    [[ -n "$tz" ]] || tz=
 }
 
-#-----------------------------------------------------------------------
-# clean bad chars from user adjusted boot parameters
+#----------------------------------------------------------------------------
+# Clean bad chars from user adjusted boot parameters
 sanitize_bootparameter() {
     local p=$1
     # "bad" characters that we do not want in the boot parameter
     local bad_chars='<>$()[]`|'
-    local r=$(LC_ALL=C tr -d -- "$bad_chars"  <<<"$p")
-    printf '%s' "$r"
+    printf '%s' "$(LC_ALL=C tr -d -- "$bad_chars"  <<<"$p")"
 }
 
-#-----------------------------------------------------------------------
-# double-quote values with spaces
+#----------------------------------------------------------------------------
+# Double-quote values with spaces
 vquote() {
     local c=$1 p v
     p=${c%%=*}
-    [ "$p" !=  "$c" ] && v=${c#*=}
-    if [ "$v" !=  "${v#* }" ] ; then
+    [[ "$p" !=  "$c" ]] && v=${c#*=}
+    if [[ "$v" !=  "${v#* }" ]] ; then
         printf '%s="%s"\n' "$p" "$v"
     else
         printf '%s\n' "$c"
     fi
 }
 
-# print debug to stderr
+#----------------------------------------------------------------------------
+# Print debug to stderr
 debug() {
-    [ "$SBP_DEBUG" ] || return
+    [[ "$SBP_DEBUG" ]] || return
     local s="$*"
     printf '[DEBUG]: %s\n' "${s}" >&2
 }
 
-# print debug of parameter to stderr
+#----------------------------------------------------------------------------
+# Print debug of parameter to stderr
 debug_param() {
-    [ "$SBP_DEBUG" ] || return
+    [[ "$SBP_DEBUG" ]] || return
     local param=$1
-    [ -n "$param" ] || return
+    [[ -n "$param" ]] || return
     local -n name=$param 2>/dev/null || return
     local s="$name"
     printf "[DEBUG]: $param=%s\n" "${s@Q}" >&2
 }
 
-# print debug of list or hash to stderr
+#----------------------------------------------------------------------------
+# Print debug of list or hash to stderr
 debug_list() {
-    [ "$SBP_DEBUG" ] || return
+    [[ "$SBP_DEBUG" ]] || return
     local list=$1
-    [ -n "$list" ] || return
+    [[ -n "$list" ]] || return
     local -n name=$list
     local s="${name[*]@Q}"
     s=$(sanitize_bootparameter "$s")
     printf "[DEBUG]: $list=(%s)\n" "$s" >&2
 }
 
-#-----------------------------------------------------------------------
-# sort keybord options
+#----------------------------------------------------------------------------
+# Sort keybord options
 sorted_opts() {
-    local p=$1
-    local r=$(printf '%s\n' ${p//[,]/ } | sort -u | tr '\n' ',' | sed 's/,$//')
-    echo "$r"
+    printf '%s\n' "${1//,/ }" | sort -u | paste -sd, -
 }
-#-----------------------------------------------------------------------
-# the main
+
+#----------------------------------------------------------------------------
+# Main
 main "$@"
