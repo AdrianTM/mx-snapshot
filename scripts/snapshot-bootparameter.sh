@@ -374,7 +374,7 @@ prepare_keyboard() {
     local rex='^((xkb)?(layout|options|variant))([:=]["]?[[:space:]]*)([^"[:space:]]+)["]?'
     local layout
 
-:<<NotUsed
+:<<'NotUsed'
     if false && setxkbmap -query 1>/dev/null  2>&1; then
         layout=$(setxkbmap -query 2>/dev/null)
     else
