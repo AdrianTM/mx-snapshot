@@ -165,6 +165,7 @@ int main(int argc, char *argv[])
     }
 
     const Log setLog("/tmp/" + app->applicationName() + ".log");
+    qInstallMessageHandler(Log::messageHandler);
     qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
     if (argc > 1) {
         qDebug().noquote() << "Args:" << app->arguments();

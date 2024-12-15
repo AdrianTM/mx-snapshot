@@ -33,7 +33,7 @@ Log::Log(const QString &file_name)
     }
 }
 
-void Log::messageHandler(QtMsgType type, const QMessageLogContext &, const QString &msg)
+void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogContext &context, const QString &msg)
 {
     QTextStream term_out(stdout);
 
