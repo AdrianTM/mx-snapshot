@@ -620,7 +620,7 @@
         <translation>Du verkar vara inloggad som root, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>version:</translation>
     </message>
@@ -636,7 +636,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -645,7 +645,7 @@
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>

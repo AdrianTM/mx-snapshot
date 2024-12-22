@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>A számítógép NVIDIA grafikus kártyát használ. A készülő ISO lemezképet ugyanezen a gépen vagy másik NVIDIA kártyás gépen kívánja használni?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjegyzés: Ha az ISO lemezképet egy nem NVIDIA kártyát használó gépen fogja használni, valószínűleg el kell majd távolítania az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekből.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjegyzés: Ha az ISO lemezképet egy NVIDIA kártyát használó gépen fogja használni, valószínűleg hozzá kell majd adnia az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekhez.</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Jelenlegi dátum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Válasszon kiadási dátumot</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -384,27 +384,27 @@
         <location filename="../mainwindow.cpp" line="396"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA érzékelve</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>A számítógép NVIDIA grafikus kártyát használ. A készülő ISO lemezképet ugyanezen a gépen vagy másik NVIDIA kártyás gépen kívánja használni?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA kiválasztva</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="402"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjegyzés: Ha az ISO lemezképet egy nem NVIDIA kártyát használó gépen fogja használni, valószínűleg el kell majd távolítania az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekből.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="406"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Megjegyzés: Ha az ISO lemezképet egy NVIDIA kártyát használó gépen fogja használni, valószínűleg hozzá kell majd adnia az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekhez.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="417"/>
@@ -620,7 +620,7 @@
         <translation>Úgy tűnik, hogy root felhasználóként van bejelentkezve. Jelentkezzen ki és jelentkezzen be normál felhasználóként a program használatához.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>verzió:</translation>
     </message>
@@ -636,7 +636,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -645,7 +645,7 @@
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>A jelenlegi kernel nem támogatja Squashfs fájlrendszert. Nem folytatható.</translation>
@@ -853,7 +853,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Az MX pillanatkép sikeresen elkészült!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

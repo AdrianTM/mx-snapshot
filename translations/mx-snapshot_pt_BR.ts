@@ -623,7 +623,7 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Ao que parece, você está acessando a sessão com o usuário ‘root’. Por favor, saia da sessão atual e entre novamente com o usuário normal para utilizar este programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>Versão:</translation>
     </message>
@@ -639,7 +639,7 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -648,7 +648,7 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>

@@ -547,7 +547,7 @@
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation>Utilisez les expressions: « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir mksquashfs man page</translation>
+        <translation>Utilisez les expressions: « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir la page man consacrée à mksquashfs</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
@@ -620,7 +620,7 @@
         <translation>Vous êtes apparemment connecté en tant que root, veuillez vous déconnecter et vous connecter en tant qu’utilisateur•rice normal•e pour utiliser ce programme.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>version:</translation>
     </message>
@@ -636,7 +636,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -645,7 +645,7 @@
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
@@ -807,7 +807,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../work.cpp" line="145"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
-        <translation>Si vous êtes certain•e d’avoir assez d’espace libre, relancez le programme avec -o/--override-size option</translation>
+        <translation>Si vous êtes certain•e d’avoir assez d’espace libre, relancez le programme avec l’option -o/--override-size</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="170"/>

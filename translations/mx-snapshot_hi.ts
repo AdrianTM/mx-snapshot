@@ -618,7 +618,7 @@
         <translation>प्रतीत होता है कि आप रुट के रूप में लॉगिन हैं, प्रोग्राम उपयोग करने हेतु लॉगआउट कर सामान्य उपयोक्ता के रूप में लॉगिन करें।</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>संस्करण :</translation>
     </message>
@@ -634,7 +634,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -643,7 +643,7 @@
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>वर्तमान कर्नेल द्वारा Squashfs समर्थित नहीं है, प्रक्रिया निरस्त।</translation>

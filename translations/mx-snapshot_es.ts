@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Fecha actual</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccione la fecha de publicación</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -620,7 +620,7 @@
         <translation>Parece que ha iniciado sesión como root, cierre la sesión e inicie sesión como usuario normal para utilizar este programa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>versión:</translation>
     </message>
@@ -636,7 +636,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -645,7 +645,7 @@
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no soporta Squashfs, no puede continuar.</translation>

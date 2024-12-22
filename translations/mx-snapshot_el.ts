@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτός ο υπολογιστής χρησιμοποιεί μια κάρτα γραφικών NVIDIA. Σχεδιάζετε να χρησιμοποιήσετε το ISO στον ίδιο ή σε άλλο υπολογιστή με κάρτα γραφικών NVIDIA;</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή χωρίς κάρτα γραφικών NVIDIA, πιθανότατα θα πρέπει να αφαιρέσετε το &apos;xorg=nvidia&apos; από τις επιλογές εκκίνησης.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή με κάρτα γραφικών NVIDIA, ίσως χρειαστεί να προσθέσετε το &apos;xorg=nvidia&apos; στις επιλογές εκκίνησης.</translation>
     </message>
 </context>
 <context>
@@ -81,12 +81,12 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημερινή ημερομηνία</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, την οποία μπορείτε να χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, μπορείτε να το χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια της λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="182"/>
@@ -101,7 +101,7 @@
     <message>
         <location filename="../mainwindow.ui" line="219"/>
         <source>Snapshot location:</source>
-        <translation>Ο κατάλογος του στιγμιότυπου:</translation>
+        <translation>Κατάλογος του στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="226"/>
@@ -112,7 +112,7 @@
         <location filename="../mainwindow.ui" line="236"/>
         <location filename="../mainwindow.cpp" line="374"/>
         <source>Snapshot name:</source>
-        <translation>Το όνομα του στιγμιότυπου:</translation>
+        <translation>Όνομα του στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="360"/>
@@ -202,7 +202,7 @@
     <message>
         <location filename="../mainwindow.ui" line="664"/>
         <source>exclude network configurations</source>
-        <translation>εξαίρεση της παραμετροποίησης δικτύου</translation>
+        <translation>εξαίρεση παραμετροποίησης του δικτύου</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="667"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλογή ημερομηνίας</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -322,14 +322,14 @@
     <message>
         <location filename="../mainwindow.cpp" line="222"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Ο ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
+        <translation>Ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="225"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation>Ο ελεύθερος χώρος θα πρέπει να επαρκεί για να χωρέσει τα συμπιεσμένα δεδομένα από τo / (root) και to /home
+        <translation>Ο ελεύθερος χώρος θα πρέπει να επαρκεί για να χωρέσει τα συμπιεσμένα δεδομένα από το / (root) και το /home
 
       Εάν είναι απαραίτητο, μπορείτε να δημιουργήσετε περισσότερο διαθέσιμο χώρο αφαιρώντας προηγούμενα στιγμιότυπα και αποθηκευμένα αντίγραφα: %1 στιγμιότυπα δεσμεύουν %2 χώρου στο δίσκο.</translation>
     </message>
@@ -373,38 +373,38 @@
     <message>
         <location filename="../mainwindow.cpp" line="373"/>
         <source>- Snapshot directory:</source>
-        <translation>- Ο κατάλογος του στιγμιότυπου:</translation>
+        <translation>- Κατάλογος του στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="374"/>
         <source>- Kernel to be used:</source>
-        <translation>- Ο πυρήνας που θα χρησιμοποιηθεί:</translation>
+        <translation>- Πυρήνας που θα χρησιμοποιηθεί:</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="396"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Εντοπίστηκε NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Αυτός ο υπολογιστής χρησιμοποιεί κάρτα γραφικών NVIDIA. Σχεδιάζετε να χρησιμοποιήσετε το ISO στον ίδιο ή σε άλλο υπολογιστή με κάρτα γραφικών NVIDIA;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Επιλέχτηκε NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="402"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή χωρίς κάρτα γραφικών NVIDIA, πιθανότατα θα πρέπει να αφαιρέσετε το &apos;xorg=nvidia&apos; από τις επιλογές εκκίνησης.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="406"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή με κάρτα γραφικών NVIDIA, ίσως χρειαστεί να προσθέσετε το &apos;xorg=nvidia&apos; στις επιλογές εκκίνησης.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="417"/>
@@ -414,7 +414,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="441"/>
         <source>Final chance</source>
-        <translation>Τελευταία ευκαιρία</translation>
+        <translation>Τελευταία δυνατότητα</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="443"/>
@@ -429,7 +429,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="446"/>
         <source>OK to start?</source>
-        <translation>Εντάξει για να ξεκινήσει;</translation>
+        <translation>Να ξεκινήσουμε;</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="450"/>
@@ -512,7 +512,7 @@
     <message>
         <location filename="../main.cpp" line="75"/>
         <source>Use CLI only</source>
-        <translation>Χρήση διεπαφής κειμένου</translation>
+        <translation>Χρήση διεπαφής με κείμενο</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="79"/>
@@ -547,7 +547,7 @@
     <message>
         <location filename="../main.cpp" line="89"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation>Χρησιμοποιήστε εισαγωγικά: &quot;-Compression-level &lt;level&gt; &quot;, ή &quot;-Xalgorithm &lt;algorithm&gt; &quot;, ή &quot;-Xhc&quot;, βλέπε man page mksquashfs</translation>
+        <translation>Χρησιμοποιήστε εισαγωγικά: &quot;-Xcompression-level  &lt;level&gt; &quot;, ή &quot;-Xalgorithm &lt;algorithm&gt; &quot;, ή &quot;-Xhc&quot;, βλέπε man page mksquashfs</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="93"/>
@@ -620,7 +620,7 @@
         <translation>Φαίνεται ότι έχετε συνδεθεί ως διαχειριστής, αποσυνδεθείτε και συνδεθείτε ως απλός χρήστης για να χρησιμοποιήσετε αυτό το πρόγραμμα.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>έκδοση:</translation>
     </message>
@@ -636,7 +636,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -645,7 +645,7 @@
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Ο ενεργός πυρήνας δεν υποστηρίζει Squashfs, δεν μπορεί να προχωρήσει.</translation>
@@ -653,7 +653,7 @@
     <message>
         <location filename="../settings.cpp" line="85"/>
         <source>Could not create working directory. </source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου.εργασίας. </translation>
+        <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="109"/>
@@ -668,7 +668,7 @@
     <message>
         <location filename="../settings.cpp" line="357"/>
         <source>Used space on / (root): </source>
-        <translation>Ο χώρος που χρησιμοποιεί το / (root): </translation>
+        <translation>Χώρος που χρησιμοποιεί το / (root): </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="360"/>
@@ -678,12 +678,12 @@
     <message>
         <location filename="../settings.cpp" line="369"/>
         <source>Used space on /home: </source>
-        <translation>Ο χώρος που χρησιμοποιεί το /home: </translation>
+        <translation>Χώρος που χρησιμοποιεί το /home: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="457"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Ο ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
+        <translation>Ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
     </message>
     <message>
         <location filename="../settings.cpp" line="461"/>
@@ -693,7 +693,7 @@
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>Ο ελεύθερος χώρος πρέπει να είναι επαρκής για να χωρέσει τα συμπιεσμένα δεδομένα από το / και το /home
+        <translation>Ο ελεύθερος χώρος πρέπει να είναι επαρκής για να χωρέσει τα συμπιεσμένα δεδομένα από το / (root) και το /home
 
       Εάν είναι απαραίτητο, μπορείτε να δημιουργήσετε περισσότερο χώρο
       αφαιρώντας προηγούμενα στιγμιότυπα και αποθηκευμένα αντίγραφα:
@@ -744,7 +744,7 @@
         <location filename="../settings.cpp" line="738"/>
         <location filename="../settings.cpp" line="837"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Υπάρχει το αρχείο %1. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
+        <translation>Το αρχείο %1 υπάρχει. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
     <message>
         <location filename="../about.cpp" line="70"/>
@@ -853,12 +853,12 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Το MX στιγμιότυπο συστήματος ολοκληρώθηκε με επιτυχία!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation>Το στιγμιότυπο χρειάστηκε %1 για να ολοκληρωθεί.</translation>
+        <translation>Χρειάστηκε %1 για να ολοκληρωθεί.</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="291"/>

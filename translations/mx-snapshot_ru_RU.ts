@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Текущая дата</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите Дату выпуска</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -386,7 +386,7 @@
         <location filename="../mainwindow.cpp" line="396"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Обнаружена NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
@@ -396,7 +396,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA выбрана</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="402"/>
@@ -622,7 +622,7 @@
         <translation>Программа запущена суперпользователем. Для использования программы войдите в систему как обычный пользователь.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>версия:</translation>
     </message>
@@ -638,7 +638,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -647,7 +647,7 @@
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Текущее ядро не поддерживает Squashfs, невозможно продолжить.</translation>
@@ -855,7 +855,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot завершился успешно!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>

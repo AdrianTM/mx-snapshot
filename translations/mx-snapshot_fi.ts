@@ -621,7 +621,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Olet kirjautunut sisään pääkäyttäjänä. Kirjaudu sisään normaalina käyttäjänä käyttääksesi tätä ohjelmaa.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>versio:</translation>
     </message>
@@ -637,7 +637,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -646,7 +646,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kerneli ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>

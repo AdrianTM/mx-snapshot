@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Este ordenador usa unha tarxeta gráfica NVIDIA. Está a planear usar a ISO resultante no mesmo ordenador ou noutro ordenador cunha tarxeta NVIDIA?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Se usas a ISO resultante nun ordenador sen tarxeta NVIDIA, é probable que teñas que eliminar &quot;xorg=nvidia&quot; das opcións de inicio.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Se usas a ISO resultante nun ordenador cunha tarxeta NVIDIA, quizais necesites engadir &quot;xorg=nvidia&quot; ás opcións de inicio.</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Data actual</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccione Data de lanzamento</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -385,27 +385,27 @@
         <location filename="../mainwindow.cpp" line="396"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA detectado</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Este ordenador usa unha tarxeta gráfica NVIDIA. Está a planear usar a ISO resultante no mesmo ordenador ou noutro ordenador cunha tarxeta NVIDIA?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>NVIDIA seleccionado</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="402"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Se usas a ISO resultante nun ordenador sen tarxeta NVIDIA, é probable que teñas que eliminar &quot;xorg=nvidia&quot; das opcións de inicio.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="406"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nota: Se usas a ISO resultante nun ordenador cunha tarxeta NVIDIA, quizais necesites engadir &quot;xorg=nvidia&quot; ás opcións de inicio.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="417"/>
@@ -621,7 +621,7 @@
         <translation>O usuario parece ser root; para usar este programa, pechar a sesión e iniciar sesión como usuario normal.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="168"/>
+        <location filename="../main.cpp" line="169"/>
         <source>version:</source>
         <translation>versón: </translation>
     </message>
@@ -637,7 +637,7 @@
     </message>
     <message>
         <location filename="../main.cpp" line="148"/>
-        <location filename="../main.cpp" line="218"/>
+        <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
         <location filename="../settings.cpp" line="745"/>
@@ -646,7 +646,7 @@
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="215"/>
+        <location filename="../main.cpp" line="216"/>
         <location filename="../settings.cpp" line="248"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo actual non soporta Squashfs; non é posible continuar.</translation>
@@ -854,7 +854,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>Captura de MX efectuada con éxito!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
