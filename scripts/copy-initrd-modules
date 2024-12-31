@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ME=${0##*/}
 MP_ARGS="-D -a"
@@ -34,7 +34,7 @@ Options:
     -v --verbose       List modules as they are copied
 
 Usage
-    exit "${1:-0}"
+    exit ${1:-0}
 }
 
 DEFAULT_LIST="
@@ -177,14 +177,14 @@ main() {
     local to_dir from_dir kernel
 
     local short_stack="defhkOpqQstv"
-    while [[ $# -gt 0 && -n "$1" && -z "${1##-*}" ]]; do
+    while [ $# -gt 0 -a -n "$1" -a -z "${1##-*}" ]; do
         local arg=${1#-} val=
         shift
 
         case $arg in
             [$short_stack][$short_stack]*)
                 if echo "$arg" | grep -q "^[$short_stack]\+$"; then
-                    set -- "$(echo "$arg" | sed -r 's/([a-zA-Z])/ -\1 /g')" "$@"
+                    set -- $(echo $arg | sed -r 's/([a-zA-Z])/ -\1 /g') "$@"
                     continue
                 fi;;
         esac
@@ -206,7 +206,7 @@ main() {
            -count|c) SHOW_COUNT=true                 ;;
              -dir|d) DIRS="$DIRS,$val"               ;;
          -encrypt|e) ADD_ENCRYPT=true                ;;
-            -help|h) usage "$@"                      ;;
+            -help|h) usage                           ;;
             -from|f) from_dir=${val%/}               ;;
           -kernel|k) kernel=$val                     ;;
     -only-encrypt|O) ONLY_ENCRYPT=true               ;;
@@ -220,58 +220,51 @@ main() {
         esac
     done
 
-    [[ "$QUIET" || "$VERY_QUIET" ]] && MP_ARGS="$MP_ARGS --quiet"
-    # Fill in default kernel if there is only one
-    if [[ -z "$kernel" ]]; then
-        local d
-        d="$from_dir/lib/modules"
+    [ "$QUIET" -o "$VERY_QUIET" ] && MP_ARGS="$MP_ARGS --quiet"
+    # fill in default kernel if there is only one
+    if [ -z "$kernel" ]; then
+        local d="$from_dir/lib/modules"
         test -d "$d" || fatal "Could not find directory \"$d\""
-        [[ "$(find "$d" -maxdepth 1 -type d | wc -l)" = 1 ]] && kernel=$(find "$d" -maxdepth 1 -type d)
+        [ "$(ls "$d" | wc -l)" = 1 ] && kernel=$(ls "$d")
     fi
 
-    [[ "$kernel"   ]] && MP_ARGS="$MP_ARGS -S $kernel"
-    [[ "$from_dir" ]] && MP_ARGS="$MP_ARGS -d \"$from_dir\""
+    [ "$kernel"   ] && MP_ARGS="$MP_ARGS -S $kernel"
+    [ "$from_dir" ] && MP_ARGS="$MP_ARGS -d \"$from_dir\""
 
-    : "${kernel:=$(uname -r)}"
-    : "${to_dir:=.}"
+    : ${kernel:=$(uname -r)}
+    : ${to_dir:=.}
 
     local mod_dir="$from_dir/lib/modules/$kernel"
     test -d "$mod_dir" || fatal "Directory $mod_dir does not exist"
 
     local list1 list2 repeats default_mode
+    # grab list from files or stdin and strip comments
 
-    # Grab list from files or stdin and strip comments
-    if [[ "$ADD_ENCRYPT" ]]; then
+    if [ "$ADD_ENCRYPT" ]; then
         DEFAULT_LIST=$DEFAULT_LIST$CRYPT_LIST
-    elif [[ "$ONLY_ENCRYPT" ]]; then
+    elif [ "$ONLY_ENCRYPT" ]; then
         DEFAULT_LIST=$CRYPT_LIST
     fi
 
-    if [[ -z "$USE_STDIN" && $# -eq 0 ]]; then
+    if [ -z "$USE_STDIN" -a $# -eq 0 ]; then
         default_mode=true
-        list1=$(printf '%s\n' "$DEFAULT_LIST" | grep -v '^\s*#' | sed 's/\s*#.*//')
+        list1=$(echo "$DEFAULT_LIST" | grep -v "^\s*#" | sed 's/\s*#.*//')
     else
-        list1=$(grep -v '^\s*#' "$@" 2>/dev/null | sed -e 's/\s*#.*//' -e 's/,/ /g')
+        list1=$(cat "$@" | grep -v "^\s*#" | sed -e 's/\s*#.*//' -e "s/,/ /g")
     fi
 
-    # Set default directories if in default mode and no dirs specified
-    [[ "$default_mode" && -z "$DIRS" ]] && DIRS="kernel/drivers/ata kernel/drivers/mmc"
-
-    # Process each directory and add module names to list1
+    [ "$default_mode" -a -z "$DIRS" ] && DIRS="kernel/drivers/ata kernel/drivers/mmc"
     local d
-    for d in ${DIRS//,/ }; do
-        local dir
-        dir="$mod_dir/$d"
-        if [[ ! -d "$dir" ]]; then
-            fatal "Subdirectory $dir does not exist"
-        fi
-        list1+=$'\n'$(find "$dir" -type f -name '*.ko*' -printf "%f\n" | sed 's/\.ko[^.]*$//')
+    for d in $(echo $DIRS | sed 's/,/ /g'); do
+        local dir=$mod_dir/$d
+        test -d "$dir" || fatal "Subdirectory $dir does not exist"
+        list1="$list1
+$(find "$dir" -type f -name '*\.ko*' -printf "%f\n" | sed -nr 's/\.ko(|\.[[:alpha:]]+)$//p')"
     done
 
     repeats=$(echo "$list1" | sed 's/_/-/g' | sort | uniq --repeated | grep .)
-    if [[ "$repeats" && -z "$VERY_QUIET" ]]; then
-        local cnt
-        cnt=$(echo "$repeats" | wc -l)
+    if [ "$repeats" -a -z "$VERY_QUIET" ]; then
+        local cnt=$(echo "$repeats" | wc -l)
         warn "$cnt repeated module(s) in input"
         echo "$repeats" >&2
     fi
@@ -280,24 +273,25 @@ main() {
         | eval "xargs /sbin/modprobe -n $MP_ARGS" | sed -n 's/^insmod //p' |cut -d' ' -f1| sort -u)
 
     local full cnt=0
-    [[ -z "${from_dir##/*}" ]] || from_dir="$PWD/$from_dir"
-    while read -r full; do
-        [[ "$VERBOSE" ]] && printf "  %s\n" "$(basename "$full")"
-        local dir
-        dir=$(dirname "$full")
-        dir="$to_dir/${dir##"$from_dir/"}"
+    [ -z "${from_dir##/*}" ] || from_dir="$PWD/$from_dir"
+    while read full; do
+        [ "$VERBOSE" ] && printf "  %s\n" "$(basename "$full")"
+        local dir=$(dirname "$full")
+        dir="$to_dir/${dir##$from_dir/}"
         test -d "$dir" || echo_cmd mkdir -p "$dir"
         echo_cmd cp "$full" "$dir/"
-        ((cnt++))
-    done<<< "$list2"
+        cnt=$((++cnt))
+    done<<List_2
+$(echo "$list2")
+List_2
 
-    [[ "$SHOW_COUNT" ]] && printf "$ME: %s module(s)\n" "$cnt"
+    [ "$SHOW_COUNT" ] && printf "$ME: %s module(s)\n" "$cnt"
 
     exit 0
 }
 
 echo_cmd() {
-    [[ "$PRETEND" ]] && return
+    [ "$PRETEND" ] && return
     "$@"
 }
 
