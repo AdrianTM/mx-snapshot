@@ -615,7 +615,7 @@
     <message>
         <location filename="../main.cpp" line="144"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
-        <translation type="unfinished"></translation>
+        <translation>您似乎是以 root 身份登錄，請登出並以一般使用者身份登錄以使用此程式。</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="169"/>
@@ -788,7 +788,7 @@
         <location filename="../work.cpp" line="241"/>
         <location filename="../work.cpp" line="263"/>
         <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="439"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -883,17 +883,17 @@
         <translation>建立新 initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="440"/>
         <source>Could not create working directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="580"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

@@ -791,7 +791,7 @@ rimuovendo precedenti snapshots e copie salvate:
         <location filename="../work.cpp" line="241"/>
         <location filename="../work.cpp" line="263"/>
         <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="439"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -886,17 +886,17 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Realizzazione del nuovo initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="440"/>
         <source>Could not create working directory. </source>
         <translation>Impossibile creare una directory attiva.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="580"/>
         <source>Calculating size of root...</source>
         <translation>Calcolo la dimensione di root...</translation>
     </message>

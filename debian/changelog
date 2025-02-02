@@ -1,3 +1,9 @@
+mx-snapshot (25.2) mx; urgency=medium
+
+  * Fix: allow some special characters in file names
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 02 Feb 2025 18:49:33 -0500
+
 mx-snapshot (24.12.01) mx; urgency=medium
 
   * revert changes to copy-initrd helper programs

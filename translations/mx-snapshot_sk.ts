@@ -789,7 +789,7 @@ odstránením predošlých obrazov alebo kópií systému:
         <location filename="../work.cpp" line="241"/>
         <location filename="../work.cpp" line="263"/>
         <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="439"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -884,17 +884,17 @@ odstránením predošlých obrazov alebo kópií systému:
         <translation>Tvorba nového initrd...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="440"/>
         <source>Could not create working directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="580"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

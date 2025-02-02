@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Huidige datum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecteer de releasedatum</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -792,7 +792,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <location filename="../work.cpp" line="241"/>
         <location filename="../work.cpp" line="263"/>
         <location filename="../work.cpp" line="301"/>
-        <location filename="../work.cpp" line="414"/>
+        <location filename="../work.cpp" line="439"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -887,17 +887,17 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="415"/>
+        <location filename="../work.cpp" line="440"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="545"/>
+        <location filename="../work.cpp" line="570"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="555"/>
+        <location filename="../work.cpp" line="580"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>
