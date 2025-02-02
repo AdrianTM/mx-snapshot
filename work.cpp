@@ -401,7 +401,32 @@ void Work::replaceMenuStrings()
 // Util function for replacing strings in files
 bool Work::replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path)
 {
-    return shell.run(QString("sed -i 's|%1|%2|g' '%3'").arg(old_text, new_text, file_path));
+    QFile file(file_path);
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text)) {
+        qWarning() << "Failed to open file:" << file_path;
+        return false;
+    }
+
+    QTextStream stream(&file);
+    QString content = stream.readAll();
+
+    if (content.contains(old_text)) {
+        content.replace(old_text, new_text);
+
+        file.resize(0);
+        stream.seek(0);
+        stream << content;
+        stream.flush();
+
+        if (stream.status() != QTextStream::Ok) {
+            qWarning() << "Failed to write to file:" << file_path;
+            file.close();
+            return false;
+        }
+    }
+
+    file.close();
+    return true;
 }
 
 // Save package list in working directory
