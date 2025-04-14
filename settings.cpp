@@ -403,6 +403,12 @@ int Settings::getDebianVerNum()
             return Release::Bullseye;
         } else if (verName == "bookworm") {
             return Release::Bookworm;
+        } else if (verName == "trixie") {
+            return Release::Trixie;
+        } else if (verName == "forky") {
+            return Release::Forky;
+        } else if (verName == "duke") {
+            return Release::Duke;
         } else {
             qCritical() << "Unknown Debian version:" << ver << "Assumes Bullseye";
             return Release::Bullseye;
