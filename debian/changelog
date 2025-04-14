@@ -1,3 +1,12 @@
+mx-snapshot (25.4) mx; urgency=medium
+
+  * Adjust kmod and luks2 handling within copy-initrd-programs needed for trixie
+  * Add cryptsetup into initrd
+  * Make copy-initrd-programs shellcheck safe
+  * Add Debian release code names Trixie, Forky, and Duke to enum in settings
+
+ -- fehlix <fehlix@mxlinux.org>  Sun, 13 Apr 2025 17:31:38 -0400
+
 mx-snapshot (25.2) mx; urgency=medium
 
   * Fix: allow some special characters in file names

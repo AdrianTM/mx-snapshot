@@ -33,7 +33,8 @@ extern QString current_kernel;
 
 namespace Release
 {
-enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie };
+enum Version { Jessie = 8, Stretch, Buster, Bullseye,
+                Bookworm, Trixie, Forky, Duke };
 }
 
 class Settings
