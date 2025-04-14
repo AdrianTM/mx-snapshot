@@ -637,8 +637,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="745"/>
-        <location filename="../settings.cpp" line="844"/>
+        <location filename="../settings.cpp" line="751"/>
+        <location filename="../settings.cpp" line="850"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
@@ -679,12 +679,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="457"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>%1 上的可用空间，其中放置快照文件夹:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="467"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -698,48 +698,48 @@
   %1 个快照占用了 %2 的磁盘空间。</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="486"/>
         <source>Documents</source>
         <translation>文档</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Downloads</source>
         <translation>下载</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="488"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="489"/>
         <source>Music</source>
         <translation>音乐</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="490"/>
         <source>Networks</source>
         <translation>网络</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Pictures</source>
         <translation>图片</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="487"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Videos</source>
         <translation>视频</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="738"/>
-        <location filename="../settings.cpp" line="837"/>
+        <location filename="../settings.cpp" line="744"/>
+        <location filename="../settings.cpp" line="843"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>输出文件 %1 已经存在。请使用其他文件名，或删除现有文件。</translation>
     </message>

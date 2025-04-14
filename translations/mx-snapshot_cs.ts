@@ -21,17 +21,17 @@
     <message>
         <location filename="../batchprocessing.cpp" line="101"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento počítač používá grafickou kartu NVIDIA. Plánujete použít výsledné ISO na stejném počítači nebo na jiném počítači s kartou NVIDIA?</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="111"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Pokud výsledné ISO použijete v počítači bez karty NVIDIA, bude pravděpodobně nutné z možností spouštění odstranit &apos;xorg=nvidia&apos;.</translation>
     </message>
     <message>
         <location filename="../batchprocessing.cpp" line="114"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Pokud výsledný soubor ISO použijete v počítači s kartou NVIDIA, bude možná nutné do spouštěcích voleb přidat &apos;xorg=nvidia&apos;.</translation>
     </message>
 </context>
 <context>
@@ -81,7 +81,7 @@
     <message>
         <location filename="../mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation>Aktuální datum</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="172"/>
@@ -147,12 +147,12 @@
     <message>
         <location filename="../mainwindow.ui" line="519"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
-        <translation type="unfinished"></translation>
+        <translation>Omezí vstupní rychlost I/O o zadané procento.</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="525"/>
         <source>I/O throttle:</source>
-        <translation type="unfinished"></translation>
+        <translation>Omezení I/O:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="532"/>
@@ -167,7 +167,7 @@
     <message>
         <location filename="../mainwindow.ui" line="546"/>
         <source>Number of CPU cores to use:</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet jader CPU, která se mají použít:</translation>
     </message>
     <message>
         <location filename="../mainwindow.ui" line="553"/>
@@ -292,7 +292,7 @@
     <message>
         <location filename="../mainwindow.cpp" line="147"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrat datum vydání</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="191"/>
@@ -329,7 +329,9 @@
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Volné místo by mělo být dostatečné pro uložení komprimovaných dat z / a /home.
+
+V případě potřeby můžete vytvořit více volného místa odstraněním předchozích snímků a uložených kopií: %1  snímků zabírá %2 místa na disku.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="237"/>
@@ -382,27 +384,27 @@
         <location filename="../mainwindow.cpp" line="396"/>
         <location filename="../mainwindow.cpp" line="405"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation>Detekována NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="397"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation>Tento počítač používá grafickou kartu NVIDIA. Plánujete použít výsledné ISO na stejném počítači nebo na jiném počítači s kartou NVIDIA?</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="401"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation>Vybrána NVIDIA</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="402"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Pokud výsledné ISO použijete v počítači bez karty NVIDIA, bude pravděpodobně nutné z možností spouštění odstranit &apos;xorg=nvidia&apos;.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="406"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Poznámka: Pokud výsledný soubor ISO použijete v počítači s kartou NVIDIA, bude možná nutné do spouštěcích voleb přidat &apos;xorg=nvidia&apos;.</translation>
     </message>
     <message>
         <location filename="../mainwindow.cpp" line="417"/>
@@ -515,7 +517,7 @@
     <message>
         <location filename="../main.cpp" line="79"/>
         <source>Number of CPU cores to be used.</source>
-        <translation type="unfinished"></translation>
+        <translation>Počet jader CPU, která mají být použita.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="80"/>
@@ -585,7 +587,7 @@
     <message>
         <location filename="../main.cpp" line="103"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
-        <translation type="unfinished"></translation>
+        <translation>Omezí vstupní rychlost I/O o zadané procento. Toto lze použít ke snížení I/O a spotřeby procesoru Mksquashfs.</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="106"/>
@@ -637,8 +639,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="745"/>
-        <location filename="../settings.cpp" line="844"/>
+        <location filename="../settings.cpp" line="751"/>
+        <location filename="../settings.cpp" line="850"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -679,12 +681,12 @@
         <translation>Zabrané místo na disku /home: </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="457"/>
+        <location filename="../settings.cpp" line="463"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Volné místo na %1, kde je snapshot umístněn:</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="461"/>
+        <location filename="../settings.cpp" line="467"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -699,48 +701,48 @@
 </translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="479"/>
+        <location filename="../settings.cpp" line="485"/>
         <source>Desktop</source>
         <translation>Pracovní plocha</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="480"/>
+        <location filename="../settings.cpp" line="486"/>
         <source>Documents</source>
         <translation>Dokumenty</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="481"/>
+        <location filename="../settings.cpp" line="487"/>
         <source>Downloads</source>
         <translation>Stažené soubory</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="482"/>
+        <location filename="../settings.cpp" line="488"/>
         <source>Flatpaks</source>
         <translation>Flatpaky</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="483"/>
+        <location filename="../settings.cpp" line="489"/>
         <source>Music</source>
         <translation>Hudba</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="484"/>
+        <location filename="../settings.cpp" line="490"/>
         <source>Networks</source>
         <translation>Sítě</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="485"/>
+        <location filename="../settings.cpp" line="491"/>
         <source>Pictures</source>
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="487"/>
+        <location filename="../settings.cpp" line="493"/>
         <source>Videos</source>
         <translation>Videa</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="738"/>
-        <location filename="../settings.cpp" line="837"/>
+        <location filename="../settings.cpp" line="744"/>
+        <location filename="../settings.cpp" line="843"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Výstupní soubor %1 již existuje. Prosím vyberte jiný název, nebo vymažte stávající soubor.</translation>
     </message>
@@ -826,7 +828,7 @@
     <message>
         <location filename="../work.cpp" line="242"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation type="unfinished"></translation>
+        <translation>Nelze vytvořit soubor linuxfs, zkontrolujte prosím /var/log/%1.log</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="260"/>
@@ -851,7 +853,7 @@
     <message>
         <location filename="../work.cpp" line="289"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation>MX Snapshot úspěšně dokončen!</translation>
     </message>
     <message>
         <location filename="../work.cpp" line="290"/>
