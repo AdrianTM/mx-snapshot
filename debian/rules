@@ -1,8 +1,11 @@
 #!/usr/bin/make -f
+export QT_SELECT=6
 
-export QT_SELECT=5
+QMAKE_OPTS = DEFINES+=NO_DEBUG_ON_CONSOLE
+MAKE_OPTS  = QMAKE=qmake6 QMAKE_OPTS="$(QMAKE_OPTS)"
 
-DEB_BUILD_VERSION := $(shell dpkg-parsechangelog -S Version)
+override_dh_auto_configure:
+	qmake6
 
 override_dh_auto_clean:
 	dh_auto_clean
@@ -14,8 +17,9 @@ override_dh_auto_clean:
 override_dh_auto_configure:
 	dh_auto_configure -- mx-snapshot.pro
 
+
 override_dh_auto_build:
-	lrelease translations/*.ts
+	/usr/lib/qt6/bin/lrelease translations/*.ts
 	mv version.h version.h~
 	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
 	gzip -kf manual/mx-snapshot.8
@@ -33,13 +37,16 @@ override_dh_auto_build:
 	# before installing move binary back and make a iso-snapshot-cli copy of .list file
 	mv mx-snapshot-binary mx-snapshot
 	cp mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
+	dh_auto_build -- $(MAKE_OPTS)
+
+override_dh_auto_install:
+	dh_auto_install -- $(MAKE_OPTS)
 
 override_dh_shlibdeps:
-	dh_shlibdeps -- -xvirtualbox-guest-x11 --ignore-missing-info
+	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
 
 execute_after_dh_builddeb:
 	mv version.h~ version.h
 
 %:
-	dh $@ --no-automatic-dbgsym --parallel 
-
+	dh $@ --no-automatic-dbgsym --parallel

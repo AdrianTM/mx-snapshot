@@ -188,7 +188,7 @@ int main(int argc, char *argv[])
 void setTranslation()
 {
     const QString localeName = QLocale().name();
-    const QString translationsPath = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+    const QString translationsPath = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
     const QString appName = QCoreApplication::applicationName();
 
     if (qtTran.load("qt_" + localeName, translationsPath)) {
