@@ -203,7 +203,7 @@ QString Settings::getXdgUserDirs(const QString &folder)
         {"DOCUMENTS", "Documents"}, {"DOWNLOAD", "Downloads"}, {"DESKTOP", "Desktop"},
         {"MUSIC", "Music"},         {"PICTURES", "Pictures"},  {"VIDEOS", "Videos"},
     };
-    for (const QString &user : qAsConst(users)) {
+    for (const QString &user : std::as_const(users)) {
         QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + "\" 2>/dev/null");
         if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user
             && dir != "/home/" + user + '/') {
