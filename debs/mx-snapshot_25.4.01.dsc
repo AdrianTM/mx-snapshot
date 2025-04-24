@@ -15,20 +15,20 @@ Package-List:
  iso-snapshot-cli deb admin optional arch=any
  mx-snapshot deb admin optional arch=any
 Checksums-Sha1:
- f7007b16a5af17f37cc2331bfd92ea5be4bb1e95 254660 mx-snapshot_25.4.01.tar.xz
+ 53ce66c9e9be6bcf6142c71081c30d03a02fb6ed 254644 mx-snapshot_25.4.01.tar.xz
 Checksums-Sha256:
- 97111333422f9467229b773b4d956eea3fb93af0dda6ac51b8d49cddb851edd4 254660 mx-snapshot_25.4.01.tar.xz
+ ce38835c1bdacbad8dbb4b9f729bf6b96da370e5ee5a3c507fd76a901f21942c 254644 mx-snapshot_25.4.01.tar.xz
 Files:
- 0b1f64f2bbf3372dc3ab8c28354efe25 254660 mx-snapshot_25.4.01.tar.xz
+ e14c45184d49c3e2821745318622a4a2 254644 mx-snapshot_25.4.01.tar.xz
 
 -----BEGIN PGP SIGNATURE-----
 
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmgKw88THGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumD06B/9beL7QAGD5N9GfrHb9TLwyNqZbFbcR
-pfeY1jcENi2O0sW+h7/jnOEuL6iYq1j+ZygjPRs7YymDwpyBDA1MzZS/Db0pwVIY
-vyrN/qtu2O2S8u7am4NkjBQtnhk7q/DW6NRYVVq9dMb13T3z6nnDCbj32T0M1uf4
-1GzufkF0guygZTvh5/olMICu91StVcEifuHx9/zg6avedD9ZM3vIjmRKJR7KpQY5
-+D1enasCEieH+AgpSongBbakwFDUP6REsk/r9bg/wj2lx2JgeOybViH30qGrIsNI
-aDrYQ5B+NcaCc4OlwIrz9u3pc7xqqSrcNFgFq7fRedkGZTwYtKdHdjlM
-=mh58
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmgKxVwTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumO2cCACHjcUQvYlhORj/HXJgDYk6rUlFSTl9
+rfrgXvDEySxPBir2EC0zhoQKMSQs+mAUqWg83srxxyNxIRuyB7lK6/lFMgCvZNKu
+QhCqknKpxapAh4y3ikA4eURVSqiHM9A4wJ3FAff7Z22wbJPzVE9j4467zCewfEUJ
+sVu80n4ZaD1YYAPLGtIoKVYmoylj68i9SmDuBtx3cdBYrBe1clp3WzgxefX3Xz+u
+9ASaMPj9BzbZmRzK7nWIFnRvrE09EfNoV494MQtAA5bhRrBgBsAA4PJxeQthN/uY
+WARXP9H2E7Ywl2s9RZ+XTU+5fzHo3z30louI8jFEYsMWgnsw1CuM7fQI
+=Jok1
 -----END PGP SIGNATURE-----
