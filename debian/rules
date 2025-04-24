@@ -6,34 +6,32 @@ MAKE_OPTS  = QMAKE=qmake6 QMAKE_OPTS="$(QMAKE_OPTS)"
 
 override_dh_auto_clean:
 	dh_auto_clean
-	rm -f manual/*.gz
-	rm -f src/manual/*.gz
-	rm -f translations/*.qm
-	rm -f src/translations/*.qm
+	-find manual src/manual -name '*.gz' -delete || true
+	-find translations src/translations -name '*.qm' -delete || true
 
 override_dh_auto_configure:
-	qmake6 -makefile
+	qmake6 mx-snapshot.pro
 
 override_dh_auto_build:
 	/usr/lib/qt6/bin/lrelease translations/*.ts
-	mv version.h version.h~
+	@# Backup version.h if it exists
+	[ -f version.h ] && mv version.h version.h~ || true
 	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
-	gzip -kf manual/mx-snapshot.8
-	gzip -kf manual/iso-snapshot-cli.8
-	# build mx-snapshot
+	gzip -kf manual/mx-snapshot.8 manual/iso-snapshot-cli.8
+	# Build mx-snapshot
 	dh_auto_build
 	mv mx-snapshot mx-snapshot-binary
-	# clean, reconfigure, and build iso-snapshot-cli
-	mv version.h~ version.h
+	# Clean, reconfigure, and build iso-snapshot-cli
+	[ -f version.h~ ] && mv version.h~ version.h || true
 	dh_auto_clean
-	mv version.h version.h~
+	[ -f version.h ] && mv version.h version.h~ || true
 	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
-	rm mx-snapshot.pro Makefile
-	qmake6 -makefile
+	rm -f mx-snapshot.pro Makefile
+	qmake6 iso-snapshot-cli.pro
 	dh_auto_build
-	# before installing move binary back and make a iso-snapshot-cli copy of .list file
+	# Before installing, move binary back and make a iso-snapshot-cli copy of .list file
 	mv mx-snapshot-binary mx-snapshot
-	cp mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
+	cp -f mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
 	dh_auto_build -- $(MAKE_OPTS)
 
 override_dh_auto_install:
@@ -43,7 +41,7 @@ override_dh_shlibdeps:
 	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
 
 execute_after_dh_builddeb:
-	mv version.h~ version.h
+	[ -f version.h~ ] && mv version.h~ version.h || true
 
 %:
 	dh $@ --no-automatic-dbgsym --parallel
