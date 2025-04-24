@@ -30,6 +30,6 @@ Depends: mx-iso-template | iso-template (>= 16.1mx15),
          xorriso (>= 1.4.6),
          ${misc:Depends},
          ${shlibs:Depends}
-Description: ISO Snapshoti CLI
+Description: ISO Snapshot CLI
  ISO Snapshot CLI is a tool used for creating a live-CD from the running system.
  This tool is the CLI-exclusive version of MX Snapshot, if you need a GUI, use MX Snapshot
