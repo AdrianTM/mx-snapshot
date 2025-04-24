@@ -1,3 +1,9 @@
+mx-snapshot (25.4.01) mx; urgency=medium
+
+  * Update to Qt6
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 24 Apr 2025 19:05:07 -0400
+
 mx-snapshot (25.4) mx; urgency=medium
 
   * Adjust kmod and luks2 handling within copy-initrd-programs needed for trixie
