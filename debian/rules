@@ -12,7 +12,7 @@ override_dh_auto_clean:
 	rm -f src/translations/*.qm
 
 override_dh_auto_configure:
-	qmake6
+	qmake6 --makefile
 
 override_dh_auto_build:
 	/usr/lib/qt6/bin/lrelease translations/*.ts
@@ -29,7 +29,7 @@ override_dh_auto_build:
 	mv version.h version.h~
 	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
 	rm mx-snapshot.pro Makefile
-	qmake6
+	qmake6 -makefile
 	dh_auto_build
 	# before installing move binary back and make a iso-snapshot-cli copy of .list file
 	mv mx-snapshot-binary mx-snapshot
