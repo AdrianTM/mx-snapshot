@@ -4,9 +4,6 @@ export QT_SELECT=6
 QMAKE_OPTS = DEFINES+=NO_DEBUG_ON_CONSOLE
 MAKE_OPTS  = QMAKE=qmake6 QMAKE_OPTS="$(QMAKE_OPTS)"
 
-override_dh_auto_configure:
-	qmake6
-
 override_dh_auto_clean:
 	dh_auto_clean
 	rm -f manual/*.gz
@@ -15,7 +12,7 @@ override_dh_auto_clean:
 	rm -f src/translations/*.qm
 
 override_dh_auto_configure:
-	dh_auto_configure -- mx-snapshot.pro
+	qmake6 -- mx-snapshot.pro
 
 
 override_dh_auto_build:
