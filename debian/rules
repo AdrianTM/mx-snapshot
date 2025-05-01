@@ -3,6 +3,7 @@ export QT_SELECT=6
 
 QMAKE_OPTS = DEFINES+=NO_DEBUG_ON_CONSOLE
 MAKE_OPTS  = QMAKE=qmake6 QMAKE_OPTS="$(QMAKE_OPTS)"
+DEB_BUILD_VERSION := $(shell dpkg-parsechangelog -S Version)
 
 override_dh_auto_clean:
 	dh_auto_clean
