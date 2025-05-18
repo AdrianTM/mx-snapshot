@@ -68,6 +68,7 @@ var/lib/lightdm/.cache
 var/lib/lightdm/.Xauthority
 var/lib/NetworkManager/*
 var/lib/nfs/rpc_pipefs/*
+var/lib/sddm/*
 var/lib/sudo/*
 var/lib/udisks/*
 var/lib/urandom/*
