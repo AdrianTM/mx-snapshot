@@ -656,11 +656,10 @@ void Settings::loadConfig()
     if (!snapshot_dir.endsWith("/snapshot")) {
         snapshot_dir = QDir::cleanPath(snapshot_dir + "/snapshot");
     }
+    QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
+    QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     snapshot_excludes.setFileName(
-        settingsUser
-            .value("snapshot_excludes",
-                   QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list"))
-            .toString());
+        settingsUser.value("snapshot_excludes", QFileInfo::exists(localPath) ? localPath : usrPath).toString());
     snapshot_basename = settingsUser.value("snapshot_basename", "snapshot").toString();
     make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";

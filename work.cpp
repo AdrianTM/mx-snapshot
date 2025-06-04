@@ -481,7 +481,11 @@ void Work::setupEnv()
 
 void Work::writeLsbRelease()
 {
-    QFile file("/usr/local/share/live-files/files/etc/lsb-release");
+    QString filePath = "/usr/local/share/live-files/files/etc/lsb-release";
+    if (!QFile::exists(filePath)) {
+        filePath = "/usr/share/live-files/files/etc/lsb-release";
+    }
+    QFile file(filePath);
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         return;
     }
@@ -505,7 +509,11 @@ void Work::writeSnapshotInfo()
 
 void Work::writeVersionFile()
 {
-    QFile file("/usr/local/share/live-files/files/etc/mx-version");
+    QString filePath = "/usr/local/share/live-files/files/etc/mx-version";
+    if (!QFile::exists(filePath)) {
+        filePath = "/usr/share/live-files/files/etc/mx-version";
+    }
+    QFile file(filePath);
     if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
         return;
     }
