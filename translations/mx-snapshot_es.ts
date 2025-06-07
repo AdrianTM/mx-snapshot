@@ -639,8 +639,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="751"/>
-        <location filename="../settings.cpp" line="850"/>
+        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -741,8 +741,8 @@
         <translation>Videos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="744"/>
-        <location filename="../settings.cpp" line="843"/>
+        <location filename="../settings.cpp" line="743"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El archivo de salida %1 ya existe. Utilice otro nombre de archivo o elimine el archivo existente.</translation>
     </message>
@@ -891,12 +891,12 @@
         <translation>No se pudo crear el directorio de trabajo.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="578"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando el tamaño total de los archivos excluidos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="580"/>
+        <location filename="../work.cpp" line="588"/>
         <source>Calculating size of root...</source>
         <translation>Calculando el tamaño de root...</translation>
     </message>

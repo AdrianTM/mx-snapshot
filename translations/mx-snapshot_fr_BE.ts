@@ -639,8 +639,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="751"/>
-        <location filename="../settings.cpp" line="850"/>
+        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -740,8 +740,8 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
         <translation>Vidéos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="744"/>
-        <location filename="../settings.cpp" line="843"/>
+        <location filename="../settings.cpp" line="743"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
@@ -890,12 +890,12 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
         <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="578"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus ...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="580"/>
+        <location filename="../work.cpp" line="588"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root ...</translation>
     </message>

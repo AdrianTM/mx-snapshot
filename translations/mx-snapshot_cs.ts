@@ -639,8 +639,8 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="751"/>
-        <location filename="../settings.cpp" line="850"/>
+        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -741,8 +741,8 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <translation>Videa</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="744"/>
-        <location filename="../settings.cpp" line="843"/>
+        <location filename="../settings.cpp" line="743"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Výstupní soubor %1 již existuje. Prosím vyberte jiný název, nebo vymažte stávající soubor.</translation>
     </message>
@@ -891,12 +891,12 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="578"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Výpočet celkové velikosti vyloučených souborů...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="580"/>
+        <location filename="../work.cpp" line="588"/>
         <source>Calculating size of root...</source>
         <translation>Výpoćet velikosti root...</translation>
     </message>

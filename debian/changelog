@@ -1,3 +1,9 @@
+mx-snapshot (25.6) mx; urgency=medium
+
+  * Prepare to move stuff out of /usr/local/; Read script from alternative location
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 06 Jun 2025 20:40:07 -0400
+
 mx-snapshot (25.4.01) mx; urgency=medium
 
   * Update to Qt6

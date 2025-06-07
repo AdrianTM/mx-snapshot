@@ -45,5 +45,4 @@ Description: Command-line system snapshot tool for MX Linux
  ISO Snapshot CLI is a command-line utility that allows users to create a
  live-CD/USB image from their running MX Linux system. It provides the same
  core functionality as MX Snapshot without requiring a graphical interface.
-
  For users who prefer a graphical interface, please use the mx-snapshot package.

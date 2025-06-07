@@ -639,8 +639,8 @@
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="751"/>
-        <location filename="../settings.cpp" line="850"/>
+        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -742,8 +742,8 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Video&apos;s</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="744"/>
-        <location filename="../settings.cpp" line="843"/>
+        <location filename="../settings.cpp" line="743"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Uitvoerbestand %1 bestaat al. Gebruik een andere bestandsnaam of verwijder het bestaande bestand.</translation>
     </message>
@@ -892,12 +892,12 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="578"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="580"/>
+        <location filename="../work.cpp" line="588"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>

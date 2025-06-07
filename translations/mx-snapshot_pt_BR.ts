@@ -642,8 +642,8 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <location filename="../main.cpp" line="219"/>
         <location filename="../settings.cpp" line="239"/>
         <location filename="../settings.cpp" line="254"/>
-        <location filename="../settings.cpp" line="751"/>
-        <location filename="../settings.cpp" line="850"/>
+        <location filename="../settings.cpp" line="750"/>
+        <location filename="../settings.cpp" line="849"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
@@ -741,8 +741,8 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../settings.cpp" line="744"/>
-        <location filename="../settings.cpp" line="843"/>
+        <location filename="../settings.cpp" line="743"/>
+        <location filename="../settings.cpp" line="842"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo da saída %1 já existe. Por favor, utilize um outro nome para o arquivo ou exclua o arquivo existente.</translation>
     </message>
@@ -891,12 +891,12 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="570"/>
+        <location filename="../work.cpp" line="578"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando o tamanho total dos arquivos excluídos...</translation>
     </message>
     <message>
-        <location filename="../work.cpp" line="580"/>
+        <location filename="../work.cpp" line="588"/>
         <source>Calculating size of root...</source>
         <translation>Calculando o tamanho da raiz (‘root’)...</translation>
     </message>
