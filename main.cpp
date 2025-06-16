@@ -92,8 +92,9 @@ int main(int argc, char *argv[])
         {{"m", "month"},
          QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " "
              + QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those "
-                           "items will be ignored"),
-         ""},
+                           "items will be ignored") + " "
+             + QObject::tr("Optionally specify a suffix to add to the month name (e.g., '1' for 'July.1')"),
+         "suffix"},
         {{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file"), ""},
         {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit"), ""},
         {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels"), ""},

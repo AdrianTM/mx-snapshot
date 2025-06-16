@@ -831,6 +831,9 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
     }
     if (arg_parser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");
+        if (!arg_parser.value("month").isEmpty()) {
+            month += "." + arg_parser.value("month");
+        }
         auto suffix = name.section('_', 1, 1);
         if (qgetenv("DESKTOP_SESSION") == "plasma") {
             suffix = "KDE";
