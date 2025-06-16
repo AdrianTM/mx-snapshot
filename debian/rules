@@ -33,7 +33,6 @@ override_dh_auto_build:
 	# Before installing, move binary back and make a iso-snapshot-cli copy of .list file
 	mv mx-snapshot-binary mx-snapshot
 	cp -f mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
-	dh_auto_build -- $(MAKE_OPTS)
 
 override_dh_auto_install:
 	dh_auto_install -- $(MAKE_OPTS)
