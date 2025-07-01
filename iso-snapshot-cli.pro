@@ -25,7 +25,7 @@ DEFINES += CLI_BUILD=1
 QT       += core
 QT       -= gui
 
-CONFIG   += debug_and_release warn_on strict_c++ c++17
+CONFIG   += debug_and_release warn_on strict_c++ c++20
 
 CONFIG(release, debug|release) {
     DEFINES += NDEBUG
