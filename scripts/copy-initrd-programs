@@ -44,7 +44,7 @@ Options:
     -h --help          Show this usage
     -n --no-color      Turn off text colors
     -p --pretend       Don't actually copy anything
-    -q --quiet         Supress modprobe warnings
+    -q --quiet         Suppress modprobe warnings
     -s --show          Show default values of environment variables
     -t --to=<dir>      Copy to /bin and /lib under <dir>
     -v --verbose       Show more information
@@ -178,7 +178,7 @@ main() {
     my_mkdir "$lib_dir"
 
     # Copy each program to the bin directory ...
-    # And ind the libraries needed for each program
+    # And find the libraries needed for each program
     for abs_prog in $abs_prog_list; do
         local from_prog basename_prog
         from_prog="${FROM_DIR%/}$abs_prog"

@@ -27,9 +27,9 @@ Options:
     -k --kernel=KERN   Use KERN instead of \`uname -r\`
     -O --only-encrypt  Only add encryption modules
     -p --pretend       Don't actually copy anything
-    -q --quiet         Supress modprobe warnings
+    -q --quiet         Suppress modprobe warnings
     -s --show          Show the default list
-    -Q --very-quiet    Also suppress warnins about duplicate inputs
+    -Q --very-quiet    Also suppress warnings about duplicate inputs
     -t --to=TODIR      Copy to TODIR instead of CWD
     -v --verbose       List modules as they are copied
 

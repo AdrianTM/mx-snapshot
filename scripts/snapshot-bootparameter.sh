@@ -221,7 +221,7 @@ main() {
             kernel=*)  ;;
              extra=*)  ;;
 
-            # Luks paramter
+            # Luks parameter
                 [bfp]luks*) ;;
 
             # Mount root device read-only on boot
@@ -265,7 +265,7 @@ main() {
     i=${#OUT_LIST[@]};
     while ((i--)); do REV_LIST+=("${OUT_LIST[$i]}"); done
 
-    # List of paramter to keep only the last set
+    # List of parameters to keep only the last set
 
     KEY_LIST=(
         lang
