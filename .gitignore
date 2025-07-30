@@ -48,6 +48,7 @@ CMakeFiles
 build.ninja
 cmake_install.cmake
 *_autogen/
+build
 
 # Transifex ignore
 .tx/

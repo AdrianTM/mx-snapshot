@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
         qputenv("HOME", "/root");
     }
 
-    const std::initializer_list<int> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
+    const std::array<int, 3> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
     for (auto signalName : signalList) {
         signal(signalName, signalHandler);
     }

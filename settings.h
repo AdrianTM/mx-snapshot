@@ -27,7 +27,7 @@
 #include <QFile>
 #include <QTemporaryDir>
 
-#include <cmd.h>
+#include "cmd.h"
 
 extern QString current_kernel;
 
