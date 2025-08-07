@@ -43,27 +43,27 @@ TEMPLATE = app
 DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
-    log.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    about.cpp \
-    cmd.cpp \
-    settings.cpp \
-    batchprocessing.cpp \
-    work.cpp
+    src/log.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/about.cpp \
+    src/cmd.cpp \
+    src/settings.cpp \
+    src/batchprocessing.cpp \
+    src/work.cpp
 
 HEADERS  += \
-    common.h \
-    log.h \
-    mainwindow.h \
-    about.h \
-    cmd.h \
-    settings.h \
-    batchprocessing.h \
-    work.h
+    src/common.h \
+    src/log.h \
+    src/mainwindow.h \
+    src/about.h \
+    src/cmd.h \
+    src/settings.h \
+    src/batchprocessing.h \
+    src/work.h
 
 FORMS    += \
-    mainwindow.ui
+    src/mainwindow.ui
 
 TRANSLATIONS += \
     translations/mx-snapshot_en.ts

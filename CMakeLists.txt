@@ -60,36 +60,36 @@ set(CMAKE_AUTORCC ON)
 
 # Common source files
 set(COMMON_SOURCES
-    log.cpp
-    main.cpp
-    cmd.cpp
-    settings.cpp
-    batchprocessing.cpp
-    work.cpp
+    src/log.cpp
+    src/main.cpp
+    src/cmd.cpp
+    src/settings.cpp
+    src/batchprocessing.cpp
+    src/work.cpp
 )
 
 set(COMMON_HEADERS
-    common.h
-    log.h
-    cmd.h
-    settings.h
-    batchprocessing.h
-    work.h
+    src/common.h
+    src/log.h
+    src/cmd.h
+    src/settings.h
+    src/batchprocessing.h
+    src/work.h
 )
 
 # GUI-specific source files
 set(GUI_SOURCES
-    mainwindow.cpp
-    about.cpp
+    src/mainwindow.cpp
+    src/about.cpp
 )
 
 set(GUI_HEADERS
-    mainwindow.h
-    about.h
+    src/mainwindow.h
+    src/about.h
 )
 
 set(UI_FILES
-    mainwindow.ui
+    src/mainwindow.ui
 )
 
 set(RESOURCE_FILES

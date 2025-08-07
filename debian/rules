@@ -16,17 +16,17 @@ override_dh_auto_configure:
 override_dh_auto_build:
 	/usr/lib/qt6/bin/lrelease translations/*.ts
 	@# Backup version.h if it exists
-	[ -f version.h ] && mv version.h version.h~ || true
-	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
+	[ -f src/version.h ] && mv src/version.h src/version.h~ || true
+	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > src/version.h
 	gzip -kf manual/mx-snapshot.8 manual/iso-snapshot-cli.8
 	# Build mx-snapshot
 	dh_auto_build
 	mv mx-snapshot mx-snapshot-binary
 	# Clean, reconfigure, and build iso-snapshot-cli
-	[ -f version.h~ ] && mv version.h~ version.h || true
+	[ -f src/version.h~ ] && mv src/version.h~ src/version.h || true
 	dh_auto_clean
-	[ -f version.h ] && mv version.h version.h~ || true
-	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > version.h
+	[ -f src/version.h ] && mv src/version.h src/version.h~ || true
+	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > src/version.h
 	rm -f mx-snapshot.pro Makefile
 	qmake6 iso-snapshot-cli.pro
 	dh_auto_build
@@ -41,7 +41,7 @@ override_dh_shlibdeps:
 	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
 
 execute_after_dh_builddeb:
-	[ -f version.h~ ] && mv version.h~ version.h || true
+	[ -f src/version.h~ ] && mv src/version.h~ src/version.h || true
 
 %:
 	dh $@ --no-automatic-dbgsym
