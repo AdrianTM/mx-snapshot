@@ -25,6 +25,7 @@
 
 #include <QCommandLineParser>
 #include <QFile>
+#include <QSettings>
 #include <QTemporaryDir>
 
 #include "cmd.h"
@@ -35,8 +36,7 @@ extern QString current_kernel;
 
 namespace Release
 {
-enum Version { Jessie = 8, Stretch, Buster, Bullseye,
-                Bookworm, Trixie, Forky, Duke };
+enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie, Forky, Duke };
 }
 
 class Settings
@@ -51,16 +51,15 @@ public:
     [[nodiscard]] QString getUsedSpace();
     [[nodiscard]] QString getXdgUserDirs(const QString &folder);
     [[nodiscard]] bool checkCompression() const;
+    [[nodiscard]] bool checkConfiguration() const;
     [[nodiscard]] bool checkSnapshotDir() const;
     [[nodiscard]] bool checkTempDir();
-    [[nodiscard]] bool checkConfiguration() const;
+    [[nodiscard]] bool initializeConfiguration();
     [[nodiscard]] bool validateExclusions() const;
     [[nodiscard]] bool validateSpaceRequirements() const;
-    [[nodiscard]] bool initializeConfiguration();
-    void handleInitializationError(const QString &error) const;
     [[nodiscard]] int getSnapshotCount() const;
-    [[nodiscard]] static int getDebianVerNum();
     [[nodiscard]] quint64 getLiveRootSpace();
+    [[nodiscard]] static int getDebianVerNum();
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
     void excludeDesktop(bool exclude);
@@ -75,6 +74,7 @@ public:
     void excludeSwapFile();
     void excludeVideos(bool exclude);
     void excludeVirtualBox(bool exclude);
+    void handleInitializationError(const QString &error) const;
     void loadConfig();
     void otherExclusions();
     void processArgs(const QCommandLineParser &arg_parser);
@@ -108,12 +108,13 @@ public:
                                                      {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
     // Phase 2: Mutable UI preferences
-    QString kernel;
+    Exclusions exclusions;
     QString boot_options;
     QString codename;
     QString compression;
     QString distro_version;
     QString full_distro_name;
+    QString kernel;
     QString project_name;
     QString release_date;
     bool make_md5sum {};
@@ -121,38 +122,49 @@ public:
     bool reset_accounts {};
     uint cores {};
     uint throttle {};
-    Exclusions exclusions;
 
     // Phase 3: Runtime state
-    QString snapshot_dir;
-    QString snapshot_name;
-    QString work_dir;
-    QString tempdir_parent;
-    QString mksq_opt;
-    QString session_excludes;
     QFile snapshot_excludes;
     QScopedPointer<QTemporaryDir> tmpdir;
-    quint64 free_space {};
-    quint64 free_space_work {};
-    bool force_installer {};
-    bool live {};
-    bool make_isohybrid {};
+    QString mksq_opt;
+    QString session_excludes;
+    QString snapshot_dir;
+    QString snapshot_name;
+    QString tempdir_parent;
+    QString work_dir;
     bool preempt {};
     bool shutdown {};
+    const bool force_installer;
+    const bool live;
+    const bool make_isohybrid;
+    quint64 free_space {};
+    quint64 free_space_work {};
 
 private:
     QFile config_file;
-    QString gui_editor;
     QString save_message;
-    QString snapshot_basename;
-    QString stamp;
     QString version;
-    QStringList users; // list of users with /home folders
+    const QString gui_editor;
+    const QString snapshot_basename;
+    const QString stamp;
     const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
+    const QStringList users; // list of users with /home folders
     quint64 home_size {};
     quint64 root_size {};
 
     // Helper functions for const member initialization
     QString getInitialKernel(const QCommandLineParser &arg_parser);
     bool getEditBootMenuSetting();
+
+    struct InitialSettings {
+        bool live;
+        bool force_installer;
+        bool make_isohybrid;
+        QString gui_editor;
+        QString snapshot_basename;
+        QString stamp;
+        QStringList users;
+    };
+
+    InitialSettings getInitialSettings() const;
 };

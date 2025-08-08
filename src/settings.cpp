@@ -45,7 +45,14 @@ Settings::Settings(const QCommandLineParser &arg_parser)
       monthly(arg_parser.isSet("month")),
       override_size(arg_parser.isSet("override-size")),
       edit_boot_menu(getEditBootMenuSetting()),
-      config_file("/etc/" + qApp->applicationName() + ".conf")
+      force_installer(getInitialSettings().force_installer),
+      live(getInitialSettings().live),
+      make_isohybrid(getInitialSettings().make_isohybrid),
+      config_file("/etc/" + qApp->applicationName() + ".conf"),
+      gui_editor(getInitialSettings().gui_editor),
+      snapshot_basename(getInitialSettings().snapshot_basename),
+      stamp(getInitialSettings().stamp),
+      users(getInitialSettings().users)
 {
     try {
         if (!initializeConfiguration()) {
@@ -471,9 +478,7 @@ void Settings::setVariables()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
     try {
-        live = SystemInfo::isLive();
-        users = SystemInfo::listUsers();
-
+        // live and users are now const members initialized in constructor
         if (users.isEmpty()) {
             qWarning() << QObject::tr("No users found in the system");
         }
@@ -845,16 +850,12 @@ void Settings::loadConfig()
     QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     snapshot_excludes.setFileName(
         settingsUser.value("snapshot_excludes", QFileInfo::exists(localPath) ? localPath : usrPath).toString());
-    snapshot_basename = settingsUser.value("snapshot_basename", "snapshot").toString();
+    // snapshot_basename, make_isohybrid, gui_editor, stamp, force_installer are now const members
     make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
-    make_isohybrid = settingsUser.value("make_isohybrid", "yes").toString() == "yes";
     compression = settingsUser.value("compression", "zstd").toString();
     mksq_opt = settingsUser.value("mksq_opt").toString();
     // edit_boot_menu is now const, initialized in constructor
-    gui_editor = settingsUser.value("gui_editor").toString();
-    stamp = settingsUser.value("stamp").toString();
-    force_installer = settingsUser.value("force_installer", true).toBool();
     tempdir_parent = settingsUser.value("workdir").toString();
     cores = settingsUser.value("cores", max_cores).toUInt();
     throttle = settingsUser.value("throttle", 0).toUInt();
@@ -1090,4 +1091,32 @@ bool Settings::getEditBootMenuSetting()
 {
     QSettings settingsUser;
     return settingsUser.value("edit_boot_menu", "no").toString() != "no";
+}
+
+Settings::InitialSettings Settings::getInitialSettings() const
+{
+    QSettings settingsSystem("/etc/" + qApp->applicationName() + ".conf", QSettings::IniFormat);
+    QSettings settingsUser;
+
+    // Merge system settings into user settings
+    settingsSystem.beginGroup("");
+    QStringList systemKeys = settingsSystem.allKeys();
+    settingsSystem.endGroup();
+
+    foreach (const QString &key, systemKeys) {
+        if (!settingsUser.contains(key)) {
+            QVariant value = settingsSystem.value(key);
+            settingsUser.setValue(key, value);
+        }
+    }
+
+    return {
+        .live = SystemInfo::isLive(),
+        .force_installer = settingsUser.value("force_installer", true).toBool(),
+        .make_isohybrid = settingsUser.value("make_isohybrid", "yes").toString() == "yes",
+        .gui_editor = settingsUser.value("gui_editor").toString(),
+        .snapshot_basename = settingsUser.value("snapshot_basename", "snapshot").toString(),
+        .stamp = settingsUser.value("stamp").toString(),
+        .users = SystemInfo::listUsers()
+    };
 }

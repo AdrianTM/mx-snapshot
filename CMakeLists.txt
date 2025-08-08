@@ -28,6 +28,12 @@ project(mx-snapshot
     LANGUAGES CXX
 )
 
+# Set default build type if not specified
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Choose the type of build" FORCE)
+    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
+endif()
+
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -175,7 +181,7 @@ function(set_common_properties target)
         QT_DISABLE_DEPRECATED_BEFORE=0x060000
     )
 
-    # Release-specific optimizations
+    # Build type specific optimizations
     if(CMAKE_BUILD_TYPE STREQUAL "Release")
         target_compile_definitions(${target} PRIVATE NDEBUG)
         target_compile_options(${target} PRIVATE -O3)
@@ -185,6 +191,9 @@ function(set_common_properties target)
             target_compile_options(${target} PRIVATE -flto=auto)
             target_link_options(${target} PRIVATE -flto=auto)
         endif()
+    elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
+        target_compile_options(${target} PRIVATE -g -O0)
+        target_compile_definitions(${target} PRIVATE DEBUG)
     endif()
 endfunction()
 
