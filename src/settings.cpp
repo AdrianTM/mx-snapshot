@@ -32,6 +32,7 @@
 #include <QStandardPaths>
 #include <QStorageInfo>
 
+#include <exception>
 #include <unistd.h>
 
 #ifndef CLI_BUILD
@@ -46,19 +47,42 @@ Settings::Settings(const QCommandLineParser &arg_parser)
       edit_boot_menu(getEditBootMenuSetting()),
       config_file("/etc/" + qApp->applicationName() + ".conf")
 {
-    if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
-        QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
-        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+    try {
+        if (!initializeConfiguration()) {
+            handleInitializationError(QObject::tr("Failed to initialize configuration"));
+            exit(EXIT_FAILURE);
+        }
+
+        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
+            QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
+            Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+        }
+
+        loadConfig(); // Load settings from .conf file
+        setVariables();
+        kernel = getInitialKernel(arg_parser); // Initialize kernel after config is loaded
+        preempt = arg_parser.isSet("preempt"); // Initialize preempt from command line
+        processArgs(arg_parser);
+
+        if (monthly) {
+            setMonthlySnapshot(arg_parser);
+        }
+
+        processExclArgs(arg_parser);
+
+        // Validate final configuration
+        if (!checkConfiguration()) {
+            handleInitializationError(QObject::tr("Configuration validation failed"));
+            exit(EXIT_FAILURE);
+        }
+
+    } catch (const std::exception &e) {
+        handleInitializationError(QObject::tr("Exception during initialization: %1").arg(e.what()));
+        exit(EXIT_FAILURE);
+    } catch (...) {
+        handleInitializationError(QObject::tr("Unknown exception during initialization"));
+        exit(EXIT_FAILURE);
     }
-    loadConfig(); // Load settings from .conf file
-    setVariables();
-    kernel = getInitialKernel(arg_parser); // Initialize kernel after config is loaded
-    preempt = arg_parser.isSet("preempt"); // Initialize preempt from command line
-    processArgs(arg_parser);
-    if (monthly) {
-        setMonthlySnapshot(arg_parser);
-    }
-    processExclArgs(arg_parser);
 }
 
 // Check if compression is available in the kernel (lz4, lzo, xz)
@@ -127,67 +151,186 @@ bool Settings::checkTempDir()
 bool Settings::checkConfiguration() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    
+
     // Check compression format
     if (!checkCompression()) {
         qCritical() << QObject::tr("Compression format '%1' is not supported by the current kernel").arg(compression);
         return false;
     }
-    
+
     // Check cores setting
     if (cores == 0 || cores > max_cores) {
         qCritical() << QObject::tr("Invalid cores setting: %1. Must be between 1 and %2").arg(cores).arg(max_cores);
         return false;
     }
-    
+
     // Check throttle setting
     if (throttle > 20) {
         qCritical() << QObject::tr("Invalid throttle setting: %1. Must be between 0 and 20").arg(throttle);
         return false;
     }
-    
+
     // Check snapshot directory
     if (snapshot_dir.isEmpty()) {
         qCritical() << QObject::tr("Snapshot directory cannot be empty");
         return false;
     }
-    
+
     if (!QDir(snapshot_dir).exists() && !QDir().mkpath(snapshot_dir)) {
         qCritical() << QObject::tr("Cannot create snapshot directory: %1").arg(snapshot_dir);
         return false;
     }
-    
+
     // Check snapshot name
     if (snapshot_name.isEmpty()) {
         qCritical() << QObject::tr("Snapshot name cannot be empty");
         return false;
     }
-    
+
     // Check for invalid characters in snapshot name
     if (snapshot_name.contains(QRegularExpression("[<>:\"/\\|?*]"))) {
         qCritical() << QObject::tr("Snapshot name contains invalid characters: %1").arg(snapshot_name);
         return false;
     }
-    
+
     // Check kernel
     if (kernel.isEmpty()) {
         qCritical() << QObject::tr("Kernel version cannot be empty");
         return false;
     }
-    
+
     if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
         qCritical() << QObject::tr("Kernel file not found: /boot/vmlinuz-%1").arg(kernel);
         return false;
     }
-    
+
     // Check if SQUASHFS is available in kernel
     if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
         qCritical() << QObject::tr("Kernel %1 doesn't support Squashfs").arg(kernel);
         return false;
     }
-    
+
+    // Validate exclusions
+    if (!validateExclusions()) {
+        return false;
+    }
+
+    // Validate space requirements
+    if (!validateSpaceRequirements()) {
+        return false;
+    }
+
     qDebug() << "Configuration validation passed";
     return true;
+}
+
+bool Settings::validateExclusions() const
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
+    // Check if exclusion file exists and is readable
+    if (!snapshot_excludes.fileName().isEmpty() && !snapshot_excludes.exists()) {
+        qCritical() << QObject::tr("Exclusion file does not exist: %1").arg(snapshot_excludes.fileName());
+        return false;
+    }
+
+    // Validate session exclusions format
+    if (!session_excludes.isEmpty()) {
+        // Check for balanced quotes
+        int quoteCount = session_excludes.count('"');
+        if (quoteCount % 2 != 0) {
+            qCritical() << QObject::tr("Unbalanced quotes in exclusion list");
+            return false;
+        }
+    }
+
+    qDebug() << "Exclusion validation passed";
+    return true;
+}
+
+bool Settings::validateSpaceRequirements() const
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
+    // Check if we have minimum free space (at least 1GB)
+    constexpr quint64 MIN_FREE_SPACE = 1024 * 1024; // 1GB in KiB
+
+    if (free_space < MIN_FREE_SPACE) {
+        qCritical() << QObject::tr("Insufficient free space: %1 KiB available, minimum %2 KiB required")
+                           .arg(free_space).arg(MIN_FREE_SPACE);
+        return false;
+    }
+
+    if (free_space_work < MIN_FREE_SPACE) {
+        qCritical() << QObject::tr("Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required")
+                           .arg(free_space_work).arg(MIN_FREE_SPACE);
+        return false;
+    }
+
+    qDebug() << "Space requirements validation passed";
+    return true;
+}
+
+bool Settings::initializeConfiguration()
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
+    // Validate max_cores
+    if (max_cores == 0) {
+        qCritical() << QObject::tr("Failed to determine number of CPU cores");
+        return false;
+    }
+
+    // Check if config file exists and is readable
+    if (!config_file.exists()) {
+        qWarning() << QObject::tr("Configuration file does not exist: %1").arg(config_file.fileName());
+        qWarning() << QObject::tr("Using default settings");
+    } else if (!config_file.open(QIODevice::ReadOnly)) {
+        qCritical() << QObject::tr("Cannot read configuration file: %1").arg(config_file.fileName());
+        qCritical() << QObject::tr("Error: %1").arg(config_file.errorString());
+        return false;
+    } else {
+        config_file.close();
+    }
+
+    // Check for required system tools
+    QStringList requiredTools = {"mksquashfs", "xorriso", "lslogins"};
+    for (const QString &tool : requiredTools) {
+        if (QProcess::execute("which", {tool}) != 0) {
+            qCritical() << QObject::tr("Required tool not found: %1").arg(tool);
+            return false;
+        }
+    }
+
+    // Check for required directories
+    QStringList requiredDirs = {"/boot", "/etc", "/usr/lib"};
+    for (const QString &dir : requiredDirs) {
+        if (!QDir(dir).exists()) {
+            qCritical() << QObject::tr("Required directory not found: %1").arg(dir);
+            return false;
+        }
+    }
+
+    qDebug() << "Configuration initialization passed";
+    return true;
+}
+
+void Settings::handleInitializationError(const QString &error) const
+{
+    qCritical() << "Settings initialization error:" << error;
+
+    // Log to system log if available
+    if (QFile::exists("/usr/bin/logger")) {
+        QProcess::execute("logger", {"-t", qApp->applicationName(), "Settings initialization error: " + error});
+    }
+
+    // Show error dialog in GUI mode
+#ifndef CLI_BUILD
+    if (qApp->metaObject()->className() == QLatin1String("QApplication")) {
+        QMessageBox::critical(nullptr, QObject::tr("Initialization Error"),
+                             QObject::tr("Failed to initialize application settings:\n\n%1").arg(error));
+    }
+#endif
 }
 
 QString Settings::getEditor() const
@@ -325,8 +468,19 @@ void Settings::selectKernel()
 
 void Settings::setVariables()
 {
-    live = SystemInfo::isLive();
-    users = SystemInfo::listUsers();
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
+    try {
+        live = SystemInfo::isLive();
+        users = SystemInfo::listUsers();
+
+        if (users.isEmpty()) {
+            qWarning() << QObject::tr("No users found in the system");
+        }
+    } catch (...) {
+        qCritical() << QObject::tr("Failed to determine system information");
+        throw;
+    }
 
     QString distro_version_file;
     if (QFileInfo::exists("/etc/mx-version")) {
@@ -657,8 +811,17 @@ void Settings::excludeVirtualBox(bool exclude)
 // Load settings from config file
 void Settings::loadConfig()
 {
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
     QSettings settingsSystem(config_file.fileName(), QSettings::IniFormat);
+    if (settingsSystem.status() != QSettings::NoError) {
+        qWarning() << QObject::tr("Error reading system configuration file: %1").arg(config_file.fileName());
+    }
+
     QSettings settingsUser;
+    if (settingsUser.status() != QSettings::NoError) {
+        qWarning() << QObject::tr("Error accessing user configuration");
+    }
 
     // Read all keys from system settings
     settingsSystem.beginGroup("");

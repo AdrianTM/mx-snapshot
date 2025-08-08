@@ -56,6 +56,8 @@ public:
     [[nodiscard]] bool checkConfiguration() const;
     [[nodiscard]] bool validateExclusions() const;
     [[nodiscard]] bool validateSpaceRequirements() const;
+    [[nodiscard]] bool initializeConfiguration();
+    void handleInitializationError(const QString &error) const;
     [[nodiscard]] int getSnapshotCount() const;
     [[nodiscard]] static int getDebianVerNum();
     [[nodiscard]] quint64 getLiveRootSpace();
