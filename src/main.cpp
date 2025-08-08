@@ -126,7 +126,9 @@ int main(int argc, char *argv[])
     const QString compressionValue = parser.value("compression");
     const QStringList allowedComp {"lz4", "lzo", "gzip", "xz", "zstd"};
     if (!compressionValue.isEmpty() && !allowedComp.contains(compressionValue)) {
-        qDebug() << "Unsupported compression format:" << compressionValue;
+        qDebug() << "Error: Unsupported compression format:" << compressionValue;
+        qDebug() << "Supported formats:" << allowedComp.join(", ");
+        qDebug() << "Please use one of the supported formats or omit the option to use default (zstd).";
         return EXIT_FAILURE;
     }
 

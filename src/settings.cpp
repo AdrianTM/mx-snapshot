@@ -111,7 +111,9 @@ bool Settings::checkTempDir()
     }
     tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
-        qDebug() << QObject::tr("Could not create temp directory. ") + tmpdir->path();
+        qCritical() << QObject::tr("Could not create temp directory:") << tmpdir->path();
+        qCritical() << QObject::tr("Please check that the parent directory exists and is writable:");
+        qCritical() << tempdir_parent;
         return false;
     }
     work_dir = tmpdir->path();
@@ -236,12 +238,14 @@ void Settings::selectKernel()
             }
             if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                 QString message = QObject::tr("Could not find a usable kernel");
+                QString details = QObject::tr("Searched for kernel files in /boot/ but none were found or accessible.");
                 if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
                     qDebug().noquote() << message;
+                    qDebug().noquote() << details;
                 }
 #ifndef CLI_BUILD
                 else {
-                    QMessageBox::critical(nullptr, QObject::tr("Error"), message);
+                    QMessageBox::critical(nullptr, QObject::tr("Error"), message + "\n\n" + details);
                 }
 #endif
                 exit(EXIT_FAILURE);
@@ -730,14 +734,26 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
     }
     // preempt is now const, initialized in constructor
     QDir dir;
-    if (!arg_parser.value("directory").isEmpty() && QFileInfo::exists(arg_parser.value("directory"))) {
-        dir.setPath(arg_parser.value("directory"));
-        snapshot_dir = dir.absolutePath() + "/snapshot";
+    if (!arg_parser.value("directory").isEmpty()) {
+        QString directory = arg_parser.value("directory");
+        if (QFileInfo::exists(directory)) {
+            dir.setPath(directory);
+            snapshot_dir = dir.absolutePath() + "/snapshot";
+        } else {
+            qWarning() << "Warning: Specified directory does not exist:" << directory;
+            qWarning() << "Using default snapshot directory:" << snapshot_dir;
+        }
     }
 
-    if (!arg_parser.value("workdir").isEmpty() && QFileInfo::exists(arg_parser.value("workdir"))) {
-        dir.setPath(arg_parser.value("workdir"));
-        tempdir_parent = dir.absolutePath();
+    if (!arg_parser.value("workdir").isEmpty()) {
+        QString workdir = arg_parser.value("workdir");
+        if (QFileInfo::exists(workdir)) {
+            dir.setPath(workdir);
+            tempdir_parent = dir.absolutePath();
+        } else {
+            qWarning() << "Warning: Specified work directory does not exist:" << workdir;
+            qWarning() << "Using default work directory:" << tempdir_parent;
+        }
     }
 
     if (!arg_parser.value(QStringLiteral("file")).isEmpty()) {
@@ -786,7 +802,9 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         bool ok {false};
         uint val = arg_parser.value("cores").toUInt(&ok);
         if (!ok || val == 0 || val > max_cores) {
-            qDebug() << "Invalid number of cores argument, will use the default:" << cores;
+            qWarning() << "Invalid cores value:" << arg_parser.value("cores")
+                       << "- must be between 1 and" << max_cores;
+            qWarning() << "Using default:" << cores;
         } else {
             cores = val;
         }
@@ -795,7 +813,9 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         bool ok {false};
         uint val = arg_parser.value("throttle").toUInt(&ok);
         if (!ok || val > 99) {
-            qDebug() << "Invalid argument for throttle, will use the default:" << throttle;
+            qWarning() << "Invalid throttle value:" << arg_parser.value("throttle")
+                       << "- must be between 0 and 99";
+            qWarning() << "Using default:" << throttle;
         } else {
             throttle = val;
         }
