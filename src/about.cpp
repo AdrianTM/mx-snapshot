@@ -26,6 +26,7 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QPushButton>
+#include <QScopedPointer>
 #include <QStandardPaths>
 #include <QTextEdit>
 #include <QVBoxLayout>
@@ -77,11 +78,11 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
     if (msgBox.clickedButton() == btnLicense) {
         displayDoc(licence_url, license_title);
     } else if (msgBox.clickedButton() == btnChangelog) {
-        auto *changelog = new QDialog;
+        QScopedPointer<QDialog> changelog(new QDialog);
         changelog->setWindowTitle(QObject::tr("Changelog"));
         changelog->resize(width, height);
 
-        auto *text = new QTextEdit(changelog);
+        auto *text = new QTextEdit(changelog.data());
         text->setReadOnly(true);
         QProcess proc;
         proc.start(
@@ -91,11 +92,11 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
         proc.waitForFinished();
         text->setText(proc.readAllStandardOutput());
 
-        auto *btnClose = new QPushButton(QObject::tr("&Close"), changelog);
+        auto *btnClose = new QPushButton(QObject::tr("&Close"), changelog.data());
         btnClose->setIcon(QIcon::fromTheme("window-close"));
-        QObject::connect(btnClose, &QPushButton::clicked, changelog, &QDialog::close);
+        QObject::connect(btnClose, &QPushButton::clicked, changelog.data(), &QDialog::close);
 
-        auto *layout = new QVBoxLayout(changelog);
+        auto *layout = new QVBoxLayout(changelog.data());
         layout->addWidget(text);
         layout->addWidget(btnClose);
         changelog->setLayout(layout);

@@ -61,10 +61,7 @@ MainWindow::MainWindow(Settings *settings, QWidget *parent)
     }
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+MainWindow::~MainWindow() = default;
 
 void MainWindow::loadSettings()
 {

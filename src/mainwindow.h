@@ -24,6 +24,7 @@
 #pragma once
 
 #include <QMessageBox>
+#include <QScopedPointer>
 #include <QSettings>
 #include <QTimer>
 
@@ -85,7 +86,7 @@ private slots:
     void spinThrottle_valueChanged(int arg1);
 
 private:
-    Ui::MainWindow *ui;
+    QScopedPointer<Ui::MainWindow> ui;
     QTimer timer;
     Settings *settings;
     Work work;
