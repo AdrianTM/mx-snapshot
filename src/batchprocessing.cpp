@@ -32,48 +32,48 @@
 
 using namespace std::chrono_literals;
 
-Batchprocessing::Batchprocessing(const QCommandLineParser &arg_parser, QObject *parent)
+Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     : QObject(parent),
-      Settings(arg_parser),
-      work(this)
+      settings(settings),
+      work(settings, this)
 {
     connect(qApp, &QCoreApplication::aboutToQuit, this, [this] { work.cleanUp(); });
     setConnections();
 
-    if (!checkCompression()) {
+    if (!settings->checkCompression()) {
         qCritical().noquote() << tr("Error")
                               << tr("Current kernel doesn't support selected compression algorithm, "
                                     "please edit the configuration file and select a different algorithm.");
         return;
     }
 
-    QString path = snapshot_dir;
-    qDebug() << "Free space:" << getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
-    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size")) {
-        qDebug() << "Unused space:" << getUsedSpace();
+    QString path = settings->snapshot_dir;
+    qDebug() << "Free space:" << settings->getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
+    if (!settings->monthly && !settings->override_size) {
+        qDebug() << "Unused space:" << settings->getUsedSpace();
     }
 
     work.started = true;
     work.e_timer.start();
-    if (!checkSnapshotDir() || !checkTempDir()) {
+    if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
         work.cleanUp();
         return;
     }
-    otherExclusions();
+    settings->otherExclusions();
     work.setupEnv();
-    if (!arg_parser.isSet("month") && !arg_parser.isSet("override-size")) {
+    if (!settings->monthly && !settings->override_size) {
         work.checkEnoughSpace();
     }
     work.copyNewIso();
-    work.savePackageList(snapshot_name);
+    work.savePackageList(settings->snapshot_name);
 
-    if (edit_boot_menu) {
+    if (settings->edit_boot_menu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");
-        QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
+        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
         Cmd().run(cmd);
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
-    work.createIso(snapshot_name);
+    work.createIso(settings->snapshot_name);
 }
 
 void Batchprocessing::setConnections()
@@ -107,7 +107,7 @@ void Batchprocessing::checkNvidiaGraphicsCard()
 
         response = response.toLower();
         if (response == "yes" || response == "y") {
-            boot_options += " xorg=nvidia";
+            settings->boot_options += " xorg=nvidia";
             qDebug() << tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
                            "you will likely need to remove 'xorg=nvidia' from the boot options.");
         } else {

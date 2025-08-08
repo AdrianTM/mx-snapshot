@@ -40,11 +40,11 @@
 
 using namespace std::chrono_literals;
 
-MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
+MainWindow::MainWindow(Settings *settings, QWidget *parent)
     : QDialog(parent),
-      Settings(arg_parser),
       ui(new Ui::MainWindow),
-      work(this)
+      settings(settings),
+      work(settings, this)
 {
     ui->setupUi(this);
     setConnections();
@@ -53,7 +53,7 @@ MainWindow::MainWindow(const QCommandLineParser &arg_parser, QWidget *parent)
     listFreeSpace();
     setExclusions();
     setOtherOptions();
-    if (monthly) {
+    if (settings->monthly) {
         ui->btnNext->click();
         ui->btnNext->click();
     } else {
@@ -71,34 +71,34 @@ void MainWindow::loadSettings()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     ui->labelTitleSummary->clear();
     ui->labelSummary->clear();
-    ui->labelSnapshotDir->setText(snapshot_dir);
-    if (snapshot_name.isEmpty()) {
-        ui->lineEditName->setText(getFilename());
+    ui->labelSnapshotDir->setText(settings->snapshot_dir);
+    if (settings->snapshot_name.isEmpty()) {
+        ui->lineEditName->setText(settings->getFilename());
     } else {
-        ui->lineEditName->setText(snapshot_name);
+        ui->lineEditName->setText(settings->snapshot_name);
     }
-    ui->textCodename->setText(codename);
-    ui->textDistroVersion->setText(distro_version);
-    ui->textProjectName->setText(project_name);
-    ui->textOptions->setText(boot_options);
-    ui->pushReleaseDate->setText(release_date);
+    ui->textCodename->setText(settings->codename);
+    ui->textDistroVersion->setText(settings->distro_version);
+    ui->textProjectName->setText(settings->project_name);
+    ui->textOptions->setText(settings->boot_options);
+    ui->pushReleaseDate->setText(settings->release_date);
     QDir bootDir("/boot");
     QStringList kernelFiles = bootDir.entryList({"vmlinuz-*"}, QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     std::transform(kernelFiles.begin(), kernelFiles.end(), kernelFiles.begin(),
                    [](const QString &file) { return file.mid(QStringLiteral("vmlinuz-").length()); });
     ui->comboLiveKernel->addItems(kernelFiles);
-    ui->comboLiveKernel->setCurrentText(kernel);
+    ui->comboLiveKernel->setCurrentText(settings->kernel);
 }
 
 void MainWindow::setOtherOptions()
 {
-    ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(compression, Qt::MatchStartsWith));
-    ui->checkMd5->setChecked(make_md5sum);
-    ui->checkSha512->setChecked(make_sha512sum);
-    ui->radioRespin->setChecked(reset_accounts);
-    ui->spinCPU->setMaximum(static_cast<int>(max_cores));
-    ui->spinCPU->setValue(static_cast<int>(cores));
-    ui->spinThrottle->setValue(static_cast<int>(throttle));
+    ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(settings->compression, Qt::MatchStartsWith));
+    ui->checkMd5->setChecked(settings->make_md5sum);
+    ui->checkSha512->setChecked(settings->make_sha512sum);
+    ui->radioRespin->setChecked(settings->reset_accounts);
+    ui->spinCPU->setMaximum(static_cast<int>(settings->max_cores));
+    ui->spinCPU->setValue(static_cast<int>(settings->cores));
+    ui->spinThrottle->setValue(static_cast<int>(settings->throttle));
 }
 
 void MainWindow::setConnections()
@@ -161,15 +161,15 @@ void MainWindow::setConnections()
 
 void MainWindow::setExclusions()
 {
-    QVector<QPair<QCheckBox *, Exclude>> exclusionPairs
-        = {{ui->excludeDesktop, Exclude::Desktop},     {ui->excludeDocuments, Exclude::Documents},
-           {ui->excludeDownloads, Exclude::Downloads}, {ui->excludeFlatpaks, Exclude::Flatpaks},
-           {ui->excludeMusic, Exclude::Music},         {ui->excludeNetworks, Exclude::Networks},
-           {ui->excludePictures, Exclude::Pictures},   {ui->excludeSteam, Exclude::Steam},
-           {ui->excludeVideos, Exclude::Videos},       {ui->excludeVirtualBox, Exclude::VirtualBox}};
+    QVector<QPair<QCheckBox *, Settings::Exclude>> exclusionPairs
+        = {{ui->excludeDesktop, Settings::Exclude::Desktop},     {ui->excludeDocuments, Settings::Exclude::Documents},
+           {ui->excludeDownloads, Settings::Exclude::Downloads}, {ui->excludeFlatpaks, Settings::Exclude::Flatpaks},
+           {ui->excludeMusic, Settings::Exclude::Music},         {ui->excludeNetworks, Settings::Exclude::Networks},
+           {ui->excludePictures, Settings::Exclude::Pictures},   {ui->excludeSteam, Settings::Exclude::Steam},
+           {ui->excludeVideos, Settings::Exclude::Videos},       {ui->excludeVirtualBox, Settings::Exclude::VirtualBox}};
 
     for (const auto &pair : exclusionPairs) {
-        pair.first->setChecked(exclusions.testFlag(pair.second));
+        pair.first->setChecked(settings->exclusions.testFlag(pair.second));
     }
 }
 
@@ -209,15 +209,15 @@ void MainWindow::listUsedSpace()
     ui->btnNext->setEnabled(true);
     ui->btnCancel->setEnabled(true);
     ui->btnSelectSnapshot->setEnabled(true);
-    ui->labelUsedSpace->setText(getUsedSpace());
+    ui->labelUsedSpace->setText(settings->getUsedSpace());
 }
 
 void MainWindow::listFreeSpace()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    QString path = snapshot_dir;
+    QString path = settings->snapshot_dir;
     path.remove(QRegularExpression("/snapshot$"));
-    QString free_space = getFreeSpaceStrings(path);
+    QString free_space = settings->getFreeSpaceStrings(path);
     ui->labelFreeSpace->clear();
     ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space
                                 + "\n");
@@ -229,7 +229,7 @@ void MainWindow::listFreeSpace()
             //           "      If necessary, you can create more available space\n"
             //           "      by removing previous snapshots and saved copies:\n"
             //           "      %1 snapshots are taking up %2 of disk space.\n")
-            .arg(QString::number(getSnapshotCount()), getSnapshotSize()));
+            .arg(QString::number(settings->getSnapshotCount()), settings->getSnapshotSize()));
 }
 
 bool MainWindow::installPackage(const QString &package)
@@ -318,7 +318,7 @@ void MainWindow::progress()
     ui->progressBar->setValue((ui->progressBar->value() + 1) % ui->progressBar->maximum() + 1);
 
     // In live environment and first page, blink text while calculating used disk space
-    if (live && (ui->stackedWidget->currentIndex() == 0)) {
+    if (settings->live && (ui->stackedWidget->currentIndex() == 0)) {
         if (ui->progressBar->value() % 4 == 0) {
             ui->labelUsedSpace->setText("\n " + tr("Please wait."));
         } else {
@@ -332,8 +332,8 @@ void MainWindow::btnNext_clicked()
     QString file_name = ui->lineEditName->text();
     appendIsoExtension(file_name);
 
-    if (QFile::exists(snapshot_dir + "/" + file_name)) {
-        showErrorMessageBox(snapshot_dir + "/" + file_name);
+    if (QFile::exists(settings->snapshot_dir + "/" + file_name)) {
+        showErrorMessageBox(settings->snapshot_dir + "/" + file_name);
         return;
     }
 
@@ -366,19 +366,19 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     ui->stackedWidget->setCurrentWidget(ui->settingsPage);
     ui->btnBack->setHidden(false);
     ui->btnBack->setEnabled(true);
-    kernel = ui->comboLiveKernel->currentText();
-    selectKernel();
+    settings->kernel = ui->comboLiveKernel->currentText();
+    settings->selectKernel();
     ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
 
-    ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + snapshot_dir + "\n" + "- "
+    ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + settings->snapshot_dir + "\n" + "- "
                               + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
-                              + kernel + "\n");
-    codename = ui->textCodename->text();
-    distro_version = ui->textDistroVersion->text();
-    project_name = ui->textProjectName->text();
-    full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
-    boot_options = ui->textOptions->text();
-    release_date = ui->pushReleaseDate->text();
+                              + settings->kernel + "\n");
+    settings->codename = ui->textCodename->text();
+    settings->distro_version = ui->textDistroVersion->text();
+    settings->project_name = ui->textProjectName->text();
+    settings->full_distro_name = settings->project_name + "-" + settings->distro_version + "_" + QString(settings->x86 ? "386" : "x64");
+    settings->boot_options = ui->textOptions->text();
+    settings->release_date = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();
 }
 
@@ -412,7 +412,7 @@ void MainWindow::checkNvidiaGraphicsCard()
 
 void MainWindow::handleSettingsPage(const QString &file_name)
 {
-    if (!checkCompression()) {
+    if (!settings->checkCompression()) {
         processMsgBox(BoxType::critical, tr("Error"),
                       tr("Current kernel doesn't support selected compression algorithm, please edit the "
                          "configuration file and select a different algorithm."));
@@ -425,7 +425,7 @@ void MainWindow::handleSettingsPage(const QString &file_name)
 
     work.started = true;
     work.e_timer.start();
-    if (!checkSnapshotDir() || !checkTempDir()) {
+    if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
         cleanUp();
         return;
     }
@@ -448,7 +448,7 @@ bool MainWindow::confirmStart()
     auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
     auto *checkShutdown = new QCheckBox(this);
     checkShutdown->setText(tr("Shutdown computer when done."));
-    if (shutdown) {
+    if (settings->shutdown) {
         checkShutdown->setCheckState(Qt::Checked);
     }
     messageBox.setCheckBox(checkShutdown);
@@ -456,23 +456,23 @@ bool MainWindow::confirmStart()
     if (messageBox.clickedButton() == pushCancel) {
         return false;
     }
-    shutdown = checkShutdown->isChecked();
+    settings->shutdown = checkShutdown->isChecked();
     return true;
 }
 
 void MainWindow::applyExclusions()
 {
-    excludeDesktop(ui->excludeDesktop->isChecked());
-    excludeDocuments(ui->excludeDocuments->isChecked());
-    excludeDownloads(ui->excludeDownloads->isChecked());
-    excludeFlatpaks(ui->excludeFlatpaks->isChecked());
-    excludeMusic(ui->excludeMusic->isChecked());
-    excludeNetworks(ui->excludeNetworks->isChecked());
-    excludePictures(ui->excludePictures->isChecked());
-    excludeSteam(ui->excludeSteam->isChecked());
-    excludeVideos(ui->excludeVideos->isChecked());
-    excludeVirtualBox(ui->excludeVirtualBox->isChecked());
-    otherExclusions();
+    settings->excludeDesktop(ui->excludeDesktop->isChecked());
+    settings->excludeDocuments(ui->excludeDocuments->isChecked());
+    settings->excludeDownloads(ui->excludeDownloads->isChecked());
+    settings->excludeFlatpaks(ui->excludeFlatpaks->isChecked());
+    settings->excludeMusic(ui->excludeMusic->isChecked());
+    settings->excludeNetworks(ui->excludeNetworks->isChecked());
+    settings->excludePictures(ui->excludePictures->isChecked());
+    settings->excludeSteam(ui->excludeSteam->isChecked());
+    settings->excludeVideos(ui->excludeVideos->isChecked());
+    settings->excludeVirtualBox(ui->excludeVirtualBox->isChecked());
+    settings->otherExclusions();
 }
 
 void MainWindow::prepareForOutput(const QString &file_name)
@@ -483,14 +483,14 @@ void MainWindow::prepareForOutput(const QString &file_name)
     setWindowTitle(tr("Output"));
     ui->outputBox->clear();
     work.setupEnv();
-    if (!monthly && !override_size) {
+    if (!settings->monthly && !settings->override_size) {
         work.checkEnoughSpace();
     }
     work.copyNewIso();
     ui->outputLabel->clear();
     work.savePackageList(file_name);
 
-    if (edit_boot_menu) {
+    if (settings->edit_boot_menu) {
         editBootMenu();
     }
 
@@ -509,7 +509,7 @@ void MainWindow::editBootMenu()
                "snapshot."),
             QMessageBox::Yes | QMessageBox::No)) {
         hide();
-        QString cmd = getEditor() + " \"" + work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
+        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
         work.shell.run(cmd);
         show();
     }
@@ -527,7 +527,7 @@ void MainWindow::btnBack_clicked()
 void MainWindow::btnEditExclude_clicked()
 {
     hide();
-    work.shell.run(getEditor() + " " + snapshot_excludes.fileName());
+    work.shell.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
     show();
 }
 
@@ -582,7 +582,7 @@ void MainWindow::excludeDesktop_toggled(bool checked)
 
 void MainWindow::radioRespin_toggled(bool checked)
 {
-    reset_accounts = checked;
+    settings->reset_accounts = checked;
     if (checked && !ui->excludeAll->isChecked()) {
         ui->excludeAll->click();
     }
@@ -590,7 +590,7 @@ void MainWindow::radioRespin_toggled(bool checked)
 
 void MainWindow::radioPersonal_clicked(bool checked)
 {
-    reset_accounts = !checked;
+    settings->reset_accounts = !checked;
     if (checked && ui->excludeAll->isChecked()) {
         ui->excludeAll->click();
     }
@@ -629,8 +629,8 @@ void MainWindow::btnSelectSnapshot_clicked()
     QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
                                                          QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {
-        snapshot_dir = selected + "/snapshot";
-        ui->labelSnapshotDir->setText(snapshot_dir);
+        settings->snapshot_dir = selected + "/snapshot";
+        ui->labelSnapshotDir->setText(settings->snapshot_dir);
         listFreeSpace();
     }
 }
@@ -663,8 +663,8 @@ void MainWindow::btnCancel_clicked()
 void MainWindow::cbCompression_currentIndexChanged()
 {
     QString comp = ui->cbCompression->currentText().section(" ", 0, 0);
-    settings.setValue("compression", comp);
-    compression = comp;
+    qt_settings.setValue("compression", comp);
+    settings->compression = comp;
 }
 
 void MainWindow::excludeNetworks_toggled(bool checked)
@@ -676,14 +676,14 @@ void MainWindow::excludeNetworks_toggled(bool checked)
 
 void MainWindow::checkMd5_toggled(bool checked)
 {
-    settings.setValue("make_md5sum", checked ? "yes" : "no");
-    make_md5sum = checked;
+    qt_settings.setValue("make_md5sum", checked ? "yes" : "no");
+    settings->make_md5sum = checked;
 }
 
 void MainWindow::checkSha512_toggled(bool checked)
 {
-    settings.setValue("make_sha512sum", checked ? "yes" : "no");
-    make_sha512sum = checked;
+    qt_settings.setValue("make_sha512sum", checked ? "yes" : "no");
+    settings->make_sha512sum = checked;
 }
 
 void MainWindow::excludeSteam_toggled(bool checked)
@@ -702,12 +702,12 @@ void MainWindow::excludeVirtualBox_toggled(bool checked)
 
 void MainWindow::spinCPU_valueChanged(int arg1)
 {
-    settings.setValue("cores", arg1);
-    cores = arg1;
+    qt_settings.setValue("cores", arg1);
+    settings->cores = arg1;
 }
 
 void MainWindow::spinThrottle_valueChanged(int arg1)
 {
-    settings.setValue("throttle", arg1);
-    throttle = arg1;
+    qt_settings.setValue("throttle", arg1);
+    settings->throttle = arg1;
 }

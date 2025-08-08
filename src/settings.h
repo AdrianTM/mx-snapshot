@@ -41,9 +41,6 @@ class Settings
 {
 public:
     explicit Settings(const QCommandLineParser &arg_parser);
-    friend class Batchprocessing;
-    friend class MainWindow;
-    friend class Work;
 
     [[nodiscard]] QString getEditor() const;
     [[nodiscard]] QString getFilename() const;
@@ -87,7 +84,7 @@ public:
     void setMonthlySnapshot(const QCommandLineParser &arg_parser);
     void setVariables();
 
-private:
+    // Public enums and types
     enum class Exclude {
         Desktop = 1 << 0,
         Documents = 1 << 1,
@@ -101,51 +98,62 @@ private:
         VirtualBox = 1 << 9
     };
     Q_DECLARE_FLAGS(Exclusions, Exclude)
+
+    // Phase 1: Immutable system configuration (const)
+    const bool x86;
+    const uint max_cores;
+    const bool monthly;
+    const bool override_size;
+    const bool edit_boot_menu;
     const QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
                                                      {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
-    Exclusions exclusions;
-    QFile config_file;
-    QFile snapshot_excludes;
-    QScopedPointer<QTemporaryDir> tmpdir;
+    // Phase 2: Mutable UI preferences
+    QString kernel;
     QString boot_options;
     QString codename;
     QString compression;
     QString distro_version;
     QString full_distro_name;
-    QString gui_editor;
-    QString kernel;
-    QString mksq_opt;
     QString project_name;
     QString release_date;
-    QString save_message;
-    QString session_excludes;
-    QString snapshot_basename;
+    bool make_md5sum {};
+    bool make_sha512sum {};
+    bool reset_accounts {};
+    uint cores {};
+    uint throttle {};
+    Exclusions exclusions;
+
+    // Phase 3: Runtime state
     QString snapshot_dir;
     QString snapshot_name;
-    QString stamp;
-    QString tempdir_parent;
-    QString version;
     QString work_dir;
-    QStringList users; // list of users with /home folders
-    bool edit_boot_menu {};
+    QString tempdir_parent;
+    QString mksq_opt;
+    QString session_excludes;
+    QFile snapshot_excludes;
+    QScopedPointer<QTemporaryDir> tmpdir;
+    quint64 free_space {};
+    quint64 free_space_work {};
     bool force_installer {};
     bool live {};
     bool make_isohybrid {};
-    bool make_md5sum {};
-    bool make_sha512sum {};
-    bool monthly {};
-    bool override_size;
-    bool preempt {}; // command line option
-    bool reset_accounts {};
+    bool preempt {};
     bool shutdown {};
-    bool x86 {};
+
+private:
+    QFile config_file;
+    QString gui_editor;
+    QString save_message;
+    QString snapshot_basename;
+    QString stamp;
+    QString version;
+    QStringList users; // list of users with /home folders
     const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
-    const uint max_cores {Cmd().getOut("nproc", true).trimmed().toUInt()};
-    quint64 free_space {};
-    quint64 free_space_work {};
     quint64 home_size {};
     quint64 root_size {};
-    uint cores {};
-    uint throttle {};
+
+    // Helper functions for const member initialization
+    QString getInitialKernel(const QCommandLineParser &arg_parser);
+    bool getEditBootMenuSetting();
 };

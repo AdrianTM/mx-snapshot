@@ -37,12 +37,12 @@ namespace Ui
 class MainWindow;
 }
 
-class MainWindow : public QDialog, public Settings
+class MainWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(const QCommandLineParser &arg_parser = QCommandLineParser(), QWidget *parent = nullptr);
+    explicit MainWindow(Settings *settings, QWidget *parent = nullptr);
     ~MainWindow() override;
 
 protected:
@@ -87,8 +87,9 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QTimer timer;
+    Settings *settings;
     Work work;
-    QSettings settings;
+    QSettings qt_settings;
 
     [[nodiscard]] bool confirmStart();
     [[noreturn]] void cleanUp();

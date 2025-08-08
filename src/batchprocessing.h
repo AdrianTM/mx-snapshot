@@ -28,11 +28,11 @@
 #include "settings.h"
 #include "work.h"
 
-class Batchprocessing : public QObject, public Settings
+class Batchprocessing : public QObject
 {
     Q_OBJECT
 public:
-    explicit Batchprocessing(const QCommandLineParser &arg_parser, QObject *parent = nullptr);
+    explicit Batchprocessing(Settings *settings, QObject *parent = nullptr);
 
     void setConnections();
 
@@ -40,6 +40,7 @@ public slots:
     static void progress();
 
 private:
+    Settings *settings;
     Work work;
     QTimer timer;
 

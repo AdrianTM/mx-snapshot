@@ -39,7 +39,12 @@
 #endif
 
 Settings::Settings(const QCommandLineParser &arg_parser)
-    : config_file("/etc/" + qApp->applicationName() + ".conf")
+    : x86(isi386()),
+      max_cores(Cmd().getOut("nproc", true).trimmed().toUInt()),
+      monthly(arg_parser.isSet("month")),
+      override_size(arg_parser.isSet("override-size")),
+      edit_boot_menu(getEditBootMenuSetting()),
+      config_file("/etc/" + qApp->applicationName() + ".conf")
 {
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
         QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
@@ -47,12 +52,12 @@ Settings::Settings(const QCommandLineParser &arg_parser)
     }
     loadConfig(); // Load settings from .conf file
     setVariables();
+    kernel = getInitialKernel(arg_parser); // Initialize kernel after config is loaded
+    preempt = arg_parser.isSet("preempt"); // Initialize preempt from command line
     processArgs(arg_parser);
-    if (arg_parser.isSet("month")) {
-        monthly = true;
+    if (monthly) {
         setMonthlySnapshot(arg_parser);
     }
-    override_size = arg_parser.isSet("override-size");
     processExclArgs(arg_parser);
 }
 
@@ -262,7 +267,6 @@ void Settings::setVariables()
 {
     live = isLive();
     users = listUsers();
-    x86 = isi386();
 
     QString distro_version_file;
     if (QFileInfo::exists("/etc/mx-version")) {
@@ -666,7 +670,7 @@ void Settings::loadConfig()
     make_isohybrid = settingsUser.value("make_isohybrid", "yes").toString() == "yes";
     compression = settingsUser.value("compression", "zstd").toString();
     mksq_opt = settingsUser.value("mksq_opt").toString();
-    edit_boot_menu = settingsUser.value("edit_boot_menu", "no").toString() != "no";
+    // edit_boot_menu is now const, initialized in constructor
     gui_editor = settingsUser.value("gui_editor").toString();
     stamp = settingsUser.value("stamp").toString();
     force_installer = settingsUser.value("force_installer", true).toBool();
@@ -720,8 +724,11 @@ void Settings::otherExclusions()
 void Settings::processArgs(const QCommandLineParser &arg_parser)
 {
     shutdown = arg_parser.isSet("shutdown");
-    kernel = arg_parser.value("kernel");
-    preempt = arg_parser.isSet("preempt");
+    QString kernel_arg = arg_parser.value("kernel");
+    if (!kernel_arg.isEmpty()) {
+        kernel = kernel_arg;
+    }
+    // preempt is now const, initialized in constructor
     QDir dir;
     if (!arg_parser.value("directory").isEmpty() && QFileInfo::exists(arg_parser.value("directory"))) {
         dir.setPath(arg_parser.value("directory"));
@@ -860,4 +867,35 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
     reset_accounts = true;
     boot_options = "quiet splasht nosplash";
     excludeAll();
+}
+
+// Helper functions for const member initialization
+QString Settings::getInitialKernel(const QCommandLineParser &arg_parser)
+{
+    QString kernel_value = arg_parser.value("kernel");
+
+    // Remove path prefix if present
+    kernel_value.remove(QRegularExpression("^/boot/vmlinuz-"));
+
+    // If no kernel specified or invalid, use current kernel
+    if (kernel_value.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel_value)) {
+        kernel_value = current_kernel;
+
+        // If current kernel doesn't exist, find the latest one
+        if (!QFileInfo::exists("/boot/vmlinuz-" + kernel_value)) {
+            QDir directory("/boot");
+            QStringList vmlinuzFiles = directory.entryList(QStringList() << "vmlinuz-*", QDir::Files, QDir::Name);
+            if (!vmlinuzFiles.isEmpty()) {
+                kernel_value = vmlinuzFiles.last().remove(QRegularExpression("^vmlinuz-"));
+            }
+        }
+    }
+
+    return kernel_value;
+}
+
+bool Settings::getEditBootMenuSetting()
+{
+    QSettings settingsUser;
+    return settingsUser.value("edit_boot_menu", "no").toString() != "no";
 }

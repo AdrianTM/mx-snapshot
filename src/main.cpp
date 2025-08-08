@@ -35,6 +35,7 @@
 #ifndef CLI_BUILD
 #include "mainwindow.h"
 #include <QApplication>
+#include <QMessageBox>
 #endif
 
 #include "batchprocessing.h"
@@ -133,16 +134,20 @@ int main(int argc, char *argv[])
 #ifdef CLI_BUILD
     app = new QCoreApplication(argc, argv);
 #else
-    if (parser.isSet("cli") || parser.isSet("help")) {
+    // Determine if we should run in CLI mode based on multiple factors
+    const bool forceCliMode = parser.isSet("cli") || parser.isSet("help") ||
+                              QString(argv[0]).contains("cli") ||
+                              !qEnvironmentVariableIsEmpty("MX_SNAPSHOT_CLI");
+
+    if (forceCliMode) {
         app = new QCoreApplication(argc, argv);
     } else {
-    // Set Qt platform to XCB (X11) if not already set and we're in X11 environment
-    if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM")) {
-        if (!qEnvironmentVariableIsEmpty("DISPLAY") && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
-            qputenv("QT_QPA_PLATFORM", "xcb");
+        // Set Qt platform to XCB (X11) if not already set and we're in X11 environment
+        if (qEnvironmentVariableIsEmpty("QT_QPA_PLATFORM")) {
+            if (!qEnvironmentVariableIsEmpty("DISPLAY") && qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY")) {
+                qputenv("QT_QPA_PLATFORM", "xcb");
+            }
         }
-    }
-
         app = new QApplication(argc, argv);
         QApplication::setApplicationDisplayName(QObject::tr("MX Snapshot"));
     }
@@ -179,14 +184,17 @@ int main(int argc, char *argv[])
         qDebug().noquote() << "Args:" << app->arguments();
     }
 
+    // Create settings instance for dependency injection
+    Settings settings(parser);
+
     if (!isGuiApp) {
-        Batchprocessing batch(parser);
+        Batchprocessing batch(&settings);
         QTimer::singleShot(0, app, &QCoreApplication::quit);
         app->exec();
     }
 #ifndef CLI_BUILD
     else {
-        MainWindow w(parser);
+        MainWindow w(&settings);
         w.show();
         app->exec();
     }

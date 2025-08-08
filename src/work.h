@@ -38,9 +38,9 @@ public:
     Q_ENUM(HashType)
 
     explicit Work(Settings *settings, QObject *parent = nullptr);
-    friend class Settings;
-    friend class Batchprocessing;
-    friend class MainWindow;
+
+    // Public interface methods
+    Settings* getSettings() const { return settings; }
 
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
     [[nodiscard]] quint64 getRequiredSpace();
@@ -64,6 +64,12 @@ public:
     void writeUnsquashfsSize(const QString &text);
     void writeVersionFile();
 
+    // Public members for composition access
+    Cmd shell;
+    QElapsedTimer e_timer;
+    bool started = false;
+    bool done = false;
+
 signals:
     void message(const QString &msg);
     void messageBox(BoxType box_type, const QString &title, const QString &msg);
@@ -71,9 +77,5 @@ signals:
 private:
     Settings *settings;
     QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
-    Cmd shell;
-    QElapsedTimer e_timer;
     QTemporaryDir initrd_dir;
-    bool done = false;
-    bool started = false;
 };
