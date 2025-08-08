@@ -34,4 +34,5 @@ public:
 
 private:
     inline static QFile logFile;
+    static void fixLogFileOwnership(const QString &file_name);
 };
