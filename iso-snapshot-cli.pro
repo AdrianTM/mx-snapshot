@@ -54,7 +54,8 @@ SOURCES += \
     src/batchprocessing.cpp \
     src/work.cpp \
     src/filesystemutils.cpp \
-    src/systeminfo.cpp
+    src/systeminfo.cpp \
+    src/messagehandler.cpp
 
 HEADERS  += \
     src/common.h \
@@ -65,7 +66,8 @@ HEADERS  += \
     src/batchprocessing.h \
     src/work.h \
     src/filesystemutils.h \
-    src/systeminfo.h
+    src/systeminfo.h \
+    src/messagehandler.h
 
 TRANSLATIONS += \
     translations/mx-snapshot_en.ts

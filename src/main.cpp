@@ -41,6 +41,7 @@
 #include "batchprocessing.h"
 #include "common.h"
 #include "log.h"
+#include "messagehandler.h"
 #include "version.h"
 
 static QTranslator qtTran, qtBaseTran, appTran;
@@ -158,15 +159,8 @@ int main(int argc, char *argv[])
     if (logname == "root") {
         const QString message = QObject::tr(
             "You seem to be logged in as root, please log out and log in as normal user to use this program.");
-#ifndef CLI_BUILD
-        if (QCoreApplication::instance()->inherits("QApplication")) {
-            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
-        } else
-#endif
-        {
-            qDebug() << message;
-            return EXIT_FAILURE;
-        }
+        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
+        return EXIT_FAILURE;
     }
 
     setTranslation();
@@ -232,14 +226,7 @@ void checkSquashfs()
     const QString configPath = "/boot/config-" + current_kernel;
     if (QFile::exists(configPath) && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
         const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-#ifndef CLI_BUILD
-        if (QCoreApplication::instance()->inherits("QApplication")) {
-            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
-        } else
-#endif
-        {
-            qDebug() << message;
-        }
+        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
 }

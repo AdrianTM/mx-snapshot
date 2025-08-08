@@ -35,9 +35,7 @@
 #include <exception>
 #include <unistd.h>
 
-#ifndef CLI_BUILD
-#include <QMessageBox>
-#endif
+#include "messagehandler.h"
 
 Settings::Settings(const QCommandLineParser &arg_parser)
     : x86(SystemInfo::is386()),
@@ -331,13 +329,9 @@ void Settings::handleInitializationError(const QString &error) const
         QProcess::execute("logger", {"-t", qApp->applicationName(), "Settings initialization error: " + error});
     }
 
-    // Show error dialog in GUI mode
-#ifndef CLI_BUILD
-    if (qApp->metaObject()->className() == QLatin1String("QApplication")) {
-        QMessageBox::critical(nullptr, QObject::tr("Initialization Error"),
-                             QObject::tr("Failed to initialize application settings:\n\n%1").arg(error));
-    }
-#endif
+    // Show error message appropriate for current mode (GUI or CLI)
+    MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Initialization Error"),
+                               QObject::tr("Failed to initialize application settings:\n\n%1").arg(error));
 }
 
 QString Settings::getEditor() const
@@ -445,15 +439,7 @@ void Settings::selectKernel()
             if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
                 QString message = QObject::tr("Could not find a usable kernel");
                 QString details = QObject::tr("Searched for kernel files in /boot/ but none were found or accessible.");
-                if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
-                    qDebug().noquote() << message;
-                    qDebug().noquote() << details;
-                }
-#ifndef CLI_BUILD
-                else {
-                    QMessageBox::critical(nullptr, QObject::tr("Error"), message + "\n\n" + details);
-                }
-#endif
+                MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message + "\n\n" + details);
                 exit(EXIT_FAILURE);
             }
         }
@@ -461,14 +447,7 @@ void Settings::selectKernel()
     // Check if SQUASHFS is available
     if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-        if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
-            qDebug().noquote() << message;
-        }
-#ifndef CLI_BUILD
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
-        }
-#endif
+        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
 }
@@ -943,14 +922,7 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshot_dir + '/' + snapshot_name);
-        if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
-            qDebug().noquote() << message;
-        }
-#ifndef CLI_BUILD
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
-        }
-#endif
+        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
     reset_accounts = arg_parser.isSet("reset");
@@ -1044,14 +1016,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshot_dir + '/' + snapshot_name);
-        if (qApp->metaObject()->className() != QLatin1String("QApplication")) {
-            qDebug().noquote() << message;
-        }
-#ifndef CLI_BUILD
-        else {
-            QMessageBox::critical(nullptr, QObject::tr("Error"), message);
-        }
-#endif
+        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
     if (arg_parser.value("compression").isEmpty()) {

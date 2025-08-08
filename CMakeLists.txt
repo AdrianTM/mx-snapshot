@@ -74,6 +74,7 @@ set(COMMON_SOURCES
     src/work.cpp
     src/filesystemutils.cpp
     src/systeminfo.cpp
+    src/messagehandler.cpp
 )
 
 set(COMMON_HEADERS
@@ -85,6 +86,7 @@ set(COMMON_HEADERS
     src/work.h
     src/filesystemutils.h
     src/systeminfo.h
+    src/messagehandler.h
 )
 
 # GUI-specific source files
