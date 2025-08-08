@@ -181,10 +181,7 @@ bool Settings::checkConfiguration() const
         return false;
     }
 
-    if (!QDir(snapshot_dir).exists() && !QDir().mkpath(snapshot_dir)) {
-        qCritical() << QObject::tr("Cannot create snapshot directory: %1").arg(snapshot_dir);
-        return false;
-    }
+    // Note: Directory creation is handled later with elevated permissions in checkSnapshotDir()
 
     // Check snapshot name
     if (snapshot_name.isEmpty()) {
@@ -260,13 +257,22 @@ bool Settings::validateSpaceRequirements() const
     // Check if we have minimum free space (at least 1GB)
     constexpr quint64 MIN_FREE_SPACE = 1024 * 1024; // 1GB in KiB
 
-    if (free_space < MIN_FREE_SPACE) {
+    // Get free space for snapshot directory (or its parent if it doesn't exist)
+    QString pathToCheck = snapshot_dir;
+    if (!QDir(snapshot_dir).exists()) {
+        // If snapshot dir doesn't exist, check parent directory
+        pathToCheck = QFileInfo(snapshot_dir).absolutePath();
+    }
+
+    quint64 available_space = FileSystemUtils::getFreeSpace(pathToCheck);
+    if (available_space < MIN_FREE_SPACE) {
         qCritical() << QObject::tr("Insufficient free space: %1 KiB available, minimum %2 KiB required")
-                           .arg(free_space).arg(MIN_FREE_SPACE);
+                           .arg(available_space).arg(MIN_FREE_SPACE);
         return false;
     }
 
-    if (free_space_work < MIN_FREE_SPACE) {
+    // Only check work directory space if it has been initialized (checkTempDir() called)
+    if (free_space_work > 0 && free_space_work < MIN_FREE_SPACE) {
         qCritical() << QObject::tr("Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required")
                            .arg(free_space_work).arg(MIN_FREE_SPACE);
         return false;

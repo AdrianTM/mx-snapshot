@@ -39,7 +39,7 @@ void MessageHandler::showGuiMessage(MessageType type, const QString &title, cons
         icon = QMessageBox::Critical;
         break;
     }
-    
+
     QMessageBox msgBox;
     msgBox.setIcon(icon);
     msgBox.setWindowTitle(title);
@@ -66,7 +66,7 @@ void MessageHandler::showCliMessage(MessageType type, const QString &title, cons
         prefix = "ERROR";
         break;
     }
-    
+
     if (!title.isEmpty()) {
         qDebug().noquote() << QString("[%1] %2: %3").arg(prefix, title, message);
     } else {
