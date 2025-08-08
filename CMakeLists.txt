@@ -66,6 +66,8 @@ set(COMMON_SOURCES
     src/settings.cpp
     src/batchprocessing.cpp
     src/work.cpp
+    src/filesystemutils.cpp
+    src/systeminfo.cpp
 )
 
 set(COMMON_HEADERS
@@ -75,6 +77,8 @@ set(COMMON_HEADERS
     src/settings.h
     src/batchprocessing.h
     src/work.h
+    src/filesystemutils.h
+    src/systeminfo.h
 )
 
 # GUI-specific source files

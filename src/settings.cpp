@@ -39,7 +39,7 @@
 #endif
 
 Settings::Settings(const QCommandLineParser &arg_parser)
-    : x86(isi386()),
+    : x86(SystemInfo::is386()),
       max_cores(Cmd().getOut("nproc", true).trimmed().toUInt()),
       monthly(arg_parser.isSet("month")),
       override_size(arg_parser.isSet("override-size")),
@@ -98,9 +98,9 @@ bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
-    if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !isOnSupportedPart(tempdir_parent)) {
-        tempdir_parent = isOnSupportedPart(snapshot_dir) ? largerFreeSpace("/tmp", "/home", snapshot_dir)
-                                                         : largerFreeSpace("/tmp", "/home");
+    if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !FileSystemUtils::isOnSupportedPartition(tempdir_parent)) {
+        tempdir_parent = FileSystemUtils::isOnSupportedPartition(snapshot_dir) ? FileSystemUtils::largerFreeSpace("/tmp", "/home", snapshot_dir)
+                                                         : FileSystemUtils::largerFreeSpace("/tmp", "/home");
     }
     if (tempdir_parent == "/home") {
         QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
@@ -117,10 +117,76 @@ bool Settings::checkTempDir()
         return false;
     }
     work_dir = tmpdir->path();
-    free_space_work = getFreeSpace(work_dir);
+    free_space_work = FileSystemUtils::getFreeSpace(work_dir);
 
     QDir().mkpath(work_dir + "/iso-template/antiX");
     qDebug() << "Work directory is placed in" << tempdir_parent;
+    return true;
+}
+
+bool Settings::checkConfiguration() const
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    
+    // Check compression format
+    if (!checkCompression()) {
+        qCritical() << QObject::tr("Compression format '%1' is not supported by the current kernel").arg(compression);
+        return false;
+    }
+    
+    // Check cores setting
+    if (cores == 0 || cores > max_cores) {
+        qCritical() << QObject::tr("Invalid cores setting: %1. Must be between 1 and %2").arg(cores).arg(max_cores);
+        return false;
+    }
+    
+    // Check throttle setting
+    if (throttle > 20) {
+        qCritical() << QObject::tr("Invalid throttle setting: %1. Must be between 0 and 20").arg(throttle);
+        return false;
+    }
+    
+    // Check snapshot directory
+    if (snapshot_dir.isEmpty()) {
+        qCritical() << QObject::tr("Snapshot directory cannot be empty");
+        return false;
+    }
+    
+    if (!QDir(snapshot_dir).exists() && !QDir().mkpath(snapshot_dir)) {
+        qCritical() << QObject::tr("Cannot create snapshot directory: %1").arg(snapshot_dir);
+        return false;
+    }
+    
+    // Check snapshot name
+    if (snapshot_name.isEmpty()) {
+        qCritical() << QObject::tr("Snapshot name cannot be empty");
+        return false;
+    }
+    
+    // Check for invalid characters in snapshot name
+    if (snapshot_name.contains(QRegularExpression("[<>:\"/\\|?*]"))) {
+        qCritical() << QObject::tr("Snapshot name contains invalid characters: %1").arg(snapshot_name);
+        return false;
+    }
+    
+    // Check kernel
+    if (kernel.isEmpty()) {
+        qCritical() << QObject::tr("Kernel version cannot be empty");
+        return false;
+    }
+    
+    if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
+        qCritical() << QObject::tr("Kernel file not found: /boot/vmlinuz-%1").arg(kernel);
+        return false;
+    }
+    
+    // Check if SQUASHFS is available in kernel
+    if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
+        qCritical() << QObject::tr("Kernel %1 doesn't support Squashfs").arg(kernel);
+        return false;
+    }
+    
+    qDebug() << "Configuration validation passed";
     return true;
 }
 
@@ -188,17 +254,7 @@ int Settings::getSnapshotCount() const
     return 0;
 }
 
-// Return KiB available space on the device
-quint64 Settings::getFreeSpace(const QString &path)
-{
-    QStorageInfo storage(path + "/");
-    if (!storage.isReady() || storage.isReadOnly()) {
-        qDebug() << "Cannot determine free space for" << path
-                 << ": Drive not ready, or does not exist, or is read-only.";
-        return 0;
-    }
-    return storage.bytesAvailable() / 1024;
-}
+
 
 // Return the XDG User Directory for each user with different localizations than English
 QString Settings::getXdgUserDirs(const QString &folder)
@@ -269,8 +325,8 @@ void Settings::selectKernel()
 
 void Settings::setVariables()
 {
-    live = isLive();
-    users = listUsers();
+    live = SystemInfo::isLive();
+    users = SystemInfo::listUsers();
 
     QString distro_version_file;
     if (QFileInfo::exists("/etc/mx-version")) {
@@ -299,7 +355,7 @@ void Settings::setVariables()
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
     codename.replace('"', "");
-    boot_options = monthly ? "quiet splasht nosplash" : readKernelOpts();
+    boot_options = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
 }
 
 QString Settings::getFilename() const
@@ -382,11 +438,7 @@ QString Settings::getUsedSpace()
     return out;
 }
 
-// Check if running from a 32bit environment
-bool Settings::isi386()
-{
-    return QSysInfo::currentCpuArchitecture() == "i386";
-}
+
 
 int Settings::getDebianVerNum()
 {
@@ -424,48 +476,14 @@ int Settings::getDebianVerNum()
     }
 }
 
-// Check if running from a live envoronment
-bool Settings::isLive()
-{
-    return QProcess::execute("mountpoint", {"-q", "/live/aufs"}) == 0;
-}
 
-// Check if the directory is on a Linux partition
-bool Settings::isOnSupportedPart(const QString &dir)
-{
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    // Supported partition types (NTFS returns fuseblk)
-    static const QSet<QString> supportedPartitions
-        = {"ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs"};
-    const QString partType = QStorageInfo(dir + "/").fileSystemType();
-    const bool isSupported = supportedPartitions.contains(partType);
-    qDebug() << "Detected partition:" << partType << "Supported part:" << isSupported;
-    return isSupported;
-}
 
-// Return the directory that has more free space available
-QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2)
-{
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (QStorageInfo(dir1 + "/").device() == QStorageInfo(dir2 + "/").device()) {
-        return dir1;
-    }
-    quint64 dir1_free = getFreeSpace(dir1);
-    quint64 dir2_free = getFreeSpace(dir2);
-    return dir1_free >= dir2_free ? dir1 : dir2;
-}
 
-// Return the directory that has more free space available
-QString Settings::largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3)
-{
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    return largerFreeSpace(largerFreeSpace(dir1, dir2), dir3);
-}
 
 QString Settings::getFreeSpaceStrings(const QString &path)
 {
     constexpr float factor = 1024 * 1024;
-    free_space = getFreeSpace(path);
+    free_space = FileSystemUtils::getFreeSpace(path);
     QString out = QString::number(static_cast<double>(free_space) / factor, 'f', 2) + "GiB";
 
     qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path)
@@ -481,11 +499,7 @@ QString Settings::getFreeSpaceStrings(const QString &path)
     return out;
 }
 
-// Return a list of users that have folders in /home
-QStringList Settings::listUsers()
-{
-    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", true).split('\n');
-}
+
 
 void Settings::excludeItem(const QString &item)
 {
@@ -840,12 +854,7 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
     }
 }
 
-// Use script to return useful kernel options
-QString Settings::readKernelOpts()
-{
-    return Cmd().getOut((QString("/usr/share/%1/scripts/snapshot-bootparameter.sh | tr '\n' ' '")
-                             .arg(QCoreApplication::applicationName())));
-}
+
 
 void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
 {

@@ -28,6 +28,8 @@
 #include <QDebug>
 #include <QDirIterator>
 #include <QRegularExpression>
+
+#include "filesystemutils.h"
 #include <QSettings>
 #include <QStorageInfo>
 
@@ -113,7 +115,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
     // See first if the dir is on different partition otherwise it's irrelevant
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshot_dir + "/").device()
-        && Settings::getFreeSpace(dir) > req_size) {
+        && FileSystemUtils::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
         }

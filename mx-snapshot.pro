@@ -50,7 +50,9 @@ SOURCES += \
     src/cmd.cpp \
     src/settings.cpp \
     src/batchprocessing.cpp \
-    src/work.cpp
+    src/work.cpp \
+    src/filesystemutils.cpp \
+    src/systeminfo.cpp
 
 HEADERS  += \
     src/common.h \
@@ -60,7 +62,9 @@ HEADERS  += \
     src/cmd.h \
     src/settings.h \
     src/batchprocessing.h \
-    src/work.h
+    src/work.h \
+    src/filesystemutils.h \
+    src/systeminfo.h
 
 FORMS    += \
     src/mainwindow.ui

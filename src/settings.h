@@ -28,6 +28,8 @@
 #include <QTemporaryDir>
 
 #include "cmd.h"
+#include "filesystemutils.h"
+#include "systeminfo.h"
 
 extern QString current_kernel;
 
@@ -51,16 +53,11 @@ public:
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkSnapshotDir() const;
     [[nodiscard]] bool checkTempDir();
+    [[nodiscard]] bool checkConfiguration() const;
+    [[nodiscard]] bool validateExclusions() const;
+    [[nodiscard]] bool validateSpaceRequirements() const;
     [[nodiscard]] int getSnapshotCount() const;
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
-    [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
-    [[nodiscard]] static QString readKernelOpts();
-    [[nodiscard]] static QStringList listUsers();
-    [[nodiscard]] static bool isLive();
-    [[nodiscard]] static bool isOnSupportedPart(const QString &dir);
-    [[nodiscard]] static bool isi386();
     [[nodiscard]] static int getDebianVerNum();
-    [[nodiscard]] static quint64 getFreeSpace(const QString &path);
     [[nodiscard]] quint64 getLiveRootSpace();
     void addRemoveExclusion(bool add, QString exclusion);
     void excludeAll();
