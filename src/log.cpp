@@ -106,17 +106,26 @@ void Log::fixLogFileOwnership(const QString &file_name)
     // Get current user information
     uid_t currentUid = getuid();
 
-    // Get file ownership
+    // Get file ownership and permissions
     struct stat fileStat;
     if (stat(file_name.toLocal8Bit().constData(), &fileStat) != 0) {
         return;
     }
 
-    // If file is owned by root but we're running as regular user
+    // Case 1: Running as regular user, but file is owned by root
     if (fileStat.st_uid == 0 && currentUid != 0) {
         Cmd cmd;
         if (cmd.runAsRoot("chown $(logname): \"" + file_name + "\"", true)) {
             qDebug() << "Fixed log file ownership for:" << file_name;
+        }
+    }
+    // Case 2: Running as root, but file is owned by regular user with restrictive permissions
+    else if (fileStat.st_uid != 0 && currentUid == 0) {
+        // When running as root, take ownership of the log file for consistency
+        if (chown(file_name.toLocal8Bit().constData(), 0, 0) == 0) {
+            qDebug() << "Took ownership of log file as root:" << file_name;
+            // Also ensure it has reasonable permissions
+            chmod(file_name.toLocal8Bit().constData(), S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
         }
     }
 }
