@@ -28,15 +28,46 @@
 #include <QDebug>
 #include <QDirIterator>
 #include <QRegularExpression>
-
-#include "filesystemutils.h"
 #include <QSettings>
 #include <QStorageInfo>
+
+#include <stdexcept>
+
+#include "filesystemutils.h"
 
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
       settings(settings)
 {
+    if (!settings) {
+        qCritical() << "Work constructor: Settings pointer cannot be null";
+        throw std::invalid_argument("Settings pointer cannot be null");
+    }
+
+    qDebug() << "Work object initialized for settings:" << settings->snapshot_name;
+}
+
+bool Work::isEnvironmentReady() const
+{
+    // Check if work directory exists and is accessible
+    if (settings->work_dir.isEmpty() || !QDir(settings->work_dir).exists()) {
+        return false;
+    }
+
+    // Check if snapshot directory is accessible
+    if (settings->snapshot_dir.isEmpty() || !QDir(settings->snapshot_dir).exists()) {
+        return false;
+    }
+
+    // Check if required tools are available
+    QStringList requiredTools = {"mksquashfs", "xorriso"};
+    for (const QString &tool : requiredTools) {
+        if (!checkInstalled(tool)) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 // Checks if there's enough space on partitions, if not post error, cleanup and exit

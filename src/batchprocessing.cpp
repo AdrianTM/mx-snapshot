@@ -53,8 +53,7 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
         qDebug() << "Unused space:" << settings->getUsedSpace();
     }
 
-    work.started = true;
-    work.e_timer.start();
+    work.startTimer();
     if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
         work.cleanUp();
         return;

@@ -423,8 +423,7 @@ void MainWindow::handleSettingsPage(const QString &file_name)
         return;
     }
 
-    work.started = true;
-    work.e_timer.start();
+    work.startTimer();
     if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
         cleanUp();
         return;
@@ -645,7 +644,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 void MainWindow::closeApp()
 {
     // Ask for confirmation when on outputPage and not done
-    if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.done) {
+    if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.isDone()) {
         if (QMessageBox::Yes
             != QMessageBox::question(this, tr("Confirmation"), tr("Are you sure you want to quit the application?"),
                                      QMessageBox::Yes | QMessageBox::No)) {

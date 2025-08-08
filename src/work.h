@@ -39,43 +39,65 @@ public:
 
     explicit Work(Settings *settings, QObject *parent = nullptr);
 
-    // Public interface methods
-    Settings* getSettings() const { return settings; }
-
-    [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
+    // Main workflow methods
     [[nodiscard]] quint64 getRequiredSpace();
-    [[nodiscard]] static bool checkInstalled(const QString &package);
     [[noreturn]] void cleanUp();
     bool createIso(const QString &filename);
-    bool installPackage(const QString &package);
-    bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
     void checkEnoughSpace();
-    void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
-    void closeInitrd(const QString &initrd_dir, const QString &file);
-    void copyModules(const QString &to, const QString &kernel);
-    void copyNewIso();
-    void makeChecksum(Work::HashType hash_type, const QString &folder, const QString &file_name);
-    void openInitrd(const QString &file, const QString &initrd_dir);
-    void replaceMenuStrings();
-    void savePackageList(const QString &file_name);
     void setupEnv();
-    void writeLsbRelease();
-    void writeSnapshotInfo();
-    void writeUnsquashfsSize(const QString &text);
-    void writeVersionFile();
+    void copyNewIso();
+    void savePackageList(const QString &file_name);
 
-    // Public members for composition access
+    // Status accessors
+    [[nodiscard]] bool isStarted() const { return started; }
+    [[nodiscard]] bool isDone() const { return done; }
+    [[nodiscard]] qint64 getElapsedTime() const { return e_timer.elapsed(); }
+    [[nodiscard]] const Settings& getSettings() const { return *settings; }
+
+    // Timer control
+    void startTimer() { started = true; e_timer.start(); }
+    void markDone() { done = true; }
+
+    // Utility methods
+    [[nodiscard]] static bool checkInstalled(const QString &package);
+    [[nodiscard]] bool isEnvironmentReady() const;
+    bool installPackage(const QString &package);
+
+    // Public members for external access
     Cmd shell;
-    QElapsedTimer e_timer;
-    bool started = false;
-    bool done = false;
 
 signals:
     void message(const QString &msg);
     void messageBox(BoxType box_type, const QString &title, const QString &msg);
 
 private:
+    // Space and environment management
+    [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
+    void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
+
+    // File operations
+    bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
+
+    // ISO creation helpers
+    void makeChecksum(Work::HashType hash_type, const QString &folder, const QString &file_name);
+
+    // Initrd operations
+    void closeInitrd(const QString &initrd_dir, const QString &file);
+    void openInitrd(const QString &file, const QString &initrd_dir);
+    void copyModules(const QString &to, const QString &kernel);
+
+    // Configuration file generation
+    void replaceMenuStrings();
+    void writeLsbRelease();
+    void writeSnapshotInfo();
+    void writeUnsquashfsSize(const QString &text);
+    void writeVersionFile();
+
+    // Member variables
     Settings *settings;
+    QElapsedTimer e_timer;
+    bool started = false;
+    bool done = false;
     QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
     QTemporaryDir initrd_dir;
 };
