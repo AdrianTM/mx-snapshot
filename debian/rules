@@ -1,47 +1,33 @@
 #!/usr/bin/make -f
 export QT_SELECT=6
 
-QMAKE_OPTS = DEFINES+=NO_DEBUG_ON_CONSOLE
-MAKE_OPTS  = QMAKE=qmake6 QMAKE_OPTS="$(QMAKE_OPTS)"
-DEB_BUILD_VERSION := $(shell dpkg-parsechangelog -S Version)
+override_dh_auto_configure:
+	dh_auto_configure -- \
+		-G Ninja \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 override_dh_auto_clean:
 	dh_auto_clean
-	-find manual src/manual -name '*.gz' -delete || true
-	-find translations src/translations -name '*.qm' -delete || true
-
-override_dh_auto_configure:
-	qmake6 mx-snapshot.pro
+	rm -rf build/
+	rm -f translations/*.qm
+	-find manual -name '*.gz' -delete || true
 
 override_dh_auto_build:
-	/usr/lib/qt6/bin/lrelease translations/*.ts
-	@# Backup version.h if it exists
-	[ -f src/version.h ] && mv src/version.h src/version.h~ || true
-	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > src/version.h
 	gzip -kf manual/mx-snapshot.8 manual/iso-snapshot-cli.8
-	# Build mx-snapshot
 	dh_auto_build
-	mv mx-snapshot mx-snapshot-binary
-	# Clean, reconfigure, and build iso-snapshot-cli
-	[ -f src/version.h~ ] && mv src/version.h~ src/version.h || true
-	dh_auto_clean
-	[ -f src/version.h ] && mv src/version.h src/version.h~ || true
-	echo "const QString VERSION {\"$(DEB_BUILD_VERSION)\"};" > src/version.h
-	rm -f mx-snapshot.pro Makefile
-	qmake6 iso-snapshot-cli.pro
-	dh_auto_build
-	# Before installing, move binary back and make a iso-snapshot-cli copy of .list file
-	mv mx-snapshot-binary mx-snapshot
+	# Copy exclude list for CLI version
 	cp -f mx-snapshot-exclude.list iso-snapshot-cli-exclude.list
-
-override_dh_auto_install:
-	dh_auto_install -- $(MAKE_OPTS)
 
 override_dh_shlibdeps:
 	dh_shlibdeps --dpkg-shlibdeps-params=--ignore-missing-info
 
-execute_after_dh_builddeb:
-	[ -f src/version.h~ ] && mv src/version.h~ src/version.h || true
+override_dh_auto_test:
+	# Skip tests as no test targets are defined
+
+override_dh_auto_install:
+	# Install is handled by debian/install file
+	dh_auto_install
 
 %:
-	dh $@ --no-automatic-dbgsym
+	dh $@ --buildsystem=cmake+ninja --no-automatic-dbgsym

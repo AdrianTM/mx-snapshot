@@ -11,7 +11,7 @@ tmp
 tmpdir
 dev/*
 cdrom/*
-live/*
+live
 media/*
 mnt/*
 sys/*
@@ -68,11 +68,13 @@ var/lib/lightdm/.cache
 var/lib/lightdm/.Xauthority
 var/lib/NetworkManager/*
 var/lib/nfs/rpc_pipefs/*
+var/lib/sddm/*
 var/lib/sudo/*
 var/lib/udisks/*
 var/lib/urandom/*
-var/log/!(apache2|samba|clamav)
+var/log/!(apache2|clamav|libvirt|journal|samba)
 var/log/clamav/*
+var/log/journal/*
 var/log/samba/*
 var/mail/*
 var/spool/mail/*
@@ -90,6 +92,7 @@ home/*/.cache/librewolf/*/cache2/*
 home/*/.cache/librewolf/*/thumbnails/*
 home/*/.cache/thumbnails/*
 home/*/.cache/vivaldi/Default/Cache/*
+home/*/.cache/xfce4/clipman/textsrc*
 home/*/.mozilla/firefox/*/Cache/*
 home/*/.mozilla/firefox/*/cache2/*
 home/*/.mozilla/seamonkey/*/Cache/*

@@ -22,8 +22,21 @@
 
 cmake_minimum_required(VERSION 3.16)
 
+# Get version from debian/changelog
+execute_process(
+    COMMAND dpkg-parsechangelog -SVersion
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+    RESULT_VARIABLE DPKG_RESULT
+)
+
+if(NOT DPKG_RESULT EQUAL 0 OR NOT PROJECT_VERSION_FROM_CHANGELOG)
+    message(FATAL_ERROR "Failed to get version from debian/changelog using dpkg-parsechangelog")
+endif()
+
 project(mx-snapshot
-    VERSION 25.7
+    VERSION ${PROJECT_VERSION_FROM_CHANGELOG}
     DESCRIPTION "MX Snapshot - A tool for creating live ISO images from running MX Linux systems"
     LANGUAGES CXX
 )
@@ -37,6 +50,19 @@ endif()
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Enable compile commands export for IDEs and tools
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Optimize for Ninja builds
+if(CMAKE_GENERATOR STREQUAL "Ninja")
+    # Enable colored output for Ninja
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+        add_compile_options(-fdiagnostics-color=always)
+    elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        add_compile_options(-fcolor-diagnostics)
+    endif()
+endif()
 
 # Option to use clang for testing builds
 option(USE_CLANG "Use clang compiler" OFF)
@@ -108,9 +134,8 @@ set(RESOURCE_FILES
     images.qrc
 )
 
-set(TRANSLATION_FILES
-    translations/mx-snapshot_en.ts
-)
+# Get all translation files
+file(GLOB TRANSLATION_FILES "translations/*.ts")
 
 # Create GUI executable
 if(BUILD_GUI)
@@ -187,9 +212,12 @@ function(set_common_properties target)
     if(CMAKE_BUILD_TYPE STREQUAL "Release")
         target_compile_definitions(${target} PRIVATE NDEBUG)
         target_compile_options(${target} PRIVATE -O3)
-        
-        # Only add LTO for GCC, not Clang
-        if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND NOT USE_CLANG)
+
+        # Add LTO - different flags for different compilers
+        if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang" OR USE_CLANG)
+            target_compile_options(${target} PRIVATE -flto=thin)
+            target_link_options(${target} PRIVATE -flto=thin)
+        else()
             target_compile_options(${target} PRIVATE -flto=auto)
             target_link_options(${target} PRIVATE -flto=auto)
         endif()
@@ -218,5 +246,35 @@ endif()
 if(BUILD_CLI)
     qt6_add_translations(iso-snapshot-cli
         TS_FILES ${TRANSLATION_FILES}
+    )
+endif()
+
+# Generate version.h file
+configure_file(
+    "${CMAKE_SOURCE_DIR}/src/version.h.in"
+    "${CMAKE_BINARY_DIR}/src/version.h"
+    @ONLY
+)
+
+# Add build directory to include path for generated version.h
+if(BUILD_GUI)
+    target_include_directories(mx-snapshot PRIVATE ${CMAKE_BINARY_DIR}/src)
+endif()
+
+if(BUILD_CLI)
+    target_include_directories(iso-snapshot-cli PRIVATE ${CMAKE_BINARY_DIR}/src)
+endif()
+
+# Installation targets (required by Debian build system)
+# Other files are handled by debian/install
+if(BUILD_GUI)
+    install(TARGETS mx-snapshot
+        RUNTIME DESTINATION bin
+    )
+endif()
+
+if(BUILD_CLI)
+    install(TARGETS iso-snapshot-cli
+        RUNTIME DESTINATION bin
     )
 endif()

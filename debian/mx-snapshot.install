@@ -2,7 +2,7 @@ docs/*				usr/share/doc/mx-snapshot
 icons/mx-snapshot.png		usr/share/icons/hicolor/48x48/apps
 icons/mx-snapshot.svg		usr/share/icons/hicolor/scalable/apps
 manual/mx-snapshot.8.gz		usr/share/man/man8
-mx-snapshot			usr/bin
+usr/bin/mx-snapshot		usr/bin
 mx-snapshot-exclude.list	etc
 mx-snapshot.conf		etc
 mx-snapshot.desktop		usr/share/applications
@@ -10,4 +10,4 @@ polkit/*mx-snapshot*.policy	usr/share/polkit-1/actions
 polkit/helper			usr/lib/mx-snapshot
 polkit/snapshot-lib		usr/lib/mx-snapshot
 scripts/*			usr/share/mx-snapshot/scripts
-translations/*.qm		usr/share/mx-snapshot/locale
+obj-*/*.qm			usr/share/mx-snapshot/locale
