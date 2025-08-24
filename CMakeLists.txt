@@ -206,6 +206,7 @@ function(set_common_properties target)
     target_compile_definitions(${target} PRIVATE
         QT_DEPRECATED_WARNINGS
         QT_DISABLE_DEPRECATED_BEFORE=0x060000
+        VERSION="${PROJECT_VERSION}"
     )
 
     # Build type specific optimizations
@@ -249,21 +250,7 @@ if(BUILD_CLI)
     )
 endif()
 
-# Generate version.h file
-configure_file(
-    "${CMAKE_SOURCE_DIR}/src/version.h.in"
-    "${CMAKE_BINARY_DIR}/src/version.h"
-    @ONLY
-)
 
-# Add build directory to include path for generated version.h
-if(BUILD_GUI)
-    target_include_directories(mx-snapshot PRIVATE ${CMAKE_BINARY_DIR}/src)
-endif()
-
-if(BUILD_CLI)
-    target_include_directories(iso-snapshot-cli PRIVATE ${CMAKE_BINARY_DIR}/src)
-endif()
 
 # Installation targets (required by Debian build system)
 # Other files are handled by debian/install

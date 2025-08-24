@@ -1,1 +1,0 @@
-const QString VERSION {"@PROJECT_VERSION@"};

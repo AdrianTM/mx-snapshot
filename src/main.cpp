@@ -42,7 +42,10 @@
 #include "common.h"
 #include "log.h"
 #include "messagehandler.h"
-#include "version.h"
+
+#ifndef VERSION
+    #define VERSION "?.?.?.?"
+#endif
 
 static QTranslator qtTran, qtBaseTran, appTran;
 inline QString current_kernel {};
