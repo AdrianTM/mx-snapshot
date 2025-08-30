@@ -241,12 +241,16 @@ endif()
 if(BUILD_GUI)
     qt6_add_translations(mx-snapshot
         TS_FILES ${TRANSLATION_FILES}
+	LRELEASE_OPTIONS -compress -nounfinished -removeidentical -silent
+	QM_FILES_OUTPUT_VARIABLE qm_files
     )
 endif()
 
 if(BUILD_CLI)
     qt6_add_translations(iso-snapshot-cli
         TS_FILES ${TRANSLATION_FILES}
+	LRELEASE_OPTIONS -compress -nounfinished -removeidentical -silent
+	QM_FILES_OUTPUT_VARIABLE qm_files
     )
 endif()
 
