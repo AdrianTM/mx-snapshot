@@ -1,3 +1,11 @@
+mx-snapshot (25.09) mx; urgency=medium
+
+  * Fix log ownership
+  * Run in CLI automatically if windowing system is not detected
+  * Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 09 Sep 2025 19:26:48 -0400
+
 mx-snapshot (25.6.01) mx; urgency=medium
 
   * Fix: create directory before trying to link the file
@@ -330,7 +338,7 @@ mx-snapshot (23.4) mx; urgency=medium
 
 mx-snapshot (23.3.03) mx; urgency=medium
 
-  * Remove resume, resume_offset, and cryptsetup from kernel options 
+  * Remove resume, resume_offset, and cryptsetup from kernel options
 
  -- Adrian <adrian@mxlinux.org>  Wed, 22 Mar 2023 10:27:02 -0400
 
@@ -385,7 +393,7 @@ mx-snapshot (23.2.01) mx; urgency=medium
 mx-snapshot (23.2) mx; urgency=medium
 
   * Add -w/--workdir option
-  * Update translations 
+  * Update translations
 
  -- Adrian <adrian@mxlinux.org>  Sun, 19 Feb 2023 13:53:25 -0500
 
@@ -473,7 +481,7 @@ mx-snapshot (22.10.01) mx; urgency=medium
 
 mx-snapshot (22.10) mx; urgency=medium
 
-  * translation refresh 
+  * translation refresh
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Wed, 26 Oct 2022 20:07:26 -0400
 
@@ -522,7 +530,7 @@ mx-snapshot (22.8) mx; urgency=medium
 
 mx-snapshot (22.7) mx; urgency=medium
 
-  * translation update 
+  * translation update
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Sat, 23 Jul 2022 12:30:30 -0400
 
@@ -581,10 +589,10 @@ mx-snapshot (22.2.05) mx; urgency=medium
 
 mx-snapshot (22.2.04) mx; urgency=medium
 
-  * Add option to specify temporary work directory in /etc/mx-snapshot.conf file 
-  *   for example: workdir=/tmp, program will check if the folder exits and if it's 
+  * Add option to specify temporary work directory in /etc/mx-snapshot.conf file
+  *   for example: workdir=/tmp, program will check if the folder exits and if it's
   *   the right partition type (only partitions that allow bind mounts can work)
-  * Updated mx-snapshot.conf file format to make sure comments are not lost when 
+  * Updated mx-snapshot.conf file format to make sure comments are not lost when
   *   writing back to file
 
  -- Adrian <adrian@mxlinux.org>  Wed, 16 Feb 2022 22:16:00 -0500
@@ -721,14 +729,14 @@ mx-snapshot (21.1) mx; urgency=medium
 
   * rewrite to allow CLI/scripted mode, use -h to list options
   * catch SIGINT, SIGTERM, SIGHUP and cleanup before closing
-  * check if enough space on partition (for /root, for now it ignores /home) 
+  * check if enough space on partition (for /root, for now it ignores /home)
 
  -- Adrian <adrian@mxlinux.org>  Sun, 17 Jan 2021 12:01:32 -0500
 
 mx-snapshot (20.12.02) mx; urgency=medium
 
   * add -k/--kernel option to take a snapshot with a different kernel
- 
+
  -- Adrian <adrian@mxlinux.org>  Thu, 31 Dec 2020 18:19:03 -0500
 
 mx-snapshot (20.12.01) mx; urgency=medium
@@ -741,7 +749,7 @@ mx-snapshot (20.12.01) mx; urgency=medium
 
 mx-snapshot (20.12) mx; urgency=medium
 
-  * adjust checksum generation for preempt_rt kernel 
+  * adjust checksum generation for preempt_rt kernel
 
  -- fehlix <fehlix@mxlinux.org>  Tue, 01 Dec 2020 20:56:40 -0400
 
@@ -1369,7 +1377,7 @@ mx-snapshot (16.6mx15+1) mx; urgency=medium
 
 mx-snapshot (16.6mx15) mx; urgency=medium
 
-  * minor fix 
+  * minor fix
 
  -- Adrian <adrian@mxlinux.org>  Mon, 06 Jun 2016 17:34:57 -0400
 
@@ -1429,7 +1437,7 @@ mx-snapshot (15.12.13mx15) mx; urgency=medium
 
 mx-snapshot (15.12.12mx15) mx; urgency=medium
 
-  * split iso-template in a different package 
+  * split iso-template in a different package
 
  -- Adrian <adrian@mxlinux.org>  Sat, 19 Dec 2015 09:21:16 -0500
 
@@ -1459,7 +1467,7 @@ mx-snapshot (15.12.8mx15) mx; urgency=medium
 
 mx-snapshot (15.12.7mx15) mx; urgency=medium
 
-  * use /bind-root 
+  * use /bind-root
 
  -- Adrian <adrian@mxlinux.org>  Tue, 15 Dec 2015 18:21:28 -0500
 
@@ -1502,13 +1510,13 @@ mx-snapshot (15.12.1mx15) mx; urgency=medium
 mx-snapshot (15.12mx15) mx; urgency=medium
 
   * Minor changes to boot config files.
-  * copy-initrd-modules in-Sync with one in build iso  
+  * copy-initrd-modules in-Sync with one in build iso
 
  -- anticapitalista <antiX@operamail.com>  Tue, 01 Dec 2015 15:00:00 +0200
 
 mx-snapshot (15.11mx15) mx; urgency=medium
 
-  * changed to use installed-to-live script 
+  * changed to use installed-to-live script
 
  -- Adrian <adrian@mxlinux.org>  Mon, 23 Nov 2015 17:07:18 -0500
 
