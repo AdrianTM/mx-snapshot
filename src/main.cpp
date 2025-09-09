@@ -143,8 +143,15 @@ int main(int argc, char *argv[])
     const bool forceCliMode = parser.isSet("cli") || parser.isSet("help") ||
                               QString(argv[0]).contains("cli") ||
                               !qEnvironmentVariableIsEmpty("MX_SNAPSHOT_CLI");
+    const bool noWindowSystem = qEnvironmentVariableIsEmpty("DISPLAY") &&
+                                qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY");
+    const QString qpa = QString::fromLocal8Bit(qgetenv("QT_QPA_PLATFORM"));
+    const bool headlessQpa = (qpa == QLatin1String("offscreen") ||
+                              qpa == QLatin1String("minimal") ||
+                              qpa == QLatin1String("linuxfb"));
+    const bool useCliMode = forceCliMode || noWindowSystem || headlessQpa;
 
-    if (forceCliMode) {
+    if (useCliMode) {
         app = new QCoreApplication(argc, argv);
     } else {
         // Set Qt platform to XCB (X11) if not already set and we're in X11 environment
