@@ -706,9 +706,8 @@
         <translation>Kerneli i tanishëm nuk mbulon Squashfs, s’vazhdohet dot.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>S’u krijua dot drejtori pune. </translation>
+        <translation type="vanished">S’u krijua dot drejtori pune. </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -728,6 +727,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

@@ -707,9 +707,8 @@
         <translation>O núcleo actual non soporta Squashfs; non é posible continuar.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Non se puido crear o directorio de traballo.</translation>
+        <translation type="vanished">Non se puido crear o directorio de traballo.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -729,6 +728,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

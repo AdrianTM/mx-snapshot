@@ -706,9 +706,8 @@
         <translation>Şu an kullanılan çekirdek squashfs dosya sistemini desteklemediği için devam edilemiyor.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Çalışma dizini oluşturulamadı.</translation>
+        <translation type="vanished">Çalışma dizini oluşturulamadı.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -728,6 +727,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

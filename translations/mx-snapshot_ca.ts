@@ -612,7 +612,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcionalment, especifiqueu un sufix per afegir al nom del mes (per exemple, 1 per a juliol.1)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -706,151 +706,157 @@
         <translation>El kernel actual no dona suport a Squashfs, no puc continuar.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>No puc crear el directori de treball.</translation>
+        <translation type="vanished">No puc crear el directori de treball.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha fallat iniciar la configuració.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ha fallat la validació de la configuració.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Excepció durant la inicialització: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation>Excepció desconeguda durant la inicialització</translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha pogut crear el directori temporal:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Si us plau, comproveu que el directori principal existeixi i que s&apos;hi pugui escriure:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>El format de compressió %1 no és compatible amb el nucli actual.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuració de nuclis no vàlida: %1. Ha de ser entre 1 i %2.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuració de l&apos;accelerador no vàlida: %1. Ha de ser entre 0 i 20.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>El directori d&apos;instantànies no pot estar buit.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom de la instantània no pot estar buit.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom de la instantània conté caràcters no vàlids: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>La versió del nucli no pot estar buida.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat el fitxer del nucli: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation>El nucli %1 no admet Squashfs.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>El fitxer d&apos;exclusió no existeix: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation>Cites desequilibrades a la llista d&apos;exclusions</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Espai lliure insuficient: %1 KiB disponible, el mínim requerit és de %2 KiB.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Espai lliure insuficient al directori de treball: %1 KiB disponible, el mínim requerit és de %2 KiB.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha pogut determinar el nombre de nuclis de CPU.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>El fitxer de configuració no existeix: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="298"/>
         <source>Using default settings</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;usa la configuració predeterminada.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="300"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No es pot llegir el fitxer de configuració: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat l&apos;eina necessària: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha trobat el directori requerit: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="339"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Error d&apos;inicialització</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="340"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha pogut iniciar la configuració de l&apos;aplicació:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
@@ -860,17 +866,17 @@
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"></translation>
+        <translation>S&apos;han cercat fitxers del nucli a /boot/ però no s&apos;han trobat ni s&apos;hi pot accedir.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;han trobat usuaris al sistema.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha pogut determinar la informació del sistema.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
@@ -950,12 +956,12 @@
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Error en llegir el fitxer de configuració del sistema: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Error en accedir a la configuració de l&apos;usuari</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>

@@ -706,9 +706,8 @@
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>作業用ディレクトリを作成できませんでした。</translation>
+        <translation type="vanished">作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -728,6 +727,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

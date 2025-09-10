@@ -704,9 +704,8 @@
         <translation>הליבה הקיימת לא תומכת ב־Squashfs, אי אפשר להמשיך.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>לא היה ניתן ליצור תיקייה תקינה.</translation>
+        <translation type="vanished">לא היה ניתן ליצור תיקייה תקינה.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -726,6 +725,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

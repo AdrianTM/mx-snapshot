@@ -708,9 +708,8 @@
         <translation>Текущее ядро не поддерживает Squashfs, невозможно продолжить.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Не удалось создать рабочий каталог.</translation>
+        <translation type="vanished">Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -730,6 +729,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

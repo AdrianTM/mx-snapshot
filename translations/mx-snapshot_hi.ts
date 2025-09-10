@@ -704,9 +704,8 @@
         <translation>वर्तमान कर्नेल द्वारा Squashfs समर्थित नहीं है, प्रक्रिया निरस्त।</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
+        <translation type="vanished">कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -726,6 +725,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

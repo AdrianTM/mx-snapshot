@@ -706,9 +706,8 @@
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Impossible de créer le répertoire de travail. </translation>
+        <translation type="vanished">Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -728,6 +727,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

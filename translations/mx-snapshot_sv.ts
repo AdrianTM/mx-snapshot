@@ -706,9 +706,8 @@
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Kunde inte skapa fungerande katalog.</translation>
+        <translation type="vanished">Kunde inte skapa fungerande katalog.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -718,92 +717,97 @@
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Konfigurationsvalidering misslyckades</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Undantag under initiering: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation>Okänt undantag under initiering</translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa temp katalog:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Var vänlig kontrollera att överordnad katalog finns och är skrivbar:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompressionsformat &apos;%1&apos; stöds inte av nuvarande kärna</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Ogiltig kärninställning: %1. Måste vara mellan 1 och %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation>Ogiltig strypinställning: %1. Måste vara mellan 0 och 20</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshotkatalogen kan inte vara tom</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshotnamnet kan inte vara tomt</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Snapshotnamnet innehåller ogiltiga tecken: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Kärnversion kan inte vara tom</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kärnfil ej hittad: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation>Kärna %1 stöder inte Squashfs</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Exklusionsfil finns inte: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation>Obalanserade citationstecken i exklusionslista</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Otillräckligt fritt utrymme: %1 KiB tillgängligt, minimum %2 KiB behövs</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Otillräckligt fritt utrymme i arbetskatalog: %1 KiB tillgängligt, minimum %2 KiB behövs</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
@@ -952,12 +956,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel vid läsning av systemkonfigurationsfil: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Fel vid tillgång till användarkonfiguration</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>
@@ -1107,7 +1111,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../src/work.cpp" line="477"/>
         <source>Could not create working directory. </source>
-        <translation>Kunde inte skapa fungerande katalog.</translation>
+        <translation>Kunde inte skapa arbetskatalog.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="615"/>

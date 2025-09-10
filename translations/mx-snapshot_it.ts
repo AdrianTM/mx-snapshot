@@ -706,9 +706,8 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <translation>Il kernel attuale non supporta Squashfs, non si può continuare.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Impossibile creare una directory attiva.</translation>
+        <translation type="vanished">Impossibile creare una directory attiva.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -728,6 +727,11 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

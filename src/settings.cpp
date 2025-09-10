@@ -116,7 +116,7 @@ bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + '"', Cmd::QuietMode::No)) {
-        qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
+        qDebug() << QObject::tr("Could not create work directory. ") + snapshot_dir;
         return false;
     }
     Cmd().runAsRoot("chown $(logname): \"" + snapshot_dir + '"');

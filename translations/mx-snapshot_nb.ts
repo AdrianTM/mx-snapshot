@@ -708,9 +708,8 @@
         <translation>Gjeldende kjerne støtter ikke Squashfs. Kan ikke fortsette.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Klarte ikke å opprette arbeidsmappe.</translation>
+        <translation type="vanished">Klarte ikke å opprette arbeidsmappe.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -730,6 +729,11 @@
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>

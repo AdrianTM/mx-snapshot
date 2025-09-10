@@ -615,7 +615,7 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcionalmente, especifique um sufixo para adicionar ao nome do mês. Por exemplo, o ‘1’ para ‘1º de julho’)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -709,99 +709,103 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
-        <translation>Não foi possível criar a pasta de trabalho.</translation>
+        <translation type="vanished">Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocorreu uma falha ao inicializar a configuração</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocorreu uma falha na validação da configuração</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Exceto durante a inicialização do %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
+        <translation>Uma exceção que não é conhecida durante a inicialização</translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="119"/>
+        <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Não foi possível criar o diretório temporário:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Por favor, verifique se o diretório pai existe e se é gravável:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>O formato da compactação/compressão ‘%1’ não é compatível pelo núcleo (kernel) atual</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>A configuração dos núcleos (cores) %1 não é válida. O valor deve estar entre 1 e %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation>A configuração da aceleração ‘%1’ não é válida. O valor deve estar entre 0 e 20</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>O diretório das imagens ISOs (Snapshot) não pode estar vazio</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>O nome da imagem ISO não pode estar vazio</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>O nome da imagem ISO contém caracteres que não são válidos ‘%1’</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>A versão do núcleo (kernel) não pode estar vazia</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo do núcleo (kernel) não foi encontrado no caminho ‘/boot/vmlinuz-%1’</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation>O núcleo (kernel) %1 não é compatível com o ‘Squashfs’</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>O arquivo %1 a ser excluído não existe</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation>Existem cotações desbalanceadas na lista de exclusão</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>O espaço livre de %1 KiB que está disponível não é suficiente, o mínimo necessário é de %2 KiB</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
