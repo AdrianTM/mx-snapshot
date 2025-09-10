@@ -22,9 +22,23 @@ Cmd::Cmd(QObject *parent)
 
 QString Cmd::elevationTool()
 {
-    // Determine CLI mode using same logic as in main.cpp
+    const bool cli = Cmd::isCliMode();
+    if (cli) {
+        if (QFile::exists("/usr/bin/sudo")) return QStringLiteral("/usr/bin/sudo");
+        if (QFile::exists("/usr/bin/gksu")) return QStringLiteral("/usr/bin/gksu");
+        if (QFile::exists("/usr/bin/pkexec")) return QStringLiteral("/usr/bin/pkexec");
+        return {};
+    }
+    if (QFile::exists("/usr/bin/pkexec")) return QStringLiteral("/usr/bin/pkexec");
+    if (QFile::exists("/usr/bin/gksu")) return QStringLiteral("/usr/bin/gksu");
+    if (QFile::exists("/usr/bin/sudo")) return QStringLiteral("/usr/bin/sudo");
+    return {};
+}
+
+bool Cmd::isCliMode()
+{
 #ifdef CLI_BUILD
-    const bool useCliMode = true;
+    return true;
 #else
     const QStringList args = QCoreApplication::arguments();
     const bool forceCliMode = args.contains("--cli") || args.contains("-c") ||
@@ -36,19 +50,8 @@ QString Cmd::elevationTool()
     const bool headlessQpa = (qpa == QLatin1String("offscreen") ||
                               qpa == QLatin1String("minimal") ||
                               qpa == QLatin1String("linuxfb"));
-    const bool useCliMode = forceCliMode || noWindowSystem || headlessQpa;
+    return forceCliMode || noWindowSystem || headlessQpa;
 #endif
-
-    if (useCliMode) {
-        if (QFile::exists("/usr/bin/sudo")) return QStringLiteral("/usr/bin/sudo");
-        if (QFile::exists("/usr/bin/pkexec")) return QStringLiteral("/usr/bin/pkexec");
-        if (QFile::exists("/usr/bin/gksu")) return QStringLiteral("/usr/bin/gksu");
-        return {};
-    }
-    if (QFile::exists("/usr/bin/pkexec")) return QStringLiteral("/usr/bin/pkexec");
-    if (QFile::exists("/usr/bin/gksu")) return QStringLiteral("/usr/bin/gksu");
-    if (QFile::exists("/usr/bin/sudo")) return QStringLiteral("/usr/bin/sudo");
-    return {};
 }
 
 QString Cmd::getOut(const QString &cmd, QuietMode quiet, Elevation elevation)

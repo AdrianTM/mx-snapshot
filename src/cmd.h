@@ -16,6 +16,7 @@ public:
     // Returns the elevation tool path appropriate for current mode (CLI/GUI),
     // preferring sudo in CLI, pkexec in GUI. Empty if none found.
     static QString elevationTool();
+    static bool isCliMode();
 
     [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
     [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);

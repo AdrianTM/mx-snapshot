@@ -112,7 +112,8 @@ void Work::cleanUp()
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
-    emit message(tr("Cleaning...") + "\033[?25h"); // Restore the cursor visibility
+    // Use same CLI detection as Cmd to decide whether to append escape sequence
+    emit message(Cmd::isCliMode() ? tr("Cleaning...") + "\033[?25h" : tr("Cleaning..."));
     Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
