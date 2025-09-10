@@ -992,127 +992,127 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
         <translation>Nettoyage&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="127"/>
-        <location filename="../src/work.cpp" line="317"/>
+        <location filename="../src/work.cpp" line="130"/>
+        <location filename="../src/work.cpp" line="320"/>
         <source>Done</source>
         <translation>Terminé</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="139"/>
+        <location filename="../src/work.cpp" line="142"/>
         <source>Interrupted or failed to complete</source>
         <translation>Interrompu ou non terminé</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
-        <location filename="../src/work.cpp" line="275"/>
-        <location filename="../src/work.cpp" line="297"/>
-        <location filename="../src/work.cpp" line="335"/>
-        <location filename="../src/work.cpp" line="473"/>
+        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="278"/>
+        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="338"/>
+        <location filename="../src/work.cpp" line="476"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="173"/>
+        <location filename="../src/work.cpp" line="176"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Il n’y a pas assez d’espace libre sur votre disque cible, vous avez besoin d’au moins %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="176"/>
+        <location filename="../src/work.cpp" line="179"/>
         <source>You have %1 free space on %2</source>
         <translation>Vous avez %1 d’espace libre sur %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="179"/>
+        <location filename="../src/work.cpp" line="182"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si vous êtes certain•e d’avoir assez d’espace libre, relancez le programme avec l’option -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="204"/>
+        <location filename="../src/work.cpp" line="207"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copie du nouveau système de fichiers iso en cours&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="216"/>
+        <location filename="../src/work.cpp" line="219"/>
         <source>Could not create temp directory. </source>
         <translation>Impossible de créer le répertoire temporaire. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="272"/>
+        <location filename="../src/work.cpp" line="275"/>
         <source>Squashing filesystem...</source>
         <translation>Écrasement du système de fichiers&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="276"/>
+        <location filename="../src/work.cpp" line="279"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Impossible de créer un fichier linuxfs, veuillez vérifier /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="294"/>
+        <location filename="../src/work.cpp" line="297"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Création du fichier image pour CD/DVD&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="298"/>
+        <location filename="../src/work.cpp" line="301"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Impossible de créer le fichier ISO. Veuillez vérifier que l’espace sur la partition de destination est suffisant.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="307"/>
         <source>Making hybrid iso</source>
         <translation> Création d’une image ISO hybride</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="322"/>
+        <location filename="../src/work.cpp" line="325"/>
         <source>Success</source>
         <translation>Installation réussie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="323"/>
+        <location filename="../src/work.cpp" line="326"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>Le processus de MX Snapshot s’est terminé avec succès!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="324"/>
+        <location filename="../src/work.cpp" line="327"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Instantané a pris %1 pour terminer.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="325"/>
+        <location filename="../src/work.cpp" line="328"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Merci d’utiliser MX Snapshot, lancez ensuite MX Live USB Création!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="332"/>
+        <location filename="../src/work.cpp" line="335"/>
         <source>Installing </source>
         <translation>Installation </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="338"/>
         <source>Could not install </source>
         <translation>Installation impossible </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="345"/>
+        <location filename="../src/work.cpp" line="348"/>
         <source>Calculating checksum...</source>
         <translation>Calculer la somme de contrôle&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="383"/>
+        <location filename="../src/work.cpp" line="386"/>
         <source>Building new initrd...</source>
         <translation>Nouvel initrd en cours de création&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="474"/>
+        <location filename="../src/work.cpp" line="477"/>
         <source>Could not create working directory. </source>
         <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="612"/>
+        <location filename="../src/work.cpp" line="615"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus&#xa0;…</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="625"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root&#xa0;…</translation>
     </message>

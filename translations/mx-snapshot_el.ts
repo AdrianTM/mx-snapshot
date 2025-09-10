@@ -993,127 +993,127 @@
         <translation>Εκκαθάριση...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="127"/>
-        <location filename="../src/work.cpp" line="317"/>
+        <location filename="../src/work.cpp" line="130"/>
+        <location filename="../src/work.cpp" line="320"/>
         <source>Done</source>
         <translation>Ολοκληρώθηκε</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="139"/>
+        <location filename="../src/work.cpp" line="142"/>
         <source>Interrupted or failed to complete</source>
         <translation>Σταμάτησε ή απέτυχε να ολοκληρωθεί</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
-        <location filename="../src/work.cpp" line="275"/>
-        <location filename="../src/work.cpp" line="297"/>
-        <location filename="../src/work.cpp" line="335"/>
-        <location filename="../src/work.cpp" line="473"/>
+        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="278"/>
+        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="338"/>
+        <location filename="../src/work.cpp" line="476"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="173"/>
+        <location filename="../src/work.cpp" line="176"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Δεν υπάρχει αρκετός ελεύθερος χώρος στο δίσκο προορισμού σας, χρειάζεστε τουλάχιστον %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="176"/>
+        <location filename="../src/work.cpp" line="179"/>
         <source>You have %1 free space on %2</source>
         <translation>Έχετε %1 ελεύθερο χώρο στο %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="179"/>
+        <location filename="../src/work.cpp" line="182"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Εάν είστε βέβαιοι ότι έχετε αρκετό ελεύθερο χώρο, εκτελέστε ξανά το πρόγραμμα με την επιλογή -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="204"/>
+        <location filename="../src/work.cpp" line="207"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Αντιγραφή του συστήματος αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="216"/>
+        <location filename="../src/work.cpp" line="219"/>
         <source>Could not create temp directory. </source>
         <translation>Δεν κατέστη δυνατή η δημιουργία προσωρινού καταλόγου. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="272"/>
+        <location filename="../src/work.cpp" line="275"/>
         <source>Squashing filesystem...</source>
         <translation>Συμπίεση αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="276"/>
+        <location filename="../src/work.cpp" line="279"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Δεν κατέστη δυνατή η δημιουργία αρχείου linuxfs, παρακαλώ ελέγξτε /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="294"/>
+        <location filename="../src/work.cpp" line="297"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Δημιουργία αρχείου εικόνας CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="298"/>
+        <location filename="../src/work.cpp" line="301"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν κατέστη δυνατή η δημιουργία αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="307"/>
         <source>Making hybrid iso</source>
         <translation>Δημιουργία υβριδικού ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="322"/>
+        <location filename="../src/work.cpp" line="325"/>
         <source>Success</source>
         <translation>Επιτυχία</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="323"/>
+        <location filename="../src/work.cpp" line="326"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>Το MX στιγμιότυπο συστήματος ολοκληρώθηκε με επιτυχία!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="324"/>
+        <location filename="../src/work.cpp" line="327"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Χρειάστηκε %1 για να ολοκληρωθεί.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="325"/>
+        <location filename="../src/work.cpp" line="328"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Στιγμιότυπο συστήματος, τρέξτε στη συνέχεια το MX Δημιουργία Live USB!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="332"/>
+        <location filename="../src/work.cpp" line="335"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="338"/>
         <source>Could not install </source>
         <translation>Δεν κατέστη δυνατή η εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="345"/>
+        <location filename="../src/work.cpp" line="348"/>
         <source>Calculating checksum...</source>
         <translation>Υπολογισμός αθροίσματος ελέγχου...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="383"/>
+        <location filename="../src/work.cpp" line="386"/>
         <source>Building new initrd...</source>
         <translation>Δημιουργία νέου initrd ...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="474"/>
+        <location filename="../src/work.cpp" line="477"/>
         <source>Could not create working directory. </source>
         <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="612"/>
+        <location filename="../src/work.cpp" line="615"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Υπολογισμός συνολικού μεγέθους των εξαιρούμενων αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="625"/>
         <source>Calculating size of root...</source>
         <translation>Υπολογισμός μεγέθους root...</translation>
     </message>

@@ -994,127 +994,127 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Opruimen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="127"/>
-        <location filename="../src/work.cpp" line="317"/>
+        <location filename="../src/work.cpp" line="130"/>
+        <location filename="../src/work.cpp" line="320"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="139"/>
+        <location filename="../src/work.cpp" line="142"/>
         <source>Interrupted or failed to complete</source>
         <translation>Onderbroken of niet af kunnen maken</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
-        <location filename="../src/work.cpp" line="275"/>
-        <location filename="../src/work.cpp" line="297"/>
-        <location filename="../src/work.cpp" line="335"/>
-        <location filename="../src/work.cpp" line="473"/>
+        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="278"/>
+        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="338"/>
+        <location filename="../src/work.cpp" line="476"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="173"/>
+        <location filename="../src/work.cpp" line="176"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Er is niet genoeg vrije ruimte op uw doelschijf, u heeft minstens %1 nodig</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="176"/>
+        <location filename="../src/work.cpp" line="179"/>
         <source>You have %1 free space on %2</source>
         <translation>U heeft %1 vrije ruimte op %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="179"/>
+        <location filename="../src/work.cpp" line="182"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Als je zeker weet dat je genoeg vrije ruimte hebt, voer dan het programma opnieuw uit met de -o/--override-size optie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="204"/>
+        <location filename="../src/work.cpp" line="207"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>New-iso bestandssysteem kopiëren...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="216"/>
+        <location filename="../src/work.cpp" line="219"/>
         <source>Could not create temp directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="272"/>
+        <location filename="../src/work.cpp" line="275"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimeren van het bestandsysteem</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="276"/>
+        <location filename="../src/work.cpp" line="279"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Kan geen linuxfs-bestand aanmaken, controleer /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="294"/>
+        <location filename="../src/work.cpp" line="297"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD image bestand maken...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="298"/>
+        <location filename="../src/work.cpp" line="301"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen ISO bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="307"/>
         <source>Making hybrid iso</source>
         <translation>Hybride iso maken</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="322"/>
+        <location filename="../src/work.cpp" line="325"/>
         <source>Success</source>
         <translation>Gelukt</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="323"/>
+        <location filename="../src/work.cpp" line="326"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="324"/>
+        <location filename="../src/work.cpp" line="327"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot nam %1 tijd in beslag.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="325"/>
+        <location filename="../src/work.cpp" line="328"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dank u voor het gebruiken van MX Snapshot, voer MX Live USB Maker hierna uit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="332"/>
+        <location filename="../src/work.cpp" line="335"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="338"/>
         <source>Could not install </source>
         <translation>Kon niet installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="345"/>
+        <location filename="../src/work.cpp" line="348"/>
         <source>Calculating checksum...</source>
         <translation>Bereken checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="383"/>
+        <location filename="../src/work.cpp" line="386"/>
         <source>Building new initrd...</source>
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="474"/>
+        <location filename="../src/work.cpp" line="477"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="612"/>
+        <location filename="../src/work.cpp" line="615"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="625"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>

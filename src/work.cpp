@@ -30,6 +30,7 @@
 #include <QRegularExpression>
 #include <QSettings>
 #include <QStorageInfo>
+#include <QTextStream>
 
 #include <stdexcept>
 
@@ -112,8 +113,10 @@ void Work::cleanUp()
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
-    // Use same CLI detection as Cmd to decide whether to append escape sequence
-    emit message(Cmd::isCliMode() ? tr("Cleaning...") + "\033[?25h" : tr("Cleaning..."));
+    emit message(tr("Cleaning..."));
+    QTextStream out(stdout);
+    out << "\033[?25h";
+    out.flush();
     Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
