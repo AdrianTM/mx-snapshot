@@ -555,153 +555,153 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="76"/>
+        <location filename="../src/main.cpp" line="77"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>Çalışan bir sistemden canlı CD oluşturmak için kullanılan araç</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="80"/>
+        <location filename="../src/main.cpp" line="81"/>
         <source>Use CLI only</source>
         <translation>Yalnızca CLI kullan</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="84"/>
+        <location filename="../src/main.cpp" line="85"/>
         <source>Number of CPU cores to be used.</source>
         <translation>Kullanılan CPU çekirdeği sayısı.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="85"/>
+        <location filename="../src/main.cpp" line="86"/>
         <source>Output directory</source>
         <translation>Çıktı dizini</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="86"/>
+        <location filename="../src/main.cpp" line="87"/>
         <source>Output filename</source>
         <translation>Çıktı dosya adı</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="88"/>
+        <location filename="../src/main.cpp" line="89"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Öntanımlı çalışan çekirdek dışında kullanmak için farklı bir çekirdeği adlandırın, ‘uname -r’ ile döndürülen biçimi kullanın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="90"/>
+        <location filename="../src/main.cpp" line="91"/>
         <source>Or the full path: %1</source>
         <translation>Veya tam yol: %1 </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="93"/>
+        <location filename="../src/main.cpp" line="94"/>
         <source>Compression level options.</source>
         <translation>Sıkıştırma düzeyi seçenekleri</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="94"/>
+        <location filename="../src/main.cpp" line="95"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation>Seçenekleri kullanın: &quot;-Xcompression-level &lt;level&gt;&quot;, veya &quot;-Xalgorithm &lt;algorithm&gt;&quot;, veya &quot;-Xhc&quot;, mksquashfs kılavuz sayfasına bakın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="98"/>
+        <location filename="../src/main.cpp" line="99"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Aylık bir anlık görüntü oluşturun, ISO adına ‘Ay’ adı ekleyin, kullanılan alan hesaplamasını atlayın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="99"/>
+        <location filename="../src/main.cpp" line="100"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Bu seçenek, hesap sıfırlamalarını ve sıkıştırmayı varsayılanlara ayarlar, bu öğeleri değiştiren değişkenler yoksayılır</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="101"/>
+        <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="102"/>
+        <location filename="../src/main.cpp" line="103"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>Elde edilen ISO dosyası için sağlama toplamlarını hesaplamayın </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="103"/>
+        <location filename="../src/main.cpp" line="104"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation>Oluşturulan ISO’nun sığıp sığmayacağını görmek için boş alan hesaplamayı atlayın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="104"/>
+        <location filename="../src/main.cpp" line="105"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Preempt_rt çekirdeklerinde sağlama toplamı hesaplamayla ilgili sorunu düzeltme seçeneği</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="105"/>
+        <location filename="../src/main.cpp" line="106"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Kullanıcı hesaplarını sıfırlayarak (başkalarına vermek için)</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="106"/>
+        <location filename="../src/main.cpp" line="107"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Elde edilen ISO dosyası için sağlama toplamlarını hesaplayın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="108"/>
+        <location filename="../src/main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation>G/Ç giriş hızını verilen yüzde oranında azaltın. Bu, Mksquashfs&apos;in G/Ç ve CPU tüketimini azaltmak için kullanılabilir.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="111"/>
+        <location filename="../src/main.cpp" line="112"/>
         <source>Work directory</source>
         <translation>Çalışma dizini</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="113"/>
+        <location filename="../src/main.cpp" line="114"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Ana klsörleri hariç tutun, geçerli seçimler:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="115"/>
+        <location filename="../src/main.cpp" line="116"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Hariç tutmak istediğiniz her öğe için seçeneği bir kez kullanın</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="118"/>
+        <location filename="../src/main.cpp" line="119"/>
         <source>Compression format, valid choices: </source>
         <translation>Sıkıştırma biçimi, geçerli seçimler:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="120"/>
+        <location filename="../src/main.cpp" line="121"/>
         <source>Shutdown computer when done.</source>
         <translation>Tamamlandığında bilgisayarı kapat.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="169"/>
+        <location filename="../src/main.cpp" line="170"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Görünüşe göre root olarak girmişsiniz, lütfen çıkın ve bu programı kullanmak için normal kullanıcı olarak girin. </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="187"/>
+        <location filename="../src/main.cpp" line="188"/>
         <source>version:</source>
         <translation>sürüm:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="181"/>
+        <location filename="../src/main.cpp" line="182"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Bu programı sudo veya pkexec ile çalıştırmalısınız.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="164"/>
+        <location filename="../src/main.cpp" line="165"/>
         <source>MX Snapshot</source>
         <translation>MX Sistem Anlık Görüntüsü</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="171"/>
-        <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="448"/>
-        <location filename="../src/settings.cpp" line="456"/>
-        <location filename="../src/settings.cpp" line="931"/>
-        <location filename="../src/settings.cpp" line="1025"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="461"/>
+        <location filename="../src/settings.cpp" line="936"/>
+        <location filename="../src/settings.cpp" line="1030"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="237"/>
-        <location filename="../src/settings.cpp" line="455"/>
+        <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Şu an kullanılan çekirdek squashfs dosya sistemini desteklemediği için devam edilemiyor.</translation>
     </message>
@@ -709,10 +709,6 @@
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
         <translation>Çalışma dizini oluşturulamadı.</translation>
-    </message>
-    <message>
-        <source>Could not create temp directory. </source>
-        <translation type="vanished">Geçici dizin oluşturulamadı.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -857,47 +853,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="446"/>
+        <location filename="../src/settings.cpp" line="451"/>
         <source>Could not find a usable kernel</source>
         <translation>Kullanılabilir bir çekirdek bulunamadı </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="447"/>
+        <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="468"/>
+        <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="471"/>
+        <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="565"/>
+        <location filename="../src/settings.cpp" line="570"/>
         <source>Used space on / (root): </source>
         <translation>/(root)’daki Kullanılan Alan:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="568"/>
+        <location filename="../src/settings.cpp" line="573"/>
         <source>estimated</source>
         <translation>Tahminen</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="577"/>
+        <location filename="../src/settings.cpp" line="582"/>
         <source>Used space on /home: </source>
         <translation>/home’daki Kullanılan Alan:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="633"/>
+        <location filename="../src/settings.cpp" line="638"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Anlık Görüntü’nün bulunduğu %1’deki boş alan:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="637"/>
+        <location filename="../src/settings.cpp" line="642"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -912,58 +908,58 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="651"/>
+        <location filename="../src/settings.cpp" line="656"/>
         <source>Desktop</source>
         <translation>Masaüstü</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="652"/>
+        <location filename="../src/settings.cpp" line="657"/>
         <source>Documents</source>
         <translation>Belgeler</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="653"/>
+        <location filename="../src/settings.cpp" line="658"/>
         <source>Downloads</source>
         <translation>İndirilenler</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="654"/>
+        <location filename="../src/settings.cpp" line="659"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="655"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Music</source>
         <translation>Müzik</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="661"/>
         <source>Networks</source>
         <translation>Ağlar</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="657"/>
+        <location filename="../src/settings.cpp" line="662"/>
         <source>Pictures</source>
         <translation>Resimler</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="664"/>
         <source>Videos</source>
         <translation>Videolar</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="808"/>
+        <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="813"/>
+        <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="929"/>
-        <location filename="../src/settings.cpp" line="1023"/>
+        <location filename="../src/settings.cpp" line="934"/>
+        <location filename="../src/settings.cpp" line="1028"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Çıktı dosyası %1 zaten var. Lütfen başka bir dosya adı kullanın veya mevcut dosyayı silin.</translation>
     </message>
@@ -992,132 +988,132 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="115"/>
+        <location filename="../src/work.cpp" line="116"/>
         <source>Cleaning...</source>
         <translation>Temizleniyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="126"/>
-        <location filename="../src/work.cpp" line="316"/>
+        <location filename="../src/work.cpp" line="127"/>
+        <location filename="../src/work.cpp" line="317"/>
         <source>Done</source>
         <translation>Bitti</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="138"/>
+        <location filename="../src/work.cpp" line="139"/>
         <source>Interrupted or failed to complete</source>
         <translation>Kesintiye uğradı veya tamamlanamadı</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="171"/>
-        <location filename="../src/work.cpp" line="274"/>
-        <location filename="../src/work.cpp" line="296"/>
-        <location filename="../src/work.cpp" line="334"/>
-        <location filename="../src/work.cpp" line="472"/>
+        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="275"/>
+        <location filename="../src/work.cpp" line="297"/>
+        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="473"/>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="173"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Hedef diskinizde yeterli boş alan yok, en az %1 gerekli</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="176"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 üzerinde %1 boş alanınız var</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="178"/>
+        <location filename="../src/work.cpp" line="179"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Yeterli boş alanınız olduğundan eminseniz, programı -o/--override-size seçeneğiyle yeniden çalıştırın.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="203"/>
+        <location filename="../src/work.cpp" line="204"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Yeni iso dosya sistemi kopyalanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="216"/>
         <source>Could not create temp directory. </source>
         <translation>Geçici dizin oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="271"/>
+        <location filename="../src/work.cpp" line="272"/>
         <source>Squashing filesystem...</source>
         <translation>Dosya sistemi sıkıştırılıyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="275"/>
+        <location filename="../src/work.cpp" line="276"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="293"/>
+        <location filename="../src/work.cpp" line="294"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD kalıp dosyası oluşturuluyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="297"/>
+        <location filename="../src/work.cpp" line="298"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISO dosyası oluşturulamadı, lütfen hedef bölüm üzerinde yeterli alan olup olmadığını kontrol edin.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="303"/>
+        <location filename="../src/work.cpp" line="304"/>
         <source>Making hybrid iso</source>
         <translation>Hibrit iso oluşturuluyor</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="321"/>
+        <location filename="../src/work.cpp" line="322"/>
         <source>Success</source>
         <translation>Başarılı</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="322"/>
+        <location filename="../src/work.cpp" line="323"/>
         <source>MX Snapshot completed successfully!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="323"/>
+        <location filename="../src/work.cpp" line="324"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Anlık Görüntüyü Oluşturmak %1 sürdü</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="324"/>
+        <location filename="../src/work.cpp" line="325"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX Snapshot’ı kullandığınız için teşekkürler, boot edilebilir usb hazırlamak için MX Live USB Maker’ı kullanabilirsiniz!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="331"/>
+        <location filename="../src/work.cpp" line="332"/>
         <source>Installing </source>
         <translation>Kuruluyor</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="334"/>
+        <location filename="../src/work.cpp" line="335"/>
         <source>Could not install </source>
         <translation>Kurulamadı</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="344"/>
+        <location filename="../src/work.cpp" line="345"/>
         <source>Calculating checksum...</source>
         <translation>Sağlama hesaplanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="382"/>
+        <location filename="../src/work.cpp" line="383"/>
         <source>Building new initrd...</source>
         <translation>Yeni initrd oluşturuluyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="473"/>
+        <location filename="../src/work.cpp" line="474"/>
         <source>Could not create working directory. </source>
         <translation>Çalışma dizini oluşturulamadı.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Hariç tutulan dosyaların toplam boyutu hesaplanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="622"/>
         <source>Calculating size of root...</source>
         <translation>Kök boyutu hesaplanıyor...</translation>
     </message>

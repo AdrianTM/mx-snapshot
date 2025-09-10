@@ -555,153 +555,153 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="76"/>
+        <location filename="../src/main.cpp" line="77"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>Programma om een live-CD te creëren van het lopende systeem</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="80"/>
+        <location filename="../src/main.cpp" line="81"/>
         <source>Use CLI only</source>
         <translation>Gebruik enkel CLI</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="84"/>
+        <location filename="../src/main.cpp" line="85"/>
         <source>Number of CPU cores to be used.</source>
         <translation>Aantal CPU cores dat gebruikt moet worden.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="85"/>
+        <location filename="../src/main.cpp" line="86"/>
         <source>Output directory</source>
         <translation>Uitvoermap</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="86"/>
+        <location filename="../src/main.cpp" line="87"/>
         <source>Output filename</source>
         <translation>Uitvoer bestandsnaam</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="88"/>
+        <location filename="../src/main.cpp" line="89"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Noem een andere kernel te gebruiken, anders dan de standaard lopende kernel, gebruik formaat opgegeven door &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="90"/>
+        <location filename="../src/main.cpp" line="91"/>
         <source>Or the full path: %1</source>
         <translation>Of het volledige pad: %1</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="93"/>
+        <location filename="../src/main.cpp" line="94"/>
         <source>Compression level options.</source>
         <translation>Opties voor compressieniveau.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="94"/>
+        <location filename="../src/main.cpp" line="95"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation>Gebruik aanhalingstekens: &quot;-Xcompression-level &lt;level&gt;&quot;, of &quot;-Xalgorithm &lt;algorithm&gt;&quot;, of &quot;-Xhc&quot;, zie mksquashfs man pagina</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="98"/>
+        <location filename="../src/main.cpp" line="99"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Creëer een maandelijkse snapshot, voeg de &apos;Maand&apos; naam toe in de ISO naam, sla gebruikte ruimtecalculatie over</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="99"/>
+        <location filename="../src/main.cpp" line="100"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Deze optie zet reset-accounts en compressie op standaard, argumenten die deze items veranderen zullen worden genegeerd</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="101"/>
+        <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="102"/>
+        <location filename="../src/main.cpp" line="103"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>Bereken geen checksums voor resulterend ISO-bestand</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="103"/>
+        <location filename="../src/main.cpp" line="104"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation>Sla het berekenen van vrije ruimte over om te zien of de resulterende ISO zal passen</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="104"/>
+        <location filename="../src/main.cpp" line="105"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Optie om het probleem op te lossen met het berekenen van checksums op preempt_rt kernels</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="105"/>
+        <location filename="../src/main.cpp" line="106"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Accounts opnieuw instellen (voor distributie naar anderen)</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="106"/>
+        <location filename="../src/main.cpp" line="107"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Bereken checksums voor resulterend ISO-bestand</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="108"/>
+        <location filename="../src/main.cpp" line="109"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation>Beperkt de I/O-invoersnelheid met het opgegeven percentage. Dit kan gebruikt worden om het I/O- en CPU-verbruik van Mksquashfs te verminderen.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="111"/>
+        <location filename="../src/main.cpp" line="112"/>
         <source>Work directory</source>
         <translation>Werkmap</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="113"/>
+        <location filename="../src/main.cpp" line="114"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Hoofdmappen uitsluiten, geldige keuzes:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="115"/>
+        <location filename="../src/main.cpp" line="116"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Gebruik de optie één keer voor elk item dat u wilt uitsluiten</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="118"/>
+        <location filename="../src/main.cpp" line="119"/>
         <source>Compression format, valid choices: </source>
         <translation>Compressieformaat, geldige keuzes:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="120"/>
+        <location filename="../src/main.cpp" line="121"/>
         <source>Shutdown computer when done.</source>
         <translation>Sluit de computer af als je klaar bent.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="169"/>
+        <location filename="../src/main.cpp" line="170"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>U lijkt ingelogd te zijn als root, gelieve uit te loggen en in te loggen als normale gebruiker om dit programma te gebruiken.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="187"/>
+        <location filename="../src/main.cpp" line="188"/>
         <source>version:</source>
         <translation>versie:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="181"/>
+        <location filename="../src/main.cpp" line="182"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Je moet dit programma uitvoeren met sudo of pkexec.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="164"/>
+        <location filename="../src/main.cpp" line="165"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="171"/>
-        <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="448"/>
-        <location filename="../src/settings.cpp" line="456"/>
-        <location filename="../src/settings.cpp" line="931"/>
-        <location filename="../src/settings.cpp" line="1025"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="461"/>
+        <location filename="../src/settings.cpp" line="936"/>
+        <location filename="../src/settings.cpp" line="1030"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="237"/>
-        <location filename="../src/settings.cpp" line="455"/>
+        <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Huidige kernel ondersteunt geen Squashfs, kan niet doorgaan.</translation>
     </message>
@@ -709,10 +709,6 @@
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
-    </message>
-    <message>
-        <source>Could not create temp directory. </source>
-        <translation type="vanished">Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -857,47 +853,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="446"/>
+        <location filename="../src/settings.cpp" line="451"/>
         <source>Could not find a usable kernel</source>
         <translation>Kon geen bruikbare kernel vinden</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="447"/>
+        <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="468"/>
+        <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="471"/>
+        <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="565"/>
+        <location filename="../src/settings.cpp" line="570"/>
         <source>Used space on / (root): </source>
         <translation>Gebruikte ruimte op / (root):</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="568"/>
+        <location filename="../src/settings.cpp" line="573"/>
         <source>estimated</source>
         <translation>geschat</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="577"/>
+        <location filename="../src/settings.cpp" line="582"/>
         <source>Used space on /home: </source>
         <translation>Gebruikte ruimte op /home:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="633"/>
+        <location filename="../src/settings.cpp" line="638"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vrije ruimte op %1, waar de snapshot folder geplaatst is:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="637"/>
+        <location filename="../src/settings.cpp" line="642"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -913,58 +909,58 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="651"/>
+        <location filename="../src/settings.cpp" line="656"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="652"/>
+        <location filename="../src/settings.cpp" line="657"/>
         <source>Documents</source>
         <translation>Documenten</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="653"/>
+        <location filename="../src/settings.cpp" line="658"/>
         <source>Downloads</source>
         <translation>Downloads</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="654"/>
+        <location filename="../src/settings.cpp" line="659"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="655"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Music</source>
         <translation>Muziek</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="661"/>
         <source>Networks</source>
         <translation>Netwerken</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="657"/>
+        <location filename="../src/settings.cpp" line="662"/>
         <source>Pictures</source>
         <translation>Afbeeldingen</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="664"/>
         <source>Videos</source>
         <translation>Video&apos;s</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="808"/>
+        <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="813"/>
+        <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="929"/>
-        <location filename="../src/settings.cpp" line="1023"/>
+        <location filename="../src/settings.cpp" line="934"/>
+        <location filename="../src/settings.cpp" line="1028"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Uitvoerbestand %1 bestaat al. Gebruik een andere bestandsnaam of verwijder het bestaande bestand.</translation>
     </message>
@@ -993,132 +989,132 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="115"/>
+        <location filename="../src/work.cpp" line="116"/>
         <source>Cleaning...</source>
         <translation>Opruimen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="126"/>
-        <location filename="../src/work.cpp" line="316"/>
+        <location filename="../src/work.cpp" line="127"/>
+        <location filename="../src/work.cpp" line="317"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="138"/>
+        <location filename="../src/work.cpp" line="139"/>
         <source>Interrupted or failed to complete</source>
         <translation>Onderbroken of niet af kunnen maken</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="171"/>
-        <location filename="../src/work.cpp" line="274"/>
-        <location filename="../src/work.cpp" line="296"/>
-        <location filename="../src/work.cpp" line="334"/>
-        <location filename="../src/work.cpp" line="472"/>
+        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="275"/>
+        <location filename="../src/work.cpp" line="297"/>
+        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="473"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="173"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Er is niet genoeg vrije ruimte op uw doelschijf, u heeft minstens %1 nodig</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="176"/>
         <source>You have %1 free space on %2</source>
         <translation>U heeft %1 vrije ruimte op %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="178"/>
+        <location filename="../src/work.cpp" line="179"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Als je zeker weet dat je genoeg vrije ruimte hebt, voer dan het programma opnieuw uit met de -o/--override-size optie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="203"/>
+        <location filename="../src/work.cpp" line="204"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>New-iso bestandssysteem kopiëren...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="216"/>
         <source>Could not create temp directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="271"/>
+        <location filename="../src/work.cpp" line="272"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimeren van het bestandsysteem</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="275"/>
+        <location filename="../src/work.cpp" line="276"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Kan geen linuxfs-bestand aanmaken, controleer /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="293"/>
+        <location filename="../src/work.cpp" line="294"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD image bestand maken...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="297"/>
+        <location filename="../src/work.cpp" line="298"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen ISO bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="303"/>
+        <location filename="../src/work.cpp" line="304"/>
         <source>Making hybrid iso</source>
         <translation>Hybride iso maken</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="321"/>
+        <location filename="../src/work.cpp" line="322"/>
         <source>Success</source>
         <translation>Gelukt</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="322"/>
+        <location filename="../src/work.cpp" line="323"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="323"/>
+        <location filename="../src/work.cpp" line="324"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot nam %1 tijd in beslag.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="324"/>
+        <location filename="../src/work.cpp" line="325"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dank u voor het gebruiken van MX Snapshot, voer MX Live USB Maker hierna uit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="331"/>
+        <location filename="../src/work.cpp" line="332"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="334"/>
+        <location filename="../src/work.cpp" line="335"/>
         <source>Could not install </source>
         <translation>Kon niet installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="344"/>
+        <location filename="../src/work.cpp" line="345"/>
         <source>Calculating checksum...</source>
         <translation>Bereken checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="382"/>
+        <location filename="../src/work.cpp" line="383"/>
         <source>Building new initrd...</source>
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="473"/>
+        <location filename="../src/work.cpp" line="474"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="622"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>
