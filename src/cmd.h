@@ -10,6 +10,10 @@ class Cmd : public QProcess
 public:
     explicit Cmd(QObject *parent = nullptr);
 
+    // Returns the elevation tool path appropriate for current mode (CLI/GUI),
+    // preferring sudo in CLI, pkexec in GUI. Empty if none found.
+    static QString elevationTool();
+
     [[nodiscard]] QString getOut(const QString &cmd, bool quiet = false, bool asRoot = false);
     [[nodiscard]] QString getOutAsRoot(const QString &cmd, bool quiet = false);
     [[nodiscard]] QString readAllOutput();

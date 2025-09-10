@@ -106,25 +106,25 @@ bool Work::checkInstalled(const QString &package)
 
 void Work::cleanUp()
 {
-    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib chown_conf", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib chown_conf", true);
     if (!started) {
         shell.close();
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
     emit message(tr("Cleaning...") + "\033[?25h"); // Restore the cursor visibility
-    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
     }
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
         if (settings->shutdown) {
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
@@ -136,7 +136,7 @@ void Work::cleanUp()
         exit(EXIT_SUCCESS);
     } else {
         emit message(tr("Interrupted or failed to complete"));
-        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
         exit(EXIT_FAILURE);
     }
 }
@@ -148,7 +148,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshot_dir + "/").device()
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-            Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+            Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
         }
         settings->tempdir_parent = dir;
         if (!settings->checkTempDir()) {
@@ -282,7 +282,7 @@ bool Work::createIso(const QString &filename)
     shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
     makeChecksum(HashType::md5, settings->work_dir + "/iso-2/antiX", "linuxfs");
 
-    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
 
     // Create the iso file
     QDir::setCurrent(settings->work_dir + "/iso-template");
@@ -368,7 +368,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     } else {
         // Free pagecache
         shell.run("sync; sleep 1");
-        Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib drop_caches");
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib drop_caches");
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -537,7 +537,7 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib datetime_log", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib datetime_log", true);
 }
 
 void Work::writeVersionFile()

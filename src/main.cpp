@@ -42,6 +42,7 @@
 #include "common.h"
 #include "log.h"
 #include "messagehandler.h"
+#include "cmd.h"
 
 #ifndef VERSION
     #define VERSION "?.?.?.?"
@@ -176,7 +177,7 @@ int main(int argc, char *argv[])
     checkSquashfs();
 
     const bool isGuiApp = QCoreApplication::instance()->inherits("QApplication");
-    const bool hasAuthTools = QFile::exists("/usr/bin/pkexec") || QFile::exists("/usr/bin/gksu");
+    const bool hasAuthTools = !Cmd::elevationTool().isEmpty();
     if (getuid() != 0 && (!isGuiApp || !hasAuthTools)) {
         qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
         return EXIT_FAILURE;

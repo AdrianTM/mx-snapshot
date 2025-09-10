@@ -98,6 +98,5 @@ private:
     QElapsedTimer e_timer;
     bool started = false;
     bool done = false;
-    QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
     QTemporaryDir initrd_dir;
 };

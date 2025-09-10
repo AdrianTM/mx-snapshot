@@ -59,8 +59,8 @@ Settings::Settings(const QCommandLineParser &arg_parser)
         }
 
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
-            QString elevate {QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu"};
-            Cmd().run(elevate + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+            const QString elevateTool = Cmd::elevationTool();
+            Cmd().run(elevateTool + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
         }
 
         loadConfig(); // Load settings from .conf file
@@ -368,11 +368,16 @@ QString Settings::getEditor() const
         = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editor).hasMatch();
     const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editor).hasMatch();
 
-    QString elevate = QFile::exists("/usr/bin/pkexec") ? "/usr/bin/pkexec" : "/usr/bin/gksu";
+    QString elevate = Cmd::elevationTool();
     if (isEditorThatElevates && !isRoot) {
         return editor;
     } else if (isRoot && isEditorThatElevates) {
-        elevate += " --user $(logname)";
+        // Adjust user switch flag based on tool
+        if (elevate.contains("sudo")) {
+            elevate += " -u $(logname)";
+        } else {
+            elevate += " --user $(logname)";
+        }
     }
     if (isCliEditor) {
         return "x-terminal-emulator -e " + elevate + " " + editor;
