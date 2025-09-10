@@ -10,15 +10,18 @@ class Cmd : public QProcess
 public:
     explicit Cmd(QObject *parent = nullptr);
 
+    enum class QuietMode { No, Yes };
+    enum class Elevation { No, Yes };
+
     // Returns the elevation tool path appropriate for current mode (CLI/GUI),
     // preferring sudo in CLI, pkexec in GUI. Empty if none found.
     static QString elevationTool();
 
-    [[nodiscard]] QString getOut(const QString &cmd, bool quiet = false, bool asRoot = false);
-    [[nodiscard]] QString getOutAsRoot(const QString &cmd, bool quiet = false);
+    [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString readAllOutput();
-    bool run(const QString &cmd, bool quiet = false, bool asRoot = false);
-    bool runAsRoot(const QString &cmd, bool quiet = false);
+    bool run(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
+    bool runAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
 
 signals:
     void done();

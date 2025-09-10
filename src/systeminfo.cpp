@@ -18,7 +18,7 @@ bool SystemInfo::isLive()
 
 QStringList SystemInfo::listUsers()
 {
-    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", true).split('\n');
+    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", Cmd::QuietMode::Yes).split('\n');
 }
 
 QString SystemInfo::readKernelOpts()

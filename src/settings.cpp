@@ -39,7 +39,7 @@
 
 Settings::Settings(const QCommandLineParser &arg_parser)
     : x86(SystemInfo::is386()),
-      max_cores(Cmd().getOut("nproc", true).trimmed().toUInt()),
+      max_cores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
       monthly(arg_parser.isSet("month")),
       override_size(arg_parser.isSet("override-size")),
       edit_boot_menu(getEditBootMenuSetting()),
@@ -115,7 +115,7 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + '"', false)) {
+    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + '"', Cmd::QuietMode::No)) {
         qDebug() << QObject::tr("Could not create working directory. ") + snapshot_dir;
         return false;
     }

@@ -115,7 +115,7 @@ void Log::fixLogFileOwnership(const QString &file_name)
     // Case 1: Running as regular user, but file is owned by root
     if (fileStat.st_uid == 0 && currentUid != 0) {
         Cmd cmd;
-        if (cmd.runAsRoot("chown $(logname): \"" + file_name + "\"", true)) {
+        if (cmd.runAsRoot("chown $(logname): \"" + file_name + "\"", Cmd::QuietMode::Yes)) {
             qDebug() << "Fixed log file ownership for:" << file_name;
         }
     }

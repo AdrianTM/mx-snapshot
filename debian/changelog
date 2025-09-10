@@ -1,3 +1,10 @@
+mx-snapshot (25.09.1) mx; urgency=medium
+
+  * Use sudo for elevation in CLI mode; fix cleanup issue when
+    pkexec/gksu are not present
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 10 Sep 2025 00:34:55 -0400
+
 mx-snapshot (25.09) mx; urgency=medium
 
   * Fix log ownership

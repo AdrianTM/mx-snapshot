@@ -106,14 +106,14 @@ bool Work::checkInstalled(const QString &package)
 
 void Work::cleanUp()
 {
-    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib chown_conf", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib chown_conf", Cmd::QuietMode::Yes);
     if (!started) {
         shell.close();
         initrd_dir.remove();
         exit(EXIT_SUCCESS);
     }
     emit message(tr("Cleaning...") + "\033[?25h"); // Restore the cursor visibility
-    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
@@ -124,7 +124,7 @@ void Work::cleanUp()
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshot_dir + "/" + settings->snapshot_name + ".log");
@@ -136,7 +136,7 @@ void Work::cleanUp()
         exit(EXIT_SUCCESS);
     } else {
         emit message(tr("Interrupted or failed to complete"));
-        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", true);
+        Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib copy_log", Cmd::QuietMode::Yes);
         exit(EXIT_FAILURE);
     }
 }
@@ -265,7 +265,7 @@ bool Work::createIso(const QString &filename)
                   + (settings->mksq_opt.isEmpty() ? "" : " " + settings->mksq_opt) + " -wildcards -ef "
                   + settings->snapshot_excludes.fileName()
                   + (settings->session_excludes.isEmpty() ? "" : " -e " + settings->session_excludes);
-    if (Cmd().getOut("umask", true) != "0022") {
+    if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
     }
     emit message(tr("Squashing filesystem..."));
@@ -537,7 +537,7 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib datetime_log", true);
+    Cmd().run(Cmd::elevationTool() + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib datetime_log", Cmd::QuietMode::Yes);
 }
 
 void Work::writeVersionFile()
@@ -590,7 +590,7 @@ quint64 Work::getRequiredSpace()
             excludes << exclude;
         }
     }
-    QString root_dev = Cmd().getOut("df /.bind-root --output=target |tail -1", true);
+    QString root_dev = Cmd().getOut("df /.bind-root --output=target |tail -1", Cmd::QuietMode::Yes);
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
         it.next();
@@ -604,7 +604,7 @@ quint64 Work::getRequiredSpace()
         it.value().prepend("/.bind-root/"); // Check size occupied by excluded files on /.bind-root only
         it.value().replace(QRegularExpression("/\\*$"), "/"); // Remove last *
         //  Remove from list if files not on the same volume
-        if (root_dev != Cmd().getOut("df " + it.value() + " --output=target 2>/dev/null |tail -1", true)) {
+        if (root_dev != Cmd().getOut("df " + it.value() + " --output=target 2>/dev/null |tail -1", Cmd::QuietMode::Yes)) {
             it.remove();
         }
     }

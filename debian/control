@@ -16,6 +16,7 @@ Depends: mx-iso-template | iso-template (>= 16.1mx15),
          syslinux-utils,
          xdg-user-dirs,
          xorriso (>= 1.4.6),
+         sudo | pkexec | gksu,
          ${misc:Depends},
          ${shlibs:Depends}
 Recommends: mx-launcher-l10n
@@ -35,6 +36,7 @@ Depends: mx-iso-template | iso-template (>= 16.1mx15),
          syslinux-utils,
          xdg-user-dirs,
          xorriso (>= 1.4.6),
+         sudo | pkexec | gksu,
          ${misc:Depends},
          ${shlibs:Depends}
 Description: Command-line system snapshot tool for MX Linux
