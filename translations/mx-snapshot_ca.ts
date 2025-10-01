@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -78,7 +76,7 @@
         <location filename="../src/mainwindow.ui" line="100"/>
         <location filename="../src/ui_mainwindow.h" line="727"/>
         <source>Release date:</source>
-        <translation>Data d&apos;edició:</translation>
+        <translation>Data de publicació:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="107"/>
@@ -181,7 +179,7 @@
         <location filename="../src/mainwindow.ui" line="532"/>
         <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Calculate checksums:</source>
-        <translation>Calcula la suma de control:</translation>
+        <translation>Calcula les sumes de control:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
@@ -439,7 +437,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="394"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation>Aquest ordinador usa una targeta gràfica NVIDIA. Teniu previst usar el ISO obtingut en el mateix ordinador o un altre amb targeta NVIDIA?</translation>
+        <translation>Aquest ordinador usa una targeta gràfica NVIDIA. Teniu previst usar l&apos;ISO obtingut en el mateix ordinador o un altre amb targeta NVIDIA?</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="398"/>
@@ -562,7 +560,7 @@
     <message>
         <location filename="../src/main.cpp" line="81"/>
         <source>Use CLI only</source>
-        <translation>Useu només CLI</translation>
+        <translation>Usa només CLI</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="85"/>
@@ -706,10 +704,6 @@
         <translation>El kernel actual no dona suport a Squashfs, no puc continuar.</translation>
     </message>
     <message>
-        <source>Could not create working directory. </source>
-        <translation type="vanished">No puc crear el directori de treball.</translation>
-    </message>
-    <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
         <translation>Ha fallat iniciar la configuració.</translation>
@@ -732,7 +726,7 @@
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>No s&apos;ha pogut crear el directori de treball.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
@@ -866,7 +860,7 @@
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation>S&apos;han cercat fitxers del nucli a /boot/ però no s&apos;han trobat ni s&apos;hi pot accedir.</translation>
+        <translation>S&apos;han cercat fitxers del nucli a /boot/, però no s&apos;han trobat ni s&apos;hi pot accedir.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
@@ -1061,7 +1055,7 @@
     <message>
         <location filename="../src/work.cpp" line="301"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation>No s&apos;ha pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
+        <translation>No he pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="307"/>

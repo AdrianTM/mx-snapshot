@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -612,7 +610,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Opcjonalnie określ sufiks, aby dodać do nazwy miesiąca (np. „1” dla „Lipiec.1”)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -706,155 +704,153 @@
         <translation>Bieżące jądro (kernel) nie obsługuje Squashfs, nie można kontynuować.</translation>
     </message>
     <message>
-        <source>Could not create working directory. </source>
-        <translation type="vanished">Nie można utworzyć katalogu roboczego.</translation>
-    </message>
-    <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się zainicjować konfiguracji</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Walidacja konfiguracji się nie powiodła</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyjątek podczas inicjalizacji: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieznany wyjątek podczas inicjalizacji</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można utworzyć katalogu roboczego.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można utworzyć katalogu tymczasowego:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Sprawdź, czy katalog nadrzędny istnieje i jest zapisany:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Format kompresji „%1” nie jest obsługiwany przez obecne jądro</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieprawidłowe ustawienie rdzeni: %1. Musi być od 1 do %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation>Nieprawidłowe ustawienie ograniczania prędkości: %1. Musi być od 0 do 20</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Katalog migawki nie może być pusty</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa migawki nie może być pusta</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nazwa migawki zawiera nieprawidłowe znaki: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja jądra nie może być pusta</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie znaleziono pliku jądra: /boot /vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation>Jądro %1 nie obsługuje SquashFS</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Plik wykluczenia nie istnieje: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation>Niezrównoważone znaki cytatowania na liście wykluczeń</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Niewystarczająca wolna przestrzeń: %1 kib dostępne, wymagane minimum 2 kib</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Niewystarczające wolne miejsce w katalogu roboczym: %1 kib, wymagane minimum 2 kib</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się określić liczby rdzeni procesora</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Plik konfiguracyjny nie istnieje: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="298"/>
         <source>Using default settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Za pomocą ustawień domyślnych</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="300"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie można odczytać pliku konfiguracyjnego: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymagane narzędzie nie znaleziono: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wymagany katalog nie znaleziono: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="339"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd inicjalizacji</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="340"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się zainicjować ustawień aplikacji:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
@@ -864,17 +860,17 @@
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Wyszukiwano pliki jądra w / boot /, ale żaden nie został znaleziony ani dostępny.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"></translation>
+        <translation>Żadnych użytkowników w systemie</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się określić informacji systemowych</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
@@ -928,7 +924,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     <message>
         <location filename="../src/settings.cpp" line="659"/>
         <source>Flatpaks</source>
-        <translation>Flatpaks</translation>
+        <translation>Flatpaki</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="660"/>
@@ -953,12 +949,12 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd odczytu pliku konfiguracji systemu: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Błąd dostępu do konfiguracji użytkownika</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>
@@ -1103,7 +1099,7 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
     <message>
         <location filename="../src/work.cpp" line="386"/>
         <source>Building new initrd...</source>
-        <translation>Budowanie nowego initrd ...</translation>
+        <translation>Budowanie nowego initrd...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="477"/>

@@ -1,3 +1,10 @@
+mx-snapshot (25.10) mx; urgency=medium
+
+  * Trim quotes when reading options
+  * Update translations
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 01 Oct 2025 12:59:15 -0400
+
 mx-snapshot (25.09.2) mx; urgency=medium
 
   * Use sudo for elevation in CLI mode; fix cleanup issue when

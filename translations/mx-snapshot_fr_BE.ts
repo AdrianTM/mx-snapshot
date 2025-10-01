@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr_BE">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr_BE">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -26,12 +24,12 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="110"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer « xorg=nvidia » des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="113"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter « xorg=nvidia » aux options de démarrage.</translation>
     </message>
 </context>
 <context>
@@ -283,7 +281,7 @@
         <location filename="../src/mainwindow.ui" line="817"/>
         <location filename="../src/ui_mainwindow.h" line="774"/>
         <source>About...</source>
-        <translation>À propos&#xa0;…</translation>
+        <translation>À propos …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="823"/>
@@ -392,12 +390,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="320"/>
         <source>Please wait.</source>
-        <translation>Veuillez patienter&#xa0;…</translation>
+        <translation>Veuillez patienter …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="322"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation>Veuillez patienter. Calcul de l’espace disque utilisé&#xa0;…</translation>
+        <translation>Veuillez patienter. Calcul de l’espace disque utilisé …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="356"/>
@@ -449,12 +447,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="399"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer « xorg=nvidia » des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="403"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter « xorg=nvidia » aux options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="414"/>
@@ -612,7 +610,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"></translation>
+        <translation>Vous pouvez éventuellement spécifier un suffixe à ajouter au nom du mois (par exemple, « 1 » pour « juillet.1 »).</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -706,155 +704,153 @@
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
     <message>
-        <source>Could not create working directory. </source>
-        <translation type="vanished">Impossible de créer le répertoire de travail. </translation>
-    </message>
-    <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d’initialiser la configuration</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur de validation de la configuration</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur lors de l’initialisation: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur inconnue lors de l’initialisation</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de créer le répertoire temporaire:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Veuillez vérifier que le répertoire parent existe et qu’il est accessible en écriture:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation>Le format de compression « %1 » n’est pas pris en charge par le noyau actuel</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation>Paramètre de cœurs non valide: %1. Doit être compris entre 1 et %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation>Réglage du régulateur (throttle) invalide: %1. Doit être compris entre 0 et 20</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Le répertoire Snapshot (Instantané) ne peut pas être vide</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>Le nom du snapshot (instantané) ne peut pas être vide</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Le nom du snapshot (instantané) contient des caractères non valides: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>La version du noyau ne peut pas être vide</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation>Fichier noyau introuvable: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation>Le noyau %1 ne prend pas en charge Squashfs</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier d’exclusion n’existe pas: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation>Guillemets non équilibrés dans la liste d’exclusion</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Espace libre insuffisant: %1 Ko (KiB) disponible, minimum %2 Ko (KiB) requis</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation>Espace libre insuffisant dans le répertoire de travail: %1 Ko (KiB) disponible, minimum %2 Ko (KiB) requis</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de déterminer le nombre de cœurs du processeur</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Le fichier de configuration n’existe pas: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="298"/>
         <source>Using default settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Utilisation des paramètres par défaut</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="300"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de lire le fichier de configuration: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Outil requis introuvable: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Répertoire requis introuvable: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="339"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur d’initialisation</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="340"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d’initialiser les paramètres de l’application:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
@@ -864,17 +860,17 @@
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"></translation>
+        <translation>Recherche de fichiers du noyau dans /boot/, mais aucun n’a été trouvé ou n’était accessible.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucun•e utilisateur•rice trouvé•e dans le système</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible de déterminer les informations système</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
@@ -907,7 +903,7 @@
         <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
 
 Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
-Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
+Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 </translation>
     </message>
     <message>
@@ -953,12 +949,12 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur lors de la lecture du fichier de configuration du système: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"></translation>
+        <translation>Erreur lors de l’accès à la configuration de l’utilisateur•rice</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>
@@ -993,7 +989,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="116"/>
         <source>Cleaning...</source>
-        <translation>Nettoyage&#xa0;…</translation>
+        <translation>Nettoyage …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="130"/>
@@ -1033,7 +1029,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="207"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation>Copie du nouveau système de fichiers iso en cours&#xa0;…</translation>
+        <translation>Copie du nouveau système de fichiers iso en cours …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="219"/>
@@ -1043,7 +1039,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="275"/>
         <source>Squashing filesystem...</source>
-        <translation>Écrasement du système de fichiers&#xa0;…</translation>
+        <translation>Écrasement du système de fichiers …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="279"/>
@@ -1053,7 +1049,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="297"/>
         <source>Creating CD/DVD image file...</source>
-        <translation>Création du fichier image pour CD/DVD&#xa0;…</translation>
+        <translation>Création du fichier image pour CD/DVD …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="301"/>
@@ -1083,7 +1079,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="328"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Merci d’utiliser MX Snapshot, lancez ensuite MX Live USB Création!</translation>
+        <translation>Merci d’utiliser MX Instantané - MX Snapshot, lancez ensuite MX Live USB Création!</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="335"/>
@@ -1098,12 +1094,12 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="348"/>
         <source>Calculating checksum...</source>
-        <translation>Calculer la somme de contrôle&#xa0;…</translation>
+        <translation>Calculer la somme de contrôle …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="386"/>
         <source>Building new initrd...</source>
-        <translation>Nouvel initrd en cours de création&#xa0;…</translation>
+        <translation>Nouvel initrd en cours de création …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="477"/>
@@ -1113,12 +1109,12 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="615"/>
         <source>Calculating total size of excluded files...</source>
-        <translation>Calcul de la taille totale des fichiers exclus&#xa0;…</translation>
+        <translation>Calcul de la taille totale des fichiers exclus …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="625"/>
         <source>Calculating size of root...</source>
-        <translation>Calcul de la taille de root&#xa0;…</translation>
+        <translation>Calcul de la taille de root …</translation>
     </message>
 </context>
 </TS>

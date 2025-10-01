@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -706,10 +704,6 @@
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
     <message>
-        <source>Could not create working directory. </source>
-        <translation type="vanished">Kunde inte skapa fungerande katalog.</translation>
-    </message>
-    <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
         <translation>Misslyckades med att initiera konfigurationen</translation>
@@ -732,7 +726,7 @@
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa arbetskatalog</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
