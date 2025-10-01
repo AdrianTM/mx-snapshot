@@ -155,6 +155,7 @@ private:
     // Helper functions for const member initialization
     QString getInitialKernel(const QCommandLineParser &arg_parser);
     bool getEditBootMenuSetting();
+    QString trimQuotes(const QString &value) const;
 
     struct InitialSettings {
         bool live;
