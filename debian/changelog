@@ -1,3 +1,10 @@
+mx-snapshot (25.10.1) mx; urgency=medium
+
+  * Fix: edit_boot_menu now honors the system setting by falling back to
+    /etc/mx-snapshot.conf when the user config lacks the key
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 27 Oct 2025 09:02:04 -0400
+
 mx-snapshot (25.10) mx; urgency=medium
 
   * Trim quotes when reading options

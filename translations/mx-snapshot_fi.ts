@@ -24,21 +24,21 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="110"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistyksen asetuksista.</translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistysasetuksista.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="113"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistyksen asetuksiin.</translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistysasetuksiin.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="516"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -58,13 +58,13 @@
         <location filename="../src/mainwindow.ui" line="79"/>
         <location filename="../src/ui_mainwindow.h" line="724"/>
         <source>Boot options:</source>
-        <translation>Käynnistyksen valinnat:</translation>
+        <translation>Käynnistysvalinnat:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="86"/>
         <location filename="../src/ui_mainwindow.h" line="725"/>
         <source>Live kernel:</source>
-        <translation>Live kerneli:</translation>
+        <translation>Live kernel:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
@@ -94,7 +94,7 @@
         <location filename="../src/mainwindow.ui" line="172"/>
         <location filename="../src/ui_mainwindow.h" line="730"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot on apuohjelma joka luo käynnistyvän levykuvan (ISO) toimivasta järjestelmästäsi jota voit tallentaa tai jakaa sitä toisille. Voit käyttää järjestelmää normaalisti levykuvan luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot apuohjelma luo käynnistyvän (ISO) levykuvan toimivasta järjestelmästä. Levykuvan voi asentaa toiseen tietokoneeseen tai jakaa sitä muiden käyttöön. Voit käyttää tietokonetta normaalisti levykuvan luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
@@ -118,12 +118,12 @@
         <location filename="../src/mainwindow.ui" line="226"/>
         <location filename="../src/ui_mainwindow.h" line="735"/>
         <source>Select a different snapshot directory</source>
-        <translation>Valitse toinen tilannevedosten hakemisto</translation>
+        <translation>Valitse eri hakemisto</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Tilannevedoksen nimi:</translation>
     </message>
@@ -137,7 +137,7 @@
         <location filename="../src/mainwindow.ui" line="367"/>
         <location filename="../src/ui_mainwindow.h" line="741"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation>Säilytä käyttäjätilit (henkilökohtaista varmuuskopiointia varten)</translation>
+        <translation>Säilytä käyttäjätilit (oma varmuuskopio)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
@@ -149,13 +149,13 @@
         <location filename="../src/mainwindow.ui" line="380"/>
         <location filename="../src/ui_mainwindow.h" line="745"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>Käyttäjätilien tyhjennys (toisille jakamista varten)</translation>
+        <translation>Poista käyttäjätilit (jaettavaksi muille)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
         <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Voit myös rajata pois hakemistoja ruksaamalla allaolevat yleiset valinnat tai painamalla painiketta ja muokata suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Voit rajata pois ruksaamalla alla olevia valintoja tai  muokkaamalla suoraan tiedostoa  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
@@ -185,7 +185,7 @@
         <location filename="../src/mainwindow.ui" line="539"/>
         <location filename="../src/ui_mainwindow.h" line="753"/>
         <source>ISO compression scheme:</source>
-        <translation>ISO-pakkausrakenne:</translation>
+        <translation>ISO-pakkausmenetelmä:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="546"/>
@@ -370,17 +370,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="219"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
+        <translation>Vapaata tilaa %1, johon snapshot.kansio tallennetaan:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="222"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
-        <translation>Vapaan tilan pitäisi riittää pakatulle datalle kohteista / ja /home 
+        <translation>Vapaan tilan pitäisi riittää pakatulle datalle kohteessa / ja /home 
 
-Tarvittaessa voit tehdä vapaata tilaa poistamalla aiemmat
-tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
+Tarvittaessa tee vapaata tilaa poistamalla aiemmat vedokset ja
+tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="234"/>
@@ -448,17 +448,17 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/mainwindow.cpp" line="399"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistyksen asetuksista.</translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistysasetuksista.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="403"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistyksen asetuksiin.</translation>
+        <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistysasetuksiin.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="414"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
-        <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
+        <translation>Nykyinen kerneli ei tue valittua pakkaamisen algoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="437"/>
@@ -468,7 +468,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/mainwindow.cpp" line="439"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
-        <translation>Tilannevedos työkalulla on nyt kaikki tarvittava tieto, jotta se voi tehdä ISO-levykuvan käynnissä olevasta järjestelmästäsi.</translation>
+        <translation>Työkalulla on nyt kaikki tarvittavat tiedot ISO-tiedoston luomiseen käynnissä olevasta järjestelmästä.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="440"/>
@@ -483,7 +483,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/mainwindow.cpp" line="446"/>
         <source>Shutdown computer when done.</source>
-        <translation>Sammuta tietokone, kun valmis.</translation>
+        <translation>Sammuta tietokone kun käsittely on valmis.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
@@ -503,7 +503,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/mainwindow.cpp" line="503"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
-        <translation>Tämä ohjelma tauotetaan nyt jotta voit muokata työkansion mitä tahansa tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa, tai valitse vaihtoehtoisesti Ei ohittaaksesi tämän vaiheen sekä jatkaaksesi snapshot-järjestelmävedoksen luomista.</translation>
+        <translation>Ohjelma pysäytetään, jotta voit muokata työhakemiston tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa tai valitse Ei ohittaaksesi tämän vaiheen ja jatka vedoksen luomista.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="599"/>
@@ -581,7 +581,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/main.cpp" line="89"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Nimeä toinen kernel käytettäväksi kuin oletuksena oleva kernel, käytä &quot;uname -r&quot; palauttamaa muotoa</translation>
+        <translation>Nimeä käytettäväksi toinen kernel kuin nyt oletuksena oleva kernel, käytä &quot;uname -r&quot; palauttamaa tietoa</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="91"/>
@@ -621,12 +621,12 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/main.cpp" line="104"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
-        <translation>Ohita vapaan tilan laskeminen näkemättä, sopiiko tuloksena oleva ISO</translation>
+        <translation>Ohita vapaan tilan laskeminen, tuloksena olevalle iso-levykuvalle on tilaa?</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="105"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation>Vaihtoehto, joka korjaa ongelman, joka koskee tarkistussummia preempt_rt kerneleissä</translation>
+        <translation>Lisävalinta korjaamaan preempt_rt kernelin tarkistussumman laskemiseen liittyvän ongelman</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="106"/>
@@ -666,7 +666,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/main.cpp" line="121"/>
         <source>Shutdown computer when done.</source>
-        <translation>Sammuta tietokone, kun valmis.</translation>
+        <translation>Sammuta tietokone kun käsittely on valmis.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="170"/>
@@ -689,20 +689,20 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
         <location filename="../src/settings.cpp" line="936"/>
         <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
-        <translation>Nykyinen kerneli ei tue Squashfs:ää, jatkaminen ei onnistu.</translation>
+        <translation>Nykyinen kernel ei tue Squashfs-funktioita, joten ei voi jatkaa.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
@@ -742,7 +742,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation>Nykyinen Kernel ei tue pakkaamisen formaattia &quot;%1&quot;</translation>
+        <translation>Nykyinen kernel ei tue pakkausformaattia &quot;%1&quot;</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
@@ -797,12 +797,12 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation>Ei vapaata tilaa: %1 KiB käytettävissä, vaaditaan vähintään %2 KiB</translation>
+        <translation>Ei vapaata tilaa: %1 KiB käytettävissä, tarvitaan %2 KiB</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation>Ei vapaata työhakemiston tilaa: %1 KiB käytettävissä, vaaditaan vähintään %2 KiB</translation>
+        <translation>Hakemistossa ei ole työtilaa: %1 KiB käytettävissä, tarvitaan %2 KiB</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
@@ -891,7 +891,7 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
     <message>
         <location filename="../src/settings.cpp" line="638"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa %1, johon tilannevedos on sijoitettu:</translation>
+        <translation>Vapaata tilaa %1, johon snapshot.kansio tallennetaan:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="642"/>
@@ -901,11 +901,11 @@ tilannevedokset ja tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</transl
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>Vapaan tilan määrä pitäisi olla riittävä pakatulle datalle kohteista / ja /home 
+        <translation>Vapaan tilan pitäisi riittää pakatulle datalle kohteessa / ja /home 
 
-            Mikäli välttämätöntä, voit luoda lisää tilaa käytettäväksi
-            poistamalla edellisiä snapshot-järjestelmävedoksia sekä jäljennöksiä:
-            %1 snapshot-järjestelmävedokset vievät %2 levytilaa.
+            Tarvittaessa tee vapaata tilaa poistamalla aiemmat
+            vedokset ja tallennetut kopiot:
+            %1 snapshot-vedokset vievät %2 levytilaa.
 </translation>
     </message>
     <message>

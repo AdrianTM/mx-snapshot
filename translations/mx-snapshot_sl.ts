@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="516"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX posnetek</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Ime posnetka:</translation>
     </message>
@@ -611,7 +611,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"/>
+        <translation>Opcijsko določite pripono, ki naj se doda imenu meseca (npr. &apos;1&apos; za &apos;Juli.1&apos;)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -689,167 +689,169 @@
         <translation>MX posnetek</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
         <location filename="../src/settings.cpp" line="936"/>
         <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Trenutno jedro ne podpira Squashfs. Ne morem nadaljevati.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri inicializaciji konfiguracije</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"/>
+        <translation>Preverjanje konfiguracije ni uspelo</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"/>
+        <translation>Napaka med inicializacijo: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"/>
+        <translation>Neznana napak med inicializacijo</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"/>
+        <translation>Ni bilo mogoče ustvariti delovne mape</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"/>
+        <translation>Ni bilo mogoče ustvariti začasne mape</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"/>
+        <translation>Preverite, da starševska mapa obstaja in da je zapisljiva:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"/>
+        <translation>Format stiskanja &apos;%1&apos; ni podprt v trenutnem jedru</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Napačne nastavitve jedra: %1. Mora biti med %1 in %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"/>
+        <translation>Napačne nastavitve pospeška: %1, Mora biti med 0 in 20</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Mapa posnetka ne more biti prazna</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Ime posnetka ne more biti prazno</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ime posnetka vsebuje napačne znake: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Različica jedra ne more biti prazna</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"/>
+        <translation>Datoteka jedra ni bila najdena: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"/>
+        <translation>Jedro %1 ne podpira Squashfs</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Izločitvena datoteka ne obstaja: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"/>
+        <translation>Nesorazmerno število narekovajev v izločitvenem seznamu</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Premalo prostora: %1 KiB na voljo, potrebno je najmanj %2 KiB</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Premalo prostora v delovni mapi: %1 KiB na voljo, potrebno je najmanj %2 KiB</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"/>
+        <translation>Ni mogoče določiti števila jeder procesorja</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitvena datoteka ne obstaja: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="298"/>
         <source>Using default settings</source>
-        <translation type="unfinished"/>
+        <translation>Uporaba privzetih vrednosti</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="300"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ne morem prebrati nastavitvene datoteke: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Napaka: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Zahtevano orodje ni bilo najdeno: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Zahtevana mapa ni bila najdena: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="339"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri inicializaciji</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="340"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Nastavitev programa ni bilo mogoče inicializirati:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
@@ -859,17 +861,17 @@
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"/>
+        <translation>Iskanje datotek jedra v /boot/ ni obrodilo sadov ali pa te niso dostopne.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"/>
+        <translation>Noben uporabnik ni bil najden v sistemu</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"/>
+        <translation>Ni bilo mogče določiti podatkov o sistemu</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
@@ -949,12 +951,12 @@
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri branju sistemske nastavitvene datoteke: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"/>
+        <translation>Napaka pri dostopu do nastavitev uporabnika</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>

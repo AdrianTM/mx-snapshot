@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="516"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX スナップショット</translation>
     </message>
@@ -112,7 +112,7 @@
         <location filename="../src/mainwindow.ui" line="219"/>
         <location filename="../src/ui_mainwindow.h" line="734"/>
         <source>Snapshot location:</source>
-        <translation>スナップショットを保存する場所:</translation>
+        <translation>スナップショットの保存場所:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>スナップショットのファイル名:</translation>
     </message>
@@ -390,12 +390,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="320"/>
         <source>Please wait.</source>
-        <translation>お待ち下さい。</translation>
+        <translation>お待ちください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="322"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation>お待ち下さい。使用する空き容量を計算しています...</translation>
+        <translation>お待ちください。使用済みディスク容量を計算しています...</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="356"/>
@@ -688,18 +688,18 @@
         <translation>MX スナップショット</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
         <location filename="../src/settings.cpp" line="936"/>
         <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>

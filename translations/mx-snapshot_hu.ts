@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="516"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX pillanatkép</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Pillanatkép neve:</translation>
     </message>
@@ -610,7 +610,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"/>
+        <translation>Megadhat egy végződést, ami a hónap neve után kerül (pl &apos;1&apos; ahhoz, hogy &apos;July.1&apos;)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -688,105 +688,105 @@
         <translation>MX pillanatkép</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
         <location filename="../src/settings.cpp" line="936"/>
         <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>A jelenlegi kernel nem támogatja Squashfs fájlrendszert. Nem folytatható.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="57"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"/>
+        <translation>A konfiguráció inicializálása nem sikerült</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="80"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"/>
+        <translation>A konfiguráció ellenőrzése nem sikerült</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="85"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"/>
+        <translation>Hiba az inicializálás közben: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="88"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"/>
+        <translation>Ismeretlen hiba az inicializálás közben</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="119"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"/>
+        <translation>A munkakönyvtár létrehozása nem sikerült.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="143"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"/>
+        <translation>Az ideiglenes könyvtár létrehozása nem sikerült.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="144"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"/>
+        <translation>Ellenőrizze, hogy a tartalmazó könyvtár létezik-e és írható-e:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="162"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"/>
+        <translation>A(z) &apos;%1&apos; tömörítési formátumot nem támogatja a jelenlegi kernel</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="168"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Érvénytelen magszám beállítás: %1. 1 és %2 közt kell legyen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="174"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"/>
+        <translation>Érvénytelen lefojtási érték: %1. 0 és 20 közt kell legyen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A pillanatképkönyvtár neve nem lehet üres</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A pillanatkép neve nem lehet üres</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"/>
+        <translation>A pillanatkép neve érvénytelen karaktereket tartalmaz: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A kernelverzió nem lehet üres</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="205"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"/>
+        <translation>A kernelfájl nem található: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"/>
+        <translation>Ez a kernelverzió (%1) nem támogatja a Squashfs-t</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>A kizárási fájl nem létezik: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="244"/>
@@ -796,79 +796,81 @@
     <message>
         <location filename="../src/settings.cpp" line="269"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Nincs elegendő szabad hely: %1 KiB érhető el, legalább %1 KiB szükséges</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="276"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Nincs elegendő szabad hely a munkakönyvtárban: %1 KiB érhető el, legalább %1 KiB szükséges</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült megállapítani a processzormagok számát</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>A beállítási fájl nem létezik: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="298"/>
         <source>Using default settings</source>
-        <translation type="unfinished"/>
+        <translation>Alapértelmezett beállítások felhasználva</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="300"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>A beállítási fájl nem olvasható: %s</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Hiba: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Egy szükséges eszköz nem található: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="320"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Egy szükséges könyvtár nem található: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="339"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"/>
+        <translation>Inicializálási hiba</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="340"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült az alkalmazásbeállítások inicializálása:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
         <source>Could not find a usable kernel</source>
-        <translation>Nem sikerült egy használható kernel találni</translation>
+        <translation>Nem található felhasználható kernel</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="452"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"/>
+        <translation>A /boot/ könyvtárban nem található kernelfájl vagy nem érhető el.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="473"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"/>
+        <translation>Nincsenek felhasználók a rendszeren</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="476"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"/>
+        <translation>Nem sikerült a rendszer jellemzőinek megállapítása</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
@@ -948,12 +950,12 @@
     <message>
         <location filename="../src/settings.cpp" line="813"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a rendszerbeállítási fájl olvasásakor: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="818"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"/>
+        <translation>Hiba a felhasználó beállítások elérésekor</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="934"/>
