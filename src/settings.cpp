@@ -1066,7 +1066,12 @@ QString Settings::getInitialKernel(const QCommandLineParser &arg_parser)
 bool Settings::getEditBootMenuSetting()
 {
     QSettings settingsUser;
-    return settingsUser.value("edit_boot_menu", "no").toString() != "no";
+    if (settingsUser.contains("edit_boot_menu")) {
+        return settingsUser.value("edit_boot_menu").toString() != "no";
+    }
+
+    QSettings settingsSystem("/etc/" + qApp->applicationName() + ".conf", QSettings::IniFormat);
+    return settingsSystem.value("edit_boot_menu", "no").toString() != "no";
 }
 
 QString Settings::trimQuotes(const QString &value) const
