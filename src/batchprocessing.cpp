@@ -68,7 +68,9 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
 
     if (settings->edit_boot_menu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");
-        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
+        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/grub/grub.cfg\" \""
+                      + settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->work_dir
+                      + "/iso-template/boot/isolinux/isolinux.cfg\"";
         Cmd().run(cmd);
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);

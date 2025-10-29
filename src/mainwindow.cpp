@@ -505,7 +505,9 @@ void MainWindow::editBootMenu()
                "snapshot."),
             QMessageBox::Yes | QMessageBox::No)) {
         hide();
-        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/isolinux/isolinux.cfg\"";
+        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/grub/grub.cfg\" \""
+                      + settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->work_dir
+                      + "/iso-template/boot/isolinux/isolinux.cfg\"";
         work.shell.run(cmd);
         show();
     }
