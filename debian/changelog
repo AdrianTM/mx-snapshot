@@ -1,3 +1,10 @@
+mx-snapshot (25.11) mx; urgency=medium
+
+  * Updated config loading to sanitize the persisted cores value.
+  * Open grub.cfg and syslinux.cfg in addition to isolinux.cfg when edit_boot_menu = on
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 07 Nov 2025 15:12:20 -0500
+
 mx-snapshot (25.10.1) mx; urgency=medium
 
   * Fix: edit_boot_menu now honors the system setting by falling back to

@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>תמונות מערכת MX</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
         <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/ui_mainwindow.h" line="736"/>
         <source>Snapshot name:</source>
         <translation>שם תמונת המערכת:</translation>
     </message>
@@ -686,18 +686,18 @@
         <translation>תמונות מערכת MX</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
         <location filename="../src/settings.cpp" line="936"/>
         <location filename="../src/settings.cpp" line="1030"/>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>שגיאה</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="460"/>
         <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>הליבה הקיימת לא תומכת ב־Squashfs, אי אפשר להמשיך.</translation>
     </message>
