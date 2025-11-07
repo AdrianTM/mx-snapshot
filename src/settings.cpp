@@ -847,7 +847,17 @@ void Settings::loadConfig()
     mksq_opt = trimQuotes(settingsUser.value("mksq_opt").toString());
     // edit_boot_menu is now const, initialized in constructor
     tempdir_parent = trimQuotes(settingsUser.value("workdir").toString());
-    cores = settingsUser.value("cores", max_cores).toUInt();
+
+    const QVariant coresValue = settingsUser.value("cores", max_cores);
+    uint storedCores = coresValue.toUInt();
+    if (storedCores == 0 || storedCores > max_cores) {
+        qWarning() << QObject::tr("Invalid stored cores setting (%1). Using detected CPU count: %2")
+                          .arg(coresValue.toString()).arg(max_cores);
+        storedCores = max_cores;
+        settingsUser.setValue("cores", storedCores);
+    }
+    cores = storedCores;
+
     throttle = settingsUser.value("throttle", 0).toUInt();
     reset_accounts = false;
 }
