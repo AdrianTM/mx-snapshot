@@ -4,7 +4,7 @@
 #include <QtCore/QStorageInfo>
 
 const QSet<QString> FileSystemUtils::supportedPartitions = {
-    "ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs"
+    "ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs", "f2fs"
 };
 
 quint64 FileSystemUtils::getFreeSpace(const QString &path)
