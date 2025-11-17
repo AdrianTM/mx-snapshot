@@ -17,17 +17,17 @@
         <translation>O programa deterá a compilación e abrirá o menú de inicio no editor de texto.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="100"/>
+        <location filename="../src/batchprocessing.cpp" line="102"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Este ordenador usa unha tarxeta gráfica NVIDIA. Está a planear usar a ISO resultante no mesmo ordenador ou noutro ordenador cunha tarxeta NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="110"/>
+        <location filename="../src/batchprocessing.cpp" line="112"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Nota: Se usas a ISO resultante nun ordenador sen tarxeta NVIDIA, é probable que teñas que eliminar &quot;xorg=nvidia&quot; das opcións de inicio.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="113"/>
+        <location filename="../src/batchprocessing.cpp" line="115"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Nota: Se usas a ISO resultante nun ordenador cunha tarxeta NVIDIA, quizais necesites engadir &quot;xorg=nvidia&quot; ás opcións de inicio.</translation>
     </message>
@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="516"/>
         <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>MX Snapshot</source>
         <translation>MX-Capturas ISO</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Nome da captura:</translation>
     </message>
@@ -506,47 +506,47 @@
         <translation>O programa será pausado agora para permitir a edición de calquera ficheiro no directorio de traballo. Premer en Si para editar o menú de arranque ou en Non para ignorar este paso e continuar a creación da imaxe.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
+        <location filename="../src/mainwindow.cpp" line="601"/>
         <source>About %1</source>
         <translation>Sobre %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="603"/>
         <source>Version: </source>
         <translation>Versión: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="602"/>
+        <location filename="../src/mainwindow.cpp" line="604"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Programa para crear unha imaxe CD-executable a partir do sistema en execución</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="606"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="608"/>
         <source>%1 License</source>
         <translation>Licenza de %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="620"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
         <source>%1 Help</source>
         <translation>Axuda para %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="625"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>Select Snapshot Directory</source>
         <translation>Seleccionar o directorio de capturas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Confirmation</source>
         <translation>Confirmación</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Saír do aplicativo?</translation>
     </message>
@@ -689,18 +689,18 @@
         <translation>MX-Capturas ISO</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="936"/>
-        <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo actual non soporta Squashfs; non é posible continuar.</translation>
     </message>
@@ -957,8 +957,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="934"/>
-        <location filename="../src/settings.cpp" line="1028"/>
+        <location filename="../src/settings.cpp" line="854"/>
+        <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="944"/>
+        <location filename="../src/settings.cpp" line="1038"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Ficheiro de saída %1 xa existe. Por favor, utiliza outro nome de ficheiro ou elimina o ficheiro existente.</translation>
     </message>

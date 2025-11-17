@@ -17,17 +17,17 @@
         <translation>Le programme mettra en pause la compilation et ouvrira le menu de démarrage dans votre éditeur de texte.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="100"/>
+        <location filename="../src/batchprocessing.cpp" line="102"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Cet ordinateur utilise une carte graphique NVIDIA. Prévoyez-vous d’utiliser l’ISO obtenu sur le même ordinateur ou sur un autre ordinateur équipé d’une carte NVIDIA ?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="110"/>
+        <location filename="../src/batchprocessing.cpp" line="112"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Remarque : si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer « xorg=nvidia » des options de démarrage.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="113"/>
+        <location filename="../src/batchprocessing.cpp" line="115"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Remarque : si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter « xorg=nvidia » aux options de démarrage.</translation>
     </message>
@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="516"/>
         <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>MX Snapshot</source>
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Nom de l’instantané :</translation>
     </message>
@@ -155,7 +155,7 @@
         <location filename="../src/mainwindow.ui" line="451"/>
         <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Vous pouvez également exclure certains répertoires en sélectionnant les choix les plus courants ci-dessous, ou en cliquant sur le bouton pour éditer directement  /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Vous pouvez aussi exclure certains répertoires en cochant les options courantes ci-dessous, ou en cliquant sur le bouton pour modifier directement  /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
@@ -179,7 +179,7 @@
         <location filename="../src/mainwindow.ui" line="532"/>
         <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Calculate checksums:</source>
-        <translation>Calculer les sommes de contrôle :</translation>
+        <translation>Calcul des sommes de contrôle :</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
@@ -482,7 +482,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="446"/>
         <source>Shutdown computer when done.</source>
-        <translation>Arrêtez l’ordinateur lorsque vous avez fini.</translation>
+        <translation>Arrêter l’ordinateur une fois terminé.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="479"/>
@@ -505,47 +505,47 @@
         <translation>Le programme va se mettre en pause afin de vous permettre d’éditer les fichiers du répertoire de travail. Veuillez choisir Yes pour éditer le menu de démarrage, ou No pour passer cette étape et continuer la création de l’instantané.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
+        <location filename="../src/mainwindow.cpp" line="601"/>
         <source>About %1</source>
         <translation>À propos %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="603"/>
         <source>Version: </source>
         <translation>Version : </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="602"/>
+        <location filename="../src/mainwindow.cpp" line="604"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Programme créant un instantané du système MX Linux en fonctionnement sous forme d’un live CD.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="606"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="608"/>
         <source>%1 License</source>
         <translation>%1 Licence</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="620"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
         <source>%1 Help</source>
         <translation>%1 Aide</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="625"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>Select Snapshot Directory</source>
         <translation>Choisissez un répertoire pour l’instantané</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Confirmation</source>
         <translation>Confirmation</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Êtes-vous sûr de vouloir quitter l’application ?</translation>
     </message>
@@ -580,7 +580,7 @@
     <message>
         <location filename="../src/main.cpp" line="89"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Désigne un noyau différent devant être utilisé à la place du noyau fonctionnant par défaut, en utilisant le format renvoyé par « uname -r »</translation>
+        <translation>Désignez un noyau différent devant être utilisé à la place du noyau fonctionnant par défaut, en utilisant le format renvoyé par « uname -r »</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="91"/>
@@ -595,12 +595,12 @@
     <message>
         <location filename="../src/main.cpp" line="95"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
-        <translation>Utilisez les expressions : « -Xcompression-level &lt;level&gt; » ou « -Xalgorithm &lt;algorithm&gt; », ou « -Xhc », voir la page man consacrée à mksquashfs</translation>
+        <translation>Entourez ces options de guillemets : &quot;-Xcompression-level &lt;level&gt;&quot; ou &quot;-Xalgorithm &lt;algorithm&gt;&quot; ou &quot;-Xhc&quot;. Voir la page man consacrée à mksquashfs</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="99"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
-        <translation>Crée un instantané mensuel, ajoute le nom du « Mois » au nom de l’ISO, ignore le calcul de l’espace utilisé</translation>
+        <translation>Créer un instantané mensuel, inclure le nom du « mois » dans le nom de l’ISO et ignorer le calcul de l’espace utilisé</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="100"/>
@@ -625,7 +625,7 @@
     <message>
         <location filename="../src/main.cpp" line="105"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
-        <translation>Option permettant de régler les problèmes lors du calcul de la somme de contrôle des noyaux preempt_rt</translation>
+        <translation>Option permettant de régler les problèmes lors du calcul de la somme de contrôle des noyaux preempt_rt (noyaux temps réel)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="106"/>
@@ -655,7 +655,7 @@
     <message>
         <location filename="../src/main.cpp" line="116"/>
         <source>Use the option one time for each item you want to exclude</source>
-        <translation>Utilisez l’option une fois pour chaque élément que vous souhaitez exclure</translation>
+        <translation>Répétez cette option pour chaque élément à exclure</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="119"/>
@@ -665,7 +665,7 @@
     <message>
         <location filename="../src/main.cpp" line="121"/>
         <source>Shutdown computer when done.</source>
-        <translation>Arrêtez l’ordinateur lorsque vous avez fini.</translation>
+        <translation>Arrêter l’ordinateur une fois terminé.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="170"/>
@@ -688,18 +688,18 @@
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="936"/>
-        <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
@@ -957,8 +957,13 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Erreur lors de l’accès à la configuration de l’utilisateur</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="934"/>
-        <location filename="../src/settings.cpp" line="1028"/>
+        <location filename="../src/settings.cpp" line="854"/>
+        <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
+        <translation>Paramètre de cœurs mémorisés non valide (%1). Nombre de processeurs détectés utilisé : %2</translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="944"/>
+        <location filename="../src/settings.cpp" line="1038"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>
@@ -1039,7 +1044,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="275"/>
         <source>Squashing filesystem...</source>
-        <translation>Écrasement du système de fichiers…</translation>
+        <translation>Création du système de fichiers compressé « SquashFS »…</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="279"/>
@@ -1059,7 +1064,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="307"/>
         <source>Making hybrid iso</source>
-        <translation> Création d’une image ISO hybride</translation>
+        <translation>Création d’une image ISO hybride</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="325"/>
@@ -1074,7 +1079,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="327"/>
         <source>Snapshot took %1 to finish.</source>
-        <translation>Instantané a pris %1 pour terminer.</translation>
+        <translation>Le processus de création de l’instantané s’est terminé en %1.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="328"/>
@@ -1094,7 +1099,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="348"/>
         <source>Calculating checksum...</source>
-        <translation>Calculer la somme de contrôle…</translation>
+        <translation>Calcul de la somme de contrôle…</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="386"/>

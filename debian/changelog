@@ -1,3 +1,9 @@
+mx-snapshot (25.11.1) mx; urgency=medium
+
+  * Add f2fs to the list of supported partitions
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 17 Nov 2025 16:36:37 -0500
+
 mx-snapshot (25.11) mx; urgency=medium
 
   * Updated config loading to sanitize the persisted cores value.

@@ -17,17 +17,17 @@
         <translation>Ohjelma pysäyttää koontiversion ja avaa käynnistysvalikon tekstieditorissa.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="100"/>
+        <location filename="../src/batchprocessing.cpp" line="102"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Tietokone käyttää Nvidia näytönohjainta. Käytätkö tuloksena olevaa ISO:a tässä tietokoneessa vai toisessa tietokoneessa, jossa on Nvidia?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="110"/>
+        <location filename="../src/batchprocessing.cpp" line="112"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistysasetuksista.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="113"/>
+        <location filename="../src/batchprocessing.cpp" line="115"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistysasetuksiin.</translation>
     </message>
@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="516"/>
         <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -94,13 +94,13 @@
         <location filename="../src/mainwindow.ui" line="172"/>
         <location filename="../src/ui_mainwindow.h" line="730"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot apuohjelma luo käynnistyvän (ISO) levykuvan toimivasta järjestelmästä. Levykuvan voi asentaa toiseen tietokoneeseen tai jakaa sitä muiden käyttöön. Voit käyttää tietokonetta normaalisti levykuvan luomisen aikana.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot luo nykyisestä järjestelmästä käynnistyvän (ISO) levykuvan. Sen voi asentaa toiseen tietokoneeseen tai jakaa muiden käyttöön. Levykuvan luomisen aikana voit käyttää tietokonetta normaalisti.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
         <location filename="../src/ui_mainwindow.h" line="731"/>
         <source>Used space on / (root) and /home partitions:</source>
-        <translation>Käytetty tila / (root) ja /home osioissa:</translation>
+        <translation>Käytetty kiintolevytila / (root) ja /home:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="192"/>
@@ -112,26 +112,26 @@
         <location filename="../src/mainwindow.ui" line="219"/>
         <location filename="../src/ui_mainwindow.h" line="734"/>
         <source>Snapshot location:</source>
-        <translation>Tilannevedoksen paikka:</translation>
+        <translation>Vedoksen sijainti:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
         <location filename="../src/ui_mainwindow.h" line="735"/>
         <source>Select a different snapshot directory</source>
-        <translation>Valitse eri hakemisto</translation>
+        <translation>Valitse toinen kansio</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
-        <translation>Tilannevedoksen nimi:</translation>
+        <translation>Vedoksen nimi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="360"/>
         <location filename="../src/ui_mainwindow.h" line="740"/>
         <source>Type of snapshot:</source>
-        <translation>Tilannevedoksen tyyppi:</translation>
+        <translation>Vedoksen tyyppi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="367"/>
@@ -370,7 +370,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="219"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa %1, johon snapshot.kansio tallennetaan:</translation>
+        <translation>Snapshot.kansio tallennetaan vapaaseen tilaan %1: </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="222"/>
@@ -417,12 +417,12 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/mainwindow.cpp" line="368"/>
         <source>Snapshot will use the following settings:</source>
-        <translation>Tilannevedos käyttää seuraavia asetuksia:</translation>
+        <translation>Vedos käyttää seuraavia asetuksia:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="370"/>
         <source>- Snapshot directory:</source>
-        <translation>- Tilannevedosten hakemisto:</translation>
+        <translation>- Vedosten kansio:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="371"/>
@@ -506,47 +506,47 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>Ohjelma pysäytetään, jotta voit muokata työhakemiston tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa tai valitse Ei ohittaaksesi tämän vaiheen ja jatka vedoksen luomista.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
+        <location filename="../src/mainwindow.cpp" line="601"/>
         <source>About %1</source>
         <translation>%1 lisätietoja</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="603"/>
         <source>Version: </source>
         <translation>Versio: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="602"/>
+        <location filename="../src/mainwindow.cpp" line="604"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Ohjelma jonka avulla voit luoda live-CD:n tällä hetkellä ajetusta järjestelmästä MX Linux:ille</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="606"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="608"/>
         <source>%1 License</source>
         <translation>%1 lupa</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="620"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
         <source>%1 Help</source>
         <translation>%1 Apuopas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="625"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>Select Snapshot Directory</source>
-        <translation>Valitse tilannevedosten hakemisto</translation>
+        <translation>Valitse vedoksen kansio</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Confirmation</source>
         <translation>Vahvistus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Oletko varma että haluat lopettaa sovelluksen?</translation>
     </message>
@@ -689,18 +689,18 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="936"/>
-        <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kernel ei tue Squashfs-funktioita, joten ei voi jatkaa.</translation>
     </message>
@@ -757,17 +757,17 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation>Tilannevedos-hakemisto ei voi olla tyhjä</translation>
+        <translation>Vedoskansio ei voi olla tyhjä</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="188"/>
         <source>Snapshot name cannot be empty</source>
-        <translation>Tilannekuvan nimi ei voi olla tyhjä</translation>
+        <translation>Vediksen nimi ei voi olla tyhjä</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="194"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation>Tilannekuvan nimi sisältää virheellisiä merkkejä: %1</translation>
+        <translation>Nimi sisältää virheellisiä merkkejä: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="200"/>
@@ -876,7 +876,7 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/settings.cpp" line="570"/>
         <source>Used space on / (root): </source>
-        <translation>Käytetty tila kohteessa / (root-juurihakemisto):</translation>
+        <translation>Käytetty tila / (root): </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="573"/>
@@ -891,7 +891,7 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/settings.cpp" line="638"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
-        <translation>Vapaata tilaa %1, johon snapshot.kansio tallennetaan:</translation>
+        <translation>Vapaata tilaa %1, johon tilannekuva tallennetaan:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="642"/>
@@ -901,11 +901,11 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
       by removing previous snapshots and saved copies:
       %1 snapshots are taking up %2 of disk space.
 </source>
-        <translation>Vapaan tilan pitäisi riittää pakatulle datalle kohteessa / ja /home 
+        <translation>Vapaata tilaa tulisi olla riittävästi pakatulle datalle kohteissa / ja /home 
 
-            Tarvittaessa tee vapaata tilaa poistamalla aiemmat
-            vedokset ja tallennetut kopiot:
-            %1 snapshot-vedokset vievät %2 levytilaa.
+            Tarvittaessa vapauta tilaa poistamalla aikaisempia
+            vedoksia tai tallennetuja kopioita:
+            Vedoksia %1 vie %2 levytilaa.
 </translation>
     </message>
     <message>
@@ -959,8 +959,13 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>Virhe käyttäjämäärityksiä käytettäessä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="934"/>
-        <location filename="../src/settings.cpp" line="1028"/>
+        <location filename="../src/settings.cpp" line="854"/>
+        <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
+        <translation>Virheellinen asetus (%1) prosessoriydintä. Käytetään ytimine havaittua määrää: %2</translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="944"/>
+        <location filename="../src/settings.cpp" line="1038"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>

@@ -17,17 +17,17 @@
         <translation>Programi do të ndalë ndërtimin dhe hapë menunë e nisjes në përpunuesin tuaj të teksteve.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="100"/>
+        <location filename="../src/batchprocessing.cpp" line="102"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Ky kompjuter përdor një kartë grafike NVIDIA. Keni në plan ta përdorni IOS-n e prodhuar keni në plan ta përdorni në të njëjtin kompjuter, apo në një tjetër kompjuter me një kartë NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="110"/>
+        <location filename="../src/batchprocessing.cpp" line="112"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter pa një kartë NVIDIA, gjasat janë t’ju duhet të hiqni &apos;xorg=nvidia&apos; nga mundësitë e nisjes.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="113"/>
+        <location filename="../src/batchprocessing.cpp" line="115"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter me një kartë NVIDIA, mund t’ju duhet të shtoni &apos;xorg=nvidia&apos; te mundësitë e nisjes.</translation>
     </message>
@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="516"/>
         <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="518"/>
         <source>MX Snapshot</source>
         <translation>Fotografim MX Sistemi</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
         <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="371"/>
         <source>Snapshot name:</source>
         <translation>Emër fotografimi:</translation>
     </message>
@@ -505,47 +505,47 @@
         <translation>Programi tani do të ndalet, për t’ju lejuar të përpunoni çfarëdo kartelash te drejtoria e punës. Përzgjidhni Po që të përpunoni menunë e nisjeve, ose përzgjidhni Jo, për të anashkaluar këtë hap dhe të vazhdoni me krijimin e fotografimit.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
+        <location filename="../src/mainwindow.cpp" line="601"/>
         <source>About %1</source>
         <translation>Mbi %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="603"/>
         <source>Version: </source>
         <translation>Version:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="602"/>
+        <location filename="../src/mainwindow.cpp" line="604"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program për krijimin e një CD-je sistemi MX Linux “live” që nga sistemi që po xhironi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="606"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Të drejta kopjimi (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="608"/>
         <source>%1 License</source>
         <translation>Licencë %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="620"/>
+        <location filename="../src/mainwindow.cpp" line="622"/>
         <source>%1 Help</source>
         <translation>Ndihmë për %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="625"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>Select Snapshot Directory</source>
         <translation>Përzgjidhni Drejtori Fotografimi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Confirmation</source>
         <translation>Ripohim</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="646"/>
+        <location filename="../src/mainwindow.cpp" line="648"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Jeni i sigurt se doni të mbyllet aplikacioni?</translation>
     </message>
@@ -610,7 +610,7 @@
     <message>
         <location filename="../src/main.cpp" line="102"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"/>
+        <translation>Nëse doni, specifikoni një prapashtesë për ta shtuar te emri i muajit (p.sh., &apos;1&apos; për &apos;Korrik.1&apos;)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="103"/>
@@ -688,18 +688,18 @@
         <translation>Fotografim MX Sistemi</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
         <location filename="../src/settings.cpp" line="453"/>
         <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="936"/>
-        <location filename="../src/settings.cpp" line="1030"/>
+        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/main.cpp" line="172"/>
+        <location filename="../src/main.cpp" line="239"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="238"/>
         <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/main.cpp" line="238"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Kerneli i tanishëm nuk mbulon Squashfs, s’vazhdohet dot.</translation>
     </message>
@@ -958,8 +958,13 @@
         <translation>Gabim në hyrje te formësim përdoruesi</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="934"/>
-        <location filename="../src/settings.cpp" line="1028"/>
+        <location filename="../src/settings.cpp" line="854"/>
+        <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="944"/>
+        <location filename="../src/settings.cpp" line="1038"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>
