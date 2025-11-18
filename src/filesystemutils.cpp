@@ -2,9 +2,8 @@
 
 #include <QtCore/QDebug>
 #include <QtCore/QStorageInfo>
-
-const QSet<QString> FileSystemUtils::supportedPartitions = {
-    "ext2", "ext3", "ext4", "btrfs", "jfs", "xfs", "overlay", "fuseblk", "ramfs", "tmpfs", "zfs", "f2fs"
+const QSet<QString> FileSystemUtils::unsupportedPartitions = {
+    "fat", "vfat", "msdos", "exfat", "ntfs", "ntfs3", "ntfs-3g"
 };
 
 quint64 FileSystemUtils::getFreeSpace(const QString &path)
@@ -29,7 +28,8 @@ bool FileSystemUtils::isOnSupportedPartition(const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     const QString partType = QStorageInfo(dir + "/").fileSystemType();
-    const bool isSupported = supportedPartitions.contains(partType);
+    const bool isUnsupported = unsupportedPartitions.contains(partType);
+    const bool isSupported = !isUnsupported;
     qDebug() << "Detected partition:" << partType << "Supported part:" << isSupported;
     return isSupported;
 }

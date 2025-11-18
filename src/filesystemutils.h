@@ -22,6 +22,6 @@ public:
     [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
 
 private:
-    // Supported filesystem types
-    static const QSet<QString> supportedPartitions;
+    // Filesystems lacking POSIX permissions/ownership support
+    static const QSet<QString> unsupportedPartitions;
 };
