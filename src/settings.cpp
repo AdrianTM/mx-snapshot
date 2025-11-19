@@ -838,8 +838,15 @@ void Settings::loadConfig()
     }
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
     QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
-    snapshot_excludes.setFileName(
-        trimQuotes(settingsUser.value("snapshot_excludes", QFileInfo::exists(localPath) ? localPath : usrPath).toString()));
+    const QString fallbackExcludesPath = QFileInfo::exists(localPath) ? localPath : usrPath;
+    QString configuredExcludesPath =
+        trimQuotes(settingsUser.value("snapshot_excludes", fallbackExcludesPath).toString());
+    if (!QFileInfo::exists(configuredExcludesPath)) {
+        qDebug() << "Configured snapshot_excludes file not found (" << configuredExcludesPath
+                 << "), using fallback path:" << fallbackExcludesPath;
+        configuredExcludesPath = fallbackExcludesPath;
+    }
+    snapshot_excludes.setFileName(configuredExcludesPath);
     // snapshot_basename, make_isohybrid, gui_editor, stamp, force_installer are now const members
     make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
