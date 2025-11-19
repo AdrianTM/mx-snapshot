@@ -1,3 +1,12 @@
+mx-snapshot (25.11.2) mx; urgency=medium
+
+  * Added fallback path for the excludes file in case it's not found
+  * Changed allowed filesystems from allowed list to deny list, excluding file
+    systems known not to support POSIX permissions, this will allow some more
+    obscure Linux filesystem to be used
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 19 Nov 2025 09:37:30 -0500
+
 mx-snapshot (25.11.1) mx; urgency=medium
 
   * Add f2fs to the list of supported partitions
