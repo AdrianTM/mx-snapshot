@@ -28,6 +28,7 @@
 #include <QSettings>
 #include <QFileSystemWatcher>
 #include <QTimer>
+#include <QDialog>
 
 #include "settings.h"
 #include "work.h"
@@ -112,7 +113,11 @@ private:
     void loadSettings();
     void prepareForOutput(const QString &file_name);
     bool hasCustomExcludes() const;
+    enum class ExcludesChoice { None, ShowDiff, KeepCustom, UseUpdatedDefault };
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;
+    [[nodiscard]] ExcludesChoice showUpdatedExcludesPrompt(const QString &configuredPath,
+                                                          const QString &sourcePath) const;
+    void showUpdatedExcludesDialog(const QString &diffOutput) const;
     void updateCustomExcludesButton();
     bool resetCustomExcludes();
     void setConnections();

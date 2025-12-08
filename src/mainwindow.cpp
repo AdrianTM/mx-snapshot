@@ -27,6 +27,7 @@
 
 #include <QCalendarWidget>
 #include <QDateTime>
+#include <QDialog>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
@@ -35,9 +36,14 @@
 #include <QFileInfo>
 #include <QFileSystemWatcher>
 #include <QKeyEvent>
+#include <QPlainTextEdit>
 #include <QProcess>
 #include <QPushButton>
 #include <QScrollBar>
+#include <QTextBlock>
+#include <QTextCharFormat>
+#include <QTextCursor>
+#include <QVBoxLayout>
 #include <QTextStream>
 #include <QTime>
 
@@ -194,6 +200,103 @@ void MainWindow::watchExcludesFile()
     if (!excludesWatcher.files().contains(path) && QFileInfo::exists(path)) {
         excludesWatcher.addPath(path);
     }
+}
+
+MainWindow::ExcludesChoice MainWindow::showUpdatedExcludesPrompt(const QString &configuredPath,
+                                                                 const QString &sourcePath) const
+{
+    QMessageBox msgBox(const_cast<MainWindow *>(this));
+    msgBox.setWindowTitle(tr("Updated Exclusion List"));
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setText(
+        tr("The exclusion file at %1 is newer than your configured file at %2.").arg(sourcePath, configuredPath));
+    msgBox.setInformativeText(
+        tr("Review the changes below. Keep your custom file or replace it with the updated default."));
+
+    ExcludesChoice choice = ExcludesChoice::None;
+
+    msgBox.addButton(QMessageBox::Close);
+
+    QPushButton *showDiffButton = msgBox.addButton(tr("Show Differences"), QMessageBox::ActionRole);
+    QObject::connect(showDiffButton, &QPushButton::clicked, &msgBox, [&choice, &msgBox] {
+        choice = ExcludesChoice::ShowDiff;
+        msgBox.accept();
+    });
+
+    QPushButton *keepCustomButton = msgBox.addButton(tr("Keep Custom"), QMessageBox::ActionRole);
+    QObject::connect(keepCustomButton, &QPushButton::clicked, &msgBox, [&choice, &msgBox] {
+        choice = ExcludesChoice::KeepCustom;
+        msgBox.accept();
+    });
+
+    QPushButton *useUpdatedDefaultButton = msgBox.addButton(tr("Use Updated Default"), QMessageBox::ActionRole);
+    QObject::connect(useUpdatedDefaultButton, &QPushButton::clicked, &msgBox, [&choice, &msgBox] {
+        choice = ExcludesChoice::UseUpdatedDefault;
+        msgBox.accept();
+    });
+
+    msgBox.exec();
+    return choice;
+}
+
+void MainWindow::showUpdatedExcludesDialog(const QString &diffOutput) const
+{
+    QDialog dialog(const_cast<MainWindow *>(this));
+    dialog.setWindowTitle(tr("Updated Exclusion List"));
+
+    auto *layout = new QVBoxLayout(&dialog);
+    auto *textEdit = new QPlainTextEdit(&dialog);
+    textEdit->setReadOnly(true);
+    textEdit->setPlainText(diffOutput);
+    QFont font(QStringLiteral("monospace"));
+    font.setStyleHint(QFont::Monospace);
+    textEdit->setFont(font);
+    layout->addWidget(textEdit);
+
+    auto *buttons = new QDialogButtonBox(QDialogButtonBox::Close, Qt::Horizontal, &dialog);
+    layout->addWidget(buttons);
+
+    // Highlight diff lines similar to standard diff coloring
+    QTextCharFormat addedFormat;
+    addedFormat.setForeground(Qt::darkGreen);
+    addedFormat.setFontWeight(QFont::Bold);
+
+    QTextCharFormat locationFormat;
+    locationFormat.setForeground(QColor(35, 140, 216));
+    locationFormat.setFontWeight(QFont::Bold);
+
+    QTextCharFormat removedFormat;
+    removedFormat.setForeground(QColor(187, 15, 30));
+    removedFormat.setFontWeight(QFont::Bold);
+
+    QTextCharFormat headerFormat;
+    headerFormat.setForeground(QColor(102, 102, 102));
+    headerFormat.setFontWeight(QFont::Bold);
+
+    QTextCursor cursor(textEdit->document());
+    cursor.setPosition(0);
+    while (!cursor.atEnd()) {
+        const QString lineText = cursor.block().text();
+        if (lineText.startsWith("@@")) {
+            cursor.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+            cursor.mergeCharFormat(locationFormat);
+        } else if (lineText.startsWith("+++ ") || lineText.startsWith("--- ")) {
+            cursor.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+            cursor.mergeCharFormat(headerFormat);
+        } else if (lineText.startsWith('+')) {
+            cursor.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+            cursor.mergeCharFormat(addedFormat);
+        } else if (lineText.startsWith('-')) {
+            cursor.movePosition(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+            cursor.mergeCharFormat(removedFormat);
+        }
+        cursor.movePosition(QTextCursor::NextBlock, QTextCursor::MoveAnchor);
+    }
+    cursor.setPosition(0);
+
+    QObject::connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+    dialog.resize(900, 700);
+    dialog.exec();
 }
 
 bool MainWindow::resetCustomExcludes()
@@ -570,28 +673,28 @@ void MainWindow::checkUpdatedDefaultExcludes()
 
     const QString configuredPath = settings->snapshot_excludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
+    ExcludesChoice choice = ExcludesChoice::None;
 
-    QMessageBox msgBox(this);
-    msgBox.setWindowTitle(tr("Updated Exclusion List"));
-    msgBox.setIcon(QMessageBox::Information);
-    msgBox.setText(
-        tr("The exclusion file at %1 is newer than your configured file at %2.").arg(sourcePath, configuredPath));
-    msgBox.setInformativeText(
-        tr("Review the changes below. Keep your custom file or replace it with the updated default."));
-    msgBox.setDetailedText(diffOutput);
-    QPushButton *keepCustomButton = msgBox.addButton(tr("Keep Custom"), QMessageBox::AcceptRole);
-    QPushButton *useUpdatedDefaultButton = msgBox.addButton(tr("Use Updated Default"), QMessageBox::DestructiveRole);
-    msgBox.setDefaultButton(useUpdatedDefaultButton);
-    msgBox.exec();
+    while (true) {
+        choice = showUpdatedExcludesPrompt(configuredPath, sourcePath);
+        if (choice == ExcludesChoice::ShowDiff) {
+            showUpdatedExcludesDialog(diffOutput);
+            continue; // re-prompt after showing diff
+        }
+        if (choice == ExcludesChoice::None) {
+            return; // user closed the prompt; do nothing
+        }
+        break;
+    }
 
-    if (msgBox.clickedButton() == useUpdatedDefaultButton) {
+    if (choice == ExcludesChoice::UseUpdatedDefault) {
         if (resetCustomExcludes()) {
             updateCustomExcludesButton();
         } else {
             QMessageBox::warning(this, tr("Error"),
                                  tr("Could not replace the exclusion file with the updated default."));
         }
-    } else if (msgBox.clickedButton() == keepCustomButton) {
+    } else if (choice == ExcludesChoice::KeepCustom) {
         utimbuf times {};
         times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
         times.modtime = QDateTime::currentSecsSinceEpoch();
