@@ -64,6 +64,7 @@ private slots:
     void btnBack_clicked();
     void btnCancel_clicked();
     void btnEditExclude_clicked();
+    void btnRemoveCustomExclude_clicked();
     void btnHelp_clicked();
     void btnNext_clicked();
     void btnSelectSnapshot_clicked();
@@ -107,6 +108,9 @@ private:
     void listUsedSpace();
     void loadSettings();
     void prepareForOutput(const QString &file_name);
+    bool hasCustomExcludes() const;
+    void updateCustomExcludesButton();
+    bool resetCustomExcludes();
     void setConnections();
     void setExclusions();
     void setOtherOptions();

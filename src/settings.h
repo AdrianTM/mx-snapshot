@@ -53,6 +53,7 @@ public:
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkConfiguration() const;
     [[nodiscard]] bool checkSnapshotDir() const;
+    [[nodiscard]] QString getExcludesSourcePath() const { return excludes_source_path; }
     [[nodiscard]] bool checkTempDir();
     [[nodiscard]] bool initializeConfiguration();
     [[nodiscard]] bool validateExclusions() const;
@@ -139,6 +140,7 @@ public:
     const bool make_isohybrid;
     quint64 free_space {};
     quint64 free_space_work {};
+    QString excludes_source_path;
 
 private:
     QFile config_file;

@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
@@ -124,8 +124,8 @@ com programas que sejam pouco exigentes enquanto o ‘Snapshot’ estiver em exe
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
         <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/ui_mainwindow.h" line="736"/>
         <source>Snapshot name:</source>
         <translation>Nome da imagem ISO:</translation>
     </message>
@@ -691,18 +691,18 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="946"/>
-        <location filename="../src/settings.cpp" line="1040"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="461"/>
+        <location filename="../src/settings.cpp" line="953"/>
+        <location filename="../src/settings.cpp" line="1047"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="460"/>
         <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>
     </message>
@@ -958,13 +958,13 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Ocorreu um erro ao acessar as configurações do usuário</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="854"/>
+        <location filename="../src/settings.cpp" line="861"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="944"/>
-        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="951"/>
+        <location filename="../src/settings.cpp" line="1045"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo da saída %1 já existe. Por favor, utilize um outro nome para o arquivo ou exclua o arquivo existente.</translation>
     </message>

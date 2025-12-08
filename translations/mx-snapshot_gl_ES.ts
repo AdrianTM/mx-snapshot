@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX-Capturas ISO</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
         <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/ui_mainwindow.h" line="736"/>
         <source>Snapshot name:</source>
         <translation>Nome da captura:</translation>
     </message>
@@ -689,18 +689,18 @@
         <translation>MX-Capturas ISO</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="946"/>
-        <location filename="../src/settings.cpp" line="1040"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="461"/>
+        <location filename="../src/settings.cpp" line="953"/>
+        <location filename="../src/settings.cpp" line="1047"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="460"/>
         <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo actual non soporta Squashfs; non é posible continuar.</translation>
     </message>
@@ -957,13 +957,13 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="854"/>
+        <location filename="../src/settings.cpp" line="861"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="944"/>
-        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="951"/>
+        <location filename="../src/settings.cpp" line="1045"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Ficheiro de saída %1 xa existe. Por favor, utiliza outro nome de ficheiro ou elimina o ficheiro existente.</translation>
     </message>

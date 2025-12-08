@@ -596,21 +596,57 @@ color: rgb(0, 0, 0);</string>
          </layout>
         </widget>
        </item>
-       <item row="6" column="0">
-        <widget class="QPushButton" name="btnEditExclude">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Edit Exclusion File</string>
-         </property>
-         <property name="icon">
-          <iconset theme="edit"/>
-         </property>
-        </widget>
+       <item row="6" column="0" colspan="2">
+        <layout class="QHBoxLayout" name="horizontalLayoutExcludeButtons">
+         <item>
+          <widget class="QPushButton" name="btnEditExclude">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Edit Exclusion File</string>
+           </property>
+           <property name="icon">
+            <iconset theme="edit"/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRemoveCustomExclude">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>Remove Custom Exclusion File</string>
+           </property>
+           <property name="icon">
+            <iconset theme="list-remove"/>
+           </property>
+           <property name="visible">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacerRemoveExclude">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
        </item>
        <item row="5" column="0" colspan="4">
         <widget class="QFrame" name="frame">
@@ -988,6 +1024,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <tabstop>excludeDocuments</tabstop>
   <tabstop>excludeDownloads</tabstop>
   <tabstop>btnEditExclude</tabstop>
+  <tabstop>btnRemoveCustomExclude</tabstop>
   <tabstop>cbCompression</tabstop>
   <tabstop>checkMd5</tabstop>
   <tabstop>radioPersonal</tabstop>

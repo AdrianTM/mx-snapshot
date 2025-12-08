@@ -847,8 +847,9 @@ void Settings::loadConfig()
         QDir::cleanPath(userConfigDir + "/" + qApp->applicationName() + "-exclude.list");
     const QString systemExcludesPath = QDir::cleanPath("/etc/" + qApp->applicationName() + "-exclude.list");
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
-    QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
+   QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     const QString fallbackExcludesPath = QFileInfo::exists(localPath) ? localPath : usrPath;
+    excludes_source_path = QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
     QString configuredExcludesPath = trimQuotes(settingsUser.value("snapshot_excludes", userExcludesPath).toString());
 
     if (!userConfiguredSnapshotExcludes || configuredExcludesPath == systemSnapshotExcludes) {
@@ -858,16 +859,14 @@ void Settings::loadConfig()
 
     const bool usingDefaultUserPath = configuredExcludesPath == userExcludesPath;
     if (usingDefaultUserPath && !QFileInfo::exists(userExcludesPath)) {
-        const QString sourceExcludesPath =
-            QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
-        if (!sourceExcludesPath.isEmpty() && QFileInfo::exists(sourceExcludesPath)) {
+        if (!excludes_source_path.isEmpty() && QFileInfo::exists(excludes_source_path)) {
             QDir().mkpath(userConfigDir);
-            if (QFile::copy(sourceExcludesPath, userExcludesPath)) {
-                qDebug() << "Copied exclusion file from" << sourceExcludesPath << "to" << userExcludesPath;
+            if (QFile::copy(excludes_source_path, userExcludesPath)) {
+                qDebug() << "Copied exclusion file from" << excludes_source_path << "to" << userExcludesPath;
             } else {
                 qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")
-                                  .arg(sourceExcludesPath, userExcludesPath);
-                configuredExcludesPath = sourceExcludesPath;
+                                  .arg(excludes_source_path, userExcludesPath);
+                configuredExcludesPath = excludes_source_path;
             }
         }
     }

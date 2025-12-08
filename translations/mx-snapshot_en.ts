@@ -505,47 +505,47 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="602"/>
         <source>About %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="603"/>
+        <location filename="../src/mainwindow.cpp" line="604"/>
         <source>Version: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="605"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="607"/>
         <source>Copyright (c) MX Linux</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="608"/>
+        <location filename="../src/mainwindow.cpp" line="609"/>
         <source>%1 License</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="622"/>
+        <location filename="../src/mainwindow.cpp" line="623"/>
         <source>%1 Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="627"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Select Snapshot Directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="649"/>
         <source>Confirmation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="649"/>
         <source>Are you sure you want to quit the application?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -690,208 +690,208 @@
     <message>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="953"/>
-        <location filename="../src/settings.cpp" line="1047"/>
+        <location filename="../src/settings.cpp" line="455"/>
+        <location filename="../src/settings.cpp" line="463"/>
+        <location filename="../src/settings.cpp" line="983"/>
+        <location filename="../src/settings.cpp" line="1077"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="57"/>
+        <location filename="../src/settings.cpp" line="59"/>
         <source>Failed to initialize configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="80"/>
+        <location filename="../src/settings.cpp" line="82"/>
         <source>Configuration validation failed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="85"/>
+        <location filename="../src/settings.cpp" line="87"/>
         <source>Exception during initialization: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="88"/>
+        <location filename="../src/settings.cpp" line="90"/>
         <source>Unknown exception during initialization</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
+        <location filename="../src/settings.cpp" line="121"/>
         <source>Could not create work directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="143"/>
+        <location filename="../src/settings.cpp" line="145"/>
         <source>Could not create temp directory:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="144"/>
+        <location filename="../src/settings.cpp" line="146"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="162"/>
+        <location filename="../src/settings.cpp" line="164"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="168"/>
+        <location filename="../src/settings.cpp" line="170"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="174"/>
+        <location filename="../src/settings.cpp" line="176"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="180"/>
+        <location filename="../src/settings.cpp" line="182"/>
         <source>Snapshot directory cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="188"/>
+        <location filename="../src/settings.cpp" line="190"/>
         <source>Snapshot name cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="194"/>
+        <location filename="../src/settings.cpp" line="196"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="200"/>
+        <location filename="../src/settings.cpp" line="202"/>
         <source>Kernel version cannot be empty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="205"/>
+        <location filename="../src/settings.cpp" line="207"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="211"/>
+        <location filename="../src/settings.cpp" line="213"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="237"/>
         <source>Exclusion file does not exist: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="244"/>
+        <location filename="../src/settings.cpp" line="246"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="269"/>
+        <location filename="../src/settings.cpp" line="271"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="276"/>
+        <location filename="../src/settings.cpp" line="278"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="291"/>
+        <location filename="../src/settings.cpp" line="293"/>
         <source>Failed to determine number of CPU cores</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="297"/>
+        <location filename="../src/settings.cpp" line="299"/>
         <source>Configuration file does not exist: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="298"/>
+        <location filename="../src/settings.cpp" line="300"/>
         <source>Using default settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="302"/>
         <source>Cannot read configuration file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="301"/>
+        <location filename="../src/settings.cpp" line="303"/>
         <source>Error: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="311"/>
+        <location filename="../src/settings.cpp" line="313"/>
         <source>Required tool not found: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="320"/>
+        <location filename="../src/settings.cpp" line="322"/>
         <source>Required directory not found: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="339"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Initialization Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="340"/>
+        <location filename="../src/settings.cpp" line="342"/>
         <source>Failed to initialize application settings:
 
 %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="451"/>
+        <location filename="../src/settings.cpp" line="453"/>
         <source>Could not find a usable kernel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="452"/>
+        <location filename="../src/settings.cpp" line="454"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="473"/>
+        <location filename="../src/settings.cpp" line="475"/>
         <source>No users found in the system</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="476"/>
+        <location filename="../src/settings.cpp" line="478"/>
         <source>Failed to determine system information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="570"/>
+        <location filename="../src/settings.cpp" line="572"/>
         <source>Used space on / (root): </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="573"/>
+        <location filename="../src/settings.cpp" line="575"/>
         <source>estimated</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="582"/>
+        <location filename="../src/settings.cpp" line="584"/>
         <source>Used space on /home: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="638"/>
+        <location filename="../src/settings.cpp" line="640"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="642"/>
+        <location filename="../src/settings.cpp" line="644"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -901,63 +901,68 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="658"/>
         <source>Desktop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="657"/>
+        <location filename="../src/settings.cpp" line="659"/>
         <source>Documents</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Downloads</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="661"/>
         <source>Flatpaks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="662"/>
         <source>Music</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="663"/>
         <source>Networks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="664"/>
         <source>Pictures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="666"/>
         <source>Videos</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="813"/>
+        <location filename="../src/settings.cpp" line="815"/>
         <source>Error reading system configuration file: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="818"/>
+        <location filename="../src/settings.cpp" line="820"/>
         <source>Error accessing user configuration</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="861"/>
+        <location filename="../src/settings.cpp" line="868"/>
+        <source>Could not copy exclusion file from %1 to %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="891"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="951"/>
-        <location filename="../src/settings.cpp" line="1045"/>
+        <location filename="../src/settings.cpp" line="981"/>
+        <location filename="../src/settings.cpp" line="1075"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"></translation>
     </message>

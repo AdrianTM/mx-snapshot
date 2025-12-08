@@ -36,9 +36,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
         <location filename="../src/mainwindow.cpp" line="182"/>
         <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/ui_mainwindow.h" line="721"/>
         <source>MX Snapshot</source>
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
@@ -122,8 +122,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
         <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/ui_mainwindow.h" line="736"/>
         <source>Snapshot name:</source>
         <translation>Nom de l’instantané :</translation>
     </message>
@@ -688,18 +688,18 @@
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="946"/>
-        <location filename="../src/settings.cpp" line="1040"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="461"/>
+        <location filename="../src/settings.cpp" line="953"/>
+        <location filename="../src/settings.cpp" line="1047"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="460"/>
         <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="460"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
@@ -957,13 +957,13 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Erreur lors de l’accès à la configuration de l’utilisateur</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="854"/>
+        <location filename="../src/settings.cpp" line="861"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Paramètre de cœurs mémorisés non valide (%1). Nombre de processeurs détectés utilisé : %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="944"/>
-        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="951"/>
+        <location filename="../src/settings.cpp" line="1045"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Le nom de fichier %1 existe déjà. Veuillez utiliser un autre nom de fichier ou supprimer le fichier existant.</translation>
     </message>

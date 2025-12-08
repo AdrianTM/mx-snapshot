@@ -27,8 +27,12 @@
 
 #include <QCalendarWidget>
 #include <QDebug>
+#include <QDir>
+#include <QFile>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QKeyEvent>
+#include <QProcess>
 #include <QScrollBar>
 #include <QTextStream>
 #include <QTime>
@@ -85,6 +89,75 @@ void MainWindow::loadSettings()
                    [](const QString &file) { return file.mid(QStringLiteral("vmlinuz-").length()); });
     ui->comboLiveKernel->addItems(kernelFiles);
     ui->comboLiveKernel->setCurrentText(settings->kernel);
+    updateCustomExcludesButton();
+}
+
+bool MainWindow::hasCustomExcludes() const
+{
+    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString sourcePath = settings->getExcludesSourcePath();
+
+    if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
+        return false;
+    }
+
+    if (!QFileInfo::exists(sourcePath)) {
+        return false;
+    }
+
+    if (!QFileInfo::exists(configuredPath)) {
+        return true;
+    }
+
+    const int diffResult = QProcess::execute("diff", {"--brief", configuredPath, sourcePath});
+    if (diffResult == 1) {
+        return true;
+    }
+    if (diffResult != 0) {
+        qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
+    }
+    return false;
+}
+
+void MainWindow::updateCustomExcludesButton()
+{
+    ui->btnRemoveCustomExclude->setVisible(hasCustomExcludes());
+}
+
+bool MainWindow::resetCustomExcludes()
+{
+    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString sourcePath = settings->getExcludesSourcePath();
+
+    if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
+        return false;
+    }
+
+    if (!QFileInfo::exists(sourcePath)) {
+        QMessageBox::warning(this, tr("Error"),
+                             tr("Default exclusion file not found at %1.").arg(sourcePath));
+        return false;
+    }
+
+    const QString targetDir = QFileInfo(configuredPath).absolutePath();
+    if (!targetDir.isEmpty()) {
+        QDir().mkpath(targetDir);
+    }
+
+    if (QFileInfo::exists(configuredPath) && !QFile::remove(configuredPath)) {
+        QMessageBox::warning(this, tr("Error"),
+                             tr("Could not remove existing exclusion file at %1.").arg(configuredPath));
+        return false;
+    }
+
+    if (!QFile::copy(sourcePath, configuredPath)) {
+        QMessageBox::warning(this, tr("Error"),
+                             tr("Could not copy default exclusion file from %1 to %2.")
+                                 .arg(sourcePath, configuredPath));
+        return false;
+    }
+
+    return true;
 }
 
 void MainWindow::setOtherOptions()
@@ -112,6 +185,7 @@ void MainWindow::setConnections()
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
     connect(ui->btnEditExclude, &QPushButton::clicked, this, &MainWindow::btnEditExclude_clicked);
+    connect(ui->btnRemoveCustomExclude, &QPushButton::clicked, this, &MainWindow::btnRemoveCustomExclude_clicked);
     connect(ui->btnHelp, &QPushButton::clicked, this, &MainWindow::btnHelp_clicked);
     connect(ui->btnNext, &QPushButton::clicked, this, &MainWindow::btnNext_clicked);
     connect(ui->btnSelectSnapshot, &QPushButton::clicked, this, &MainWindow::btnSelectSnapshot_clicked);
@@ -527,7 +601,23 @@ void MainWindow::btnEditExclude_clicked()
     hide();
     Cmd editor(this);
     editor.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
+    updateCustomExcludesButton();
     show();
+}
+
+void MainWindow::btnRemoveCustomExclude_clicked()
+{
+    const QMessageBox::StandardButton response = QMessageBox::question(
+        this, tr("Remove Custom Exclusion File"),
+        tr("Revert the exclusion list to the default file? This will overwrite your current exclusions."),
+        QMessageBox::Yes | QMessageBox::No);
+    if (response != QMessageBox::Yes) {
+        return;
+    }
+
+    if (resetCustomExcludes()) {
+        updateCustomExcludesButton();
+    }
 }
 
 void MainWindow::excludeDocuments_toggled(bool checked)

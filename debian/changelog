@@ -1,3 +1,11 @@
+mx-snapshot (25.11.3) mx; urgency=medium
+
+  * Copy the exclusion list to the ~/.config/MX-Linux/ to allow users to
+    set their own list that will not be overwritten on updates
+  * Improve launching of editor for the exclude list
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 08 Dec 2025 00:16:10 -0500
+
 mx-snapshot (25.11.2) mx; urgency=medium
 
   * Added fallback path for the excludes file in case it's not found
