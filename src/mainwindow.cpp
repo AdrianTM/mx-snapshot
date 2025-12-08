@@ -525,7 +525,8 @@ void MainWindow::btnBack_clicked()
 void MainWindow::btnEditExclude_clicked()
 {
     hide();
-    work.shell.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
+    Cmd editor(this);
+    editor.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
     show();
 }
 
