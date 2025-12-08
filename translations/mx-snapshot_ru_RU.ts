@@ -36,344 +36,351 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="518"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="256"/>
+        <location filename="../src/mainwindow.cpp" line="592"/>
+        <location filename="../src/ui_mainwindow.h" line="745"/>
         <source>MX Snapshot</source>
         <translation>MX Снимок системы</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="33"/>
-        <location filename="../src/ui_mainwindow.h" line="722"/>
+        <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>Optional customization</source>
         <translation>Дополнительная настройка</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="65"/>
-        <location filename="../src/ui_mainwindow.h" line="723"/>
+        <location filename="../src/ui_mainwindow.h" line="747"/>
         <source>Release version:</source>
         <translation>Версия выпуска:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="79"/>
-        <location filename="../src/ui_mainwindow.h" line="724"/>
+        <location filename="../src/ui_mainwindow.h" line="748"/>
         <source>Boot options:</source>
         <translation>Параметры загрузки:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="86"/>
-        <location filename="../src/ui_mainwindow.h" line="725"/>
+        <location filename="../src/ui_mainwindow.h" line="749"/>
         <source>Live kernel:</source>
         <translation>Загружаемое ядро:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
-        <location filename="../src/ui_mainwindow.h" line="726"/>
+        <location filename="../src/ui_mainwindow.h" line="750"/>
         <source>Project name:</source>
         <translation>Имя проекта:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
-        <location filename="../src/ui_mainwindow.h" line="727"/>
+        <location filename="../src/ui_mainwindow.h" line="751"/>
         <source>Release date:</source>
         <translation>Дата выпуска:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="107"/>
-        <location filename="../src/ui_mainwindow.h" line="728"/>
+        <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Release codename:</source>
         <translation>Кодовое имя выпуска:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="133"/>
-        <location filename="../src/ui_mainwindow.h" line="729"/>
+        <location filename="../src/ui_mainwindow.h" line="753"/>
         <source>Current date</source>
         <translation>Текущая дата</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
-        <location filename="../src/ui_mainwindow.h" line="730"/>
+        <location filename="../src/ui_mainwindow.h" line="754"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot — средство для создания загрузочного образа (ISO) вашей рабочей системы с целью хранения или распространения. Во время его использования вы можете работать с нетребовательными приложениями.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
-        <location filename="../src/ui_mainwindow.h" line="731"/>
+        <location filename="../src/ui_mainwindow.h" line="755"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Используемое место на / (корневом) и домашнем разделах:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="192"/>
-        <location filename="../src/ui_mainwindow.h" line="732"/>
+        <location filename="../src/ui_mainwindow.h" line="756"/>
         <source>Location and ISO name</source>
         <translation>Расположение и название ISO</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="219"/>
-        <location filename="../src/ui_mainwindow.h" line="734"/>
+        <location filename="../src/ui_mainwindow.h" line="758"/>
         <source>Snapshot location:</source>
         <translation>Расположение снимков:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
-        <location filename="../src/ui_mainwindow.h" line="735"/>
+        <location filename="../src/ui_mainwindow.h" line="759"/>
         <source>Select a different snapshot directory</source>
         <translation>Выбрать другую папку для снимка</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
+        <location filename="../src/ui_mainwindow.h" line="760"/>
         <source>Snapshot name:</source>
         <translation>Имя снимка:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="360"/>
-        <location filename="../src/ui_mainwindow.h" line="740"/>
+        <location filename="../src/ui_mainwindow.h" line="764"/>
         <source>Type of snapshot:</source>
         <translation>Тип снимка:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="367"/>
-        <location filename="../src/ui_mainwindow.h" line="741"/>
+        <location filename="../src/ui_mainwindow.h" line="765"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Сохранение учетных записей (для личного резервного копирования)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
-        <location filename="../src/ui_mainwindow.h" line="743"/>
+        <location filename="../src/ui_mainwindow.h" line="767"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Эта опция сбросит &amp;quot;demo&amp;quot; и &amp;quot;root&amp;quot; пароли MX Linux по умолчанию и не будет копировать какие-либо созданные персональные учетные записи.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="380"/>
-        <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/ui_mainwindow.h" line="769"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Сброс учетных записей (дистрибутив для других)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
-        <location filename="../src/ui_mainwindow.h" line="746"/>
+        <location filename="../src/ui_mainwindow.h" line="770"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Вы также можете исключить определенные папки, отметив их ниже, или нажать на кнопку, чтобы напрямую изменить /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
-        <location filename="../src/ui_mainwindow.h" line="747"/>
+        <location filename="../src/ui_mainwindow.h" line="771"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="519"/>
-        <location filename="../src/ui_mainwindow.h" line="749"/>
+        <location filename="../src/ui_mainwindow.h" line="773"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Ограничьте скорость ввода/вывода заданного процента.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="525"/>
-        <location filename="../src/ui_mainwindow.h" line="751"/>
+        <location filename="../src/ui_mainwindow.h" line="775"/>
         <source>I/O throttle:</source>
         <translation>I/O ограничение:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="532"/>
-        <location filename="../src/ui_mainwindow.h" line="752"/>
+        <location filename="../src/ui_mainwindow.h" line="776"/>
         <source>Calculate checksums:</source>
         <translation>Рассчитать контрольные суммы:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
-        <location filename="../src/ui_mainwindow.h" line="753"/>
+        <location filename="../src/ui_mainwindow.h" line="777"/>
         <source>ISO compression scheme:</source>
         <translation>Схема сжатия ISO:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="546"/>
-        <location filename="../src/ui_mainwindow.h" line="754"/>
+        <location filename="../src/ui_mainwindow.h" line="778"/>
         <source>Number of CPU cores to use:</source>
         <translation>Количество используемых ядер ЦПУ:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="553"/>
-        <location filename="../src/ui_mainwindow.h" line="755"/>
+        <location filename="../src/ui_mainwindow.h" line="779"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="563"/>
-        <location filename="../src/ui_mainwindow.h" line="756"/>
+        <location filename="../src/ui_mainwindow.h" line="780"/>
         <source>Options:</source>
         <translation>Опции:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="608"/>
-        <location filename="../src/ui_mainwindow.h" line="757"/>
+        <location filename="../src/mainwindow.ui" line="610"/>
+        <location filename="../src/ui_mainwindow.h" line="781"/>
         <source>Edit Exclusion File</source>
         <translation>Править файл исключений</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="643"/>
-        <location filename="../src/ui_mainwindow.h" line="758"/>
+        <location filename="../src/mainwindow.ui" line="626"/>
+        <location filename="../src/mainwindow.cpp" line="611"/>
+        <location filename="../src/ui_mainwindow.h" line="782"/>
+        <source>Remove Custom Exclusion File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="679"/>
+        <location filename="../src/ui_mainwindow.h" line="783"/>
         <source>Pictures</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="650"/>
-        <location filename="../src/ui_mainwindow.h" line="759"/>
+        <location filename="../src/mainwindow.ui" line="686"/>
+        <location filename="../src/ui_mainwindow.h" line="784"/>
         <source>Videos</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="657"/>
-        <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.ui" line="693"/>
+        <location filename="../src/ui_mainwindow.h" line="785"/>
         <source>All of the above</source>
         <translation>Все вышеперечисленное</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="664"/>
-        <location filename="../src/ui_mainwindow.h" line="762"/>
+        <location filename="../src/mainwindow.ui" line="700"/>
+        <location filename="../src/ui_mainwindow.h" line="787"/>
         <source>exclude network configurations</source>
         <translation>исключить настройки сетей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="667"/>
-        <location filename="../src/ui_mainwindow.h" line="764"/>
+        <location filename="../src/mainwindow.ui" line="703"/>
+        <location filename="../src/ui_mainwindow.h" line="789"/>
         <source>Networks</source>
         <translation>Сети</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="674"/>
-        <location filename="../src/ui_mainwindow.h" line="765"/>
+        <location filename="../src/mainwindow.ui" line="710"/>
+        <location filename="../src/ui_mainwindow.h" line="790"/>
         <source>Downloads</source>
         <translation>Загрузки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="681"/>
-        <location filename="../src/ui_mainwindow.h" line="766"/>
+        <location filename="../src/mainwindow.ui" line="717"/>
+        <location filename="../src/ui_mainwindow.h" line="791"/>
         <source>Desktop</source>
         <translation>Рабочий стол</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="688"/>
-        <location filename="../src/ui_mainwindow.h" line="767"/>
+        <location filename="../src/mainwindow.ui" line="724"/>
+        <location filename="../src/ui_mainwindow.h" line="792"/>
         <source>Documents</source>
         <translation>Документы</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="695"/>
-        <location filename="../src/ui_mainwindow.h" line="768"/>
+        <location filename="../src/mainwindow.ui" line="731"/>
+        <location filename="../src/ui_mainwindow.h" line="793"/>
         <source>Flatpaks</source>
         <translation>Флатпак</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="702"/>
-        <location filename="../src/ui_mainwindow.h" line="769"/>
+        <location filename="../src/mainwindow.ui" line="738"/>
+        <location filename="../src/ui_mainwindow.h" line="794"/>
         <source>Music</source>
         <translation>Музыка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="814"/>
-        <location filename="../src/ui_mainwindow.h" line="772"/>
+        <location filename="../src/mainwindow.ui" line="850"/>
+        <location filename="../src/ui_mainwindow.h" line="797"/>
         <source>About this application</source>
         <translation>Об этом приложении</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="817"/>
-        <location filename="../src/ui_mainwindow.h" line="774"/>
+        <location filename="../src/mainwindow.ui" line="853"/>
+        <location filename="../src/ui_mainwindow.h" line="799"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="823"/>
-        <location filename="../src/ui_mainwindow.h" line="776"/>
+        <location filename="../src/mainwindow.ui" line="859"/>
+        <location filename="../src/ui_mainwindow.h" line="801"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="839"/>
-        <location filename="../src/ui_mainwindow.h" line="778"/>
+        <location filename="../src/mainwindow.ui" line="875"/>
+        <location filename="../src/ui_mainwindow.h" line="803"/>
         <source>Next</source>
         <translation>Следующий</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="864"/>
-        <location filename="../src/ui_mainwindow.h" line="783"/>
+        <location filename="../src/mainwindow.ui" line="900"/>
+        <location filename="../src/ui_mainwindow.h" line="808"/>
         <source>Display help </source>
         <translation>Показать справку</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="867"/>
-        <location filename="../src/ui_mainwindow.h" line="785"/>
+        <location filename="../src/mainwindow.ui" line="903"/>
+        <location filename="../src/ui_mainwindow.h" line="810"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="873"/>
-        <location filename="../src/ui_mainwindow.h" line="787"/>
+        <location filename="../src/mainwindow.ui" line="909"/>
+        <location filename="../src/ui_mainwindow.h" line="812"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="886"/>
-        <location filename="../src/ui_mainwindow.h" line="790"/>
+        <location filename="../src/mainwindow.ui" line="922"/>
+        <location filename="../src/ui_mainwindow.h" line="815"/>
         <source>Quit application</source>
         <translation>Выйти из приложения</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="889"/>
-        <location filename="../src/ui_mainwindow.h" line="792"/>
+        <location filename="../src/mainwindow.ui" line="925"/>
+        <location filename="../src/ui_mainwindow.h" line="817"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="895"/>
-        <location filename="../src/ui_mainwindow.h" line="794"/>
+        <location filename="../src/mainwindow.ui" line="931"/>
+        <location filename="../src/ui_mainwindow.h" line="819"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="949"/>
-        <location filename="../src/ui_mainwindow.h" line="797"/>
+        <location filename="../src/mainwindow.ui" line="985"/>
+        <location filename="../src/ui_mainwindow.h" line="822"/>
         <source>Back</source>
         <translation>Назад</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="144"/>
+        <location filename="../src/mainwindow.cpp" line="218"/>
         <source>Select Release Date</source>
         <translation>Выберите Дату выпуска</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="262"/>
         <source>fastest, worst compression</source>
         <translation>самое быстрое, наихудшее сжатие</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="262"/>
         <source>fast, worse compression</source>
         <translation>быстро, худшее сжатие</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="189"/>
+        <location filename="../src/mainwindow.cpp" line="263"/>
         <source>slow, better compression</source>
         <translation>медленное, лучше сжатие</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="189"/>
+        <location filename="../src/mainwindow.cpp" line="263"/>
         <source>best compromise</source>
         <translation>наилучший компромисс</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="190"/>
+        <location filename="../src/mainwindow.cpp" line="264"/>
         <source>slowest, best compression</source>
         <translation>самое медленное, наилучшее сжатие</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="219"/>
+        <location filename="../src/mainwindow.cpp" line="293"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="222"/>
+        <location filename="../src/mainwindow.cpp" line="296"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -384,170 +391,193 @@
 %1 снимков занимают %2 дискового пространства.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="234"/>
-        <location filename="../src/mainwindow.cpp" line="235"/>
+        <location filename="../src/mainwindow.cpp" line="308"/>
+        <location filename="../src/mainwindow.cpp" line="309"/>
         <source>Installing </source>
         <translation>Установка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="320"/>
+        <location filename="../src/mainwindow.cpp" line="394"/>
         <source>Please wait.</source>
         <translation>Пожалуйста, ждите.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="322"/>
+        <location filename="../src/mainwindow.cpp" line="396"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Пожалуйста, ждите. Расчет используемого дискового пространства...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="356"/>
-        <location filename="../src/mainwindow.cpp" line="413"/>
+        <location filename="../src/mainwindow.cpp" line="137"/>
+        <location filename="../src/mainwindow.cpp" line="148"/>
+        <location filename="../src/mainwindow.cpp" line="154"/>
+        <location filename="../src/mainwindow.cpp" line="430"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="357"/>
+        <location filename="../src/mainwindow.cpp" line="138"/>
+        <source>Default exclusion file not found at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="149"/>
+        <source>Could not remove existing exclusion file at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="155"/>
+        <source>Could not copy default exclusion file from %1 to %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="431"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="362"/>
+        <location filename="../src/mainwindow.cpp" line="436"/>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="368"/>
+        <location filename="../src/mainwindow.cpp" line="442"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Снимок будет использовать следующие настройки:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="370"/>
+        <location filename="../src/mainwindow.cpp" line="444"/>
         <source>- Snapshot directory:</source>
         <translation>- Папка снимков:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>- Kernel to be used:</source>
         <translation>- Используемое ядро:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="393"/>
-        <location filename="../src/mainwindow.cpp" line="402"/>
+        <location filename="../src/mainwindow.cpp" line="467"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>NVIDIA Detected</source>
         <translation>Обнаружена NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="394"/>
+        <location filename="../src/mainwindow.cpp" line="468"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>В этом компьютере используется видеокарта NVIDIA. Планируете ли вы использовать полученный ISO на том же компьютере или на другом компьютере с картой NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="398"/>
+        <location filename="../src/mainwindow.cpp" line="472"/>
         <source>NVIDIA Selected</source>
         <translation>NVIDIA выбрана</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="399"/>
+        <location filename="../src/mainwindow.cpp" line="473"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Примечание. Если вы используете полученный ISO-образ на компьютере без карты NVIDIA, вам, вероятно, придется удалить &apos;xorg=nvidia&apos; из параметров загрузки.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="403"/>
+        <location filename="../src/mainwindow.cpp" line="477"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Примечание. Если вы используете полученный ISO-образ на компьютере с картой NVIDIA, вам может потребоваться добавить &apos;xorg=nvidia&apos; в параметры загрузки.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="414"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Текущее ядро не поддерживает выбранный алгоритм сжатия, пожалуйста, измените конфигурационный файл и выберите другой алгоритм.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="437"/>
+        <location filename="../src/mainwindow.cpp" line="511"/>
         <source>Final chance</source>
         <translation>Последний шанс</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="439"/>
+        <location filename="../src/mainwindow.cpp" line="513"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Имеется вся информация Снимка, необходимая для создания ISO из рабочей системы.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="440"/>
+        <location filename="../src/mainwindow.cpp" line="514"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Это займёт некоторое время, в зависимости от размера установленной системы и способностей вашего компьютера.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>OK to start?</source>
         <translation>OK для старта?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="446"/>
+        <location filename="../src/mainwindow.cpp" line="520"/>
         <source>Shutdown computer when done.</source>
         <translation>Выключить компьютер по завершении.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="479"/>
+        <location filename="../src/mainwindow.cpp" line="553"/>
         <source>Output</source>
         <translation>Вывод</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="495"/>
+        <location filename="../src/mainwindow.cpp" line="569"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="502"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
         <source>Edit Boot Menu</source>
         <translation>Изменить меню загрузки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="503"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Теперь программа будет приостановлена, чтобы позволить вам править файлы в рабочем каталоге. Выберите Да, чтобы изменить меню загрузки, или выберите Нет, чтобы пропустить этот шаг и продолжить создание образа.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="612"/>
+        <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="692"/>
         <source>About %1</source>
         <translation>О %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="603"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Version: </source>
         <translation>Версия: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Программа для создания live-CD из работающей системы для MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="608"/>
+        <location filename="../src/mainwindow.cpp" line="699"/>
         <source>%1 License</source>
         <translation>%1 Лицензия</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="622"/>
+        <location filename="../src/mainwindow.cpp" line="713"/>
         <source>%1 Help</source>
         <translation>%1 Справка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="627"/>
+        <location filename="../src/mainwindow.cpp" line="718"/>
         <source>Select Snapshot Directory</source>
         <translation>Выберите папку для снимков</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="739"/>
         <source>Confirmation</source>
         <translation>Подтверждение</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="739"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Вы уверены, что хотите выйти из приложения?</translation>
     </message>
@@ -692,161 +722,161 @@
     <message>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="953"/>
-        <location filename="../src/settings.cpp" line="1047"/>
+        <location filename="../src/settings.cpp" line="455"/>
+        <location filename="../src/settings.cpp" line="463"/>
+        <location filename="../src/settings.cpp" line="982"/>
+        <location filename="../src/settings.cpp" line="1076"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Текущее ядро не поддерживает Squashfs, невозможно продолжить.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="57"/>
+        <location filename="../src/settings.cpp" line="59"/>
         <source>Failed to initialize configuration</source>
         <translation>Не удалось инициализировать конфигурацию</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="80"/>
+        <location filename="../src/settings.cpp" line="82"/>
         <source>Configuration validation failed</source>
         <translation>Ошибка проверки конфигурации</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="85"/>
+        <location filename="../src/settings.cpp" line="87"/>
         <source>Exception during initialization: %1</source>
         <translation>Исключение при инициализации: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="88"/>
+        <location filename="../src/settings.cpp" line="90"/>
         <source>Unknown exception during initialization</source>
         <translation>Неизвестное исключение во время инициализации</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
+        <location filename="../src/settings.cpp" line="121"/>
         <source>Could not create work directory. </source>
         <translation>Не удалось создать рабочий каталог.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="143"/>
+        <location filename="../src/settings.cpp" line="145"/>
         <source>Could not create temp directory:</source>
         <translation>Не удалось создать временный каталог:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="144"/>
+        <location filename="../src/settings.cpp" line="146"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Проверьте наличие и доступность для записи родительского каталога:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="162"/>
+        <location filename="../src/settings.cpp" line="164"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>Формат сжатия &apos;%1&apos; не поддерживается текущим ядром</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="168"/>
+        <location filename="../src/settings.cpp" line="170"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Недопустимое значение ядер: %1. Должно быть от 1 до %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="174"/>
+        <location filename="../src/settings.cpp" line="176"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Неверное значение throttle: %1. Значение должно быть от 0 до 20.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="180"/>
+        <location filename="../src/settings.cpp" line="182"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>Каталог снимков не может быть пустым</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="188"/>
+        <location filename="../src/settings.cpp" line="190"/>
         <source>Snapshot name cannot be empty</source>
         <translation>Имя снимка не может быть пустым</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="194"/>
+        <location filename="../src/settings.cpp" line="196"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>Имя снимка содержит недопустимые символы: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="200"/>
+        <location filename="../src/settings.cpp" line="202"/>
         <source>Kernel version cannot be empty</source>
         <translation>Версия ядра не может быть пустой</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="205"/>
+        <location filename="../src/settings.cpp" line="207"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>Файл ядра не найден: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="211"/>
+        <location filename="../src/settings.cpp" line="213"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Ядро %1 не поддерживает Squashfs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="237"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>Файл исключения не существует: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="244"/>
+        <location filename="../src/settings.cpp" line="246"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Несбалансированные квоты в списке исключений</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="269"/>
+        <location filename="../src/settings.cpp" line="271"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Недостаточно свободного места: доступно %1 КБ, требуется минимум %2 КБ</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="276"/>
+        <location filename="../src/settings.cpp" line="278"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Недостаточно свободного места в рабочем каталоге: доступно %1 КБ, требуется минимум %2 КБ</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="291"/>
+        <location filename="../src/settings.cpp" line="293"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Не удалось определить количество ядер ЦП</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="297"/>
+        <location filename="../src/settings.cpp" line="299"/>
         <source>Configuration file does not exist: %1</source>
         <translation>Файл конфигурации не существует: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="298"/>
+        <location filename="../src/settings.cpp" line="300"/>
         <source>Using default settings</source>
         <translation>Использование настроек по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="302"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Невозможно прочитать файл конфигурации: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="301"/>
+        <location filename="../src/settings.cpp" line="303"/>
         <source>Error: %1</source>
         <translation>Ошибка: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="311"/>
+        <location filename="../src/settings.cpp" line="313"/>
         <source>Required tool not found: %1</source>
         <translation>Нужный инструмент не найден: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="320"/>
+        <location filename="../src/settings.cpp" line="322"/>
         <source>Required directory not found: %1</source>
         <translation>Требуемый каталог не найден: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="339"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Initialization Error</source>
         <translation>Ошибка инициализации</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="340"/>
+        <location filename="../src/settings.cpp" line="342"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -855,47 +885,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="451"/>
+        <location filename="../src/settings.cpp" line="453"/>
         <source>Could not find a usable kernel</source>
         <translation>Не удалось найти пригодное для использования ядро</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="452"/>
+        <location filename="../src/settings.cpp" line="454"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Искал файлы ядра в /boot/, но ни один из них не был найден или доступен.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="473"/>
+        <location filename="../src/settings.cpp" line="475"/>
         <source>No users found in the system</source>
         <translation>Пользователи в системе не найдены.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="476"/>
+        <location filename="../src/settings.cpp" line="478"/>
         <source>Failed to determine system information</source>
         <translation>Не удалось определить системную информацию</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="570"/>
+        <location filename="../src/settings.cpp" line="572"/>
         <source>Used space on / (root): </source>
         <translation>Используемое место на / (корневом) разделе:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="573"/>
+        <location filename="../src/settings.cpp" line="575"/>
         <source>estimated</source>
         <translation>предполагаемый</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="582"/>
+        <location filename="../src/settings.cpp" line="584"/>
         <source>Used space on /home: </source>
         <translation>Используемое место на домашнем разделе:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="638"/>
+        <location filename="../src/settings.cpp" line="640"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Свободное место на %1, где будет папка со снимком:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="642"/>
+        <location filename="../src/settings.cpp" line="644"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -910,63 +940,68 @@
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="658"/>
         <source>Desktop</source>
         <translation>Рабочий стол</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="657"/>
+        <location filename="../src/settings.cpp" line="659"/>
         <source>Documents</source>
         <translation>Документы</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Downloads</source>
         <translation>Загрузки</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="661"/>
         <source>Flatpaks</source>
         <translation>Флатпак</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="662"/>
         <source>Music</source>
         <translation>Музыка</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="663"/>
         <source>Networks</source>
         <translation>Сети</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="664"/>
         <source>Pictures</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="666"/>
         <source>Videos</source>
         <translation>Видео</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="813"/>
+        <location filename="../src/settings.cpp" line="815"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Ошибка чтения файла конфигурации системы: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="818"/>
+        <location filename="../src/settings.cpp" line="820"/>
         <source>Error accessing user configuration</source>
         <translation>Ошибка доступа к конфигурации пользователя</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="861"/>
+        <location filename="../src/settings.cpp" line="867"/>
+        <source>Could not copy exclusion file from %1 to %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="890"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Неверная настройка сохранённых ядер (%1). Используется обнаруженное количество ЦП: %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="951"/>
-        <location filename="../src/settings.cpp" line="1045"/>
+        <location filename="../src/settings.cpp" line="980"/>
+        <location filename="../src/settings.cpp" line="1074"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Выходной файл %1 уже существует. Пожалуйста, используйте другое имя файла или удалите существующий файл.</translation>
     </message>

@@ -1,7 +1,8 @@
 mx-snapshot (25.12.1) mx; urgency=medium
 
   * Add pop up to show that the maintainer excludes is newer than the
-    custom one
+    custom one. Add option for user to show diff, accept changes or
+    keep the custom list
 
  -- Adrian <adrian@mxlinux.org>  Mon, 08 Dec 2025 10:14:38 -0500
 

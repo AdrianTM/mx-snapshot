@@ -36,344 +36,351 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="182"/>
-        <location filename="../src/mainwindow.cpp" line="518"/>
-        <location filename="../src/ui_mainwindow.h" line="721"/>
+        <location filename="../src/mainwindow.cpp" line="256"/>
+        <location filename="../src/mainwindow.cpp" line="592"/>
+        <location filename="../src/ui_mainwindow.h" line="745"/>
         <source>MX Snapshot</source>
         <translation>MX Στιγμιότυπο συστήματος</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="33"/>
-        <location filename="../src/ui_mainwindow.h" line="722"/>
+        <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>Optional customization</source>
         <translation>Προαιρετική παραμετροποίηση</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="65"/>
-        <location filename="../src/ui_mainwindow.h" line="723"/>
+        <location filename="../src/ui_mainwindow.h" line="747"/>
         <source>Release version:</source>
         <translation>Έκδοση:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="79"/>
-        <location filename="../src/ui_mainwindow.h" line="724"/>
+        <location filename="../src/ui_mainwindow.h" line="748"/>
         <source>Boot options:</source>
         <translation>Ρυθμίσεις φορτωτή εκκίνησης:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="86"/>
-        <location filename="../src/ui_mainwindow.h" line="725"/>
+        <location filename="../src/ui_mainwindow.h" line="749"/>
         <source>Live kernel:</source>
         <translation>Ενεργός πυρήνας:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
-        <location filename="../src/ui_mainwindow.h" line="726"/>
+        <location filename="../src/ui_mainwindow.h" line="750"/>
         <source>Project name:</source>
         <translation>Όνομα προϊόντος:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
-        <location filename="../src/ui_mainwindow.h" line="727"/>
+        <location filename="../src/ui_mainwindow.h" line="751"/>
         <source>Release date:</source>
         <translation>Ημερομηνία κυκλοφορίας:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="107"/>
-        <location filename="../src/ui_mainwindow.h" line="728"/>
+        <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Release codename:</source>
         <translation>Κωδικό όνομα έκδοσης:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="133"/>
-        <location filename="../src/ui_mainwindow.h" line="729"/>
+        <location filename="../src/ui_mainwindow.h" line="753"/>
         <source>Current date</source>
         <translation>Σημερινή ημερομηνία</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
-        <location filename="../src/ui_mainwindow.h" line="730"/>
+        <location filename="../src/ui_mainwindow.h" line="754"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, μπορείτε να το χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια της λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
-        <location filename="../src/ui_mainwindow.h" line="731"/>
+        <location filename="../src/ui_mainwindow.h" line="755"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Χώρος που χρησιμοποιείται για το / (root) και το /home:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="192"/>
-        <location filename="../src/ui_mainwindow.h" line="732"/>
+        <location filename="../src/ui_mainwindow.h" line="756"/>
         <source>Location and ISO name</source>
         <translation>Τοποθεσία και όνομα του ISO</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="219"/>
-        <location filename="../src/ui_mainwindow.h" line="734"/>
+        <location filename="../src/ui_mainwindow.h" line="758"/>
         <source>Snapshot location:</source>
         <translation>Κατάλογος του στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
-        <location filename="../src/ui_mainwindow.h" line="735"/>
+        <location filename="../src/ui_mainwindow.h" line="759"/>
         <source>Select a different snapshot directory</source>
         <translation>Επιλογή διαφορετικού καταλόγου</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="371"/>
-        <location filename="../src/ui_mainwindow.h" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
+        <location filename="../src/ui_mainwindow.h" line="760"/>
         <source>Snapshot name:</source>
         <translation>Όνομα του στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="360"/>
-        <location filename="../src/ui_mainwindow.h" line="740"/>
+        <location filename="../src/ui_mainwindow.h" line="764"/>
         <source>Type of snapshot:</source>
         <translation>Μορφή στιγμιότυπου:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="367"/>
-        <location filename="../src/ui_mainwindow.h" line="741"/>
+        <location filename="../src/ui_mainwindow.h" line="765"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Διατήρηση λογαριασμών (για τη δημιουργία προσωπικών αντιγράφων ασφαλείας)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
-        <location filename="../src/ui_mainwindow.h" line="743"/>
+        <location filename="../src/ui_mainwindow.h" line="767"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;Αυτή η επιλογή.θα επαναφέρει τους κωδικούς &amp;quot;demo&amp;quot; και &amp;quot; root&amp;quot; στις προεπιλογές του MX Linux και δεν θα αντιγράψει προσωπικούς λογαριασμούς.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="380"/>
-        <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/ui_mainwindow.h" line="769"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Επαναφορά λογαριασμών (για διανομή σε άλλους)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
-        <location filename="../src/ui_mainwindow.h" line="746"/>
+        <location filename="../src/ui_mainwindow.h" line="770"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Μπορείτε να εξαιρέσετε καταλόγους τσεκάροντας τις πιο κάτω επιλογές, ή κάνοντας κλικ στο κάτω κουμπί για να επεξεργαστείτε άμεσα το /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
-        <location filename="../src/ui_mainwindow.h" line="747"/>
+        <location filename="../src/ui_mainwindow.h" line="771"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="519"/>
-        <location filename="../src/ui_mainwindow.h" line="749"/>
+        <location filename="../src/ui_mainwindow.h" line="773"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation>Περιορισμός του ρυθμού I/O με το αναφερόμενο ποσοστό.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="525"/>
-        <location filename="../src/ui_mainwindow.h" line="751"/>
+        <location filename="../src/ui_mainwindow.h" line="775"/>
         <source>I/O throttle:</source>
         <translation>Περιορισμός I/O:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="532"/>
-        <location filename="../src/ui_mainwindow.h" line="752"/>
+        <location filename="../src/ui_mainwindow.h" line="776"/>
         <source>Calculate checksums:</source>
         <translation>Υπολογισμός αθροισμάτων ελέγχου:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
-        <location filename="../src/ui_mainwindow.h" line="753"/>
+        <location filename="../src/ui_mainwindow.h" line="777"/>
         <source>ISO compression scheme:</source>
         <translation>Συμπίεση ISO:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="546"/>
-        <location filename="../src/ui_mainwindow.h" line="754"/>
+        <location filename="../src/ui_mainwindow.h" line="778"/>
         <source>Number of CPU cores to use:</source>
         <translation>Αριθμός πυρήνων CPU που θα χρησιμοποιηθούν:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="553"/>
-        <location filename="../src/ui_mainwindow.h" line="755"/>
+        <location filename="../src/ui_mainwindow.h" line="779"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="563"/>
-        <location filename="../src/ui_mainwindow.h" line="756"/>
+        <location filename="../src/ui_mainwindow.h" line="780"/>
         <source>Options:</source>
         <translation>Επιλογές:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="608"/>
-        <location filename="../src/ui_mainwindow.h" line="757"/>
+        <location filename="../src/mainwindow.ui" line="610"/>
+        <location filename="../src/ui_mainwindow.h" line="781"/>
         <source>Edit Exclusion File</source>
         <translation>Επεξεργασία αρχείου εξαιρέσεων</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="643"/>
-        <location filename="../src/ui_mainwindow.h" line="758"/>
+        <location filename="../src/mainwindow.ui" line="626"/>
+        <location filename="../src/mainwindow.cpp" line="611"/>
+        <location filename="../src/ui_mainwindow.h" line="782"/>
+        <source>Remove Custom Exclusion File</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.ui" line="679"/>
+        <location filename="../src/ui_mainwindow.h" line="783"/>
         <source>Pictures</source>
         <translation>Εικόνες</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="650"/>
-        <location filename="../src/ui_mainwindow.h" line="759"/>
+        <location filename="../src/mainwindow.ui" line="686"/>
+        <location filename="../src/ui_mainwindow.h" line="784"/>
         <source>Videos</source>
         <translation>Βίντεο</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="657"/>
-        <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.ui" line="693"/>
+        <location filename="../src/ui_mainwindow.h" line="785"/>
         <source>All of the above</source>
         <translation>Όλα τα παραπάνω</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="664"/>
-        <location filename="../src/ui_mainwindow.h" line="762"/>
+        <location filename="../src/mainwindow.ui" line="700"/>
+        <location filename="../src/ui_mainwindow.h" line="787"/>
         <source>exclude network configurations</source>
         <translation>εξαίρεση παραμετροποίησης του δικτύου</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="667"/>
-        <location filename="../src/ui_mainwindow.h" line="764"/>
+        <location filename="../src/mainwindow.ui" line="703"/>
+        <location filename="../src/ui_mainwindow.h" line="789"/>
         <source>Networks</source>
         <translation>Δίκτυα</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="674"/>
-        <location filename="../src/ui_mainwindow.h" line="765"/>
+        <location filename="../src/mainwindow.ui" line="710"/>
+        <location filename="../src/ui_mainwindow.h" line="790"/>
         <source>Downloads</source>
         <translation>Λήψεις</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="681"/>
-        <location filename="../src/ui_mainwindow.h" line="766"/>
+        <location filename="../src/mainwindow.ui" line="717"/>
+        <location filename="../src/ui_mainwindow.h" line="791"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="688"/>
-        <location filename="../src/ui_mainwindow.h" line="767"/>
+        <location filename="../src/mainwindow.ui" line="724"/>
+        <location filename="../src/ui_mainwindow.h" line="792"/>
         <source>Documents</source>
         <translation>&apos;Εγγραφα</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="695"/>
-        <location filename="../src/ui_mainwindow.h" line="768"/>
+        <location filename="../src/mainwindow.ui" line="731"/>
+        <location filename="../src/ui_mainwindow.h" line="793"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="702"/>
-        <location filename="../src/ui_mainwindow.h" line="769"/>
+        <location filename="../src/mainwindow.ui" line="738"/>
+        <location filename="../src/ui_mainwindow.h" line="794"/>
         <source>Music</source>
         <translation>Μουσική</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="814"/>
-        <location filename="../src/ui_mainwindow.h" line="772"/>
+        <location filename="../src/mainwindow.ui" line="850"/>
+        <location filename="../src/ui_mainwindow.h" line="797"/>
         <source>About this application</source>
         <translation>Περί της εφαρμογής</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="817"/>
-        <location filename="../src/ui_mainwindow.h" line="774"/>
+        <location filename="../src/mainwindow.ui" line="853"/>
+        <location filename="../src/ui_mainwindow.h" line="799"/>
         <source>About...</source>
         <translation>Περί...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="823"/>
-        <location filename="../src/ui_mainwindow.h" line="776"/>
+        <location filename="../src/mainwindow.ui" line="859"/>
+        <location filename="../src/ui_mainwindow.h" line="801"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="839"/>
-        <location filename="../src/ui_mainwindow.h" line="778"/>
+        <location filename="../src/mainwindow.ui" line="875"/>
+        <location filename="../src/ui_mainwindow.h" line="803"/>
         <source>Next</source>
         <translation>Επόμενο</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="864"/>
-        <location filename="../src/ui_mainwindow.h" line="783"/>
+        <location filename="../src/mainwindow.ui" line="900"/>
+        <location filename="../src/ui_mainwindow.h" line="808"/>
         <source>Display help </source>
         <translation>Εμφάνιση βοήθειας </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="867"/>
-        <location filename="../src/ui_mainwindow.h" line="785"/>
+        <location filename="../src/mainwindow.ui" line="903"/>
+        <location filename="../src/ui_mainwindow.h" line="810"/>
         <source>Help</source>
         <translation>Βοήθεια</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="873"/>
-        <location filename="../src/ui_mainwindow.h" line="787"/>
+        <location filename="../src/mainwindow.ui" line="909"/>
+        <location filename="../src/ui_mainwindow.h" line="812"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="886"/>
-        <location filename="../src/ui_mainwindow.h" line="790"/>
+        <location filename="../src/mainwindow.ui" line="922"/>
+        <location filename="../src/ui_mainwindow.h" line="815"/>
         <source>Quit application</source>
         <translation>Κλείσιμο εφαρμογής</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="889"/>
-        <location filename="../src/ui_mainwindow.h" line="792"/>
+        <location filename="../src/mainwindow.ui" line="925"/>
+        <location filename="../src/ui_mainwindow.h" line="817"/>
         <source>Cancel</source>
         <translation>Άκυρο</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="895"/>
-        <location filename="../src/ui_mainwindow.h" line="794"/>
+        <location filename="../src/mainwindow.ui" line="931"/>
+        <location filename="../src/ui_mainwindow.h" line="819"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="949"/>
-        <location filename="../src/ui_mainwindow.h" line="797"/>
+        <location filename="../src/mainwindow.ui" line="985"/>
+        <location filename="../src/ui_mainwindow.h" line="822"/>
         <source>Back</source>
         <translation>Πίσω</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="144"/>
+        <location filename="../src/mainwindow.cpp" line="218"/>
         <source>Select Release Date</source>
         <translation>Επιλογή ημερομηνίας</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="262"/>
         <source>fastest, worst compression</source>
         <translation>ταχύτατη, χειρότερη συμπίεση</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="262"/>
         <source>fast, worse compression</source>
         <translation>γρήγορη, χειρότερη συμπίεση</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="189"/>
+        <location filename="../src/mainwindow.cpp" line="263"/>
         <source>slow, better compression</source>
         <translation>αργή, καλή συμπίεση</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="189"/>
+        <location filename="../src/mainwindow.cpp" line="263"/>
         <source>best compromise</source>
         <translation>η καλύτερη</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="190"/>
+        <location filename="../src/mainwindow.cpp" line="264"/>
         <source>slowest, best compression</source>
         <translation>πιο αργή, καλύτερη συμπίεση</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="219"/>
+        <location filename="../src/mainwindow.cpp" line="293"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="222"/>
+        <location filename="../src/mainwindow.cpp" line="296"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -382,170 +389,193 @@
       Εάν είναι απαραίτητο, μπορείτε να δημιουργήσετε περισσότερο διαθέσιμο χώρο αφαιρώντας προηγούμενα στιγμιότυπα και αποθηκευμένα αντίγραφα: %1 στιγμιότυπα δεσμεύουν %2 χώρου στο δίσκο.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="234"/>
-        <location filename="../src/mainwindow.cpp" line="235"/>
+        <location filename="../src/mainwindow.cpp" line="308"/>
+        <location filename="../src/mainwindow.cpp" line="309"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="320"/>
+        <location filename="../src/mainwindow.cpp" line="394"/>
         <source>Please wait.</source>
         <translation>Παρακαλώ περιμένετε.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="322"/>
+        <location filename="../src/mainwindow.cpp" line="396"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Παρακαλώ περιμένετε. Υπολογισμός χώρου του δίσκου...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="356"/>
-        <location filename="../src/mainwindow.cpp" line="413"/>
+        <location filename="../src/mainwindow.cpp" line="137"/>
+        <location filename="../src/mainwindow.cpp" line="148"/>
+        <location filename="../src/mainwindow.cpp" line="154"/>
+        <location filename="../src/mainwindow.cpp" line="430"/>
+        <location filename="../src/mainwindow.cpp" line="487"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="357"/>
+        <location filename="../src/mainwindow.cpp" line="138"/>
+        <source>Default exclusion file not found at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="149"/>
+        <source>Could not remove existing exclusion file at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="155"/>
+        <source>Could not copy default exclusion file from %1 to %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="431"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Υπάρχει το αρχείο %1. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="362"/>
+        <location filename="../src/mainwindow.cpp" line="436"/>
         <source>Settings</source>
         <translation>Ρυθμίσεις</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="368"/>
+        <location filename="../src/mainwindow.cpp" line="442"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Το στιγμιότυπο θα χρησιμοποιήσει τις ακόλουθες ρυθμίσεις:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="370"/>
+        <location filename="../src/mainwindow.cpp" line="444"/>
         <source>- Snapshot directory:</source>
         <translation>- Κατάλογος του στιγμιότυπου:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="371"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>- Kernel to be used:</source>
         <translation>- Πυρήνας που θα χρησιμοποιηθεί:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="393"/>
-        <location filename="../src/mainwindow.cpp" line="402"/>
+        <location filename="../src/mainwindow.cpp" line="467"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>NVIDIA Detected</source>
         <translation>Εντοπίστηκε NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="394"/>
+        <location filename="../src/mainwindow.cpp" line="468"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Αυτός ο υπολογιστής χρησιμοποιεί κάρτα γραφικών NVIDIA. Σχεδιάζετε να χρησιμοποιήσετε το ISO στον ίδιο ή σε άλλο υπολογιστή με κάρτα γραφικών NVIDIA;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="398"/>
+        <location filename="../src/mainwindow.cpp" line="472"/>
         <source>NVIDIA Selected</source>
         <translation>Επιλέχτηκε NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="399"/>
+        <location filename="../src/mainwindow.cpp" line="473"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή χωρίς κάρτα γραφικών NVIDIA, πιθανότατα θα πρέπει να αφαιρέσετε το &apos;xorg=nvidia&apos; από τις επιλογές εκκίνησης.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="403"/>
+        <location filename="../src/mainwindow.cpp" line="477"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Σημείωση: Αν χρησιμοποιήσετε το ISO σε υπολογιστή με κάρτα γραφικών NVIDIA, ίσως χρειαστεί να προσθέσετε το &apos;xorg=nvidia&apos; στις επιλογές εκκίνησης.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="414"/>
+        <location filename="../src/mainwindow.cpp" line="488"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Ο ενεργός πυρήνας δεν υποστηρίζει τον επιλεγμένο αλγόριθμο συμπίεσης, παρακαλώ επεξεργαστείτε το αρχείο παραμέτρων και επιλέξτε διαφορετικό αλγόριθμο.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="437"/>
+        <location filename="../src/mainwindow.cpp" line="511"/>
         <source>Final chance</source>
         <translation>Τελευταία δυνατότητα</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="439"/>
+        <location filename="../src/mainwindow.cpp" line="513"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Το στιγμιότυπο έχει όλες τις πληροφορίες που χρειάζονται για τη δημιουργία ISO από το ενεργό σύστημα σας.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="440"/>
+        <location filename="../src/mainwindow.cpp" line="514"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Θα χρειαστεί κάποιος χρόνος για να ολοκληρωθεί, ανάλογα με το μέγεθος του συστήματος και την ικανότητα του υπολογιστή σας.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442"/>
+        <location filename="../src/mainwindow.cpp" line="516"/>
         <source>OK to start?</source>
         <translation>Να ξεκινήσουμε;</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="446"/>
+        <location filename="../src/mainwindow.cpp" line="520"/>
         <source>Shutdown computer when done.</source>
         <translation>Τερματισμός του υπολογιστή όταν τελειώσει.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="479"/>
+        <location filename="../src/mainwindow.cpp" line="553"/>
         <source>Output</source>
         <translation>Έξοδος</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="495"/>
+        <location filename="../src/mainwindow.cpp" line="569"/>
         <source>Close</source>
         <translation>Κλείσιμο</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="502"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
         <source>Edit Boot Menu</source>
         <translation>Επεξεργασία μενού του φορτωτή εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="503"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Το πρόγραμμα θα σταματήσει τώρα για να σας επιτρέψει να επεξεργαστείτε αρχεία στον κατάλογο εργασίας σας. Επιλέξτε Ναι για να επεξεργαστείτε το μενού του φορτωτή εκκίνησης ή Όχι για να παρακάμψετε αυτό το βήμα και να συνεχίσετε.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="601"/>
+        <location filename="../src/mainwindow.cpp" line="612"/>
+        <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="692"/>
         <source>About %1</source>
         <translation>Περί του %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="603"/>
+        <location filename="../src/mainwindow.cpp" line="694"/>
         <source>Version: </source>
         <translation>Έκδοση: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Πρόγραμμα δημιουργίας live-CD από ενεργό σύστημα του MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="606"/>
+        <location filename="../src/mainwindow.cpp" line="697"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Πνευματικά δικαιώματα (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="608"/>
+        <location filename="../src/mainwindow.cpp" line="699"/>
         <source>%1 License</source>
         <translation>Άδεια %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="622"/>
+        <location filename="../src/mainwindow.cpp" line="713"/>
         <source>%1 Help</source>
         <translation>Βοήθεια %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="627"/>
+        <location filename="../src/mainwindow.cpp" line="718"/>
         <source>Select Snapshot Directory</source>
         <translation>Επιλογή καταλόγου για το στιγμιότυπο</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="739"/>
         <source>Confirmation</source>
         <translation>Επιβεβαίωση</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="648"/>
+        <location filename="../src/mainwindow.cpp" line="739"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Θέλετε σίγουρα να τερματίσετε την εφαρμογή;</translation>
     </message>
@@ -690,161 +720,161 @@
     <message>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="453"/>
-        <location filename="../src/settings.cpp" line="461"/>
-        <location filename="../src/settings.cpp" line="953"/>
-        <location filename="../src/settings.cpp" line="1047"/>
+        <location filename="../src/settings.cpp" line="455"/>
+        <location filename="../src/settings.cpp" line="463"/>
+        <location filename="../src/settings.cpp" line="982"/>
+        <location filename="../src/settings.cpp" line="1076"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="460"/>
+        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Ο ενεργός πυρήνας δεν υποστηρίζει Squashfs, δεν μπορεί να προχωρήσει.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="57"/>
+        <location filename="../src/settings.cpp" line="59"/>
         <source>Failed to initialize configuration</source>
         <translation>Απέτυχε η προετοιμασία των παραμέτρων</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="80"/>
+        <location filename="../src/settings.cpp" line="82"/>
         <source>Configuration validation failed</source>
         <translation>Απέτυχε η εγκυρότητα των παραμέτρων</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="85"/>
+        <location filename="../src/settings.cpp" line="87"/>
         <source>Exception during initialization: %1</source>
         <translation>Εξαίρεση από την εκκίνηση: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="88"/>
+        <location filename="../src/settings.cpp" line="90"/>
         <source>Unknown exception during initialization</source>
         <translation>Άγνωστη εξαίρεση</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="119"/>
+        <location filename="../src/settings.cpp" line="121"/>
         <source>Could not create work directory. </source>
         <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="143"/>
+        <location filename="../src/settings.cpp" line="145"/>
         <source>Could not create temp directory:</source>
         <translation>Δεν κατέστη δυνατή η δημιουργία του προσωρινού καταλόγου:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="144"/>
+        <location filename="../src/settings.cpp" line="146"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Παρακαλώ ελέγξτε αν υπάρχει ο γονικός κατάλογος και είναι εγγράψιμος:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="162"/>
+        <location filename="../src/settings.cpp" line="164"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>Δεν υποστηρίζεται από τον ενεργό πυρήνα ο τύπος συμπίεσης &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="168"/>
+        <location filename="../src/settings.cpp" line="170"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Μη έγκυρος αριθμός πυρήνων: %1. Πρέπει να είναι μεταξύ 1 και %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="174"/>
+        <location filename="../src/settings.cpp" line="176"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Μη έγκυρη ρύθμιση περιορισμού: %1. Πρέπει να είναι μεταξύ 0 και 20</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="180"/>
+        <location filename="../src/settings.cpp" line="182"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>Ο κατάλογος στιγμιότυπων δεν μπορεί να είναι κενός</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="188"/>
+        <location filename="../src/settings.cpp" line="190"/>
         <source>Snapshot name cannot be empty</source>
         <translation>Το όνομα του στιγμιότυπου δεν μπορεί να είναι κενό</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="194"/>
+        <location filename="../src/settings.cpp" line="196"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>Το όνομα του στιγμιότυπου περιέχει μη έγκυρους χαρακτήρες: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="200"/>
+        <location filename="../src/settings.cpp" line="202"/>
         <source>Kernel version cannot be empty</source>
         <translation>Η έκδοση του πυρήνα δεν μπορεί να είναι κενή</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="205"/>
+        <location filename="../src/settings.cpp" line="207"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>Δεν βρέθηκε το αρχείο του πυρήνα: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="211"/>
+        <location filename="../src/settings.cpp" line="213"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Ο πυρήνας %1 δεν υποστηρίζει Squashfs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="237"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>Δεν υπάρχει το αρχείο εξαίρεσης: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="244"/>
+        <location filename="../src/settings.cpp" line="246"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Μη ισορροπημένες αναφορές στη λίστα εξαίρεσης</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="269"/>
+        <location filename="../src/settings.cpp" line="271"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Ανεπαρκής ελεύθερος χώρος: %1 KiB διαθέσιμα, απαιτούνται τουλάχιστον %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="276"/>
+        <location filename="../src/settings.cpp" line="278"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Ανεπαρκής ελεύθερος χώρος στον κατάλογο εργασίας: %1 KiB διαθέσιμα, απαιτούνται τουλάχιστον %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="291"/>
+        <location filename="../src/settings.cpp" line="293"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Απέτυχε ο προσδιορισμός αριθμού πυρήνων της CPU</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="297"/>
+        <location filename="../src/settings.cpp" line="299"/>
         <source>Configuration file does not exist: %1</source>
         <translation>Δεν υπάρχει το αρχείο παραμέτρων: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="298"/>
+        <location filename="../src/settings.cpp" line="300"/>
         <source>Using default settings</source>
         <translation>Χρήση των προεπιλεγμένων ρυθμίσεων</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="302"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Δεν είναι δυνατή η ανάγνωση του αρχείου παραμέτρων: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="301"/>
+        <location filename="../src/settings.cpp" line="303"/>
         <source>Error: %1</source>
         <translation>Σφάλμα: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="311"/>
+        <location filename="../src/settings.cpp" line="313"/>
         <source>Required tool not found: %1</source>
         <translation>Δεν βρέθηκε το απαιτούμενο εργαλείο: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="320"/>
+        <location filename="../src/settings.cpp" line="322"/>
         <source>Required directory not found: %1</source>
         <translation>Δεν βρέθηκε ο απαιτούμενος κατάλογος: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="339"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Initialization Error</source>
         <translation>Σφάλμα εκκίνησης</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="340"/>
+        <location filename="../src/settings.cpp" line="342"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -853,47 +883,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="451"/>
+        <location filename="../src/settings.cpp" line="453"/>
         <source>Could not find a usable kernel</source>
         <translation>Δεν κατέστη δυνατή η εύρεση διαθέσιμου πυρήνα</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="452"/>
+        <location filename="../src/settings.cpp" line="454"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Αναζητήθηκαν αρχεία πυρήνα στο /boot/ αλλά δεν βρέθηκε κανένα ή κανένα δεν ήταν προσβάσιμο.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="473"/>
+        <location filename="../src/settings.cpp" line="475"/>
         <source>No users found in the system</source>
         <translation>Δεν βρέθηκαν χρήστες στο σύστημα</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="476"/>
+        <location filename="../src/settings.cpp" line="478"/>
         <source>Failed to determine system information</source>
         <translation>Απέτυχε ο έλεγχος πληροφοριών του συστήματος</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="570"/>
+        <location filename="../src/settings.cpp" line="572"/>
         <source>Used space on / (root): </source>
         <translation>Χώρος που χρησιμοποιεί το / (root): </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="573"/>
+        <location filename="../src/settings.cpp" line="575"/>
         <source>estimated</source>
         <translation>κατ&apos; εκτίμηση</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="582"/>
+        <location filename="../src/settings.cpp" line="584"/>
         <source>Used space on /home: </source>
         <translation>Χώρος που χρησιμοποιεί το /home: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="638"/>
+        <location filename="../src/settings.cpp" line="640"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Ελεύθερος χώρος στο %1, όπου τοποθετείται ο φάκελος του στιγμιότυπου: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="642"/>
+        <location filename="../src/settings.cpp" line="644"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -908,63 +938,68 @@
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="658"/>
         <source>Desktop</source>
         <translation>Επιφάνεια εργασίας</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="657"/>
+        <location filename="../src/settings.cpp" line="659"/>
         <source>Documents</source>
         <translation>&apos;Εγγραφα</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Downloads</source>
         <translation>Λήψεις</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="661"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="662"/>
         <source>Music</source>
         <translation>Μουσική</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="663"/>
         <source>Networks</source>
         <translation>Δίκτυα</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="664"/>
         <source>Pictures</source>
         <translation>Εικόνες</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="666"/>
         <source>Videos</source>
         <translation>Βίντεο</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="813"/>
+        <location filename="../src/settings.cpp" line="815"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Σφάλμα ανάγνωσης του αρχείου παραμέτρων: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="818"/>
+        <location filename="../src/settings.cpp" line="820"/>
         <source>Error accessing user configuration</source>
         <translation>Σφάλμα πρόσβασης στις ρυθμίσεις του χρήστη</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="861"/>
+        <location filename="../src/settings.cpp" line="867"/>
+        <source>Could not copy exclusion file from %1 to %2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/settings.cpp" line="890"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="951"/>
-        <location filename="../src/settings.cpp" line="1045"/>
+        <location filename="../src/settings.cpp" line="980"/>
+        <location filename="../src/settings.cpp" line="1074"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Το αρχείο %1 υπάρχει. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
