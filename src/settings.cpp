@@ -27,6 +27,8 @@
 #include <QCoreApplication>
 #include <QDate>
 #include <QDebug>
+#include <QDir>
+#include <QFileInfo>
 #include <QRegularExpression>
 #include <QSettings>
 #include <QStandardPaths>
@@ -818,6 +820,9 @@ void Settings::loadConfig()
         qWarning() << QObject::tr("Error accessing user configuration");
     }
 
+    const QString systemSnapshotExcludes = trimQuotes(settingsSystem.value("snapshot_excludes").toString());
+    const bool userConfiguredSnapshotExcludes = settingsUser.contains("snapshot_excludes");
+
     // Read all keys from system settings
     settingsSystem.beginGroup("");
     QStringList systemKeys = settingsSystem.allKeys();
@@ -836,11 +841,36 @@ void Settings::loadConfig()
     if (!snapshot_dir.endsWith("/snapshot")) {
         snapshot_dir = QDir::cleanPath(snapshot_dir + "/snapshot");
     }
+    const QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+    const QString userConfigDir = QDir::cleanPath(configDir + "/" + QCoreApplication::organizationName());
+    const QString userExcludesPath =
+        QDir::cleanPath(userConfigDir + "/" + qApp->applicationName() + "-exclude.list");
+    const QString systemExcludesPath = QDir::cleanPath("/etc/" + qApp->applicationName() + "-exclude.list");
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
     QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     const QString fallbackExcludesPath = QFileInfo::exists(localPath) ? localPath : usrPath;
-    QString configuredExcludesPath =
-        trimQuotes(settingsUser.value("snapshot_excludes", fallbackExcludesPath).toString());
+    QString configuredExcludesPath = trimQuotes(settingsUser.value("snapshot_excludes", userExcludesPath).toString());
+
+    if (!userConfiguredSnapshotExcludes || configuredExcludesPath == systemSnapshotExcludes) {
+        configuredExcludesPath = userExcludesPath;
+        settingsUser.setValue("snapshot_excludes", configuredExcludesPath);
+    }
+
+    const bool usingDefaultUserPath = configuredExcludesPath == userExcludesPath;
+    if (usingDefaultUserPath && !QFileInfo::exists(userExcludesPath)) {
+        const QString sourceExcludesPath =
+            QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
+        if (!sourceExcludesPath.isEmpty() && QFileInfo::exists(sourceExcludesPath)) {
+            QDir().mkpath(userConfigDir);
+            if (QFile::copy(sourceExcludesPath, userExcludesPath)) {
+                qDebug() << "Copied exclusion file from" << sourceExcludesPath << "to" << userExcludesPath;
+            } else {
+                qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")
+                                  .arg(sourceExcludesPath, userExcludesPath);
+                configuredExcludesPath = sourceExcludesPath;
+            }
+        }
+    }
     if (!QFileInfo::exists(configuredExcludesPath)) {
         qDebug() << "Configured snapshot_excludes file not found (" << configuredExcludesPath
                  << "), using fallback path:" << fallbackExcludesPath;
