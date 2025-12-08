@@ -26,11 +26,14 @@
 #include "ui_mainwindow.h"
 
 #include <QCalendarWidget>
+#include <QDateTime>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
+#include <QFileDevice>
 #include <QFileDialog>
 #include <QFileInfo>
+#include <QFileSystemWatcher>
 #include <QKeyEvent>
 #include <QProcess>
 #include <QPushButton>
@@ -42,6 +45,7 @@
 #include "settings.h"
 #include "work.h"
 #include <chrono>
+#include <utime.h>
 
 using namespace std::chrono_literals;
 
@@ -64,6 +68,7 @@ MainWindow::MainWindow(Settings *settings, QWidget *parent)
     } else {
         listUsedSpace();
     }
+    watchExcludesFile();
 }
 
 MainWindow::~MainWindow() = default;
@@ -91,6 +96,7 @@ void MainWindow::loadSettings()
     ui->comboLiveKernel->addItems(kernelFiles);
     ui->comboLiveKernel->setCurrentText(settings->kernel);
     updateCustomExcludesButton();
+    watchExcludesFile();
 }
 
 bool MainWindow::hasCustomExcludes() const
@@ -171,6 +177,25 @@ void MainWindow::updateCustomExcludesButton()
     ui->btnRemoveCustomExclude->setVisible(hasCustomExcludes());
 }
 
+void MainWindow::watchExcludesFile()
+{
+    const QString path = settings->snapshot_excludes.fileName();
+    if (path.isEmpty()) {
+        return;
+    }
+
+    const QStringList watched = excludesWatcher.files();
+    for (const QString &existing : watched) {
+        if (existing != path) {
+            excludesWatcher.removePath(existing);
+        }
+    }
+
+    if (!excludesWatcher.files().contains(path) && QFileInfo::exists(path)) {
+        excludesWatcher.addPath(path);
+    }
+}
+
 bool MainWindow::resetCustomExcludes()
 {
     const QString configuredPath = settings->snapshot_excludes.fileName();
@@ -204,6 +229,7 @@ bool MainWindow::resetCustomExcludes()
         return false;
     }
 
+    watchExcludesFile();
     return true;
 }
 
@@ -260,6 +286,12 @@ void MainWindow::setConnections()
     connect(ui->excludeSteam, &QCheckBox::toggled, this, &MainWindow::excludeSteam_toggled);
     connect(ui->excludeVideos, &QCheckBox::toggled, this, &MainWindow::excludeVideos_toggled);
     connect(ui->excludeVirtualBox, &QCheckBox::toggled, this, &MainWindow::excludeVirtualBox_toggled);
+    connect(&excludesWatcher, &QFileSystemWatcher::fileChanged, this, [this](const QString &path) {
+        Q_UNUSED(path);
+        updateCustomExcludesButton();
+        checkUpdatedDefaultExcludes();
+        watchExcludesFile(); // re-add in case the file was recreated
+    });
     connect(ui->pushReleaseDate, &QPushButton::clicked, this, [this] {
         QCalendarWidget *calendarWidget = new QCalendarWidget(this);
         calendarWidget->setWindowTitle(tr("Select Release Date"));
@@ -547,7 +579,7 @@ void MainWindow::checkUpdatedDefaultExcludes()
     msgBox.setInformativeText(
         tr("Review the changes below. Keep your custom file or replace it with the updated default."));
     msgBox.setDetailedText(diffOutput);
-    msgBox.addButton(tr("Keep Custom"), QMessageBox::AcceptRole);
+    QPushButton *keepCustomButton = msgBox.addButton(tr("Keep Custom"), QMessageBox::AcceptRole);
     QPushButton *useUpdatedDefaultButton = msgBox.addButton(tr("Use Updated Default"), QMessageBox::DestructiveRole);
     msgBox.setDefaultButton(useUpdatedDefaultButton);
     msgBox.exec();
@@ -558,6 +590,16 @@ void MainWindow::checkUpdatedDefaultExcludes()
         } else {
             QMessageBox::warning(this, tr("Error"),
                                  tr("Could not replace the exclusion file with the updated default."));
+        }
+    } else if (msgBox.clickedButton() == keepCustomButton) {
+        utimbuf times {};
+        times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
+        times.modtime = QDateTime::currentSecsSinceEpoch();
+        const int utimeResult = utime(configuredPath.toLocal8Bit().constData(), &times);
+        if (utimeResult == 0) {
+            qDebug() << "Updated modification time for custom excludes file via utime" << configuredPath;
+        } else {
+            qWarning() << "Failed to update modification time for custom excludes file" << configuredPath;
         }
     }
 }
@@ -683,6 +725,7 @@ void MainWindow::btnEditExclude_clicked()
     Cmd editor(this);
     editor.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
     updateCustomExcludesButton();
+    checkUpdatedDefaultExcludes();
     show();
 }
 

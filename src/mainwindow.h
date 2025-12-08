@@ -26,6 +26,7 @@
 #include <QMessageBox>
 #include <QScopedPointer>
 #include <QSettings>
+#include <QFileSystemWatcher>
 #include <QTimer>
 
 #include "settings.h"
@@ -92,6 +93,7 @@ private:
     Settings *settings;
     Work work;
     QSettings qt_settings;
+    QFileSystemWatcher excludesWatcher;
 
     [[nodiscard]] bool confirmStart();
     [[noreturn]] void cleanUp();
@@ -118,4 +120,5 @@ private:
     void setOtherOptions();
     void setup();
     void showErrorMessageBox(const QString &file_path);
+    void watchExcludesFile();
 };
