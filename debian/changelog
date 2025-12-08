@@ -1,4 +1,4 @@
-mx-snapshot (25.12.1) mx; urgency=medium
+mx-snapshot (25.12.2) mx; urgency=medium
 
   * Add pop up to show that the maintainer excludes is newer than the
     custom one. Add option for user to show diff, accept changes or

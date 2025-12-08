@@ -888,6 +888,13 @@ void Settings::loadConfig()
             QDir().mkpath(userConfigDir);
             if (QFile::copy(excludes_source_path, userExcludesPath)) {
                 qDebug() << "Copied exclusion file from" << excludes_source_path << "to" << userExcludesPath;
+                const QString username = qEnvironmentVariable("SUDO_USER").isEmpty()
+                                             ? qEnvironmentVariable("LOGNAME")
+                                             : qEnvironmentVariable("SUDO_USER");
+                if (!username.isEmpty()) {
+                    const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, userExcludesPath);
+                    Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
+                }
             } else {
                 qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")
                                   .arg(excludes_source_path, userExcludesPath);
