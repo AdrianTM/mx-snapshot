@@ -33,6 +33,7 @@
 #include <QFileInfo>
 #include <QKeyEvent>
 #include <QProcess>
+#include <QPushButton>
 #include <QScrollBar>
 #include <QTextStream>
 #include <QTime>
@@ -117,6 +118,52 @@ bool MainWindow::hasCustomExcludes() const
         qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
     }
     return false;
+}
+
+bool MainWindow::isSourceExcludesNewer(QString &diffOutput) const
+{
+    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString sourcePath = settings->getExcludesSourcePath();
+
+    if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
+        return false;
+    }
+
+    const QFileInfo configuredInfo(configuredPath);
+    const QFileInfo sourceInfo(sourcePath);
+
+    if (!configuredInfo.exists() || !sourceInfo.exists()) {
+        return false;
+    }
+
+    if (sourceInfo.lastModified() <= configuredInfo.lastModified()) {
+        return false;
+    }
+
+    QProcess diffProcess;
+    diffProcess.start("diff", {"--unified", configuredPath, sourcePath});
+    if (!diffProcess.waitForFinished()) {
+        qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
+        return false;
+    }
+
+    const int diffResult = diffProcess.exitCode();
+    if (diffResult == 0) {
+        return false;
+    }
+    if (diffResult != 1) {
+        qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
+        return false;
+    }
+
+    diffOutput = QString::fromUtf8(diffProcess.readAllStandardOutput());
+    if (diffOutput.isEmpty()) {
+        diffOutput = QString::fromUtf8(diffProcess.readAllStandardError());
+    }
+    if (diffOutput.isEmpty()) {
+        diffOutput = tr("No diff output available.");
+    }
+    return true;
 }
 
 void MainWindow::updateCustomExcludesButton()
@@ -451,6 +498,7 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     settings->boot_options = ui->textOptions->text();
     settings->release_date = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();
+    checkUpdatedDefaultExcludes();
 }
 
 void MainWindow::checkNvidiaGraphicsCard()
@@ -479,6 +527,39 @@ void MainWindow::checkNvidiaGraphicsCard()
         }
     }
     hasRun = true;
+}
+
+void MainWindow::checkUpdatedDefaultExcludes()
+{
+    QString diffOutput;
+    if (!isSourceExcludesNewer(diffOutput)) {
+        return;
+    }
+
+    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString sourcePath = settings->getExcludesSourcePath();
+
+    QMessageBox msgBox(this);
+    msgBox.setWindowTitle(tr("Updated Exclusion List"));
+    msgBox.setIcon(QMessageBox::Information);
+    msgBox.setText(
+        tr("The exclusion file at %1 is newer than your configured file at %2.").arg(sourcePath, configuredPath));
+    msgBox.setInformativeText(
+        tr("Review the changes below. Keep your custom file or replace it with the updated default."));
+    msgBox.setDetailedText(diffOutput);
+    msgBox.addButton(tr("Keep Custom"), QMessageBox::AcceptRole);
+    QPushButton *useUpdatedDefaultButton = msgBox.addButton(tr("Use Updated Default"), QMessageBox::DestructiveRole);
+    msgBox.setDefaultButton(useUpdatedDefaultButton);
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == useUpdatedDefaultButton) {
+        if (resetCustomExcludes()) {
+            updateCustomExcludesButton();
+        } else {
+            QMessageBox::warning(this, tr("Error"),
+                                 tr("Could not replace the exclusion file with the updated default."));
+        }
+    }
 }
 
 void MainWindow::handleSettingsPage(const QString &file_name)

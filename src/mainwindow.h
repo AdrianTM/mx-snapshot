@@ -100,6 +100,7 @@ private:
     void applyExclusions();
     void checkNvidiaGraphicsCard();
     void checkSaveWork();
+    void checkUpdatedDefaultExcludes();
     void closeApp();
     void editBootMenu();
     void handleSelectionPage(const QString &file_name);
@@ -109,6 +110,7 @@ private:
     void loadSettings();
     void prepareForOutput(const QString &file_name);
     bool hasCustomExcludes() const;
+    [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;
     void updateCustomExcludesButton();
     bool resetCustomExcludes();
     void setConnections();
