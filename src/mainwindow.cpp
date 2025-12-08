@@ -28,6 +28,7 @@
 #include <QCalendarWidget>
 #include <QDateTime>
 #include <QDialog>
+#include <QDialogButtonBox>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
