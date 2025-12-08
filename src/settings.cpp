@@ -29,6 +29,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
 #include <QStandardPaths>
@@ -41,7 +42,7 @@
 
 namespace
 {
-QString userConfigBaseDir()
+QString loggedInUserName()
 {
     QString username = qEnvironmentVariable("SUDO_USER");
     if (username.isEmpty()) {
@@ -51,6 +52,20 @@ QString userConfigBaseDir()
         username = qEnvironmentVariable("USER");
     }
 
+    if (username.isEmpty() || username == QLatin1String("root")) {
+        const QString logname = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
+        if (!logname.isEmpty() && logname != QLatin1String("root")) {
+            username = logname;
+        }
+    }
+
+    return username;
+}
+
+QString userConfigBaseDir()
+{
+    const QString username = loggedInUserName();
+
     if (!username.isEmpty()) {
         const QString candidateHome = QDir::cleanPath("/home/" + username);
         if (QDir(candidateHome).exists()) {
@@ -59,6 +74,16 @@ QString userConfigBaseDir()
     }
 
     return QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+}
+
+void chownFileToLoggedInUser(const QString &path)
+{
+    const QString username = loggedInUserName();
+    if (username.isEmpty() || path.isEmpty()) {
+        return;
+    }
+    const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, path);
+    Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
 }
 } // namespace
 
@@ -870,6 +895,7 @@ void Settings::loadConfig()
     const QString userConfigDir = QDir::cleanPath(configDir + "/" + QCoreApplication::organizationName());
     const QString userExcludesPath =
         QDir::cleanPath(userConfigDir + "/" + qApp->applicationName() + "-exclude.list");
+    const QString userConfigPath = settingsUser.fileName();
     const QString systemExcludesPath = QDir::cleanPath("/etc/" + qApp->applicationName() + "-exclude.list");
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
    QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
@@ -888,9 +914,7 @@ void Settings::loadConfig()
             QDir().mkpath(userConfigDir);
             if (QFile::copy(excludes_source_path, userExcludesPath)) {
                 qDebug() << "Copied exclusion file from" << excludes_source_path << "to" << userExcludesPath;
-                const QString username = qEnvironmentVariable("SUDO_USER").isEmpty()
-                                             ? qEnvironmentVariable("LOGNAME")
-                                             : qEnvironmentVariable("SUDO_USER");
+                const QString username = loggedInUserName();
                 if (!username.isEmpty()) {
                     const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, userExcludesPath);
                     Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
@@ -908,6 +932,8 @@ void Settings::loadConfig()
         configuredExcludesPath = fallbackExcludesPath;
     }
     snapshot_excludes.setFileName(configuredExcludesPath);
+    chownFileToLoggedInUser(userConfigPath);
+    chownFileToLoggedInUser(configuredExcludesPath);
     // snapshot_basename, make_isohybrid, gui_editor, stamp, force_installer are now const members
     make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
