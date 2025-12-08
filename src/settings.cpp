@@ -39,6 +39,29 @@
 
 #include "messagehandler.h"
 
+namespace
+{
+QString userConfigBaseDir()
+{
+    QString username = qEnvironmentVariable("SUDO_USER");
+    if (username.isEmpty()) {
+        username = qEnvironmentVariable("LOGNAME");
+    }
+    if (username.isEmpty()) {
+        username = qEnvironmentVariable("USER");
+    }
+
+    if (!username.isEmpty()) {
+        const QString candidateHome = QDir::cleanPath("/home/" + username);
+        if (QDir(candidateHome).exists()) {
+            return QDir::cleanPath(candidateHome + "/.config");
+        }
+    }
+
+    return QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
+}
+} // namespace
+
 Settings::Settings(const QCommandLineParser &arg_parser)
     : x86(SystemInfo::is386()),
       max_cores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
@@ -815,6 +838,9 @@ void Settings::loadConfig()
         qWarning() << QObject::tr("Error reading system configuration file: %1").arg(config_file.fileName());
     }
 
+    // Ensure we use the logged-in user's config location even when running under sudo/root
+    const QString configDir = userConfigBaseDir();
+    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, configDir);
     QSettings settingsUser;
     if (settingsUser.status() != QSettings::NoError) {
         qWarning() << QObject::tr("Error accessing user configuration");
@@ -841,7 +867,6 @@ void Settings::loadConfig()
     if (!snapshot_dir.endsWith("/snapshot")) {
         snapshot_dir = QDir::cleanPath(snapshot_dir + "/snapshot");
     }
-    const QString configDir = QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
     const QString userConfigDir = QDir::cleanPath(configDir + "/" + QCoreApplication::organizationName());
     const QString userExcludesPath =
         QDir::cleanPath(userConfigDir + "/" + qApp->applicationName() + "-exclude.list");
