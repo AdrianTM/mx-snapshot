@@ -1,4 +1,4 @@
-mx-snapshot (25.11.3) mx; urgency=medium
+mx-snapshot (25.12) mx; urgency=medium
 
   * Copy the exclusion list to the ~/.config/MX-Linux/ to allow users to
     set their own list that will not be overwritten on updates
