@@ -235,27 +235,47 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
     QTextStream out(stdout);
     QTextStream in(stdin);
 
+    const QString showOptionKey = tr("s", "CLI excludes prompt: single-letter shortcut for 'show diff'");
+    const QString useOptionKey = tr("u", "CLI excludes prompt: single-letter shortcut for 'use updated default'");
+    const QString keepOptionKey = tr("k", "CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'");
+    const QString quitOptionKey = tr("q", "CLI excludes prompt: single-letter shortcut for 'quit'");
+
+    const QString showOptionText = tr("show diff", "CLI excludes prompt option label");
+    const QString useOptionText = tr("use updated default", "CLI excludes prompt option label");
+    const QString keepOptionText = tr("keep custom (update timestamp)", "CLI excludes prompt option label");
+    const QString quitOptionText = tr("quit", "CLI excludes prompt option label");
+
+    const QStringList showResponses = {showOptionKey.toLower(), showOptionText.toLower(), "s", "show"};
+    const QStringList useResponses = {useOptionKey.toLower(), useOptionText.toLower(), "u", "use"};
+    const QStringList keepResponses = {keepOptionKey.toLower(), keepOptionText.toLower(), "k", "keep"};
+    const QStringList quitResponses = {quitOptionKey.toLower(), quitOptionText.toLower(), "q", "quit"};
+
+    const QString optionPrompt =
+        tr("[%1]%2  [%3]%4  [%5]%6  [%7]%8: ")
+            .arg(showOptionKey, showOptionText, useOptionKey, useOptionText, keepOptionKey, keepOptionText, quitOptionKey,
+                 quitOptionText);
+
     while (true) {
         out << tr("The exclusion file at %1 is newer than your configured file at %2.")
                    .arg(sourcePath, configuredPath)
             << '\n';
-        out << tr("[s]how diff  [u]se updated default  [k]eep custom (update timestamp)  [q]uit: ") << Qt::flush;
+        out << optionPrompt << Qt::flush;
 
         const QString response = in.readLine().trimmed().toLower();
 
-        if (response == "s" || response == "show") {
+        if (showResponses.contains(response)) {
             out << colorizeDiffAnsi(diffOutput) << Qt::flush;
             continue;
         }
 
-        if (response == "u" || response == "use") {
+        if (useResponses.contains(response)) {
             if (resetCustomExcludesCli(configuredPath, sourcePath)) {
                 qDebug().noquote() << tr("Reverted to updated default exclusion file.");
             }
             return;
         }
 
-        if (response == "k" || response == "keep") {
+        if (keepResponses.contains(response)) {
             utimbuf times {};
             times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
             times.modtime = QDateTime::currentSecsSinceEpoch();
@@ -268,7 +288,7 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
             return;
         }
 
-        if (response == "q" || response == "quit" || response.isEmpty()) {
+        if (quitResponses.contains(response) || response.isEmpty()) {
             qDebug() << tr("Leaving custom exclusion file unchanged.");
             const bool debugStop = qEnvironmentVariableIsSet("MX_SNAPSHOT_EXCLUDES_DEBUG_STOP");
             if (debugStop) {
