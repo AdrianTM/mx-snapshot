@@ -898,7 +898,7 @@ void Settings::loadConfig()
     const QString userConfigPath = settingsUser.fileName();
     const QString systemExcludesPath = QDir::cleanPath("/etc/" + qApp->applicationName() + "-exclude.list");
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
-   QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
+    QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     const QString fallbackExcludesPath = QFileInfo::exists(localPath) ? localPath : usrPath;
     excludes_source_path = QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
     QString configuredExcludesPath = trimQuotes(settingsUser.value("snapshot_excludes", userExcludesPath).toString());

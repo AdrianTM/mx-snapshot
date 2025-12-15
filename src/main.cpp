@@ -51,7 +51,7 @@
 #endif
 
 static QTranslator qtTran, qtBaseTran, appTran;
-inline QString current_kernel {};
+QString current_kernel {};
 
 void checkSquashfs();
 void setTranslation();
@@ -221,15 +221,16 @@ int main(int argc, char *argv[])
     if (!isGuiApp) {
         Batchprocessing batch(&settings);
         QTimer::singleShot(0, app, &QCoreApplication::quit);
-        app->exec();
+        return app->exec();
     }
 #ifndef CLI_BUILD
     else {
         MainWindow w(&settings);
         w.show();
-        app->exec();
+        return app->exec();
     }
 #endif
+    return EXIT_SUCCESS;
 }
 
 void setTranslation()

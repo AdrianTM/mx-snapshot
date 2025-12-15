@@ -351,7 +351,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     QString ce = QVariant::fromValue(hash_type).toString();
     QString cmd;
     QString checksum_cmd = QString("%1sum \"%2\">\"%3/%2.%1\"").arg(ce, file_name, folder);
-    QString temp_dir {"/tmp/snapsphot-checksum-temp"};
+    QString temp_dir {"/tmp/snapshot-checksum-temp"};
     QString checksum_tmp
         = QString(
               "TD=%1; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"%2\"; CF=\"%3/${FN}.%4\"; cp $FN $TD/$FN; pushd "
@@ -574,7 +574,7 @@ quint64 Work::getRequiredSpace()
 
     // Open and read the excludes file
     if (!file->open(QIODevice::ReadOnly)) {
-        qDebug() << "Count not open file: " << file->fileName();
+        qDebug() << "Could not open file: " << file->fileName();
     }
     while (!file->atEnd()) {
         QString line = file->readLine().trimmed();

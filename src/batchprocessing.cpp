@@ -310,7 +310,7 @@ void Batchprocessing::checkNvidiaGraphicsCard()
         qDebug() << tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
                        "resulting ISO on the same computer or another computer with an NVIDIA card?")
                 + " yes/no";
-    QString response;
+        QString response;
         QTextStream stdinStream(stdin);
         stdinStream >> response;
 
