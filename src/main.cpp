@@ -25,10 +25,12 @@
 #include <QCoreApplication>
 #include <QDateTime>
 #include <QDebug>
+#include <QFileInfo>
 #include <QLibraryInfo>
 #include <QLocale>
 #include <QTranslator>
 
+#include <cstdio>
 #include <csignal>
 #include <unistd.h>
 
@@ -125,8 +127,31 @@ int main(int argc, char *argv[])
     }
 
     QCoreApplication::setApplicationVersion(VERSION);
+    QCoreApplication::setApplicationName(QFileInfo(QString::fromLocal8Bit(argv[0])).baseName());
     QCoreApplication::setOrganizationName("MX-Linux");
-    parser.process(QCoreApplication(argc, argv));
+
+    // Parse arguments before creating application instance
+    QStringList arguments;
+    for (int i = 0; i < argc; ++i) {
+        arguments << QString::fromLocal8Bit(argv[i]);
+    }
+
+    if (!parser.parse(arguments)) {
+        fprintf(stderr, "%s\n", qPrintable(parser.errorText()));
+        return EXIT_FAILURE;
+    }
+
+    // Handle help and version manually before app creation
+    if (parser.isSet("help")) {
+        fputs(qPrintable(parser.helpText()), stdout);
+        return EXIT_SUCCESS;
+    }
+
+    if (parser.isSet("version")) {
+        printf("%s %s\n", qPrintable(QCoreApplication::applicationName()),
+               qPrintable(QCoreApplication::applicationVersion()));
+        return EXIT_SUCCESS;
+    }
     const QString compressionValue = parser.value("compression");
     const QStringList allowedComp {"lz4", "lzo", "gzip", "xz", "zstd"};
     if (!compressionValue.isEmpty() && !allowedComp.contains(compressionValue)) {
