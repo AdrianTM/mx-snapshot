@@ -27,6 +27,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QDirIterator>
+#include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
 #include <QStorageInfo>
@@ -112,8 +113,18 @@ bool Work::checkInstalled(const QString &package)
         return false;
     }
 
-    return Cmd().run(QString("dpkg-query -W -f='${Status}' -- '%1' 2>/dev/null | grep -q 'install ok installed'")
-                         .arg(package));
+    QProcess dpkgQuery;
+    dpkgQuery.start("dpkg-query", {"-W", "-f=${Status}", "--", package});
+    if (!dpkgQuery.waitForFinished(5000)) {
+        dpkgQuery.kill();
+        dpkgQuery.waitForFinished(1000);
+        return false;
+    }
+    if (dpkgQuery.exitStatus() != QProcess::NormalExit || dpkgQuery.exitCode() != 0) {
+        return false;
+    }
+    const QByteArray status = dpkgQuery.readAllStandardOutput();
+    return status.contains("install ok installed");
 }
 
 void Work::cleanUp()
