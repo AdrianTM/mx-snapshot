@@ -65,6 +65,17 @@ int main(int argc, char *argv[])
         qputenv("HOME", "/root");
     }
 
+    // Parse arguments early so --help/--version can exit without creating a GUI application.
+    // Note: QCommandLineParser help text is translated when options/descriptions are created,
+    // so for localized help/version we construct a temporary QCoreApplication and build the parser after installing translators.
+    QStringList arguments;
+    arguments.reserve(argc);
+    for (int i = 0; i < argc; ++i) {
+        arguments << QString::fromLocal8Bit(argv[i]);
+    }
+    const bool wantsHelp = arguments.contains(QLatin1String("--help")) || arguments.contains(QLatin1String("-h"));
+    const bool wantsVersion = arguments.contains(QLatin1String("--version"));
+
     const std::array<int, 3> signalList {SIGINT, SIGTERM, SIGHUP}; // allow SIGQUIT CTRL-\?
     for (auto signalName : signalList) {
         signal(signalName, signalHandler);
@@ -75,82 +86,87 @@ int main(int argc, char *argv[])
     proc.waitForFinished();
     const QString logname = QString::fromLatin1(proc.readAllStandardOutput().trimmed());
 
-    QCommandLineParser parser;
-    parser.setApplicationDescription(QObject::tr("Tool used for creating a live-CD from the running system"));
-    parser.addHelpOption();
-    parser.addVersionOption();
-#ifndef CLI_BUILD
-    parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
-#endif
-
-    const QVector<QCommandLineOption> options {
-        {"cores", QObject::tr("Number of CPU cores to be used."), "number"},
-        {{"d", "directory"}, QObject::tr("Output directory"), "path"},
-        {{"f", "file"}, QObject::tr("Output filename"), "name"},
-        {{"k", "kernel"},
-         QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by "
-                     "'uname -r'")
-             + " " + QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."),
-         "version, or path"},
-        {{"l", "compression-level"},
-         QObject::tr("Compression level options.") + " "
-             + QObject::tr("Use quotes: \"-Xcompression-level <level>\", or \"-Xalgorithm <algorithm>\", or \"-Xhc\", "
-                           "see mksquashfs man page"),
-         "\"option\""},
-        {{"m", "month"},
-         QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " "
-             + QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those "
-                           "items will be ignored") + " "
-             + QObject::tr("Optionally specify a suffix to add to the month name (e.g., '1' for 'July.1')"), ""},
-        {{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file"), ""},
-        {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit"), ""},
-        {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels"), ""},
-        {{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)"), ""},
-        {{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file"), ""},
-        {{"t", "throttle"},
-         QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU "
-                     "consumption of Mksquashfs."),
-         "number"},
-        {{"w", "workdir"}, QObject::tr("Work directory"), "path"},
-        {{"x", "exclude"},
-         QObject::tr("Exclude main folders, valid choices: ")
-             + "Desktop, Documents, Downloads, Flatpaks, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
-             + QObject::tr("Use the option one time for each item you want to exclude"),
-         "one item"},
-        {{"z", "compression"},
-         QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
-         "format"},
-        {"shutdown", QObject::tr("Shutdown computer when done.")}};
-
-    for (const auto &option : options) {
-        parser.addOption(option);
-    }
-
     QCoreApplication::setApplicationVersion(VERSION);
     QCoreApplication::setApplicationName(QFileInfo(QString::fromLocal8Bit(argv[0])).baseName());
     QCoreApplication::setOrganizationName("MX-Linux");
 
-    // Parse arguments before creating application instance
-    QStringList arguments;
-    for (int i = 0; i < argc; ++i) {
-        arguments << QString::fromLocal8Bit(argv[i]);
+    const auto setupParser = [](QCommandLineParser &parser) {
+        parser.setApplicationDescription(QObject::tr("Tool used for creating a live-CD from the running system"));
+        parser.addHelpOption();
+        parser.addVersionOption();
+#ifndef CLI_BUILD
+        parser.addOption({{"c", "cli"}, QObject::tr("Use CLI only")});
+#endif
+
+        const QVector<QCommandLineOption> options {
+            {"cores", QObject::tr("Number of CPU cores to be used."), "number"},
+            {{"d", "directory"}, QObject::tr("Output directory"), "path"},
+            {{"f", "file"}, QObject::tr("Output filename"), "name"},
+            {{"k", "kernel"},
+             QObject::tr("Name a different kernel to use other than the default running kernel, use format returned by "
+                         "'uname -r'")
+                 + " " + QObject::tr("Or the full path: %1").arg("/boot/vmlinuz-x.xx.x..."),
+             "version, or path"},
+            {{"l", "compression-level"},
+             QObject::tr("Compression level options.") + " "
+                 + QObject::tr("Use quotes: \"-Xcompression-level <level>\", or \"-Xalgorithm <algorithm>\", or \"-Xhc\", "
+                               "see mksquashfs man page"),
+             "\"option\""},
+            {{"m", "month"},
+             QObject::tr("Create a monthly snapshot, add 'Month' name in the ISO name, skip used space calculation") + " "
+                 + QObject::tr("This option sets reset-accounts and compression to defaults, arguments changing those "
+                               "items will be ignored") + " "
+                 + QObject::tr("Optionally specify a suffix to add to the month name (e.g., '1' for 'July.1')"), ""},
+            {{"n", "no-checksums"}, QObject::tr("Don't calculate checksums for resulting ISO file"), ""},
+            {{"o", "override-size"}, QObject::tr("Skip calculating free space to see if the resulting ISO will fit"), ""},
+            {{"p", "preempt"}, QObject::tr("Option to fix issue with calculating checksums on preempt_rt kernels"), ""},
+            {{"r", "reset"}, QObject::tr("Resetting accounts (for distribution to others)"), ""},
+            {{"s", "checksums"}, QObject::tr("Calculate checksums for resulting ISO file"), ""},
+            {{"t", "throttle"},
+             QObject::tr("Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU "
+                         "consumption of Mksquashfs."),
+             "number"},
+            {{"w", "workdir"}, QObject::tr("Work directory"), "path"},
+            {{"x", "exclude"},
+             QObject::tr("Exclude main folders, valid choices: ")
+                 + "Desktop, Documents, Downloads, Flatpaks, Music, Networks, Pictures, Steam, Videos, VirtualBox. "
+                 + QObject::tr("Use the option one time for each item you want to exclude"),
+             "one item"},
+            {{"z", "compression"},
+             QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
+             "format"},
+            {"shutdown", QObject::tr("Shutdown computer when done.")}};
+
+        for (const auto &option : options) {
+            parser.addOption(option);
+        }
+    };
+
+    if (wantsHelp || wantsVersion) {
+        QCoreApplication tempApp(argc, argv);
+        setTranslation();
+
+        QCommandLineParser parser;
+        setupParser(parser);
+        parser.process(tempApp);
+
+        if (wantsHelp) {
+            fputs(qPrintable(parser.helpText()), stdout);
+            return EXIT_SUCCESS;
+        }
+        if (wantsVersion) {
+            printf("%s %s\n", qPrintable(QCoreApplication::applicationName()),
+                   qPrintable(QCoreApplication::applicationVersion()));
+            return EXIT_SUCCESS;
+        }
     }
+
+    QCommandLineParser parser;
+    setupParser(parser);
 
     if (!parser.parse(arguments)) {
         fprintf(stderr, "%s\n", qPrintable(parser.errorText()));
         return EXIT_FAILURE;
-    }
-
-    // Handle help and version manually before app creation
-    if (parser.isSet("help")) {
-        fputs(qPrintable(parser.helpText()), stdout);
-        return EXIT_SUCCESS;
-    }
-
-    if (parser.isSet("version")) {
-        printf("%s %s\n", qPrintable(QCoreApplication::applicationName()),
-               qPrintable(QCoreApplication::applicationVersion()));
-        return EXIT_SUCCESS;
     }
     const QString compressionValue = parser.value("compression");
     const QStringList allowedComp {"lz4", "lzo", "gzip", "xz", "zstd"};
@@ -166,7 +182,7 @@ int main(int argc, char *argv[])
     app = new QCoreApplication(argc, argv);
 #else
     // Determine if we should run in CLI mode based on multiple factors
-    const bool forceCliMode = parser.isSet("cli") || parser.isSet("help") ||
+    const bool forceCliMode = parser.isSet("cli") ||
                               QString(argv[0]).contains("cli") ||
                               !qEnvironmentVariableIsEmpty("MX_SNAPSHOT_CLI");
     const bool noWindowSystem = qEnvironmentVariableIsEmpty("DISPLAY") &&
