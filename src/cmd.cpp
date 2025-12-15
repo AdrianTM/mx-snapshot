@@ -12,8 +12,7 @@ Cmd::Cmd(QObject *parent)
     : QProcess(parent),
       helper {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
-    const QString tool = Cmd::elevationTool();
-    elevate = tool.isEmpty() ? QStringLiteral("/usr/bin/sudo") : tool;
+    elevate = Cmd::elevationTool();
     connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
     connect(this, &Cmd::readyReadStandardError, [this] { emit errorAvailable(readAllStandardError()); });
     connect(this, &Cmd::outputAvailable, [this](const QString &out) { out_buffer += out; });
@@ -75,6 +74,13 @@ bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
     }
     if (quiet == QuietMode::No) {
         qDebug().noquote() << cmd;
+    }
+    if (elevation == Elevation::Yes && getuid() != 0 && elevate.isEmpty()) {
+        const QString message = tr("No elevation tool found (pkexec/gksu/sudo).");
+        qWarning().noquote() << message;
+        emit errorAvailable(message);
+        emit done();
+        return false;
     }
     QEventLoop loop;
     connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
