@@ -30,6 +30,7 @@
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QStandardPaths>
 #include <QStorageInfo>
 #include <QTextStream>
 
@@ -62,9 +63,9 @@ bool Work::isEnvironmentReady() const
     }
 
     // Check if required tools are available
-    QStringList requiredTools = {"mksquashfs", "xorriso"};
+    const QStringList requiredTools {"mksquashfs", "xorriso"};
     for (const QString &tool : requiredTools) {
-        if (!checkInstalled(tool)) {
+        if (QStandardPaths::findExecutable(tool).isEmpty()) {
             return false;
         }
     }
