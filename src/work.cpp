@@ -102,6 +102,15 @@ void Work::checkEnoughSpace()
 bool Work::checkInstalled(const QString &package)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
+    // Validate package name contains only safe characters to prevent command injection
+    // Debian package names allow: lowercase letters, digits, plus, minus, and dot
+    static const QRegularExpression validPackageName("^[a-z0-9+.:-]+$");
+    if (!validPackageName.match(package).hasMatch()) {
+        qWarning() << "Invalid package name:" << package;
+        return false;
+    }
+
     return Cmd().run(QString("dpkg-query -W -f='${Status}' %1 | grep 'install ok installed'").arg(package));
 }
 
