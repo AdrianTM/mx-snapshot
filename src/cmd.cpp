@@ -10,13 +10,13 @@
 
 Cmd::Cmd(QObject *parent)
     : QProcess(parent),
-      helper {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
+      elevationToolPath {Cmd::elevationTool()},
+      helperPath {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
-    elevate = Cmd::elevationTool();
     connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
     connect(this, &Cmd::readyReadStandardError, [this] { emit errorAvailable(readAllStandardError()); });
-    connect(this, &Cmd::outputAvailable, [this](const QString &out) { out_buffer += out; });
-    connect(this, &Cmd::errorAvailable, [this](const QString &out) { out_buffer += out; });
+    connect(this, &Cmd::outputAvailable, [this](const QString &out) { outBuffer += out; });
+    connect(this, &Cmd::errorAvailable, [this](const QString &out) { outBuffer += out; });
 }
 
 QString Cmd::elevationTool()
@@ -39,7 +39,7 @@ bool Cmd::isCliMode()
 #ifdef CLI_BUILD
     return true;
 #else
-    const QStringList args = QCoreApplication::arguments();
+    const auto args = QCoreApplication::arguments();
     const bool forceCliMode = args.contains("--cli") || args.contains("-c") ||
                               args.contains("--help") || args.contains("-h") ||
                               QCoreApplication::applicationFilePath().contains("cli") ||
@@ -55,9 +55,9 @@ bool Cmd::isCliMode()
 
 QString Cmd::getOut(const QString &cmd, QuietMode quiet, Elevation elevation)
 {
-    out_buffer.clear();
+    outBuffer.clear();
     run(cmd, quiet, elevation);
-    return out_buffer.trimmed();
+    return outBuffer.trimmed();
 }
 
 QString Cmd::getOutAsRoot(const QString &cmd, QuietMode quiet)
@@ -67,7 +67,7 @@ QString Cmd::getOutAsRoot(const QString &cmd, QuietMode quiet)
 
 bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
 {
-    out_buffer.clear();
+    outBuffer.clear();
     if (state() != QProcess::NotRunning) {
         qDebug() << "Process already running:" << program() << arguments();
         return false;
@@ -75,7 +75,7 @@ bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
     if (quiet == QuietMode::No) {
         qDebug().noquote() << cmd;
     }
-    if (elevation == Elevation::Yes && getuid() != 0 && elevate.isEmpty()) {
+    if (elevation == Elevation::Yes && getuid() != 0 && elevationToolPath.isEmpty()) {
         const QString message = tr("No elevation tool found (pkexec/gksu/sudo).");
         qWarning().noquote() << message;
         emit errorAvailable(message);
@@ -85,7 +85,7 @@ bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
     QEventLoop loop;
     connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
     if (elevation == Elevation::Yes && getuid() != 0) {
-        start(elevate, {helper, cmd});
+        start(elevationToolPath, {helperPath, cmd});
     } else {
         start("/bin/bash", {"-c", cmd});
     }
@@ -101,5 +101,5 @@ bool Cmd::runAsRoot(const QString &cmd, QuietMode quiet)
 
 QString Cmd::readAllOutput()
 {
-    return out_buffer.trimmed();
+    return outBuffer.trimmed();
 }

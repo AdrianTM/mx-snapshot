@@ -32,7 +32,7 @@
 #include "filesystemutils.h"
 #include "systeminfo.h"
 
-extern QString current_kernel;
+extern QString currentKernel;
 
 namespace Release
 {
@@ -42,7 +42,7 @@ enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie, Forky, D
 class Settings
 {
 public:
-    explicit Settings(const QCommandLineParser &arg_parser);
+    explicit Settings(const QCommandLineParser &argParser);
 
     [[nodiscard]] QString getEditor() const;
     [[nodiscard]] QString getFilename() const;
@@ -53,7 +53,7 @@ public:
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkConfiguration() const;
     [[nodiscard]] bool checkSnapshotDir() const;
-    [[nodiscard]] QString getExcludesSourcePath() const { return excludes_source_path; }
+    [[nodiscard]] QString getExcludesSourcePath() const { return excludesSourcePath; }
     [[nodiscard]] bool checkTempDir();
     [[nodiscard]] bool initializeConfiguration();
     [[nodiscard]] bool validateExclusions() const;
@@ -78,10 +78,10 @@ public:
     void handleInitializationError(const QString &error) const;
     void loadConfig();
     void otherExclusions();
-    void processArgs(const QCommandLineParser &arg_parser);
-    void processExclArgs(const QCommandLineParser &arg_parser);
+    void processArgs(const QCommandLineParser &argParser);
+    void processExclArgs(const QCommandLineParser &argParser);
     void selectKernel();
-    void setMonthlySnapshot(const QCommandLineParser &arg_parser);
+    void setMonthlySnapshot(const QCommandLineParser &argParser);
     void setVariables();
 
     // Public enums and types
@@ -101,70 +101,70 @@ public:
 
     // Phase 1: Immutable system configuration (const)
     const bool x86;
-    const uint max_cores;
+    const uint maxCores;
     const bool monthly;
-    const bool override_size;
-    const bool edit_boot_menu;
-    const QHash<QString, quint8> compression_factor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
-                                                     {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
+    const bool overrideSize;
+    const bool editBootMenu;
+    const QHash<QString, quint8> compressionFactor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
+                                                    {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 
     // Phase 2: Mutable UI preferences
     Exclusions exclusions;
-    QString boot_options;
+    QString bootOptions;
     QString codename;
     QString compression;
-    QString distro_version;
-    QString full_distro_name;
+    QString distroVersion;
+    QString fullDistroName;
     QString kernel;
-    QString project_name;
-    QString release_date;
-    bool make_md5sum {};
-    bool make_sha512sum {};
-    bool reset_accounts {};
+    QString projectName;
+    QString releaseDate;
+    bool makeMd5sum {};
+    bool makeSha512sum {};
+    bool resetAccounts {};
     uint cores {};
     uint throttle {};
 
     // Phase 3: Runtime state
-    QFile snapshot_excludes;
+    QFile snapshotExcludes;
     QScopedPointer<QTemporaryDir> tmpdir;
-    QString mksq_opt;
-    QString session_excludes;
-    QString snapshot_dir;
-    QString snapshot_name;
-    QString tempdir_parent;
-    QString work_dir;
+    QString mksqOpt;
+    QString sessionExcludes;
+    QString snapshotDir;
+    QString snapshotName;
+    QString tempDirParent;
+    QString workDir;
     bool preempt {};
     bool shutdown {};
-    const bool force_installer;
+    const bool forceInstaller;
     const bool live;
-    const bool make_isohybrid;
-    quint64 free_space {};
-    quint64 free_space_work {};
-    QString excludes_source_path;
+    const bool makeIsohybrid;
+    quint64 freeSpace {};
+    quint64 freeSpaceWork {};
+    QString excludesSourcePath;
 
 private:
-    QFile config_file;
-    QString save_message;
+    QFile configFile;
+    QString saveMessage;
     QString version;
-    const QString gui_editor;
-    const QString snapshot_basename;
+    const QString guiEditor;
+    const QString snapshotBasename;
     const QString stamp;
     const QStringList path {qEnvironmentVariable("PATH").split(":") << "/usr/sbin"};
     const QStringList users; // list of users with /home folders
-    quint64 home_size {};
-    quint64 root_size {};
+    quint64 homeSize {};
+    quint64 rootSize {};
 
     // Helper functions for const member initialization
-    QString getInitialKernel(const QCommandLineParser &arg_parser);
+    QString getInitialKernel(const QCommandLineParser &argParser);
     bool getEditBootMenuSetting();
     QString trimQuotes(const QString &value) const;
 
     struct InitialSettings {
         bool live;
-        bool force_installer;
-        bool make_isohybrid;
-        QString gui_editor;
-        QString snapshot_basename;
+        bool forceInstaller;
+        bool makeIsohybrid;
+        QString guiEditor;
+        QString snapshotBasename;
         QString stamp;
         QStringList users;
     };

@@ -30,7 +30,7 @@ signals:
     void outputAvailable(const QString &out);
 
 private:
-    QString elevate;
-    QString helper;
-    QString out_buffer;
+    const QString elevationToolPath;
+    const QString helperPath;
+    QString outBuffer;
 };

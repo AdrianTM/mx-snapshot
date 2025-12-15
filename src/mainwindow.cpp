@@ -85,17 +85,17 @@ void MainWindow::loadSettings()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     ui->labelTitleSummary->clear();
     ui->labelSummary->clear();
-    ui->labelSnapshotDir->setText(settings->snapshot_dir);
-    if (settings->snapshot_name.isEmpty()) {
+    ui->labelSnapshotDir->setText(settings->snapshotDir);
+    if (settings->snapshotName.isEmpty()) {
         ui->lineEditName->setText(settings->getFilename());
     } else {
-        ui->lineEditName->setText(settings->snapshot_name);
+        ui->lineEditName->setText(settings->snapshotName);
     }
     ui->textCodename->setText(settings->codename);
-    ui->textDistroVersion->setText(settings->distro_version);
-    ui->textProjectName->setText(settings->project_name);
-    ui->textOptions->setText(settings->boot_options);
-    ui->pushReleaseDate->setText(settings->release_date);
+    ui->textDistroVersion->setText(settings->distroVersion);
+    ui->textProjectName->setText(settings->projectName);
+    ui->textOptions->setText(settings->bootOptions);
+    ui->pushReleaseDate->setText(settings->releaseDate);
     QDir bootDir("/boot");
     QStringList kernelFiles = bootDir.entryList({"vmlinuz-*"}, QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     std::transform(kernelFiles.begin(), kernelFiles.end(), kernelFiles.begin(),
@@ -108,7 +108,7 @@ void MainWindow::loadSettings()
 
 bool MainWindow::hasCustomExcludes() const
 {
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
 
     if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
@@ -135,7 +135,7 @@ bool MainWindow::hasCustomExcludes() const
 
 bool MainWindow::isSourceExcludesNewer(QString &diffOutput) const
 {
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
 
     if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
@@ -186,7 +186,7 @@ void MainWindow::updateCustomExcludesButton()
 
 void MainWindow::watchExcludesFile()
 {
-    const QString path = settings->snapshot_excludes.fileName();
+    const QString path = settings->snapshotExcludes.fileName();
     if (path.isEmpty()) {
         return;
     }
@@ -302,7 +302,7 @@ void MainWindow::showUpdatedExcludesDialog(const QString &diffOutput) const
 
 bool MainWindow::resetCustomExcludes()
 {
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
 
     if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
@@ -340,10 +340,10 @@ bool MainWindow::resetCustomExcludes()
 void MainWindow::setOtherOptions()
 {
     ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(settings->compression, Qt::MatchStartsWith));
-    ui->checkMd5->setChecked(settings->make_md5sum);
-    ui->checkSha512->setChecked(settings->make_sha512sum);
-    ui->radioRespin->setChecked(settings->reset_accounts);
-    ui->spinCPU->setMaximum(static_cast<int>(settings->max_cores));
+    ui->checkMd5->setChecked(settings->makeMd5sum);
+    ui->checkSha512->setChecked(settings->makeSha512sum);
+    ui->radioRespin->setChecked(settings->resetAccounts);
+    ui->spinCPU->setMaximum(static_cast<int>(settings->maxCores));
     ui->spinCPU->setValue(static_cast<int>(settings->cores));
     ui->spinThrottle->setValue(static_cast<int>(settings->throttle));
 }
@@ -469,11 +469,11 @@ void MainWindow::listUsedSpace()
 void MainWindow::listFreeSpace()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    QString path = settings->snapshot_dir;
+    QString path = settings->snapshotDir;
     path.remove(QRegularExpression("/snapshot$"));
-    QString free_space = settings->getFreeSpaceStrings(path);
+    const QString freeSpace = settings->getFreeSpaceStrings(path);
     ui->labelFreeSpace->clear();
-    ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + free_space
+    ui->labelFreeSpace->setText("- " + tr("Free space on %1, where snapshot folder is placed: ").arg(path) + freeSpace
                                 + "\n");
     ui->labelDiskSpaceHelp->setText(
         tr("The free space should be sufficient to hold the compressed data from / and /home\n\n"
@@ -586,8 +586,8 @@ void MainWindow::btnNext_clicked()
     QString file_name = ui->lineEditName->text();
     appendIsoExtension(file_name);
 
-    if (QFile::exists(settings->snapshot_dir + "/" + file_name)) {
-        showErrorMessageBox(settings->snapshot_dir + "/" + file_name);
+    if (QFile::exists(settings->snapshotDir + "/" + file_name)) {
+        showErrorMessageBox(settings->snapshotDir + "/" + file_name);
         return;
     }
 
@@ -624,15 +624,15 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     settings->selectKernel();
     ui->labelTitleSummary->setText(tr("Snapshot will use the following settings:"));
 
-    ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + settings->snapshot_dir + "\n" + "- "
+    ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + settings->snapshotDir + "\n" + "- "
                               + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
                               + settings->kernel + "\n");
     settings->codename = ui->textCodename->text();
-    settings->distro_version = ui->textDistroVersion->text();
-    settings->project_name = ui->textProjectName->text();
-    settings->full_distro_name = settings->project_name + "-" + settings->distro_version + "_" + QString(settings->x86 ? "386" : "x64");
-    settings->boot_options = ui->textOptions->text();
-    settings->release_date = ui->pushReleaseDate->text();
+    settings->distroVersion = ui->textDistroVersion->text();
+    settings->projectName = ui->textProjectName->text();
+    settings->fullDistroName = settings->projectName + "-" + settings->distroVersion + "_" + QString(settings->x86 ? "386" : "x64");
+    settings->bootOptions = ui->textOptions->text();
+    settings->releaseDate = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();
     checkUpdatedDefaultExcludes();
 }
@@ -672,7 +672,7 @@ void MainWindow::checkUpdatedDefaultExcludes()
         return;
     }
 
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
     ExcludesChoice choice = ExcludesChoice::None;
 
@@ -780,14 +780,14 @@ void MainWindow::prepareForOutput(const QString &file_name)
     setWindowTitle(tr("Output"));
     ui->outputBox->clear();
     work.setupEnv();
-    if (!settings->monthly && !settings->override_size) {
+    if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
     }
     work.copyNewIso();
     ui->outputLabel->clear();
     work.savePackageList(file_name);
 
-    if (settings->edit_boot_menu) {
+    if (settings->editBootMenu) {
         editBootMenu();
     }
 
@@ -806,8 +806,8 @@ void MainWindow::editBootMenu()
                "snapshot."),
             QMessageBox::Yes | QMessageBox::No)) {
         hide();
-        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/grub/grub.cfg\" \""
-                      + settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->work_dir
+        QString cmd = settings->getEditor() + " \"" + settings->workDir + "/iso-template/boot/grub/grub.cfg\" \""
+                      + settings->workDir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->workDir
                       + "/iso-template/boot/isolinux/isolinux.cfg\"";
         work.shell.run(cmd);
         show();
@@ -827,7 +827,7 @@ void MainWindow::btnEditExclude_clicked()
 {
     hide();
     Cmd editor(this);
-    editor.run(settings->getEditor() + " " + settings->snapshot_excludes.fileName());
+    editor.run(settings->getEditor() + " " + settings->snapshotExcludes.fileName());
     updateCustomExcludesButton();
     checkUpdatedDefaultExcludes();
     show();
@@ -899,7 +899,7 @@ void MainWindow::excludeDesktop_toggled(bool checked)
 
 void MainWindow::radioRespin_toggled(bool checked)
 {
-    settings->reset_accounts = checked;
+    settings->resetAccounts = checked;
     if (checked && !ui->excludeAll->isChecked()) {
         ui->excludeAll->click();
     }
@@ -907,7 +907,7 @@ void MainWindow::radioRespin_toggled(bool checked)
 
 void MainWindow::radioPersonal_clicked(bool checked)
 {
-    settings->reset_accounts = !checked;
+    settings->resetAccounts = !checked;
     if (checked && ui->excludeAll->isChecked()) {
         ui->excludeAll->click();
     }
@@ -946,8 +946,8 @@ void MainWindow::btnSelectSnapshot_clicked()
     QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
                                                          QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {
-        settings->snapshot_dir = selected + "/snapshot";
-        ui->labelSnapshotDir->setText(settings->snapshot_dir);
+        settings->snapshotDir = selected + "/snapshot";
+        ui->labelSnapshotDir->setText(settings->snapshotDir);
         listFreeSpace();
     }
 }
@@ -994,13 +994,13 @@ void MainWindow::excludeNetworks_toggled(bool checked)
 void MainWindow::checkMd5_toggled(bool checked)
 {
     qt_settings.setValue("make_md5sum", checked ? "yes" : "no");
-    settings->make_md5sum = checked;
+    settings->makeMd5sum = checked;
 }
 
 void MainWindow::checkSha512_toggled(bool checked)
 {
     qt_settings.setValue("make_sha512sum", checked ? "yes" : "no");
-    settings->make_sha512sum = checked;
+    settings->makeSha512sum = checked;
 }
 
 void MainWindow::excludeSteam_toggled(bool checked)

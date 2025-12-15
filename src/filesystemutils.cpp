@@ -20,8 +20,8 @@ quint64 FileSystemUtils::getFreeSpace(const QString &path)
 QString FileSystemUtils::getFreeSpaceString(const QString &path)
 {
     constexpr float factor = 1024 * 1024;
-    quint64 free_space = getFreeSpace(path);
-    return QString::number(static_cast<double>(free_space) / factor, 'f', 2) + "GiB";
+    const quint64 freeSpace = getFreeSpace(path);
+    return QString::number(static_cast<double>(freeSpace) / factor, 'f', 2) + "GiB";
 }
 
 bool FileSystemUtils::isOnSupportedPartition(const QString &dir)
@@ -40,9 +40,9 @@ QString FileSystemUtils::largerFreeSpace(const QString &dir1, const QString &dir
     if (QStorageInfo(dir1 + "/").device() == QStorageInfo(dir2 + "/").device()) {
         return dir1;
     }
-    quint64 dir1_free = getFreeSpace(dir1);
-    quint64 dir2_free = getFreeSpace(dir2);
-    return dir1_free >= dir2_free ? dir1 : dir2;
+    const quint64 dir1Free = getFreeSpace(dir1);
+    const quint64 dir2Free = getFreeSpace(dir2);
+    return dir1Free >= dir2Free ? dir1 : dir2;
 }
 
 QString FileSystemUtils::largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3)

@@ -28,11 +28,11 @@
 class Log
 {
 public:
-    explicit Log(const QString &file_name = "/tmp/mxpi.log");
+    explicit Log(const QString &fileName = "/tmp/mxpi.log");
     static QString getLog();
     static void messageHandler(QtMsgType type, const QMessageLogContext &, const QString &msg);
 
 private:
     inline static QFile logFile;
-    static void fixLogFileOwnership(const QString &file_name);
+    static void fixLogFileOwnership(const QString &fileName);
 };

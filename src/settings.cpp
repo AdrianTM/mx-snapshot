@@ -87,18 +87,18 @@ void chownFileToLoggedInUser(const QString &path)
 }
 } // namespace
 
-Settings::Settings(const QCommandLineParser &arg_parser)
+Settings::Settings(const QCommandLineParser &argParser)
     : x86(SystemInfo::is386()),
-      max_cores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
-      monthly(arg_parser.isSet("month")),
-      override_size(arg_parser.isSet("override-size")),
-      edit_boot_menu(getEditBootMenuSetting()),
-      force_installer(getInitialSettings().force_installer),
+      maxCores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
+      monthly(argParser.isSet("month")),
+      overrideSize(argParser.isSet("override-size")),
+      editBootMenu(getEditBootMenuSetting()),
+      forceInstaller(getInitialSettings().forceInstaller),
       live(getInitialSettings().live),
-      make_isohybrid(getInitialSettings().make_isohybrid),
-      config_file("/etc/" + qApp->applicationName() + ".conf"),
-      gui_editor(getInitialSettings().gui_editor),
-      snapshot_basename(getInitialSettings().snapshot_basename),
+      makeIsohybrid(getInitialSettings().makeIsohybrid),
+      configFile("/etc/" + qApp->applicationName() + ".conf"),
+      guiEditor(getInitialSettings().guiEditor),
+      snapshotBasename(getInitialSettings().snapshotBasename),
       stamp(getInitialSettings().stamp),
       users(getInitialSettings().users)
 {
@@ -115,15 +115,15 @@ Settings::Settings(const QCommandLineParser &arg_parser)
 
         loadConfig(); // Load settings from .conf file
         setVariables();
-        kernel = getInitialKernel(arg_parser); // Initialize kernel after config is loaded
-        preempt = arg_parser.isSet("preempt"); // Initialize preempt from command line
-        processArgs(arg_parser);
+        kernel = getInitialKernel(argParser); // Initialize kernel after config is loaded
+        preempt = argParser.isSet("preempt"); // Initialize preempt from command line
+        processArgs(argParser);
 
         if (monthly) {
-            setMonthlySnapshot(arg_parser);
+            setMonthlySnapshot(argParser);
         }
 
-        processExclArgs(arg_parser);
+        processExclArgs(argParser);
 
         // Validate final configuration
         if (!checkConfiguration()) {
@@ -156,20 +156,20 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
 {
     exclusion.remove(QRegularExpression("^/"));
     if (add) {
-        session_excludes.append('"' + exclusion + "\" ");
+        sessionExcludes.append('"' + exclusion + "\" ");
     } else {
-        session_excludes.remove('"' + exclusion + "\" ");
+        sessionExcludes.remove('"' + exclusion + "\" ");
     }
 }
 
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p \"" + snapshot_dir + '"', Cmd::QuietMode::No)) {
-        qDebug() << QObject::tr("Could not create work directory. ") + snapshot_dir;
+    if (!Cmd().runAsRoot("mkdir -p \"" + snapshotDir + '"', Cmd::QuietMode::No)) {
+        qDebug() << QObject::tr("Could not create work directory. ") + snapshotDir;
         return false;
     }
-    Cmd().runAsRoot("chown $(logname): \"" + snapshot_dir + '"');
+    Cmd().runAsRoot("chown $(logname): \"" + snapshotDir + '"');
     return true;
 }
 
@@ -177,29 +177,29 @@ bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
-    if (tempdir_parent.isEmpty() || !QFile::exists(tempdir_parent) || !FileSystemUtils::isOnSupportedPartition(tempdir_parent)) {
-        tempdir_parent = FileSystemUtils::isOnSupportedPartition(snapshot_dir) ? FileSystemUtils::largerFreeSpace("/tmp", "/home", snapshot_dir)
-                                                         : FileSystemUtils::largerFreeSpace("/tmp", "/home");
+    if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent) || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
+        tempDirParent = FileSystemUtils::isOnSupportedPartition(snapshotDir) ? FileSystemUtils::largerFreeSpace("/tmp", "/home", snapshotDir)
+                                                                             : FileSystemUtils::largerFreeSpace("/tmp", "/home");
     }
-    if (tempdir_parent == "/home") {
+    if (tempDirParent == "/home") {
         QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
         if (userName.isEmpty()) {
             userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
         }
-        tempdir_parent = "/home/" + userName;
+        tempDirParent = "/home/" + userName;
     }
-    tmpdir.reset(new QTemporaryDir(tempdir_parent + "/mx-snapshot-XXXXXXXX"));
+    tmpdir.reset(new QTemporaryDir(tempDirParent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {
         qCritical() << QObject::tr("Could not create temp directory:") << tmpdir->path();
         qCritical() << QObject::tr("Please check that the parent directory exists and is writable:");
-        qCritical() << tempdir_parent;
+        qCritical() << tempDirParent;
         return false;
     }
-    work_dir = tmpdir->path();
-    free_space_work = FileSystemUtils::getFreeSpace(work_dir);
+    workDir = tmpdir->path();
+    freeSpaceWork = FileSystemUtils::getFreeSpace(workDir);
 
-    QDir().mkpath(work_dir + "/iso-template/antiX");
-    qDebug() << "Work directory is placed in" << tempdir_parent;
+    QDir().mkpath(workDir + "/iso-template/antiX");
+    qDebug() << "Work directory is placed in" << tempDirParent;
     return true;
 }
 
@@ -214,8 +214,8 @@ bool Settings::checkConfiguration() const
     }
 
     // Check cores setting
-    if (cores == 0 || cores > max_cores) {
-        qCritical() << QObject::tr("Invalid cores setting: %1. Must be between 1 and %2").arg(cores).arg(max_cores);
+    if (cores == 0 || cores > maxCores) {
+        qCritical() << QObject::tr("Invalid cores setting: %1. Must be between 1 and %2").arg(cores).arg(maxCores);
         return false;
     }
 
@@ -226,7 +226,7 @@ bool Settings::checkConfiguration() const
     }
 
     // Check snapshot directory
-    if (snapshot_dir.isEmpty()) {
+    if (snapshotDir.isEmpty()) {
         qCritical() << QObject::tr("Snapshot directory cannot be empty");
         return false;
     }
@@ -234,14 +234,14 @@ bool Settings::checkConfiguration() const
     // Note: Directory creation is handled later with elevated permissions in checkSnapshotDir()
 
     // Check snapshot name
-    if (snapshot_name.isEmpty()) {
+    if (snapshotName.isEmpty()) {
         qCritical() << QObject::tr("Snapshot name cannot be empty");
         return false;
     }
 
     // Check for invalid characters in snapshot name
-    if (snapshot_name.contains(QRegularExpression("[<>:\"/\\|?*]"))) {
-        qCritical() << QObject::tr("Snapshot name contains invalid characters: %1").arg(snapshot_name);
+    if (snapshotName.contains(QRegularExpression("[<>:\"/\\|?*]"))) {
+        qCritical() << QObject::tr("Snapshot name contains invalid characters: %1").arg(snapshotName);
         return false;
     }
 
@@ -281,15 +281,15 @@ bool Settings::validateExclusions() const
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
     // Check if exclusion file exists and is readable
-    if (!snapshot_excludes.fileName().isEmpty() && !snapshot_excludes.exists()) {
-        qCritical() << QObject::tr("Exclusion file does not exist: %1").arg(snapshot_excludes.fileName());
+    if (!snapshotExcludes.fileName().isEmpty() && !snapshotExcludes.exists()) {
+        qCritical() << QObject::tr("Exclusion file does not exist: %1").arg(snapshotExcludes.fileName());
         return false;
     }
 
     // Validate session exclusions format
-    if (!session_excludes.isEmpty()) {
+    if (!sessionExcludes.isEmpty()) {
         // Check for balanced quotes
-        int quoteCount = session_excludes.count('"');
+        const int quoteCount = sessionExcludes.count('"');
         if (quoteCount % 2 != 0) {
             qCritical() << QObject::tr("Unbalanced quotes in exclusion list");
             return false;
@@ -308,23 +308,23 @@ bool Settings::validateSpaceRequirements() const
     constexpr quint64 MIN_FREE_SPACE = 1024 * 1024; // 1GB in KiB
 
     // Get free space for snapshot directory (or its parent if it doesn't exist)
-    QString pathToCheck = snapshot_dir;
-    if (!QDir(snapshot_dir).exists()) {
+    QString pathToCheck = snapshotDir;
+    if (!QDir(snapshotDir).exists()) {
         // If snapshot dir doesn't exist, check parent directory
-        pathToCheck = QFileInfo(snapshot_dir).absolutePath();
+        pathToCheck = QFileInfo(snapshotDir).absolutePath();
     }
 
-    quint64 available_space = FileSystemUtils::getFreeSpace(pathToCheck);
-    if (available_space < MIN_FREE_SPACE) {
+    const quint64 availableSpace = FileSystemUtils::getFreeSpace(pathToCheck);
+    if (availableSpace < MIN_FREE_SPACE) {
         qCritical() << QObject::tr("Insufficient free space: %1 KiB available, minimum %2 KiB required")
-                           .arg(available_space).arg(MIN_FREE_SPACE);
+                           .arg(availableSpace).arg(MIN_FREE_SPACE);
         return false;
     }
 
     // Only check work directory space if it has been initialized (checkTempDir() called)
-    if (free_space_work > 0 && free_space_work < MIN_FREE_SPACE) {
+    if (freeSpaceWork > 0 && freeSpaceWork < MIN_FREE_SPACE) {
         qCritical() << QObject::tr("Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required")
-                           .arg(free_space_work).arg(MIN_FREE_SPACE);
+                           .arg(freeSpaceWork).arg(MIN_FREE_SPACE);
         return false;
     }
 
@@ -336,22 +336,22 @@ bool Settings::initializeConfiguration()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
-    // Validate max_cores
-    if (max_cores == 0) {
+    // Validate maxCores
+    if (maxCores == 0) {
         qCritical() << QObject::tr("Failed to determine number of CPU cores");
         return false;
     }
 
     // Check if config file exists and is readable
-    if (!config_file.exists()) {
-        qWarning() << QObject::tr("Configuration file does not exist: %1").arg(config_file.fileName());
+    if (!configFile.exists()) {
+        qWarning() << QObject::tr("Configuration file does not exist: %1").arg(configFile.fileName());
         qWarning() << QObject::tr("Using default settings");
-    } else if (!config_file.open(QIODevice::ReadOnly)) {
-        qCritical() << QObject::tr("Cannot read configuration file: %1").arg(config_file.fileName());
-        qCritical() << QObject::tr("Error: %1").arg(config_file.errorString());
+    } else if (!configFile.open(QIODevice::ReadOnly)) {
+        qCritical() << QObject::tr("Cannot read configuration file: %1").arg(configFile.fileName());
+        qCritical() << QObject::tr("Error: %1").arg(configFile.errorString());
         return false;
     } else {
-        config_file.close();
+        configFile.close();
     }
 
     // Check for required system tools
@@ -392,12 +392,12 @@ void Settings::handleInitializationError(const QString &error) const
 
 QString Settings::getEditor() const
 {
-    QString editor = gui_editor;
+    QString editor = guiEditor;
     if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
-        QString default_editor = Cmd().getOut("xdg-mime query default text/plain");
-        QString desktop_file
-            = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, default_editor, QStandardPaths::LocateFile);
-        QFile file(desktop_file);
+        const QString defaultEditor = Cmd().getOut("xdg-mime query default text/plain");
+        const QString desktopFile
+            = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, defaultEditor, QStandardPaths::LocateFile);
+        QFile file(desktopFile);
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
                 QString line = file.readLine();
@@ -439,8 +439,8 @@ QString Settings::getEditor() const
 QString Settings::getSnapshotSize() const
 {
     qint64 totalSize = 0;
-    if (QFileInfo::exists(snapshot_dir)) {
-        QDir directory(snapshot_dir);
+    if (QFileInfo::exists(snapshotDir)) {
+        QDir directory(snapshotDir);
         QStringList isoFiles = directory.entryList(QStringList() << "*.iso", QDir::Files);
         for (const QString &file : isoFiles) {
             totalSize += QFileInfo(directory.absoluteFilePath(file)).size();
@@ -452,8 +452,8 @@ QString Settings::getSnapshotSize() const
 // Number of snapshots in snapshot_dir
 int Settings::getSnapshotCount() const
 {
-    if (QFileInfo::exists(snapshot_dir)) {
-        QFileInfoList list = QDir(snapshot_dir).entryInfoList(QStringList("*.iso"), QDir::Files);
+    if (QFileInfo::exists(snapshotDir)) {
+        QFileInfoList list = QDir(snapshotDir).entryInfoList(QStringList("*.iso"), QDir::Files);
         return list.size();
     }
     return 0;
@@ -490,7 +490,7 @@ void Settings::selectKernel()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     kernel.remove(QRegularExpression("^/boot/vmlinuz-"));
     if (kernel.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
-        kernel = current_kernel;
+        kernel = currentKernel;
         if (!QFileInfo::exists("/boot/vmlinuz-" + kernel)) {
             QDir directory("/boot");
             QStringList vmlinuzFiles = directory.entryList(QStringList() << "vmlinuz-*", QDir::Files, QDir::Name);
@@ -527,48 +527,48 @@ void Settings::setVariables()
         throw;
     }
 
-    QString distro_version_file;
+    QString distroVersionFile;
     if (QFileInfo::exists("/etc/mx-version")) {
-        distro_version_file = "/etc/mx-version";
+        distroVersionFile = "/etc/mx-version";
     } else if (QFileInfo::exists("/etc/antix-version")) {
-        distro_version_file = "/etc/antix-version";
+        distroVersionFile = "/etc/antix-version";
     }
 
     if (QFileInfo::exists("/etc/lsb-release")) {
-        project_name = Cmd().getOut("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release");
+        projectName = Cmd().getOut("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release");
     } else {
-        project_name = Cmd().getOut("lsb_release -i | cut -f2");
+        projectName = Cmd().getOut("lsb_release -i | cut -f2");
     }
-    project_name.replace('"', "");
-    if (!distro_version_file.isEmpty()) {
-        distro_version = Cmd().getOut("cut -f1 -d'_' " + distro_version_file);
-        distro_version.remove(QRegularExpression("^" + project_name + "_|^" + project_name + "-"));
+    projectName.replace('"', "");
+    if (!distroVersionFile.isEmpty()) {
+        distroVersion = Cmd().getOut("cut -f1 -d'_' " + distroVersionFile);
+        distroVersion.remove(QRegularExpression("^" + projectName + "_|^" + projectName + "-"));
     } else {
-        distro_version = Cmd().getOut("lsb_release -r | cut -f2");
+        distroVersion = Cmd().getOut("lsb_release -r | cut -f2");
     }
-    full_distro_name = project_name + "-" + distro_version + "_" + QString(x86 ? "386" : "x64");
-    release_date = QDate::currentDate().toString("MMMM dd, yyyy");
+    fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
+    releaseDate = QDate::currentDate().toString("MMMM dd, yyyy");
     if (QFileInfo::exists("/etc/lsb-release")) {
         codename = Cmd().getOut("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release");
     } else {
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
     codename.replace('"', "");
-    boot_options = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
+    bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
 }
 
 QString Settings::getFilename() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     if (stamp == "datetime") {
-        return snapshot_basename + "-" + QDateTime::currentDateTime().toString("yyyyMMdd_HHmm") + ".iso";
+        return snapshotBasename + "-" + QDateTime::currentDateTime().toString("yyyyMMdd_HHmm") + ".iso";
     } else {
         QString name;
         QDir dir;
         int n = 1;
         do {
-            name = snapshot_basename + QString::number(n) + ".iso";
-            dir.setPath('"' + snapshot_dir + '/' + name + '"');
+            name = snapshotBasename + QString::number(n) + ".iso";
+            dir.setPath('"' + snapshotDir + '/' + name + '"');
             n++;
         } while (QFileInfo::exists(dir.absolutePath()));
         return name;
@@ -599,7 +599,7 @@ quint64 Settings::getLiveRootSpace()
     QMap<QString, QString> compression_types
         = {{"1", "gzip"}, {"2", "lzo"}, {"3", "lzma"}, {"4", "xz"}, {"5", "lz4"}, {"6", "zstd"}};
     if (compression_types.contains(linuxfs_compression_type)) {
-        c_factor = compression_factor.value(compression_types.value(linuxfs_compression_type));
+        c_factor = compressionFactor.value(compression_types.value(linuxfs_compression_type));
     } else {
         qWarning() << "Unknown compression type:" << linuxfs_compression_type;
     }
@@ -619,20 +619,20 @@ QString Settings::getUsedSpace()
     constexpr double factor = 1024 * 1024 * 1024;
     QString out = "\n- " + QObject::tr("Used space on / (root): ");
     if (live) {
-        root_size = getLiveRootSpace();
-        out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
+        rootSize = getLiveRootSpace();
+        out += QString::number(static_cast<double>(rootSize) / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
     } else {
         QStorageInfo rootInfo("/");
-        root_size = rootInfo.bytesTotal() - rootInfo.bytesFree();
-        out += QString::number(static_cast<double>(root_size) / factor, 'f', 2) + "GiB";
+        rootSize = rootInfo.bytesTotal() - rootInfo.bytesFree();
+        out += QString::number(static_cast<double>(rootSize) / factor, 'f', 2) + "GiB";
     }
     QStorageInfo homeInfo("/home/");
     if (homeInfo.isValid() && homeInfo.isRoot()) {
-        home_size = homeInfo.bytesTotal() - homeInfo.bytesFree();
+        homeSize = homeInfo.bytesTotal() - homeInfo.bytesFree();
         out.append("\n- " + QObject::tr("Used space on /home: ")
-                   + QString::number(static_cast<double>(home_size) / factor, 'f', 2) + "GiB");
+                   + QString::number(static_cast<double>(homeSize) / factor, 'f', 2) + "GiB");
     } else {
-        home_size = 0; // /home on root
+        homeSize = 0; // /home on root
     }
     return out;
 }
@@ -682,8 +682,8 @@ int Settings::getDebianVerNum()
 QString Settings::getFreeSpaceStrings(const QString &path)
 {
     constexpr float factor = 1024 * 1024;
-    free_space = FileSystemUtils::getFreeSpace(path);
-    QString out = QString::number(static_cast<double>(free_space) / factor, 'f', 2) + "GiB";
+    freeSpace = FileSystemUtils::getFreeSpace(path);
+    QString out = QString::number(static_cast<double>(freeSpace) / factor, 'f', 2) + "GiB";
 
     qDebug().noquote() << QString("- " + QObject::tr("Free space on %1, where snapshot folder is placed: ").arg(path)
                                   + out)
@@ -858,9 +858,9 @@ void Settings::loadConfig()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
-    QSettings settingsSystem(config_file.fileName(), QSettings::IniFormat);
+    QSettings settingsSystem(configFile.fileName(), QSettings::IniFormat);
     if (settingsSystem.status() != QSettings::NoError) {
-        qWarning() << QObject::tr("Error reading system configuration file: %1").arg(config_file.fileName());
+        qWarning() << QObject::tr("Error reading system configuration file: %1").arg(configFile.fileName());
     }
 
     // Ensure we use the logged-in user's config location even when running under sudo/root
@@ -887,10 +887,10 @@ void Settings::loadConfig()
         }
     }
 
-    session_excludes.clear();
-    snapshot_dir = trimQuotes(settingsUser.value("snapshot_dir", "/home/snapshot").toString());
-    if (!snapshot_dir.endsWith("/snapshot")) {
-        snapshot_dir = QDir::cleanPath(snapshot_dir + "/snapshot");
+    sessionExcludes.clear();
+    snapshotDir = trimQuotes(settingsUser.value("snapshot_dir", "/home/snapshot").toString());
+    if (!snapshotDir.endsWith("/snapshot")) {
+        snapshotDir = QDir::cleanPath(snapshotDir + "/snapshot");
     }
     const QString userConfigDir = QDir::cleanPath(configDir + "/" + QCoreApplication::organizationName());
     const QString userExcludesPath =
@@ -900,7 +900,7 @@ void Settings::loadConfig()
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
     QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
     const QString fallbackExcludesPath = QFileInfo::exists(localPath) ? localPath : usrPath;
-    excludes_source_path = QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
+    excludesSourcePath = QFileInfo::exists(systemExcludesPath) ? systemExcludesPath : fallbackExcludesPath;
     QString configuredExcludesPath = trimQuotes(settingsUser.value("snapshot_excludes", userExcludesPath).toString());
 
     if (!userConfiguredSnapshotExcludes || configuredExcludesPath == systemSnapshotExcludes) {
@@ -910,10 +910,10 @@ void Settings::loadConfig()
 
     const bool usingDefaultUserPath = configuredExcludesPath == userExcludesPath;
     if (usingDefaultUserPath && !QFileInfo::exists(userExcludesPath)) {
-        if (!excludes_source_path.isEmpty() && QFileInfo::exists(excludes_source_path)) {
+        if (!excludesSourcePath.isEmpty() && QFileInfo::exists(excludesSourcePath)) {
             QDir().mkpath(userConfigDir);
-            if (QFile::copy(excludes_source_path, userExcludesPath)) {
-                qDebug() << "Copied exclusion file from" << excludes_source_path << "to" << userExcludesPath;
+            if (QFile::copy(excludesSourcePath, userExcludesPath)) {
+                qDebug() << "Copied exclusion file from" << excludesSourcePath << "to" << userExcludesPath;
                 const QString username = loggedInUserName();
                 if (!username.isEmpty()) {
                     const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, userExcludesPath);
@@ -921,8 +921,8 @@ void Settings::loadConfig()
                 }
             } else {
                 qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")
-                                  .arg(excludes_source_path, userExcludesPath);
-                configuredExcludesPath = excludes_source_path;
+                                  .arg(excludesSourcePath, userExcludesPath);
+                configuredExcludesPath = excludesSourcePath;
             }
         }
     }
@@ -931,29 +931,29 @@ void Settings::loadConfig()
                  << "), using fallback path:" << fallbackExcludesPath;
         configuredExcludesPath = fallbackExcludesPath;
     }
-    snapshot_excludes.setFileName(configuredExcludesPath);
+    snapshotExcludes.setFileName(configuredExcludesPath);
     chownFileToLoggedInUser(userConfigPath);
     chownFileToLoggedInUser(configuredExcludesPath);
-    // snapshot_basename, make_isohybrid, gui_editor, stamp, force_installer are now const members
-    make_md5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
-    make_sha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
+    // snapshotBasename, makeIsohybrid, guiEditor, stamp, forceInstaller are now const members
+    makeMd5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
+    makeSha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
     compression = trimQuotes(settingsUser.value("compression", "zstd").toString());
-    mksq_opt = trimQuotes(settingsUser.value("mksq_opt").toString());
+    mksqOpt = trimQuotes(settingsUser.value("mksq_opt").toString());
     // edit_boot_menu is now const, initialized in constructor
-    tempdir_parent = trimQuotes(settingsUser.value("workdir").toString());
+    tempDirParent = trimQuotes(settingsUser.value("workdir").toString());
 
-    const QVariant coresValue = settingsUser.value("cores", max_cores);
+    const QVariant coresValue = settingsUser.value("cores", maxCores);
     uint storedCores = coresValue.toUInt();
-    if (storedCores == 0 || storedCores > max_cores) {
+    if (storedCores == 0 || storedCores > maxCores) {
         qWarning() << QObject::tr("Invalid stored cores setting (%1). Using detected CPU count: %2")
-                          .arg(coresValue.toString()).arg(max_cores);
-        storedCores = max_cores;
+                          .arg(coresValue.toString()).arg(maxCores);
+        storedCores = maxCores;
         settingsUser.setValue("cores", storedCores);
     }
     cores = storedCores;
 
     throttle = settingsUser.value("throttle", 0).toUInt();
-    reset_accounts = false;
+    resetAccounts = false;
 }
 
 void Settings::excludeAll()
@@ -975,10 +975,10 @@ void Settings::otherExclusions()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Add exclusions snapshot and work dirs
-    addRemoveExclusion(true, snapshot_dir);
-    addRemoveExclusion(true, work_dir);
+    addRemoveExclusion(true, snapshotDir);
+    addRemoveExclusion(true, workDir);
 
-    if (reset_accounts) {
+    if (resetAccounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
         // Exclude /etc/localtime if link and timezone not America/New_York
         QFileInfo localtimeInfo("/etc/localtime");
@@ -997,88 +997,89 @@ void Settings::otherExclusions()
     excludeSwapFile();
 }
 
-void Settings::processArgs(const QCommandLineParser &arg_parser)
+void Settings::processArgs(const QCommandLineParser &argParser)
 {
-    shutdown = arg_parser.isSet("shutdown");
-    QString kernel_arg = arg_parser.value("kernel");
-    if (!kernel_arg.isEmpty()) {
-        kernel = kernel_arg;
+    shutdown = argParser.isSet("shutdown");
+    const QString kernelArg = argParser.value("kernel");
+    if (!kernelArg.isEmpty()) {
+        kernel = kernelArg;
     }
     // preempt is now const, initialized in constructor
     QDir dir;
-    if (!arg_parser.value("directory").isEmpty()) {
-        QString directory = arg_parser.value("directory");
+    if (!argParser.value("directory").isEmpty()) {
+        const QString directory = argParser.value("directory");
         if (QFileInfo::exists(directory)) {
             dir.setPath(directory);
-            snapshot_dir = dir.absolutePath() + "/snapshot";
+            snapshotDir = dir.absolutePath() + "/snapshot";
         } else {
             qWarning() << "Warning: Specified directory does not exist:" << directory;
-            qWarning() << "Using default snapshot directory:" << snapshot_dir;
+            qWarning() << "Using default snapshot directory:" << snapshotDir;
         }
     }
 
-    if (!arg_parser.value("workdir").isEmpty()) {
-        QString workdir = arg_parser.value("workdir");
+    if (!argParser.value("workdir").isEmpty()) {
+        const QString workdir = argParser.value("workdir");
         if (QFileInfo::exists(workdir)) {
             dir.setPath(workdir);
-            tempdir_parent = dir.absolutePath();
+            tempDirParent = dir.absolutePath();
         } else {
             qWarning() << "Warning: Specified work directory does not exist:" << workdir;
-            qWarning() << "Using default work directory:" << tempdir_parent;
+            qWarning() << "Using default work directory:" << tempDirParent;
         }
     }
 
-    if (!arg_parser.value(QStringLiteral("file")).isEmpty()) {
-        snapshot_name = arg_parser.value("file") + (arg_parser.value("file").endsWith(".iso") ? QString() : ".iso");
+    if (!argParser.value(QStringLiteral("file")).isEmpty()) {
+        const auto fileArg = argParser.value("file");
+        snapshotName = fileArg + (fileArg.endsWith(".iso") ? QString() : ".iso");
     } else {
-        snapshot_name = getFilename();
+        snapshotName = getFilename();
     }
-    if (QFile::exists(snapshot_dir + '/' + snapshot_name)) {
+    if (QFile::exists(snapshotDir + '/' + snapshotName)) {
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
-                  .arg(snapshot_dir + '/' + snapshot_name);
+                  .arg(snapshotDir + '/' + snapshotName);
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
-    reset_accounts = arg_parser.isSet("reset");
-    if (reset_accounts) {
+    resetAccounts = argParser.isSet("reset");
+    if (resetAccounts) {
         excludeAll();
     }
-    if (arg_parser.isSet("month")) {
-        reset_accounts = true;
+    if (argParser.isSet("month")) {
+        resetAccounts = true;
     }
-    if (arg_parser.isSet("checksums")) {
-        make_sha512sum = make_md5sum = true;
+    if (argParser.isSet("checksums")) {
+        makeSha512sum = makeMd5sum = true;
     }
-    if (arg_parser.isSet("month")) {
-        make_sha512sum = true;
-        make_md5sum = false;
+    if (argParser.isSet("month")) {
+        makeSha512sum = true;
+        makeMd5sum = false;
     }
-    if (arg_parser.isSet("no-checksums")) {
-        make_sha512sum = make_md5sum = false;
+    if (argParser.isSet("no-checksums")) {
+        makeSha512sum = makeMd5sum = false;
     }
-    if (!arg_parser.value("compression").isEmpty()) {
-        compression = arg_parser.value("compression");
+    if (!argParser.value("compression").isEmpty()) {
+        compression = argParser.value("compression");
     }
-    if (!arg_parser.value("compression-level").isEmpty()) {
-        mksq_opt = arg_parser.value("compression-level");
+    if (!argParser.value("compression-level").isEmpty()) {
+        mksqOpt = argParser.value("compression-level");
     }
-    if (!arg_parser.value("cores").isEmpty()) {
+    if (!argParser.value("cores").isEmpty()) {
         bool ok {false};
-        uint val = arg_parser.value("cores").toUInt(&ok);
-        if (!ok || val == 0 || val > max_cores) {
-            qWarning() << "Invalid cores value:" << arg_parser.value("cores")
-                       << "- must be between 1 and" << max_cores;
+        const uint val = argParser.value("cores").toUInt(&ok);
+        if (!ok || val == 0 || val > maxCores) {
+            qWarning() << "Invalid cores value:" << argParser.value("cores")
+                       << "- must be between 1 and" << maxCores;
             qWarning() << "Using default:" << cores;
         } else {
             cores = val;
         }
     }
-    if (!arg_parser.value("throttle").isEmpty()) {
+    if (!argParser.value("throttle").isEmpty()) {
         bool ok {false};
-        uint val = arg_parser.value("throttle").toUInt(&ok);
+        const uint val = argParser.value("throttle").toUInt(&ok);
         if (!ok || val > 99) {
-            qWarning() << "Invalid throttle value:" << arg_parser.value("throttle")
+            qWarning() << "Invalid throttle value:" << argParser.value("throttle")
                        << "- must be between 0 and 99";
             qWarning() << "Using default:" << throttle;
         } else {
@@ -1088,12 +1089,12 @@ void Settings::processArgs(const QCommandLineParser &arg_parser)
     selectKernel();
 }
 
-void Settings::processExclArgs(const QCommandLineParser &arg_parser)
+void Settings::processExclArgs(const QCommandLineParser &argParser)
 {
     static const QSet<QString> valid_options {"Desktop",  "Documents", "Downloads", "Flatpaks", "Music",
                                               "Networks", "Pictures",  "Steam",     "Videos",   "VirtualBox"};
-    if (arg_parser.isSet("exclude")) {
-        QStringList options = arg_parser.values("exclude");
+    if (argParser.isSet("exclude")) {
+        const QStringList options = argParser.values("exclude");
         for (const QString &option : options) {
             if (valid_options.contains(option)) {
                 excludeItem(option);
@@ -1107,7 +1108,7 @@ void Settings::processExclArgs(const QCommandLineParser &arg_parser)
 
 
 
-void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
+void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
 {
     QString name;
     if (QFileInfo::exists(QStringLiteral("/etc/mx-version"))) {
@@ -1116,55 +1117,55 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &arg_parser)
         qDebug() << "/etc/mx-version not found. Not MX Linux?";
         name = "MX_" + QString(x86 ? "386" : "x64");
     }
-    if (arg_parser.value("file").isEmpty()) {
+    if (argParser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");
-        if (!arg_parser.value("month").isEmpty()) {
-            month += "." + arg_parser.value("month");
+        if (!argParser.value("month").isEmpty()) {
+            month += "." + argParser.value("month");
         }
         auto suffix = name.section('_', 1, 1);
         if (qgetenv("DESKTOP_SESSION") == "plasma") {
             suffix = "KDE";
         }
-        snapshot_name = name.section('_', 0, 0) + '_' + month + '_' + suffix + ".iso";
+        snapshotName = name.section('_', 0, 0) + '_' + month + '_' + suffix + ".iso";
     }
-    if (QFile::exists(snapshot_dir + '/' + snapshot_name)) {
+    if (QFile::exists(snapshotDir + '/' + snapshotName)) {
         QString message
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
-                  .arg(snapshot_dir + '/' + snapshot_name);
+                  .arg(snapshotDir + '/' + snapshotName);
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
-    if (arg_parser.value("compression").isEmpty()) {
+    if (argParser.value("compression").isEmpty()) {
         compression = "zstd";
     }
-    reset_accounts = true;
-    boot_options = "quiet splasht nosplash";
+    resetAccounts = true;
+    bootOptions = "quiet splasht nosplash";
     excludeAll();
 }
 
 // Helper functions for const member initialization
-QString Settings::getInitialKernel(const QCommandLineParser &arg_parser)
+QString Settings::getInitialKernel(const QCommandLineParser &argParser)
 {
-    QString kernel_value = arg_parser.value("kernel");
+    QString kernelValue = argParser.value("kernel");
 
     // Remove path prefix if present
-    kernel_value.remove(QRegularExpression("^/boot/vmlinuz-"));
+    kernelValue.remove(QRegularExpression("^/boot/vmlinuz-"));
 
     // If no kernel specified or invalid, use current kernel
-    if (kernel_value.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernel_value)) {
-        kernel_value = current_kernel;
+    if (kernelValue.isEmpty() || !QFileInfo::exists("/boot/vmlinuz-" + kernelValue)) {
+        kernelValue = currentKernel;
 
         // If current kernel doesn't exist, find the latest one
-        if (!QFileInfo::exists("/boot/vmlinuz-" + kernel_value)) {
+        if (!QFileInfo::exists("/boot/vmlinuz-" + kernelValue)) {
             QDir directory("/boot");
             QStringList vmlinuzFiles = directory.entryList(QStringList() << "vmlinuz-*", QDir::Files, QDir::Name);
             if (!vmlinuzFiles.isEmpty()) {
-                kernel_value = vmlinuzFiles.last().remove(QRegularExpression("^vmlinuz-"));
+                kernelValue = vmlinuzFiles.last().remove(QRegularExpression("^vmlinuz-"));
             }
         }
     }
 
-    return kernel_value;
+    return kernelValue;
 }
 
 bool Settings::getEditBootMenuSetting()
@@ -1217,10 +1218,10 @@ Settings::InitialSettings Settings::getInitialSettings() const
 
     return {
         .live = SystemInfo::isLive(),
-        .force_installer = settingsUser.value("force_installer", true).toBool(),
-        .make_isohybrid = settingsUser.value("make_isohybrid", "yes").toString() == "yes",
-        .gui_editor = trimQuotes(settingsUser.value("gui_editor").toString()),
-        .snapshot_basename = trimQuotes(settingsUser.value("snapshot_basename", "snapshot").toString()),
+        .forceInstaller = settingsUser.value("force_installer", true).toBool(),
+        .makeIsohybrid = settingsUser.value("make_isohybrid", "yes").toString() == "yes",
+        .guiEditor = trimQuotes(settingsUser.value("gui_editor").toString()),
+        .snapshotBasename = trimQuotes(settingsUser.value("snapshot_basename", "snapshot").toString()),
         .stamp = trimQuotes(settingsUser.value("stamp").toString()),
         .users = SystemInfo::listUsers()
     };

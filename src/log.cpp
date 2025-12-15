@@ -29,17 +29,17 @@
 
 #include "cmd.h"
 
-Log::Log(const QString &file_name)
+Log::Log(const QString &fileName)
 {
-    logFile.setFileName(file_name);
+    logFile.setFileName(fileName);
 
     // Check if log file exists and has wrong ownership
-    if (QFileInfo::exists(file_name)) {
-        fixLogFileOwnership(file_name);
+    if (QFileInfo::exists(fileName)) {
+        fixLogFileOwnership(fileName);
     }
 
     if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
-        qWarning() << "Could not open log file:" << file_name;
+        qWarning() << "Could not open log file:" << fileName;
     } else {
         qInstallMessageHandler(Log::messageHandler);
     }
@@ -47,15 +47,15 @@ Log::Log(const QString &file_name)
 
 void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogContext &context, const QString &msg)
 {
-    QTextStream term_out(stdout);
+    QTextStream termOut(stdout);
 
     // Check if the message contains carriage return or starts with the escape sequence for clearing the line
     if (msg.contains('\r') || msg.startsWith("\033[2K")) {
-        term_out << "\033[?25l" << msg;
+        termOut << "\033[?25l" << msg;
         return; // Skip writing to the log file
     }
 
-    term_out << msg << '\n';
+    termOut << msg << '\n';
 
     if (!logFile.isOpen()) {
         qWarning() << "Log file is not open for writing:" << logFile.fileName();
@@ -96,36 +96,37 @@ QString Log::getLog()
     return logFile.fileName();
 }
 
-void Log::fixLogFileOwnership(const QString &file_name)
+void Log::fixLogFileOwnership(const QString &fileName)
 {
-    QFileInfo fileInfo(file_name);
+    const QFileInfo fileInfo(fileName);
     if (!fileInfo.exists()) {
         return;
     }
 
     // Get current user information
-    uid_t currentUid = getuid();
+    const uid_t currentUid = getuid();
 
     // Get file ownership and permissions
     struct stat fileStat;
-    if (stat(file_name.toLocal8Bit().constData(), &fileStat) != 0) {
+    const QByteArray fileNameBytes = fileName.toLocal8Bit();
+    if (stat(fileNameBytes.constData(), &fileStat) != 0) {
         return;
     }
 
     // Case 1: Running as regular user, but file is owned by root
     if (fileStat.st_uid == 0 && currentUid != 0) {
         Cmd cmd;
-        if (cmd.runAsRoot("chown $(logname): \"" + file_name + "\"", Cmd::QuietMode::Yes)) {
-            qDebug() << "Fixed log file ownership for:" << file_name;
+        if (cmd.runAsRoot("chown $(logname): \"" + fileName + "\"", Cmd::QuietMode::Yes)) {
+            qDebug() << "Fixed log file ownership for:" << fileName;
         }
     }
     // Case 2: Running as root, but file is owned by regular user with restrictive permissions
     else if (fileStat.st_uid != 0 && currentUid == 0) {
         // When running as root, take ownership of the log file for consistency
-        if (chown(file_name.toLocal8Bit().constData(), 0, 0) == 0) {
-            qDebug() << "Took ownership of log file as root:" << file_name;
+        if (chown(fileNameBytes.constData(), 0, 0) == 0) {
+            qDebug() << "Took ownership of log file as root:" << fileName;
             // Also ensure it has reasonable permissions
-            chmod(file_name.toLocal8Bit().constData(), S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+            chmod(fileNameBytes.constData(), S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
         }
     }
 }

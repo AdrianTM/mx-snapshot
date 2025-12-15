@@ -37,13 +37,12 @@
 // Display doc as nomal user when run as root
 void displayDoc(const QString &url, const QString &title)
 {
-    bool started_as_root = false;
-    if (qEnvironmentVariable("HOME") == "root") {
-        started_as_root = true;
-        qputenv("HOME", starting_home.toUtf8()); // Use original home for theming purposes
+    const bool startedAsRoot = (qEnvironmentVariable("HOME") == "root");
+    if (startedAsRoot) {
+        qputenv("HOME", startingHome.toUtf8()); // Use original home for theming purposes
     }
     // Prefer mx-viewer otherwise use xdg-open (use runuser to run that as logname user)
-    QString executablePath = QStandardPaths::findExecutable("mx-viewer");
+    const QString executablePath = QStandardPaths::findExecutable("mx-viewer");
     if (!executablePath.isEmpty()) {
         QProcess::startDetached("mx-viewer", {url, title});
     } else {
@@ -53,17 +52,17 @@ void displayDoc(const QString &url, const QString &title)
             QProcess proc;
             proc.start("logname", {}, QIODevice::ReadOnly);
             proc.waitForFinished();
-            QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
+            const QString user = QString::fromUtf8(proc.readAllStandardOutput()).trimmed();
             QProcess::startDetached("runuser", {"-u", user, "--", "xdg-open", url});
         }
     }
-    if (started_as_root) {
+    if (startedAsRoot) {
         qputenv("HOME", "/root");
     }
 }
 
-void displayAboutMsgBox(const QString &title, const QString &message, const QString &licence_url,
-                        const QString &license_title)
+void displayAboutMsgBox(const QString &title, const QString &message, const QString &licenseUrl,
+                        const QString &licenseTitle)
 {
     const auto width = 600;
     const auto height = 500;
@@ -76,7 +75,7 @@ void displayAboutMsgBox(const QString &title, const QString &message, const QStr
     msgBox.exec();
 
     if (msgBox.clickedButton() == btnLicense) {
-        displayDoc(licence_url, license_title);
+        displayDoc(licenseUrl, licenseTitle);
     } else if (msgBox.clickedButton() == btnChangelog) {
         QScopedPointer<QDialog> changelog(new QDialog);
         changelog->setWindowTitle(QObject::tr("Changelog"));

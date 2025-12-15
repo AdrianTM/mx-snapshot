@@ -51,7 +51,7 @@
 #endif
 
 static QTranslator qtTran, qtBaseTran, appTran;
-QString current_kernel {};
+QString currentKernel {};
 
 void checkSquashfs();
 void setTranslation();
@@ -273,9 +273,9 @@ void checkSquashfs()
     QProcess proc;
     proc.start("uname", {"-r"});
     proc.waitForFinished();
-    current_kernel = proc.readAllStandardOutput().trimmed();
+    currentKernel = proc.readAllStandardOutput().trimmed();
 
-    const QString configPath = "/boot/config-" + current_kernel;
+    const QString configPath = "/boot/config-" + currentKernel;
     if (QFile::exists(configPath) && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
         const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);

@@ -57,9 +57,9 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
         return;
     }
 
-    QString path = settings->snapshot_dir;
+    QString path = settings->snapshotDir;
     qDebug() << "Free space:" << settings->getFreeSpaceStrings(path.remove(QRegularExpression("/snapshot$")));
-    if (!settings->monthly && !settings->override_size) {
+    if (!settings->monthly && !settings->overrideSize) {
         qDebug() << "Unused space:" << settings->getUsedSpace();
     }
 
@@ -70,21 +70,21 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     }
     settings->otherExclusions();
     work.setupEnv();
-    if (!settings->monthly && !settings->override_size) {
+    if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
     }
     work.copyNewIso();
-    work.savePackageList(settings->snapshot_name);
+    work.savePackageList(settings->snapshotName);
 
-    if (settings->edit_boot_menu) {
+    if (settings->editBootMenu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");
-        QString cmd = settings->getEditor() + " \"" + settings->work_dir + "/iso-template/boot/grub/grub.cfg\" \""
-                      + settings->work_dir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->work_dir
+        QString cmd = settings->getEditor() + " \"" + settings->workDir + "/iso-template/boot/grub/grub.cfg\" \""
+                      + settings->workDir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->workDir
                       + "/iso-template/boot/isolinux/isolinux.cfg\"";
         Cmd().run(cmd);
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
-    work.createIso(settings->snapshot_name);
+    work.createIso(settings->snapshotName);
 }
 
 void Batchprocessing::setConnections()
@@ -108,7 +108,7 @@ void Batchprocessing::progress()
 
 bool Batchprocessing::isSourceExcludesNewer(QString &diffOutput) const
 {
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
 
     qDebug().noquote() << "CLI excludes check:"
@@ -227,7 +227,7 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
         return;
     }
 
-    const QString configuredPath = settings->snapshot_excludes.fileName();
+    const QString configuredPath = settings->snapshotExcludes.fileName();
     const QString sourcePath = settings->getExcludesSourcePath();
     qDebug().noquote() << tr("Detected newer exclusion file at %1 compared to %2. Prompting for action.")
                               .arg(sourcePath, configuredPath);
@@ -316,7 +316,7 @@ void Batchprocessing::checkNvidiaGraphicsCard()
 
         response = response.toLower();
         if (response == "yes" || response == "y") {
-            settings->boot_options += " xorg=nvidia";
+            settings->bootOptions += " xorg=nvidia";
             qDebug() << tr("Note: If you use the resulting ISO on a computer without an NVIDIA card, "
                            "you will likely need to remove 'xorg=nvidia' from the boot options.");
         } else {
