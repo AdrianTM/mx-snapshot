@@ -653,18 +653,20 @@ quint64 Work::getRequiredSpace()
     emit message(tr("Calculating size of root..."));
     cmd = settings->live ? "du -s" : "du -sx";
     quint64 root_size = shell.getOutAsRoot(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
-    qDebug() << "SIZE" << root_size;
+    constexpr double kibToMib = 1024.0;
+    qDebug() << "SIZE" << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     if (!ok) {
         qDebug() << "Error: calculating root size (/.bind-root)\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
-    qDebug() << "SIZE ROOT    " << root_size;
-    qDebug() << "SIZE EXCLUDES" << excl_size;
+    qDebug() << "SIZE ROOT    " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
+    qDebug() << "SIZE EXCLUDES" << QString::number(excl_size / kibToMib, 'f', 2) << "MiB";
     const uint c_factor = settings->compressionFactor.value(settings->compression);
     qDebug() << "COMPRESSION  " << c_factor;
-    qDebug() << "SIZE NEEDED  " << (root_size - excl_size) * c_factor / 100;
-    qDebug() << "SIZE FREE    " << settings->freeSpace << '\n';
+    qDebug() << "SIZE NEEDED  "
+             << QString::number(((root_size - excl_size) * c_factor / 100.0) / kibToMib, 'f', 2) << "MiB";
+    qDebug() << "SIZE FREE    " << QString::number(settings->freeSpace / kibToMib, 'f', 2) << "MiB" << '\n';
 
     if (excl_size > root_size) {
         qDebug() << "Error: calculating excluded file size.\n"
