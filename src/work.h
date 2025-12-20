@@ -75,6 +75,10 @@ private:
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
     void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
 
+    // Bind-root overlay management
+    [[nodiscard]] bool setupBindRootOverlay();
+    void cleanupBindRootOverlay();
+
     // File operations
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
 
@@ -99,4 +103,7 @@ private:
     bool started = false;
     bool done = false;
     QTemporaryDir initrd_dir;
+    QString bindRootPath = "/.bind-root";
+    QString bindRootOverlayBase;
+    bool bindRootOverlayActive = false;
 };

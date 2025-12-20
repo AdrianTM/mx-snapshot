@@ -24,9 +24,11 @@
 
 #include "work.h"
 
+#include <QCoreApplication>
 #include <QDate>
 #include <QDebug>
 #include <QDirIterator>
+#include <QFileInfo>
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
@@ -131,28 +133,32 @@ bool Work::checkInstalled(const QString &package)
 void Work::cleanUp()
 {
     const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-    Cmd().runAsRoot(snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
     if (!started) {
         shell.close();
         initrd_dir.remove();
+        cleanupBindRootOverlay();
         exit(EXIT_SUCCESS);
     }
     emit message(tr("Cleaning..."));
     QTextStream out(stdout);
     out << "\033[?25h";
     out.flush();
-    Cmd().runAsRoot(snapshotLib + " kill_mksquashfs", Cmd::QuietMode::Yes);
+    Cmd().run(elevateTool + " " + snapshotLib + " kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        Cmd().runAsRoot(snapshotLib + " cleanup");
+        const QString elevateTool = Cmd::elevationTool();
+        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
     }
+    cleanupBindRootOverlay();
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().runAsRoot(snapshotLib + " copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
@@ -164,7 +170,7 @@ void Work::cleanUp()
         exit(EXIT_SUCCESS);
     } else {
         emit message(tr("Interrupted or failed to complete"));
-        Cmd().runAsRoot(snapshotLib + " copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
         exit(EXIT_FAILURE);
     }
 }
@@ -177,7 +183,8 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-            Cmd().runAsRoot(snapshotLib + " cleanup");
+            const QString elevateTool = Cmd::elevationTool();
+            Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
         }
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
@@ -207,6 +214,75 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
                 + tr("If you are sure you have enough free space rerun the program with -o/--override-size option"));
         cleanUp();
     }
+}
+
+bool Work::setupBindRootOverlay()
+{
+    const QString rootFsType = Cmd().getOut("findmnt -n -o FSTYPE /", Cmd::QuietMode::Yes).trimmed();
+    if (rootFsType == "overlay") {
+        qDebug() << "Root filesystem is overlay; skipping bind-root overlay setup.";
+        bindRootPath = "/.bind-root";
+        bindRootOverlayActive = false;
+        bindRootOverlayBase.clear();
+        return true;
+    }
+
+    const QString appName = QCoreApplication::applicationName();
+    const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
+    const QString lowerDir = overlayBase + "/lower";
+    const QString upperDir = overlayBase + "/upper";
+    const QString workDir = overlayBase + "/work";
+    const QString bindRoot = overlayBase + "/root";
+
+    const auto runRoot = [this](const QString &cmd) { return shell.runAsRoot(cmd, Cmd::QuietMode::Yes); };
+
+    bindRootOverlayActive = false;
+    bindRootOverlayBase.clear();
+    bindRootPath = "/.bind-root";
+
+    runRoot("mkdir -p \"" + overlayBase + "\" \"" + lowerDir + "\" \"" + upperDir + "\" \"" + workDir + "\" \""
+            + bindRoot + "\"");
+
+    if (runRoot("mountpoint -q \"" + bindRoot + "\"")) {
+        runRoot("umount --recursive \"" + bindRoot + "\"");
+    }
+    if (runRoot("mountpoint -q \"" + lowerDir + "\"")) {
+        runRoot("umount --recursive \"" + lowerDir + "\"");
+    }
+
+    if (!runRoot("mount --bind / \"" + lowerDir + "\"")) {
+        qWarning() << "Failed to bind mount / to" << lowerDir;
+        return false;
+    }
+
+    const QString cmd = "mount -t overlay overlay -o lowerdir=\"" + lowerDir + "\",upperdir=\"" + upperDir
+                        + "\",workdir=\"" + workDir + "\" \"" + bindRoot + "\"";
+    if (!runRoot(cmd)) {
+        qWarning() << "Failed to mount overlay at" << bindRoot;
+        runRoot("umount --recursive \"" + lowerDir + "\"");
+        return false;
+    }
+
+    bindRootPath = bindRoot;
+    bindRootOverlayBase = overlayBase;
+    bindRootOverlayActive = true;
+    return true;
+}
+
+void Work::cleanupBindRootOverlay()
+{
+    if (bindRootOverlayBase.isEmpty()) {
+        bindRootOverlayActive = false;
+        bindRootPath = "/.bind-root";
+        return;
+    }
+    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " cleanup_overlay " + QCoreApplication::applicationName(),
+              Cmd::QuietMode::Yes);
+    bindRootOverlayActive = false;
+    bindRootOverlayBase.clear();
+    bindRootPath = "/.bind-root";
 }
 
 void Work::closeInitrd(const QString &initrd_dir, const QString &file)
@@ -289,7 +365,8 @@ bool Work::createIso(const QString &filename)
     using Release::Version;
     QString throttle
         = (Settings::getDebianVerNum() < Version::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
-    QString cmd = unbuffer + "mksquashfs /.bind-root \"" + settings->workDir + "/iso-template/antiX/linuxfs\" -comp "
+    QString cmd = unbuffer + "mksquashfs \"" + bindRootPath + "\" \"" + settings->workDir
+                  + "/iso-template/antiX/linuxfs\" -comp "
                   + settings->compression + " -processors " + QString::number(settings->cores) + throttle
                   + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef "
                   + settings->snapshotExcludes.fileName()
@@ -312,7 +389,8 @@ bool Work::createIso(const QString &filename)
     makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
 
     const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-    Cmd().runAsRoot(snapshotLib + " cleanup");
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
 
     // Create the iso file
     QDir::setCurrent(settings->workDir + "/iso-template");
@@ -533,13 +611,29 @@ void Work::setupEnv()
     writeVersionFile();
     writeLsbRelease();
 
+    if (!setupBindRootOverlay()) {
+        emit messageBox(BoxType::critical, tr("Error"),
+                        tr("Could not prepare a safe bind-root overlay. Snapshot cannot continue."));
+        cleanUp();
+    }
+
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
+    const QString baseCmd = "installed-to-live -F -b " + bindRootPath + " start ";
     if (settings->resetAccounts) {
-        shell.runAsRoot("installed-to-live -b /.bind-root start " + bind_boot
-                        + "empty=/home general version-file read-only");
+        if (!shell.runAsRoot(baseCmd + bind_boot + "empty=/home general version-file")) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not prepare the snapshot bind-root environment."));
+            cleanUp();
+        }
     } else {
-        shell.runAsRoot("installed-to-live -b /.bind-root start bind=/home" + bind_boot_too
-                        + " live-files version-file adjtime read-only");
+        if (!shell.runAsRoot(baseCmd + "bind=/home" + bind_boot_too + " live-files version-file adjtime")) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not prepare the snapshot bind-root environment."));
+            cleanUp();
+        }
+    }
+    if (!bindRootOverlayActive) {
+        shell.runAsRoot("installed-to-live -b " + bindRootPath + " read-only", Cmd::QuietMode::Yes);
     }
 }
 
@@ -569,7 +663,8 @@ void Work::writeLsbRelease()
 void Work::writeSnapshotInfo()
 {
     const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-    Cmd().runAsRoot(snapshotLib + " datetime_log", Cmd::QuietMode::Yes);
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " datetime_log", Cmd::QuietMode::Yes);
 }
 
 void Work::writeVersionFile()
@@ -622,7 +717,18 @@ quint64 Work::getRequiredSpace()
             excludes << exclude;
         }
     }
-    QString root_dev = Cmd().getOut("df /.bind-root --output=target |tail -1", Cmd::QuietMode::Yes);
+    QString sizeRoot = bindRootPath;
+    if (bindRootOverlayActive) {
+        const QString overlayLower = bindRootOverlayBase + "/lower";
+        if (QFileInfo::exists(overlayLower)) {
+            sizeRoot = overlayLower;
+        }
+    }
+    QString sizeRootPrefix = sizeRoot;
+    if (!sizeRootPrefix.endsWith('/')) {
+        sizeRootPrefix += "/";
+    }
+    QString root_dev = Cmd().getOut("df \"" + sizeRoot + "\" --output=target |tail -1", Cmd::QuietMode::Yes);
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
         it.next();
@@ -633,10 +739,11 @@ quint64 Work::getRequiredSpace()
         it.value().replace('(', "\\(");
         it.value().replace(')', "\\)");
         it.value().replace('|', "\\|");
-        it.value().prepend("/.bind-root/"); // Check size occupied by excluded files on /.bind-root only
+        it.value().prepend(sizeRootPrefix); // Check size occupied by excluded files on bind-root only
         it.value().replace(QRegularExpression("/\\*$"), "/"); // Remove last *
         //  Remove from list if files not on the same volume
-        if (root_dev != Cmd().getOut("df " + it.value() + " --output=target 2>/dev/null |tail -1", Cmd::QuietMode::Yes)) {
+        if (root_dev != Cmd().getOut("df \"" + it.value() + "\" --output=target 2>/dev/null |tail -1",
+                                     Cmd::QuietMode::Yes)) {
             it.remove();
         }
     }
@@ -652,21 +759,21 @@ quint64 Work::getRequiredSpace()
     }
     emit message(tr("Calculating size of root..."));
     cmd = settings->live ? "du -s" : "du -sx";
-    quint64 root_size = shell.getOutAsRoot(cmd + " /.bind-root 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    quint64 root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
     constexpr double kibToMib = 1024.0;
-    qDebug() << "SIZE" << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "SIZE         " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     if (!ok) {
-        qDebug() << "Error: calculating root size (/.bind-root)\n"
+        qDebug() << "Error: calculating root size (" << sizeRoot << ")\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
-    qDebug() << "SIZE ROOT    " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
-    qDebug() << "SIZE EXCLUDES" << QString::number(excl_size / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "SIZE ROOT    " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "SIZE EXCLUDES" << QString::number(excl_size / kibToMib, 'f', 2) << "MiB";
     const uint c_factor = settings->compressionFactor.value(settings->compression);
     qDebug() << "COMPRESSION  " << c_factor;
-    qDebug() << "SIZE NEEDED  "
-             << QString::number(((root_size - excl_size) * c_factor / 100.0) / kibToMib, 'f', 2) << "MiB";
-    qDebug() << "SIZE FREE    " << QString::number(settings->freeSpace / kibToMib, 'f', 2) << "MiB" << '\n';
+    qDebug().noquote() << "SIZE NEEDED  "
+                       << QString::number(((root_size - excl_size) * c_factor / 100.0) / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "SIZE FREE    " << QString::number(settings->freeSpace / kibToMib, 'f', 2) << "MiB" << '\n';
 
     if (excl_size > root_size) {
         qDebug() << "Error: calculating excluded file size.\n"

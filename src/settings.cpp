@@ -82,9 +82,14 @@ void chownFileToLoggedInUser(const QString &path)
     if (username.isEmpty() || path.isEmpty()) {
         return;
     }
+    const QFileInfo fileInfo(path);
+    if (!fileInfo.exists() || fileInfo.isWritable()) {
+        return;
+    }
     const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, path);
     Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
 }
+
 } // namespace
 
 Settings::Settings(const QCommandLineParser &argParser)
@@ -108,9 +113,20 @@ Settings::Settings(const QCommandLineParser &argParser)
             exit(EXIT_FAILURE);
         }
 
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) { // Cleanup installed-to-live from other sessions
-            const QString elevateTool = Cmd::elevationTool();
-            Cmd().run(elevateTool + " /usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib cleanup");
+        const QString appName = QCoreApplication::applicationName();
+        const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
+        bool cleanupRan = false;
+        bool cleanupOk = true;
+        const QString elevateTool = Cmd::elevationTool();
+        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf") || QFileInfo::exists(overlayBase)) {
+            cleanupRan = true;
+            cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup");
+        }
+        const QString overlayRoot = "/run/" + appName + "/bind-root-overlay/root";
+        const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
+            || Cmd().run("mountpoint -q \"" + overlayRoot + "\"", Cmd::QuietMode::Yes);
+        if (!cleanupRan || cleanupOk || !bindRootMounted) {
+            Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
         }
 
         loadConfig(); // Load settings from .conf file
