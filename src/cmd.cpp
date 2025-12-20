@@ -5,8 +5,11 @@
 #include <QEventLoop>
 #include <QFile>
 #include <QFileInfo>
+#include <QTimer>
 
 #include <unistd.h>
+
+#include "messagehandler.h"
 
 Cmd::Cmd(QObject *parent)
     : QProcess(parent),
@@ -90,6 +93,10 @@ bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
         start("/bin/bash", {"-c", cmd});
     }
     loop.exec();
+    if (elevation == Elevation::Yes && getuid() != 0
+        && (exitCode() == EXIT_CODE_PERMISSION_DENIED || exitCode() == EXIT_CODE_COMMAND_NOT_FOUND)) {
+        handleElevationError();
+    }
     emit done();
     return (exitStatus() == QProcess::NormalExit && exitCode() == 0);
 }
@@ -102,4 +109,13 @@ bool Cmd::runAsRoot(const QString &cmd, QuietMode quiet)
 QString Cmd::readAllOutput()
 {
     return outBuffer.trimmed();
+}
+
+void Cmd::handleElevationError()
+{
+    MessageHandler::showMessage(MessageHandler::Critical, tr("Administrator Access Required"),
+                                tr("This operation requires administrator privileges. Please restart the "
+                                   "application and enter your password when prompted."));
+    QTimer::singleShot(0, qApp, &QCoreApplication::quit);
+    exit(EXIT_FAILURE);
 }
