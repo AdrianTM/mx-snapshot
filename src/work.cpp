@@ -200,8 +200,9 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     constexpr float factor = 1024 * 1024;
-    qDebug() << "Needed space:" << needed_space;
-    qDebug() << "Free space  :" << free_space << "on" << dir;
+    constexpr double kibToMib = 1024.0;
+    qDebug().noquote() << "Needed space:" << QString::number(needed_space / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "Free space  :" << QString::number(free_space / kibToMib, 'f', 2) << "MiB on" << dir;
     if (needed_space > free_space) {
         emit messageBox(
             BoxType::critical, tr("Error"),
