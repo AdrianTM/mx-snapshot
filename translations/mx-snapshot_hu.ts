@@ -2,32 +2,82 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="44"/>
+        <location filename="../src/batchprocessing.cpp" line="54"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="45"/>
+        <location filename="../src/batchprocessing.cpp" line="55"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>A jelenlegi rendszermag nem támogatja a kiválasztott tömörítési algoritmust, szerkessze a konfigurációs fájlt, és válasszon másik algoritmust.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="70"/>
+        <location filename="../src/batchprocessing.cpp" line="80"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>A program megállítja az feldolgozást, és megnyitja az rendszerindítási menüt a szövegszerkesztőben.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="102"/>
+        <location filename="../src/batchprocessing.cpp" line="162"/>
+        <source>No diff output available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="200"/>
+        <source>Default exclusion file not found at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="210"/>
+        <source>Could not remove existing exclusion file at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="216"/>
+        <source>Could not copy default exclusion file from %1 to %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="232"/>
+        <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="239"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="242"/>
+        <source>[s]how diff  [u]se updated default  [k]eep custom (update timestamp)  [q]uit: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="253"/>
+        <source>Reverted to updated default exclusion file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="272"/>
+        <source>Leaving custom exclusion file unchanged.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="283"/>
+        <source>Invalid choice. Please select again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="290"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>A számítógép NVIDIA grafikus kártyát használ. A készülő ISO lemezképet ugyanezen a gépen vagy másik NVIDIA kártyás gépen kívánja használni?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="112"/>
+        <location filename="../src/batchprocessing.cpp" line="300"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Megjegyzés: Ha az ISO lemezképet egy nem NVIDIA kártyát használó gépen fogja használni, valószínűleg el kell majd távolítania az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekből.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="115"/>
+        <location filename="../src/batchprocessing.cpp" line="303"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Megjegyzés: Ha az ISO lemezképet egy NVIDIA kártyát használó gépen fogja használni, valószínűleg hozzá kell majd adnia az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekhez.</translation>
     </message>
@@ -36,9 +86,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="256"/>
-        <location filename="../src/mainwindow.cpp" line="592"/>
         <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/mainwindow.cpp" line="439"/>
+        <location filename="../src/mainwindow.cpp" line="819"/>
         <source>MX Snapshot</source>
         <translation>MX pillanatkép</translation>
     </message>
@@ -122,8 +172,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="445"/>
         <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Snapshot name:</source>
         <translation>Pillanatkép neve:</translation>
     </message>
@@ -213,8 +263,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="611"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
+        <location filename="../src/mainwindow.cpp" line="839"/>
         <source>Remove Custom Exclusion File</source>
         <translation type="unfinished"/>
     </message>
@@ -345,42 +395,42 @@
         <translation>Vissza</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="218"/>
+        <location filename="../src/mainwindow.cpp" line="401"/>
         <source>Select Release Date</source>
         <translation>Válasszon kiadási dátumot</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fastest, worst compression</source>
         <translation>leggyorsabb, leggyengébb tömörítés</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fast, worse compression</source>
         <translation>gyors, gyengébb tömörítés</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>slow, better compression</source>
         <translation>lassú, erősebb tömörítés</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>best compromise</source>
         <translation>legjobb kompromisszum</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="264"/>
+        <location filename="../src/mainwindow.cpp" line="447"/>
         <source>slowest, best compression</source>
         <translation>leglassabb, legerősebb tömörítés</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="293"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Szabad hely a %1 alatt, ahol a pillanatkép mappa található:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="296"/>
+        <location filename="../src/mainwindow.cpp" line="479"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -389,193 +439,235 @@
       Ha szükséges, helyet szabadíthat fel a korábbi pillanatképek és mentett másolatok törlésével: jelenleg %1 pillanatkép %2 helyet foglal el.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="308"/>
-        <location filename="../src/mainwindow.cpp" line="309"/>
+        <location filename="../src/mainwindow.cpp" line="491"/>
+        <location filename="../src/mainwindow.cpp" line="492"/>
         <source>Installing </source>
         <translation>Telepítés</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="394"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>Please wait.</source>
         <translation>Kérjük várjon.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="396"/>
+        <location filename="../src/mainwindow.cpp" line="579"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Kérjük várjon. A használt lemezterület számítása...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="137"/>
-        <location filename="../src/mainwindow.cpp" line="148"/>
-        <location filename="../src/mainwindow.cpp" line="154"/>
-        <location filename="../src/mainwindow.cpp" line="430"/>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="313"/>
+        <location filename="../src/mainwindow.cpp" line="324"/>
+        <location filename="../src/mainwindow.cpp" line="330"/>
+        <location filename="../src/mainwindow.cpp" line="613"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="714"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="138"/>
+        <location filename="../src/mainwindow.cpp" line="177"/>
+        <source>No diff output available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="210"/>
+        <location filename="../src/mainwindow.cpp" line="246"/>
+        <source>Updated Exclusion List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="213"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="215"/>
+        <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="221"/>
+        <source>Show Differences</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="227"/>
+        <source>Keep Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="233"/>
+        <source>Use Updated Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="149"/>
+        <location filename="../src/mainwindow.cpp" line="325"/>
         <source>Could not remove existing exclusion file at %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="431"/>
+        <location filename="../src/mainwindow.cpp" line="614"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="436"/>
+        <location filename="../src/mainwindow.cpp" line="619"/>
         <source>Settings</source>
         <translation>Beállítások</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442"/>
+        <location filename="../src/mainwindow.cpp" line="625"/>
         <source>Snapshot will use the following settings:</source>
         <translation>A pillanatkép a következő beállításokat használja:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="444"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>- Snapshot directory:</source>
         <translation>- Pillanatkép könyvtár:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="445"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>- Kernel to be used:</source>
         <translation>- Használandó kernel:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="467"/>
-        <location filename="../src/mainwindow.cpp" line="476"/>
+        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="660"/>
         <source>NVIDIA Detected</source>
         <translation>NVIDIA érzékelve</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="468"/>
+        <location filename="../src/mainwindow.cpp" line="652"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>A számítógép NVIDIA grafikus kártyát használ. A készülő ISO lemezképet ugyanezen a gépen vagy másik NVIDIA kártyás gépen kívánja használni?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="472"/>
+        <location filename="../src/mainwindow.cpp" line="656"/>
         <source>NVIDIA Selected</source>
         <translation>NVIDIA kiválasztva</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="473"/>
+        <location filename="../src/mainwindow.cpp" line="657"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Megjegyzés: Ha az ISO lemezképet egy nem NVIDIA kártyát használó gépen fogja használni, valószínűleg el kell majd távolítania az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekből.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="477"/>
+        <location filename="../src/mainwindow.cpp" line="661"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Megjegyzés: Ha az ISO lemezképet egy NVIDIA kártyát használó gépen fogja használni, valószínűleg hozzá kell majd adnia az &apos;xorg=nvidia&quot; opciót a rendszerindítási paraméterekhez.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="696"/>
+        <source>Could not replace the exclusion file with the updated default.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="715"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>A jelenlegi rendszermag nem támogatja a kiválasztott tömörítési algoritmust, szerkessze a konfigurációs fájlt, és válasszon másik algoritmust.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="511"/>
+        <location filename="../src/mainwindow.cpp" line="738"/>
         <source>Final chance</source>
         <translation>Utolsó lehetőség</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="513"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>A Pillanatkép most már minden szükséges információval rendelkezik ahhoz, hogy ISO fájlt hozzon létre a futó rendszerből.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="514"/>
+        <location filename="../src/mainwindow.cpp" line="741"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>A telepített rendszer méretétől és a számítógép kapacitásától függően némi időt vesz igénybe a folyamat végrehajtása.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="743"/>
         <source>OK to start?</source>
         <translation>Indulhat?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="520"/>
+        <location filename="../src/mainwindow.cpp" line="747"/>
         <source>Shutdown computer when done.</source>
         <translation>A számítógép leállítása amikor kész.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="553"/>
+        <location filename="../src/mainwindow.cpp" line="780"/>
         <source>Output</source>
         <translation>Kimenet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="569"/>
+        <location filename="../src/mainwindow.cpp" line="796"/>
         <source>Close</source>
         <translation>Bezárás</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="803"/>
         <source>Edit Boot Menu</source>
         <translation>Rendszerbetöltő menü szerkesztése</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="577"/>
+        <location filename="../src/mainwindow.cpp" line="804"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>A program most szünetet tart, hogy lehetővé tegye a munkakönyvtárban lévő fájlok szerkesztését. Válassza az Igen lehetőséget a rendszerindító menü szerkesztéséhez, vagy válassza a Nem lehetőséget ennek a lépésnek a kihagyásához, és a pillanatkép létrehozásának folytatásához.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="612"/>
+        <location filename="../src/mainwindow.cpp" line="840"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="692"/>
+        <location filename="../src/mainwindow.cpp" line="920"/>
         <source>About %1</source>
         <translation>%1 névjegye</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="922"/>
         <source>Version: </source>
         <translation>Verzió:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="923"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program egy Live-CD létrehozására a futó rendszerből az MX Linux rendszerrel</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
+        <location filename="../src/mainwindow.cpp" line="925"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="927"/>
         <source>%1 License</source>
         <translation>%1 licenc</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="713"/>
+        <location filename="../src/mainwindow.cpp" line="941"/>
         <source>%1 Help</source>
         <translation>%1 súgó</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="718"/>
+        <location filename="../src/mainwindow.cpp" line="946"/>
         <source>Select Snapshot Directory</source>
         <translation>Pillanatkép könyvtár kiválasztása</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Confirmation</source>
         <translation>Jóváhagyás</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Biztos, hogy ki szeretne lépni az alkalmazásból?</translation>
     </message>
@@ -718,163 +810,163 @@
         <translation>MX pillanatkép</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="503"/>
+        <location filename="../src/settings.cpp" line="511"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/settings.cpp" line="1134"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="455"/>
-        <location filename="../src/settings.cpp" line="463"/>
-        <location filename="../src/settings.cpp" line="982"/>
-        <location filename="../src/settings.cpp" line="1076"/>
         <source>Error</source>
         <translation>Hiba</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="510"/>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>A jelenlegi kernel nem támogatja Squashfs fájlrendszert. Nem folytatható.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="59"/>
+        <location filename="../src/settings.cpp" line="107"/>
         <source>Failed to initialize configuration</source>
         <translation>A konfiguráció inicializálása nem sikerült</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="82"/>
+        <location filename="../src/settings.cpp" line="130"/>
         <source>Configuration validation failed</source>
         <translation>A konfiguráció ellenőrzése nem sikerült</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="87"/>
+        <location filename="../src/settings.cpp" line="135"/>
         <source>Exception during initialization: %1</source>
         <translation>Hiba az inicializálás közben: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="90"/>
+        <location filename="../src/settings.cpp" line="138"/>
         <source>Unknown exception during initialization</source>
         <translation>Ismeretlen hiba az inicializálás közben</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="121"/>
+        <location filename="../src/settings.cpp" line="169"/>
         <source>Could not create work directory. </source>
         <translation>A munkakönyvtár létrehozása nem sikerült.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="145"/>
+        <location filename="../src/settings.cpp" line="193"/>
         <source>Could not create temp directory:</source>
         <translation>Az ideiglenes könyvtár létrehozása nem sikerült.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="146"/>
+        <location filename="../src/settings.cpp" line="194"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Ellenőrizze, hogy a tartalmazó könyvtár létezik-e és írható-e:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="164"/>
+        <location filename="../src/settings.cpp" line="212"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>A(z) &apos;%1&apos; tömörítési formátumot nem támogatja a jelenlegi kernel</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="170"/>
+        <location filename="../src/settings.cpp" line="218"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Érvénytelen magszám beállítás: %1. 1 és %2 közt kell legyen</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="176"/>
+        <location filename="../src/settings.cpp" line="224"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Érvénytelen lefojtási érték: %1. 0 és 20 közt kell legyen</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="182"/>
+        <location filename="../src/settings.cpp" line="230"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>A pillanatképkönyvtár neve nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="190"/>
+        <location filename="../src/settings.cpp" line="238"/>
         <source>Snapshot name cannot be empty</source>
         <translation>A pillanatkép neve nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="196"/>
+        <location filename="../src/settings.cpp" line="244"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>A pillanatkép neve érvénytelen karaktereket tartalmaz: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="202"/>
+        <location filename="../src/settings.cpp" line="250"/>
         <source>Kernel version cannot be empty</source>
         <translation>A kernelverzió nem lehet üres</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="207"/>
+        <location filename="../src/settings.cpp" line="255"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>A kernelfájl nem található: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="213"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Ez a kernelverzió (%1) nem támogatja a Squashfs-t</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="237"/>
+        <location filename="../src/settings.cpp" line="285"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>A kizárási fájl nem létezik: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="246"/>
+        <location filename="../src/settings.cpp" line="294"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="271"/>
+        <location filename="../src/settings.cpp" line="319"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Nincs elegendő szabad hely: %1 KiB érhető el, legalább %1 KiB szükséges</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="278"/>
+        <location filename="../src/settings.cpp" line="326"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Nincs elegendő szabad hely a munkakönyvtárban: %1 KiB érhető el, legalább %1 KiB szükséges</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="293"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Nem sikerült megállapítani a processzormagok számát</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="299"/>
+        <location filename="../src/settings.cpp" line="347"/>
         <source>Configuration file does not exist: %1</source>
         <translation>A beállítási fájl nem létezik: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="348"/>
         <source>Using default settings</source>
         <translation>Alapértelmezett beállítások felhasználva</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="302"/>
+        <location filename="../src/settings.cpp" line="350"/>
         <source>Cannot read configuration file: %1</source>
         <translation>A beállítási fájl nem olvasható: %s</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="303"/>
+        <location filename="../src/settings.cpp" line="351"/>
         <source>Error: %1</source>
         <translation>Hiba: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="313"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Required tool not found: %1</source>
         <translation>Egy szükséges eszköz nem található: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="322"/>
+        <location filename="../src/settings.cpp" line="370"/>
         <source>Required directory not found: %1</source>
         <translation>Egy szükséges könyvtár nem található: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="341"/>
+        <location filename="../src/settings.cpp" line="389"/>
         <source>Initialization Error</source>
         <translation>Inicializálási hiba</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="390"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -883,47 +975,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="501"/>
         <source>Could not find a usable kernel</source>
         <translation>Nem található felhasználható kernel</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="454"/>
+        <location filename="../src/settings.cpp" line="502"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>A /boot/ könyvtárban nem található kernelfájl vagy nem érhető el.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="475"/>
+        <location filename="../src/settings.cpp" line="523"/>
         <source>No users found in the system</source>
         <translation>Nincsenek felhasználók a rendszeren</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="478"/>
+        <location filename="../src/settings.cpp" line="526"/>
         <source>Failed to determine system information</source>
         <translation>Nem sikerült a rendszer jellemzőinek megállapítása</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="572"/>
+        <location filename="../src/settings.cpp" line="620"/>
         <source>Used space on / (root): </source>
         <translation>Foglalt terület a / (gyökér) partíción:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="575"/>
+        <location filename="../src/settings.cpp" line="623"/>
         <source>estimated</source>
         <translation>becsült</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="584"/>
+        <location filename="../src/settings.cpp" line="632"/>
         <source>Used space on /home: </source>
         <translation>Foglalt terület a /home-on:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="640"/>
+        <location filename="../src/settings.cpp" line="688"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Szabad hely a %1 alatt, ahol a pillanatkép mappa található:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="644"/>
+        <location filename="../src/settings.cpp" line="692"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -938,68 +1030,68 @@
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="706"/>
         <source>Desktop</source>
         <translation>Asztal</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="707"/>
         <source>Documents</source>
         <translation>Dokumentumok</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="708"/>
         <source>Downloads</source>
         <translation>Letöltések</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="709"/>
         <source>Flatpaks</source>
         <translation>Flatpackek</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="710"/>
         <source>Music</source>
         <translation>Zenék</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="663"/>
+        <location filename="../src/settings.cpp" line="711"/>
         <source>Networks</source>
         <translation>Hálózatok</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="712"/>
         <source>Pictures</source>
         <translation>Képek</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="666"/>
+        <location filename="../src/settings.cpp" line="714"/>
         <source>Videos</source>
         <translation>Videók</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="815"/>
+        <location filename="../src/settings.cpp" line="863"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Hiba a rendszerbeállítási fájl olvasásakor: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="820"/>
+        <location filename="../src/settings.cpp" line="871"/>
         <source>Error accessing user configuration</source>
         <translation>Hiba a felhasználó beállítások elérésekor</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="867"/>
+        <location filename="../src/settings.cpp" line="923"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="890"/>
+        <location filename="../src/settings.cpp" line="948"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="980"/>
-        <location filename="../src/settings.cpp" line="1074"/>
+        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="1132"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>A %1 kimeneti fájl már létezik. Adjon meg egy másik fájlnevet, vagy törölje a meglévő fájlt.</translation>
     </message>

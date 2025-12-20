@@ -2,32 +2,82 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="44"/>
+        <location filename="../src/batchprocessing.cpp" line="54"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="45"/>
+        <location filename="../src/batchprocessing.cpp" line="55"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>O núcleo (kernel) atual não possui suporte ao algoritmo de compactação/compressão que foi selecionado. Por favor, edite o arquivo de configurações e selecione um algoritmo diferente.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="70"/>
+        <location filename="../src/batchprocessing.cpp" line="80"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>O programa irá parar a compilação e irá abrir o arquivo de configurações do menu de inicialização no editor de texto.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="102"/>
+        <location filename="../src/batchprocessing.cpp" line="162"/>
+        <source>No diff output available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="200"/>
+        <source>Default exclusion file not found at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="210"/>
+        <source>Could not remove existing exclusion file at %1.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="216"/>
+        <source>Could not copy default exclusion file from %1 to %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="232"/>
+        <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="239"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="242"/>
+        <source>[s]how diff  [u]se updated default  [k]eep custom (update timestamp)  [q]uit: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="253"/>
+        <source>Reverted to updated default exclusion file.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="272"/>
+        <source>Leaving custom exclusion file unchanged.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="283"/>
+        <source>Invalid choice. Please select again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="290"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Este computador utiliza uma placa de vídeo da NVIDIA. Você está planejando utilizar a imagem ISO resultante no mesmo computador ou em um outro computador que tem uma placa de vídeo da NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="112"/>
+        <location filename="../src/batchprocessing.cpp" line="300"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Observação: Se você utilizar a imagem ISO resultante em um computador que não tem uma placa de vídeo da NVIDIA, provavelmente será necessário remover o parâmetro ‘xorg=nvidia’ das opções de inicialização.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="115"/>
+        <location filename="../src/batchprocessing.cpp" line="303"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Observação: Se você utilizar a imagem ISO resultante em um computador que tem uma placa de vídeo da NVIDIA, pode ser necessário adicionar o parâmetro &apos;xorg=nvidia&apos; nas opções de inicialização.</translation>
     </message>
@@ -36,9 +86,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="256"/>
-        <location filename="../src/mainwindow.cpp" line="592"/>
         <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/mainwindow.cpp" line="439"/>
+        <location filename="../src/mainwindow.cpp" line="819"/>
         <source>MX Snapshot</source>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
@@ -124,8 +174,8 @@ com programas que sejam pouco exigentes enquanto o ‘Snapshot’ estiver em exe
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="445"/>
         <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Snapshot name:</source>
         <translation>Nome da imagem ISO:</translation>
     </message>
@@ -216,8 +266,8 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="611"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
+        <location filename="../src/mainwindow.cpp" line="839"/>
         <source>Remove Custom Exclusion File</source>
         <translation type="unfinished"/>
     </message>
@@ -348,42 +398,42 @@ para editar manualmente o arquivo de configurações ‘/etc/mx-snapshot-exclude
         <translation>Anterior</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="218"/>
+        <location filename="../src/mainwindow.cpp" line="401"/>
         <source>Select Release Date</source>
         <translation>Selecionar a data do lançamento</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fastest, worst compression</source>
         <translation>Mais rápido e com uma compactação pior</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fast, worse compression</source>
         <translation>Rápido e com uma compactação pior</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>slow, better compression</source>
         <translation>Lento e com uma compactação melhor</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>best compromise</source>
         <translation>A melhor opção</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="264"/>
+        <location filename="../src/mainwindow.cpp" line="447"/>
         <source>slowest, best compression</source>
         <translation>Mais lento e com uma compactação ainda melhor</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="293"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>O espaço livre na %1 onde a pasta da imagem ISO está localizada no caminho possui </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="296"/>
+        <location filename="../src/mainwindow.cpp" line="479"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -392,193 +442,235 @@ pessoal). Se for necessário, você pode liberar mais espaço excluindo as image
 As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="308"/>
-        <location filename="../src/mainwindow.cpp" line="309"/>
+        <location filename="../src/mainwindow.cpp" line="491"/>
+        <location filename="../src/mainwindow.cpp" line="492"/>
         <source>Installing </source>
         <translation>Instalando</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="394"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>Please wait.</source>
         <translation>Por favor, aguarde.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="396"/>
+        <location filename="../src/mainwindow.cpp" line="579"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Por favor, aguarde. Calculando o espaço em disco a ser utilizado...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="137"/>
-        <location filename="../src/mainwindow.cpp" line="148"/>
-        <location filename="../src/mainwindow.cpp" line="154"/>
-        <location filename="../src/mainwindow.cpp" line="430"/>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="313"/>
+        <location filename="../src/mainwindow.cpp" line="324"/>
+        <location filename="../src/mainwindow.cpp" line="330"/>
+        <location filename="../src/mainwindow.cpp" line="613"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="714"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="138"/>
+        <location filename="../src/mainwindow.cpp" line="177"/>
+        <source>No diff output available.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="210"/>
+        <location filename="../src/mainwindow.cpp" line="246"/>
+        <source>Updated Exclusion List</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="213"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="215"/>
+        <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="221"/>
+        <source>Show Differences</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="227"/>
+        <source>Keep Custom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="233"/>
+        <source>Use Updated Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="149"/>
+        <location filename="../src/mainwindow.cpp" line="325"/>
         <source>Could not remove existing exclusion file at %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="431"/>
+        <location filename="../src/mainwindow.cpp" line="614"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo da saída %1 já existe. Por favor, utilize um outro nome para o arquivo ou exclua o arquivo existente.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="436"/>
+        <location filename="../src/mainwindow.cpp" line="619"/>
         <source>Settings</source>
         <translation>Configurações</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442"/>
+        <location filename="../src/mainwindow.cpp" line="625"/>
         <source>Snapshot will use the following settings:</source>
         <translation>O ‘Snapshot’ utilizará as seguintes configurações para a imagem ISO:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="444"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>- Snapshot directory:</source>
         <translation>- Pasta das imagens ISO:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="445"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>- Kernel to be used:</source>
         <translation>- Núcleo/kernel a ser utilizado:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="467"/>
-        <location filename="../src/mainwindow.cpp" line="476"/>
+        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="660"/>
         <source>NVIDIA Detected</source>
         <translation>Uma placa de vídeo da NVIDIA foi detectada</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="468"/>
+        <location filename="../src/mainwindow.cpp" line="652"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Este computador utiliza uma placa de vídeo da NVIDIA. Você está planejando utilizar a imagem ISO resultante no mesmo computador ou em um outro computador que tem uma placa de vídeo da NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="472"/>
+        <location filename="../src/mainwindow.cpp" line="656"/>
         <source>NVIDIA Selected</source>
         <translation>Uma placa de vídeo da NVIDIA foi selecionada</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="473"/>
+        <location filename="../src/mainwindow.cpp" line="657"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Observação: Se você utilizar a imagem ISO resultante em um computador que não tem uma placa de vídeo da NVIDIA, provavelmente será necessário remover o parâmetro ‘xorg=nvidia’ das opções de inicialização.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="477"/>
+        <location filename="../src/mainwindow.cpp" line="661"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Observação: Se você utilizar a imagem ISO resultante em um computador que tem uma placa de vídeo da NVIDIA, pode ser necessário adicionar o parâmetro &apos;xorg=nvidia&apos; nas opções de inicialização.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="696"/>
+        <source>Could not replace the exclusion file with the updated default.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="715"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>O núcleo (kernel) atual não é compatível com o algoritmo de compactação/compressão que foi selecionado. Por favor, edite o arquivo de configurações e escolha um algoritmo diferente.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="511"/>
+        <location filename="../src/mainwindow.cpp" line="738"/>
         <source>Final chance</source>
         <translation>Esta é a sua última chance</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="513"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>O programa ‘Snapshot’ possui todas as informações necessárias para criar uma imagem ISO a partir do seu sistema operacional em execução.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="514"/>
+        <location filename="../src/mainwindow.cpp" line="741"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>O processo de criação da imagem ISO irá demorar algum tempo para finalizar. O tempo pode ser maior ou menor dependendo do tamanho do seu sistema operacional que está instalado e da capacidade de processamento do seu computador.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="743"/>
         <source>OK to start?</source>
         <translation>Você quer iniciar agora?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="520"/>
+        <location filename="../src/mainwindow.cpp" line="747"/>
         <source>Shutdown computer when done.</source>
         <translation>Desligar o computador quando finalizar a criação da imagem ISO.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="553"/>
+        <location filename="../src/mainwindow.cpp" line="780"/>
         <source>Output</source>
         <translation>Resultado</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="569"/>
+        <location filename="../src/mainwindow.cpp" line="796"/>
         <source>Close</source>
         <translation>Fechar</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="803"/>
         <source>Edit Boot Menu</source>
         <translation>Editar o Menu de Inicialização</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="577"/>
+        <location filename="../src/mainwindow.cpp" line="804"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>O programa irá parar agora para permitir que você edite quaisquer arquivos que estão na pasta de trabalho. Clique na opção ‘Sim’ para editar o menu de inicialização ou clique na opção ‘Não’ para ignorar esta etapa e continuar com a criação da imagem ISO.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="612"/>
+        <location filename="../src/mainwindow.cpp" line="840"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="692"/>
+        <location filename="../src/mainwindow.cpp" line="920"/>
         <source>About %1</source>
         <translation>Sobre o %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="922"/>
         <source>Version: </source>
         <translation>Versão: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="923"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>O ‘Snapshot’ é um programa que permite criar uma imagem ISO do sistema operacional MX Linux em execução, podendo a imagem ISO ser executada em uma mídia de CD/DVD/USB e ainda possibilita a instalação em um computador.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
+        <location filename="../src/mainwindow.cpp" line="925"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Direitos de Autor (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="927"/>
         <source>%1 License</source>
         <translation>Licença do %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="713"/>
+        <location filename="../src/mainwindow.cpp" line="941"/>
         <source>%1 Help</source>
         <translation>Ajuda do %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="718"/>
+        <location filename="../src/mainwindow.cpp" line="946"/>
         <source>Select Snapshot Directory</source>
         <translation>Selecione a Pasta para o Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Confirmation</source>
         <translation>Confirmação</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Você tem certeza de que deseja encerrar o aplicativo?</translation>
     </message>
@@ -721,163 +813,163 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="503"/>
+        <location filename="../src/settings.cpp" line="511"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/settings.cpp" line="1134"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="455"/>
-        <location filename="../src/settings.cpp" line="463"/>
-        <location filename="../src/settings.cpp" line="982"/>
-        <location filename="../src/settings.cpp" line="1076"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="510"/>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="59"/>
+        <location filename="../src/settings.cpp" line="107"/>
         <source>Failed to initialize configuration</source>
         <translation>Ocorreu uma falha ao inicializar as configurações</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="82"/>
+        <location filename="../src/settings.cpp" line="130"/>
         <source>Configuration validation failed</source>
         <translation>Ocorreu uma falha na validação das configurações</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="87"/>
+        <location filename="../src/settings.cpp" line="135"/>
         <source>Exception during initialization: %1</source>
         <translation>Exceto durante a inicialização do %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="90"/>
+        <location filename="../src/settings.cpp" line="138"/>
         <source>Unknown exception during initialization</source>
         <translation>Uma exceção que não é conhecida durante a inicialização</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="121"/>
+        <location filename="../src/settings.cpp" line="169"/>
         <source>Could not create work directory. </source>
         <translation>Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="145"/>
+        <location filename="../src/settings.cpp" line="193"/>
         <source>Could not create temp directory:</source>
         <translation>Não foi possível criar a pasta temporária:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="146"/>
+        <location filename="../src/settings.cpp" line="194"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Por favor, verifique se a pasta pai existe e se é gravável:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="164"/>
+        <location filename="../src/settings.cpp" line="212"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>O formato da compactação/compressão ‘%1’ não é compatível pelo núcleo (kernel) atual</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="170"/>
+        <location filename="../src/settings.cpp" line="218"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>A configuração dos núcleos (cores) %1 não é válidas. O valor deve estar entre 1 e %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="176"/>
+        <location filename="../src/settings.cpp" line="224"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>A configuração da aceleração ‘%1’ não é válida. O valor deve estar entre 0 e 20</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="182"/>
+        <location filename="../src/settings.cpp" line="230"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>A pasta das imagens ISOs (Snapshot) não pode estar vazia</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="190"/>
+        <location filename="../src/settings.cpp" line="238"/>
         <source>Snapshot name cannot be empty</source>
         <translation>O nome da imagem ISO não pode estar vazio</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="196"/>
+        <location filename="../src/settings.cpp" line="244"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>O nome da imagem ISO contém caracteres que não são válidos ‘%1’</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="202"/>
+        <location filename="../src/settings.cpp" line="250"/>
         <source>Kernel version cannot be empty</source>
         <translation>A versão do núcleo (kernel) não pode estar vazia</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="207"/>
+        <location filename="../src/settings.cpp" line="255"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>O arquivo do núcleo (kernel) não foi encontrado no caminho ‘/boot/vmlinuz-%1’</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="213"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>O núcleo (kernel) %1 não é compatível com o ‘Squashfs’</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="237"/>
+        <location filename="../src/settings.cpp" line="285"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>O arquivo %1 a ser excluído não existe</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="246"/>
+        <location filename="../src/settings.cpp" line="294"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Existem cotações desbalanceadas na lista de exclusão</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="271"/>
+        <location filename="../src/settings.cpp" line="319"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>O espaço livre de %1 KiB que está disponível não é suficiente, o mínimo necessário é de %2 KiB</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="278"/>
+        <location filename="../src/settings.cpp" line="326"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>O espaço livre de %1 KiB que está disponível não é suficiente na pasta de trabalho, o mínimo necessário é de %2 KiB</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="293"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Ocorreu uma falha ao determinar o número de núcleos (cores) do processador</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="299"/>
+        <location filename="../src/settings.cpp" line="347"/>
         <source>Configuration file does not exist: %1</source>
         <translation>O arquivo de configurações %1 não existe</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="348"/>
         <source>Using default settings</source>
         <translation>Utilizando as configurações padrão</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="302"/>
+        <location filename="../src/settings.cpp" line="350"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Não foi possível ler o arquivo de configurações %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="303"/>
+        <location filename="../src/settings.cpp" line="351"/>
         <source>Error: %1</source>
         <translation>Ocorreu o erro %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="313"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Required tool not found: %1</source>
         <translation>A ferramenta necessária %1 não foi encontrada</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="322"/>
+        <location filename="../src/settings.cpp" line="370"/>
         <source>Required directory not found: %1</source>
         <translation>A pasta %1 não foi encontrada</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="341"/>
+        <location filename="../src/settings.cpp" line="389"/>
         <source>Initialization Error</source>
         <translation>Ocorreu um erro na inicialização</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="390"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -886,47 +978,47 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="501"/>
         <source>Could not find a usable kernel</source>
         <translation>Não foi possível encontrar um núcleo/kernel utilizável</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="454"/>
+        <location filename="../src/settings.cpp" line="502"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Após pesquisar por arquivos dos núcleos (kernels) na pasta ‘/boot/’, nenhum núcleo foi encontrado ou está acessível.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="475"/>
+        <location filename="../src/settings.cpp" line="523"/>
         <source>No users found in the system</source>
         <translation>Nenhum usuário foi encontrado no sistema operacional</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="478"/>
+        <location filename="../src/settings.cpp" line="526"/>
         <source>Failed to determine system information</source>
         <translation>Ocorreu uma falha ao determinar as informações do sistema operacional</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="572"/>
+        <location filename="../src/settings.cpp" line="620"/>
         <source>Used space on / (root): </source>
         <translation>O espaço utilizado na / (raiz ou ‘root’) é de </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="575"/>
+        <location filename="../src/settings.cpp" line="623"/>
         <source>estimated</source>
         <translation>foi estimado</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="584"/>
+        <location filename="../src/settings.cpp" line="632"/>
         <source>Used space on /home: </source>
         <translation>O espaço utilizado na /home é de </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="640"/>
+        <location filename="../src/settings.cpp" line="688"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>O espaço livre na %1 onde a pasta que armazena a imagem ISO é de </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="644"/>
+        <location filename="../src/settings.cpp" line="692"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -938,68 +1030,68 @@ pessoal). Se for necessário, você pode liberar mais espaço excluindo as image
 As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="706"/>
         <source>Desktop</source>
         <translation>Área de Trabalho</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="707"/>
         <source>Documents</source>
         <translation>Documentos</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="708"/>
         <source>Downloads</source>
         <translation>Baixados</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="709"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="710"/>
         <source>Music</source>
         <translation>Músicas</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="663"/>
+        <location filename="../src/settings.cpp" line="711"/>
         <source>Networks</source>
         <translation>Redes</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="712"/>
         <source>Pictures</source>
         <translation>Imagens</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="666"/>
+        <location filename="../src/settings.cpp" line="714"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="815"/>
+        <location filename="../src/settings.cpp" line="863"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Ocorreu um erro ao ler o arquivo de configurações %1 do sistema operacional</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="820"/>
+        <location filename="../src/settings.cpp" line="871"/>
         <source>Error accessing user configuration</source>
         <translation>Ocorreu um erro ao acessar as configurações do usuário</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="867"/>
+        <location filename="../src/settings.cpp" line="923"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="890"/>
+        <location filename="../src/settings.cpp" line="948"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="980"/>
-        <location filename="../src/settings.cpp" line="1074"/>
+        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="1132"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>O arquivo da saída %1 já existe. Por favor, utilize um outro nome para o arquivo ou exclua o arquivo existente.</translation>
     </message>

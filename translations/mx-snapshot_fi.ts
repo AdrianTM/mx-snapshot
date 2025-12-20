@@ -2,32 +2,82 @@
 <context>
     <name>Batchprocessing</name>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="44"/>
+        <location filename="../src/batchprocessing.cpp" line="54"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="45"/>
+        <location filename="../src/batchprocessing.cpp" line="55"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Nykyinen kerneli ei tue valittua pakkausalgoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="70"/>
+        <location filename="../src/batchprocessing.cpp" line="80"/>
         <source>The program will pause the build and open the boot menu in your text editor.</source>
         <translation>Ohjelma pysäyttää koontiversion ja avaa käynnistysvalikon tekstieditorissa.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="102"/>
+        <location filename="../src/batchprocessing.cpp" line="162"/>
+        <source>No diff output available.</source>
+        <translation>Diff-tulostetta ei ole saatavilla.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="200"/>
+        <source>Default exclusion file not found at %1.</source>
+        <translation>Rajaustiedostoa %1 ei löytynyt.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="210"/>
+        <source>Could not remove existing exclusion file at %1.</source>
+        <translation>Rajaustiedostoa %1 ei voitu poistaa.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="216"/>
+        <source>Could not copy default exclusion file from %1 to %2.</source>
+        <translation>Rajaustiedoston kopiointi %1 kansioon %2 ei onnistunut.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="232"/>
+        <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
+        <translation>Toimintakehotus! Havaittiin uudempi rajaustiedosto %1 verrattuna %2.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="239"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation>Rajaustiedosto %1 on uudempi kuin määritetty tiedosto %2.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="242"/>
+        <source>[s]how diff  [u]se updated default  [k]eep custom (update timestamp)  [q]uit: </source>
+        <translation>[s]how näytä diff  [u]se käytä päivitettyä oletusta [k]eep (päivitä aikaleima)  [q]uit: </translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="253"/>
+        <source>Reverted to updated default exclusion file.</source>
+        <translation>Palautettu päivitettyyn oletus rajaustiedostoon.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="272"/>
+        <source>Leaving custom exclusion file unchanged.</source>
+        <translation>Mukautettu rajaustiedosto jätetään ennalleen.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="283"/>
+        <source>Invalid choice. Please select again.</source>
+        <translation>Valintavirhe. Valitse uudelleen.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="290"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Tietokone käyttää Nvidia näytönohjainta. Käytätkö tuloksena olevaa ISO:a tässä tietokoneessa vai toisessa tietokoneessa, jossa on Nvidia?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="112"/>
+        <location filename="../src/batchprocessing.cpp" line="300"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistysasetuksista.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="115"/>
+        <location filename="../src/batchprocessing.cpp" line="303"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistysasetuksiin.</translation>
     </message>
@@ -36,9 +86,9 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="256"/>
-        <location filename="../src/mainwindow.cpp" line="592"/>
         <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/mainwindow.cpp" line="439"/>
+        <location filename="../src/mainwindow.cpp" line="819"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -122,8 +172,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="445"/>
         <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Snapshot name:</source>
         <translation>Vedoksen nimi:</translation>
     </message>
@@ -213,8 +263,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="611"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
+        <location filename="../src/mainwindow.cpp" line="839"/>
         <source>Remove Custom Exclusion File</source>
         <translation>Poista mukautettu rajaustiedosto</translation>
     </message>
@@ -345,42 +395,42 @@
         <translation>Takaisin</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="218"/>
+        <location filename="../src/mainwindow.cpp" line="401"/>
         <source>Select Release Date</source>
         <translation>Valitse julkaisupäivä</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fastest, worst compression</source>
         <translation>nopein, huonoin pakkaus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="262"/>
+        <location filename="../src/mainwindow.cpp" line="445"/>
         <source>fast, worse compression</source>
         <translation>nopea, huonompi pakkaus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>slow, better compression</source>
         <translation>hidas, parempi pakkaus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="263"/>
+        <location filename="../src/mainwindow.cpp" line="446"/>
         <source>best compromise</source>
         <translation>paras kompromissi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="264"/>
+        <location filename="../src/mainwindow.cpp" line="447"/>
         <source>slowest, best compression</source>
         <translation>hitain, paras pakkaus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="293"/>
+        <location filename="../src/mainwindow.cpp" line="476"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Snapshot.kansio tallennetaan vapaaseen tilaan %1: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="296"/>
+        <location filename="../src/mainwindow.cpp" line="479"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -390,193 +440,235 @@ Tarvittaessa tee vapaata tilaa poistamalla aiemmat vedokset ja
 tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="308"/>
-        <location filename="../src/mainwindow.cpp" line="309"/>
+        <location filename="../src/mainwindow.cpp" line="491"/>
+        <location filename="../src/mainwindow.cpp" line="492"/>
         <source>Installing </source>
         <translation>Asennetaan</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="394"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>Please wait.</source>
         <translation>Odota, ole hyvä.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="396"/>
+        <location filename="../src/mainwindow.cpp" line="579"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Odota, ole hyvä. Lasketaan käytettyä levytilaa...</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="137"/>
-        <location filename="../src/mainwindow.cpp" line="148"/>
-        <location filename="../src/mainwindow.cpp" line="154"/>
-        <location filename="../src/mainwindow.cpp" line="430"/>
-        <location filename="../src/mainwindow.cpp" line="487"/>
+        <location filename="../src/mainwindow.cpp" line="313"/>
+        <location filename="../src/mainwindow.cpp" line="324"/>
+        <location filename="../src/mainwindow.cpp" line="330"/>
+        <location filename="../src/mainwindow.cpp" line="613"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="714"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="138"/>
+        <location filename="../src/mainwindow.cpp" line="177"/>
+        <source>No diff output available.</source>
+        <translation>Diff-tulostetta ei ole saatavilla.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="210"/>
+        <location filename="../src/mainwindow.cpp" line="246"/>
+        <source>Updated Exclusion List</source>
+        <translation>Päivitetty rajauslista</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="213"/>
+        <source>The exclusion file at %1 is newer than your configured file at %2.</source>
+        <translation>Rajaustiedosto %1 on uudempi kuin määritetty tiedosto %2.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="215"/>
+        <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
+        <translation>Tarkista muutokset. Säilytä mukautettu tiedosto tai korvaa se päivitetyllä oletuksella.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="221"/>
+        <source>Show Differences</source>
+        <translation>Näytä ero</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="227"/>
+        <source>Keep Custom</source>
+        <translation>Pidä mukautettu</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="233"/>
+        <source>Use Updated Default</source>
+        <translation>Käytä päivitettyä oletusta</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
         <translation>Rajaustiedostoa %1 ei löytynyt.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="149"/>
+        <location filename="../src/mainwindow.cpp" line="325"/>
         <source>Could not remove existing exclusion file at %1.</source>
         <translation>Rajaustiedostoa %1 ei voitu poistaa.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="155"/>
+        <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
         <translation>Rajaustiedoston kopiointi %1 kansioon %2 ei onnistunut.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="431"/>
+        <location filename="../src/mainwindow.cpp" line="614"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="436"/>
+        <location filename="../src/mainwindow.cpp" line="619"/>
         <source>Settings</source>
         <translation>Asetukset</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="442"/>
+        <location filename="../src/mainwindow.cpp" line="625"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Vedos käyttää seuraavia asetuksia:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="444"/>
+        <location filename="../src/mainwindow.cpp" line="627"/>
         <source>- Snapshot directory:</source>
         <translation>- Vedosten kansio:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="445"/>
+        <location filename="../src/mainwindow.cpp" line="628"/>
         <source>- Kernel to be used:</source>
         <translation>- Käytettävä kerneli:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="467"/>
-        <location filename="../src/mainwindow.cpp" line="476"/>
+        <location filename="../src/mainwindow.cpp" line="651"/>
+        <location filename="../src/mainwindow.cpp" line="660"/>
         <source>NVIDIA Detected</source>
         <translation>Nvidia havaittu</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="468"/>
+        <location filename="../src/mainwindow.cpp" line="652"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Tietokone käyttää Nvidia näytönohjainta. Käytätkö tuloksena olevaa ISO:a tässä tietokoneessa vai toisessa tietokoneessa, jossa on Nvidia?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="472"/>
+        <location filename="../src/mainwindow.cpp" line="656"/>
         <source>NVIDIA Selected</source>
         <translation>Nvidia valittu</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="473"/>
+        <location filename="../src/mainwindow.cpp" line="657"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa ei ole nvidiaa, joudut todennäköisesti poistamaan &quot;xorg=nvidia&quot; käynnistysasetuksista.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="477"/>
+        <location filename="../src/mainwindow.cpp" line="661"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Huomaa: Jos käytät tuloksena olevaa ISO:a tietokoneessa, jossa on nvidia, saatat joutua lisäämään &quot;xorg=nvidia&quot; käynnistysasetuksiin.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="488"/>
+        <location filename="../src/mainwindow.cpp" line="696"/>
+        <source>Could not replace the exclusion file with the updated default.</source>
+        <translation>Rajaustiedostoa ei voitu korvata päivitetyllä oletuksella.</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="715"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Nykyinen kerneli ei tue valittua pakkaamisen algoritmia, muokkaa asetustiedostoa ja valitse eri algoritmi.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="511"/>
+        <location filename="../src/mainwindow.cpp" line="738"/>
         <source>Final chance</source>
         <translation>Viimeinen mahdollisuus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="513"/>
+        <location filename="../src/mainwindow.cpp" line="740"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Työkalulla on nyt kaikki tarvittavat tiedot ISO-tiedoston luomiseen käynnissä olevasta järjestelmästä.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="514"/>
+        <location filename="../src/mainwindow.cpp" line="741"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Viimeistely tulee kestämään kotvasen aikaa, riippuen asennetun järjestelmän koosta sekä tietokoneesi kapasiteetista.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="516"/>
+        <location filename="../src/mainwindow.cpp" line="743"/>
         <source>OK to start?</source>
         <translation>Voidaanko aloittaa?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="520"/>
+        <location filename="../src/mainwindow.cpp" line="747"/>
         <source>Shutdown computer when done.</source>
         <translation>Sammuta tietokone kun käsittely on valmis.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="553"/>
+        <location filename="../src/mainwindow.cpp" line="780"/>
         <source>Output</source>
         <translation>Tuloste</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="569"/>
+        <location filename="../src/mainwindow.cpp" line="796"/>
         <source>Close</source>
         <translation>Sulje</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="803"/>
         <source>Edit Boot Menu</source>
         <translation>Muokkaa käynnistysvalikkoa</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="577"/>
+        <location filename="../src/mainwindow.cpp" line="804"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Ohjelma pysäytetään, jotta voit muokata työhakemiston tiedostoja. Valitse Kyllä muokataksesi käynnistysvalikkoa tai valitse Ei ohittaaksesi tämän vaiheen ja jatka vedoksen luomista.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="612"/>
+        <location filename="../src/mainwindow.cpp" line="840"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
         <translation>Palautetaanko oletus rajaustiedosto? Tämä korvaa nykyiset rajaukset.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="692"/>
+        <location filename="../src/mainwindow.cpp" line="920"/>
         <source>About %1</source>
         <translation>%1 lisätietoja</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="694"/>
+        <location filename="../src/mainwindow.cpp" line="922"/>
         <source>Version: </source>
         <translation>Versio: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="695"/>
+        <location filename="../src/mainwindow.cpp" line="923"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Ohjelma jonka avulla voit luoda live-CD:n tällä hetkellä ajetusta järjestelmästä MX Linux:ille</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="697"/>
+        <location filename="../src/mainwindow.cpp" line="925"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Copyright (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="699"/>
+        <location filename="../src/mainwindow.cpp" line="927"/>
         <source>%1 License</source>
         <translation>%1 lupa</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="713"/>
+        <location filename="../src/mainwindow.cpp" line="941"/>
         <source>%1 Help</source>
         <translation>%1 Apuopas</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="718"/>
+        <location filename="../src/mainwindow.cpp" line="946"/>
         <source>Select Snapshot Directory</source>
         <translation>Valitse vedoksen kansio</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Confirmation</source>
         <translation>Vahvistus</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="739"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Oletko varma että haluat lopettaa sovelluksen?</translation>
     </message>
@@ -719,163 +811,163 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>MX Snapshot</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="503"/>
+        <location filename="../src/settings.cpp" line="511"/>
+        <location filename="../src/settings.cpp" line="1040"/>
+        <location filename="../src/settings.cpp" line="1134"/>
         <location filename="../src/main.cpp" line="172"/>
         <location filename="../src/main.cpp" line="239"/>
-        <location filename="../src/settings.cpp" line="455"/>
-        <location filename="../src/settings.cpp" line="463"/>
-        <location filename="../src/settings.cpp" line="982"/>
-        <location filename="../src/settings.cpp" line="1076"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="510"/>
         <location filename="../src/main.cpp" line="238"/>
-        <location filename="../src/settings.cpp" line="462"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kernel ei tue Squashfs-funktioita, joten ei voi jatkaa.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="59"/>
+        <location filename="../src/settings.cpp" line="107"/>
         <source>Failed to initialize configuration</source>
         <translation>Määrityksen alustaminen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="82"/>
+        <location filename="../src/settings.cpp" line="130"/>
         <source>Configuration validation failed</source>
         <translation>Määritysten vahvistus epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="87"/>
+        <location filename="../src/settings.cpp" line="135"/>
         <source>Exception during initialization: %1</source>
         <translation>Poikkeus alustuksen aikana: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="90"/>
+        <location filename="../src/settings.cpp" line="138"/>
         <source>Unknown exception during initialization</source>
         <translation>Tuntematon poikkeus alustuksen aikana</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="121"/>
+        <location filename="../src/settings.cpp" line="169"/>
         <source>Could not create work directory. </source>
         <translation>Työhakemiston luominen epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="145"/>
+        <location filename="../src/settings.cpp" line="193"/>
         <source>Could not create temp directory:</source>
         <translation>Väliaikaista hakemistoa ei voitu luoda:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="146"/>
+        <location filename="../src/settings.cpp" line="194"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Tarkista, että päähakemisto on olemassa ja että siihen voi kirjoittaa:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="164"/>
+        <location filename="../src/settings.cpp" line="212"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>Nykyinen kernel ei tue pakkausformaattia &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="170"/>
+        <location filename="../src/settings.cpp" line="218"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Virheellinen ydinten asetus: %1. Arvon on oltava välillä 1–%2.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="176"/>
+        <location filename="../src/settings.cpp" line="224"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Virheellinen asetus: %1. Arvon on oltava välillä 0–20</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="182"/>
+        <location filename="../src/settings.cpp" line="230"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>Vedoskansio ei voi olla tyhjä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="190"/>
+        <location filename="../src/settings.cpp" line="238"/>
         <source>Snapshot name cannot be empty</source>
         <translation>Vediksen nimi ei voi olla tyhjä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="196"/>
+        <location filename="../src/settings.cpp" line="244"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>Nimi sisältää virheellisiä merkkejä: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="202"/>
+        <location filename="../src/settings.cpp" line="250"/>
         <source>Kernel version cannot be empty</source>
         <translation>Kernel-versio ei voi olla tyhjä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="207"/>
+        <location filename="../src/settings.cpp" line="255"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>Kernel-tiedostoa ei löytynyt: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="213"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Kernel %1 ei tue Squashfs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="237"/>
+        <location filename="../src/settings.cpp" line="285"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>Poissulkemistiedostoa ei ole: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="246"/>
+        <location filename="../src/settings.cpp" line="294"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Väärät lainausmerkit poissulkemisluettelossa</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="271"/>
+        <location filename="../src/settings.cpp" line="319"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Ei vapaata tilaa: %1 KiB käytettävissä, tarvitaan %2 KiB</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="278"/>
+        <location filename="../src/settings.cpp" line="326"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Hakemistossa ei ole työtilaa: %1 KiB käytettävissä, tarvitaan %2 KiB</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="293"/>
+        <location filename="../src/settings.cpp" line="341"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Suorittimen ytimien määrän määrittäminen epäonnistui</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="299"/>
+        <location filename="../src/settings.cpp" line="347"/>
         <source>Configuration file does not exist: %1</source>
         <translation>Määritystiotiedostoa ei ole: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="300"/>
+        <location filename="../src/settings.cpp" line="348"/>
         <source>Using default settings</source>
         <translation>Oletusten käyttö</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="302"/>
+        <location filename="../src/settings.cpp" line="350"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Määritystiedostoa ei voi lukea: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="303"/>
+        <location filename="../src/settings.cpp" line="351"/>
         <source>Error: %1</source>
         <translation>Virhe: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="313"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Required tool not found: %1</source>
         <translation>Vaadittua työkalua ei löytynyt: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="322"/>
+        <location filename="../src/settings.cpp" line="370"/>
         <source>Required directory not found: %1</source>
         <translation>Vaadittua hakemistoa ei löytynyt: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="341"/>
+        <location filename="../src/settings.cpp" line="389"/>
         <source>Initialization Error</source>
         <translation>Alustusvirhe</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="390"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -884,47 +976,47 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="453"/>
+        <location filename="../src/settings.cpp" line="501"/>
         <source>Could not find a usable kernel</source>
         <translation>Ei löydetty sopivaa kerneliä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="454"/>
+        <location filename="../src/settings.cpp" line="502"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Etsittiin Kernel-tiedostoja /boot/ hakemistosta, mutta niitä ei löytynyt tai ne eivät olleet käytettävissä.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="475"/>
+        <location filename="../src/settings.cpp" line="523"/>
         <source>No users found in the system</source>
         <translation>Tietokoneesta ei löytynyt käyttäjiä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="478"/>
+        <location filename="../src/settings.cpp" line="526"/>
         <source>Failed to determine system information</source>
         <translation>Järjestelmätietoja ei voitu määrittää</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="572"/>
+        <location filename="../src/settings.cpp" line="620"/>
         <source>Used space on / (root): </source>
         <translation>Käytetty tila / (root): </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="575"/>
+        <location filename="../src/settings.cpp" line="623"/>
         <source>estimated</source>
         <translation>arvioitu</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="584"/>
+        <location filename="../src/settings.cpp" line="632"/>
         <source>Used space on /home: </source>
         <translation>Käytetty tila /home -hakemistossa: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="640"/>
+        <location filename="../src/settings.cpp" line="688"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Vapaata tilaa %1, johon tilannekuva tallennetaan:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="644"/>
+        <location filename="../src/settings.cpp" line="692"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -939,68 +1031,68 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="658"/>
+        <location filename="../src/settings.cpp" line="706"/>
         <source>Desktop</source>
         <translation>Työpöytä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="659"/>
+        <location filename="../src/settings.cpp" line="707"/>
         <source>Documents</source>
         <translation>Tiedostot</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="660"/>
+        <location filename="../src/settings.cpp" line="708"/>
         <source>Downloads</source>
         <translation>Lataukset</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="661"/>
+        <location filename="../src/settings.cpp" line="709"/>
         <source>Flatpaks</source>
         <translation>Flatpakit</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="662"/>
+        <location filename="../src/settings.cpp" line="710"/>
         <source>Music</source>
         <translation>Musiikki</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="663"/>
+        <location filename="../src/settings.cpp" line="711"/>
         <source>Networks</source>
         <translation>Verkot</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="664"/>
+        <location filename="../src/settings.cpp" line="712"/>
         <source>Pictures</source>
         <translation>Kuvat</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="666"/>
+        <location filename="../src/settings.cpp" line="714"/>
         <source>Videos</source>
         <translation>Videot</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="815"/>
+        <location filename="../src/settings.cpp" line="863"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Virhe järjestelmän määritystiedoston lukemisessa: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="820"/>
+        <location filename="../src/settings.cpp" line="871"/>
         <source>Error accessing user configuration</source>
         <translation>Virhe käyttäjämäärityksiä käytettäessä</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="867"/>
+        <location filename="../src/settings.cpp" line="923"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation>Rajaustiedoston kopiointi %1 kansioon %2 ei onnistunut.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="890"/>
+        <location filename="../src/settings.cpp" line="948"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Virheellinen asetus (%1) prosessoriydintä. Käytetään ytimine havaittua määrää: %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="980"/>
-        <location filename="../src/settings.cpp" line="1074"/>
+        <location filename="../src/settings.cpp" line="1038"/>
+        <location filename="../src/settings.cpp" line="1132"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Tiedosto %1 on jo olemassa. Käytä toista tiedostonimeä tai poista olemassa oleva tiedosto.</translation>
     </message>

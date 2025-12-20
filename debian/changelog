@@ -1,3 +1,11 @@
+mx-snapshot (25.12.3) mx; urgency=medium
+
+  * Improve cleanup safety and overlay handling
+  * Close app ifthe user doesn't elevate when requested
+  * Show debug sizes using 2-decimal MiB format
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 20 Dec 2025 18:22:32 -0500
+
 mx-snapshot (25.12.2) mx; urgency=medium
 
   * Add pop up to show that the maintainer excludes is newer than the
