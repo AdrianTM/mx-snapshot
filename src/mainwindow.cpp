@@ -630,7 +630,11 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     settings->codename = ui->textCodename->text();
     settings->distroVersion = ui->textDistroVersion->text();
     settings->projectName = ui->textProjectName->text();
-    settings->fullDistroName = settings->projectName + "-" + settings->distroVersion + "_" + QString(settings->x86 ? "386" : "x64");
+    if (settings->isArch) {
+        settings->fullDistroName = settings->distroVersion + "_" + QString(settings->x86 ? "386" : "x64");
+    } else {
+        settings->fullDistroName = settings->projectName + "-" + settings->distroVersion + "_" + QString(settings->x86 ? "386" : "x64");
+    }
     settings->bootOptions = ui->textOptions->text();
     settings->releaseDate = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();

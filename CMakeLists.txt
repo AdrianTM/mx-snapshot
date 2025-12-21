@@ -23,16 +23,25 @@
 cmake_minimum_required(VERSION 3.16)
 
 # Get version from debian/changelog
-execute_process(
-    COMMAND dpkg-parsechangelog -SVersion
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    RESULT_VARIABLE DPKG_RESULT
-)
+find_program(DPKG_PARSECHANGELOG dpkg-parsechangelog)
+if(DPKG_PARSECHANGELOG)
+    execute_process(
+        COMMAND ${DPKG_PARSECHANGELOG} -SVersion
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        RESULT_VARIABLE DPKG_RESULT
+    )
+endif()
 
-if(NOT DPKG_RESULT EQUAL 0 OR NOT PROJECT_VERSION_FROM_CHANGELOG)
-    message(FATAL_ERROR "Failed to get version from debian/changelog using dpkg-parsechangelog")
+if(NOT PROJECT_VERSION_FROM_CHANGELOG)
+    file(READ "${CMAKE_SOURCE_DIR}/debian/changelog" CHANGELOG_CONTENTS)
+    string(REGEX MATCH "^[^ ]+ \\(([^)]+)\\)" _match "${CHANGELOG_CONTENTS}")
+    set(PROJECT_VERSION_FROM_CHANGELOG "${CMAKE_MATCH_1}")
+endif()
+
+if(NOT PROJECT_VERSION_FROM_CHANGELOG)
+    message(FATAL_ERROR "Failed to get version from debian/changelog")
 endif()
 
 project(mx-snapshot
@@ -76,6 +85,11 @@ endif()
 # Options to control what to build
 option(BUILD_GUI "Build GUI version" ON)
 option(BUILD_CLI "Build CLI version" ON)
+option(ARCH_BUILD "Build for Arch Linux" OFF)
+
+if(ARCH_BUILD)
+    add_compile_definitions(ARCH_BUILD)
+endif()
 
 # Find Qt6 components - include all components needed for either build
 set(QT_COMPONENTS Core LinguistTools)

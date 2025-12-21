@@ -82,6 +82,10 @@ var/spool/anacron/*
 var/tmp/*
 var/cache/brightness-settings-cache/*
 
+# Arch specific exclusions
+var/cache/pacman/pkg/*
+var/lib/pacman/sync/*
+
 # Entries below this can be edited by the user. If you have any large
 # files or directories, you should exclude them from being copied
 # by adding them to this list.

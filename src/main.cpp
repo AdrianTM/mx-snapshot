@@ -270,6 +270,9 @@ void setTranslation()
 
 void checkSquashfs()
 {
+#ifdef ARCH_BUILD
+    return;
+#endif
     QProcess proc;
     proc.start("uname", {"-r"});
     proc.waitForFinished();

@@ -23,6 +23,8 @@ public:
     [[nodiscard]] QString readAllOutput();
     bool run(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
     bool runAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
+    void setOutputSuppressed(bool suppressed);
+    [[nodiscard]] bool outputSuppressed() const;
 
 signals:
     void done();
@@ -33,6 +35,7 @@ private:
     const QString elevationToolPath;
     const QString helperPath;
     QString outBuffer;
+    bool suppressOutput = false;
     static constexpr int EXIT_CODE_COMMAND_NOT_FOUND = 127;
     static constexpr int EXIT_CODE_PERMISSION_DENIED = 126;
 

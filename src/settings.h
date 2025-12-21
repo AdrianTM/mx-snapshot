@@ -118,6 +118,7 @@ public:
     QString kernel;
     QString projectName;
     QString releaseDate;
+    bool isArch {};
     bool makeMd5sum {};
     bool makeSha512sum {};
     bool resetAccounts {};

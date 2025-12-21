@@ -234,7 +234,9 @@ void BindRootManager::addRmFile(const QString &path)
 {
     if (!rmFiles.contains(path)) {
         rmFiles.append(path);
-        persistState();
+        if (!persistState()) {
+            qWarning() << "Failed to persist state after adding rm file:" << path;
+        }
     }
 }
 
@@ -242,7 +244,9 @@ void BindRootManager::addRmDir(const QString &path)
 {
     if (!rmDirs.contains(path)) {
         rmDirs.append(path);
-        persistState();
+        if (!persistState()) {
+            qWarning() << "Failed to persist state after adding rm dir:" << path;
+        }
     }
 }
 
@@ -284,7 +288,10 @@ bool BindRootManager::makeReadOnly()
 bool BindRootManager::copyTemplateDir(const QString &source, const QString &dest)
 {
     QDir().mkpath(dest);
-    return shell.run("cp -r " + quoted(source) + "/. " + quoted(dest), Cmd::QuietMode::Yes);
+    if (shell.run("cp -r " + quoted(source) + "/. " + quoted(dest), Cmd::QuietMode::Yes)) {
+        return true;
+    }
+    return shell.runAsRoot("cp -a " + quoted(source) + "/. " + quoted(dest), Cmd::QuietMode::Yes);
 }
 
 bool BindRootManager::bindMountTemplate(const QString &templateDir)
@@ -335,7 +342,7 @@ bool BindRootManager::bindMountTemplate(const QString &templateDir)
             qWarning() << "Failed to prepare target file:" << target;
             continue;
         }
-        if (!shell.runAsRoot("mount --bind " + quoted(info.filePath()) + " " + quoted(target))) {
+        if (!shell.runAsRoot("mount --bind " + quoted(info.filePath()) + " " + quoted(target), Cmd::QuietMode::Yes)) {
             qWarning() << "Failed to bind mount file:" << info.filePath();
             return false;
         }
@@ -376,6 +383,12 @@ bool BindRootManager::doLiveFiles()
     if (!copyTemplateDir(source, dest)) {
         return false;
     }
+#ifdef ARCH_BUILD
+    const QString markerFile = dest + "/files.part";
+    if (QFileInfo::exists(markerFile)) {
+        shell.runAsRoot("rm -f " + quoted(markerFile), Cmd::QuietMode::Yes);
+    }
+#endif
     return bindMountTemplate(dest);
 }
 
@@ -386,6 +399,12 @@ bool BindRootManager::doGeneralFiles()
     if (!copyTemplateDir(source, dest)) {
         return false;
     }
+#ifdef ARCH_BUILD
+    const QString markerFile = dest + "/general-files.part";
+    if (QFileInfo::exists(markerFile)) {
+        shell.runAsRoot("rm -f " + quoted(markerFile), Cmd::QuietMode::Yes);
+    }
+#endif
     return bindMountTemplate(dest);
 }
 
@@ -393,10 +412,15 @@ bool BindRootManager::doRepo()
 {
     const QString repoDir = workDir + "/repo";
     const QString realDir = "/etc/apt/sources.list.d";
+    if (!QFileInfo::exists(realDir)) {
+        return true;
+    }
     const QString copyDir = repoDir + realDir;
     shell.runAsRoot("mkdir -p " + quoted(copyDir), Cmd::QuietMode::Yes);
     shell.runAsRoot("cp -a " + quoted(realDir) + "/* " + quoted(copyDir), Cmd::QuietMode::Yes);
-    shell.runAsRoot("localize-repo --quiet --dir=" + quoted(copyDir) + " us", Cmd::QuietMode::Yes);
+    if (QFileInfo::exists("/usr/bin/localize-repo") || QFileInfo::exists("/usr/local/bin/localize-repo")) {
+        shell.runAsRoot("localize-repo --quiet --dir=" + quoted(copyDir) + " us", Cmd::QuietMode::Yes);
+    }
     return bindMountTemplate(repoDir);
 }
 
@@ -447,18 +471,26 @@ bool BindRootManager::writeFileRoot(const QString &path, const QString &content)
 
 bool BindRootManager::doTimezone()
 {
-    const QString tz = "America/New_York";
-    const QString tzFile = "/etc/timezone";
     QString currentTz;
-    QFile file(tzFile);
+    QFile file("/etc/timezone");
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         currentTz = QString::fromUtf8(file.readAll()).trimmed();
     }
-    if (currentTz == tz) {
+
+    if (currentTz.isEmpty()) {
+        const QString localtimeLink = shell.getOutAsRoot("readlink -f /etc/localtime", Cmd::QuietMode::Yes).trimmed();
+        const QString zonePrefix = "/usr/share/zoneinfo/";
+        if (localtimeLink.startsWith(zonePrefix)) {
+            currentTz = localtimeLink.mid(zonePrefix.size());
+        }
+    }
+
+    if (currentTz.isEmpty()) {
+        qWarning() << "Unable to determine current timezone.";
         return true;
     }
 
-    const QString zoneFile = "/usr/share/zoneinfo/" + tz;
+    const QString zoneFile = "/usr/share/zoneinfo/" + currentTz;
     if (!QFileInfo::exists(zoneFile)) {
         qWarning() << "Timezone file missing:" << zoneFile;
         return false;
@@ -466,20 +498,31 @@ bool BindRootManager::doTimezone()
 
     const QString tzDir = workDir + "/tz";
     const QString etcDir = tzDir + "/etc";
-    QDir().mkpath(etcDir);
-
-    QFile tzOut(etcDir + "/timezone");
-    if (tzOut.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
-        QTextStream stream(&tzOut);
-        stream << tz << '\n';
+    shell.runAsRoot("mkdir -p " + quoted(etcDir), Cmd::QuietMode::Yes);
+    if (!QFileInfo::exists(tzDir)) {
+        qWarning() << "Timezone template dir could not be created:" << tzDir;
+        return true;
     }
 
-    const QString localtimePath = "/etc/localtime";
-    if (!QFileInfo(localtimePath).isSymLink()) {
-        shell.runAsRoot("cp -a " + quoted(localtimePath) + " " + quoted(etcDir + "/localtime"), Cmd::QuietMode::Yes);
+    const QString tzOutPath = etcDir + "/timezone";
+    shell.runAsRoot("sh -c " + quoted("printf '%s\\n' " + currentTz + " > " + quoted(tzOutPath)),
+                    Cmd::QuietMode::Yes);
+
+    shell.runAsRoot("cp -a " + quoted(zoneFile) + " " + quoted(etcDir + "/localtime"), Cmd::QuietMode::Yes);
+
+    if (!bindMountTemplate(tzDir)) {
+        qWarning() << "Failed to bind timezone template:" << tzDir;
     }
 
-    return bindMountTemplate(tzDir);
+    const QString bindLocaltime = bindRoot + "/etc/localtime";
+    if (!QFileInfo::exists(bindLocaltime) || QFileInfo(bindLocaltime).isSymLink()) {
+        shell.runAsRoot("rm -f " + quoted(bindLocaltime), Cmd::QuietMode::Yes);
+        shell.runAsRoot("cp -a " + quoted(zoneFile) + " " + quoted(bindLocaltime), Cmd::QuietMode::Yes);
+    }
+    const QString bindTimezone = bindRoot + "/etc/timezone";
+    shell.runAsRoot("sh -c " + quoted("printf '%s\\n' " + currentTz + " > " + quoted(bindTimezone)),
+                    Cmd::QuietMode::Yes);
+    return true;
 }
 
 bool BindRootManager::doAdjtime()
@@ -559,6 +602,7 @@ bool BindRootManager::doBindMounts(const QStringList &dirs)
 bool BindRootManager::doEmptyDirs(const QStringList &dirs)
 {
     const QString emptyDir = workDir + "/empty";
+    shell.runAsRoot("mkdir -p " + quoted(emptyDir), Cmd::QuietMode::Yes);
     for (const QString &dir : dirs) {
         if (dir.isEmpty()) {
             continue;
@@ -573,7 +617,7 @@ bool BindRootManager::doEmptyDirs(const QStringList &dirs)
             return false;
         }
         const QString templateDir = emptyDir + "/" + trimmed;
-        QDir().mkpath(templateDir);
+        shell.runAsRoot("mkdir -p " + quoted(templateDir), Cmd::QuietMode::Yes);
         if (!shell.runAsRoot("mount --bind " + quoted(templateDir) + " " + quoted(target), Cmd::QuietMode::Yes)) {
             return false;
         }
@@ -583,6 +627,16 @@ bool BindRootManager::doEmptyDirs(const QStringList &dirs)
 
 bool BindRootManager::doPasswd()
 {
+    struct OutputSuppressGuard {
+        Cmd &shell;
+        bool prev;
+        ~OutputSuppressGuard() { shell.setOutputSuppressed(prev); }
+    };
+
+    const bool wasSuppressed = shell.outputSuppressed();
+    shell.setOutputSuppressed(true);
+    const OutputSuppressGuard suppressGuard {shell, wasSuppressed};
+
     const QString templateDir = "/usr/share/live-files";
     const QString bindFrom = workDir + "/bind";
     const QString defUser = "demo";
@@ -597,7 +651,7 @@ bool BindRootManager::doPasswd()
         "/etc/subgid"
     };
 
-    QDir().mkpath(bindFrom);
+    shell.runAsRoot("mkdir -p " + quoted(bindFrom), Cmd::QuietMode::Yes);
 
     QString defShell = "/usr/bin/bash";
     QFile adduserConf("/etc/adduser.conf");
@@ -617,18 +671,27 @@ bool BindRootManager::doPasswd()
         defShell = "/usr/bin/" + defShell;
     }
 
-    QString commentOpt = "--gecos";
-    const QString adduserHelp = shell.getOut("LC_ALL=C adduser --help 2>/dev/null", Cmd::QuietMode::Yes);
-    if (adduserHelp.contains("--comment")) {
-        commentOpt = "--comment";
-    }
-
     const QString addedUser = "live_temp_user" + randomHex32().left(12);
-    if (!shell.runAsRoot("adduser --disabled-login --shell " + quoted(defShell) + " --no-create-home "
-                         + commentOpt + " " + defUser + " " + addedUser,
-                         Cmd::QuietMode::Yes)) {
-        qWarning() << "Failed to add temporary user.";
-        return false;
+    const bool hasAdduser = QFileInfo::exists("/usr/sbin/adduser") || QFileInfo::exists("/usr/bin/adduser");
+    if (hasAdduser) {
+        QString commentOpt = "--gecos";
+        const QString adduserHelp = shell.getOut("LC_ALL=C adduser --help 2>/dev/null", Cmd::QuietMode::Yes);
+        if (adduserHelp.contains("--comment")) {
+            commentOpt = "--comment";
+        }
+        if (!shell.runAsRoot("adduser --disabled-login --shell " + quoted(defShell) + " --no-create-home "
+                             + commentOpt + " " + defUser + " " + addedUser + " 2>/dev/null",
+                             Cmd::QuietMode::Yes)) {
+            qWarning() << "Failed to add temporary user.";
+            return false;
+        }
+    } else {
+        const QString cmd = "useradd -M -s " + quoted(defShell) + " -U -c " + quoted(defUser)
+            + " -p '!' " + quoted(addedUser);
+        if (!shell.runAsRoot(cmd, Cmd::QuietMode::Yes)) {
+            qWarning() << "Failed to add temporary user.";
+            return false;
+        }
     }
     const QString addedGroup = shell.getOutAsRoot("id -u " + quoted(addedUser), Cmd::QuietMode::Yes);
 
@@ -649,7 +712,7 @@ bool BindRootManager::doPasswd()
         if (QFileInfo::exists(templateDir + file)) {
             continue;
         }
-        QDir().mkpath(bindFrom + QFileInfo(file).path());
+        shell.runAsRoot("mkdir -p " + quoted(bindFrom + QFileInfo(file).path()), Cmd::QuietMode::Yes);
         if (!shell.runAsRoot("cp -a " + quoted(srcRoot + file) + " " + quoted(bindFrom + file),
                              Cmd::QuietMode::Yes)) {
             qWarning() << "Failed to copy file for passwd munging:" << file;
@@ -657,7 +720,12 @@ bool BindRootManager::doPasswd()
         }
     }
 
-    shell.runAsRoot("deluser " + quoted(addedUser), Cmd::QuietMode::Yes);
+    const bool hasDeluser = QFileInfo::exists("/usr/sbin/deluser") || QFileInfo::exists("/usr/bin/deluser");
+    if (hasDeluser) {
+        shell.runAsRoot("deluser " + quoted(addedUser), Cmd::QuietMode::Yes);
+    } else {
+        shell.runAsRoot("userdel " + quoted(addedUser), Cmd::QuietMode::Yes);
+    }
 
     QStringList otherUsers;
     QFile passwdFile("/etc/passwd");
@@ -686,6 +754,21 @@ bool BindRootManager::doPasswd()
 
     const QStringList pwFiles {"/etc/passwd", "/etc/shadow", "/etc/gshadow", "/etc/subuid", "/etc/subgid"};
     const QStringList grpFiles {"/etc/group", "/etc/gshadow"};
+    QString primaryGroupName;
+    {
+        const QString groupPath = bindFrom + "/etc/group";
+        if (QFileInfo::exists(groupPath)) {
+            const QString groupContent = readFileRoot(groupPath);
+            const QStringList groupLines = groupContent.split('\n', Qt::SkipEmptyParts);
+            for (const QString &line : groupLines) {
+                const QStringList fields = line.split(':');
+                if (fields.size() >= 3 && fields.at(2) == "1000") {
+                    primaryGroupName = fields.at(0);
+                    break;
+                }
+            }
+        }
+    }
 
     for (const QString &file : pwFiles) {
         const QString target = bindFrom + file;
@@ -726,6 +809,15 @@ bool BindRootManager::doPasswd()
         }
     }
 
+    const QStringList standardGroups {"wheel", "audio", "video", "storage", "lp", "scanner"};
+    auto addMember = [](const QString &input, const QString &member) {
+        QStringList members = input.split(',', Qt::SkipEmptyParts);
+        if (!members.contains(member)) {
+            members.append(member);
+        }
+        return members.join(',');
+    };
+
     for (const QString &file : grpFiles) {
         const QString target = bindFrom + file;
         if (!QFileInfo::exists(target)) {
@@ -761,16 +853,37 @@ bool BindRootManager::doPasswd()
                                                  }),
                                   members.end());
                 }
+                members.erase(std::remove_if(members.begin(), members.end(),
+                                             [](const QString &member) {
+                                                 return member.startsWith("live_temp_user");
+                                             }),
+                              members.end());
                 return members.join(',');
             };
 
+            if (fields.at(0).startsWith("live_temp_user")) {
+                continue;
+            }
+
             if (file.endsWith("/gshadow")) {
+                if (!primaryGroupName.isEmpty() && fields.at(0) == primaryGroupName) {
+                    fields[0] = defUser;
+                }
                 fields[2] = sanitizeList(fields.at(2));
                 fields[3] = sanitizeList(fields.at(3));
+                if (standardGroups.contains(fields.at(0))) {
+                    fields[3] = addMember(fields.at(3), defUser);
+                }
             } else {
                 fields[3] = sanitizeList(fields.at(3));
+                if (!primaryGroupName.isEmpty() && fields.at(0) == primaryGroupName) {
+                    fields[0] = defUser;
+                }
                 if (fields.at(0) == defUser) {
                     fields[2] = "1000";
+                }
+                if (standardGroups.contains(fields.at(0))) {
+                    fields[3] = addMember(fields.at(3), defUser);
                 }
             }
             updated.append(fields.join(':'));
@@ -871,6 +984,18 @@ bool BindRootManager::doPasswd()
         if (QFileInfo::exists(backup)) {
             shell.runAsRoot("mount --bind " + quoted(from) + " " + quoted(backup), Cmd::QuietMode::Yes);
         }
+    }
+
+    const QString demoHome = bindRoot + "/home/" + defUser;
+    if (!QFileInfo::exists(demoHome)) {
+        const QString skelFrom = QFileInfo::exists(bindRoot + "/etc/skel")
+            ? (bindRoot + "/etc/skel")
+            : "/etc/skel";
+        shell.runAsRoot("mkdir -p " + quoted(demoHome), Cmd::QuietMode::Yes);
+        if (QFileInfo::exists(skelFrom)) {
+            shell.runAsRoot("cp -a " + quoted(skelFrom + "/.") + " " + quoted(demoHome), Cmd::QuietMode::Yes);
+        }
+        shell.runAsRoot("chown -R 1000:1000 " + quoted(demoHome), Cmd::QuietMode::Yes);
     }
     return true;
 }

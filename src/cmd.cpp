@@ -16,10 +16,20 @@ Cmd::Cmd(QObject *parent)
       elevationToolPath {Cmd::elevationTool()},
       helperPath {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
-    connect(this, &Cmd::readyReadStandardOutput, [this] { emit outputAvailable(readAllStandardOutput()); });
-    connect(this, &Cmd::readyReadStandardError, [this] { emit errorAvailable(readAllStandardError()); });
-    connect(this, &Cmd::outputAvailable, [this](const QString &out) { outBuffer += out; });
-    connect(this, &Cmd::errorAvailable, [this](const QString &out) { outBuffer += out; });
+    connect(this, &Cmd::readyReadStandardOutput, [this] {
+        const QString out = readAllStandardOutput();
+        outBuffer += out;
+        if (!suppressOutput) {
+            emit outputAvailable(out);
+        }
+    });
+    connect(this, &Cmd::readyReadStandardError, [this] {
+        const QString out = readAllStandardError();
+        outBuffer += out;
+        if (!suppressOutput) {
+            emit errorAvailable(out);
+        }
+    });
 }
 
 QString Cmd::elevationTool()
@@ -109,6 +119,16 @@ bool Cmd::runAsRoot(const QString &cmd, QuietMode quiet)
 QString Cmd::readAllOutput()
 {
     return outBuffer.trimmed();
+}
+
+void Cmd::setOutputSuppressed(bool suppressed)
+{
+    suppressOutput = suppressed;
+}
+
+bool Cmd::outputSuppressed() const
+{
+    return suppressOutput;
 }
 
 void Cmd::handleElevationError()
