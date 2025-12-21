@@ -38,6 +38,7 @@
 
 #include <stdexcept>
 
+#include "bindrootmanager.h"
 #include "filesystemutils.h"
 
 Work::Work(Settings *settings, QObject *parent)
@@ -149,9 +150,9 @@ void Work::cleanUp()
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
-    if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+    if (BindRootManager::hasCleanupState()) {
+        BindRootManager bindManager(shell, bindRootPath, settings->workDir + "/bind-root-work");
+        bindManager.cleanup();
     }
     cleanupBindRootOverlay();
     initrd_dir.remove();
@@ -181,10 +182,9 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     // See first if the dir is on different partition otherwise it's irrelevant
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-            const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-            const QString elevateTool = Cmd::elevationTool();
-            Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+        if (BindRootManager::hasCleanupState()) {
+            BindRootManager bindManager(shell, bindRootPath, settings->workDir + "/bind-root-work");
+            bindManager.cleanup();
         }
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
@@ -389,9 +389,8 @@ bool Work::createIso(const QString &filename)
     shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
     makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
 
-    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+    BindRootManager bindManager(shell, bindRootPath, settings->workDir + "/bind-root-work");
+    bindManager.cleanup();
 
     // Create the iso file
     QDir::setCurrent(settings->workDir + "/iso-template");
@@ -618,23 +617,43 @@ void Work::setupEnv()
         cleanUp();
     }
 
-    // Setup environment if creating a respin (reset root/demo, remove personal accounts)
-    const QString baseCmd = "installed-to-live -F -b " + bindRootPath + " start ";
+    const QString bindWorkDir = settings->workDir + "/bind-root-work";
+    BindRootManager bindManager(shell, bindRootPath, bindWorkDir);
+    if (!bindManager.start(true)) {
+        emit messageBox(BoxType::critical, tr("Error"),
+                        tr("Could not prepare the snapshot bind-root environment."));
+        cleanUp();
+    }
+
     if (settings->resetAccounts) {
-        if (!shell.runAsRoot(baseCmd + bind_boot + "empty=/home general version-file")) {
+        if (!bind_boot.isEmpty() && !bindManager.doBindMounts({"/boot"})) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not prepare the snapshot bind-root environment."));
+            cleanUp();
+        }
+        if (!bindManager.doEmptyDirs({"/home"})
+            || !bindManager.doGeneral()
+            || !bindManager.doVersionFile()) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
         }
     } else {
-        if (!shell.runAsRoot(baseCmd + "bind=/home" + bind_boot_too + " live-files version-file adjtime")) {
+        QStringList bindDirs {"/home"};
+        if (!bind_boot_too.isEmpty()) {
+            bindDirs << "/boot";
+        }
+        if (!bindManager.doBindMounts(bindDirs)
+            || !bindManager.doLiveFiles()
+            || !bindManager.doVersionFile()
+            || !bindManager.doAdjtime()) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
         }
     }
     if (!bindRootOverlayActive) {
-        shell.runAsRoot("installed-to-live -b " + bindRootPath + " read-only", Cmd::QuietMode::Yes);
+        bindManager.makeReadOnly();
     }
 }
 

@@ -4,7 +4,6 @@
 
 cleanup() {
     pkill mksquashfs
-    /usr/sbin/installed-to-live cleanup
 }
 
 cleanup_overlay() {

@@ -85,6 +85,9 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
 
+# Find libcrypt for password hashing
+find_library(LIBCRYPT crypt)
+
 # Enable automatic MOC, UIC, and RCC processing
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -95,6 +98,7 @@ set(COMMON_SOURCES
     src/log.cpp
     src/main.cpp
     src/cmd.cpp
+    src/bindrootmanager.cpp
     src/settings.cpp
     src/batchprocessing.cpp
     src/work.cpp
@@ -107,6 +111,7 @@ set(COMMON_HEADERS
     src/common.h
     src/log.h
     src/cmd.h
+    src/bindrootmanager.h
     src/settings.h
     src/batchprocessing.h
     src/work.h
@@ -154,6 +159,9 @@ if(BUILD_GUI)
         Qt6::Gui
         Qt6::Widgets
     )
+    if(LIBCRYPT)
+        target_link_libraries(mx-snapshot ${LIBCRYPT})
+    endif()
 
     set_target_properties(mx-snapshot PROPERTIES
         OUTPUT_NAME "mx-snapshot"
@@ -176,6 +184,9 @@ if(BUILD_CLI)
     target_link_libraries(iso-snapshot-cli
         Qt6::Core
     )
+    if(LIBCRYPT)
+        target_link_libraries(iso-snapshot-cli ${LIBCRYPT})
+    endif()
 
     set_target_properties(iso-snapshot-cli PROPERTIES
         OUTPUT_NAME "iso-snapshot-cli"

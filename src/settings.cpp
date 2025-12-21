@@ -38,6 +38,7 @@
 #include <exception>
 #include <unistd.h>
 
+#include "bindrootmanager.h"
 #include "messagehandler.h"
 
 namespace
@@ -118,9 +119,11 @@ Settings::Settings(const QCommandLineParser &argParser)
         bool cleanupRan = false;
         bool cleanupOk = true;
         const QString elevateTool = Cmd::elevationTool();
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf") || QFileInfo::exists(overlayBase)) {
+        if (BindRootManager::hasCleanupState() || QFileInfo::exists(overlayBase)) {
             cleanupRan = true;
-            cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup");
+            Cmd shell;
+            BindRootManager bindManager(shell, "/.bind-root", "/tmp/" + appName + "-bind-root-work");
+            cleanupOk = bindManager.cleanup();
         }
         const QString overlayRoot = "/run/" + appName + "/bind-root-overlay/root";
         const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
