@@ -38,6 +38,8 @@
 #include <QTextStream>
 #include <QThread>
 
+#include <unistd.h>
+
 #include <algorithm>
 #include <crypt.h>
 
@@ -262,6 +264,12 @@ bool BindRootManager::start(bool force)
     }
     shell.runAsRoot("rm -rf " + quoted(workDir), Cmd::QuietMode::Yes);
     shell.runAsRoot("mkdir -p " + quoted(workDir), Cmd::QuietMode::Yes);
+    if (getuid() != 0) {
+        const QString owner = QString("%1:%2").arg(getuid()).arg(getgid());
+        if (!shell.runAsRoot("chown -R " + owner + " " + quoted(workDir), Cmd::QuietMode::Yes)) {
+            qWarning() << "Could not set ownership for bind-root work dir:" << workDir;
+        }
+    }
 
     if (!shell.runAsRoot("mkdir -p " + quoted(bindRoot), Cmd::QuietMode::Yes)) {
         qWarning() << "Could not create bind-root dir:" << bindRoot;
@@ -288,6 +296,9 @@ bool BindRootManager::makeReadOnly()
 bool BindRootManager::copyTemplateDir(const QString &source, const QString &dest)
 {
     QDir().mkpath(dest);
+    if (getuid() != 0) {
+        return shell.runAsRoot("cp -a " + quoted(source) + "/. " + quoted(dest), Cmd::QuietMode::Yes);
+    }
     if (shell.run("cp -r " + quoted(source) + "/. " + quoted(dest), Cmd::QuietMode::Yes)) {
         return true;
     }
@@ -559,15 +570,27 @@ bool BindRootManager::doVersionFile(const QString &title)
 {
     const QString versionDir = workDir + "/version-file";
     const QString versionFile = versionDir + "/etc/live/version/linuxfs.ver";
-    QDir().mkpath(QFileInfo(versionFile).path());
+    if (!QDir().mkpath(QFileInfo(versionFile).path())) {
+        qWarning() << "Failed to create version-file path:" << versionFile;
+        return false;
+    }
 
     const QString existing = "/etc/live/version/linuxfs.ver";
     if (QFileInfo::exists(existing)) {
-        shell.runAsRoot("cp -a " + quoted(existing) + " " + quoted(versionFile), Cmd::QuietMode::Yes);
+        if (!shell.runAsRoot("cp -a " + quoted(existing) + " " + quoted(versionFile), Cmd::QuietMode::Yes)) {
+            qWarning() << "Failed to copy existing version file to:" << versionFile;
+        }
+        if (getuid() != 0 && QFileInfo::exists(versionFile)) {
+            const QString owner = QString("%1:%2").arg(getuid()).arg(getgid());
+            if (!shell.runAsRoot("chown " + owner + " " + quoted(versionFile), Cmd::QuietMode::Yes)) {
+                qWarning() << "Failed to set ownership for version file:" << versionFile;
+            }
+        }
     }
 
     QFile out(versionFile);
     if (!out.open(QIODevice::Append | QIODevice::Text)) {
+        qWarning() << "Failed to open version file for append:" << versionFile << out.errorString();
         return false;
     }
     QTextStream stream(&out);
@@ -577,7 +600,11 @@ bool BindRootManager::doVersionFile(const QString &title)
     stream << "creation date: " << QDateTime::currentDateTime().toString("d MMMM yyyy HH:mm:ss t") << '\n';
     stream << "kernel: " << shell.getOut("uname -sr", Cmd::QuietMode::Yes) << '\n';
     stream << "machine: " << shell.getOut("uname -m", Cmd::QuietMode::Yes) << '\n';
-    return bindMountTemplate(versionDir);
+    if (!bindMountTemplate(versionDir)) {
+        qWarning() << "Failed to bind mount version-file template:" << versionDir;
+        return false;
+    }
+    return true;
 }
 
 bool BindRootManager::doBindMounts(const QStringList &dirs)
@@ -614,11 +641,13 @@ bool BindRootManager::doEmptyDirs(const QStringList &dirs)
         }
         const QString origDir = realRoot + "/" + trimmed;
         if (!makeDir(target, origDir)) {
+            qWarning() << "Failed to prepare empty dir target:" << target;
             return false;
         }
         const QString templateDir = emptyDir + "/" + trimmed;
         shell.runAsRoot("mkdir -p " + quoted(templateDir), Cmd::QuietMode::Yes);
         if (!shell.runAsRoot("mount --bind " + quoted(templateDir) + " " + quoted(target), Cmd::QuietMode::Yes)) {
+            qWarning() << "Failed to bind mount empty dir:" << templateDir << "->" << target;
             return false;
         }
     }

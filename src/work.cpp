@@ -387,7 +387,7 @@ void Work::copyNewIso()
         const QString kernelPath = "/boot/vmlinuz-" + settings->kernel;
         QDir().mkpath(archBootDir);
 
-        shell.run("cp " + kernelPath + " \"" + archBootDir + "/vmlinuz-linux\"");
+        shell.runAsRoot("cp " + kernelPath + " \"" + archBootDir + "/vmlinuz-linux\"");
 
         QString initramfsSource;
         const QString archisoPath = "/boot/archiso.img";
@@ -427,7 +427,7 @@ void Work::copyNewIso()
             cleanUp();
         }
 
-        shell.run("cp \"" + initramfsSource + "\" \"" + archBootDir + "/archiso.img\"");
+        shell.runAsRoot("cp \"" + initramfsSource + "\" \"" + archBootDir + "/archiso.img\"");
     } else {
         shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
         shell.run("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
@@ -970,9 +970,20 @@ void Work::setupEnv()
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
         }
-        if (!bindManager.doEmptyDirs({"/home"})
-            || !bindManager.doGeneral()
-            || !bindManager.doVersionFile()) {
+        bool ok = true;
+        if (!bindManager.doEmptyDirs({"/home"})) {
+            qWarning() << "Bind-root: doEmptyDirs(/home) failed.";
+            ok = false;
+        }
+        if (ok && !bindManager.doGeneral()) {
+            qWarning() << "Bind-root: doGeneral failed.";
+            ok = false;
+        }
+        if (ok && !bindManager.doVersionFile()) {
+            qWarning() << "Bind-root: doVersionFile failed.";
+            ok = false;
+        }
+        if (!ok) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
@@ -982,10 +993,24 @@ void Work::setupEnv()
         if (!bind_boot_too.isEmpty()) {
             bindDirs << "/boot";
         }
-        if (!bindManager.doBindMounts(bindDirs)
-            || !bindManager.doLiveFiles()
-            || !bindManager.doVersionFile()
-            || !bindManager.doAdjtime()) {
+        bool ok = true;
+        if (!bindManager.doBindMounts(bindDirs)) {
+            qWarning() << "Bind-root: doBindMounts failed.";
+            ok = false;
+        }
+        if (ok && !bindManager.doLiveFiles()) {
+            qWarning() << "Bind-root: doLiveFiles failed.";
+            ok = false;
+        }
+        if (ok && !bindManager.doVersionFile()) {
+            qWarning() << "Bind-root: doVersionFile failed.";
+            ok = false;
+        }
+        if (ok && !bindManager.doAdjtime()) {
+            qWarning() << "Bind-root: doAdjtime failed.";
+            ok = false;
+        }
+        if (!ok) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
