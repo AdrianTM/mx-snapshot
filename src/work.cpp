@@ -170,6 +170,13 @@ void Work::cleanUp()
         }
     }
     cleanupBindRootOverlay();
+    if (!settings->workDir.isEmpty()) {
+        const QString workDirPath = QDir::cleanPath(settings->workDir);
+        const QString baseName = QFileInfo(workDirPath).fileName();
+        if (baseName.startsWith("mx-snapshot-") && QFileInfo::exists(workDirPath)) {
+            shell.runAsRoot("rm -rf \"" + workDirPath + "\"", Cmd::QuietMode::Yes);
+        }
+    }
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
@@ -384,10 +391,13 @@ void Work::copyNewIso()
         }
         const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
         const QString archBootDir = "iso-template/arch/boot/" + archCpuDir;
+        const QString archBootPath = settings->workDir + "/" + archBootDir;
         const QString kernelPath = "/boot/vmlinuz-" + settings->kernel;
         QDir().mkpath(archBootDir);
 
-        shell.runAsRoot("cp " + kernelPath + " \"" + archBootDir + "/vmlinuz-linux\"");
+        shell.runAsRoot("cp " + kernelPath + " \"" + archBootPath + "/vmlinuz-linux\"");
+        shell.runAsRoot("chown $(logname): \"" + archBootPath + "/vmlinuz-linux\"");
+        shell.runAsRoot("chmod a+r \"" + archBootPath + "/vmlinuz-linux\"");
 
         QString initramfsSource;
         const QString archisoPath = "/boot/archiso.img";
@@ -427,7 +437,9 @@ void Work::copyNewIso()
             cleanUp();
         }
 
-        shell.runAsRoot("cp \"" + initramfsSource + "\" \"" + archBootDir + "/archiso.img\"");
+        shell.runAsRoot("cp \"" + initramfsSource + "\" \"" + archBootPath + "/archiso.img\"");
+        shell.runAsRoot("chown $(logname): \"" + archBootPath + "/archiso.img\"");
+        shell.runAsRoot("chmod a+r \"" + archBootPath + "/archiso.img\"");
     } else {
         shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
         shell.run("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
