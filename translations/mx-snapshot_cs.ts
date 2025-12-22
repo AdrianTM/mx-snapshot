@@ -42,53 +42,119 @@
         <translation type="unfinished"/>
     </message>
     <message>
+        <location filename="../src/batchprocessing.cpp" line="238"/>
+        <source>s</source>
+        <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <location filename="../src/batchprocessing.cpp" line="239"/>
+        <source>u</source>
+        <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="240"/>
+        <source>k</source>
+        <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="241"/>
+        <source>q</source>
+        <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="243"/>
+        <source>show diff</source>
+        <comment>CLI excludes prompt option label</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="244"/>
+        <source>use updated default</source>
+        <comment>CLI excludes prompt option label</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="245"/>
+        <source>keep custom (update timestamp)</source>
+        <comment>CLI excludes prompt option label</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="246"/>
+        <source>quit</source>
+        <comment>CLI excludes prompt option label</comment>
+        <translation>Konec</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="254"/>
+        <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="259"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="242"/>
-        <source>[s]how diff  [u]se updated default  [k]eep custom (update timestamp)  [q]uit: </source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <location filename="../src/batchprocessing.cpp" line="253"/>
+        <location filename="../src/batchprocessing.cpp" line="273"/>
         <source>Reverted to updated default exclusion file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="272"/>
+        <location filename="../src/batchprocessing.cpp" line="292"/>
         <source>Leaving custom exclusion file unchanged.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="283"/>
+        <location filename="../src/batchprocessing.cpp" line="303"/>
         <source>Invalid choice. Please select again.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="290"/>
+        <location filename="../src/batchprocessing.cpp" line="310"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Tento počítač používá grafickou kartu NVIDIA. Plánujete použít výsledné ISO na stejném počítači nebo na jiném počítači s kartou NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="300"/>
+        <location filename="../src/batchprocessing.cpp" line="320"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Poznámka: Pokud výsledné ISO použijete v počítači bez karty NVIDIA, bude pravděpodobně nutné z možností spouštění odstranit &apos;xorg=nvidia&apos;.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="303"/>
+        <location filename="../src/batchprocessing.cpp" line="323"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Poznámka: Pokud výsledný soubor ISO použijete v počítači s kartou NVIDIA, bude možná nutné do spouštěcích voleb přidat &apos;xorg=nvidia&apos;.</translation>
+    </message>
+</context>
+<context>
+    <name>Cmd</name>
+    <message>
+        <location filename="../src/cmd.cpp" line="82"/>
+        <source>No elevation tool found (pkexec/gksu/sudo).</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/cmd.cpp" line="116"/>
+        <source>Administrator Access Required</source>
+        <translation>Vyžadován přístup správce</translation>
+    </message>
+    <message>
+        <location filename="../src/cmd.cpp" line="117"/>
+        <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
+        <translation>Tato operace vyžaduje oprávnění správce. Restartujte aplikaci a po zobrazení výzvy zadejte heslo.</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/ui_mainwindow.h" line="745"/>
         <location filename="../src/mainwindow.cpp" line="439"/>
         <location filename="../src/mainwindow.cpp" line="819"/>
+        <location filename="../src/ui_mainwindow.h" line="745"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
@@ -172,8 +238,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/ui_mainwindow.h" line="760"/>
         <location filename="../src/mainwindow.cpp" line="628"/>
+        <location filename="../src/ui_mainwindow.h" line="760"/>
         <source>Snapshot name:</source>
         <translation>Název obrazu:</translation>
     </message>
@@ -263,8 +329,8 @@
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/ui_mainwindow.h" line="782"/>
         <location filename="../src/mainwindow.cpp" line="839"/>
+        <location filename="../src/ui_mainwindow.h" line="782"/>
         <source>Remove Custom Exclusion File</source>
         <translation type="unfinished"/>
     </message>
@@ -675,345 +741,345 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="77"/>
+        <location filename="../src/main.cpp" line="94"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>Program pro tvorbu LIVE CD z běžícího systému</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="81"/>
+        <location filename="../src/main.cpp" line="98"/>
         <source>Use CLI only</source>
         <translation>Použít pouze CLI</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="85"/>
+        <location filename="../src/main.cpp" line="102"/>
         <source>Number of CPU cores to be used.</source>
         <translation>Počet jader CPU, která mají být použita.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="86"/>
+        <location filename="../src/main.cpp" line="103"/>
         <source>Output directory</source>
         <translation>Cílová složka</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="87"/>
+        <location filename="../src/main.cpp" line="104"/>
         <source>Output filename</source>
         <translation>Název cílového souboru</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="89"/>
+        <location filename="../src/main.cpp" line="106"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Uveďte verzi jádra, které se má použít navíc s právě používaným. Použijte formát, který se objeví po zadání příkazu  &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="91"/>
+        <location filename="../src/main.cpp" line="108"/>
         <source>Or the full path: %1</source>
         <translation>Nebo celé umístnění: %1</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="94"/>
+        <location filename="../src/main.cpp" line="111"/>
         <source>Compression level options.</source>
         <translation>Volby úrovně komprese.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="95"/>
+        <location filename="../src/main.cpp" line="112"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation>Použijte: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, viz mksquashfs manuál</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="99"/>
+        <location filename="../src/main.cpp" line="116"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Pro vytvoření měsíční zálohy přidejte do názvu ISO souboru název aktuálního měsíce a zrušte kontrolu volného místa</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="100"/>
+        <location filename="../src/main.cpp" line="117"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Tahle volba nastavení zresetuje uživatelské účty a kompresi na předvolené hodnoty, argumenty určují které položky budou ingnorovány.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="102"/>
+        <location filename="../src/main.cpp" line="119"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="103"/>
+        <location filename="../src/main.cpp" line="120"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>Pro výsledný ISO soubor nepočítat kontrolní součty</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="104"/>
+        <location filename="../src/main.cpp" line="121"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation>Vynechat propocet volného místa</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="105"/>
+        <location filename="../src/main.cpp" line="122"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Možnost opravit problém s propočtem kontrolních součtů na preempt_rt jádrech</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="106"/>
+        <location filename="../src/main.cpp" line="123"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Resetovat uživatelské účty (pro distribuci jiným)</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="107"/>
+        <location filename="../src/main.cpp" line="124"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Pro výsledný ISO soubor propočítat kontrolní součty</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="109"/>
+        <location filename="../src/main.cpp" line="126"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation>Omezí vstupní rychlost I/O o zadané procento. Toto lze použít ke snížení I/O a spotřeby procesoru Mksquashfs.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="112"/>
+        <location filename="../src/main.cpp" line="129"/>
         <source>Work directory</source>
         <translation>Pracovní adresář</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="114"/>
+        <location filename="../src/main.cpp" line="131"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Nezahrnout hlavní složky, platné volby:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="116"/>
+        <location filename="../src/main.cpp" line="133"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Použijte tuto volbu pro každou položku, kterou chcete vynechat.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="119"/>
+        <location filename="../src/main.cpp" line="136"/>
         <source>Compression format, valid choices: </source>
         <translation>Formát komprese, platné volby:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="121"/>
+        <location filename="../src/main.cpp" line="138"/>
         <source>Shutdown computer when done.</source>
         <translation>Po dokončení vypnout počítač.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="170"/>
+        <location filename="../src/main.cpp" line="211"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Spuštěno pod účtem root-a, odhlašte se a přihlašte jako bězný uživatel.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="188"/>
+        <location filename="../src/main.cpp" line="229"/>
         <source>version:</source>
         <translation>verze:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="182"/>
+        <location filename="../src/main.cpp" line="223"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Tento program musíte spustit s příkazem sudo nebo pkexec.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="165"/>
+        <location filename="../src/main.cpp" line="206"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="503"/>
-        <location filename="../src/settings.cpp" line="511"/>
-        <location filename="../src/settings.cpp" line="1040"/>
-        <location filename="../src/settings.cpp" line="1134"/>
-        <location filename="../src/main.cpp" line="172"/>
-        <location filename="../src/main.cpp" line="239"/>
+        <location filename="../src/main.cpp" line="213"/>
+        <location filename="../src/main.cpp" line="281"/>
+        <location filename="../src/settings.cpp" line="519"/>
+        <location filename="../src/settings.cpp" line="527"/>
+        <location filename="../src/settings.cpp" line="1057"/>
+        <location filename="../src/settings.cpp" line="1151"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="510"/>
-        <location filename="../src/main.cpp" line="238"/>
+        <location filename="../src/main.cpp" line="280"/>
+        <location filename="../src/settings.cpp" line="526"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Současné jádro nepodporuje Squashfs, nelze pokračovat.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="107"/>
+        <location filename="../src/settings.cpp" line="112"/>
         <source>Failed to initialize configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="130"/>
+        <location filename="../src/settings.cpp" line="146"/>
         <source>Configuration validation failed</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="135"/>
+        <location filename="../src/settings.cpp" line="151"/>
         <source>Exception during initialization: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="138"/>
+        <location filename="../src/settings.cpp" line="154"/>
         <source>Unknown exception during initialization</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="169"/>
+        <location filename="../src/settings.cpp" line="185"/>
         <source>Could not create work directory. </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="193"/>
+        <location filename="../src/settings.cpp" line="209"/>
         <source>Could not create temp directory:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="194"/>
+        <location filename="../src/settings.cpp" line="210"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="212"/>
+        <location filename="../src/settings.cpp" line="228"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="218"/>
+        <location filename="../src/settings.cpp" line="234"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="224"/>
+        <location filename="../src/settings.cpp" line="240"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="230"/>
+        <location filename="../src/settings.cpp" line="246"/>
         <source>Snapshot directory cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="238"/>
+        <location filename="../src/settings.cpp" line="254"/>
         <source>Snapshot name cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="244"/>
+        <location filename="../src/settings.cpp" line="260"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="250"/>
+        <location filename="../src/settings.cpp" line="266"/>
         <source>Kernel version cannot be empty</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="255"/>
+        <location filename="../src/settings.cpp" line="271"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="261"/>
+        <location filename="../src/settings.cpp" line="277"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="285"/>
+        <location filename="../src/settings.cpp" line="301"/>
         <source>Exclusion file does not exist: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="294"/>
+        <location filename="../src/settings.cpp" line="310"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="319"/>
+        <location filename="../src/settings.cpp" line="335"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="326"/>
+        <location filename="../src/settings.cpp" line="342"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="341"/>
+        <location filename="../src/settings.cpp" line="357"/>
         <source>Failed to determine number of CPU cores</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="347"/>
+        <location filename="../src/settings.cpp" line="363"/>
         <source>Configuration file does not exist: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="348"/>
+        <location filename="../src/settings.cpp" line="364"/>
         <source>Using default settings</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="350"/>
+        <location filename="../src/settings.cpp" line="366"/>
         <source>Cannot read configuration file: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="351"/>
+        <location filename="../src/settings.cpp" line="367"/>
         <source>Error: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="361"/>
+        <location filename="../src/settings.cpp" line="377"/>
         <source>Required tool not found: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="370"/>
+        <location filename="../src/settings.cpp" line="386"/>
         <source>Required directory not found: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="389"/>
+        <location filename="../src/settings.cpp" line="405"/>
         <source>Initialization Error</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="390"/>
+        <location filename="../src/settings.cpp" line="406"/>
         <source>Failed to initialize application settings:
 
 %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="501"/>
+        <location filename="../src/settings.cpp" line="517"/>
         <source>Could not find a usable kernel</source>
         <translation>Nepovedlo se najít použitelné jádro</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="502"/>
+        <location filename="../src/settings.cpp" line="518"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="523"/>
+        <location filename="../src/settings.cpp" line="539"/>
         <source>No users found in the system</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="526"/>
+        <location filename="../src/settings.cpp" line="542"/>
         <source>Failed to determine system information</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="620"/>
+        <location filename="../src/settings.cpp" line="636"/>
         <source>Used space on / (root): </source>
         <translation>Zabrané místo na disku / (root):</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="623"/>
+        <location filename="../src/settings.cpp" line="639"/>
         <source>estimated</source>
         <translation>odhad</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="632"/>
+        <location filename="../src/settings.cpp" line="648"/>
         <source>Used space on /home: </source>
         <translation>Zabrané místo na disku /home: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="688"/>
+        <location filename="../src/settings.cpp" line="704"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Volné místo na %1, kde je snapshot umístněn:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="692"/>
+        <location filename="../src/settings.cpp" line="708"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -1028,89 +1094,89 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="706"/>
+        <location filename="../src/settings.cpp" line="722"/>
         <source>Desktop</source>
         <translation>Pracovní plocha</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="707"/>
+        <location filename="../src/settings.cpp" line="723"/>
         <source>Documents</source>
         <translation>Dokumenty</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="708"/>
+        <location filename="../src/settings.cpp" line="724"/>
         <source>Downloads</source>
         <translation>Stažené soubory</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="709"/>
+        <location filename="../src/settings.cpp" line="725"/>
         <source>Flatpaks</source>
         <translation>Flatpaky</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="710"/>
+        <location filename="../src/settings.cpp" line="726"/>
         <source>Music</source>
         <translation>Hudba</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="711"/>
+        <location filename="../src/settings.cpp" line="727"/>
         <source>Networks</source>
         <translation>Sítě</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="712"/>
+        <location filename="../src/settings.cpp" line="728"/>
         <source>Pictures</source>
         <translation>Obrázky</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="714"/>
+        <location filename="../src/settings.cpp" line="730"/>
         <source>Videos</source>
         <translation>Videa</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="863"/>
+        <location filename="../src/settings.cpp" line="879"/>
         <source>Error reading system configuration file: %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="871"/>
+        <location filename="../src/settings.cpp" line="887"/>
         <source>Error accessing user configuration</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="923"/>
+        <location filename="../src/settings.cpp" line="939"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="948"/>
+        <location filename="../src/settings.cpp" line="964"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1038"/>
-        <location filename="../src/settings.cpp" line="1132"/>
+        <location filename="../src/settings.cpp" line="1055"/>
+        <location filename="../src/settings.cpp" line="1149"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Výstupní soubor %1 již existuje. Prosím vyberte jiný název, nebo vymažte stávající soubor.</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="71"/>
+        <location filename="../src/about.cpp" line="70"/>
         <source>License</source>
         <translation>Licence</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="72"/>
-        <location filename="../src/about.cpp" line="82"/>
+        <location filename="../src/about.cpp" line="71"/>
+        <location filename="../src/about.cpp" line="81"/>
         <source>Changelog</source>
         <translation>Protokol změn</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="73"/>
+        <location filename="../src/about.cpp" line="72"/>
         <source>Cancel</source>
         <translation>Zrušit</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="95"/>
+        <location filename="../src/about.cpp" line="94"/>
         <source>&amp;Close</source>
         <translation>&amp;Zavřít</translation>
     </message>
@@ -1118,132 +1184,146 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="116"/>
+        <location filename="../src/work.cpp" line="144"/>
         <source>Cleaning...</source>
         <translation>Čištění...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="130"/>
-        <location filename="../src/work.cpp" line="320"/>
+        <location filename="../src/work.cpp" line="160"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>Done</source>
         <translation>Hotovo</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="142"/>
+        <location filename="../src/work.cpp" line="172"/>
         <source>Interrupted or failed to complete</source>
         <translation>Přerušeno anebo dokončení zlyhalo</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="175"/>
-        <location filename="../src/work.cpp" line="278"/>
-        <location filename="../src/work.cpp" line="300"/>
-        <location filename="../src/work.cpp" line="338"/>
-        <location filename="../src/work.cpp" line="476"/>
+        <location filename="../src/work.cpp" line="208"/>
+        <location filename="../src/work.cpp" line="381"/>
+        <location filename="../src/work.cpp" line="405"/>
+        <location filename="../src/work.cpp" line="443"/>
+        <location filename="../src/work.cpp" line="582"/>
+        <location filename="../src/work.cpp" line="616"/>
+        <location filename="../src/work.cpp" line="625"/>
+        <location filename="../src/work.cpp" line="631"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="176"/>
+        <location filename="../src/work.cpp" line="209"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Na vybraném disku není dostatek volného místa, je potřeba nejméně %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="179"/>
+        <location filename="../src/work.cpp" line="212"/>
         <source>You have %1 free space on %2</source>
         <translation>Máte %1 volného místa na %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="182"/>
+        <location filename="../src/work.cpp" line="215"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Pokud jste si jistí, že máte dostatek volného místa, tak spusťte program znovu a použijte volbu -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="207"/>
+        <location filename="../src/work.cpp" line="309"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopírování nového ISO souborového systému...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="219"/>
+        <location filename="../src/work.cpp" line="321"/>
         <source>Could not create temp directory. </source>
         <translation>Nebylo možné vytvořít dočasnou složku.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="275"/>
+        <location filename="../src/work.cpp" line="378"/>
         <source>Squashing filesystem...</source>
         <translation>Rušení souborového systému...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="279"/>
+        <location filename="../src/work.cpp" line="382"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Nelze vytvořit soubor linuxfs, zkontrolujte prosím /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="297"/>
+        <location filename="../src/work.cpp" line="402"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Vytváření obrazu CD/DVD... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="301"/>
+        <location filename="../src/work.cpp" line="406"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Nelze vytvořit ISO soubor, prosím zkontrolujte zdali je dostatek místa na vybraném oddílu.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="307"/>
+        <location filename="../src/work.cpp" line="412"/>
         <source>Making hybrid iso</source>
         <translation>Vytváření hybridního ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="325"/>
+        <location filename="../src/work.cpp" line="430"/>
         <source>Success</source>
         <translation>Úspěch!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="326"/>
+        <location filename="../src/work.cpp" line="431"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot úspěšně dokončen!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="327"/>
+        <location filename="../src/work.cpp" line="432"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Obraz dokončen za %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="328"/>
+        <location filename="../src/work.cpp" line="433"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Díky za použití MX Snapshot, zkuste taky MX Tvůrce Live-USB!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="440"/>
         <source>Installing </source>
         <translation>Instalace</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="338"/>
+        <location filename="../src/work.cpp" line="443"/>
         <source>Could not install </source>
         <translation>Nelze nainstalovat</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="348"/>
+        <location filename="../src/work.cpp" line="453"/>
         <source>Calculating checksum...</source>
         <translation>Počítání kontrolních součtů...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="386"/>
+        <location filename="../src/work.cpp" line="492"/>
         <source>Building new initrd...</source>
         <translation>Vytváření nového initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="477"/>
+        <location filename="../src/work.cpp" line="583"/>
         <source>Could not create working directory. </source>
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="615"/>
+        <location filename="../src/work.cpp" line="617"/>
+        <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/work.cpp" line="626"/>
+        <location filename="../src/work.cpp" line="632"/>
+        <source>Could not prepare the snapshot bind-root environment.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/work.cpp" line="751"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Výpočet celkové velikosti vyloučených souborů...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="625"/>
+        <location filename="../src/work.cpp" line="761"/>
         <source>Calculating size of root...</source>
         <translation>Výpoćet velikosti root...</translation>
     </message>

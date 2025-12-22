@@ -1,4 +1,4 @@
-mx-snapshot (25.12.3) mx; urgency=medium
+mx-snapshot (25.12.4) mx; urgency=medium
 
   * Improve cleanup safety and overlay handling
   * Close app ifthe user doesn't elevate when requested
