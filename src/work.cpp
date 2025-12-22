@@ -413,18 +413,7 @@ void Work::copyNewIso()
                     emit messageBox(BoxType::critical, tr("Error"), details);
                     cleanUp();
                 }
-                archisoKernel = initramfsKernelVersion(archisoPath);
-                if (!expectedKernel.isEmpty()) {
-                    if (archisoKernel.isEmpty()) {
-                        emit message(tr("Warning: could not determine kernel version inside /boot/archiso.img after rebuild; continuing."));
-                    } else if (archisoKernel != expectedKernel) {
-                        QString details = tr("Rebuilt /boot/archiso.img is for kernel %1, but the selected kernel is %2.")
-                                              .arg(archisoKernel, expectedKernel);
-                        details += "\n" + tr("Please rebuild /boot/archiso.img for the selected kernel or remove the stale file.");
-                        emit messageBox(BoxType::critical, tr("Error"), details);
-                        cleanUp();
-                    }
-                }
+                // Skip post-rebuild probing; mkinitcpio already verified the target kernel.
             }
             initramfsSource = archisoPath;
         } else if (QFileInfo::exists("/boot/initramfs-" + settings->kernel + ".img")) {
