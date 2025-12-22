@@ -384,13 +384,49 @@ void Work::copyNewIso()
         }
         const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
         const QString archBootDir = "iso-template/arch/boot/" + archCpuDir;
+        const QString kernelPath = "/boot/vmlinuz-" + settings->kernel;
         QDir().mkpath(archBootDir);
 
-        shell.run("cp /boot/vmlinuz-" + settings->kernel + " \"" + archBootDir + "/vmlinuz-linux\"");
+        shell.run("cp " + kernelPath + " \"" + archBootDir + "/vmlinuz-linux\"");
 
         QString initramfsSource;
-        if (QFileInfo::exists("/boot/archiso.img")) {
-            initramfsSource = "/boot/archiso.img";
+        const QString archisoPath = "/boot/archiso.img";
+        if (QFileInfo::exists(archisoPath)) {
+            QString archisoKernel = initramfsKernelVersion(archisoPath);
+            const QString expectedKernel = kernelImageVersion(kernelPath);
+            if (!expectedKernel.isEmpty()) {
+                qDebug() << "Expected kernel from image:" << expectedKernel;
+            } else {
+                qWarning() << "Could not determine kernel version from" << kernelPath;
+            }
+            if (!archisoKernel.isEmpty()) {
+                qDebug() << "archiso initramfs kernel:" << archisoKernel;
+            }
+            const bool needsRebuild = archisoKernel.isEmpty()
+                || (!expectedKernel.isEmpty() && archisoKernel != expectedKernel);
+            if (needsRebuild) {
+                emit message(tr("Stale archiso initramfs detected, rebuilding..."));
+                if (!rebuildArchisoInitramfs(archisoPath, kernelPath)) {
+                    QString details = tr("Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.")
+                                          .arg(archisoKernel, expectedKernel.isEmpty() ? settings->kernel : expectedKernel);
+                    details += "\n" + tr("Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.");
+                    emit messageBox(BoxType::critical, tr("Error"), details);
+                    cleanUp();
+                }
+                archisoKernel = initramfsKernelVersion(archisoPath);
+                if (!expectedKernel.isEmpty()) {
+                    if (archisoKernel.isEmpty()) {
+                        emit message(tr("Warning: could not determine kernel version inside /boot/archiso.img after rebuild; continuing."));
+                    } else if (archisoKernel != expectedKernel) {
+                        QString details = tr("Rebuilt /boot/archiso.img is for kernel %1, but the selected kernel is %2.")
+                                              .arg(archisoKernel, expectedKernel);
+                        details += "\n" + tr("Please rebuild /boot/archiso.img for the selected kernel or remove the stale file.");
+                        emit messageBox(BoxType::critical, tr("Error"), details);
+                        cleanUp();
+                    }
+                }
+            }
+            initramfsSource = archisoPath;
         } else if (QFileInfo::exists("/boot/initramfs-" + settings->kernel + ".img")) {
             initramfsSource = "/boot/initramfs-" + settings->kernel + ".img";
         } else if (QFileInfo::exists("/boot/initramfs-linux.img")) {
@@ -532,13 +568,10 @@ bool Work::createIso(const QString &filename)
             qWarning() << "Missing EFI boot image:" << efiBootPath;
         }
 
-        cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel + "\" -R -J -pad -iso-level 3"
-              + bootArgs + " -isohybrid-gpt-basdat";
-        const QString hybridMbr = "/usr/lib/grub/i386-pc/boot_hybrid.img";
-        if (QFileInfo::exists(hybridMbr)) {
-            cmd += " -isohybrid-mbr " + hybridMbr;
-        }
-        cmd += " -o \"" + settings->snapshotDir + "/" + filename + "\" . \""
+        cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel
+              + "\" -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table"
+              + " -b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e efi.img -no-emul-boot -c boot.catalog -o \""
+              + settings->snapshotDir + "/" + filename + "\" . \""
               + settings->workDir + "/iso-2\"";
     } else {
         cmd = "xorriso -as mkisofs -l -V " + volumeLabel
@@ -646,6 +679,110 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     }
     shell.run(cmd);
     QDir::setCurrent(settings->workDir);
+}
+
+QString Work::initramfsKernelVersion(const QString &initramfsPath) const
+{
+    if (!QFileInfo::exists(initramfsPath)) {
+        return {};
+    }
+
+    QString listCmd;
+    const QString lsinitcpio = QStandardPaths::findExecutable("lsinitcpio");
+    if (lsinitcpio.isEmpty()) {
+        if (QStandardPaths::findExecutable("cpio").isEmpty()) {
+            return {};
+        }
+        listCmd = QString("cpio -it < \"%1\" 2>/dev/null").arg(initramfsPath);
+    } else {
+        listCmd = QString("\"%1\" -a \"%2\" 2>/dev/null").arg(lsinitcpio, initramfsPath);
+    }
+    const QString cmd = listCmd
+        + " | awk -F/ '{for (i=1; i<=NF; i++) if ($i == \"modules\" && (i+1) <= NF) {print $(i+1); exit}}'";
+
+    return Cmd().getOut(cmd, Cmd::QuietMode::Yes).trimmed();
+}
+
+QString Work::kernelImageVersion(const QString &kernelPath) const
+{
+    if (!QFileInfo::exists(kernelPath)) {
+        return {};
+    }
+    if (QStandardPaths::findExecutable("file").isEmpty()) {
+        return {};
+    }
+    const QString output = Cmd().getOut("file -b \"" + kernelPath + "\"", Cmd::QuietMode::Yes);
+    const QRegularExpression versionRegex(R"(version\s+([^\s,]+))");
+    const auto match = versionRegex.match(output);
+    return match.hasMatch() ? match.captured(1) : QString();
+}
+
+bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath)
+{
+    if (QStandardPaths::findExecutable("mkinitcpio").isEmpty()) {
+        qWarning() << "mkinitcpio not found; cannot rebuild archiso initramfs.";
+        return false;
+    }
+    if (!QFileInfo::exists(kernelPath)) {
+        qWarning() << "Kernel image not found:" << kernelPath;
+        return false;
+    }
+
+    QString presetName;
+    const QDir presetDir("/etc/mkinitcpio.d");
+    if (presetDir.exists()) {
+        const QStringList presets = presetDir.entryList({"*.preset"}, QDir::Files, QDir::Name);
+        for (const QString &presetFile : presets) {
+            if (presetFile == "archiso.preset") {
+                presetName = "archiso";
+                break;
+            }
+            QFile file(presetDir.filePath(presetFile));
+            if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                continue;
+            }
+            QTextStream stream(&file);
+            while (!stream.atEnd()) {
+                const QString line = stream.readLine();
+                if (line.contains("archiso.img")) {
+                    presetName = presetFile.left(presetFile.size() - QString(".preset").size());
+                    break;
+                }
+            }
+            if (!presetName.isEmpty()) {
+                break;
+            }
+        }
+    }
+
+    QString cmd;
+    if (!presetName.isEmpty()) {
+        cmd = "mkinitcpio -p " + presetName;
+    } else {
+        const QStringList configCandidates {
+            "/usr/lib/archiso/mkinitcpio.conf",
+            "/etc/mkinitcpio-archiso.conf",
+            "/usr/share/archiso/configs/releng/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+            "/usr/share/archiso/configs/baseline/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+        };
+        QString configPath;
+        for (const QString &candidate : configCandidates) {
+            if (QFileInfo::exists(candidate)) {
+                configPath = candidate;
+                break;
+            }
+        }
+        if (configPath.isEmpty()) {
+            qWarning() << "No archiso preset or config found for rebuilding archiso initramfs.";
+            return false;
+        }
+        cmd = QString("mkinitcpio -c \"%1\" -k \"%2\" -g \"%3\"").arg(configPath, kernelPath, archisoPath);
+    }
+    emit message(tr("Rebuilding initramfs with: %1").arg(cmd));
+    if (!shell.runAsRoot(cmd)) {
+        return false;
+    }
+    return QFileInfo::exists(archisoPath);
 }
 
 void Work::openInitrd(const QString &file, const QString &initrd_dir)

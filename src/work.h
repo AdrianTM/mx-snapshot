@@ -89,6 +89,9 @@ private:
     void closeInitrd(const QString &initrd_dir, const QString &file);
     void openInitrd(const QString &file, const QString &initrd_dir);
     void copyModules(const QString &to, const QString &kernel);
+    [[nodiscard]] QString kernelImageVersion(const QString &kernelPath) const;
+    [[nodiscard]] QString initramfsKernelVersion(const QString &initramfsPath) const;
+    bool rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath);
 
     // Configuration file generation
     void replaceMenuStrings();
