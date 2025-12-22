@@ -557,8 +557,29 @@ bool Work::createIso(const QString &filename)
             qWarning() << "Missing EFI boot image:" << efiBootPath;
         }
 
+        QString isohybridArgs;
+        bool useXorrisoHybrid = false;
+        if (settings->makeIsohybrid) {
+            const QStringList mbrCandidates {
+                "/usr/lib/syslinux/bios/isohdpfx.bin",
+                "/usr/lib/syslinux/isohdpfx.bin",
+                "/usr/share/syslinux/isohdpfx.bin",
+                "/usr/lib/ISOLINUX/isohdpfx.bin",
+            };
+            for (const QString &candidate : mbrCandidates) {
+                if (QFileInfo::exists(candidate)) {
+                    isohybridArgs = " -isohybrid-mbr \"" + candidate + "\" -isohybrid-gpt-basdat";
+                    useXorrisoHybrid = true;
+                    break;
+                }
+            }
+            if (!useXorrisoHybrid) {
+                qWarning() << "isohdpfx.bin not found; skipping xorriso hybrid flags.";
+            }
+        }
+
         cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel
-              + "\" -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table"
+              + "\" -R -J -pad -iso-level 3" + isohybridArgs + " -no-emul-boot -boot-load-size 4 -boot-info-table"
               + " -b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e efi.img -no-emul-boot -c boot.catalog -o \""
               + settings->snapshotDir + "/" + filename + "\" . \""
               + settings->workDir + "/iso-2\"";
@@ -580,7 +601,9 @@ bool Work::createIso(const QString &filename)
     // Make it isohybrid
     if (settings->makeIsohybrid) {
         emit message(tr("Making hybrid iso"));
-        shell.run("isohybrid --uefi \"" + settings->snapshotDir + "/" + filename + "\"");
+        if (!settings->isArch) {
+            shell.run("isohybrid --uefi \"" + settings->snapshotDir + "/" + filename + "\"");
+        }
     }
 
     // Make ISO checksums
