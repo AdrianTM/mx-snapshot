@@ -219,15 +219,6 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
 
 bool Work::setupBindRootOverlay()
 {
-    const QString rootFsType = Cmd().getOut("findmnt -n -o FSTYPE /", Cmd::QuietMode::Yes).trimmed();
-    if (rootFsType == "overlay") {
-        qDebug() << "Root filesystem is overlay; skipping bind-root overlay setup.";
-        bindRootPath = "/.bind-root";
-        bindRootOverlayActive = false;
-        bindRootOverlayBase.clear();
-        return true;
-    }
-
     const QString appName = QCoreApplication::applicationName();
     const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
     const QString lowerDir = overlayBase + "/lower";
