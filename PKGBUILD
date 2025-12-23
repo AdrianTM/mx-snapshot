@@ -6,7 +6,7 @@ pkgdesc="A tool for creating live ISO images from running systems"
 arch=('x86_64' 'i686')
 url="https://mxlinux.org"
 license=('GPL3')
-depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso')
+depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch')
 makedepends=('cmake' 'ninja' 'qt6-tools')
 source=()
 sha256sums=()
@@ -78,6 +78,4 @@ package() {
         cp -r docs/* "${pkgdir}/usr/share/doc/mx-snapshot/" 2>/dev/null || true
     fi
 
-    install -dm755 "${pkgdir}/usr/lib/iso-template/arch"
-    install -Dm644 arch/iso-template.tar.gz "${pkgdir}/usr/lib/iso-template/arch/iso-template.tar.gz"
 }
