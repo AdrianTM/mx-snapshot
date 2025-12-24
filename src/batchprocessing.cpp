@@ -245,11 +245,6 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
     const QString keepOptionText = tr("keep custom (update timestamp)", "CLI excludes prompt option label");
     const QString quitOptionText = tr("quit", "CLI excludes prompt option label");
 
-    const QStringList showResponses = {showOptionKey.toLower(), showOptionText.toLower(), "s", "show"};
-    const QStringList useResponses = {useOptionKey.toLower(), useOptionText.toLower(), "u", "use"};
-    const QStringList keepResponses = {keepOptionKey.toLower(), keepOptionText.toLower(), "k", "keep"};
-    const QStringList quitResponses = {quitOptionKey.toLower(), quitOptionText.toLower(), "q", "quit"};
-
     const QString optionPrompt =
         tr("[%1]%2  [%3]%4  [%5]%6  [%7]%8: ")
             .arg(showOptionKey, showOptionText, useOptionKey, useOptionText, keepOptionKey, keepOptionText, quitOptionKey,
@@ -261,21 +256,21 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
             << '\n';
         out << optionPrompt << Qt::flush;
 
-        const QString response = in.readLine().trimmed().toLower();
+        const QString response = in.readLine().trimmed();
 
-        if (showResponses.contains(response)) {
+        if (response == showOptionKey || response == showOptionText) {
             out << colorizeDiffAnsi(diffOutput) << Qt::flush;
             continue;
         }
 
-        if (useResponses.contains(response)) {
+        if (response == useOptionKey || response == useOptionText) {
             if (resetCustomExcludesCli(configuredPath, sourcePath)) {
                 qDebug().noquote() << tr("Reverted to updated default exclusion file.");
             }
             return;
         }
 
-        if (keepResponses.contains(response)) {
+        if (response == keepOptionKey || response == keepOptionText) {
             utimbuf times {};
             times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
             times.modtime = QDateTime::currentSecsSinceEpoch();
@@ -288,7 +283,7 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
             return;
         }
 
-        if (quitResponses.contains(response) || response.isEmpty()) {
+        if (response == quitOptionKey || response == quitOptionText || response.isEmpty()) {
             qDebug() << tr("Leaving custom exclusion file unchanged.");
             const bool debugStop = qEnvironmentVariableIsSet("MX_SNAPSHOT_EXCLUDES_DEBUG_STOP");
             if (debugStop) {
