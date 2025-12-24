@@ -258,19 +258,22 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
 
         const QString response = in.readLine().trimmed();
 
-        if (response == showOptionKey || response == showOptionText) {
+        if (response.compare(showOptionKey, Qt::CaseInsensitive) == 0
+            || response.compare(showOptionText, Qt::CaseInsensitive) == 0) {
             out << colorizeDiffAnsi(diffOutput) << Qt::flush;
             continue;
         }
 
-        if (response == useOptionKey || response == useOptionText) {
+        if (response.compare(useOptionKey, Qt::CaseInsensitive) == 0
+            || response.compare(useOptionText, Qt::CaseInsensitive) == 0) {
             if (resetCustomExcludesCli(configuredPath, sourcePath)) {
                 qDebug().noquote() << tr("Reverted to updated default exclusion file.");
             }
             return;
         }
 
-        if (response == keepOptionKey || response == keepOptionText) {
+        if (response.compare(keepOptionKey, Qt::CaseInsensitive) == 0
+            || response.compare(keepOptionText, Qt::CaseInsensitive) == 0) {
             utimbuf times {};
             times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
             times.modtime = QDateTime::currentSecsSinceEpoch();
@@ -283,7 +286,8 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
             return;
         }
 
-        if (response == quitOptionKey || response == quitOptionText || response.isEmpty()) {
+        if (response.compare(quitOptionKey, Qt::CaseInsensitive) == 0
+            || response.compare(quitOptionText, Qt::CaseInsensitive) == 0 || response.isEmpty()) {
             qDebug() << tr("Leaving custom exclusion file unchanged.");
             const bool debugStop = qEnvironmentVariableIsSet("MX_SNAPSHOT_EXCLUDES_DEBUG_STOP");
             if (debugStop) {
