@@ -1,3 +1,10 @@
+mx-snapshot (25.12.6) mx; urgency=medium
+
+  * Remove exclusion /var/lib/sddm/ which will be handled by live-files
+    in mx-remaster
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 23 Dec 2025 21:59:40 -0500
+
 mx-snapshot (25.12.5) mx; urgency=medium
 
   * Improve cleanup safety and overlay handling

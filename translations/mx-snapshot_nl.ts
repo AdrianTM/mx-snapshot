@@ -1191,7 +1191,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../src/work.cpp" line="160"/>
-        <location filename="../src/work.cpp" line="425"/>
+        <location filename="../src/work.cpp" line="416"/>
         <source>Done</source>
         <translation>Klaar</translation>
     </message>
@@ -1202,13 +1202,13 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     </message>
     <message>
         <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="381"/>
-        <location filename="../src/work.cpp" line="405"/>
-        <location filename="../src/work.cpp" line="443"/>
-        <location filename="../src/work.cpp" line="582"/>
+        <location filename="../src/work.cpp" line="372"/>
+        <location filename="../src/work.cpp" line="396"/>
+        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="573"/>
+        <location filename="../src/work.cpp" line="607"/>
         <location filename="../src/work.cpp" line="616"/>
-        <location filename="../src/work.cpp" line="625"/>
-        <location filename="../src/work.cpp" line="631"/>
+        <location filename="../src/work.cpp" line="622"/>
         <source>Error</source>
         <translation>Fout</translation>
     </message>
@@ -1228,103 +1228,103 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>Als je zeker weet dat je genoeg vrije ruimte hebt, voer dan het programma opnieuw uit met de -o/--override-size optie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="309"/>
+        <location filename="../src/work.cpp" line="300"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>New-iso bestandssysteem kopiëren...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="321"/>
+        <location filename="../src/work.cpp" line="312"/>
         <source>Could not create temp directory. </source>
         <translation>Kon geen tijdelijke map creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="378"/>
+        <location filename="../src/work.cpp" line="369"/>
         <source>Squashing filesystem...</source>
         <translation>Comprimeren van het bestandsysteem</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="382"/>
+        <location filename="../src/work.cpp" line="373"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Kan geen linuxfs-bestand aanmaken, controleer /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="402"/>
+        <location filename="../src/work.cpp" line="393"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD image bestand maken...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="406"/>
+        <location filename="../src/work.cpp" line="397"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kon geen ISO bestand creëren, controleer aub of u genoeg ruimte op de doelpartitie heeft.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="412"/>
+        <location filename="../src/work.cpp" line="403"/>
         <source>Making hybrid iso</source>
         <translation>Hybride iso maken</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="430"/>
+        <location filename="../src/work.cpp" line="421"/>
         <source>Success</source>
         <translation>Gelukt</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="431"/>
+        <location filename="../src/work.cpp" line="422"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot succesvol voltooid!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="432"/>
+        <location filename="../src/work.cpp" line="423"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot nam %1 tijd in beslag.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="433"/>
+        <location filename="../src/work.cpp" line="424"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dank u voor het gebruiken van MX Snapshot, voer MX Live USB Maker hierna uit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="440"/>
+        <location filename="../src/work.cpp" line="431"/>
         <source>Installing </source>
         <translation>Installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="443"/>
+        <location filename="../src/work.cpp" line="434"/>
         <source>Could not install </source>
         <translation>Kon niet installeren</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="453"/>
+        <location filename="../src/work.cpp" line="444"/>
         <source>Calculating checksum...</source>
         <translation>Bereken checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="492"/>
+        <location filename="../src/work.cpp" line="483"/>
         <source>Building new initrd...</source>
         <translation>Nieuwe initrd bouwen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="583"/>
+        <location filename="../src/work.cpp" line="574"/>
         <source>Could not create working directory. </source>
         <translation>Kon geen werkmap creëren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="617"/>
+        <location filename="../src/work.cpp" line="608"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="626"/>
-        <location filename="../src/work.cpp" line="632"/>
+        <location filename="../src/work.cpp" line="617"/>
+        <location filename="../src/work.cpp" line="623"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="751"/>
+        <location filename="../src/work.cpp" line="742"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="761"/>
+        <location filename="../src/work.cpp" line="752"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>
