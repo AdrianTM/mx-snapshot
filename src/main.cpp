@@ -232,7 +232,7 @@ int main(int argc, char *argv[])
     }
 
     // Create settings instance for dependency injection
-    Settings settings(parser);
+    Settings settings(parser, isGuiApp);
 
     if (!isGuiApp) {
         Batchprocessing batch(&settings);
