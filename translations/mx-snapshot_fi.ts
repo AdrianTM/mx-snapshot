@@ -69,19 +69,19 @@
         <location filename="../src/batchprocessing.cpp" line="243"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>näytä erot</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>käytä päivitettyä oletusta</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>säilytä mukautettu (päivitä aikaleima)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="254"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="259"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>Hallintatyökalua ei löytynyt (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
@@ -1312,13 +1312,13 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/work.cpp" line="608"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Sidonta root-tasolle epäonnistui. Vedoksen luontia ei voi jatkaa.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="617"/>
         <location filename="../src/work.cpp" line="623"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>Vedoksen sidonta ja valmistelu root-ympäristölle epäonnistui.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="742"/>

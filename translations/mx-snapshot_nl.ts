@@ -45,43 +45,43 @@
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="239"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="240"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="241"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="243"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>verschil weergeven</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>gebruik bijgewerkte standaard</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>bewaar aangepast (update tijdstempel)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="254"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="259"/>
@@ -135,17 +135,17 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>Geen verhogingsprogramma gevonden (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
         <source>Administrator Access Required</source>
-        <translation type="unfinished"/>
+        <translation>Beheerdersrechten Vereist</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="117"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
-        <translation type="unfinished"/>
+        <translation>Voor deze bewerking zijn beheerdersrechten vereist. Start de toepassing opnieuw op en voer uw wachtwoord in wanneer daarom wordt gevraagd.</translation>
     </message>
 </context>
 <context>
@@ -549,22 +549,22 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="215"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Bekijk de onderstaande wijzigingen. Bewaar uw aangepaste bestand of vervang het door het bijgewerkte standaardbestand.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="221"/>
         <source>Show Differences</source>
-        <translation type="unfinished"/>
+        <translation>Verschillen Weergeven</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="227"/>
         <source>Keep Custom</source>
-        <translation type="unfinished"/>
+        <translation>Aangepast Behouden</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="233"/>
         <source>Use Updated Default</source>
-        <translation type="unfinished"/>
+        <translation>Gebruik Bijgewerkte Standaard</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="314"/>
@@ -635,7 +635,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="696"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Het uitsluitingsbestand kon niet worden vervangen door het bijgewerkte standaardbestand.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="715"/>
@@ -690,7 +690,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="840"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
-        <translation type="unfinished"/>
+        <translation>De uitsluitingslijst terugzetten naar het standaardbestand? Hierdoor worden uw huidige uitsluitingen overschreven.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="920"/>
@@ -798,7 +798,7 @@
     <message>
         <location filename="../src/main.cpp" line="119"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"/>
+        <translation>Geef eventueel een achtervoegsel op dat aan de maandnaam moet worden toegevoegd (bijvoorbeeld &apos;1&apos; voor &apos;juli.1&apos;)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="120"/>
@@ -894,149 +894,151 @@
     <message>
         <location filename="../src/settings.cpp" line="112"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"/>
+        <translation>Kan configuratie niet initialiseren</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="146"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"/>
+        <translation>Configuratievalidatie mislukt</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="151"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"/>
+        <translation>Uitzondering tijdens initialisatie: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="154"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"/>
+        <translation>Onbekende uitzondering tijdens initialisatie</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="185"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"/>
+        <translation>Kan geen werkdirectory aanmaken.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="209"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"/>
+        <translation>Kan tijdelijke map niet aanmaken:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="210"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"/>
+        <translation>Controleer of de bovenliggende map bestaat en beschrijfbaar is:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="228"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"/>
+        <translation>Compressieformaat &apos;%1&apos; wordt niet ondersteund door de huidige kernel</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="234"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige kerninstelling: %1. Moet tussen 1 en %2 liggen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="240"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige vertragingsinstelling: %1. Moet tussen 0 en 20 liggen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="246"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>De map met momentopnames mag niet leeg zijn</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="254"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>De naam van de snapshot mag niet leeg zijn</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="260"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"/>
+        <translation>De naam van de snapshot bevat ongeldige tekens: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="266"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Kernelversie mag niet leeg zijn</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="271"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"/>
+        <translation>Kernelbestand niet gevonden: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="277"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"/>
+        <translation>Kernel %1 ondersteunt Squashfs niet</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="301"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Uitsluitingsbestand bestaat niet: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="310"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"/>
+        <translation>Onevenwichtige aanhalingstekens in uitsluitingslijst</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="335"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Onvoldoende vrije ruimte: %1 KiB beschikbaar, minimaal %2 KiB vereist</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="342"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Onvoldoende vrije ruimte in de werkdirectory: %1 KiB beschikbaar, minimaal %2 KiB vereist</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="357"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"/>
+        <translation>Kan het aantal CPU-kernen niet bepalen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="363"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Configuratiebestand bestaat niet: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="364"/>
         <source>Using default settings</source>
-        <translation type="unfinished"/>
+        <translation>Standaardinstellingen gebruiken</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="366"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan configuratiebestand niet lezen: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="367"/>
         <source>Error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fout: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="377"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Vereist hulpmiddel niet gevonden: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="386"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Vereiste map niet gevonden: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="405"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"/>
+        <translation>Initialisatiefout</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="406"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Kan applicatie-instellingen niet initialiseren:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="517"/>
@@ -1046,17 +1048,17 @@
     <message>
         <location filename="../src/settings.cpp" line="518"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"/>
+        <translation>Er is gezocht naar kernelbestanden in /boot/, maar er zijn geen bestanden gevonden of toegankelijk.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="539"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"/>
+        <translation>Er zijn geen gebruikers gevonden in het systeem</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="542"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"/>
+        <translation>Kan systeeminformatie niet bepalen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="636"/>
@@ -1137,22 +1139,22 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../src/settings.cpp" line="879"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij het lezen van het systeemconfiguratiebestand: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="887"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"/>
+        <translation>Fout bij toegang tot gebruikersconfiguratie</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="939"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Kan uitsluitingsbestand niet kopiëren van %1 naar %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="964"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
-        <translation type="unfinished"/>
+        <translation>Ongeldige instelling voor opgeslagen cores (%1). Gebruik van gedetecteerd aantal CPU&apos;s: %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1055"/>
@@ -1310,13 +1312,13 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../src/work.cpp" line="608"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Kan geen veilige bind-root-overlay voorbereiden. Snapshot kan niet worden voortgezet.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="617"/>
         <location filename="../src/work.cpp" line="623"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>De snapshot bind-root-omgeving kon niet worden voorbereid.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="742"/>

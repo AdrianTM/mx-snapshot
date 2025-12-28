@@ -45,43 +45,43 @@
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>a</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="239"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="240"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>c</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="241"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="243"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>afficher commande diff</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>utiliser le fichier par défaut mis à jour</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>conserver le réglage personnalisé (mise à jour de l’horodatage)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
@@ -92,7 +92,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="254"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8 : </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="259"/>
@@ -135,7 +135,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de trouver un outil d’élévation de privilèges (pkexec/gksu/sudo). </translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
@@ -1310,13 +1310,13 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="608"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de préparer un overlay bind-root sécurisé. La création de l’instantané (snapshot) ne peut pas se poursuivre.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="617"/>
         <location filename="../src/work.cpp" line="623"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>Impossible de préparer l’environnement bind-root pour l’instantané (snapshot). </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="742"/>
