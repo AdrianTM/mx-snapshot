@@ -1,4 +1,4 @@
-mx-snapshot (25.12.7) mx; urgency=medium
+mx-snapshot (25.12.8) mx; urgency=medium
 
   * Fix GUI/CLI space checks: check available space only after selecting
     the snapshot directory in GUI
