@@ -92,12 +92,13 @@ void chownFileToLoggedInUser(const QString &path)
 
 } // namespace
 
-Settings::Settings(const QCommandLineParser &argParser)
+Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
     : x86(SystemInfo::is386()),
       maxCores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
       monthly(argParser.isSet("month")),
       overrideSize(argParser.isSet("override-size")),
       editBootMenu(getEditBootMenuSetting()),
+      isGuiApp(isGuiApp),
       forceInstaller(getInitialSettings().forceInstaller),
       live(getInitialSettings().live),
       makeIsohybrid(getInitialSettings().makeIsohybrid),
@@ -283,10 +284,17 @@ bool Settings::checkConfiguration() const
         return false;
     }
 
-    // Validate space requirements
+#ifdef CLI_BUILD
+    // For CLI-only builds, always validate space requirements at startup
     if (!validateSpaceRequirements()) {
         return false;
     }
+#else
+    // Validate space requirements only when running in CLI
+    if (!isGuiApp && !validateSpaceRequirements()) {
+        return false;
+    }
+#endif
 
     qDebug() << "Configuration validation passed";
     return true;

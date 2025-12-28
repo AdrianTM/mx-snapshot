@@ -42,7 +42,7 @@ enum Version { Jessie = 8, Stretch, Buster, Bullseye, Bookworm, Trixie, Forky, D
 class Settings
 {
 public:
-    explicit Settings(const QCommandLineParser &argParser);
+    explicit Settings(const QCommandLineParser &argParser, bool isGuiApp);
 
     [[nodiscard]] QString getEditor() const;
     [[nodiscard]] QString getFilename() const;
@@ -105,6 +105,7 @@ public:
     const bool monthly;
     const bool overrideSize;
     const bool editBootMenu;
+    const bool isGuiApp;
     const QHash<QString, quint8> compressionFactor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
                                                     {"lzo", 52}, {"lzma", 52}, {"lz4", 52}};
 

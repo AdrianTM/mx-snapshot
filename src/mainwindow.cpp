@@ -946,7 +946,14 @@ void MainWindow::btnSelectSnapshot_clicked()
     QString selected = QFileDialog::getExistingDirectory(this, tr("Select Snapshot Directory"), QString(),
                                                          QFileDialog::ShowDirsOnly);
     if (!selected.isEmpty()) {
+        const QString previousSnapshotDir = settings->snapshotDir;
         settings->snapshotDir = selected + "/snapshot";
+        if (!settings->validateSpaceRequirements()) {
+            settings->snapshotDir = previousSnapshotDir;
+            QMessageBox::critical(this, tr("Error"),
+                                  tr("Insufficient free space in the selected directory. Please choose a different location."));
+            return;
+        }
         ui->labelSnapshotDir->setText(settings->snapshotDir);
         listFreeSpace();
     }

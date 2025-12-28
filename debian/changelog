@@ -1,3 +1,10 @@
+mx-snapshot (25.12.7) mx; urgency=medium
+
+  * Fix GUI/CLI space checks: check available space only after selecting
+    the snapshot directory in GUI
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 28 Dec 2025 12:45:31 -0500
+
 mx-snapshot (25.12.6) mx; urgency=medium
 
   * Remove exclusion /var/lib/sddm/ which will be handled by live-files
