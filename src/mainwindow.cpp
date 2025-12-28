@@ -616,6 +616,12 @@ void MainWindow::showErrorMessageBox(const QString &file_path)
 
 void MainWindow::handleSelectionPage(const QString &file_name)
 {
+    if (!settings->validateSpaceRequirements()) {
+        processMsgBox(BoxType::critical, tr("Error"),
+                      tr("Insufficient free space. Please select a different snapshot directory or free up space."));
+        return;
+    }
+
     setWindowTitle(tr("Settings"));
     ui->stackedWidget->setCurrentWidget(ui->settingsPage);
     ui->btnBack->setHidden(false);
