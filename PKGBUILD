@@ -41,8 +41,11 @@ package() {
 
     install -dm755 "${pkgdir}/usr/share/mx-snapshot/scripts"
     install -dm755 "${pkgdir}/usr/share/iso-snapshot-cli/scripts"
-    cp -a scripts/* "${pkgdir}/usr/share/mx-snapshot/scripts/"
-    cp -a scripts/* "${pkgdir}/usr/share/iso-snapshot-cli/scripts/"
+    cp -a scripts-arch/* "${pkgdir}/usr/share/mx-snapshot/scripts/"
+    cp -a scripts-arch/* "${pkgdir}/usr/share/iso-snapshot-cli/scripts/"
+
+    ln -sf "/usr/share/mx-snapshot/scripts/arch-remaster" "${pkgdir}/usr/bin/arch-remaster"
+    ln -sf "/usr/share/iso-snapshot-cli/scripts/arch-remaster" "${pkgdir}/usr/bin/arch-remaster-cli"
 
     install -dm755 "${pkgdir}/usr/lib/mx-snapshot"
     install -dm755 "${pkgdir}/usr/lib/iso-snapshot-cli"
