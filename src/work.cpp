@@ -572,18 +572,23 @@ bool Work::createIso(const QString &filename)
         QString isohybridArgs;
         bool useXorrisoHybrid = false;
         if (settings->makeIsohybrid) {
-            const QStringList mbrCandidates {
+            static const QStringList mbrCandidates = {
                 "/usr/lib/syslinux/bios/isohdpfx.bin",
                 "/usr/lib/syslinux/isohdpfx.bin",
                 "/usr/share/syslinux/isohdpfx.bin",
                 "/usr/lib/ISOLINUX/isohdpfx.bin",
             };
+            QString foundMbrPath;
             for (const QString &candidate : mbrCandidates) {
                 if (QFileInfo::exists(candidate)) {
-                    isohybridArgs = " -isohybrid-mbr \"" + candidate + "\" -isohybrid-gpt-basdat";
-                    useXorrisoHybrid = true;
+                    foundMbrPath = candidate;
                     break;
                 }
+            }
+            if (!foundMbrPath.isEmpty()) {
+                isohybridArgs = " -isohybrid-mbr \"" + foundMbrPath + "\" -isohybrid-gpt-basdat";
+                useXorrisoHybrid = true;
+                qDebug() << "Using isohybrid MBR:" << foundMbrPath;
             }
             if (!useXorrisoHybrid) {
                 qWarning() << "isohdpfx.bin not found; skipping xorriso hybrid flags.";
