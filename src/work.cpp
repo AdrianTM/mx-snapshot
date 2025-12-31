@@ -511,7 +511,7 @@ bool Work::createIso(const QString &filename)
     QString cmd = unbuffer + "mksquashfs \"" + bindRootPath + "\" \"" + squashfsPath + "\" -comp "
                   + settings->compression + " -processors " + QString::number(settings->cores) + throttle
                   + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef "
-                  + settings->snapshotExcludes.fileName()
+                  + "\"" + settings->snapshotExcludes.fileName() + "\""
                   + (settings->sessionExcludes.isEmpty() ? "" : " -e " + settings->sessionExcludes);
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
