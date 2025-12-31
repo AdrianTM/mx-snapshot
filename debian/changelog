@@ -1,4 +1,10 @@
-mx-snapshot (25.12.7) mx; urgency=medium
+mx-snapshot (25.12.9) mx; urgency=medium
+
+  * Improve calculation of space on root and /home
+
+ -- Adrian <adrian@mxlinux.org>  Wed, 31 Dec 2025 01:02:25 -0500
+
+mx-snapshot (25.12.8) mx; urgency=medium
 
   * Fix GUI/CLI space checks: check available space only after selecting
     the snapshot directory in GUI
