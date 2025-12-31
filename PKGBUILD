@@ -81,4 +81,9 @@ package() {
         cp -r docs/* "${pkgdir}/usr/share/doc/mx-snapshot/" 2>/dev/null || true
     fi
 
+    # Install changelog
+    if [ -f debian/changelog ]; then
+        gzip -c debian/changelog > "${pkgdir}/usr/share/doc/mx-snapshot/changelog.gz"
+    fi
+
 }
