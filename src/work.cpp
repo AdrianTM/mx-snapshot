@@ -35,7 +35,9 @@
 #include <QStandardPaths>
 #include <QStorageInfo>
 #include <QTextStream>
+#include <QVector>
 
+#include <algorithm>
 #include <stdexcept>
 
 #include "filesystemutils.h"
@@ -795,6 +797,53 @@ quint64 Work::getRequiredSpace()
         rawValue.replace(QRegularExpression("/\\*$"), "/"); // Remove last *
         it.value() = rawValue;
     }
+
+    // Filter out nested paths to avoid double-counting in size calculation
+    const auto normalizeExclude = [](QString path) -> QString {
+        path.replace(QRegularExpression("/+"), "/");
+        if (path.size() > 1 && path.endsWith('/')) {
+            path.chop(1);
+        }
+        return path;
+    };
+    struct ExcludeEntry {
+        QString path;
+        QString normalized;
+    };
+    QVector<ExcludeEntry> excludeEntries;
+    excludeEntries.reserve(excludes.size());
+    for (const QString &path : excludes) {
+        const QString normalized = normalizeExclude(path);
+        if (!normalized.isEmpty()) {
+            excludeEntries.append({path, normalized});
+        }
+    }
+
+    std::sort(excludeEntries.begin(), excludeEntries.end(), [](const ExcludeEntry &a, const ExcludeEntry &b) {
+        return a.normalized.length() < b.normalized.length();
+    });
+
+    QStringList filteredExcludes;
+    QStringList acceptedNormalized;
+    for (const ExcludeEntry &entry : excludeEntries) {
+        bool isNested = false;
+        for (const QString &accepted : acceptedNormalized) {
+            if (accepted == "/") {
+                isNested = entry.normalized != "/";
+                break;
+            }
+            if (entry.normalized == accepted || entry.normalized.startsWith(accepted + '/')) {
+                isNested = true;
+                break;
+            }
+        }
+        if (!isNested) {
+            filteredExcludes.append(entry.path);
+            acceptedNormalized.append(entry.normalized);
+        }
+    }
+    excludes = filteredExcludes;
+
     emit message(tr("Calculating total size of excluded files..."));
     bool ok = false;
     QString cmd = settings->live ? "du -sc" : "du -sxc";
