@@ -78,7 +78,7 @@ bool Work::isEnvironmentReady() const
 }
 
 // Checks if there's enough space on partitions, if not post error, cleanup and exit
-// We don't yet take /home used space into considerations (need to calculate how much is excluded)
+// For installed systems we account for /home when on a separate partition.
 void Work::checkEnoughSpace()
 {
     quint64 required_space = getRequiredSpace();
@@ -1135,24 +1135,78 @@ quint64 Work::getRequiredSpace()
     if (!sizeRootPrefix.endsWith('/')) {
         sizeRootPrefix += "/";
     }
-    QString root_dev = Cmd().getOut("df \"" + sizeRoot + "\" --output=target |tail -1", Cmd::QuietMode::Yes);
+    const QStorageInfo sizeRootInfo(sizeRoot);
+    const QByteArray sizeRootDevice = sizeRootInfo.device();
+    QStorageInfo rootInfo("/");
+    QStorageInfo homeInfo("/home");
+    QByteArray rootDevice = sizeRootDevice;
+    QByteArray homeDevice;
+    bool includeHomeDevice = false;
+    if (!settings->live) {
+        rootDevice = rootInfo.device();
+        if (homeInfo.isValid() && homeInfo.isRoot() && homeInfo.device() != rootDevice) {
+            homeDevice = homeInfo.device();
+            includeHomeDevice = true;
+        }
+    }
+    const auto wildcardIndex = [](const QString &path) -> int {
+        const QString wildcards = "*?[{";
+        int index = -1;
+        for (const QChar &wildcard : wildcards) {
+            const int pos = path.indexOf(wildcard);
+            if (pos != -1 && (index == -1 || pos < index)) {
+                index = pos;
+            }
+        }
+        return index;
+    };
+    const auto existingPath = [](QString candidate) -> QString {
+        while (!candidate.isEmpty() && !QFileInfo::exists(candidate)) {
+            const int slash = candidate.lastIndexOf('/');
+            if (slash <= 0) {
+                candidate.clear();
+                break;
+            }
+            candidate.truncate(slash);
+        }
+        return candidate;
+    };
     QMutableStringListIterator it(excludes);
     while (it.hasNext()) {
         it.next();
-        if (it.value().indexOf('!') != -1) { // Truncate things like "!(minstall.desktop)"
-            it.value().truncate(it.value().indexOf('!'));
+        QString rawValue = it.value();
+        const int bangIndex = rawValue.indexOf('!');
+        if (bangIndex != -1) { // Truncate things like "!(minstall.desktop)"
+            rawValue.truncate(bangIndex);
         }
-        it.value().replace(' ', "\\ "); // Escape special bash characters, might need to expand this
-        it.value().replace('(', "\\(");
-        it.value().replace(')', "\\)");
-        it.value().replace('|', "\\|");
-        it.value().prepend(sizeRootPrefix); // Check size occupied by excluded files on bind-root only
-        it.value().replace(QRegularExpression("/\\*$"), "/"); // Remove last *
-        //  Remove from list if files not on the same volume
-        if (root_dev != Cmd().getOut("df \"" + it.value() + "\" --output=target 2>/dev/null |tail -1",
-                                     Cmd::QuietMode::Yes)) {
+        QString probePath = rawValue;
+        const int wildcardPos = wildcardIndex(probePath);
+        if (wildcardPos != -1) {
+            probePath.truncate(wildcardPos);
+        }
+        if (probePath.startsWith('/')) {
+            probePath.remove(0, 1);
+        }
+        QString probePathAbs = QDir(sizeRootPrefix).filePath(probePath);
+        probePathAbs = QDir::cleanPath(probePathAbs);
+        probePathAbs = existingPath(probePathAbs);
+        if (probePathAbs.isEmpty()) {
             it.remove();
+            continue;
         }
+        const QByteArray probeDevice = QStorageInfo(probePathAbs).device();
+        const bool allowedDevice = probeDevice == rootDevice || (includeHomeDevice && probeDevice == homeDevice);
+        if (!allowedDevice) {
+            it.remove();
+            continue;
+        }
+        rawValue.replace(' ', "\\ "); // Escape special bash characters, might need to expand this
+        rawValue.replace('(', "\\(");
+        rawValue.replace(')', "\\)");
+        rawValue.replace('|', "\\|");
+        rawValue.prepend(sizeRootPrefix); // Check size occupied by excluded files on bind-root only
+        rawValue.replace(QRegularExpression("/\\*$"), "/"); // Remove last *
+        it.value() = rawValue;
     }
     emit message(tr("Calculating total size of excluded files..."));
     bool ok = false;
@@ -1165,12 +1219,26 @@ quint64 Work::getRequiredSpace()
         cleanUp();
     }
     emit message(tr("Calculating size of root..."));
-    cmd = settings->live ? "du -s" : "du -sx";
-    quint64 root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    quint64 root_size = 0;
+    if (settings->live) {
+        cmd = "du -s";
+        root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    } else {
+        ok = rootInfo.isValid() && rootInfo.isReady();
+        if (ok) {
+            root_size = (rootInfo.bytesTotal() - rootInfo.bytesFree()) / 1024;
+            if (includeHomeDevice) {
+                ok = homeInfo.isValid() && homeInfo.isReady();
+                if (ok) {
+                    root_size += (homeInfo.bytesTotal() - homeInfo.bytesFree()) / 1024;
+                }
+            }
+        }
+    }
     constexpr double kibToMib = 1024.0;
     qDebug().noquote() << "SIZE         " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     if (!ok) {
-        qDebug() << "Error: calculating root size (" << sizeRoot << ")\n"
+        qDebug() << "Error: calculating root size.\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
