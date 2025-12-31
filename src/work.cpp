@@ -290,7 +290,8 @@ void Work::copyModules(const QString &to, const QString &kernel)
 {
     shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -e -t="%2" -k="%3")")
                   .arg(qApp->applicationName(), to, kernel));
-    shell.runAsRoot(QString("/usr/share/%1/scripts/copy-initrd-programs -e --to=\"%2\"").arg(qApp->applicationName(), to));
+    shell.runAsRoot(
+        QString("/usr/share/%1/scripts/copy-initrd-programs -e --to=\"%2\"").arg(qApp->applicationName(), to));
     shell.runAsRoot("chown -R $(logname): " + to);
 }
 
@@ -358,10 +359,10 @@ bool Work::createIso(const QString &filename)
     QString throttle
         = (Settings::getDebianVerNum() < Version::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
     QString cmd = unbuffer + "mksquashfs \"" + bindRootPath + "\" \"" + settings->workDir
-                  + "/iso-template/antiX/linuxfs\" -comp "
-                  + settings->compression + " -processors " + QString::number(settings->cores) + throttle
-                  + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef "
-                  + "\"" + settings->snapshotExcludes.fileName() + "\""
+                  + "/iso-template/antiX/linuxfs\" -comp " + settings->compression + " -processors "
+                  + QString::number(settings->cores) + throttle
+                  + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef " + "\""
+                  + settings->snapshotExcludes.fileName() + "\""
                   + (settings->sessionExcludes.isEmpty() ? "" : " -e " + settings->sessionExcludes);
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
@@ -457,9 +458,10 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     if (settings->preempt) {
         // Check free space available on /tmp
         shell.run(QString("TF=%1/\"%2\"; [ -f \"$TF\" ] && rm -f \"$TF\"").arg(temp_dir, file_name));
-        if (!shell.run(QString("DUF=$(du -BM \"%1\" |grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE "
-                               "'^[[:digit:]]+'); ((TDA/10*8 >= DUF))")
-                           .arg(file_name))) {
+        if (!shell.run(
+                QString("DUF=$(du -BM \"%1\" |grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE "
+                        "'^[[:digit:]]+'); ((TDA/10*8 >= DUF))")
+                    .arg(file_name))) {
             settings->preempt = false;
         }
     }
@@ -789,7 +791,7 @@ quint64 Work::getRequiredSpace()
         rawValue.replace('(', "\\(");
         rawValue.replace(')', "\\)");
         rawValue.replace('|', "\\|");
-        rawValue.prepend(sizeRootPrefix); // Check size occupied by excluded files on bind-root only
+        rawValue.prepend(sizeRootPrefix);                   // Check size occupied by excluded files on bind-root only
         rawValue.replace(QRegularExpression("/\\*$"), "/"); // Remove last *
         it.value() = rawValue;
     }
@@ -821,13 +823,12 @@ quint64 Work::getRequiredSpace()
         }
     }
     constexpr double kibToMib = 1024.0;
-    qDebug().noquote() << "SIZE         " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     if (!ok) {
         qDebug() << "Error: calculating root size.\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
-    qDebug().noquote() << "SIZE ROOT    " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
+    qDebug().noquote() << "SIZE         " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     qDebug().noquote() << "SIZE EXCLUDES" << QString::number(excl_size / kibToMib, 'f', 2) << "MiB";
     const uint c_factor = settings->compressionFactor.value(settings->compression);
     qDebug() << "COMPRESSION  " << c_factor;
