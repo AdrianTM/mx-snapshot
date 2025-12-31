@@ -1330,12 +1330,12 @@ daha fazla kullanılabilir alan oluşturabilirsiniz:
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Hariç tutulan dosyaların toplam boyutu hesaplanıyor...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Kök boyutu hesaplanıyor...</translation>
     </message>

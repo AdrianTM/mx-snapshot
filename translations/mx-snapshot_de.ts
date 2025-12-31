@@ -1333,12 +1333,12 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Berechne die Gesamtgröße der ausgeschlossenen Dateien ...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Berechne die Größe von root ...</translation>
     </message>

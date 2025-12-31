@@ -1332,12 +1332,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Kunde inte förbereda snapshotets bind-root miljö.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>

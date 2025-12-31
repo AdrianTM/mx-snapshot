@@ -1333,12 +1333,12 @@
         <translation>Ne morem ustvariti varnega prekrivnega sloja korena.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Računanje skupne velikosti izločenih datotek</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Računanje velikosti korena...</translation>
     </message>

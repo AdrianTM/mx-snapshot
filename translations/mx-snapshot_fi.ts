@@ -1333,12 +1333,12 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>Vedoksen sidonta ja valmistelu root-ympäristölle epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Lasketaan poissuljettujen tiedostojen kokoa...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Lasketaan root kokoa...</translation>
     </message>

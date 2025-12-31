@@ -589,7 +589,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="621"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
-        <translation type="unfinished"/>
+        <translation>Espai lliure insuficient. Seleccioneu un directori d&apos;instantànies diferent o allibereu espai.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="625"/>
@@ -735,7 +735,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="960"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
-        <translation type="unfinished"/>
+        <translation>No hi ha prou espai lliure al directori seleccionat. Trieu una ubicació diferent.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="980"/>
@@ -1325,12 +1325,12 @@
         <translation>No s&apos;ha pogut preparar l&apos;entorn d&apos;arrel de vinculació de la instantània.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>

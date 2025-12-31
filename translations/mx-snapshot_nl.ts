@@ -1333,12 +1333,12 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>De snapshot bind-root-omgeving kon niet worden voorbereid.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>

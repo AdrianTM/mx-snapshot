@@ -1331,12 +1331,12 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Impossible de préparer l’environnement bind-root pour l’instantané (snapshot). </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="742"/>
+        <location filename="../src/work.cpp" line="796"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="752"/>
+        <location filename="../src/work.cpp" line="806"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root …</translation>
     </message>
