@@ -1191,146 +1191,146 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="146"/>
+        <location filename="../src/work.cpp" line="147"/>
         <source>Cleaning...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="162"/>
-        <location filename="../src/work.cpp" line="419"/>
+        <location filename="../src/work.cpp" line="163"/>
+        <location filename="../src/work.cpp" line="420"/>
         <source>Done</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="174"/>
+        <location filename="../src/work.cpp" line="175"/>
         <source>Interrupted or failed to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="210"/>
-        <location filename="../src/work.cpp" line="375"/>
-        <location filename="../src/work.cpp" line="399"/>
-        <location filename="../src/work.cpp" line="437"/>
-        <location filename="../src/work.cpp" line="577"/>
-        <location filename="../src/work.cpp" line="611"/>
-        <location filename="../src/work.cpp" line="620"/>
-        <location filename="../src/work.cpp" line="626"/>
+        <location filename="../src/work.cpp" line="211"/>
+        <location filename="../src/work.cpp" line="376"/>
+        <location filename="../src/work.cpp" line="400"/>
+        <location filename="../src/work.cpp" line="438"/>
+        <location filename="../src/work.cpp" line="578"/>
+        <location filename="../src/work.cpp" line="612"/>
+        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="627"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="211"/>
+        <location filename="../src/work.cpp" line="212"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="214"/>
+        <location filename="../src/work.cpp" line="215"/>
         <source>You have %1 free space on %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="217"/>
+        <location filename="../src/work.cpp" line="218"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="303"/>
+        <location filename="../src/work.cpp" line="304"/>
         <source>Copying the new-iso filesystem...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="315"/>
+        <location filename="../src/work.cpp" line="316"/>
         <source>Could not create temp directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="372"/>
+        <location filename="../src/work.cpp" line="373"/>
         <source>Squashing filesystem...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="376"/>
+        <location filename="../src/work.cpp" line="377"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="396"/>
+        <location filename="../src/work.cpp" line="397"/>
         <source>Creating CD/DVD image file...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="400"/>
+        <location filename="../src/work.cpp" line="401"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="406"/>
+        <location filename="../src/work.cpp" line="407"/>
         <source>Making hybrid iso</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="424"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="425"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>MX Snapshot completed successfully!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="426"/>
+        <location filename="../src/work.cpp" line="427"/>
         <source>Snapshot took %1 to finish.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="427"/>
+        <location filename="../src/work.cpp" line="428"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="435"/>
         <source>Installing </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="438"/>
         <source>Could not install </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="447"/>
+        <location filename="../src/work.cpp" line="448"/>
         <source>Calculating checksum...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="487"/>
+        <location filename="../src/work.cpp" line="488"/>
         <source>Building new initrd...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="578"/>
+        <location filename="../src/work.cpp" line="579"/>
         <source>Could not create working directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="612"/>
+        <location filename="../src/work.cpp" line="613"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="621"/>
-        <location filename="../src/work.cpp" line="627"/>
+        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="628"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="891"/>
+        <location filename="../src/work.cpp" line="931"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="917"/>
+        <location filename="../src/work.cpp" line="957"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>
