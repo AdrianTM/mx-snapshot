@@ -1,6 +1,7 @@
-mx-snapshot (25.12.10) mx; urgency=medium
+mx-snapshot (25.12.12) mx; urgency=medium
 
   * Fix exclude size double counting
+  * Avoid symlink glob dereference in excludes
 
  -- Adrian <adrian@mxlinux.org>  Wed, 31 Dec 2025 17:37:38 -0500
 
