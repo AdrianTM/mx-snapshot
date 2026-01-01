@@ -4,7 +4,10 @@
 
 cleanup() {
     pkill mksquashfs
-    /usr/sbin/installed-to-live cleanup
+    if [ -x /usr/sbin/installed-to-live ]; then
+	    /usr/sbin/installed-to-live cleanup
+	else
+		/usr/bin/installed-to-live cleanup
 }
 
 cleanup_overlay() {
