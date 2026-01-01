@@ -1325,12 +1325,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="847"/>
+        <location filename="../src/work.cpp" line="891"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="857"/>
+        <location filename="../src/work.cpp" line="917"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>

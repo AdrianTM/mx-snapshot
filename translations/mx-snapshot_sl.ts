@@ -1199,146 +1199,146 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="144"/>
+        <location filename="../src/work.cpp" line="146"/>
         <source>Cleaning...</source>
         <translation>Čistim...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="160"/>
-        <location filename="../src/work.cpp" line="416"/>
+        <location filename="../src/work.cpp" line="162"/>
+        <location filename="../src/work.cpp" line="419"/>
         <source>Done</source>
         <translation>Zaključeno</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="174"/>
         <source>Interrupted or failed to complete</source>
         <translation>Prekinjeno ali neuspelo pred zaključkom</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="372"/>
-        <location filename="../src/work.cpp" line="396"/>
-        <location filename="../src/work.cpp" line="434"/>
-        <location filename="../src/work.cpp" line="573"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="616"/>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="210"/>
+        <location filename="../src/work.cpp" line="375"/>
+        <location filename="../src/work.cpp" line="399"/>
+        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="620"/>
+        <location filename="../src/work.cpp" line="626"/>
         <source>Error</source>
         <translation>Napaka</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="209"/>
+        <location filename="../src/work.cpp" line="211"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Na ciljnem disku ni dovolj prostora. Potrebujete vsaj %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="212"/>
+        <location filename="../src/work.cpp" line="214"/>
         <source>You have %1 free space on %2</source>
         <translation>Na %2 imate %1 prostora</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="217"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Če ste prepričani, da imate dovolj praznega prostora, ponovno zaženite program z opcijo -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="303"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopiranje novega iso datotečnega sistema</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="312"/>
+        <location filename="../src/work.cpp" line="315"/>
         <source>Could not create temp directory. </source>
         <translation>Začasnega direktorija ni bilo mogoče ustvariti.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="369"/>
+        <location filename="../src/work.cpp" line="372"/>
         <source>Squashing filesystem...</source>
         <translation>Stiskam datotečni sistem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="373"/>
+        <location filename="../src/work.cpp" line="376"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Ni bilo mogoče ustvariti linuxfs datoteke. Preverite /var/log%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="393"/>
+        <location filename="../src/work.cpp" line="396"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Ustvarjam posnetek CD/DVD nosilca...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="397"/>
+        <location filename="../src/work.cpp" line="400"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Neuspelo ustvarjanje ISO datoteke. Preverite ali je na ciljnem razdelku dovolj prostora.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="403"/>
+        <location filename="../src/work.cpp" line="406"/>
         <source>Making hybrid iso</source>
         <translation>Ustvarjam hibridni iso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="421"/>
+        <location filename="../src/work.cpp" line="424"/>
         <source>Success</source>
         <translation>Uspešno</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="422"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX posnetek je uspešno zaključil delo!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="423"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Posnetek je potreboval %1 za dokončanje.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="424"/>
+        <location filename="../src/work.cpp" line="427"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Hvala, ker uporabljate MX posnetek. Zdaj zaženite MX ustvarjalec živih usb nosilcev</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="431"/>
+        <location filename="../src/work.cpp" line="434"/>
         <source>Installing </source>
         <translation>Nameščanje</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="437"/>
         <source>Could not install </source>
         <translation>Namesitev ni uspela</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="444"/>
+        <location filename="../src/work.cpp" line="447"/>
         <source>Calculating checksum...</source>
         <translation>Računanje nadzorne vsote...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="483"/>
+        <location filename="../src/work.cpp" line="487"/>
         <source>Building new initrd...</source>
         <translation>Ustvarjam nov initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="574"/>
+        <location filename="../src/work.cpp" line="578"/>
         <source>Could not create working directory. </source>
         <translation>Nisem mogel ustvariti delovne mape: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="608"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Ni bilo mogoče ustvariti varnega prekrivnega sloja korena. Posnetek ne more nadaljevati.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="617"/>
-        <location filename="../src/work.cpp" line="623"/>
+        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="627"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Ne morem ustvariti varnega prekrivnega sloja korena.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="796"/>
+        <location filename="../src/work.cpp" line="847"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Računanje skupne velikosti izločenih datotek</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="806"/>
+        <location filename="../src/work.cpp" line="857"/>
         <source>Calculating size of root...</source>
         <translation>Računanje velikosti korena...</translation>
     </message>

@@ -1194,146 +1194,146 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="144"/>
+        <location filename="../src/work.cpp" line="146"/>
         <source>Cleaning...</source>
         <translation>अनावश्यक वस्तुएँ हटाना जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="160"/>
-        <location filename="../src/work.cpp" line="416"/>
+        <location filename="../src/work.cpp" line="162"/>
+        <location filename="../src/work.cpp" line="419"/>
         <source>Done</source>
         <translation>पूर्ण</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="174"/>
         <source>Interrupted or failed to complete</source>
         <translation>बाधित या पूर्ण होने विफल</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="372"/>
-        <location filename="../src/work.cpp" line="396"/>
-        <location filename="../src/work.cpp" line="434"/>
-        <location filename="../src/work.cpp" line="573"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="616"/>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="210"/>
+        <location filename="../src/work.cpp" line="375"/>
+        <location filename="../src/work.cpp" line="399"/>
+        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="620"/>
+        <location filename="../src/work.cpp" line="626"/>
         <source>Error</source>
         <translation>त्रुटि</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="209"/>
+        <location filename="../src/work.cpp" line="211"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>लक्षित डिस्क पर पर्याप्त अप्रयुक्त स्पेस नहीं है, कम-से-कम %1 होना आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="212"/>
+        <location filename="../src/work.cpp" line="214"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 पर %1 अप्रयुक्त स्पेस है</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="217"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="303"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>नवीन-आईएसओ फाइल सिस्टम कॉपी करना जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="312"/>
+        <location filename="../src/work.cpp" line="315"/>
         <source>Could not create temp directory. </source>
         <translation>अस्थायी डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="369"/>
+        <location filename="../src/work.cpp" line="372"/>
         <source>Squashing filesystem...</source>
         <translation>फाइल सिस्टम संपीड़न जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="373"/>
+        <location filename="../src/work.cpp" line="376"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="393"/>
+        <location filename="../src/work.cpp" line="396"/>
         <source>Creating CD/DVD image file...</source>
         <translation>सीडी/डीवीडी फाइल बनाना जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="397"/>
+        <location filename="../src/work.cpp" line="400"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>आईएसओ फाइल बनाना विफल, कृपया सुनिश्चित करें कि लक्षित विभाजन पर उपयुक्त स्पेस उपलब्ध है।</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="403"/>
+        <location filename="../src/work.cpp" line="406"/>
         <source>Making hybrid iso</source>
         <translation>समग्र आईएसओ बनाना जारी</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="421"/>
+        <location filename="../src/work.cpp" line="424"/>
         <source>Success</source>
         <translation>सफल</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="422"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>MX Snapshot completed successfully!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="423"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>स्नैपशॉट बनाने में %1 समय लगा। </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="424"/>
+        <location filename="../src/work.cpp" line="427"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>एमएक्स स्नैपशॉट उपयोग करने हेतु धन्यवाद, अब एमएक्स लाइव यूएसबी निर्माता उपयोग करें!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="431"/>
+        <location filename="../src/work.cpp" line="434"/>
         <source>Installing </source>
         <translation>इंस्टॉल जारी</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="437"/>
         <source>Could not install </source>
         <translation>इंस्टॉल विफल</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="444"/>
+        <location filename="../src/work.cpp" line="447"/>
         <source>Calculating checksum...</source>
         <translation>चेकसम गणना गणना जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="483"/>
+        <location filename="../src/work.cpp" line="487"/>
         <source>Building new initrd...</source>
         <translation>नवीन initrd बनाना जारी...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="574"/>
+        <location filename="../src/work.cpp" line="578"/>
         <source>Could not create working directory. </source>
         <translation>कार्यरत डायरेक्टरी बनाना विफल।</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="608"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="617"/>
-        <location filename="../src/work.cpp" line="623"/>
+        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="627"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="796"/>
+        <location filename="../src/work.cpp" line="847"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="806"/>
+        <location filename="../src/work.cpp" line="857"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"/>
     </message>

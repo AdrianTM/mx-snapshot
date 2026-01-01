@@ -1191,146 +1191,146 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="144"/>
+        <location filename="../src/work.cpp" line="146"/>
         <source>Cleaning...</source>
         <translation>Endreçant... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="160"/>
-        <location filename="../src/work.cpp" line="416"/>
+        <location filename="../src/work.cpp" line="162"/>
+        <location filename="../src/work.cpp" line="419"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="174"/>
         <source>Interrupted or failed to complete</source>
         <translation>Aturat o fallat en completar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="372"/>
-        <location filename="../src/work.cpp" line="396"/>
-        <location filename="../src/work.cpp" line="434"/>
-        <location filename="../src/work.cpp" line="573"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="616"/>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="210"/>
+        <location filename="../src/work.cpp" line="375"/>
+        <location filename="../src/work.cpp" line="399"/>
+        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="620"/>
+        <location filename="../src/work.cpp" line="626"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="209"/>
+        <location filename="../src/work.cpp" line="211"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hi ha prou espai lliure al vostre disc objectiu, us cal com a mínim %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="212"/>
+        <location filename="../src/work.cpp" line="214"/>
         <source>You have %1 free space on %2</source>
         <translation>Teniu un espai lliure de %1  a %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="217"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si teniu la seguretat de tenir prou espai lliure, torneu a executar el programa amb l&apos;opció -o/--override-size </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="303"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiant el sistema de fitxers del nou-iso: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="312"/>
+        <location filename="../src/work.cpp" line="315"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="369"/>
+        <location filename="../src/work.cpp" line="372"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="373"/>
+        <location filename="../src/work.cpp" line="376"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>No he pogut crear el fitxer linuxfs, si us plau comproveu /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="393"/>
+        <location filename="../src/work.cpp" line="396"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="397"/>
+        <location filename="../src/work.cpp" line="400"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No he pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="403"/>
+        <location filename="../src/work.cpp" line="406"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="421"/>
+        <location filename="../src/work.cpp" line="424"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="422"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="423"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="424"/>
+        <location filename="../src/work.cpp" line="427"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="431"/>
+        <location filename="../src/work.cpp" line="434"/>
         <source>Installing </source>
         <translation>Instal·lant </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="437"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="444"/>
+        <location filename="../src/work.cpp" line="447"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="483"/>
+        <location filename="../src/work.cpp" line="487"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="574"/>
+        <location filename="../src/work.cpp" line="578"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="608"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>No s&apos;ha pogut preparar una superposició d&apos;arrel de vinculació segura. La instantània no pot continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="617"/>
-        <location filename="../src/work.cpp" line="623"/>
+        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="627"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>No s&apos;ha pogut preparar l&apos;entorn d&apos;arrel de vinculació de la instantània.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="796"/>
+        <location filename="../src/work.cpp" line="847"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="806"/>
+        <location filename="../src/work.cpp" line="857"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>

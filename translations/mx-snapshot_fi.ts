@@ -1199,146 +1199,146 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="144"/>
+        <location filename="../src/work.cpp" line="146"/>
         <source>Cleaning...</source>
         <translation>Puhdistetaan...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="160"/>
-        <location filename="../src/work.cpp" line="416"/>
+        <location filename="../src/work.cpp" line="162"/>
+        <location filename="../src/work.cpp" line="419"/>
         <source>Done</source>
         <translation>Valmis</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="172"/>
+        <location filename="../src/work.cpp" line="174"/>
         <source>Interrupted or failed to complete</source>
         <translation>Keskeytetty tai epäonnistunut</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="372"/>
-        <location filename="../src/work.cpp" line="396"/>
-        <location filename="../src/work.cpp" line="434"/>
-        <location filename="../src/work.cpp" line="573"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="616"/>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="210"/>
+        <location filename="../src/work.cpp" line="375"/>
+        <location filename="../src/work.cpp" line="399"/>
+        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="611"/>
+        <location filename="../src/work.cpp" line="620"/>
+        <location filename="../src/work.cpp" line="626"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="209"/>
+        <location filename="../src/work.cpp" line="211"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Levyllä ei ole tarpeeksi vapaata tilaa, tarvitset vähintään %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="212"/>
+        <location filename="../src/work.cpp" line="214"/>
         <source>You have %1 free space on %2</source>
         <translation>Sinulla on %1 vapaata tilaa kohteessa %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="217"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Jos olet varma, että sinulla on tarpeeksi vapaata tilaa, suorita ohjelma uudelleen -o/--override-size vailinnalla</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="300"/>
+        <location filename="../src/work.cpp" line="303"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Jäljennetään new-iso tiedostojärjestelmää...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="312"/>
+        <location filename="../src/work.cpp" line="315"/>
         <source>Could not create temp directory. </source>
         <translation>Tilapäiskansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="369"/>
+        <location filename="../src/work.cpp" line="372"/>
         <source>Squashing filesystem...</source>
         <translation>Puristetaan tiedostojärjestelmää...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="373"/>
+        <location filename="../src/work.cpp" line="376"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Ei voitu luoda linuxfs-tiedostoa, tarkista /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="393"/>
+        <location filename="../src/work.cpp" line="396"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD-levykuvatiedostoa luodaan...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="397"/>
+        <location filename="../src/work.cpp" line="400"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISO-tiedostoa ei voitu luoda, tarkista onko kohdeosiolla tarpeeksi levytilaa.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="403"/>
+        <location filename="../src/work.cpp" line="406"/>
         <source>Making hybrid iso</source>
         <translation>Tuotetaan risteytetty ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="421"/>
+        <location filename="../src/work.cpp" line="424"/>
         <source>Success</source>
         <translation>Onnistui</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="422"/>
+        <location filename="../src/work.cpp" line="425"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot valmistui onnistuneesti!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="423"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot valmistuminen kesti %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="424"/>
+        <location filename="../src/work.cpp" line="427"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Kiitos kun käytit MX Snapshot työkalua. Suorita MX Live USB Maker seuraavaksi!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="431"/>
+        <location filename="../src/work.cpp" line="434"/>
         <source>Installing </source>
         <translation>Asennetaan</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="434"/>
+        <location filename="../src/work.cpp" line="437"/>
         <source>Could not install </source>
         <translation>Ei voitu asentaa</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="444"/>
+        <location filename="../src/work.cpp" line="447"/>
         <source>Calculating checksum...</source>
         <translation>Lasketaan tarkistussummaa...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="483"/>
+        <location filename="../src/work.cpp" line="487"/>
         <source>Building new initrd...</source>
         <translation>Rakennetaan uutta initrd:tä...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="574"/>
+        <location filename="../src/work.cpp" line="578"/>
         <source>Could not create working directory. </source>
         <translation>Työkansiota ei voitu luoda.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="608"/>
+        <location filename="../src/work.cpp" line="612"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Sidonta root-tasolle epäonnistui. Vedoksen luontia ei voi jatkaa.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="617"/>
-        <location filename="../src/work.cpp" line="623"/>
+        <location filename="../src/work.cpp" line="621"/>
+        <location filename="../src/work.cpp" line="627"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Vedoksen sidonta ja valmistelu root-ympäristölle epäonnistui.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="796"/>
+        <location filename="../src/work.cpp" line="847"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Lasketaan poissuljettujen tiedostojen kokoa...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="806"/>
+        <location filename="../src/work.cpp" line="857"/>
         <source>Calculating size of root...</source>
         <translation>Lasketaan root kokoa...</translation>
     </message>
