@@ -34,8 +34,8 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QStorageInfo>
+#include <QTemporaryFile>
 #include <QTextStream>
-#include <QVector>
 
 #include <algorithm>
 #include <stdexcept>
@@ -738,67 +738,15 @@ quint64 Work::getRequiredSpace()
             includeHomeDevice = true;
         }
     }
-    const auto wildcardIndex = [](const QString &path) -> int {
+    const auto containsWildcard = [](const QString &path) -> bool {
         const QString wildcards = "*?[{";
-        int index = -1;
         for (const QChar &wildcard : wildcards) {
-            const int pos = path.indexOf(wildcard);
-            if (pos != -1 && (index == -1 || pos < index)) {
-                index = pos;
+            if (path.contains(wildcard)) {
+                return true;
             }
         }
-        return index;
+        return false;
     };
-    const auto existingPath = [](QString candidate) -> QString {
-        while (!candidate.isEmpty() && !QFileInfo::exists(candidate)) {
-            const int slash = candidate.lastIndexOf('/');
-            if (slash <= 0) {
-                candidate.clear();
-                break;
-            }
-            candidate.truncate(slash);
-        }
-        return candidate;
-    };
-    QMutableStringListIterator it(excludes);
-    while (it.hasNext()) {
-        it.next();
-        QString rawValue = it.value();
-        const int bangIndex = rawValue.indexOf('!');
-        if (bangIndex != -1) { // Truncate things like "!(minstall.desktop)"
-            rawValue.truncate(bangIndex);
-        }
-        QString probePath = rawValue;
-        const int wildcardPos = wildcardIndex(probePath);
-        if (wildcardPos != -1) {
-            probePath.truncate(wildcardPos);
-        }
-        if (probePath.startsWith('/')) {
-            probePath.remove(0, 1);
-        }
-        QString probePathAbs = QDir(sizeRootPrefix).filePath(probePath);
-        probePathAbs = QDir::cleanPath(probePathAbs);
-        probePathAbs = existingPath(probePathAbs);
-        if (probePathAbs.isEmpty()) {
-            it.remove();
-            continue;
-        }
-        const QByteArray probeDevice = QStorageInfo(probePathAbs).device();
-        const bool allowedDevice = probeDevice == rootDevice || (includeHomeDevice && probeDevice == homeDevice);
-        if (!allowedDevice) {
-            it.remove();
-            continue;
-        }
-        rawValue.replace(' ', "\\ "); // Escape special bash characters, might need to expand this
-        rawValue.replace('(', "\\(");
-        rawValue.replace(')', "\\)");
-        rawValue.replace('|', "\\|");
-        rawValue.prepend(sizeRootPrefix);                   // Check size occupied by excluded files on bind-root only
-        rawValue.replace(QRegularExpression("/\\*$"), "/"); // Remove last *
-        it.value() = rawValue;
-    }
-
-    // Filter out nested paths to avoid double-counting in size calculation
     const auto normalizeExclude = [](QString path) -> QString {
         path.replace(QRegularExpression("/+"), "/");
         if (path.size() > 1 && path.endsWith('/')) {
@@ -806,49 +754,161 @@ quint64 Work::getRequiredSpace()
         }
         return path;
     };
-    struct ExcludeEntry {
-        QString path;
-        QString normalized;
+    const QString sizeRootBase = sizeRootPrefix.endsWith('/') ? sizeRootPrefix.left(sizeRootPrefix.size() - 1)
+                                                              : sizeRootPrefix;
+    const auto isAllowedDevice = [&](const QString &path) -> bool {
+        QFileInfo info(path);
+        QString probePath = path;
+        if (info.isSymLink()) {
+            probePath = info.dir().absolutePath();
+        }
+        const QStorageInfo probeInfo(probePath);
+        if (!probeInfo.isValid()) {
+            return false;
+        }
+        const QByteArray probeDevice = probeInfo.device();
+        return probeDevice == rootDevice || (includeHomeDevice && probeDevice == homeDevice);
     };
-    QVector<ExcludeEntry> excludeEntries;
-    excludeEntries.reserve(excludes.size());
-    for (const QString &path : excludes) {
-        const QString normalized = normalizeExclude(path);
-        if (!normalized.isEmpty()) {
-            excludeEntries.append({path, normalized});
+    // Expand patterns without shell globbing or symlinked intermediate traversal.
+    const auto expandExcludePattern = [&](QString rawPattern) -> QStringList {
+        if (rawPattern.startsWith('/')) {
+            rawPattern.remove(0, 1);
+        }
+        rawPattern.replace(QRegularExpression("/\\*$"), ""); // Remove trailing /*
+        QString fullPattern = QDir(sizeRootPrefix).filePath(rawPattern);
+        fullPattern = QDir::cleanPath(fullPattern);
+        QString relativePattern = fullPattern;
+        if (relativePattern.startsWith(sizeRootBase)) {
+            relativePattern.remove(0, sizeRootBase.size());
+        }
+        if (relativePattern.startsWith('/')) {
+            relativePattern.remove(0, 1);
+        }
+        if (relativePattern.isEmpty()) {
+            return {sizeRootBase};
+        }
+        QStringList components = relativePattern.split('/', Qt::SkipEmptyParts);
+        QStringList current {sizeRootBase};
+        for (int i = 0; i < components.size(); ++i) {
+            const QString &component = components.at(i);
+            const bool isLast = (i == components.size() - 1);
+            QStringList next;
+            if (containsWildcard(component)) {
+                const QRegularExpression regex(QRegularExpression::wildcardToRegularExpression(component));
+                for (const QString &base : current) {
+                    QFileInfo baseInfo(base);
+                    if (!baseInfo.exists() || !baseInfo.isDir() || baseInfo.isSymLink()) {
+                        continue;
+                    }
+                    QDir dir(base);
+                    QDir::Filters filters = QDir::NoDotAndDotDot;
+                    if (isLast) {
+                        filters |= QDir::AllEntries;
+                    } else {
+                        filters |= QDir::Dirs | QDir::NoSymLinks;
+                    }
+                    const QFileInfoList entries = dir.entryInfoList(filters);
+                    for (const QFileInfo &entry : entries) {
+                        if (!regex.match(entry.fileName()).hasMatch()) {
+                            continue;
+                        }
+                        if (!isLast && entry.isSymLink()) {
+                            continue;
+                        }
+                        next.append(entry.filePath());
+                    }
+                }
+            } else {
+                for (const QString &base : current) {
+                    const QString candidate = QDir(base).filePath(component);
+                    QFileInfo candidateInfo(candidate);
+                    if (!candidateInfo.exists() && !candidateInfo.isSymLink()) {
+                        continue;
+                    }
+                    if (!isLast) {
+                        if (!candidateInfo.isDir() || candidateInfo.isSymLink()) {
+                            continue;
+                        }
+                    }
+                    next.append(candidate);
+                }
+            }
+            current = next;
+            if (current.isEmpty()) {
+                break;
+            }
+        }
+        return current;
+    };
+    QStringList expandedExcludes;
+    expandedExcludes.reserve(excludes.size());
+    for (const QString &rawValue : excludes) {
+        QString cleaned = rawValue;
+        const int bangIndex = cleaned.indexOf('!');
+        if (bangIndex != -1) { // Truncate things like "!(minstall.desktop)"
+            cleaned.truncate(bangIndex);
+        }
+        if (cleaned.isEmpty()) {
+            continue;
+        }
+        const QStringList matches = expandExcludePattern(cleaned);
+        for (const QString &match : matches) {
+            if (!isAllowedDevice(match)) {
+                continue;
+            }
+            const QString normalized = normalizeExclude(match);
+            if (!normalized.isEmpty()) {
+                expandedExcludes.append(normalized);
+            }
         }
     }
+    excludes = expandedExcludes;
 
-    std::sort(excludeEntries.begin(), excludeEntries.end(), [](const ExcludeEntry &a, const ExcludeEntry &b) {
-        return a.normalized.length() < b.normalized.length();
+    // Filter out nested paths to avoid double-counting in size calculation
+    std::sort(excludes.begin(), excludes.end(), [](const QString &a, const QString &b) {
+        return a.length() < b.length();
     });
 
     QStringList filteredExcludes;
-    QStringList acceptedNormalized;
-    for (const ExcludeEntry &entry : excludeEntries) {
+    for (const QString &path : excludes) {
         bool isNested = false;
-        for (const QString &accepted : acceptedNormalized) {
+        for (const QString &accepted : filteredExcludes) {
             if (accepted == "/") {
-                isNested = entry.normalized != "/";
+                isNested = path != "/";
                 break;
             }
-            if (entry.normalized == accepted || entry.normalized.startsWith(accepted + '/')) {
+            if (path == accepted || path.startsWith(accepted + '/')) {
                 isNested = true;
                 break;
             }
         }
         if (!isNested) {
-            filteredExcludes.append(entry.path);
-            acceptedNormalized.append(entry.normalized);
+            filteredExcludes.append(path);
         }
     }
     excludes = filteredExcludes;
 
     emit message(tr("Calculating total size of excluded files..."));
-    bool ok = false;
-    QString cmd = settings->live ? "du -sc" : "du -sxc";
-    quint64 excl_size
-        = shell.getOutAsRoot(cmd + " {" + excludes.join(',') + "} 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+    bool ok = true;
+    quint64 excl_size = 0;
+    if (!excludes.isEmpty()) {
+        QTemporaryFile excludeList;
+        excludeList.setAutoRemove(true);
+        if (!excludeList.open()) {
+            ok = false;
+        } else {
+            for (const QString &path : excludes) {
+                excludeList.write(path.toLocal8Bit());
+                excludeList.write("\0", 1);
+            }
+            excludeList.flush();
+            excludeList.close();
+            const QString cmd = settings->live ? "du -sc -P" : "du -sxc -P";
+            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\" --null"
+                                    + " 2>/dev/null |tail -1 |cut -f1";
+            excl_size = shell.getOutAsRoot(cmdLine).toULongLong(&ok);
+        }
+    }
     if (!ok) {
         qDebug() << "Error: calculating size of excluded files\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
@@ -856,8 +916,9 @@ quint64 Work::getRequiredSpace()
     }
     emit message(tr("Calculating size of root..."));
     quint64 root_size = 0;
+    QString cmd;
     if (settings->live) {
-        cmd = "du -s";
+        cmd = "du -s -P";
         root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
     } else {
         ok = rootInfo.isValid() && rootInfo.isReady();
