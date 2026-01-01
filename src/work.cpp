@@ -28,6 +28,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QDirIterator>
+#include <QFile>
 #include <QFileInfo>
 #include <QProcess>
 #include <QRegularExpression>
@@ -738,6 +739,42 @@ quint64 Work::getRequiredSpace()
             includeHomeDevice = true;
         }
     }
+    const auto isBindMount = [](const QString &mountPoint) -> bool {
+        QFile mounts(QStringLiteral("/proc/self/mounts"));
+        if (!mounts.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return false;
+        }
+        QTextStream in(&mounts);
+        while (!in.atEnd()) {
+            const QString line = in.readLine();
+            const QStringList parts = line.split(' ', Qt::SkipEmptyParts);
+            if (parts.size() < 4) {
+                continue;
+            }
+            QString target = parts.at(1);
+            target.replace(QStringLiteral("\\040"), QStringLiteral(" "));
+            if (target != mountPoint) {
+                continue;
+            }
+            const QStringList options = parts.at(3).split(',', Qt::SkipEmptyParts);
+            return options.contains(QStringLiteral("bind")) || options.contains(QStringLiteral("rbind"));
+        }
+        return false;
+    };
+    // If /home is bind-mounted or reset (empty in overlay), exclude it from the size estimate.
+    if (!settings->live && homeInfo.isValid() && homeInfo.isRoot() && homeInfo.device() == rootDevice) {
+        bool shouldExclude = isBindMount(QStringLiteral("/home"));
+        if (!shouldExclude && bindRootOverlayActive) {
+            const QString overlayHome = bindRootOverlayBase + "/root/home";
+            QDir homeDir(overlayHome);
+            if (homeDir.exists() && homeDir.isEmpty()) {
+                shouldExclude = true;
+            }
+        }
+        if (shouldExclude) {
+            excludes << QStringLiteral("home");
+        }
+    }
     const auto containsWildcard = [](const QString &path) -> bool {
         const QString wildcards = "*?[{";
         for (const QChar &wildcard : wildcards) {
@@ -795,6 +832,9 @@ quint64 Work::getRequiredSpace()
             QStringList next;
             if (containsWildcard(component)) {
                 const QRegularExpression regex(QRegularExpression::wildcardToRegularExpression(component));
+                if (!regex.isValid()) {
+                    continue;
+                }
                 for (const QString &base : current) {
                     QFileInfo baseInfo(base);
                     if (!baseInfo.exists() || !baseInfo.isDir() || baseInfo.isSymLink()) {
@@ -902,11 +942,11 @@ quint64 Work::getRequiredSpace()
                 excludeList.write("\0", 1);
             }
             excludeList.flush();
-            excludeList.close();
-            const QString cmd = settings->live ? "du -sc -P" : "du -sxc -P";
-            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\" --null"
-                                    + " 2>/dev/null |tail -1 |cut -f1";
+            const QString cmd = settings->live ? "du -sc -P --apparent-size" : "du -sxc -P --apparent-size";
+            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\""
+                                    + " 2>/dev/null | tail -1 | cut -f1";
             excl_size = shell.getOutAsRoot(cmdLine).toULongLong(&ok);
+            excludeList.close();
         }
     }
     if (!ok) {
@@ -918,7 +958,7 @@ quint64 Work::getRequiredSpace()
     quint64 root_size = 0;
     QString cmd;
     if (settings->live) {
-        cmd = "du -s -P";
+        cmd = "du -s -P --apparent-size";
         root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
     } else {
         ok = rootInfo.isValid() && rootInfo.isReady();
