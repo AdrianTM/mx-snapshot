@@ -1,0 +1,44 @@
+polkit.addRule(function(action, subject) {
+    if (action.id == "org.mxlinux.pkexec.mx-snapshot-helper") {
+        try {
+            var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.caller_pid + "/exe"]);
+            if (caller_exe && caller_exe[0]) {
+                var exe = caller_exe[0];
+                if (exe.indexOf("mx-snapshot") !== -1) {
+                    // Contains mx-snapshot: prompt for auth
+                    return polkit.Result.AUTH_ADMIN_KEEP;
+                }
+                var uid = polkit.spawn(["stat", "-c", "%u", exe]);
+                if (uid && uid[0] == "0") {
+                    // Installed and owned by root: no prompt
+                    return polkit.Result.YES;
+                }
+            }
+        } catch (e) {
+            // If spawn fails, allow with prompt
+            return polkit.Result.AUTH_ADMIN_KEEP;
+        }
+        return polkit.Result.NO;
+    }
+    if (action.id == "org.mxlinux.pkexec.iso-snapshot-cli-helper") {
+        try {
+            var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.caller_pid + "/exe"]);
+            if (caller_exe && caller_exe[0]) {
+                var exe = caller_exe[0];
+                if (exe.indexOf("iso-snapshot-cli") !== -1) {
+                    // Contains iso-snapshot-cli: prompt for auth
+                    return polkit.Result.AUTH_ADMIN_KEEP;
+                }
+                var uid = polkit.spawn(["stat", "-c", "%u", exe]);
+                if (uid && uid[0] == "0") {
+                    // Installed and owned by root: no prompt
+                    return polkit.Result.YES;
+                }
+            }
+        } catch (e) {
+            // If spawn fails, allow with prompt
+            return polkit.Result.AUTH_ADMIN_KEEP;
+        }
+        return polkit.Result.NO;
+    }
+});

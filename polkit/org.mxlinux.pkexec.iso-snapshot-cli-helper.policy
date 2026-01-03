@@ -9,11 +9,11 @@
   <action id="org.mxlinux.pkexec.iso-snapshot-cli-helper">
   <message gettext-domain="mx-launcher-l10n">ISO Snapshot CLI</message>
     <description>Run ISO Snapshot CLI</description>
-    <defaults>
-      <allow_any>no</allow_any>
-      <allow_inactive>no</allow_inactive>
-      <allow_active>auth_admin_keep</allow_active>
-    </defaults>
+     <defaults>
+       <allow_any>no</allow_any>
+       <allow_inactive>no</allow_inactive>
+       <allow_active>yes</allow_active>
+     </defaults>
     <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/iso-snapshot-cli/helper</annotate>
   </action>
 

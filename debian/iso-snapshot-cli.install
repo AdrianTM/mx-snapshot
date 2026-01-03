@@ -4,6 +4,7 @@ iso-snapshot-cli-exclude.list   etc
 iso-snapshot-cli.conf           etc
 manual/iso-snapshot-cli.8.gz    usr/share/man/man8
 polkit/*iso-snapshot*.policy	usr/share/polkit-1/actions
+polkit/10-mx-snapshot-restrict.rules	usr/share/polkit-1/rules.d
 polkit/helper			usr/lib/iso-snapshot-cli
 polkit/snapshot-lib		usr/lib/iso-snapshot-cli
 scripts/*                       usr/share/iso-snapshot-cli/scripts
