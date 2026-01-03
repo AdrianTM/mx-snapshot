@@ -834,11 +834,12 @@ void Work::replaceMenuStrings()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QString fullDistroNameSpace = settings->fullDistroName;
     fullDistroNameSpace.replace("_", " ");
+    QString distro = settings->distroVersion.contains("Arch") ? settings->projectName : settings->projectName + "-" + settings->distroVersion;
 
     const QString grub_cfg {"/iso-template/boot/grub/grub.cfg"};
     const QString grubCfgPath = settings->workDir + grub_cfg;
     if (QFileInfo::exists(grubCfgPath)) {
-        replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion, grubCfgPath);
+        replaceStringInFile("%DISTRO%", distro, grubCfgPath);
         replaceStringInFile("%DISTRO_NAME%", settings->projectName, grubCfgPath);
         replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, grubCfgPath);
         replaceStringInFile("%FULL_DISTRO_NAME_SPACE%", fullDistroNameSpace, grubCfgPath);
@@ -887,8 +888,10 @@ void Work::replaceMenuStrings()
     }
     for (const QFileInfo &themeFile : themeDir.entryInfoList({"*.txt"}, QDir::Files)) {
         replaceStringInFile("%ASCII_CODE_NAME%", settings->codename, themeFile.absoluteFilePath());
-        replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion,
-                            themeFile.absoluteFilePath());
+        replaceStringInFile("%DISTRO%", distro, themeFile.absoluteFilePath());
+        if (settings->codename.isEmpty()) {
+            replaceStringInFile(" ()", "", themeFile.absoluteFilePath());
+        }
     }
 }
 

@@ -624,6 +624,18 @@ void Settings::setVariables()
     } else {
         distroVersion = Cmd().getOut("lsb_release -r | cut -f2");
     }
+
+    // Handle MX on Arch
+    if (distroVersion.contains("Arch")) {
+        QString baseName = projectName; // "MX"
+        QStringList parts = distroVersion.split('_');
+        if (parts.size() >= 2) {
+            projectName = baseName + parts[0]; // "MXArch"
+            codename = parts[1] + " " + parts[0]; // "Infinity Arch"
+        }
+    } else if (osName.contains("Arch")) {
+        codename = "rolling";
+    }
     if (isArch) {
         fullDistroName = distroVersion + "_" + QString(x86 ? "386" : "x64");
     } else {
@@ -640,6 +652,15 @@ void Settings::setVariables()
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
     codename.replace('"', "");
+
+    // Handle MX on Arch and fallback for Arch Linux
+    if (distroVersion.contains("Arch")) {
+        QStringList parts = distroVersion.split('_');
+        if (parts.size() >= 2) {
+            projectName += parts[0];
+            codename = parts[1] + " " + parts[0];
+        }
+    }
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
 }
 
