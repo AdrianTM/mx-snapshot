@@ -206,9 +206,15 @@ bool Batchprocessing::resetCustomExcludesCli(const QString &configuredPath, cons
         QDir().mkpath(targetDir);
     }
 
-    if (QFileInfo::exists(configuredPath) && !QFile::remove(configuredPath)) {
-        qWarning().noquote() << tr("Could not remove existing exclusion file at %1.").arg(configuredPath);
-        return false;
+    if (QFileInfo::exists(configuredPath)) {
+        const QString backupPath = configuredPath + "." + QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
+        if (!QFile::copy(configuredPath, backupPath)) {
+            qWarning().noquote() << tr("Could not backup existing exclusion file to %1.").arg(backupPath);
+        }
+        if (!QFile::remove(configuredPath)) {
+            qWarning().noquote() << tr("Could not remove existing exclusion file at %1.").arg(configuredPath);
+            return false;
+        }
     }
 
     if (!QFile::copy(sourcePath, configuredPath)) {
