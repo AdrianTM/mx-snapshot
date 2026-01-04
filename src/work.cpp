@@ -386,8 +386,9 @@ void Work::copyNewIso()
             const QString wrongEfi = settings->workDir + "/efi";
             QString details = tr("Arch ISO template is missing boot/ or efi/ directories.");
             if (QFileInfo::exists(wrongBoot) || QFileInfo::exists(wrongEfi)) {
-                details += "\n" + tr("Detected boot/ or efi/ under the work directory root; "
-                                     "the template may have been extracted to the wrong location.");
+                details += "\n"
+                           + tr("Detected boot/ or efi/ under the work directory root; "
+                                "the template may have been extracted to the wrong location.");
             }
             details += "\n" + tr("Template: %1").arg(templateTar);
             emit messageBox(BoxType::critical, tr("Error"), details);
@@ -416,14 +417,17 @@ void Work::copyNewIso()
             if (!archisoKernel.isEmpty()) {
                 qDebug() << "archiso initramfs kernel:" << archisoKernel;
             }
-            const bool needsRebuild = archisoKernel.isEmpty()
-                || (!expectedKernel.isEmpty() && archisoKernel != expectedKernel);
+            const bool needsRebuild
+                = archisoKernel.isEmpty() || (!expectedKernel.isEmpty() && archisoKernel != expectedKernel);
             if (needsRebuild) {
                 emit message(tr("Stale archiso initramfs detected, rebuilding..."));
                 if (!rebuildArchisoInitramfs(archisoPath, kernelPath)) {
-                    QString details = tr("Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.")
-                                          .arg(archisoKernel, expectedKernel.isEmpty() ? settings->kernel : expectedKernel);
-                    details += "\n" + tr("Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.");
+                    QString details
+                        = tr("Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.")
+                              .arg(archisoKernel, expectedKernel.isEmpty() ? settings->kernel : expectedKernel);
+                    details += "\n"
+                               + tr("Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the "
+                                    "stale file.");
                     emit messageBox(BoxType::critical, tr("Error"), details);
                     cleanUp();
                 }
@@ -503,19 +507,19 @@ bool Work::createIso(const QString &filename)
     using Release::Version;
     const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
     const QString squashfsPath = settings->isArch
-        ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.sfs"
-        : settings->workDir + "/iso-template/antiX/linuxfs";
+                                     ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.sfs"
+                                     : settings->workDir + "/iso-template/antiX/linuxfs";
     if (settings->isArch) {
         QDir().mkpath(settings->workDir + "/iso-template/arch/" + archCpuDir);
     }
     const bool throttleSupported = settings->isArch
-        ? Cmd().run("mksquashfs -help | grep -q -- -throttle", Cmd::QuietMode::Yes)
-        : (Settings::getDebianVerNum() >= Version::Bookworm);
+                                       ? Cmd().run("mksquashfs -help | grep -q -- -throttle", Cmd::QuietMode::Yes)
+                                       : (Settings::getDebianVerNum() >= Version::Bookworm);
     const QString throttle = throttleSupported ? " -throttle " + QString::number(settings->throttle) : "";
     QString cmd = unbuffer + "mksquashfs \"" + bindRootPath + "\" \"" + squashfsPath + "\" -comp "
                   + settings->compression + " -processors " + QString::number(settings->cores) + throttle
-                  + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef "
-                  + "\"" + settings->snapshotExcludes.fileName() + "\""
+                  + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef " + "\""
+                  + settings->snapshotExcludes.fileName() + "\""
                   + (settings->sessionExcludes.isEmpty() ? "" : " -e " + settings->sessionExcludes);
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
@@ -559,8 +563,9 @@ bool Work::createIso(const QString &filename)
         const QString biosBootRel = "boot/grub/i386-pc/eltorito.img";
         const QString biosBootPath = settings->workDir + "/iso-template/" + biosBootRel;
         if (QFileInfo::exists(biosBootPath)) {
-            bootArgs += " -b " + biosBootRel + " -no-emul-boot -boot-load-size 4"
-                        " -boot-info-table -c boot.catalog";
+            bootArgs += " -b " + biosBootRel
+                        + " -no-emul-boot -boot-load-size 4"
+                          " -boot-info-table -c boot.catalog";
         } else {
             qWarning() << "Missing BIOS boot image:" << biosBootPath;
         }
@@ -599,11 +604,10 @@ bool Work::createIso(const QString &filename)
             }
         }
 
-        cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel
-              + "\" -R -J -pad -iso-level 3" + isohybridArgs + " -no-emul-boot -boot-load-size 4 -boot-info-table"
+        cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel + "\" -R -J -pad -iso-level 3" + isohybridArgs
+              + " -no-emul-boot -boot-load-size 4 -boot-info-table"
               + " -b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e efi.img -no-emul-boot -c boot.catalog -o \""
-              + settings->snapshotDir + "/" + filename + "\" . \""
-              + settings->workDir + "/iso-2\"";
+              + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
     } else {
         cmd = "xorriso -as mkisofs -l -V " + volumeLabel
               + " -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table "
@@ -731,8 +735,8 @@ QString Work::initramfsKernelVersion(const QString &initramfsPath) const
     } else {
         listCmd = QString("\"%1\" -a \"%2\" 2>/dev/null").arg(lsinitcpio, initramfsPath);
     }
-    const QString cmd = listCmd
-        + " | awk -F/ '{for (i=1; i<=NF; i++) if ($i == \"modules\" && (i+1) <= NF) {print $(i+1); exit}}'";
+    const QString cmd
+        = listCmd + " | awk -F/ '{for (i=1; i<=NF; i++) if ($i == \"modules\" && (i+1) <= NF) {print $(i+1); exit}}'";
 
     return Cmd().getOut(cmd, Cmd::QuietMode::Yes).trimmed();
 }
@@ -834,7 +838,8 @@ void Work::replaceMenuStrings()
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QString fullDistroNameSpace = settings->fullDistroName;
     fullDistroNameSpace.replace("_", " ");
-    QString distro = settings->distroVersion.contains("Arch") ? settings->projectName : settings->projectName + "-" + settings->distroVersion;
+    QString distro = settings->distroVersion.contains("Arch") ? settings->projectName
+                                                              : settings->projectName + "-" + settings->distroVersion;
 
     const QString grub_cfg {"/iso-template/boot/grub/grub.cfg"};
     const QString grubCfgPath = settings->workDir + grub_cfg;
@@ -984,8 +989,7 @@ void Work::setupEnv()
     const QString bindWorkDir = settings->workDir + "/bind-root-work";
     BindRootManager bindManager(shell, bindRootPath, bindWorkDir);
     if (!bindManager.start(true)) {
-        emit messageBox(BoxType::critical, tr("Error"),
-                        tr("Could not prepare the snapshot bind-root environment."));
+        emit messageBox(BoxType::critical, tr("Error"), tr("Could not prepare the snapshot bind-root environment."));
         cleanUp();
     }
 
@@ -1098,8 +1102,8 @@ void Work::writeUnsquashfsSize(const QString &text)
 {
     const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
     const QString infoPath = settings->isArch
-        ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.info"
-        : settings->workDir + "/iso-template/antiX/linuxfs.info";
+                                 ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.info"
+                                 : settings->workDir + "/iso-template/antiX/linuxfs.info";
     QSettings file(infoPath, QSettings::NativeFormat);
     file.setValue("UncompressedSizeKB",
                   text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
@@ -1209,8 +1213,8 @@ quint64 Work::getRequiredSpace()
         }
         return path;
     };
-    const QString sizeRootBase = sizeRootPrefix.endsWith('/') ? sizeRootPrefix.left(sizeRootPrefix.size() - 1)
-                                                              : sizeRootPrefix;
+    const QString sizeRootBase
+        = sizeRootPrefix.endsWith('/') ? sizeRootPrefix.left(sizeRootPrefix.size() - 1) : sizeRootPrefix;
     const auto isAllowedDevice = [&](const QString &path) -> bool {
         QFileInfo info(path);
         QString probePath = path;
@@ -1323,9 +1327,8 @@ quint64 Work::getRequiredSpace()
     excludes = expandedExcludes;
 
     // Filter out nested paths to avoid double-counting in size calculation
-    std::sort(excludes.begin(), excludes.end(), [](const QString &a, const QString &b) {
-        return a.length() < b.length();
-    });
+    std::sort(excludes.begin(), excludes.end(),
+              [](const QString &a, const QString &b) { return a.length() < b.length(); });
 
     QStringList filteredExcludes;
     for (const QString &path : excludes) {
@@ -1361,8 +1364,8 @@ quint64 Work::getRequiredSpace()
             }
             excludeList.flush();
             const QString cmd = settings->live ? "du -sc -P --apparent-size" : "du -sxc -P --apparent-size";
-            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\""
-                                    + " 2>/dev/null | tail -1 | cut -f1";
+            const QString cmdLine
+                = cmd + " --files0-from=\"" + excludeList.fileName() + "\"" + " 2>/dev/null | tail -1 | cut -f1";
             excl_size = shell.getOutAsRoot(cmdLine).toULongLong(&ok);
             excludeList.close();
         }
