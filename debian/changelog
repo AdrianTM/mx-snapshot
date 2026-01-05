@@ -1,3 +1,10 @@
+mx-snapshot (26.01) mx; urgency=medium
+
+  * CLI/GUI: backup exclusion file on reset
+  * Work with more than one location for installed-to-live
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 05 Jan 2026 09:36:43 -0500
+
 mx-snapshot (25.12.12) mx; urgency=medium
 
   * Fix exclude size double counting
