@@ -1,3 +1,9 @@
+mx-snapshot (26.01.1) mx; urgency=medium
+
+  * Fix syntax error in cleanup function
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 10 Jan 2026 10:36:43 -0500
+
 mx-snapshot (26.01) mx; urgency=medium
 
   * CLI/GUI: backup exclusion file on reset
