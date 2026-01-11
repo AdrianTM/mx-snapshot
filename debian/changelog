@@ -1,3 +1,10 @@
+mx-snapshot (26.01.2) mx; urgency=medium
+
+  * GUI: keep boot options after NVIDIA prompt
+  * Save log for iso-snapshot-cli too
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 10 Jan 2026 21:59:03 -0500
+
 mx-snapshot (26.01.1) mx; urgency=medium
 
   * Fix syntax error in cleanup function
