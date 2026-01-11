@@ -651,6 +651,7 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     settings->bootOptions = ui->textOptions->text();
     settings->releaseDate = ui->pushReleaseDate->text();
     checkNvidiaGraphicsCard();
+    settings->bootOptions = ui->textOptions->text();
     checkUpdatedDefaultExcludes();
 }
 
