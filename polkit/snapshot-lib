@@ -26,8 +26,13 @@ cleanup_overlay() {
 }
 
 copy_log() {
-    [[ -f /var/log/mx-snapshot.log ]] && mv /var/log/mx-snapshot.log /var/log/mx-snapshot.log.old
-    cp /tmp/mx-snapshot.log /var/log
+    for app in iso-snapshot-cli mx-snapshot; do
+        if [[ -f /tmp/${app}.log ]]; then
+            [[ -f /var/log/${app}.log ]] && mv /var/log/${app}.log /var/log/${app}.log.old
+            cp /tmp/${app}.log /var/log
+            break
+        fi
+    done
 }
 
 datetime_log() {
@@ -43,8 +48,10 @@ drop_caches() {
 }
 
 chown_conf() {
-    FILE_NAME="/home/$(logname)/.config/MX-Linux/mx-snapshot.conf"
-    [[ -f "$FILE_NAME" ]] && chown $(logname): "$FILE_NAME"
+    for app in iso-snapshot-cli mx-snapshot; do
+        FILE_NAME="/home/$(logname)/.config/MX-Linux/${app}.conf"
+        [[ -f "$FILE_NAME" ]] && chown $(logname): "$FILE_NAME"
+    done
 }
 
 main() {
