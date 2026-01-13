@@ -41,8 +41,6 @@ package() {
     cp -a scripts-arch/* "${pkgdir}/usr/share/mx-snapshot/scripts/"
     cp -a scripts-arch/* "${pkgdir}/usr/share/iso-snapshot-cli/scripts/"
 
-    ln -sf "/usr/share/mx-snapshot/scripts/arch-remaster" "${pkgdir}/usr/bin/arch-remaster"
-
     install -dm755 "${pkgdir}/usr/lib/mx-snapshot"
     install -Dm755 polkit/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
     install -Dm755 polkit/snapshot-lib "${pkgdir}/usr/lib/mx-snapshot/snapshot-lib"
