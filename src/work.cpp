@@ -1363,9 +1363,9 @@ quint64 Work::getRequiredSpace()
                 excludeList.write("\0", 1);
             }
             excludeList.flush();
-            const QString cmd = settings->live ? "du -sc -P --apparent-size" : "du -sxc -P --apparent-size";
-            const QString cmdLine
-                = cmd + " --files0-from=\"" + excludeList.fileName() + "\"" + " 2>/dev/null | tail -1 | cut -f1";
+            const QString cmd = settings->live ? "du -sc -P --apparent-size" : "du -sxc -P";
+            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\""
+                                    + " 2>/dev/null | tail -1 | cut -f1";
             excl_size = shell.getOutAsRoot(cmdLine).toULongLong(&ok);
             excludeList.close();
         }
@@ -1399,6 +1399,11 @@ quint64 Work::getRequiredSpace()
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
     }
+    if (excl_size > root_size) {
+        qWarning() << "Excluded size exceeds root size; clamping excluded size for estimate."
+                   << "Root:" << root_size << "Excluded:" << excl_size;
+        excl_size = root_size;
+    }
     qDebug().noquote() << "SIZE         " << QString::number(root_size / kibToMib, 'f', 2) << "MiB";
     qDebug().noquote() << "SIZE EXCLUDES" << QString::number(excl_size / kibToMib, 'f', 2) << "MiB";
     const uint c_factor = settings->compressionFactor.value(settings->compression);
@@ -1407,10 +1412,5 @@ quint64 Work::getRequiredSpace()
                        << QString::number(((root_size - excl_size) * c_factor / 100.0) / kibToMib, 'f', 2) << "MiB";
     qDebug().noquote() << "SIZE FREE    " << QString::number(settings->freeSpace / kibToMib, 'f', 2) << "MiB" << '\n';
 
-    if (excl_size > root_size) {
-        qDebug() << "Error: calculating excluded file size.\n"
-                    "If you are sure you have enough free space rerun the program with -o/--override-size option";
-        cleanUp();
-    }
     return (root_size - excl_size) * c_factor / 100;
 }
