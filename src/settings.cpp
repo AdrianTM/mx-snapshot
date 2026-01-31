@@ -150,7 +150,6 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
         const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
         bool cleanupRan = false;
         bool cleanupOk = true;
-        const QString elevateTool = Cmd::elevationTool();
         if (BindRootManager::hasCleanupState() || QFileInfo::exists(overlayBase)) {
             cleanupRan = true;
             Cmd shell;
@@ -161,7 +160,7 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
         const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
             || Cmd().run("mountpoint -q \"" + overlayRoot + "\"", Cmd::QuietMode::Yes);
         if (!cleanupRan || cleanupOk || !bindRootMounted) {
-            Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            Cmd::runSnapshotLib("cleanup_overlay " + appName, Cmd::QuietMode::Yes);
         }
 
         loadConfig(); // Load settings from .conf file
