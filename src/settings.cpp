@@ -38,10 +38,42 @@
 #include <exception>
 #include <unistd.h>
 
+#include "bindrootmanager.h"
 #include "messagehandler.h"
 
 namespace
 {
+QString trimQuotesValue(QString value)
+{
+    value = value.trimmed();
+    if (value.startsWith('\'') && value.endsWith('\'') && value.length() > 1) {
+        value = value.mid(1, value.length() - 2);
+    }
+    if (value.startsWith('"') && value.endsWith('"') && value.length() > 1) {
+        value = value.mid(1, value.length() - 2);
+    }
+    return value;
+}
+
+QString readOsReleaseValue(const QString &key)
+{
+    QFile file("/etc/os-release");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return {};
+    }
+
+    QTextStream in(&file);
+    const QString keyPrefix = key + "=";
+    while (!in.atEnd()) {
+        const QString line = in.readLine().trimmed();
+        if (line.isEmpty() || line.startsWith('#') || !line.startsWith(keyPrefix)) {
+            continue;
+        }
+        return trimQuotesValue(line.section('=', 1));
+    }
+    return {};
+}
+
 QString loggedInUserName()
 {
     QString username = qEnvironmentVariable("SUDO_USER");
@@ -118,16 +150,17 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
         const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
         bool cleanupRan = false;
         bool cleanupOk = true;
-        const QString elevateTool = Cmd::elevationTool();
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf") || QFileInfo::exists(overlayBase)) {
+        if (BindRootManager::hasCleanupState() || QFileInfo::exists(overlayBase)) {
             cleanupRan = true;
-            cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup");
+            Cmd shell;
+            BindRootManager bindManager(shell, "/.bind-root", "/tmp/" + appName + "-bind-root-work");
+            cleanupOk = bindManager.cleanup();
         }
         const QString overlayRoot = "/run/" + appName + "/bind-root-overlay/root";
         const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
             || Cmd().run("mountpoint -q \"" + overlayRoot + "\"", Cmd::QuietMode::Yes);
         if (!cleanupRan || cleanupOk || !bindRootMounted) {
-            Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            Cmd::runSnapshotLib("cleanup_overlay " + appName, Cmd::QuietMode::Yes);
         }
 
         loadConfig(); // Load settings from .conf file
@@ -160,6 +193,9 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
 // Check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
+    if (isArch) {
+        return true;
+    }
     if (compression == "gzip"
         || !QFileInfo::exists("/boot/config-"
                               + kernel)) { // Don't check for gzip or if the kernel config file is missing
@@ -273,10 +309,12 @@ bool Settings::checkConfiguration() const
         return false;
     }
 
-    // Check if SQUASHFS is available in kernel
-    if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
-        qCritical() << QObject::tr("Kernel %1 doesn't support Squashfs").arg(kernel);
-        return false;
+    // Check if SQUASHFS is available in kernel (skip on Arch)
+    if (!isArch) {
+        if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
+            qCritical() << QObject::tr("Kernel %1 doesn't support Squashfs").arg(kernel);
+            return false;
+        }
     }
 
     // Validate exclusions
@@ -529,11 +567,13 @@ void Settings::selectKernel()
             }
         }
     }
-    // Check if SQUASHFS is available
-    if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
-        QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
-        MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-        exit(EXIT_FAILURE);
+    // Check if SQUASHFS is available unless running on Arch (config may be unavailable)
+    if (!isArch) {
+        if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
+            QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
+            MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
+            exit(EXIT_FAILURE);
+        }
     }
 }
 
@@ -558,8 +598,19 @@ void Settings::setVariables()
         distroVersionFile = "/etc/antix-version";
     }
 
+    const QString osName = readOsReleaseValue("NAME");
+    const QString osVersionId = readOsReleaseValue("VERSION_ID");
+    const QString osVersionCodename = readOsReleaseValue("VERSION_CODENAME");
+#ifdef ARCH_BUILD
+    isArch = true;
+#else
+    isArch = false;
+#endif
+
     if (QFileInfo::exists("/etc/lsb-release")) {
         projectName = Cmd().getOut("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release");
+    } else if (!osName.isEmpty()) {
+        projectName = osName;
     } else {
         projectName = Cmd().getOut("lsb_release -i | cut -f2");
     }
@@ -567,17 +618,48 @@ void Settings::setVariables()
     if (!distroVersionFile.isEmpty()) {
         distroVersion = Cmd().getOut("cut -f1 -d'_' " + distroVersionFile);
         distroVersion.remove(QRegularExpression("^" + projectName + "_|^" + projectName + "-"));
+    } else if (!osVersionId.isEmpty()) {
+        distroVersion = osVersionId;
     } else {
         distroVersion = Cmd().getOut("lsb_release -r | cut -f2");
     }
-    fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
+
+    // Handle MX on Arch
+    if (distroVersion.contains("Arch")) {
+        QString baseName = projectName; // "MX"
+        QStringList parts = distroVersion.split('_');
+        if (parts.size() >= 2) {
+            projectName = baseName + parts[0]; // "MXArch"
+            codename = parts[1] + " " + parts[0]; // "Infinity Arch"
+        }
+    } else if (osName.contains("Arch")) {
+        codename = "rolling";
+    }
+    if (isArch) {
+        fullDistroName = distroVersion + "_" + QString(x86 ? "386" : "x64");
+    } else {
+        fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
+    }
     releaseDate = QDate::currentDate().toString("MMMM dd, yyyy");
     if (QFileInfo::exists("/etc/lsb-release")) {
         codename = Cmd().getOut("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release");
+    } else if (!osVersionCodename.isEmpty()) {
+        codename = osVersionCodename;
+    } else if (isArch) {
+        codename = "rolling";
     } else {
         codename = Cmd().getOut("lsb_release -c | cut -f2");
     }
     codename.replace('"', "");
+
+    // Handle MX on Arch and fallback for Arch Linux
+    if (distroVersion.contains("Arch")) {
+        QStringList parts = distroVersion.split('_');
+        if (parts.size() >= 2) {
+            projectName += parts[0];
+            codename = parts[1] + " " + parts[0];
+        }
+    }
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
 }
 
@@ -666,6 +748,9 @@ QString Settings::getUsedSpace()
 int Settings::getDebianVerNum()
 {
     QFile file("/etc/debian_version");
+    if (!file.exists()) {
+        return Release::Bookworm;
+    }
     QStringList list;
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
@@ -673,8 +758,7 @@ int Settings::getDebianVerNum()
         list = line.split('.');
         file.close();
     } else {
-        qCritical() << "Could not open /etc/debian_version:" << file.errorString() << "Assumes Bullseye";
-        return Release::Bullseye;
+        return Release::Bookworm;
     }
     bool ok = false;
     int ver = list.at(0).toInt(&ok);
@@ -1004,6 +1088,7 @@ void Settings::otherExclusions()
 
     if (resetAccounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
+#ifndef ARCH_BUILD
         // Exclude /etc/localtime if link and timezone not America/New_York
         QFileInfo localtimeInfo("/etc/localtime");
         QFile timezoneFile("/etc/timezone");
@@ -1017,6 +1102,7 @@ void Settings::otherExclusions()
                 timezoneFile.close();
             }
         }
+#endif
     }
     excludeSwapFile();
 }
