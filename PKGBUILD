@@ -6,8 +6,11 @@ pkgdesc="A tool for creating live ISO images from running systems"
 arch=('x86_64' 'i686')
 url="https://mxlinux.org"
 license=('GPL3')
-depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch' 'mx-remaster-live-files')
+depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch')
 makedepends=('cmake' 'ninja' 'qt6-tools')
+conflicts=('mx-remaster-live-files')
+replaces=('mx-remaster-live-files')
+provides=('mx-remaster-live-files=1.0.0')
 source=()
 sha256sums=()
 
@@ -70,6 +73,10 @@ package() {
     if [ -d docs ]; then
         cp -r docs/* "${pkgdir}/usr/share/doc/mx-snapshot/" 2>/dev/null || true
     fi
+
+    # Install live-files (replaces mx-remaster-live-files package)
+    install -dm755 "${pkgdir}/usr/share/live-files"
+    cp -a live-files/files live-files/general-files "${pkgdir}/usr/share/live-files/"
 
     # Install changelog
     if [ -f debian/changelog ]; then
