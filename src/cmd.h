@@ -17,8 +17,6 @@ public:
     // preferring sudo in CLI, pkexec in GUI. Empty if none found.
     static QString elevationTool();
     static bool isCliMode();
-    static QString snapshotLibCommand(const QString &args);
-    static bool runSnapshotLib(const QString &args, QuietMode quiet = QuietMode::No);
 
     [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
     [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);

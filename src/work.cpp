@@ -135,7 +135,9 @@ bool Work::checkInstalled(const QString &package)
 
 void Work::cleanUp()
 {
-    Cmd::runSnapshotLib("chown_conf", Cmd::QuietMode::Yes);
+    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
     if (!started) {
         shell.close();
         initrd_dir.remove();
@@ -146,7 +148,7 @@ void Work::cleanUp()
     QTextStream out(stdout);
     out << "\033[?25h";
     out.flush();
-    Cmd::runSnapshotLib("kill_mksquashfs", Cmd::QuietMode::Yes);
+    Cmd().run(elevateTool + " " + snapshotLib + " kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
@@ -159,7 +161,7 @@ void Work::cleanUp()
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd::runSnapshotLib("copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
@@ -171,7 +173,7 @@ void Work::cleanUp()
         exit(EXIT_SUCCESS);
     } else {
         emit message(tr("Interrupted or failed to complete"));
-        Cmd::runSnapshotLib("copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
         exit(EXIT_FAILURE);
     }
 }
@@ -269,7 +271,10 @@ void Work::cleanupBindRootOverlay()
         bindRootPath = "/.bind-root";
         return;
     }
-    Cmd::runSnapshotLib("cleanup_overlay " + QCoreApplication::applicationName(), Cmd::QuietMode::Yes);
+    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " cleanup_overlay " + QCoreApplication::applicationName(),
+              Cmd::QuietMode::Yes);
     bindRootOverlayActive = false;
     bindRootOverlayBase.clear();
     bindRootPath = "/.bind-root";
@@ -468,7 +473,8 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     } else {
         // Free pagecache
         shell.run("sync; sleep 1");
-        Cmd::runSnapshotLib("drop_caches", Cmd::QuietMode::Yes);
+        const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+        Cmd().runAsRoot(snapshotLib + " drop_caches");
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -653,7 +659,9 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    Cmd::runSnapshotLib("datetime_log", Cmd::QuietMode::Yes);
+    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+    const QString elevateTool = Cmd::elevationTool();
+    Cmd().run(elevateTool + " " + snapshotLib + " datetime_log", Cmd::QuietMode::Yes);
 }
 
 void Work::writeVersionFile()
