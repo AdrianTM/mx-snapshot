@@ -655,7 +655,6 @@ bool Work::createIso(const QString &filename)
 
 bool Work::installPackage(const QString &package)
 {
-    emit message(tr("Installing ") + package);
     if (settings->isArch) {
         QString archPackage = package;
         if (package == "mx-installer") {
@@ -664,11 +663,13 @@ bool Work::installPackage(const QString &package)
             }
             archPackage = "gazelle-installer";
         }
+        emit message(tr("Installing ") + archPackage);
         if (!shell.runAsRoot("pacman -Sy --noconfirm --needed " + archPackage)) {
             emit messageBox(BoxType::critical, tr("Error"), tr("Could not install ") + archPackage);
             return false;
         }
     } else {
+        emit message(tr("Installing ") + package);
         shell.runAsRoot("apt-get update");
         if (!shell.runAsRoot("apt-get install -y " + package)) {
             emit messageBox(BoxType::critical, tr("Error"), tr("Could not install ") + package);
