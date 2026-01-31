@@ -74,6 +74,18 @@ QString readOsReleaseValue(const QString &key)
     return {};
 }
 
+QString ensureCowSpacesize(QString options)
+{
+    static const QRegularExpression pattern(R"((^|\s)cow_spacesize=\S+)");
+    if (options.contains(pattern)) {
+        return options;
+    }
+    if (options.trimmed().isEmpty()) {
+        return "cow_spacesize=80%";
+    }
+    return options.trimmed() + " cow_spacesize=80%";
+}
+
 QString loggedInUserName()
 {
     QString username = qEnvironmentVariable("SUDO_USER");
@@ -661,6 +673,7 @@ void Settings::setVariables()
         }
     }
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
+    bootOptions = ensureCowSpacesize(bootOptions);
 }
 
 QString Settings::getFilename() const
@@ -1249,7 +1262,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
         compression = "zstd";
     }
     resetAccounts = true;
-    bootOptions = "quiet splasht nosplash";
+    bootOptions = ensureCowSpacesize("quiet splasht nosplash");
     excludeAll();
 }
 
