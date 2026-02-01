@@ -76,7 +76,8 @@ check_tag_exists() {
 
 # Get latest tag version for comparison
 get_latest_tag() {
-    local latest_tag=$(git tag -l | sort -V | tail -n1)
+    # Filter to only version-like tags (v?X.Y or v?X.Y.Z with optional suffix)
+    local latest_tag=$(git tag -l | grep -E '^v?[0-9]+\.[0-9]+(\.[0-9]+)?[a-z]*$' | sort -V | tail -n1)
     if [ -z "$latest_tag" ]; then
         echo "0.0.0"  # No tags exist yet
     else
