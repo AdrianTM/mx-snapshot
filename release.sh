@@ -66,7 +66,7 @@ check_tag_exists() {
     fi
 
     # Check remote tags
-    if git ls-remote --tags origin 2>/dev/null | grep -q "refs/tags/${version}$"; then
+    if git ls-remote --tags mxlinux 2>/dev/null | grep -q "refs/tags/${version}$"; then
         print_error "Tag '$version' already exists on remote"
         return 1
     fi
