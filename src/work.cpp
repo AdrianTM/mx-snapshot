@@ -966,8 +966,8 @@ void Work::setupEnv()
         bind_boot_too = ",/boot";
     }
 
-    // Install mx-installer if absent
-    if (settings->forceInstaller && !checkInstalled("mx-installer")) {
+    // Install mx-installer if absent (skip on Arch where installer may not be available)
+    if (settings->forceInstaller && !settings->isArch && !checkInstalled("mx-installer")) {
         installPackage("mx-installer");
     }
 
