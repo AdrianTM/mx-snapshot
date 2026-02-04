@@ -44,6 +44,7 @@ public:
     [[nodiscard]] bool doEmptyDirs(const QStringList &dirs);
     [[nodiscard]] bool doPasswd();
     [[nodiscard]] bool cleanup();
+    void addRmFile(const QString &path);
 
     [[nodiscard]] static bool hasCleanupState();
 
@@ -54,7 +55,6 @@ private:
     [[nodiscard]] bool loadState();
     [[nodiscard]] bool persistState();
     [[nodiscard]] bool ensureStateDir();
-    void addRmFile(const QString &path);
     void addRmDir(const QString &path);
 
     [[nodiscard]] bool bindMountTemplate(const QString &templateDir);
