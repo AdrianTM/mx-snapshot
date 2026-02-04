@@ -988,6 +988,15 @@ void Work::setupEnv()
         cleanUp();
     }
 
+    // Create installer desktop link in /etc/skel BEFORE doGeneral/doPasswd copies skel to demo home
+    const QString minstallSource = "/usr/share/applications/minstall.desktop";
+    if (QFileInfo::exists(minstallSource)) {
+        const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
+        shell.runAsRoot("mkdir -p \"" + skelDesktopDir + "\"", Cmd::QuietMode::Yes);
+        shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + skelDesktopDir + "/Installer.desktop\"",
+                        Cmd::QuietMode::Yes);
+    }
+
     if (settings->resetAccounts) {
         if (!bind_boot.isEmpty() && !bindManager.doBindMounts({"/boot"})) {
             emit messageBox(BoxType::critical, tr("Error"),
@@ -1046,22 +1055,34 @@ void Work::setupEnv()
         }
     }
 
-    // Create installer desktop link in the overlay (captured in snapshot, doesn't persist on running system)
-    const QString minstallSource = "/usr/share/applications/minstall.desktop";
-    if (QFileInfo::exists(minstallSource)) {
-        // Create link in /etc/skel/Desktop for new users
-        const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
-        shell.runAsRoot("mkdir -p \"" + skelDesktopDir + "\"", Cmd::QuietMode::Yes);
-        shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + skelDesktopDir + "/Installer.desktop\"",
-                        Cmd::QuietMode::Yes);
-
-        // Create link in current user's Desktop
-        const QString currentUser = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
-        if (!currentUser.isEmpty()) {
-            const QString userDesktopDir = bindRootPath + "/home/" + currentUser + "/Desktop";
-            if (QFileInfo::exists("/home/" + currentUser + "/Desktop")) {
-                shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + userDesktopDir + "/Installer.desktop\"",
-                                Cmd::QuietMode::Yes);
+    // Create installer desktop link in current user's Desktop (non-reset mode only)
+    // For resetAccounts mode, the skel link created earlier is copied to demo home by doPasswd()
+    if (!settings->resetAccounts && QFileInfo::exists(minstallSource)) {
+        QString currentUser = qEnvironmentVariable("SUDO_USER");
+        if (currentUser.isEmpty()) {
+            currentUser = qEnvironmentVariable("LOGNAME");
+        }
+        if (currentUser.isEmpty()) {
+            currentUser = qEnvironmentVariable("USER");
+        }
+        if (currentUser.isEmpty() || currentUser == QLatin1String("root")) {
+            currentUser = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
+        }
+        if (!currentUser.isEmpty() && currentUser != QLatin1String("root")) {
+            const QString userDesktop = "/home/" + currentUser + "/Desktop";
+            if (QFileInfo::exists(userDesktop)) {
+                const bool homeIsMountpoint = shell.run("mountpoint -q /home", Cmd::QuietMode::Yes);
+                const QString installerLink = userDesktop + "/Installer.desktop";
+                if (homeIsMountpoint) {
+                    // /home is bind-mounted, write to real filesystem and track for cleanup
+                    shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + installerLink + "\"",
+                                    Cmd::QuietMode::Yes);
+                    bindManager.addRmFile(installerLink);
+                } else {
+                    // /home is part of overlay, write to overlay path
+                    shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + bindRootPath + installerLink + "\"",
+                                    Cmd::QuietMode::Yes);
+                }
             }
         }
     }
