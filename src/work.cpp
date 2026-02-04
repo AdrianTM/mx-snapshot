@@ -1045,6 +1045,26 @@ void Work::setupEnv()
             qWarning() << "Failed to set bind-root environment read-only.";
         }
     }
+
+    // Create installer desktop link in the overlay (captured in snapshot, doesn't persist on running system)
+    const QString minstallSource = "/usr/share/applications/minstall.desktop";
+    if (QFileInfo::exists(minstallSource)) {
+        // Create link in /etc/skel/Desktop for new users
+        const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
+        shell.runAsRoot("mkdir -p \"" + skelDesktopDir + "\"", Cmd::QuietMode::Yes);
+        shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + skelDesktopDir + "/Installer.desktop\"",
+                        Cmd::QuietMode::Yes);
+
+        // Create link in current user's Desktop
+        const QString currentUser = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
+        if (!currentUser.isEmpty()) {
+            const QString userDesktopDir = bindRootPath + "/home/" + currentUser + "/Desktop";
+            if (QFileInfo::exists("/home/" + currentUser + "/Desktop")) {
+                shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + userDesktopDir + "/Installer.desktop\"",
+                                Cmd::QuietMode::Yes);
+            }
+        }
+    }
 }
 
 void Work::writeLsbRelease()
