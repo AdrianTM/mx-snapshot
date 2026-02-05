@@ -43,6 +43,66 @@ drop_caches() {
     echo 1 > /proc/sys/vm/drop_caches
 }
 
+cleanup_bindrootmanager() {
+    local app_name="$1"
+    [[ -z "$app_name" ]] && app_name="mx-snapshot"
+    [[ "$app_name" =~ ^[A-Za-z0-9._-]+$ ]] || exit 2
+
+    # Find state file
+    local state_file=""
+    for dir in "/run/${app_name}" "/tmp/${app_name}"; do
+        if [[ -f "${dir}/cleanup.json" ]]; then
+            state_file="${dir}/cleanup.json"
+            break
+        fi
+    done
+    [[ -z "$state_file" ]] && return 0
+
+    # Parse JSON - use jq if available, otherwise basic parsing
+    local bind_root work_dir
+    if command -v jq &>/dev/null; then
+        bind_root=$(jq -r '.bindRoot // empty' "$state_file" 2>/dev/null)
+        work_dir=$(jq -r '.workDir // empty' "$state_file" 2>/dev/null)
+        # Read arrays
+        mapfile -t rm_files < <(jq -r '.rmFiles[]? // empty' "$state_file" 2>/dev/null)
+        mapfile -t rm_dirs < <(jq -r '.rmDirs[]? // empty' "$state_file" 2>/dev/null)
+    else
+        # Basic parsing without jq
+        bind_root=$(grep -oP '"bindRoot"\s*:\s*"\K[^"]+' "$state_file" 2>/dev/null)
+        work_dir=$(grep -oP '"workDir"\s*:\s*"\K[^"]+' "$state_file" 2>/dev/null)
+        # For arrays, extract items between brackets
+        local rm_files_str rm_dirs_str
+        rm_files_str=$(grep -oP '"rmFiles"\s*:\s*\[\K[^\]]*' "$state_file" 2>/dev/null | tr -d '[]" ' | tr ',' '\n')
+        rm_dirs_str=$(grep -oP '"rmDirs"\s*:\s*\[\K[^\]]*' "$state_file" 2>/dev/null | tr -d '[]" ' | tr ',' '\n')
+        mapfile -t rm_files <<< "$rm_files_str"
+        mapfile -t rm_dirs <<< "$rm_dirs_str"
+    fi
+
+    # Unmount bind-root (try up to 10 times)
+    if [[ -n "$bind_root" ]]; then
+        for _ in 1 2 3 4 5 6 7 8 9 10; do
+            mountpoint -q "$bind_root" || break
+            umount --recursive "$bind_root" 2>/dev/null
+            sleep 0.1
+        done
+        rmdir "$bind_root" 2>/dev/null || true
+    fi
+
+    # Remove tracked files (in reverse order)
+    for ((i=${#rm_files[@]}-1; i>=0; i--)); do
+        [[ -n "${rm_files[i]}" ]] && rm -f "${rm_files[i]}" 2>/dev/null
+    done
+
+    # Remove tracked directories (in reverse order)
+    for ((i=${#rm_dirs[@]}-1; i>=0; i--)); do
+        [[ -n "${rm_dirs[i]}" ]] && rmdir --ignore-fail-on-non-empty --parents "${rm_dirs[i]}" 2>/dev/null || true
+    done
+
+    # Remove state file and work directory
+    rm -f "$state_file"
+    [[ -n "$work_dir" && -d "$work_dir" ]] && rm -rf "$work_dir"
+}
+
 chown_conf() {
     for app in iso-snapshot-cli mx-snapshot; do
         FILE_NAME="/home/$(logname)/.config/MX-Linux/${app}.conf"
@@ -56,6 +116,8 @@ case "$1" in
         chown_conf;;
     cleanup)
         cleanup;;
+    cleanup_bindrootmanager)
+        cleanup_bindrootmanager "$2";;
     cleanup_overlay)
         cleanup_overlay "$2";;
     copy_log)

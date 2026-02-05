@@ -1044,36 +1044,8 @@ bool BindRootManager::cleanup()
         return false;
     }
 
-    const QString stateFile = stateFilePath();
-
-    // Build a single cleanup script to avoid multiple elevation prompts
-    // Use semicolons to avoid newline escaping issues when passing through shell
-    QStringList cmds;
-
-    // Unmount bind-root (try up to 10 times)
-    cmds << "for i in 1 2 3 4 5 6 7 8 9 10; do mountpoint -q " + quoted(bindRoot)
-                + " || break; umount --recursive " + quoted(bindRoot) + "; sleep 0.1; done";
-
-    // Remove bind-root directory
-    cmds << "rmdir " + quoted(bindRoot) + " 2>/dev/null; true";
-
-    // Remove tracked files
-    for (auto it = rmFiles.crbegin(); it != rmFiles.crend(); ++it) {
-        cmds << "rm -f " + quoted(*it);
-    }
-
-    // Remove tracked directories
-    for (auto it = rmDirs.crbegin(); it != rmDirs.crend(); ++it) {
-        cmds << "rmdir --ignore-fail-on-non-empty --parents " + quoted(*it) + " 2>/dev/null; true";
-    }
-
-    // Remove state file and work directory
-    cmds << "rm -f " + quoted(stateFile);
-    cmds << "rm -rf " + quoted(workDir);
-
-    // Run all cleanup commands with a single elevation
-    const QString script = cmds.join("; ");
-    shell.runAsRoot(script, Cmd::QuietMode::Yes);
+    // Use snapshot-lib to run cleanup with a single polkit authentication
+    Cmd::runSnapshotLib("cleanup_bindrootmanager " + appName(), Cmd::QuietMode::Yes);
 
     // Verify unmount succeeded
     if (shell.run("mountpoint -q " + quoted(bindRoot), Cmd::QuietMode::Yes)) {
