@@ -161,7 +161,6 @@ void Work::cleanUp()
     out << "\033[?25h";
     out.flush();
     Cmd::runSnapshotLib("kill_mksquashfs", Cmd::QuietMode::Yes);
-    shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
     // Remove installer link from user's Desktop (no root needed, it's in user's home)
@@ -175,6 +174,7 @@ void Work::cleanUp()
             qWarning() << "Failed to cleanup bind-root state during shutdown.";
         }
     }
+    shell.close();
     cleanupBindRootOverlay();
     // Work directory cleanup is now handled by BindRootManager::cleanup()
     initrd_dir.remove();

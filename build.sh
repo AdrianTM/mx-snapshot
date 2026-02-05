@@ -33,6 +33,7 @@ DEBIAN_BUILD=false
 ARCH_BUILD=false
 BUILD_GUI=true
 BUILD_CLI=true
+USE_ASAN=false
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -67,6 +68,10 @@ while [[ $# -gt 0 ]]; do
             BUILD_CLI=true
             shift
             ;;
+        --asan)
+            USE_ASAN=true
+            shift
+            ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS]"
             echo "Options:"
@@ -77,6 +82,7 @@ while [[ $# -gt 0 ]]; do
             echo "  --arch          Build Arch Linux package"
             echo "  --gui-only      Build only GUI version (mx-snapshot)"
             echo "  --cli-only      Build only CLI version (iso-snapshot-cli)"
+            echo "  --asan          Enable AddressSanitizer for memory debugging"
             echo "  -h, --help      Show this help message"
             exit 0
             ;;
@@ -197,9 +203,18 @@ if [ "$USE_CLANG" = true ]; then
     echo "Using clang compiler"
 fi
 
+if [ "$USE_ASAN" = true ]; then
+    CMAKE_ARGS+=(
+        -DCMAKE_CXX_FLAGS="-fsanitize=address -fno-omit-frame-pointer"
+        -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address"
+    )
+    echo "AddressSanitizer enabled"
+fi
+
 echo "Build configuration:"
 echo "  GUI: $([ "$BUILD_GUI" = true ] && echo "enabled" || echo "disabled")"
 echo "  CLI: $([ "$BUILD_CLI" = true ] && echo "enabled" || echo "disabled")"
+echo "  ASAN: $([ "$USE_ASAN" = true ] && echo "enabled" || echo "disabled")"
 
 cmake "${CMAKE_ARGS[@]}"
 
