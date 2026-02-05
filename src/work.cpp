@@ -176,13 +176,7 @@ void Work::cleanUp()
         }
     }
     cleanupBindRootOverlay();
-    if (!settings->workDir.isEmpty()) {
-        const QString workDirPath = QDir::cleanPath(settings->workDir);
-        const QString baseName = QFileInfo(workDirPath).fileName();
-        if (baseName.startsWith("mx-snapshot-") && QFileInfo::exists(workDirPath)) {
-            shell.runAsRoot("rm -rf \"" + workDirPath + "\"", Cmd::QuietMode::Yes);
-        }
-    }
+    // Work directory cleanup is now handled by BindRootManager::cleanup()
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
@@ -709,10 +703,12 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     if (!settings->preempt) {
         cmd = checksum_cmd;
     } else {
-        // Free pagecache
+        // Free pagecache (only if running as root to avoid elevation prompt)
         shell.run("sync; sleep 1");
-        Cmd::runSnapshotLib("drop_caches", Cmd::QuietMode::Yes);
-        shell.run("sleep 1");
+        if (getuid() == 0) {
+            Cmd::runSnapshotLib("drop_caches", Cmd::QuietMode::Yes);
+            shell.run("sleep 1");
+        }
         cmd = checksum_tmp;
     }
     shell.run(cmd);
@@ -1020,10 +1016,10 @@ void Work::setupEnv()
         // Create installer link in demo user's Desktop (doPasswd creates /home/demo from skel)
         if (ok && QFileInfo::exists(minstallSource)) {
             const QString demoDesktop = bindRootPath + "/home/demo/Desktop";
-            if (QFileInfo::exists(demoDesktop)) {
-                shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + demoDesktop + "/Installer.desktop\"",
-                                Cmd::QuietMode::Yes);
-            }
+            shell.runAsRoot("mkdir -p \"" + demoDesktop + "\"", Cmd::QuietMode::Yes);
+            shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + demoDesktop + "/Installer.desktop\"",
+                            Cmd::QuietMode::Yes);
+            shell.runAsRoot("chown -R 1000:1000 \"" + demoDesktop + "\"", Cmd::QuietMode::Yes);
         }
         if (ok && !bindManager.doVersionFile()) {
             qWarning() << "Bind-root: doVersionFile failed.";

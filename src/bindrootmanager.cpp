@@ -1045,31 +1045,41 @@ bool BindRootManager::cleanup()
     }
 
     const QString stateFile = stateFilePath();
-    for (int i = 0; i < 10; ++i) {
-        if (!shell.run("mountpoint -q " + quoted(bindRoot), Cmd::QuietMode::Yes)) {
-            break;
-        }
-        shell.runAsRoot("umount --recursive " + quoted(bindRoot), Cmd::QuietMode::Yes);
-        QThread::msleep(100);
+
+    // Build a single cleanup script to avoid multiple elevation prompts
+    // Use semicolons to avoid newline escaping issues when passing through shell
+    QStringList cmds;
+
+    // Unmount bind-root (try up to 10 times)
+    cmds << "for i in 1 2 3 4 5 6 7 8 9 10; do mountpoint -q " + quoted(bindRoot)
+                + " || break; umount --recursive " + quoted(bindRoot) + "; sleep 0.1; done";
+
+    // Remove bind-root directory
+    cmds << "rmdir " + quoted(bindRoot) + " 2>/dev/null; true";
+
+    // Remove tracked files
+    for (auto it = rmFiles.crbegin(); it != rmFiles.crend(); ++it) {
+        cmds << "rm -f " + quoted(*it);
     }
+
+    // Remove tracked directories
+    for (auto it = rmDirs.crbegin(); it != rmDirs.crend(); ++it) {
+        cmds << "rmdir --ignore-fail-on-non-empty --parents " + quoted(*it) + " 2>/dev/null; true";
+    }
+
+    // Remove state file and work directory
+    cmds << "rm -f " + quoted(stateFile);
+    cmds << "rm -rf " + quoted(workDir);
+
+    // Run all cleanup commands with a single elevation
+    const QString script = cmds.join("; ");
+    shell.runAsRoot(script, Cmd::QuietMode::Yes);
+
+    // Verify unmount succeeded
     if (shell.run("mountpoint -q " + quoted(bindRoot), Cmd::QuietMode::Yes)) {
         qWarning() << "Failed to unmount bind-root:" << bindRoot;
         return false;
     }
 
-    shell.runAsRoot("rmdir " + quoted(bindRoot), Cmd::QuietMode::Yes);
-
-    QStringList files = rmFiles;
-    for (auto it = files.crbegin(); it != files.crend(); ++it) {
-        shell.runAsRoot("rm -f " + quoted(*it), Cmd::QuietMode::Yes);
-    }
-
-    QStringList dirs = rmDirs;
-    for (auto it = dirs.crbegin(); it != dirs.crend(); ++it) {
-        shell.runAsRoot("rmdir --ignore-fail-on-non-empty --parents " + quoted(*it), Cmd::QuietMode::Yes);
-    }
-
-    shell.runAsRoot("rm -f " + quoted(stateFile), Cmd::QuietMode::Yes);
-    shell.runAsRoot("rm -rf " + quoted(workDir), Cmd::QuietMode::Yes);
     return true;
 }
