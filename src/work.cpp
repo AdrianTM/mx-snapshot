@@ -164,6 +164,11 @@ void Work::cleanUp()
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
+    // Remove installer link from user's Desktop (no root needed, it's in user's home)
+    if (!installerLinkToRemove.isEmpty()) {
+        QFile::remove(installerLinkToRemove);
+        installerLinkToRemove.clear();
+    }
     if (BindRootManager::hasCleanupState()) {
         BindRootManager bindManager(shell, bindRootPath, settings->workDir + "/bind-root-work");
         if (!bindManager.cleanup()) {
@@ -1012,6 +1017,14 @@ void Work::setupEnv()
             qWarning() << "Bind-root: doGeneral failed.";
             ok = false;
         }
+        // Create installer link in demo user's Desktop (doPasswd creates /home/demo from skel)
+        if (ok && QFileInfo::exists(minstallSource)) {
+            const QString demoDesktop = bindRootPath + "/home/demo/Desktop";
+            if (QFileInfo::exists(demoDesktop)) {
+                shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + demoDesktop + "/Installer.desktop\"",
+                                Cmd::QuietMode::Yes);
+            }
+        }
         if (ok && !bindManager.doVersionFile()) {
             qWarning() << "Bind-root: doVersionFile failed.";
             ok = false;
@@ -1077,7 +1090,7 @@ void Work::setupEnv()
                     // /home is bind-mounted, write to real filesystem and track for cleanup
                     shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + installerLink + "\"",
                                     Cmd::QuietMode::Yes);
-                    bindManager.addRmFile(installerLink);
+                    installerLinkToRemove = installerLink;
                 } else {
                     // /home is part of overlay, write to overlay path
                     shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + bindRootPath + installerLink + "\"",

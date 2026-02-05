@@ -109,4 +109,5 @@ private:
     QString bindRootPath = "/.bind-root";
     QString bindRootOverlayBase;
     bool bindRootOverlayActive = false;
+    QString installerLinkToRemove;  // Installer link in user's home to remove during cleanup
 };
