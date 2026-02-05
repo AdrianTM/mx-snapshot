@@ -990,12 +990,21 @@ void Work::setupEnv()
     }
 
     // Create installer desktop link in /etc/skel BEFORE doGeneral/doPasswd copies skel to demo home
-    const QString minstallSource = "/usr/share/applications/minstall.desktop";
-    if (QFileInfo::exists(minstallSource)) {
+    // Check for both MX (minstall) and Arch (gazelle-installer) desktop files
+    QString installerSource;
+    if (QFileInfo::exists("/usr/share/applications/minstall.desktop")) {
+        installerSource = "/usr/share/applications/minstall.desktop";
+    } else if (QFileInfo::exists("/usr/share/applications/gazelle-installer.desktop")) {
+        installerSource = "/usr/share/applications/gazelle-installer.desktop";
+    }
+    if (!installerSource.isEmpty()) {
         const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
         shell.runAsRoot("mkdir -p \"" + skelDesktopDir + "\"", Cmd::QuietMode::Yes);
-        shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + skelDesktopDir + "/Installer.desktop\"",
+        shell.runAsRoot("ln -sf \"" + installerSource + "\" \"" + skelDesktopDir + "/minstall.desktop\"",
                         Cmd::QuietMode::Yes);
+        qDebug() << "Created installer link in skel:" << skelDesktopDir << "->" << installerSource;
+    } else {
+        qDebug() << "No installer desktop file found";
     }
 
     if (settings->resetAccounts) {
@@ -1014,12 +1023,13 @@ void Work::setupEnv()
             ok = false;
         }
         // Create installer link in demo user's Desktop (doPasswd creates /home/demo from skel)
-        if (ok && QFileInfo::exists(minstallSource)) {
+        if (ok && !installerSource.isEmpty()) {
             const QString demoDesktop = bindRootPath + "/home/demo/Desktop";
             shell.runAsRoot("mkdir -p \"" + demoDesktop + "\"", Cmd::QuietMode::Yes);
-            shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + demoDesktop + "/Installer.desktop\"",
+            shell.runAsRoot("ln -sf \"" + installerSource + "\" \"" + demoDesktop + "/minstall.desktop\"",
                             Cmd::QuietMode::Yes);
             shell.runAsRoot("chown -R 1000:1000 \"" + demoDesktop + "\"", Cmd::QuietMode::Yes);
+            qDebug() << "Created installer link in demo Desktop:" << demoDesktop;
         }
         if (ok && !bindManager.doVersionFile()) {
             qWarning() << "Bind-root: doVersionFile failed.";
@@ -1066,7 +1076,7 @@ void Work::setupEnv()
 
     // Create installer desktop link in current user's Desktop (non-reset mode only)
     // For resetAccounts mode, the skel link created earlier is copied to demo home by doPasswd()
-    if (!settings->resetAccounts && QFileInfo::exists(minstallSource)) {
+    if (!settings->resetAccounts && !installerSource.isEmpty()) {
         QString currentUser = qEnvironmentVariable("SUDO_USER");
         if (currentUser.isEmpty()) {
             currentUser = qEnvironmentVariable("LOGNAME");
@@ -1081,15 +1091,15 @@ void Work::setupEnv()
             const QString userDesktop = "/home/" + currentUser + "/Desktop";
             if (QFileInfo::exists(userDesktop)) {
                 const bool homeIsMountpoint = shell.run("mountpoint -q /home", Cmd::QuietMode::Yes);
-                const QString installerLink = userDesktop + "/Installer.desktop";
+                const QString installerLinkPath = userDesktop + "/minstall.desktop";
                 if (homeIsMountpoint) {
                     // /home is bind-mounted, write to real filesystem and track for cleanup
-                    shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + installerLink + "\"",
+                    shell.runAsRoot("ln -sf \"" + installerSource + "\" \"" + installerLinkPath + "\"",
                                     Cmd::QuietMode::Yes);
-                    installerLinkToRemove = installerLink;
+                    installerLinkToRemove = installerLinkPath;
                 } else {
                     // /home is part of overlay, write to overlay path
-                    shell.runAsRoot("ln -sf \"" + minstallSource + "\" \"" + bindRootPath + installerLink + "\"",
+                    shell.runAsRoot("ln -sf \"" + installerSource + "\" \"" + bindRootPath + installerLinkPath + "\"",
                                     Cmd::QuietMode::Yes);
                 }
             }
