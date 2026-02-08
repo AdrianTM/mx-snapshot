@@ -22,33 +22,46 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-# Get version from debian/changelog
-find_program(DPKG_PARSECHANGELOG dpkg-parsechangelog)
-if(DPKG_PARSECHANGELOG)
+# Get version from git tag
+find_program(GIT_EXECUTABLE git)
+if(GIT_EXECUTABLE)
     execute_process(
-        COMMAND ${DPKG_PARSECHANGELOG} -SVersion
+        COMMAND ${GIT_EXECUTABLE} describe --tags --abbrev=0
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
+        OUTPUT_VARIABLE GIT_TAG_VERSION
         OUTPUT_STRIP_TRAILING_WHITESPACE
-        RESULT_VARIABLE DPKG_RESULT
+        RESULT_VARIABLE GIT_RESULT
     )
 endif()
 
-if(NOT PROJECT_VERSION_FROM_CHANGELOG)
-    file(READ "${CMAKE_SOURCE_DIR}/debian/changelog" CHANGELOG_CONTENTS)
-    string(REGEX MATCH "^[^ ]+ \\(([^)]+)\\)" _match "${CHANGELOG_CONTENTS}")
-    set(PROJECT_VERSION_FROM_CHANGELOG "${CMAKE_MATCH_1}")
+# Fallback to debian/changelog for non-git builds (e.g. release tarballs)
+if(NOT GIT_TAG_VERSION)
+    find_program(DPKG_PARSECHANGELOG dpkg-parsechangelog)
+    if(DPKG_PARSECHANGELOG)
+        execute_process(
+            COMMAND ${DPKG_PARSECHANGELOG} -SVersion
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+        )
+    endif()
 endif()
 
-if(NOT PROJECT_VERSION_FROM_CHANGELOG)
-    message(FATAL_ERROR "Failed to get version from debian/changelog")
+if(NOT GIT_TAG_VERSION)
+    file(READ "${CMAKE_SOURCE_DIR}/debian/changelog" CHANGELOG_CONTENTS)
+    string(REGEX MATCH "^[^ ]+ \\(([^)]+)\\)" _match "${CHANGELOG_CONTENTS}")
+    set(GIT_TAG_VERSION "${CMAKE_MATCH_1}")
+endif()
+
+if(NOT GIT_TAG_VERSION)
+    message(FATAL_ERROR "Failed to get version from git tag or debian/changelog")
 endif()
 
 project(mx-snapshot
-    VERSION ${PROJECT_VERSION_FROM_CHANGELOG}
     DESCRIPTION "MX Snapshot - A tool for creating live ISO images from running MX Linux systems"
     LANGUAGES CXX
 )
+set(PROJECT_VERSION "${GIT_TAG_VERSION}")
 
 # Set default build type if not specified
 if(NOT CMAKE_BUILD_TYPE)
