@@ -22,16 +22,18 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-# Get version from git tag
-find_program(GIT_EXECUTABLE git)
-if(GIT_EXECUTABLE)
-    execute_process(
-        COMMAND ${GIT_EXECUTABLE} describe --tags --abbrev=0
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-        OUTPUT_VARIABLE GIT_TAG_VERSION
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-        RESULT_VARIABLE GIT_RESULT
-    )
+# Get version from git tag (can be overridden with -DGIT_TAG_VERSION=x.y.z)
+if(NOT GIT_TAG_VERSION)
+    find_program(GIT_EXECUTABLE git)
+    if(GIT_EXECUTABLE)
+        execute_process(
+            COMMAND ${GIT_EXECUTABLE} describe --tags --abbrev=0
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            RESULT_VARIABLE GIT_RESULT
+        )
+    endif()
 endif()
 
 # Fallback to debian/changelog for non-git builds (e.g. release tarballs)
