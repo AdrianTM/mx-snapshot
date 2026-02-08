@@ -118,13 +118,14 @@ bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
         return false;
     }
     QEventLoop loop;
-    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
+    const auto conn = connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
     if (elevation == Elevation::Yes && getuid() != 0) {
         start(elevationToolPath, {helperPath, cmd});
     } else {
         start("/bin/bash", {"-c", cmd});
     }
     loop.exec();
+    disconnect(conn);
     if (elevation == Elevation::Yes && getuid() != 0
         && (exitCode() == EXIT_CODE_PERMISSION_DENIED || exitCode() == EXIT_CODE_COMMAND_NOT_FOUND)) {
         handleElevationError();
