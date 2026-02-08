@@ -36,6 +36,7 @@
 #include <QStorageInfo>
 
 #include <exception>
+#include <stdexcept>
 #include <unistd.h>
 
 #include "bindrootmanager.h"
@@ -154,8 +155,7 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
 {
     try {
         if (!initializeConfiguration()) {
-            handleInitializationError(QObject::tr("Failed to initialize configuration"));
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Failed to initialize configuration");
         }
 
         const QString appName = QCoreApplication::applicationName();
@@ -189,16 +189,15 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
 
         // Validate final configuration
         if (!checkConfiguration()) {
-            handleInitializationError(QObject::tr("Configuration validation failed"));
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Configuration validation failed");
         }
 
     } catch (const std::exception &e) {
         handleInitializationError(QObject::tr("Exception during initialization: %1").arg(e.what()));
-        exit(EXIT_FAILURE);
+        throw;
     } catch (...) {
         handleInitializationError(QObject::tr("Unknown exception during initialization"));
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Unknown exception during initialization");
     }
 }
 
@@ -575,7 +574,7 @@ void Settings::selectKernel()
                 QString message = QObject::tr("Could not find a usable kernel");
                 QString details = QObject::tr("Searched for kernel files in /boot/ but none were found or accessible.");
                 MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message + "\n\n" + details);
-                exit(EXIT_FAILURE);
+                throw std::runtime_error("Could not find a usable kernel");
             }
         }
     }
@@ -584,7 +583,7 @@ void Settings::selectKernel()
         if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
             QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
             MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-            exit(EXIT_FAILURE);
+            throw std::runtime_error("Current kernel doesn't support Squashfs");
         }
     }
 }
@@ -1162,7 +1161,7 @@ void Settings::processArgs(const QCommandLineParser &argParser)
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshotDir + '/' + snapshotName);
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Output file already exists");
     }
     resetAccounts = argParser.isSet("reset");
     if (resetAccounts) {
@@ -1256,7 +1255,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
             = QObject::tr("Output file %1 already exists. Please use another file name, or delete the existent file.")
                   .arg(snapshotDir + '/' + snapshotName);
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Output file already exists");
     }
     if (argParser.value("compression").isEmpty()) {
         compression = "zstd";

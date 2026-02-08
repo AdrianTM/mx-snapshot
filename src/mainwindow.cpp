@@ -26,6 +26,8 @@
 #include "ui_mainwindow.h"
 
 #include <QCalendarWidget>
+#include <QCoreApplication>
+#include <QCloseEvent>
 #include <QDateTime>
 #include <QDialog>
 #include <QDialogButtonBox>
@@ -60,7 +62,7 @@ MainWindow::MainWindow(Settings *settings, QWidget *parent)
     : QDialog(parent),
       ui(new Ui::MainWindow),
       settings(settings),
-      work(settings, this)
+      work(settings)
 {
     ui->setupUi(this);
     setConnections();
@@ -364,7 +366,12 @@ void MainWindow::setConnections()
     connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) { qWarning().noquote() << out; });
     connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work.shell, &Cmd::started, this, &MainWindow::procStart);
-    connect(QApplication::instance(), &QApplication::aboutToQuit, this, [this] { cleanUp(); });
+    connect(qApp, &QCoreApplication::aboutToQuit, this, [this] {
+        if (!work.isStarted() || work.isDone()) {
+            return;
+        }
+        cleanUp();
+    });
     connect(ui->btnAbout, &QPushButton::clicked, this, &MainWindow::btnAbout_clicked);
     connect(ui->btnBack, &QPushButton::clicked, this, &MainWindow::btnBack_clicked);
     connect(ui->btnCancel, &QPushButton::clicked, this, &MainWindow::btnCancel_clicked);
@@ -512,6 +519,14 @@ bool MainWindow::installPackage(const QString &package)
 
 void MainWindow::cleanUp()
 {
+    if (!work.isStarted() || work.isDone()) {
+        return;
+    }
+    if (cleanupInProgress) {
+        return;
+    }
+    cleanupInProgress = true;
+
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     work.cleanUp();
 }
@@ -984,17 +999,48 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void MainWindow::closeApp()
+void MainWindow::closeEvent(QCloseEvent *event)
 {
+    if (cleanupInProgress) {
+        event->accept();
+        return;
+    }
+
+    if (!event->spontaneous()) {
+        event->accept();
+        return;
+    }
+
+    if (!closeApp(true)) {
+        event->ignore();
+        return;
+    }
+    event->accept();
+}
+
+bool MainWindow::closeApp(bool fromCloseEvent)
+{
+    if (cleanupInProgress) {
+        return false;
+    }
     // Ask for confirmation when on outputPage and not done
     if (ui->stackedWidget->currentWidget() == ui->outputPage && !work.isDone()) {
         if (QMessageBox::Yes
             != QMessageBox::question(this, tr("Confirmation"), tr("Are you sure you want to quit the application?"),
                                      QMessageBox::Yes | QMessageBox::No)) {
-            return;
+            return false;
         }
     }
-    cleanUp();
+
+    const bool hasActiveWork = work.isStarted() && !work.isDone();
+    if (hasActiveWork) {
+        cleanUp();
+        return false;
+    }
+    if (!fromCloseEvent) {
+        close();
+    }
+    return true;
 }
 
 void MainWindow::btnCancel_clicked()

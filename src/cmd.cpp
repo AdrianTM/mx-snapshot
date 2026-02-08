@@ -5,8 +5,8 @@
 #include <QEventLoop>
 #include <QFile>
 #include <QFileInfo>
-#include <QTimer>
 
+#include <cstdlib>
 #include <unistd.h>
 
 #include "messagehandler.h"
@@ -159,6 +159,9 @@ void Cmd::handleElevationError()
     MessageHandler::showMessage(MessageHandler::Critical, tr("Administrator Access Required"),
                                 tr("This operation requires administrator privileges. Please restart the "
                                    "application and enter your password when prompted."));
-    QTimer::singleShot(0, qApp, &QCoreApplication::quit);
-    exit(EXIT_FAILURE);
+    if (QCoreApplication::instance()) {
+        QCoreApplication::exit(EXIT_FAILURE);
+        return;
+    }
+    std::exit(EXIT_FAILURE);
 }

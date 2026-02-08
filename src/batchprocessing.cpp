@@ -42,9 +42,11 @@ using namespace std::chrono_literals;
 Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     : QObject(parent),
       settings(settings),
-      work(settings, this)
+      work(settings)
 {
-    connect(qApp, &QCoreApplication::aboutToQuit, this, [this] { work.cleanUp(); });
+    connect(qApp, &QCoreApplication::aboutToQuit, this, [this] {
+        work.cleanUp();
+    });
     setConnections();
 
     // Check updated excludes before any work
@@ -70,11 +72,23 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     }
     settings->otherExclusions();
     work.setupEnv();
+    if (work.isCleaningUp()) {
+        return;
+    }
     if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
+        if (work.isCleaningUp()) {
+            return;
+        }
     }
     work.copyNewIso();
+    if (work.isCleaningUp()) {
+        return;
+    }
     work.savePackageList(settings->snapshotName);
+    if (work.isCleaningUp()) {
+        return;
+    }
 
     if (settings->editBootMenu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");

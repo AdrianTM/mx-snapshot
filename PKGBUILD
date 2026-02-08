@@ -17,8 +17,6 @@ sha256sums=()
 build() {
     cd "${startdir}"
 
-    rm -rf build
-
     cmake -G Ninja \
         -B build \
         -DCMAKE_BUILD_TYPE=Release \

@@ -32,6 +32,8 @@
 
 #include <cstdio>
 #include <csignal>
+#include <exception>
+#include <stdexcept>
 #include <unistd.h>
 
 #ifndef CLI_BUILD
@@ -207,46 +209,56 @@ int main(int argc, char *argv[])
     }
 #endif
 
+    int exitCode = EXIT_FAILURE;
+
     if (logname == "root") {
         const QString message = QObject::tr(
             "You seem to be logged in as root, please log out and log in as normal user to use this program.");
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-        return EXIT_FAILURE;
-    }
+    } else {
+        setTranslation();
+        try {
+            checkSquashfs();
 
-    setTranslation();
-    checkSquashfs();
+            const bool isGuiApp = QCoreApplication::instance()->inherits("QApplication");
+            const bool hasAuthTools = !Cmd::elevationTool().isEmpty();
+            if (getuid() != 0 && (!isGuiApp || !hasAuthTools)) {
+                qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
+            } else {
+                const Log setLog("/tmp/" + app->applicationName() + ".log");
+                qInstallMessageHandler(Log::messageHandler);
+                qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
+                if (argc > 1) {
+                    qDebug().noquote() << "Args:" << app->arguments();
+                }
 
-    const bool isGuiApp = QCoreApplication::instance()->inherits("QApplication");
-    const bool hasAuthTools = !Cmd::elevationTool().isEmpty();
-    if (getuid() != 0 && (!isGuiApp || !hasAuthTools)) {
-        qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
-        return EXIT_FAILURE;
-    }
+                // Create settings instance for dependency injection
+                Settings settings(parser, isGuiApp);
 
-    const Log setLog("/tmp/" + app->applicationName() + ".log");
-    qInstallMessageHandler(Log::messageHandler);
-    qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
-    if (argc > 1) {
-        qDebug().noquote() << "Args:" << app->arguments();
-    }
-
-    // Create settings instance for dependency injection
-    Settings settings(parser, isGuiApp);
-
-    if (!isGuiApp) {
-        Batchprocessing batch(&settings);
-        QTimer::singleShot(0, app, &QCoreApplication::quit);
-        return app->exec();
-    }
+                if (!isGuiApp) {
+                    Batchprocessing batch(&settings);
+                    QTimer::singleShot(0, app, &QCoreApplication::quit);
+                    exitCode = app->exec();
+                }
 #ifndef CLI_BUILD
-    else {
-        MainWindow w(&settings);
-        w.show();
-        return app->exec();
-    }
+                else {
+                    MainWindow w(&settings);
+                    w.show();
+                    exitCode = app->exec();
+                }
 #endif
-    return EXIT_SUCCESS;
+            }
+        } catch (const std::exception &e) {
+            qCritical().noquote() << QObject::tr("Fatal error:") << e.what();
+        } catch (...) {
+            qCritical().noquote() << QObject::tr("Fatal error: unknown exception");
+        }
+    }
+
+    qInstallMessageHandler(nullptr);
+    delete app;
+    app = nullptr;
+    return exitCode;
 }
 
 void setTranslation()
@@ -282,7 +294,7 @@ void checkSquashfs()
     if (QFile::exists(configPath) && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
         const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
-        exit(EXIT_FAILURE);
+        throw std::runtime_error("Current kernel doesn't support Squashfs");
     }
 }
 

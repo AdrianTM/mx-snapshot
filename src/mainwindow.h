@@ -34,6 +34,7 @@
 #include "work.h"
 
 class QCommandLineParser;
+class QCloseEvent;
 
 namespace Ui
 {
@@ -49,6 +50,7 @@ public:
     ~MainWindow() override;
 
 protected:
+    void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
 public slots:
@@ -95,16 +97,17 @@ private:
     Work work;
     QSettings qt_settings;
     QFileSystemWatcher excludesWatcher;
+    bool cleanupInProgress = false;
 
     [[nodiscard]] bool confirmStart();
-    [[noreturn]] void cleanUp();
+    void cleanUp();
     bool installPackage(const QString &package);
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();
     void checkNvidiaGraphicsCard();
     void checkSaveWork();
     void checkUpdatedDefaultExcludes();
-    void closeApp();
+    bool closeApp(bool fromCloseEvent = false);
     void editBootMenu();
     void handleSelectionPage(const QString &file_name);
     void handleSettingsPage(const QString &file_name);
