@@ -560,7 +560,7 @@ bool Work::createIso(const QString &filename)
         const QString archIsoDir = "iso-2/arch/" + archCpuDir;
         QDir().mkpath(archIsoDir);
         shell.run("mv iso-template/arch/" + archCpuDir + "/airootfs.sfs* " + archIsoDir);
-        makeChecksum(HashType::md5, settings->workDir + "/" + archIsoDir, "airootfs.sfs");
+        makeChecksum(HashType::sha512, settings->workDir + "/" + archIsoDir, "airootfs.sfs");
     } else {
         // Move linuxfs files to iso-2/antiX folder
         QDir().mkpath("iso-2/antiX");
