@@ -92,7 +92,6 @@ home/*/.cache/librewolf/*/thumbnails/*
 home/*/.cache/thumbnails/*
 home/*/.cache/vivaldi/Default/Cache/*
 home/*/.cache/xfce4/clipman/textsrc*
-home/*/.config/mozilla
 home/*/.mozilla/firefox/*/Cache/*
 home/*/.mozilla/firefox/*/cache2/*
 home/*/.mozilla/seamonkey/*/Cache/*
