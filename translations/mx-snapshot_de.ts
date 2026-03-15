@@ -19,74 +19,74 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="162"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Keine Ausgabe von Unterschieden verfügbar.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="200"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Voreingestellte Ausnahmedatei wurde nicht gefunden auf %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="212"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Existierende Ausnahmedatei konnte nicht gesichert werden auf %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="215"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Existierende Ausnahmedatei konnte nicht entfernt werden von %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="222"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Voreingestellte Ausnahmedatei konnte nicht von %1 auf %2 kopiert werden.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
-        <translation type="unfinished"/>
+        <translation>Es wurde eine neuere Ausnahmedatei auf %1 im Vergleich mit %2. Eingabe einer Reaktion erforderlich.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="247"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="249"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>Unterschied anzeigen</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="250"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>Aktualisierte Voreinstellung verwenden</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefiniertes beibehalten (Zeitstempel aktualisieren)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="252"/>
@@ -97,27 +97,27 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="255"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="260"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Die Ausnahmedatei auf %1 ist neuer als die konfigurierte Datei auf %2.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="276"/>
         <source>Reverted to updated default exclusion file.</source>
-        <translation type="unfinished"/>
+        <translation>Zurücksetzen auf die aktualisierte voreingestellte Ausnahmedatei.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="297"/>
         <source>Leaving custom exclusion file unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Ausnahmedatei unverändert lassen.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="308"/>
         <source>Invalid choice. Please select again.</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige Auswahl. Bitte neu versuchen.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="315"/>
@@ -140,17 +140,17 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>Kein geeignetes Programm gefunden (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
         <source>Administrator Access Required</source>
-        <translation type="unfinished"/>
+        <translation>Rootrechte erforderlich</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="117"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Vorgang erfordert Rootrechte. Bitte starten Sie das Programm erneut und geben auf Anforderung Ihr Paßwort ein.</translation>
     </message>
 </context>
 <context>
@@ -337,7 +337,7 @@
         <location filename="../src/mainwindow.cpp" line="853"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
         <source>Remove Custom Exclusion File</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Ausnahmedatei entfernen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
@@ -542,43 +542,43 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="177"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Keine Ausgabe von Unterschieden verfügbar.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="210"/>
         <location filename="../src/mainwindow.cpp" line="246"/>
         <source>Updated Exclusion List</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierte Ausnahmeliste</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="213"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Die Ausnahmedatei auf %1 ist neuer als die konfigurierte Datei auf %2.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="215"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Unten aufgeführte Änderungen überprüfen. Benutzerdefinierte Datei beibehalten oder durch die aktualisierte Voreinstellung ersetzen.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="221"/>
         <source>Show Differences</source>
-        <translation type="unfinished"/>
+        <translation>Unterschiede anzeigen</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="227"/>
         <source>Keep Custom</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte beibehalten</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="233"/>
         <source>Use Updated Default</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierte Voreinstellung verwenden</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Voreingestellte Ausnahmedatei wurde nicht gefunden auf %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="326"/>
@@ -588,17 +588,17 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="327"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Existierende Ausnahmedatei konnte nicht gesichert werden auf %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Existierende Ausnahmedatei konnte nicht entfernt werden von %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="338"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Existierende Ausnahmedatei konnte nicht von %1 auf %2 kopiert werden.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="621"/>
@@ -608,7 +608,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
-        <translation type="unfinished"/>
+        <translation>Zu wenig freier Speicherplatz. Bitte anderes Verzeichnis für den Snapshot auswählen oder Speicherplatz freimachen.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="632"/>
@@ -659,7 +659,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="710"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Auswahldatei konnte nicht durch die aktualisierte Voreinstellung ersetzt werden.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="729"/>
@@ -714,7 +714,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="854"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
-        <translation type="unfinished"/>
+        <translation>Auswahlliste auf voreingestellte Datei zurücksetzen ? Derzeitige Ausnahmen werden dann überschrieben.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="934"/>
@@ -755,7 +755,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/mainwindow.cpp" line="968"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
-        <translation type="unfinished"/>
+        <translation>Zu wenig freier Speicherplatz im ausgewählten Verzeichnis. Bitte anderes Verzeichnis auswählen.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="988"/>
@@ -828,7 +828,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/main.cpp" line="119"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"/>
+        <translation>Optional kann an den Monatsnamen ein Suffix angehängt werden (z.B. &apos;Juli.1&apos;)</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="120"/>
@@ -924,149 +924,151 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/settings.cpp" line="113"/>
         <source>Failed to initialize configuration</source>
-        <translation type="unfinished"/>
+        <translation>Initialisierung der Konfiguration fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="147"/>
         <source>Configuration validation failed</source>
-        <translation type="unfinished"/>
+        <translation>Plausibilitätsprüfung der Konfiguration fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="152"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ausnahme während der Initialisierung: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="155"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"/>
+        <translation>Unbekannte Ausnahme während der Initialisierung</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="186"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"/>
+        <translation>Arbeitsverzeichnis konnte nicht angelegt werden.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="210"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"/>
+        <translation>Temporäres Verzeichnis konnte nicht angelegt werden:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="211"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"/>
+        <translation>Bitte überprüfen, ob das übergeordnete Verzeichnis existiert und beschreibbar ist:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="229"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kompressionsformat &apos;%1&apos; wird vom benutzten Kernel nicht unterstützt</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="235"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige Kern-Angabe: %1. Muß zwischen 1 und %2 liegen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="241"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige Hebelangabe: %1. Muß zwischen 0 und 20 liegen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="247"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Das Snapshot-Verzeichnis kann nicht leer sein</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="255"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Der Snapshot-Name kann nicht leer sein</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="261"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"/>
+        <translation>Der Snapshot-Name enthält ungültige Zeichen: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="267"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Die Kernel-Version kann nicht leer sein</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="272"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"/>
+        <translation>Kerneldatei nicht gefunden: /boot/vmlinuz-%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="278"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"/>
+        <translation>Kernel %1 unterstützt Squashfs nicht</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="309"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ausnahmedatei existiert nicht: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="318"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"/>
+        <translation>unvollständiges Anführungszeichenpaar in Ausnahmeliste</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="343"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Freier Speicherplatz nicht ausreichend: %1 KiB verfügbar, als Minimum %2 KiB nötig</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="350"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"/>
+        <translation>Freier Speicherplatz im Arbeitsverzeichnis nicht ausreichend: %1 KiB verfügbar, als Minimum %2 KiB nötig</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="365"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"/>
+        <translation>Anzahl der CPU Kerne konnte nicht festgestellt werden</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="371"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"/>
+        <translation>Konfigurationsdatei existiert nicht: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="372"/>
         <source>Using default settings</source>
-        <translation type="unfinished"/>
+        <translation>Voreinstellungen werden verwendet</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="374"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguraionsdatei konnte nicht gelesen werden: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="375"/>
         <source>Error: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fehler: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="385"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Benötigtes Programm konnte nicht gefunden werden: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="394"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"/>
+        <translation>Benötigtes Verzeichnis konnte nicht gefunden werden: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="413"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Initialisieren</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="414"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Initialisieren der Anwendungseinstellungen:
+
+%1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="525"/>
@@ -1076,17 +1078,17 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/settings.cpp" line="526"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"/>
+        <translation>Suche nach Kerneldateien in /boot/ nicht erfolgreich oder die Dateien waren nicht nutzbar. </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="547"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"/>
+        <translation>Keine Benutzer im System gefunden</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="550"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"/>
+        <translation>Feststellung von Systeminformationen fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="644"/>
@@ -1166,22 +1168,22 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/settings.cpp" line="887"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Auslesen der Systemkonfigurationsdatei: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="895"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"/>
+        <translation>Fehler beim Aufrufen der Benutzerkonfiguration</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="947"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Ausnahmedatei konnte nicht von %1 auf %2 kopiert werden</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="972"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
-        <translation type="unfinished"/>
+        <translation>Ungültige gespeicherte Kerneeinstellung (%1). Verwendung der festgestellten CPU Anzahl: %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1063"/>
@@ -1339,13 +1341,13 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/work.cpp" line="613"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Sicheres bind-root Overlay konnte nicht vorbereitet werden. Snapshot kann nicht weiter ausgeführt werden.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="622"/>
         <location filename="../src/work.cpp" line="628"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>Die bind-root Umgebung für Snapshot konnte nicht vorbereitet werden.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="931"/>

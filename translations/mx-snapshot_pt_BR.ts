@@ -1338,13 +1338,13 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     <message>
         <location filename="../src/work.cpp" line="613"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível montar um outro diretório por cima do diretório raiz do sistema. Não é possível continuar.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="622"/>
         <location filename="../src/work.cpp" line="628"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível montar o ambiente de captura do diretório raiz do sistema.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="931"/>

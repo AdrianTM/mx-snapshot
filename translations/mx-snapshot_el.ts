@@ -19,74 +19,74 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="162"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Μη διαθέσιμες διαφορές.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="200"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε αρχείο προεπιλεγμένων εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="212"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η δημιουργία αντιγράφου ασφαλείας του υπάρχοντος αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="215"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αφαίρεση του υπάρχοντος αρχείου εξαιρέσεων από το %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="222"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αντιγραφή του προεπιλεγμένου αρχείου εξαιρέσεων από το %1 στο %2.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
-        <translation type="unfinished"/>
+        <translation>Ανιχνεύθηκε νεώτερο αρχείο εξαιρέσεων στο %1 σε σύγκριση με το %2. Ενέργειες.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="247"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="249"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>εμφάνιση διαφορών</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="250"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>χρήση του ενημερωμένου</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>διατήρηση του προσαρμοσμένου (ενημέρωση ημερομηνίας)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="252"/>
@@ -97,27 +97,27 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="255"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="260"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Το αρχείο εξαιρέσεων στο %1 είναι νεώτερο από το αρχείο που έχετε ρυθμίσει στο %2.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="276"/>
         <source>Reverted to updated default exclusion file.</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφορά προεπιλεγμένων εξαιρέσεων στο ενημερωμένο αρχείο.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="297"/>
         <source>Leaving custom exclusion file unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Διατήρηση του προσαρμοσμένου αρχείου εξαιρέσεων.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="308"/>
         <source>Invalid choice. Please select again.</source>
-        <translation type="unfinished"/>
+        <translation>Μη έγκυρη επιλογή. Παρακαλώ επιλέξτε πάλι.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="315"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε εργαλείο απόκτησης δικαιωμάτων (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
@@ -337,7 +337,7 @@
         <location filename="../src/mainwindow.cpp" line="853"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
         <source>Remove Custom Exclusion File</source>
-        <translation type="unfinished"/>
+        <translation>Αφαίρεση του προσαρμοσμένου αρχείου εξαιρέσεων</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
@@ -540,43 +540,43 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="177"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Μη διαθέσιμες διαφορές.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="210"/>
         <location filename="../src/mainwindow.cpp" line="246"/>
         <source>Updated Exclusion List</source>
-        <translation type="unfinished"/>
+        <translation>Ενημέρωση λίστας εξαιρέσεων</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="213"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Το αρχείο εξαιρέσεων στο %1 είναι νεώτερο από το αρχείο που έχετε ρυθμίσει στο %2.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="215"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Ελέγξτε τις παρακάτω αλλαγές. Διατηρήστε το προσαρμοσμένο αρχείο σας ή αντικαταστήστε το με το ενημερωμένο προεπιλεγμένο αρχείο.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="221"/>
         <source>Show Differences</source>
-        <translation type="unfinished"/>
+        <translation>Εμφάνιση διαφορών</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="227"/>
         <source>Keep Custom</source>
-        <translation type="unfinished"/>
+        <translation>Διατήρηση του προσαρμοσμένου</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="233"/>
         <source>Use Updated Default</source>
-        <translation type="unfinished"/>
+        <translation>Χρήση του ενημερωμένου</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε αρχείο προεπιλεγμένων εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="326"/>
@@ -586,17 +586,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="327"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η δημιουργία αντιγράφου ασφαλείας του υπάρχοντος αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αφαίρεση του υπάρχοντος αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="338"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αντιγραφή του προεπιλεγμένου αρχείου εξαιρέσεων από το %1 στο %2.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="621"/>
@@ -606,7 +606,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="628"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
-        <translation type="unfinished"/>
+        <translation>Ανεπαρκής ελεύθερος χώρος. Παρακαλώ επιλέξτε διαφορετικό κατάλογο ή ελευθερώστε χώρο.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="632"/>
@@ -657,7 +657,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="710"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αντικατάσταση του αρχείου εξαιρέσεων με το ενημερωμένο αντίγραφο.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="729"/>
@@ -712,7 +712,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="854"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
-        <translation type="unfinished"/>
+        <translation>Επαναφορά της λίστας εξαιρέσεων στο προεπιλεγμένο αρχείο; Θα αντικατασταθούν οι υπάρχουσες εξαιρέσεις.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="934"/>
@@ -752,7 +752,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="968"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
-        <translation type="unfinished"/>
+        <translation>Ανεπαρκής ελεύθερος χώρος στον επιλεγμένο κατάλογο. Επιλέξτε διαφορετική τοποθεσία.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="988"/>
@@ -1001,7 +1001,7 @@
     <message>
         <location filename="../src/settings.cpp" line="309"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation>Δεν υπάρχει το αρχείο εξαίρεσης: %1</translation>
+        <translation>Δεν υπάρχει το αρχείο εξαιρέσεων: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="318"/>
@@ -1011,12 +1011,12 @@
     <message>
         <location filename="../src/settings.cpp" line="343"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation>Ανεπαρκής ελεύθερος χώρος: %1 KiB διαθέσιμα, απαιτούνται τουλάχιστον %2</translation>
+        <translation>Ανεπαρκής ελεύθερος χώρος: διαθέσιμα %1 KiB, απαιτούνται τουλάχιστον %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="350"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation>Ανεπαρκής ελεύθερος χώρος στον κατάλογο εργασίας: %1 KiB διαθέσιμα, απαιτούνται τουλάχιστον %2</translation>
+        <translation>Ανεπαρκής ελεύθερος χώρος στο κατάλογο εργασίας: διαθέσιμα %1 KiB, απαιτούνται τουλάχιστον %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="365"/>
@@ -1175,12 +1175,12 @@
     <message>
         <location filename="../src/settings.cpp" line="947"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η αντιγραφή του αρχείου εξαιρέσεων από το %1 στο %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="972"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
-        <translation type="unfinished"/>
+        <translation>Μη έγκυρη αποθηκευμένη ρύθμιση πυρήνων (%1). Χρήση του αριθμού CPU: %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1063"/>
@@ -1338,13 +1338,13 @@
     <message>
         <location filename="../src/work.cpp" line="613"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η προετοιμασία ασφαλούς προσάρτησης. Δεν μπορεί να συνεχιστεί το στιγμιότυπο.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="622"/>
         <location filename="../src/work.cpp" line="628"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν κατέστη δυνατή η προετοιμασία περιβάλλοντος προσάρτησης.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="931"/>

@@ -29,7 +29,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="212"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro de exclusões existente NÃO foi guardado em %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="215"/>
@@ -586,7 +586,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="327"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>O ficheiro de exclusões existente NÃO foi guardado em %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="331"/>

@@ -29,7 +29,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="212"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Rajaustiedoston varmuuskopiointi %1 epäonnistui.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="215"/>
@@ -587,7 +587,7 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
     <message>
         <location filename="../src/mainwindow.cpp" line="327"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Rajaustiedoston varmuuskopiointi %1 epäonnistui.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="331"/>

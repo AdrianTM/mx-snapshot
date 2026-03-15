@@ -50,25 +50,25 @@
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="247"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="249"/>
@@ -80,13 +80,13 @@
         <location filename="../src/batchprocessing.cpp" line="250"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>usar actualizado por defecto</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>mantener la personalización (actualizar la marca de tiempo)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="252"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="255"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="260"/>
@@ -140,7 +140,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="82"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>No se ha encontrado ninguna herramienta de elevación de privilegios (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="116"/>
@@ -1338,13 +1338,13 @@
     <message>
         <location filename="../src/work.cpp" line="613"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation>No se pudo preparar una superposición segura sobre root mediante bind &quot;overlay bind-root&quot;. No se puede continuar con la instantánea.</translation>
+        <translation>No se pudo preparar una superposición segura de bind-root. La instantánea no puede continuar.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="622"/>
         <location filename="../src/work.cpp" line="628"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation>No se pudo preparar el entorno &quot;bind-root&quot;  de la instantánea.</translation>
+        <translation>No se pudo preparar el entorno bind-root  de la instantánea.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="931"/>

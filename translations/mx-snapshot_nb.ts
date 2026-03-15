@@ -19,74 +19,74 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="162"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Ingen diff-resultat tilgjengelig.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="200"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Finner ikke standard ekskluderingsfil på %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="212"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke ta sikkerhetskopi av eksisterende ekskluderingsfil til %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="215"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke fjerne eksisterende ekskluderingsfil på %1.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="222"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke kopiere standard ekskluderingsfil fra %1 til %2.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
-        <translation type="unfinished"/>
+        <translation>Nyere ekskluderingsfil oppdaget på %1 sammenliknet med %2. Handling kreves.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="244"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="245"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="246"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="247"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="249"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>vis forskjell</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="250"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>bruk oppdatert standard</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>behold tilpasset (oppdater tidsstempel)</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="252"/>
@@ -97,27 +97,27 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="255"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="260"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Ekskluderingsfilen på %1 er nyere enn din konfigurerte fil på %2.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="276"/>
         <source>Reverted to updated default exclusion file.</source>
-        <translation type="unfinished"/>
+        <translation>Tilbakestilt til oppdatert standard ekskluderingsfil.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="297"/>
         <source>Leaving custom exclusion file unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>Tilpasset ekskluderingsfil beholdes uendret.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="308"/>
         <source>Invalid choice. Please select again.</source>
-        <translation type="unfinished"/>
+        <translation>Ugyldig valg. Velg på nytt.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="315"/>
@@ -258,7 +258,7 @@
         <location filename="../src/mainwindow.ui" line="367"/>
         <location filename="../src/ui_mainwindow.h" line="765"/>
         <source>Preserving accounts (for personal backup)</source>
-        <translation>Bevarer kontoer (for personlige reservekopier)</translation>
+        <translation>Bevarer kontoer (for personlig sikkerhetskopi)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
@@ -337,7 +337,7 @@
         <location filename="../src/mainwindow.cpp" line="853"/>
         <location filename="../src/ui_mainwindow.h" line="782"/>
         <source>Remove Custom Exclusion File</source>
-        <translation type="unfinished"/>
+        <translation>Fjern tilpasset ekskluderingsfil</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
@@ -542,7 +542,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="177"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>Ingen diff-resultat tilgjengelig.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="210"/>
@@ -553,7 +553,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="213"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>Ekskluderingsfilen på %1 er nyere enn din konfigurerte fil på %2.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="215"/>
@@ -578,7 +578,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="314"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Finner ikke standard ekskluderingsfil på %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="326"/>
@@ -588,17 +588,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="327"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke ta sikkerhetskopi av eksisterende ekskluderingsfil til %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="331"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke fjerne eksisterende ekskluderingsfil på %1.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="338"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>Kunne ikke kopiere standard ekskluderingsfil fra %1 til %2.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="621"/>

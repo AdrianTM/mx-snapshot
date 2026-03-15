@@ -270,7 +270,7 @@
         <location filename="../src/mainwindow.ui" line="380"/>
         <location filename="../src/ui_mainwindow.h" line="769"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>S&apos;inicialitzen els comptes (per distribuir a tercers) </translation>
+        <translation>Es restableixen els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
@@ -511,7 +511,7 @@
         <location filename="../src/mainwindow.cpp" line="498"/>
         <location filename="../src/mainwindow.cpp" line="499"/>
         <source>Installing </source>
-        <translation>Instal·lant </translation>
+        <translation>S&apos;instal·la </translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="584"/>
@@ -843,7 +843,7 @@
     <message>
         <location filename="../src/main.cpp" line="123"/>
         <source>Resetting accounts (for distribution to others)</source>
-        <translation>S&apos;inicialitzen els comptes (per distribuir a tercers) </translation>
+        <translation>Es restableixen els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="124"/>
@@ -1306,7 +1306,7 @@
     <message>
         <location filename="../src/work.cpp" line="435"/>
         <source>Installing </source>
-        <translation>Instal·lant </translation>
+        <translation>S&apos;instal·la </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="438"/>
