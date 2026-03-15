@@ -964,14 +964,13 @@ void MainWindow::btnAbout_clicked()
 void MainWindow::btnHelp_clicked()
 {
     QLocale locale;
-    QString lang = locale.bcp47Name();
+    QString path {"/usr/share/doc/mx-snapshot/mx-snapshot.html"};
 
-    QString url {"/usr/share/doc/mx-snapshot/mx-snapshot.html"};
-
-    if (lang.startsWith("fr")) {
-        url = "https://mxlinux.org/french-wiki/help-files-fr/help-mx-instantane";
+    if (locale.bcp47Name().startsWith("fr")) {
+        path = "/usr/share/doc/mx-snapshot/mx-snapshot-fr.html";
     }
-    displayDoc(url, tr("%1 Help").arg(windowTitle()));
+
+    displayHelpDoc(path, tr("%1 Help").arg(windowTitle()));
 }
 
 void MainWindow::btnSelectSnapshot_clicked()
