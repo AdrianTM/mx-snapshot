@@ -116,7 +116,9 @@ void Log::fixLogFileOwnership(const QString &fileName)
     // Case 1: Running as regular user, but file is owned by root
     if (fileStat.st_uid == 0 && currentUid != 0) {
         Cmd cmd;
-        if (cmd.runAsRoot("chown $(logname): \"" + fileName + "\"", Cmd::QuietMode::Yes)) {
+        const QString username = Cmd::loggedInUserName();
+        if (!username.isEmpty()
+            && cmd.procAsRoot("chown", {username + ":", fileName}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
             qDebug() << "Fixed log file ownership for:" << fileName;
         }
     }

@@ -43,6 +43,32 @@
 
 #include "filesystemutils.h"
 
+namespace
+{
+QString loggedInUserName()
+{
+    return Cmd::loggedInUserName();
+}
+
+QStringList splitShellWords(const QString &text)
+{
+    return text.trimmed().isEmpty() ? QStringList() : QProcess::splitCommand(text);
+}
+
+quint64 parseDuKilobytes(const QString &output, bool *ok)
+{
+    const QStringList lines = output.split('\n', Qt::SkipEmptyParts);
+    if (lines.isEmpty()) {
+        if (ok) {
+            *ok = false;
+        }
+        return 0;
+    }
+    const QString firstField = lines.constLast().section('\t', 0, 0).trimmed();
+    return firstField.toULongLong(ok);
+}
+} // namespace
+
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
       settings(settings)
@@ -229,32 +255,30 @@ bool Work::setupBindRootOverlay()
     const QString workDir = overlayBase + "/work";
     const QString bindRoot = overlayBase + "/root";
 
-    const auto runRoot = [this](const QString &cmd) { return shell.runAsRoot(cmd, Cmd::QuietMode::Yes); };
-
     bindRootOverlayActive = false;
     bindRootOverlayBase.clear();
     bindRootPath = "/.bind-root";
 
-    runRoot("mkdir -p \"" + overlayBase + "\" \"" + lowerDir + "\" \"" + upperDir + "\" \"" + workDir + "\" \""
-            + bindRoot + "\"");
+    shell.procAsRoot("mkdir", {"-p", overlayBase, lowerDir, upperDir, workDir, bindRoot}, nullptr, nullptr,
+                     Cmd::QuietMode::Yes);
 
-    if (runRoot("mountpoint -q \"" + bindRoot + "\"")) {
-        runRoot("umount --recursive \"" + bindRoot + "\"");
+    if (shell.procAsRoot("mountpoint", {"-q", bindRoot}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+        shell.procAsRoot("umount", {"--recursive", bindRoot}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
-    if (runRoot("mountpoint -q \"" + lowerDir + "\"")) {
-        runRoot("umount --recursive \"" + lowerDir + "\"");
+    if (shell.procAsRoot("mountpoint", {"-q", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+        shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
 
-    if (!runRoot("mount --bind / \"" + lowerDir + "\"")) {
+    if (!shell.procAsRoot("mount", {"--bind", "/", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
         qWarning() << "Failed to bind mount / to" << lowerDir;
         return false;
     }
 
-    const QString cmd = "mount -t overlay overlay -o lowerdir=\"" + lowerDir + "\",upperdir=\"" + upperDir
-                        + "\",workdir=\"" + workDir + "\" \"" + bindRoot + "\"";
-    if (!runRoot(cmd)) {
+    const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
+    if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
+                          Cmd::QuietMode::Yes)) {
         qWarning() << "Failed to mount overlay at" << bindRoot;
-        runRoot("umount --recursive \"" + lowerDir + "\"");
+        shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
         return false;
     }
 
@@ -293,9 +317,11 @@ void Work::copyModules(const QString &to, const QString &kernel)
 {
     shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -e -t="%2" -k="%3")")
                   .arg(qApp->applicationName(), to, kernel));
-    shell.runAsRoot(
-        QString("/usr/share/%1/scripts/copy-initrd-programs -e --to=\"%2\"").arg(qApp->applicationName(), to));
-    shell.runAsRoot("chown -R $(logname): " + to);
+    shell.procAsRoot("copy-initrd-programs", {"-e", "--to=" + to}, nullptr, nullptr, Cmd::QuietMode::No);
+    const QString username = loggedInUserName();
+    if (!username.isEmpty()) {
+        shell.procAsRoot("chown", {"-R", username + ":", to}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
 }
 
 // Copying the iso-template filesystem
@@ -357,21 +383,32 @@ bool Work::createIso(const QString &filename)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     // Squash the filesystem copy
-    QString unbuffer = checkInstalled("expect") ? "unbuffer " : "stdbuf -o0 ";
+    const bool useUnbuffer = checkInstalled("expect");
     using Release::Version;
-    QString throttle
-        = (Settings::getDebianVerNum() < Version::Bookworm) ? "" : " -throttle " + QString::number(settings->throttle);
-    QString cmd = unbuffer + "mksquashfs \"" + bindRootPath + "\" \"" + settings->workDir
-                  + "/iso-template/antiX/linuxfs\" -comp " + settings->compression + " -processors "
-                  + QString::number(settings->cores) + throttle
-                  + (settings->mksqOpt.isEmpty() ? "" : " " + settings->mksqOpt) + " -wildcards -ef " + "\""
-                  + settings->snapshotExcludes.fileName() + "\""
-                  + (settings->sessionExcludes.isEmpty() ? "" : " -e " + settings->sessionExcludes);
-    if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
-        cmd.prepend("umask 022; ");
+    QStringList squashfsArgs {bindRootPath, settings->workDir + "/iso-template/antiX/linuxfs",
+                              "-comp", settings->compression,
+                              "-processors", QString::number(settings->cores)};
+    if (Settings::getDebianVerNum() >= Version::Bookworm) {
+        squashfsArgs << "-throttle" << QString::number(settings->throttle);
     }
+    squashfsArgs += splitShellWords(settings->mksqOpt);
+    squashfsArgs << "-wildcards" << "-ef" << settings->snapshotExcludes.fileName();
+    const QStringList sessionExcludes = splitShellWords(settings->sessionExcludes);
+    if (!sessionExcludes.isEmpty()) {
+        squashfsArgs << "-e";
+        squashfsArgs += sessionExcludes;
+    }
+
+    QString wrapperCommand = useUnbuffer ? "unbuffer" : "stdbuf";
+    QStringList wrapperArgs;
+    if (!useUnbuffer) {
+        wrapperArgs << "-o0";
+    }
+    wrapperArgs << "mksquashfs";
+    wrapperArgs += squashfsArgs;
+
     emit message(tr("Squashing filesystem..."));
-    if (!shell.runAsRoot(cmd)) {
+    if (!shell.procAsRoot(wrapperCommand, wrapperArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create linuxfs file, please check /var/log/%1.log").arg(QCoreApplication::applicationName()));
@@ -390,10 +427,14 @@ bool Work::createIso(const QString &filename)
 
     // Create the iso file
     QDir::setCurrent(settings->workDir + "/iso-template");
-    cmd = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table "
+    QString cmd
+        = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table "
           "-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c "
           "boot/isolinux/isolinux.cat -o \""
           + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+    if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
+        cmd.prepend("umask 022; ");
+    }
     emit message(tr("Creating CD/DVD image file..."));
     if (!shell.run(cmd)) {
         emit messageBox(
@@ -433,8 +474,8 @@ bool Work::createIso(const QString &filename)
 bool Work::installPackage(const QString &package)
 {
     emit message(tr("Installing ") + package);
-    shell.runAsRoot("apt-get update");
-    if (!shell.runAsRoot("apt-get install -y " + package)) {
+    shell.procAsRoot("apt-get", {"update"}, nullptr, nullptr, Cmd::QuietMode::No);
+    if (!shell.procAsRoot("apt-get", {"install", "-y", package}, nullptr, nullptr, Cmd::QuietMode::No)) {
         emit messageBox(BoxType::critical, tr("Error"), tr("Could not install ") + package);
         return false;
     }
@@ -474,7 +515,8 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         // Free pagecache
         shell.run("sync; sleep 1");
         const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-        Cmd().runAsRoot(snapshotLib + " drop_caches");
+        const QString elevateTool = Cmd::elevationTool();
+        Cmd().run(elevateTool + " " + snapshotLib + " drop_caches");
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -615,22 +657,29 @@ void Work::setupEnv()
     }
 
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
-    const QString baseCmd = "installed-to-live -F -b " + bindRootPath + " start ";
     if (settings->resetAccounts) {
-        if (!shell.runAsRoot(baseCmd + bind_boot + "empty=/home general version-file")) {
+        QStringList args {"-F", "-b", bindRootPath, "start"};
+        if (!bind_boot.isEmpty()) {
+            args << "bind=/boot";
+        }
+        args << "empty=/home" << "general" << "version-file";
+        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
         }
     } else {
-        if (!shell.runAsRoot(baseCmd + "bind=/home" + bind_boot_too + " live-files version-file adjtime")) {
+        QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home" + bind_boot_too,
+                          "live-files", "version-file", "adjtime"};
+        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
         }
     }
     if (!bindRootOverlayActive) {
-        shell.runAsRoot("installed-to-live -b " + bindRootPath + " read-only", Cmd::QuietMode::Yes);
+        shell.procAsRoot("installed-to-live", {"-b", bindRootPath, "read-only"}, nullptr, nullptr,
+                         Cmd::QuietMode::Yes);
     }
 }
 
@@ -942,10 +991,10 @@ quint64 Work::getRequiredSpace()
                 excludeList.write("\0", 1);
             }
             excludeList.flush();
-            const QString cmd = settings->live ? "du -sc -P --apparent-size" : "du -sxc -P";
-            const QString cmdLine = cmd + " --files0-from=\"" + excludeList.fileName() + "\""
-                                    + " 2>/dev/null | tail -1 | cut -f1";
-            excl_size = shell.getOutAsRoot(cmdLine).toULongLong(&ok);
+            QStringList duArgs = settings->live ? QStringList {"-sc", "-P", "--apparent-size"}
+                                                : QStringList {"-sxc", "-P"};
+            duArgs << "--files0-from=" + excludeList.fileName();
+            excl_size = parseDuKilobytes(shell.getOutAsRoot("du", duArgs, Cmd::QuietMode::Yes), &ok);
             excludeList.close();
         }
     }
@@ -956,10 +1005,10 @@ quint64 Work::getRequiredSpace()
     }
     emit message(tr("Calculating size of root..."));
     quint64 root_size = 0;
-    QString cmd;
     if (settings->live) {
-        cmd = "du -s -P --apparent-size";
-        root_size = shell.getOutAsRoot(cmd + " \"" + sizeRoot + "\" 2>/dev/null |tail -1 |cut -f1").toULongLong(&ok);
+        root_size = parseDuKilobytes(shell.getOutAsRoot("du", {"-s", "-P", "--apparent-size", sizeRoot},
+                                                        Cmd::QuietMode::Yes),
+                                     &ok);
     } else {
         ok = rootInfo.isValid() && rootInfo.isReady();
         if (ok) {

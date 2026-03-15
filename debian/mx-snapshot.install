@@ -7,7 +7,7 @@ mx-snapshot-exclude.list	etc
 mx-snapshot.conf		etc
 mx-snapshot.desktop		usr/share/applications
 polkit/*mx-snapshot*.policy	usr/share/polkit-1/actions
-polkit/helper			usr/lib/mx-snapshot
+obj-*/helper			usr/lib/mx-snapshot
 polkit/snapshot-lib		usr/lib/mx-snapshot
 scripts/*			usr/share/mx-snapshot/scripts
 obj-*/*.qm			usr/share/mx-snapshot/locale

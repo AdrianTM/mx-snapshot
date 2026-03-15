@@ -17,12 +17,18 @@ public:
     // preferring sudo in CLI, pkexec in GUI. Empty if none found.
     static QString elevationTool();
     static bool isCliMode();
+    static QString loggedInUserName();
 
-    [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
-    [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
+    bool proc(const QString &cmd, const QStringList &args = {}, QString *output = nullptr,
+              const QByteArray *input = nullptr, QuietMode quiet = QuietMode::No,
+              Elevation elevation = Elevation::No);
+    bool procAsRoot(const QString &cmd, const QStringList &args = {}, QString *output = nullptr,
+                    const QByteArray *input = nullptr, QuietMode quiet = QuietMode::No);
+    [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No);
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, const QStringList &args = {},
+                                       QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString readAllOutput();
-    bool run(const QString &cmd, QuietMode quiet = QuietMode::No, Elevation elevation = Elevation::No);
-    bool runAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
+    bool run(const QString &cmd, QuietMode quiet = QuietMode::No);
 
 signals:
     void done();
@@ -36,5 +42,8 @@ private:
     static constexpr int EXIT_CODE_COMMAND_NOT_FOUND = 127;
     static constexpr int EXIT_CODE_PERMISSION_DENIED = 126;
 
+    bool helperProc(const QStringList &helperArgs, QString *output = nullptr, const QByteArray *input = nullptr,
+                    QuietMode quiet = QuietMode::No);
+    [[nodiscard]] static QStringList helperExecArgs(const QString &cmd, const QStringList &args);
     void handleElevationError();
 };

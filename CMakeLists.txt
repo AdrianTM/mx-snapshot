@@ -115,6 +115,10 @@ set(COMMON_HEADERS
     src/messagehandler.h
 )
 
+set(HELPER_SOURCES
+    src/helper.cpp
+)
+
 # GUI-specific source files
 set(GUI_SOURCES
     src/mainwindow.cpp
@@ -160,6 +164,19 @@ if(BUILD_GUI)
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
     )
 endif()
+
+add_executable(helper
+    ${HELPER_SOURCES}
+)
+
+target_link_libraries(helper
+    Qt6::Core
+)
+
+set_target_properties(helper PROPERTIES
+    OUTPUT_NAME "helper"
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
+)
 
 # Create CLI executable
 if(BUILD_CLI)
@@ -236,6 +253,8 @@ endif()
 if(BUILD_CLI)
     set_common_properties(iso-snapshot-cli)
 endif()
+
+set_common_properties(helper)
 
 # Handle translations
 if(BUILD_GUI)

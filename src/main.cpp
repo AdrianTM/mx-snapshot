@@ -37,6 +37,7 @@
 #ifndef CLI_BUILD
 #include "mainwindow.h"
 #include <QApplication>
+#include <QIcon>
 #include <QMessageBox>
 #endif
 
@@ -203,6 +204,7 @@ int main(int argc, char *argv[])
             }
         }
         app = new QApplication(argc, argv);
+        QApplication::setWindowIcon(QIcon::fromTheme("mx-snapshot"));
         QApplication::setApplicationDisplayName(QObject::tr("MX Snapshot"));
     }
 #endif
