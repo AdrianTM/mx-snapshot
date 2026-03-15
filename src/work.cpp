@@ -330,7 +330,13 @@ void Work::copyNewIso()
     emit message(tr("Copying the new-iso filesystem..."));
     QDir::setCurrent(settings->workDir);
 
-    shell.run("tar xf /usr/lib/iso-template/iso-template.tar.gz");
+    // Use multi-init template if available and both init systems are installed
+    if (QFile::exists("/usr/lib/iso-template/iso-template-multi.tar.gz")
+        && QFile::exists("/usr/lib/sysvinit/init") && QFile::exists("/usr/lib/systemd/systemd")) {
+        shell.run("tar xf /usr/lib/iso-template/iso-template-multi.tar.gz");
+    } else {
+        shell.run("tar xf /usr/lib/iso-template/iso-template.tar.gz");
+    }
     shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
     shell.run("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
 
