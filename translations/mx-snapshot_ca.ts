@@ -138,17 +138,17 @@
 <context>
     <name>Cmd</name>
     <message>
-        <location filename="../src/cmd.cpp" line="82"/>
+        <location filename="../src/cmd.cpp" line="101"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
         <translation>No s&apos;ha trobat cap eina d&apos;elevació (pkexec / gksu / sudo).</translation>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="116"/>
+        <location filename="../src/cmd.cpp" line="171"/>
         <source>Administrator Access Required</source>
         <translation>Cal accés com a Administrador</translation>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="117"/>
+        <location filename="../src/cmd.cpp" line="172"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
         <translation>Per aquesta operació cal tenir privilegis d&apos;administrador: Si us plau, torneu a arrencar l&apos;aplicació i entreu la vostra contrasenya quan la demani.</translation>
     </message>
@@ -531,7 +531,7 @@
         <location filename="../src/mainwindow.cpp" line="627"/>
         <location filename="../src/mainwindow.cpp" line="709"/>
         <location filename="../src/mainwindow.cpp" line="728"/>
-        <location filename="../src/mainwindow.cpp" line="967"/>
+        <location filename="../src/mainwindow.cpp" line="966"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -738,27 +738,27 @@
         <translation>Llicència de %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="955"/>
+        <location filename="../src/mainwindow.cpp" line="954"/>
         <source>%1 Help</source>
         <translation>Ajuda de %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="960"/>
+        <location filename="../src/mainwindow.cpp" line="959"/>
         <source>Select Snapshot Directory</source>
         <translation>Trieu el directori de la instantània </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="968"/>
+        <location filename="../src/mainwindow.cpp" line="967"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
         <translation>No hi ha prou espai lliure al directori seleccionat. Trieu una ubicació diferent.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="988"/>
+        <location filename="../src/mainwindow.cpp" line="987"/>
         <source>Confirmation</source>
         <translation>Confirmació</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="988"/>
+        <location filename="../src/mainwindow.cpp" line="987"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Segur que voleu sortir de l&apos;aplicació?</translation>
     </message>
@@ -766,298 +766,298 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="94"/>
+        <location filename="../src/main.cpp" line="95"/>
         <source>Tool used for creating a live-CD from the running system</source>
         <translation>Eina per crear CD autònoms a partir del sistema en execució</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="98"/>
+        <location filename="../src/main.cpp" line="99"/>
         <source>Use CLI only</source>
         <translation>Usa només CLI</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="102"/>
+        <location filename="../src/main.cpp" line="103"/>
         <source>Number of CPU cores to be used.</source>
         <translation>Nombre de nuclis d&apos;E/S que s&apos;usaran.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="103"/>
+        <location filename="../src/main.cpp" line="104"/>
         <source>Output directory</source>
         <translation>Directori de sortida</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="104"/>
+        <location filename="../src/main.cpp" line="105"/>
         <source>Output filename</source>
         <translation>Nom del fitxer de sortida</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="106"/>
+        <location filename="../src/main.cpp" line="107"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
         <translation>Anomeneu un kernel diferent que l&apos;usat per omissió, useu el format que retorna l&apos;ordre &apos;uname -r&apos;</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="108"/>
+        <location filename="../src/main.cpp" line="109"/>
         <source>Or the full path: %1</source>
         <translation>O el camí sencer: %1</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="111"/>
+        <location filename="../src/main.cpp" line="112"/>
         <source>Compression level options.</source>
         <translation>Opcions del nivell de compressió.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="112"/>
+        <location filename="../src/main.cpp" line="113"/>
         <source>Use quotes: &quot;-Xcompression-level &lt;level&gt;&quot;, or &quot;-Xalgorithm &lt;algorithm&gt;&quot;, or &quot;-Xhc&quot;, see mksquashfs man page</source>
         <translation>Useu cometes dobles: &quot;-Xcompression-level &lt;level&gt;&quot;, o &quot;-Xalgorithm &lt;algorithm&gt;&quot;, o &quot;-Xhc&quot;, vegeu la pàgina man de mksquashfs</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="116"/>
+        <location filename="../src/main.cpp" line="117"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
         <translation>Crea una instantània mensual, afegiu el nom &apos;Month&apos; al nom de la ISO, s&apos;omet l&apos;ús del càlcul de mida</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="117"/>
+        <location filename="../src/main.cpp" line="118"/>
         <source>This option sets reset-accounts and compression to defaults, arguments changing those items will be ignored</source>
         <translation>Aquesta opció defineix reset-accounts i compression als valors per omissió, s&apos;ignoraran els arguments que canviïn aquests paràmetres</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="119"/>
+        <location filename="../src/main.cpp" line="120"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
         <translation>Opcionalment, especifiqueu un sufix per afegir al nom del mes (per exemple, 1 per a juliol.1)</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="120"/>
+        <location filename="../src/main.cpp" line="121"/>
         <source>Don&apos;t calculate checksums for resulting ISO file</source>
         <translation>No calcula la suma de verificació per a l&apos;ISO resultant</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="121"/>
+        <location filename="../src/main.cpp" line="122"/>
         <source>Skip calculating free space to see if the resulting ISO will fit</source>
         <translation>Ometre el càlcul d&apos;espai lliure per saber si el fitxer ISO resultant hi cap</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="122"/>
+        <location filename="../src/main.cpp" line="123"/>
         <source>Option to fix issue with calculating checksums on preempt_rt kernels</source>
         <translation>Opció per esmenar el problema causat pel càlcul de les sumes de verificació als nuclis preempt_rt</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="123"/>
+        <location filename="../src/main.cpp" line="124"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Es restableixen els comptes (per distribuir a tercers) </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="124"/>
+        <location filename="../src/main.cpp" line="125"/>
         <source>Calculate checksums for resulting ISO file</source>
         <translation>Calcula la suma de verificació per a l&apos;ISO resultant</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="126"/>
+        <location filename="../src/main.cpp" line="127"/>
         <source>Throttle the I/O input rate by the given percentage. This can be used to reduce the I/O and CPU consumption of Mksquashfs.</source>
         <translation>Ajusta el règim d&apos;entrada d&apos;E/S amb el percentatge donat. Es pot usar per reduir l&apos;E/S i el consum de CPU de Mksquashfs.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="129"/>
+        <location filename="../src/main.cpp" line="130"/>
         <source>Work directory</source>
         <translation>Directori de treball</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="131"/>
+        <location filename="../src/main.cpp" line="132"/>
         <source>Exclude main folders, valid choices: </source>
         <translation>Exclou les carpetes principals, opcions vàlides: </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="133"/>
+        <location filename="../src/main.cpp" line="134"/>
         <source>Use the option one time for each item you want to exclude</source>
         <translation>Useu l&apos;opció un cop per cada ítem que vulgueu excloure</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="136"/>
+        <location filename="../src/main.cpp" line="137"/>
         <source>Compression format, valid choices: </source>
         <translation>Format de compressió, opcions vàlides: </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="138"/>
+        <location filename="../src/main.cpp" line="139"/>
         <source>Shutdown computer when done.</source>
         <translation>Tanca l&apos;ordinador en acabar.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="211"/>
+        <location filename="../src/main.cpp" line="213"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Sembla que esteu connectat com a administrador, si us plau sortiu i connecteu-vos com a usuari normal per usar aquest programa.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="229"/>
+        <location filename="../src/main.cpp" line="231"/>
         <source>version:</source>
         <translation>versió:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="223"/>
+        <location filename="../src/main.cpp" line="225"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Cal executar aquest programa amb sudo o pkexec.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="206"/>
+        <location filename="../src/main.cpp" line="208"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot </translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="213"/>
-        <location filename="../src/main.cpp" line="281"/>
-        <location filename="../src/settings.cpp" line="527"/>
-        <location filename="../src/settings.cpp" line="535"/>
-        <location filename="../src/settings.cpp" line="1065"/>
-        <location filename="../src/settings.cpp" line="1159"/>
+        <location filename="../src/main.cpp" line="215"/>
+        <location filename="../src/main.cpp" line="283"/>
+        <location filename="../src/settings.cpp" line="524"/>
+        <location filename="../src/settings.cpp" line="532"/>
+        <location filename="../src/settings.cpp" line="1062"/>
+        <location filename="../src/settings.cpp" line="1156"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="280"/>
-        <location filename="../src/settings.cpp" line="534"/>
+        <location filename="../src/main.cpp" line="282"/>
+        <location filename="../src/settings.cpp" line="531"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no dona suport a Squashfs, no puc continuar.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="113"/>
+        <location filename="../src/settings.cpp" line="97"/>
         <source>Failed to initialize configuration</source>
         <translation>Ha fallat iniciar la configuració.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="147"/>
+        <location filename="../src/settings.cpp" line="131"/>
         <source>Configuration validation failed</source>
         <translation>Ha fallat la validació de la configuració.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="152"/>
+        <location filename="../src/settings.cpp" line="136"/>
         <source>Exception during initialization: %1</source>
         <translation>Excepció durant la inicialització: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="155"/>
+        <location filename="../src/settings.cpp" line="139"/>
         <source>Unknown exception during initialization</source>
         <translation>Excepció desconeguda durant la inicialització</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="186"/>
+        <location filename="../src/settings.cpp" line="170"/>
         <source>Could not create work directory. </source>
         <translation>No s&apos;ha pogut crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="210"/>
+        <location filename="../src/settings.cpp" line="197"/>
         <source>Could not create temp directory:</source>
         <translation>No s&apos;ha pogut crear el directori temporal:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="211"/>
+        <location filename="../src/settings.cpp" line="198"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Si us plau, comproveu que el directori principal existeixi i que s&apos;hi pugui escriure:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="229"/>
+        <location filename="../src/settings.cpp" line="216"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>El format de compressió %1 no és compatible amb el nucli actual.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="222"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Configuració de nuclis no vàlida: %1. Ha de ser entre 1 i %2.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="241"/>
+        <location filename="../src/settings.cpp" line="228"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Configuració de l&apos;accelerador no vàlida: %1. Ha de ser entre 0 i 20.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="247"/>
+        <location filename="../src/settings.cpp" line="234"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>El directori d&apos;instantànies no pot estar buit.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="255"/>
+        <location filename="../src/settings.cpp" line="242"/>
         <source>Snapshot name cannot be empty</source>
         <translation>El nom de la instantània no pot estar buit.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="261"/>
+        <location filename="../src/settings.cpp" line="248"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>El nom de la instantània conté caràcters no vàlids: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="267"/>
+        <location filename="../src/settings.cpp" line="254"/>
         <source>Kernel version cannot be empty</source>
         <translation>La versió del nucli no pot estar buida.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="272"/>
+        <location filename="../src/settings.cpp" line="259"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>No s&apos;ha trobat el fitxer del nucli: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="278"/>
+        <location filename="../src/settings.cpp" line="265"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>El nucli %1 no admet Squashfs.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="309"/>
+        <location filename="../src/settings.cpp" line="296"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>El fitxer d&apos;exclusió no existeix: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="318"/>
+        <location filename="../src/settings.cpp" line="305"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Cites desequilibrades a la llista d&apos;exclusions</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="343"/>
+        <location filename="../src/settings.cpp" line="330"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Espai lliure insuficient: %1 KiB disponible, el mínim requerit és de %2 KiB.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="350"/>
+        <location filename="../src/settings.cpp" line="337"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Espai lliure insuficient al directori de treball: %1 KiB disponible, el mínim requerit és de %2 KiB.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="365"/>
+        <location filename="../src/settings.cpp" line="352"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>No s&apos;ha pogut determinar el nombre de nuclis de CPU.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="371"/>
+        <location filename="../src/settings.cpp" line="358"/>
         <source>Configuration file does not exist: %1</source>
         <translation>El fitxer de configuració no existeix: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="372"/>
+        <location filename="../src/settings.cpp" line="359"/>
         <source>Using default settings</source>
         <translation>S&apos;usa la configuració predeterminada.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="374"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Cannot read configuration file: %1</source>
         <translation>No es pot llegir el fitxer de configuració: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="375"/>
+        <location filename="../src/settings.cpp" line="362"/>
         <source>Error: %1</source>
         <translation>Error: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="385"/>
+        <location filename="../src/settings.cpp" line="372"/>
         <source>Required tool not found: %1</source>
         <translation>No s&apos;ha trobat l&apos;eina necessària: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="394"/>
+        <location filename="../src/settings.cpp" line="381"/>
         <source>Required directory not found: %1</source>
         <translation>No s&apos;ha trobat el directori requerit: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="413"/>
+        <location filename="../src/settings.cpp" line="400"/>
         <source>Initialization Error</source>
         <translation>Error d&apos;inicialització</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="414"/>
+        <location filename="../src/settings.cpp" line="401"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -1066,47 +1066,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="525"/>
+        <location filename="../src/settings.cpp" line="522"/>
         <source>Could not find a usable kernel</source>
         <translation>No he trobat un kernel utilitzable</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="526"/>
+        <location filename="../src/settings.cpp" line="523"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>S&apos;han cercat fitxers del nucli a /boot/, però no s&apos;han trobat ni s&apos;hi pot accedir.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="547"/>
+        <location filename="../src/settings.cpp" line="544"/>
         <source>No users found in the system</source>
         <translation>No s&apos;han trobat usuaris al sistema.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="550"/>
+        <location filename="../src/settings.cpp" line="547"/>
         <source>Failed to determine system information</source>
         <translation>No s&apos;ha pogut determinar la informació del sistema.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="644"/>
+        <location filename="../src/settings.cpp" line="641"/>
         <source>Used space on / (root): </source>
         <translation>Espai usat a / (arrel): </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="647"/>
+        <location filename="../src/settings.cpp" line="644"/>
         <source>estimated</source>
         <translation>estimat</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="656"/>
+        <location filename="../src/settings.cpp" line="653"/>
         <source>Used space on /home: </source>
         <translation>Espai usat a /home: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="712"/>
+        <location filename="../src/settings.cpp" line="709"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Espai lliure a %1, on es desarà la instantània: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="716"/>
+        <location filename="../src/settings.cpp" line="713"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -1116,89 +1116,100 @@
         <translation>L&apos;espai lliure hauria de ser suficient per encabir-hi les dades comprimides de / i /home.      Si cal, podeu disposar de més espai si suprimiu instantànies      anteriors i còpies desades:       %1 instantànies usen fins a %2 d&apos;espai de disc.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="730"/>
+        <location filename="../src/settings.cpp" line="727"/>
         <source>Desktop</source>
         <translation>Escriptori</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="731"/>
+        <location filename="../src/settings.cpp" line="728"/>
         <source>Documents</source>
         <translation>Documents</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="732"/>
+        <location filename="../src/settings.cpp" line="729"/>
         <source>Downloads</source>
         <translation>Baixades </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="733"/>
+        <location filename="../src/settings.cpp" line="730"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="734"/>
+        <location filename="../src/settings.cpp" line="731"/>
         <source>Music</source>
         <translation>Música</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="735"/>
+        <location filename="../src/settings.cpp" line="732"/>
         <source>Networks</source>
         <translation>Xarxes</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="736"/>
+        <location filename="../src/settings.cpp" line="733"/>
         <source>Pictures</source>
         <translation>Imatges</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="738"/>
+        <location filename="../src/settings.cpp" line="735"/>
         <source>Videos</source>
         <translation>Vídeos</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="887"/>
+        <location filename="../src/settings.cpp" line="884"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Error en llegir el fitxer de configuració del sistema: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="895"/>
+        <location filename="../src/settings.cpp" line="892"/>
         <source>Error accessing user configuration</source>
         <translation>Error en accedir a la configuració de l&apos;usuari</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="947"/>
+        <location filename="../src/settings.cpp" line="944"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation>No puc copiar el fitxer d&apos;exclusions de %1 a %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="972"/>
+        <location filename="../src/settings.cpp" line="969"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Paràmetre de nuclis desat no vàlid (%1). Usant el compte de CPUs detectat, compte: %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1063"/>
-        <location filename="../src/settings.cpp" line="1157"/>
+        <location filename="../src/settings.cpp" line="1060"/>
+        <location filename="../src/settings.cpp" line="1154"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>El fitxer de sortida %1 ja hi és. Si us plau, useu un altre nom de fitxer, o esborreu el fitxer existent.</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="70"/>
+        <location filename="../src/about.cpp" line="73"/>
+        <source>Could not load %1</source>
+        <translation>No s&apos;ha pogut carregar %1</translation>
+    </message>
+    <message>
+        <location filename="../src/about.cpp" line="96"/>
         <source>License</source>
         <translation>Llicència</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="71"/>
-        <location filename="../src/about.cpp" line="81"/>
+        <location filename="../src/about.cpp" line="97"/>
+        <location filename="../src/about.cpp" line="107"/>
         <source>Changelog</source>
         <translation>Registre de canvis</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="72"/>
+        <location filename="../src/about.cpp" line="98"/>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
     <message>
-        <location filename="../src/about.cpp" line="94"/>
+        <location filename="../src/about.cpp" line="119"/>
+        <source>Could not load changelog.</source>
+        <translation>No s&apos;ha pogut carregar el registre de canvis.</translation>
+    </message>
+    <message>
+        <location filename="../src/about.cpp" line="53"/>
+        <location filename="../src/about.cpp" line="122"/>
         <source>&amp;Close</source>
         <translation>Tan&amp;ca </translation>
     </message>
@@ -1206,146 +1217,146 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="147"/>
+        <location filename="../src/work.cpp" line="173"/>
         <source>Cleaning...</source>
         <translation>Endreçant... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="163"/>
-        <location filename="../src/work.cpp" line="420"/>
+        <location filename="../src/work.cpp" line="189"/>
+        <location filename="../src/work.cpp" line="461"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="175"/>
+        <location filename="../src/work.cpp" line="201"/>
         <source>Interrupted or failed to complete</source>
         <translation>Aturat o fallat en completar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="211"/>
-        <location filename="../src/work.cpp" line="376"/>
-        <location filename="../src/work.cpp" line="400"/>
-        <location filename="../src/work.cpp" line="438"/>
-        <location filename="../src/work.cpp" line="578"/>
-        <location filename="../src/work.cpp" line="612"/>
-        <location filename="../src/work.cpp" line="621"/>
-        <location filename="../src/work.cpp" line="627"/>
+        <location filename="../src/work.cpp" line="237"/>
+        <location filename="../src/work.cpp" line="413"/>
+        <location filename="../src/work.cpp" line="441"/>
+        <location filename="../src/work.cpp" line="479"/>
+        <location filename="../src/work.cpp" line="620"/>
+        <location filename="../src/work.cpp" line="654"/>
+        <location filename="../src/work.cpp" line="667"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="212"/>
+        <location filename="../src/work.cpp" line="238"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hi ha prou espai lliure al vostre disc objectiu, us cal com a mínim %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="215"/>
+        <location filename="../src/work.cpp" line="241"/>
         <source>You have %1 free space on %2</source>
         <translation>Teniu un espai lliure de %1  a %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="218"/>
+        <location filename="../src/work.cpp" line="244"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si teniu la seguretat de tenir prou espai lliure, torneu a executar el programa amb l&apos;opció -o/--override-size </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="330"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiant el sistema de fitxers del nou-iso: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="316"/>
+        <location filename="../src/work.cpp" line="342"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="373"/>
+        <location filename="../src/work.cpp" line="410"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="377"/>
+        <location filename="../src/work.cpp" line="414"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>No he pogut crear el fitxer linuxfs, si us plau comproveu /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="397"/>
+        <location filename="../src/work.cpp" line="438"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="401"/>
+        <location filename="../src/work.cpp" line="442"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No he pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="407"/>
+        <location filename="../src/work.cpp" line="448"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="425"/>
+        <location filename="../src/work.cpp" line="466"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="426"/>
+        <location filename="../src/work.cpp" line="467"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="427"/>
+        <location filename="../src/work.cpp" line="468"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="428"/>
+        <location filename="../src/work.cpp" line="469"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="435"/>
+        <location filename="../src/work.cpp" line="476"/>
         <source>Installing </source>
         <translation>S&apos;instal·la </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="438"/>
+        <location filename="../src/work.cpp" line="479"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="448"/>
+        <location filename="../src/work.cpp" line="489"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="488"/>
+        <location filename="../src/work.cpp" line="530"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="579"/>
+        <location filename="../src/work.cpp" line="621"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="613"/>
+        <location filename="../src/work.cpp" line="655"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>No s&apos;ha pogut preparar una superposició d&apos;arrel de vinculació segura. La instantània no pot continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
-        <location filename="../src/work.cpp" line="628"/>
+        <location filename="../src/work.cpp" line="668"/>
+        <location filename="../src/work.cpp" line="676"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>No s&apos;ha pogut preparar l&apos;entorn d&apos;arrel de vinculació de la instantània.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="931"/>
+        <location filename="../src/work.cpp" line="980"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="957"/>
+        <location filename="../src/work.cpp" line="1006"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>
