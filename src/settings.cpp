@@ -89,22 +89,7 @@ QString ensureCowSpacesize(QString options)
 
 QString loggedInUserName()
 {
-    QString username = qEnvironmentVariable("SUDO_USER");
-    if (username.isEmpty()) {
-        username = qEnvironmentVariable("LOGNAME");
-    }
-    if (username.isEmpty()) {
-        username = qEnvironmentVariable("USER");
-    }
-
-    if (username.isEmpty() || username == QLatin1String("root")) {
-        const QString logname = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
-        if (!logname.isEmpty() && logname != QLatin1String("root")) {
-            username = logname;
-        }
-    }
-
-    return username;
+    return Cmd::loggedInUserName();
 }
 
 QString userConfigBaseDir()
@@ -131,8 +116,7 @@ void chownFileToLoggedInUser(const QString &path)
     if (!fileInfo.exists() || fileInfo.isWritable()) {
         return;
     }
-    const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, path);
-    Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("chown", {username + ":", path}, nullptr, nullptr, Cmd::QuietMode::Yes);
 }
 
 } // namespace
@@ -229,11 +213,14 @@ void Settings::addRemoveExclusion(bool add, QString exclusion)
 bool Settings::checkSnapshotDir() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (!Cmd().runAsRoot("mkdir -p \"" + snapshotDir + '"', Cmd::QuietMode::No)) {
+    if (!Cmd().procAsRoot("mkdir", {"-p", snapshotDir}, nullptr, nullptr, Cmd::QuietMode::No)) {
         qDebug() << QObject::tr("Could not create work directory. ") + snapshotDir;
         return false;
     }
-    Cmd().runAsRoot("chown $(logname): \"" + snapshotDir + '"');
+    const QString username = loggedInUserName();
+    if (!username.isEmpty()) {
+        Cmd().procAsRoot("chown", {username + ":", snapshotDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
     return true;
 }
 
@@ -545,7 +532,17 @@ QString Settings::getXdgUserDirs(const QString &folder)
         {"MUSIC", "Music"},         {"PICTURES", "Pictures"},  {"VIDEOS", "Videos"},
     };
     for (const QString &user : std::as_const(users)) {
-        QString dir = Cmd().getOutAsRoot("runuser " + user + " -c \"xdg-user-dir " + folder + "\" 2>/dev/null");
+        QString dir
+            = Cmd().getOutAsRoot("runuser", {"-u", user, "--", "/usr/bin/xdg-user-dir", folder}, Cmd::QuietMode::Yes);
+        const QStringList lines = dir.split('\n', Qt::SkipEmptyParts);
+        dir.clear();
+        for (const QString &line : lines) {
+            const QString candidate = line.trimmed();
+            if (candidate.startsWith('/')) {
+                dir = candidate;
+                break;
+            }
+        }
         if (!dir.isEmpty() && englishDirs.value(folder) != dir.section('/', -1) && dir != "/home/" + user
             && dir != "/home/" + user + '/') {
             dir.remove(QRegularExpression("^/"));
@@ -1036,8 +1033,8 @@ void Settings::loadConfig()
                 qDebug() << "Copied exclusion file from" << excludesSourcePath << "to" << userExcludesPath;
                 const QString username = loggedInUserName();
                 if (!username.isEmpty()) {
-                    const QString chownCmd = QStringLiteral("chown %1: \"%2\"").arg(username, userExcludesPath);
-                    Cmd().runAsRoot(chownCmd, Cmd::QuietMode::Yes);
+                    Cmd().procAsRoot("chown", {username + ":", userExcludesPath}, nullptr, nullptr,
+                                     Cmd::QuietMode::Yes);
                 }
             } else {
                 qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")

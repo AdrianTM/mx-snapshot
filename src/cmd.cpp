@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QEventLoop>
 #include <QFile>
-#include <QFileInfo>
+#include <QStringList>
 
 #include <cstdlib>
 #include <unistd.h>
@@ -17,14 +17,14 @@ Cmd::Cmd(QObject *parent)
       helperPath {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
     connect(this, &Cmd::readyReadStandardOutput, [this] {
-        const QString out = readAllStandardOutput();
+        const QString out = QString::fromLocal8Bit(readAllStandardOutput());
         outBuffer += out;
         if (!suppressOutput) {
             emit outputAvailable(out);
         }
     });
     connect(this, &Cmd::readyReadStandardError, [this] {
-        const QString out = readAllStandardError();
+        const QString out = QString::fromLocal8Bit(readAllStandardError());
         outBuffer += out;
         if (!suppressOutput) {
             emit errorAvailable(out);
@@ -88,55 +88,120 @@ bool Cmd::isCliMode()
 #endif
 }
 
-QString Cmd::getOut(const QString &cmd, QuietMode quiet, Elevation elevation)
+QString Cmd::loggedInUserName()
 {
-    outBuffer.clear();
-    run(cmd, quiet, elevation);
-    return outBuffer.trimmed();
+    QString username = qEnvironmentVariable("SUDO_USER");
+    if (username.isEmpty()) {
+        username = qEnvironmentVariable("LOGNAME");
+    }
+    if (username.isEmpty()) {
+        username = qEnvironmentVariable("USER");
+    }
+    if (username.isEmpty() || username == QLatin1String("root")) {
+        username = Cmd().getOut("logname", Cmd::QuietMode::Yes).trimmed();
+    }
+    return username == QLatin1String("root") ? QString() : username;
 }
 
-QString Cmd::getOutAsRoot(const QString &cmd, QuietMode quiet)
+QStringList Cmd::helperExecArgs(const QString &cmd, const QStringList &args)
 {
-    return getOut(cmd, quiet, Elevation::Yes);
+    QStringList helperArgs {"exec", cmd};
+    helperArgs += args;
+    return helperArgs;
 }
 
-bool Cmd::run(const QString &cmd, QuietMode quiet, Elevation elevation)
+QString Cmd::getOut(const QString &cmd, QuietMode quiet)
 {
-    outBuffer.clear();
-    if (state() != QProcess::NotRunning) {
-        qDebug() << "Process already running:" << program() << arguments();
-        return false;
-    }
-    if (quiet == QuietMode::No) {
-        qDebug().noquote() << cmd;
-    }
-    if (elevation == Elevation::Yes && getuid() != 0 && elevationToolPath.isEmpty()) {
+    QString output;
+    run(cmd, quiet);
+    output = outBuffer;
+    return output.trimmed();
+}
+
+QString Cmd::getOutAsRoot(const QString &cmd, const QStringList &args, QuietMode quiet)
+{
+    QString output;
+    procAsRoot(cmd, args, &output, nullptr, quiet);
+    return output;
+}
+
+bool Cmd::helperProc(const QStringList &helperArgs, QString *output, const QByteArray *input, QuietMode quiet)
+{
+    if (getuid() != 0 && elevationToolPath.isEmpty()) {
         const QString message = tr("No elevation tool found (pkexec/gksu/sudo).");
         qWarning().noquote() << message;
         emit errorAvailable(message);
         emit done();
         return false;
     }
+
+    const QString program = (getuid() == 0) ? helperPath : elevationToolPath;
+    QStringList programArgs = helperArgs;
+    if (getuid() != 0) {
+        programArgs.prepend(helperPath);
+    }
+
+    const bool result = proc(program, programArgs, output, input, quiet, Elevation::No);
+    if (exitCode() == EXIT_CODE_PERMISSION_DENIED || exitCode() == EXIT_CODE_COMMAND_NOT_FOUND) {
+        handleElevationError();
+    }
+    return result;
+}
+
+bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, const QByteArray *input, QuietMode quiet,
+               Elevation elevation)
+{
+    if (elevation == Elevation::Yes) {
+        return helperProc(helperExecArgs(cmd, args), output, input, quiet);
+    }
+
+    outBuffer.clear();
+    if (state() != QProcess::NotRunning) {
+        qDebug() << "Process already running:" << program() << arguments();
+        return false;
+    }
+    if (quiet == QuietMode::No) {
+        qDebug() << cmd << args;
+    }
+
     QEventLoop loop;
     const auto conn = connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
-    if (elevation == Elevation::Yes && getuid() != 0) {
-        start(elevationToolPath, {helperPath, cmd});
-    } else {
-        start("/bin/bash", {"-c", cmd});
+    start(cmd, args);
+    if (input && !input->isEmpty()) {
+        write(*input);
     }
+    closeWriteChannel();
     loop.exec();
     disconnect(conn);
-    if (elevation == Elevation::Yes && getuid() != 0
-        && (exitCode() == EXIT_CODE_PERMISSION_DENIED || exitCode() == EXIT_CODE_COMMAND_NOT_FOUND)) {
-        handleElevationError();
+
+    if (output) {
+        *output = outBuffer.trimmed();
     }
     emit done();
     return (exitStatus() == QProcess::NormalExit && exitCode() == 0);
 }
 
+bool Cmd::procAsRoot(const QString &cmd, const QStringList &args, QString *output, const QByteArray *input,
+                     QuietMode quiet)
+{
+    return proc(cmd, args, output, input, quiet, Elevation::Yes);
+}
+
+bool Cmd::run(const QString &cmd, QuietMode quiet)
+{
+    return proc("/bin/bash", {"-c", cmd}, nullptr, nullptr, quiet);
+}
+
 bool Cmd::runAsRoot(const QString &cmd, QuietMode quiet)
 {
-    return run(cmd, quiet, Elevation::Yes);
+    return procAsRoot("bash", {"-c", cmd}, nullptr, nullptr, quiet);
+}
+
+QString Cmd::getOutAsRoot(const QString &cmd, QuietMode quiet)
+{
+    QString output;
+    procAsRoot("bash", {"-c", cmd}, &output, nullptr, quiet);
+    return output;
 }
 
 QString Cmd::readAllOutput()
