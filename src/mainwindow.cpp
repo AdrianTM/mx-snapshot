@@ -65,6 +65,7 @@ MainWindow::MainWindow(Settings *settings, QWidget *parent)
     ui->setupUi(this);
     setConnections();
     setup();
+    restoreGeometry(qt_settings.value("geometry").toByteArray());
     loadSettings();
     listFreeSpace();
     setExclusions();
@@ -989,6 +990,7 @@ void MainWindow::closeApp()
             return;
         }
     }
+    qt_settings.setValue("geometry", saveGeometry());
     cleanUp();
 }
 
