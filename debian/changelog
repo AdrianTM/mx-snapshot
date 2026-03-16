@@ -1,3 +1,9 @@
+mx-snapshot (26.03.2) mx; urgency=medium
+
+  * Save/restore window geometry
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 16 Mar 2026 15:46:48 -0400
+
 mx-snapshot (26.03.1) mx; urgency=medium
 
   * Add multi-init support
