@@ -907,6 +907,8 @@ bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &ke
         mkinitcpioArgs = {"-c", configPath, "-k", kernelPath, "-g", archisoPath};
     }
     emit message(tr("Rebuilding initramfs with: mkinitcpio %1").arg(mkinitcpioArgs.join(' ')));
+    emit message(tr("Note: warnings about missing ipconfig, nfsmount, or nbd-client are harmless — "
+                    "those are only needed for network booting."));
     if (!shell.procAsRoot("mkinitcpio", mkinitcpioArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
         return false;
     }
