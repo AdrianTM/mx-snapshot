@@ -43,7 +43,7 @@ package() {
     cp -a scripts-arch/* "${pkgdir}/usr/share/iso-snapshot-cli/scripts/"
 
     install -dm755 "${pkgdir}/usr/lib/mx-snapshot"
-    install -Dm755 polkit/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
+    install -Dm755 build/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
     install -Dm755 polkit/snapshot-lib "${pkgdir}/usr/lib/mx-snapshot/snapshot-lib"
 
     install -dm755 "${pkgdir}/usr/share/polkit-1/actions"
