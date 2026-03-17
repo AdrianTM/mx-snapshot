@@ -581,11 +581,16 @@ bool Work::createIso(const QString &filename)
     const bool throttleSupported = settings->isArch
                                        ? Cmd().run("mksquashfs -help | grep -q -- -throttle", Cmd::QuietMode::Yes)
                                        : (Settings::getDebianVerNum() >= Version::Bookworm);
+    const bool forceProgressSupported = !useUnbuffer
+                                        && Cmd().run("mksquashfs -help 2>&1 | grep -q -- -progress", Cmd::QuietMode::Yes);
     QStringList squashfsArgs {bindRootPath, squashfsPath,
                               "-comp", settings->compression,
                               "-processors", QString::number(settings->cores)};
     if (throttleSupported) {
         squashfsArgs << "-throttle" << QString::number(settings->throttle);
+    }
+    if (forceProgressSupported) {
+        squashfsArgs << "-progress";
     }
     squashfsArgs += splitShellWords(settings->mksqOpt);
     squashfsArgs << "-wildcards" << "-ef" << settings->snapshotExcludes.fileName();
@@ -598,7 +603,7 @@ bool Work::createIso(const QString &filename)
     QString wrapperCommand = useUnbuffer ? "unbuffer" : "stdbuf";
     QStringList wrapperArgs;
     if (!useUnbuffer) {
-        wrapperArgs << "-o0";
+        wrapperArgs << "-o0" << "-e0";
     }
     wrapperArgs << "mksquashfs";
     wrapperArgs += squashfsArgs;
