@@ -481,10 +481,24 @@ void Work::copyNewIso()
                 // Skip post-rebuild probing; mkinitcpio already verified the target kernel.
             }
             initramfsSource = archisoPath;
-        } else if (QFileInfo::exists("/boot/initramfs-" + settings->kernel + ".img")) {
-            initramfsSource = "/boot/initramfs-" + settings->kernel + ".img";
-        } else if (QFileInfo::exists("/boot/initramfs-linux.img")) {
-            initramfsSource = "/boot/initramfs-linux.img";
+        } else {
+            // /boot/archiso.img doesn't exist — try to create one so the ISO can boot as live media.
+            // A regular initramfs lacks the archiso hook and will fail at switch_root.
+            emit message(tr("No /boot/archiso.img found, attempting to create one..."));
+            if (rebuildArchisoInitramfs(archisoPath, kernelPath)) {
+                initramfsSource = archisoPath;
+            } else {
+                emit messageBox(
+                    BoxType::warning, tr("Warning"),
+                    tr("Could not create /boot/archiso.img (is the 'archiso' package installed?). "
+                       "Falling back to the regular initramfs — the resulting ISO will likely fail to "
+                       "boot (\"Failed to start Switch Root\")."));
+                if (QFileInfo::exists("/boot/initramfs-" + settings->kernel + ".img")) {
+                    initramfsSource = "/boot/initramfs-" + settings->kernel + ".img";
+                } else if (QFileInfo::exists("/boot/initramfs-linux.img")) {
+                    initramfsSource = "/boot/initramfs-linux.img";
+                }
+            }
         }
 
         if (initramfsSource.isEmpty()) {
