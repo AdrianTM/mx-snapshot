@@ -340,7 +340,12 @@ void Work::copyNewIso()
 
     //check to make sure grub mbr is possible
     if (settings->grubmbr) {
-        if (!QFile::exists(settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img")){
+        QString file = settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img";
+        qDebug() << "file is " << file;
+        if (QFile::exists(settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img")){
+            //comment out switch_to_syslinux menus as they don't work when grub is main boot
+            shell.run("sed -i '/^[^#]*switch_to_syslinux/s/^/#/' " + settings->workDir + "/iso-template/boot/grub/config/bootmenu.cfg");
+        } else {
             emit messageBox(
                 BoxType::critical, tr("Error"),
                 tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template"));
