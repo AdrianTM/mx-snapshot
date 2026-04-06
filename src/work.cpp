@@ -337,6 +337,16 @@ void Work::copyNewIso()
     } else {
         shell.run("tar xf /usr/lib/iso-template/iso-template.tar.gz");
     }
+
+    //check to make sure grub mbr is possible
+    if (settings->grubmbr) {
+        if (!QFile::exists(settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img")){
+            emit messageBox(
+                BoxType::critical, tr("Error"),
+                tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template"));
+            cleanUp();
+        }
+    }
     shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
     shell.run("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
 
@@ -388,6 +398,7 @@ void Work::copyNewIso()
 bool Work::createIso(const QString &filename)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+
     // Squash the filesystem copy
     const bool useUnbuffer = checkInstalled("expect");
     using Release::Version;
@@ -438,6 +449,15 @@ bool Work::createIso(const QString &filename)
           "-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c "
           "boot/isolinux/isolinux.cat -o \""
           + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+    
+    //grub for mbr boot instead of isolinux
+    if (settings->grubmbr) {
+        cmd
+            = "xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info "
+              "-b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -isohybrid-apm-hfsplus -isohybrid-gpt-basdat -o \""
+              + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+    }
+          
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
     }

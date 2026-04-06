@@ -84,6 +84,7 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
       editBootMenu(getEditBootMenuSetting()),
       isGuiApp(isGuiApp),
       forceInstaller(getInitialSettings().forceInstaller),
+      grubmbr(argParser.isSet("grub-mbr")),
       live(getInitialSettings().live),
       makeIsohybrid(getInitialSettings().makeIsohybrid),
       configFile("/etc/" + qApp->applicationName() + ".conf"),

@@ -136,7 +136,8 @@ int main(int argc, char *argv[])
             {{"z", "compression"},
              QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
              "format"},
-            {"shutdown", QObject::tr("Shutdown computer when done.")}};
+            {"shutdown", QObject::tr("Shutdown computer when done.")},
+            {"grub-mbr", QObject::tr("Use grub for legacy mbr iso boot instead of isolinux/syslinux.")}};
 
         for (const auto &option : options) {
             parser.addOption(option);
