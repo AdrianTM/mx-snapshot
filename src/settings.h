@@ -124,6 +124,7 @@ public:
     bool resetAccounts {};
     uint cores {};
     uint throttle {};
+    bool grubmbr;
 
     // Phase 3: Runtime state
     QFile snapshotExcludes;
