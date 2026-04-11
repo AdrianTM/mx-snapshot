@@ -24,17 +24,13 @@
 
 #include "batchprocessing.h"
 
-#include <QDateTime>
 #include <QDebug>
-#include <QDir>
-#include <QFile>
-#include <QFileInfo>
-#include <QProcess>
 #include <QRegularExpression>
 #include <QTextStream>
 #include <chrono>
-#include <utime.h>
+#include <cstdlib>
 
+#include "excludesutils.h"
 #include "work.h"
 
 using namespace std::chrono_literals;
@@ -115,53 +111,7 @@ bool Batchprocessing::isSourceExcludesNewer(QString &diffOutput) const
                        << "configured=" << configuredPath
                        << "source=" << sourcePath;
 
-    if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
-        qDebug() << "CLI excludes check: empty path(s)";
-        return false;
-    }
-
-    const QFileInfo configuredInfo(configuredPath);
-    const QFileInfo sourceInfo(sourcePath);
-
-    if (!configuredInfo.exists() || !sourceInfo.exists()) {
-        qDebug() << "CLI excludes check: missing files"
-                 << configuredInfo.exists() << sourceInfo.exists();
-        return false;
-    }
-
-    qDebug() << "CLI excludes check: mtime configured" << configuredInfo.lastModified()
-             << "source" << sourceInfo.lastModified();
-
-    if (sourceInfo.lastModified() <= configuredInfo.lastModified()) {
-        qDebug() << "CLI excludes check: source not newer";
-        return false;
-    }
-
-    QProcess diffProcess;
-    diffProcess.start("diff", {"--unified", configuredPath, sourcePath});
-    if (!diffProcess.waitForFinished()) {
-        qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
-        return false;
-    }
-
-    const int diffResult = diffProcess.exitCode();
-    qDebug() << "CLI excludes check: diff exit code" << diffResult;
-    if (diffResult == 0) {
-        return false;
-    }
-    if (diffResult != 1) {
-        qWarning() << "Unable to compare excludes files with diff:" << configuredPath << sourcePath;
-        return false;
-    }
-
-    diffOutput = QString::fromUtf8(diffProcess.readAllStandardOutput());
-    if (diffOutput.isEmpty()) {
-        diffOutput = QString::fromUtf8(diffProcess.readAllStandardError());
-    }
-    if (diffOutput.isEmpty()) {
-        diffOutput = tr("No diff output available.");
-    }
-    return true;
+    return ExcludesUtils::isSourceExcludesNewer(configuredPath, sourcePath, diffOutput);
 }
 
 QString Batchprocessing::colorizeDiffAnsi(const QString &diff) const
@@ -192,38 +142,7 @@ QString Batchprocessing::colorizeDiffAnsi(const QString &diff) const
 
 bool Batchprocessing::resetCustomExcludesCli(const QString &configuredPath, const QString &sourcePath) const
 {
-    if (sourcePath.isEmpty() || configuredPath.isEmpty()) {
-        return false;
-    }
-
-    if (!QFileInfo::exists(sourcePath)) {
-        qWarning().noquote() << tr("Default exclusion file not found at %1.").arg(sourcePath);
-        return false;
-    }
-
-    const QString targetDir = QFileInfo(configuredPath).absolutePath();
-    if (!targetDir.isEmpty()) {
-        QDir().mkpath(targetDir);
-    }
-
-    if (QFileInfo::exists(configuredPath)) {
-        const QString backupPath = configuredPath + "." + QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
-        if (!QFile::copy(configuredPath, backupPath)) {
-            qWarning().noquote() << tr("Could not backup existing exclusion file to %1.").arg(backupPath);
-        }
-        if (!QFile::remove(configuredPath)) {
-            qWarning().noquote() << tr("Could not remove existing exclusion file at %1.").arg(configuredPath);
-            return false;
-        }
-    }
-
-    if (!QFile::copy(sourcePath, configuredPath)) {
-        qWarning().noquote()
-            << tr("Could not copy default exclusion file from %1 to %2.").arg(sourcePath, configuredPath);
-        return false;
-    }
-
-    return true;
+    return ExcludesUtils::resetCustomExcludes(configuredPath, sourcePath);
 }
 
 void Batchprocessing::checkUpdatedDefaultExcludesCli()
@@ -280,15 +199,7 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
 
         if (response.compare(keepOptionKey, Qt::CaseInsensitive) == 0
             || response.compare(keepOptionText, Qt::CaseInsensitive) == 0) {
-            utimbuf times {};
-            times.actime = QFileInfo(configuredPath).lastRead().toSecsSinceEpoch();
-            times.modtime = QDateTime::currentSecsSinceEpoch();
-            const int utimeResult = utime(configuredPath.toLocal8Bit().constData(), &times);
-            if (utimeResult == 0) {
-                qDebug() << "Updated modification time for custom excludes file via utime" << configuredPath;
-            } else {
-                qWarning() << "Failed to update modification time for custom excludes file" << configuredPath;
-            }
+            [[maybe_unused]] const bool touched = ExcludesUtils::touchExcludesTimestamp(configuredPath);
             return;
         }
 
@@ -298,9 +209,9 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
             const bool debugStop = qEnvironmentVariableIsSet("MX_SNAPSHOT_EXCLUDES_DEBUG_STOP");
             if (debugStop) {
                 qDebug() << "Debug stop requested; exiting after excludes check.";
-                QCoreApplication::exit(0);
+                std::exit(0);
             } else {
-                QCoreApplication::exit(EXIT_SUCCESS);
+                std::exit(EXIT_SUCCESS);
             }
             return; // exit requested
         }
@@ -311,7 +222,7 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
 
 void Batchprocessing::checkNvidiaGraphicsCard()
 {
-    if (work.shell.run("glxinfo | grep -q NVIDIA")) {
+    if (ExcludesUtils::hasNvidiaGraphicsCard(work.shell)) {
         qDebug() << tr("This computer uses an NVIDIA graphics card. Are you planning to use the "
                        "resulting ISO on the same computer or another computer with an NVIDIA card?")
                 + " yes/no";

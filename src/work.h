@@ -71,6 +71,9 @@ signals:
     void messageBox(BoxType box_type, const QString &title, const QString &msg);
 
 private:
+    // Utility
+    [[nodiscard]] static QString snapshotLibPath();
+
     // Space and environment management
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
     void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);

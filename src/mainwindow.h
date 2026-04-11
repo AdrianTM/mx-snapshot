@@ -24,11 +24,12 @@
 #pragma once
 
 #include <QMessageBox>
-#include <QScopedPointer>
 #include <QSettings>
 #include <QFileSystemWatcher>
 #include <QTimer>
 #include <QDialog>
+
+#include <memory>
 
 #include "settings.h"
 #include "work.h"
@@ -73,23 +74,13 @@ private slots:
     void cbCompression_currentIndexChanged();
     void checkMd5_toggled(bool checked);
     void checkSha512_toggled(bool checked);
-    void excludeDesktop_toggled(bool checked);
-    void excludeDocuments_toggled(bool checked);
-    void excludeDownloads_toggled(bool checked);
-    void excludeFlatpaks_toggled(bool checked);
-    void excludeMusic_toggled(bool checked);
-    void excludeNetworks_toggled(bool checked);
-    void excludePictures_toggled(bool checked);
-    void excludeSteam_toggled(bool checked);
-    void excludeVideos_toggled(bool checked);
-    void excludeVirtualBox_toggled(bool checked);
     void radioPersonal_clicked(bool checked);
     void radioRespin_toggled(bool checked);
     void spinCPU_valueChanged(int arg1);
     void spinThrottle_valueChanged(int arg1);
 
 private:
-    QScopedPointer<Ui::MainWindow> ui;
+    std::unique_ptr<Ui::MainWindow> ui;
     QTimer timer;
     Settings *settings;
     Work work;

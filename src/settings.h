@@ -28,6 +28,8 @@
 #include <QSettings>
 #include <QTemporaryDir>
 
+#include <memory>
+
 #include "cmd.h"
 #include "filesystemutils.h"
 #include "systeminfo.h"
@@ -128,7 +130,7 @@ public:
 
     // Phase 3: Runtime state
     QFile snapshotExcludes;
-    QScopedPointer<QTemporaryDir> tmpdir;
+    std::unique_ptr<QTemporaryDir> tmpdir;
     QString mksqOpt;
     QString sessionExcludes;
     QString snapshotDir;
@@ -155,6 +157,9 @@ private:
     const QStringList users; // list of users with /home folders
     quint64 homeSize {};
     quint64 rootSize {};
+
+    // Common helper for folder-based exclusions
+    void excludeUserFolder(bool exclude, Exclude flag, const QString &folderName, const QString &xdgKey);
 
     // Helper functions for const member initialization
     QString getInitialKernel(const QCommandLineParser &argParser);
