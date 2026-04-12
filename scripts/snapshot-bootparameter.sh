@@ -1,16 +1,31 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # This script is part of MX Snapshot
 #
 # to list the boot parameters to be displayed as boot options.
 #---------------------------------------------------------
-VERSION="241424"
+
+ME=${0##*/}
+
+# shellcheck disable=SC2034  # kept for parity with sibling scripts
+VERSION="26.04"
+
+fatal() {
+    local fmt=$1; shift
+    # shellcheck disable=SC2059
+    printf "$ME fatal error: $fmt\n" "$@" >&2
+    exit 2
+}
+
+warn() {
+    local fmt=$1; shift
+    # shellcheck disable=SC2059
+    printf "$ME warning: $fmt\n" "$@" >&2
+}
 
 #---------------------------------------------------------
 # Allow debug
 [[ "$1" = "-d" ||  "$1" = "--debug" ]] && SNAPSHOT_BOOTPARAMETER_DEBUG=true
-
-[[ -z "${SNAPSHOT_BOOTPARAMETER_DEBUG}" ]] ||  SNAPSHOT_BOOTPARAMETER_DEBUG=true
 SBP_DEBUG=$SNAPSHOT_BOOTPARAMETER_DEBUG
 
 #---------------------------------------------------------
@@ -22,7 +37,7 @@ DEFAULT_KBOPT_MX='grp:rctrl_rshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll
 DEFAULT_KBOPT_ANTIX='grp:lalt_lshift_toggle,terminate:ctrl_alt_bksp,grp_led:scroll'
 
 # Some lists
-unset CONF_LIST CONF_HASH OUT_LIST PAR_LIST CONF_HASH
+unset CONF_LIST CONF_HASH OUT_LIST PAR_LIST
 declare -a CONF_LIST OUT_LIST PAR_LIST
 # Hash of config cmdline paramter
 declare -A CONF_HASH
@@ -43,7 +58,7 @@ main() {
     prepare_timezone
     prepare_par_list
 
-    local param
+    local param i par key val
     for param in "${PAR_LIST[@]}"; do
         # Built-in kernel parameters that should be ignored
         [[ -v CONF_HASH["$param"] ]] && continue
@@ -352,10 +367,10 @@ prepare_par_list() {
     debug_param PROC_CMDLINE
     debug_param CONF_CMDLINE
 
-    [[ -n "$PROC_CMDLINE" ]] && readarray -d ' ' -t PAR_LIST <<< "$PROC_CMDLINE"
+    [[ -n "$PROC_CMDLINE" ]] && read -ra PAR_LIST <<< "$PROC_CMDLINE"
     debug_list PAR_LIST
 
-    [[ -n "$CONF_CMDLINE" ]] && readarray -d ' ' -t CONF_LIST <<< "$CONF_CMDLINE"
+    [[ -n "$CONF_CMDLINE" ]] && read -ra CONF_LIST <<< "$CONF_CMDLINE"
     debug_list CONF_LIST
 
     debug_list PAR_LIST
@@ -374,22 +389,18 @@ prepare_keyboard() {
     local rex='^((xkb)?(layout|options|variant))([:=]["]?[[:space:]]*)([^"[:space:]]+)["]?'
     local layout
 
-:<<'NotUsed'
-    if false && setxkbmap -query 1>/dev/null  2>&1; then
-        layout=$(setxkbmap -query 2>/dev/null)
-    else
-    else
-        layout=$(sed '/^XKB/! d; s/^XKB//;' /etc/default/keyboard 2>/dev/null \
-                | tr '[:upper:]' '[:lower:]')
-    fi
-NotUsed
-
     layout=$(sed '/^XKB/! d; s/^XKB//;' /etc/default/keyboard 2>/dev/null \
             | tr '[:upper:]' '[:lower:]')
 
     unset LAYOUT
-    # shellcheck disable=SC1083,SC2046
-    eval "declare -A LAYOUT=( $(sed -nr "s/$rex/\"\1\" \"\5\"/p" <<< "$layout") )"
+    declare -A LAYOUT
+    local key val
+    while IFS= read -r line; do
+        [[ "$line" =~ $rex ]] || continue
+        key="${BASH_REMATCH[1]}"
+        val="${BASH_REMATCH[5]}"
+        LAYOUT["$key"]="$val"
+    done <<< "$layout"
 
     debug_list "LAYOUT"
     unset KEY_MAP
@@ -404,12 +415,13 @@ NotUsed
     for l in "${!KEY_MAP[@]}"; do
         k=${KEY_MAP[$l]}
         # shellcheck disable=SC2153
+        [[ -n "${LAYOUT[$l]}" ]] || continue
         KBD[$k]="${LAYOUT[$l]}"
         KBD_LIST+=("$k=${KBD[$k]}")
     done
     debug_list KBD
     debug_list KBD_LIST
-    }
+}
 
 #----------------------------------------------------------------------------
 # Get system language from /etc/default/locale
@@ -418,7 +430,6 @@ prepare_language() {
     local default_locale=/etc/default/locale
     language=
     if [[ -r "$default_locale" ]]; then
-        lang=$(grep ^LANG=  "$default_locale" | tr -d '"' | tail -1)
         lang=$( grep ^LANG= "$default_locale" 2>/dev/null | \
                 tail -1 | tr -d '"' | \
                 sed -nr 's/LANG=//; s/^([[:alpha:]_]+).*/\1/p' )
@@ -433,7 +444,6 @@ prepare_timezone() {
     # Allow TZ override
     tz=$TZ
     [[ -z "$TZ" ]] && [[ -r /etc/timezone ]] && tz="$(head -1 /etc/timezone)"
-    [[ -n "$tz" ]] || tz=
 }
 
 #----------------------------------------------------------------------------
@@ -475,7 +485,7 @@ debug_param() {
     [[ -n "$param" ]] || return
     local -n name=$param 2>/dev/null || return
     local s="$name"
-    printf "[DEBUG]: $param=%s\n" "${s@Q}" >&2
+    printf '[DEBUG]: %s=%s\n' "$param" "${s@Q}" >&2
 }
 
 #----------------------------------------------------------------------------
@@ -487,7 +497,7 @@ debug_list() {
     local -n name=$list
     local s="${name[*]@Q}"
     s=$(sanitize_bootparameter "$s")
-    printf "[DEBUG]: $list=(%s)\n" "$s" >&2
+    printf '[DEBUG]: %s=(%s)\n' "$list" "$s" >&2
 }
 
 #----------------------------------------------------------------------------
