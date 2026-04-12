@@ -88,6 +88,8 @@ private:
     Work work;
     QSettings qt_settings;
     QFileSystemWatcher excludesWatcher;
+    QString pendingOutputBuffer;
+    bool transientOutputLineActive {};
     bool cleanupInProgress = false;
 
     [[nodiscard]] bool confirmStart();
@@ -118,6 +120,9 @@ private:
     void setExclusions();
     void setOtherOptions();
     void setup();
+    void appendOutputLine(const QString &line);
+    void handleOutputLine(const QString &line, bool transientHint);
+    void showTransientOutputLine(const QString &line);
     void showErrorMessageBox(const QString &file_path);
     void watchExcludesFile();
 };

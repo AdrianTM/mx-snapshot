@@ -98,6 +98,7 @@ void MainWindow::loadSettings()
     ui->textProjectName->setText(settings->projectName);
     ui->textOptions->setText(settings->bootOptions);
     ui->pushReleaseDate->setText(settings->releaseDate);
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
     QDir bootDir("/boot");
     QStringList kernelFiles = bootDir.entryList({"vmlinuz-*"}, QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     std::transform(kernelFiles.begin(), kernelFiles.end(), kernelFiles.begin(),
@@ -316,6 +317,7 @@ void MainWindow::setConnections()
     connect(ui->cbCompression, &QComboBox::currentIndexChanged, this,
             &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
+    connect(ui->checkShutdownOutput, &QCheckBox::toggled, this, [this](bool checked) { settings->shutdown = checked; });
     connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
@@ -490,10 +492,15 @@ void MainWindow::processMsg(const QString &msg)
 {
     qDebug().noquote() << msg;
     ui->outputLabel->setText(msg);
+    ui->checkShutdownOutput->setVisible(msg != tr("Done"));
 }
 
 void MainWindow::procDone()
 {
+    if (!pendingOutputBuffer.isEmpty()) {
+        appendOutputLine(pendingOutputBuffer);
+        pendingOutputBuffer.clear();
+    }
     timer.stop();
     ui->progressBar->setValue(ui->progressBar->maximum());
     setCursor(QCursor(Qt::ArrowCursor));
@@ -513,13 +520,21 @@ void MainWindow::disableOutput()
 
 void MainWindow::outputAvailable(const QString &out)
 {
-    ui->outputBox->moveCursor(QTextCursor::End);
-    if (out.startsWith("\r")) {
-        ui->outputBox->moveCursor(QTextCursor::Up, QTextCursor::KeepAnchor);
-        ui->outputBox->moveCursor(QTextCursor::EndOfLine, QTextCursor::KeepAnchor);
+    for (const QChar ch : out) {
+        if (ch == '\r') {
+            if (!pendingOutputBuffer.isEmpty()) {
+                handleOutputLine(pendingOutputBuffer, true);
+                pendingOutputBuffer.clear();
+            }
+            continue;
+        }
+        if (ch == '\n') {
+            handleOutputLine(pendingOutputBuffer, false);
+            pendingOutputBuffer.clear();
+            continue;
+        }
+        pendingOutputBuffer += ch;
     }
-    ui->outputBox->insertPlainText(out);
-    ui->outputBox->verticalScrollBar()->setValue(ui->outputBox->verticalScrollBar()->maximum());
 }
 
 void MainWindow::progress()
@@ -712,6 +727,7 @@ bool MainWindow::confirmStart()
         return false;
     }
     settings->shutdown = checkShutdown->isChecked();
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
     return true;
 }
 
@@ -736,7 +752,11 @@ void MainWindow::prepareForOutput(const QString &file_name)
     ui->btnBack->setEnabled(false);
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     setWindowTitle(tr("Output"));
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
+    ui->checkShutdownOutput->setVisible(true);
     ui->outputBox->clear();
+    pendingOutputBuffer.clear();
+    transientOutputLineActive = false;
     work.setupEnv();
     if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
@@ -752,6 +772,53 @@ void MainWindow::prepareForOutput(const QString &file_name)
     displayOutput();
     work.createIso(file_name);
     ui->btnCancel->setText(tr("Close"));
+}
+
+void MainWindow::appendOutputLine(const QString &line)
+{
+    ui->outputBox->moveCursor(QTextCursor::End);
+    ui->outputBox->insertPlainText(line + '\n');
+    ui->outputBox->verticalScrollBar()->setValue(ui->outputBox->verticalScrollBar()->maximum());
+    transientOutputLineActive = false;
+}
+
+void MainWindow::handleOutputLine(const QString &line, bool transientHint)
+{
+    if (line.startsWith("xorriso : UPDATE :") || transientHint) {
+        showTransientOutputLine(line);
+        return;
+    }
+    if (line.isEmpty() && transientOutputLineActive) {
+        return;
+    }
+    appendOutputLine(line);
+}
+
+void MainWindow::showTransientOutputLine(const QString &line)
+{
+    QTextDocument *document = ui->outputBox->document();
+    if (!transientOutputLineActive) {
+        ui->outputBox->moveCursor(QTextCursor::End);
+        ui->outputBox->insertPlainText(line + '\n');
+        ui->outputBox->verticalScrollBar()->setValue(ui->outputBox->verticalScrollBar()->maximum());
+        transientOutputLineActive = true;
+        return;
+    }
+
+    // The trailing newline keeps an empty last block in the document,
+    // so the displayed transient line is the second-to-last block.
+    QTextBlock block = document->findBlockByNumber(document->blockCount() - 2);
+    if (!block.isValid()) {
+        appendOutputLine(line);
+        transientOutputLineActive = true;
+        return;
+    }
+
+    QTextCursor cursor(block);
+    cursor.select(QTextCursor::LineUnderCursor);
+    cursor.removeSelectedText();
+    cursor.insertText(line);
+    ui->outputBox->verticalScrollBar()->setValue(ui->outputBox->verticalScrollBar()->maximum());
 }
 
 void MainWindow::editBootMenu()
