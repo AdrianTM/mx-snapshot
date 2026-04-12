@@ -40,34 +40,25 @@ Usage
 }
 
 DEFAULT_LIST="
-aufs
 battery
-block
 btrfs
 cdrom
 crc16
-crc32
 crc32c-generic
 crc32-pclmul
 crct10dif-common
 crct10dif-generic
 crct10dif-pclmul
-cryptsetup
-dmsetup
 ecb
 ehci-hcd
 ehci-pci
 exfat
-ext2
-ext3
 ext4
 f2fs
 fat
 firewire-core
 firewire-ohci
 firewire-sbp2
-fotg210-hcd
-fusbh200-hcd
 fuse
 hid
 hid-apple
@@ -75,7 +66,6 @@ hid-belkin
 hid-cherry
 hid-generic
 hid-hyperv
-hid-lenovo-tpkbd
 hid-logitech
 hid-logitech-dj
 hid-logitech-hidpp
@@ -88,34 +78,25 @@ hv_utils
 hv_sock
 hv_storvsc
 hv_netvsc
-hyperv
 hyperv-keyboard
-hyperv_fb
 isofs
-jbd
 jbd2
 jfs
 libcrc32c
 libahci
-linear
 loop
 mbcache
 md-mod
 msdos
-multipath
 nls-ascii
 nls-cp437
 nls-utf8
-ntfs
 nvme
 ohci-hcd
 ohci-pci
 overlay
 pci-hyperv
 pci-hyperv-intf
-pcie-aspm
-printk
-pstore
 reiserfs
 rtsx_pci
 rtsx_pci_sdmmc
@@ -124,7 +105,6 @@ scsi-transport-fc
 sdhci
 sd-mod
 sg
-shpchp
 squashfs
 sr-mod
 uas
@@ -148,8 +128,6 @@ virtio-pci
 vfat
 vmd
 virtio-gpu
-whc-rc
-whci-hcd
 xcbc
 xfs
 xhci-hcd
@@ -174,6 +152,19 @@ xts
 # i915
 # nouveau
 # radeon
+
+CONDITIONAL_MODULES="
+hyperv_fb
+linear
+multipath
+"
+
+module_exists_in_tree() {
+    local module_dir=$1
+    local module_name=$2
+    local file_name=${module_name//-/_}
+    find "$module_dir" -type f -name "${file_name}.ko*" -print -quit | grep -q .
+}
 
 main() {
 
@@ -244,7 +235,7 @@ main() {
     local mod_dir="$from_dir/lib/modules/$kernel"
     test -d "$mod_dir" || fatal "Directory $mod_dir does not exist"
 
-    local list1 list2 repeats default_mode
+    local list1 list2 default_mode
     # grab list from files or stdin and strip comments
 
     if [[ "$ADD_ENCRYPT" ]]; then
@@ -252,6 +243,13 @@ main() {
     elif [[ "$ONLY_ENCRYPT" ]]; then
         DEFAULT_LIST=$CRYPT_LIST
     fi
+
+    local conditional_module
+    for conditional_module in $CONDITIONAL_MODULES; do
+        if module_exists_in_tree "$mod_dir" "${conditional_module//_/-}"; then
+            DEFAULT_LIST="${DEFAULT_LIST}"$'\n'"$conditional_module"
+        fi
+    done
 
     if [[ -z "$USE_STDIN" ]] && [[ $# -eq 0 ]]; then
         default_mode=true
@@ -270,15 +268,10 @@ main() {
 $(find "$dir" -type f -name '*\.ko*' -printf "%f\n" | sed -nr 's/\.ko(|\.[[:alpha:]]+)$//p')"
     done
 
-    repeats=$(echo "$list1" | sed 's/_/-/g' | sort | uniq --repeated | grep .)
-    if [[ "$repeats" ]] && [[ -z "$VERY_QUIET" ]]; then
-        local cnt
-        cnt=$(echo "$repeats" | wc -l)
-        warn "$cnt repeated module(s) in input"
-        echo "$repeats" >&2
-    fi
+    local unique_list
+    unique_list=$(printf '%s\n' "$list1" | sed 's/_/-/g' | sort -u)
 
-    list2=$(echo "$list1" | sed 's/_/-/g' | sort -u \
+    list2=$(printf '%s\n' "$unique_list" \
         | xargs /sbin/modprobe -n "${MP_ARGS[@]}" | sed -n 's/^insmod //p' | cut -d' ' -f1 | sort -u)
 
     local full cnt=0

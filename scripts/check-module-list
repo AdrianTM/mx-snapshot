@@ -1,0 +1,173 @@
+#!/bin/bash
+
+set -euo pipefail
+
+ME=${0##*/}
+TMP_DIR=
+TMP_LIST_FILE=
+
+usage() {
+    cat <<EOF
+Usage:
+  $ME --list <module-list-file> <modules-path> [<modules-path>...]
+  $ME --copy-initrd-modules <script-path> <modules-path> [<modules-path>...]
+
+Validate module names against one or more kernel module trees.
+
+Accepted <modules-path> forms:
+  - /lib/modules/<kernel-version>
+  - a parent directory containing one or more kernel versions under lib/modules/
+  - an extracted Debian package root containing lib/modules/<kernel-version>
+
+The module list file should contain one module name per line.
+Blank lines and lines starting with # are ignored.
+
+Output groups:
+  VALID_ALL     present in every kernel tree
+  VALID_SOME    present in some kernel trees
+  INVALID_ALL   present in none of the kernel trees
+EOF
+    exit "${1:-0}"
+}
+
+fatal() {
+    printf '%s fatal error: %s\n' "$ME" "$*" >&2
+    exit 2
+}
+
+normalize_name() {
+    printf '%s\n' "$1" | tr '_' '-'
+}
+
+extract_default_list() {
+    local script_path=$1
+    awk '
+        /^DEFAULT_LIST="/ { in_list=1; next }
+        in_list && /^"$/ { exit }
+        in_list { print }
+    ' "$script_path"
+}
+
+resolve_module_dirs() {
+    local path
+    for path in "$@"; do
+        if [[ -d "$path/kernel" ]] || [[ -f "$path/modules.dep" ]]; then
+            printf '%s\n' "$path"
+            continue
+        fi
+
+        if [[ -d "$path/lib/modules" ]]; then
+            find "$path/lib/modules" -mindepth 1 -maxdepth 1 -type d | sort
+            continue
+        fi
+
+        if [[ -d "$path" ]]; then
+            find "$path" -mindepth 1 -maxdepth 1 -type d \
+                \( -exec test -d '{}/kernel' ';' -o -exec test -f '{}/modules.dep' ';' \) | sort
+            continue
+        fi
+
+        fatal "Path does not exist: $path"
+    done
+}
+
+build_module_map() {
+    local module_dir=$1
+    find "$module_dir" -type f -name '*.ko*' -printf '%f\n' \
+        | sed -E 's/\.ko([.].*)?$//' \
+        | tr '_' '-' \
+        | sort -u
+}
+
+main() {
+    [[ $# -ge 3 ]] || usage 1
+
+    local list_file=
+    case $1 in
+        --help|-h)
+            usage 0
+            ;;
+        --list)
+            list_file=$2
+            shift 2
+            ;;
+        --copy-initrd-modules)
+            [[ -f $2 ]] || fatal "Script does not exist: $2"
+            TMP_LIST_FILE=$(mktemp)
+            extract_default_list "$2" > "$TMP_LIST_FILE"
+            list_file=$TMP_LIST_FILE
+            shift 2
+            ;;
+        *)
+            fatal "Expected --list <module-list-file> or --copy-initrd-modules <script-path>"
+            ;;
+    esac
+
+    [[ -f "$list_file" ]] || fatal "List file does not exist: $list_file"
+
+    local module_dirs=()
+    readarray -t module_dirs < <(resolve_module_dirs "$@")
+    [[ ${#module_dirs[@]} -gt 0 ]] || fatal "No module directories found"
+
+    local kernels=()
+    local kernel
+    for kernel in "${module_dirs[@]}"; do
+        kernels+=("$(basename "$kernel")")
+    done
+
+    TMP_DIR=$(mktemp -d)
+    trap '[[ -n "$TMP_DIR" ]] && rm -rf "$TMP_DIR"; [[ -n "$TMP_LIST_FILE" ]] && rm -f "$TMP_LIST_FILE"' EXIT
+
+    local i=0
+    for kernel in "${module_dirs[@]}"; do
+        build_module_map "$kernel" > "$TMP_DIR/kernel_$i.txt"
+        i=$((i + 1))
+    done
+
+    local valid_all=()
+    local valid_some=()
+    local invalid_all=()
+    local line name
+
+    while IFS= read -r line; do
+        [[ -n "$line" ]] || continue
+        [[ ${line:0:1} != "#" ]] || continue
+
+        name=$(normalize_name "$line")
+
+        local hits=0
+        local present_in=()
+        i=0
+        for kernel in "${kernels[@]}"; do
+            if grep -Fxq "$name" "$TMP_DIR/kernel_$i.txt"; then
+                hits=$((hits + 1))
+                present_in+=("$kernel")
+            fi
+            i=$((i + 1))
+        done
+
+        if [[ $hits -eq ${#kernels[@]} ]]; then
+            valid_all+=("$name")
+        elif [[ $hits -eq 0 ]]; then
+            invalid_all+=("$name")
+        else
+            valid_some+=("$name [${present_in[*]}]")
+        fi
+    done < "$list_file"
+
+    printf 'Kernel trees checked:\n'
+    for kernel in "${module_dirs[@]}"; do
+        printf '  %s\n' "$kernel"
+    done
+
+    printf '\nVALID_ALL (%s):\n' "${#valid_all[@]}"
+    printf '%s\n' "${valid_all[@]:-}" | sed '/^$/d'
+
+    printf '\nVALID_SOME (%s):\n' "${#valid_some[@]}"
+    printf '%s\n' "${valid_some[@]:-}" | sed '/^$/d'
+
+    printf '\nINVALID_ALL (%s):\n' "${#invalid_all[@]}"
+    printf '%s\n' "${invalid_all[@]:-}" | sed '/^$/d'
+}
+
+main "$@"
