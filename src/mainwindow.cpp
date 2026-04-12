@@ -97,6 +97,7 @@ void MainWindow::loadSettings()
     ui->textProjectName->setText(settings->projectName);
     ui->textOptions->setText(settings->bootOptions);
     ui->pushReleaseDate->setText(settings->releaseDate);
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
     QDir bootDir("/boot");
     QStringList kernelFiles = bootDir.entryList({"vmlinuz-*"}, QDir::Files | QDir::NoDotAndDotDot, QDir::Name);
     std::transform(kernelFiles.begin(), kernelFiles.end(), kernelFiles.begin(),
@@ -310,6 +311,7 @@ void MainWindow::setConnections()
     connect(ui->cbCompression, &QComboBox::currentIndexChanged, this,
             &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
+    connect(ui->checkShutdownOutput, &QCheckBox::toggled, this, [this](bool checked) { settings->shutdown = checked; });
     connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
@@ -476,6 +478,7 @@ void MainWindow::processMsg(const QString &msg)
 {
     qDebug().noquote() << msg;
     ui->outputLabel->setText(msg);
+    ui->checkShutdownOutput->setVisible(msg != tr("Done"));
 }
 
 void MainWindow::procDone()
@@ -694,6 +697,7 @@ bool MainWindow::confirmStart()
         return false;
     }
     settings->shutdown = checkShutdown->isChecked();
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
     return true;
 }
 
@@ -718,6 +722,8 @@ void MainWindow::prepareForOutput(const QString &file_name)
     ui->btnBack->setEnabled(false);
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     setWindowTitle(tr("Output"));
+    ui->checkShutdownOutput->setChecked(settings->shutdown);
+    ui->checkShutdownOutput->setVisible(true);
     ui->outputBox->clear();
     work.setupEnv();
     if (!settings->monthly && !settings->overrideSize) {
