@@ -134,6 +134,7 @@ set(COMMON_SOURCES
     src/filesystemutils.cpp
     src/systeminfo.cpp
     src/messagehandler.cpp
+    src/excludesutils.cpp
 )
 
 set(COMMON_HEADERS
@@ -147,6 +148,7 @@ set(COMMON_HEADERS
     src/filesystemutils.h
     src/systeminfo.h
     src/messagehandler.h
+    src/excludesutils.h
 )
 
 set(HELPER_SOURCES

@@ -165,7 +165,7 @@ bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, con
     }
 
     QEventLoop loop;
-    const auto conn = connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished), &loop, &QEventLoop::quit);
+    const auto conn = connect(this, &QProcess::finished, &loop, &QEventLoop::quit);
     start(cmd, args);
     if (input && !input->isEmpty()) {
         write(*input);

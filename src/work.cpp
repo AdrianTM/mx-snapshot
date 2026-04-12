@@ -81,6 +81,11 @@ quint64 parseDuKilobytes(const QString &output, bool *ok)
 }
 } // namespace
 
+QString Work::snapshotLibPath()
+{
+    return "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+}
+
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
       settings(settings)
@@ -801,7 +806,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         // Free pagecache
         shell.run("sync; sleep 1");
         const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib drop_caches");
+        Cmd().run(elevateTool + " " + snapshotLibPath() + " drop_caches");
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -1260,17 +1265,19 @@ quint64 Work::getRequiredSpace()
     QStringList excludes;
     QFile *file = &settings->snapshotExcludes;
 
-    // Open and read the excludes file
-    if (!file->open(QIODevice::ReadOnly)) {
-        qDebug() << "Could not open file: " << file->fileName();
-    }
-    while (!file->atEnd()) {
-        QString line = file->readLine().trimmed();
-        if (!line.startsWith('#') && !line.isEmpty() && !line.startsWith(".bind-root")) {
-            excludes << line;
+    // Open and read the excludes file — on failure, excludes stays empty
+    // so the size estimate is conservative (no exclusions subtracted)
+    if (file->open(QIODevice::ReadOnly)) {
+        while (!file->atEnd()) {
+            QString line = file->readLine().trimmed();
+            if (!line.startsWith('#') && !line.isEmpty() && !line.startsWith(".bind-root")) {
+                excludes << line;
+            }
         }
+        file->close();
+    } else {
+        qWarning() << "Could not open excludes file, space estimate will be conservative:" << file->fileName();
     }
-    file->close();
 
     // Add session excludes
     if (!settings->sessionExcludes.isEmpty()) {

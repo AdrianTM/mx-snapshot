@@ -837,6 +837,17 @@ void Settings::excludeItem(const QString &item)
     }
 }
 
+void Settings::excludeUserFolder(bool exclude, Exclude flag, const QString &folderName, const QString &xdgKey)
+{
+    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    if (exclude) {
+        exclusions.setFlag(flag);
+    }
+    const QString folder = "home/*/" + folderName + "/";
+    const QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdgKey);
+    addRemoveExclusion(exclude, exclusion);
+}
+
 void Settings::excludeDesktop(bool exclude)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -849,26 +860,12 @@ void Settings::excludeDesktop(bool exclude)
 
 void Settings::excludeDocuments(bool exclude)
 {
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (exclude) {
-        exclusions.setFlag(Exclude::Documents);
-    }
-    QString folder {"home/*/Documents/"};
-    QString xdg_name {"DOCUMENTS"};
-    QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
-    addRemoveExclusion(exclude, exclusion);
+    excludeUserFolder(exclude, Exclude::Documents, "Documents", "DOCUMENTS");
 }
 
 void Settings::excludeDownloads(bool exclude)
 {
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (exclude) {
-        exclusions.setFlag(Exclude::Downloads);
-    }
-    QString folder {"home/*/Downloads/"};
-    QString xdg_name {"DOWNLOAD"};
-    QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
-    addRemoveExclusion(exclude, exclusion);
+    excludeUserFolder(exclude, Exclude::Downloads, "Downloads", "DOWNLOAD");
 }
 
 void Settings::excludeFlatpaks(bool exclude)
@@ -885,14 +882,7 @@ void Settings::excludeFlatpaks(bool exclude)
 
 void Settings::excludeMusic(bool exclude)
 {
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (exclude) {
-        exclusions.setFlag(Exclude::Music);
-    }
-    QString folder {"home/*/Music/"};
-    QString xdg_name {"MUSIC"};
-    QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
-    addRemoveExclusion(exclude, exclusion);
+    excludeUserFolder(exclude, Exclude::Music, "Music", "MUSIC");
 }
 
 void Settings::excludeNetworks(bool exclude)
@@ -908,14 +898,7 @@ void Settings::excludeNetworks(bool exclude)
 
 void Settings::excludePictures(bool exclude)
 {
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (exclude) {
-        exclusions.setFlag(Exclude::Pictures);
-    }
-    QString folder {"home/*/Pictures/"};
-    QString xdg_name {"PICTURES"};
-    QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
-    addRemoveExclusion(exclude, exclusion);
+    excludeUserFolder(exclude, Exclude::Pictures, "Pictures", "PICTURES");
 }
 
 void Settings::excludeSteam(bool exclude)
@@ -951,14 +934,7 @@ void Settings::excludeSwapFile()
 
 void Settings::excludeVideos(bool exclude)
 {
-    qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    if (exclude) {
-        exclusions.setFlag(Exclude::Videos);
-    }
-    QString folder {"home/*/Videos/"};
-    QString xdg_name {"VIDEOS"};
-    QString exclusion = folder + "*\" \"" + folder + ".*" + getXdgUserDirs(xdg_name);
-    addRemoveExclusion(exclude, exclusion);
+    excludeUserFolder(exclude, Exclude::Videos, "Videos", "VIDEOS");
 }
 
 void Settings::excludeVirtualBox(bool exclude)
@@ -997,7 +973,7 @@ void Settings::loadConfig()
     settingsSystem.endGroup();
 
     // Merge system settings into user settings
-    foreach (const QString &key, systemKeys) {
+    for (const QString &key : std::as_const(systemKeys)) {
         if (!settingsUser.contains(key)) {
             QVariant value = settingsSystem.value(key);
             settingsUser.setValue(key, value);
@@ -1328,7 +1304,7 @@ Settings::InitialSettings Settings::getInitialSettings() const
     QStringList systemKeys = settingsSystem.allKeys();
     settingsSystem.endGroup();
 
-    foreach (const QString &key, systemKeys) {
+    for (const QString &key : std::as_const(systemKeys)) {
         if (!settingsUser.contains(key)) {
             QVariant value = settingsSystem.value(key);
             settingsUser.setValue(key, value);
