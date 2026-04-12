@@ -1,3 +1,12 @@
+mx-snapshot (26.04) mx; urgency=medium
+
+  * Update Realtek initrd modules script
+  * Add --grub-mbr option for grub-based ISO MBR boot
+  * Remove switch-to-syslinux boot menu option when using --grub-mbr
+  * Update man page
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 11 Apr 2026 20:08:39 -0400
+
 mx-snapshot (26.03.2) mx; urgency=medium
 
   * Save/restore window geometry
