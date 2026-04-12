@@ -1,3 +1,12 @@
+mx-snapshot (26.04.1) mx; urgency=medium
+
+  * Update initrd helper scripts
+  * Add shutdown toggle to output page
+  * Clean up initrd module list
+  * Handle transient progress output cleanly
+
+ -- Adrian <adrian@mxlinux.org>  Sun, 12 Apr 2026 14:18:00 -0400
+
 mx-snapshot (26.04) mx; urgency=medium
 
   * Update Realtek initrd modules script
