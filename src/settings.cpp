@@ -1206,10 +1206,12 @@ void Settings::processExclArgs(const QCommandLineParser &argParser)
 void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
 {
     QString name;
-    if (QFileInfo::exists(QStringLiteral("/etc/mx-version"))) {
-        name = Cmd().getOut("cat /etc/mx-version |cut -f1 -d' '");
+    QFile versionFile(QStringLiteral("/etc/mx-version"));
+    if (versionFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        name = QString::fromUtf8(versionFile.readLine()).section(' ', 0, 0).trimmed();
+        versionFile.close();
     } else {
-        qDebug() << "/etc/mx-version not found. Not MX Linux?";
+        qDebug() << "/etc/mx-version not found or unreadable. Not MX Linux?";
         name = "MX_" + QString(x86 ? "386" : "x64");
     }
     if (argParser.value("file").isEmpty()) {
