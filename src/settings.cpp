@@ -29,6 +29,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QFileInfo>
+#include <QHash>
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
@@ -556,26 +557,43 @@ void Settings::setVariables()
         distroVersionFile = "/etc/antix-version";
     }
 
-    if (QFileInfo::exists("/etc/lsb-release")) {
-        projectName = Cmd().getOut("grep -oP '(?<=DISTRIB_ID=).*' /etc/lsb-release");
-    } else {
-        projectName = Cmd().getOut("lsb_release -i | cut -f2");
+    QHash<QString, QString> lsbRelease;
+    QFile lsbFile(QStringLiteral("/etc/lsb-release"));
+    if (lsbFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        while (!lsbFile.atEnd()) {
+            const QString line = QString::fromUtf8(lsbFile.readLine()).trimmed();
+            const int eq = line.indexOf('=');
+            if (eq > 0) {
+                QString value = line.mid(eq + 1);
+                if (value.size() >= 2 && value.startsWith('"') && value.endsWith('"')) {
+                    value = value.mid(1, value.size() - 2);
+                }
+                lsbRelease.insert(line.left(eq), value);
+            }
+        }
+        lsbFile.close();
     }
-    projectName.replace('"', "");
+
+    projectName = lsbRelease.contains("DISTRIB_ID")
+                      ? lsbRelease.value("DISTRIB_ID")
+                      : Cmd().getOut("lsb_release -is");
+    projectName.remove('"');
     if (!distroVersionFile.isEmpty()) {
-        distroVersion = Cmd().getOut("cut -f1 -d'_' " + distroVersionFile);
-        distroVersion.remove(QRegularExpression("^" + projectName + "_|^" + projectName + "-"));
+        QFile versionFile(distroVersionFile);
+        if (versionFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            distroVersion = QString::fromUtf8(versionFile.readLine()).section('_', 0, 0).trimmed();
+            versionFile.close();
+        }
+        distroVersion.remove(QRegularExpression("^" + projectName + "[_-]"));
     } else {
-        distroVersion = Cmd().getOut("lsb_release -r | cut -f2");
+        distroVersion = Cmd().getOut("lsb_release -rs");
     }
     fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
     releaseDate = QDate::currentDate().toString("MMMM dd, yyyy");
-    if (QFileInfo::exists("/etc/lsb-release")) {
-        codename = Cmd().getOut("grep -oP '(?<=DISTRIB_CODENAME=).*' /etc/lsb-release");
-    } else {
-        codename = Cmd().getOut("lsb_release -c | cut -f2");
-    }
-    codename.replace('"', "");
+    codename = lsbRelease.contains("DISTRIB_CODENAME")
+                   ? lsbRelease.value("DISTRIB_CODENAME")
+                   : Cmd().getOut("lsb_release -cs");
+    codename.remove('"');
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
 }
 
@@ -1109,10 +1127,12 @@ void Settings::processExclArgs(const QCommandLineParser &argParser)
 void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
 {
     QString name;
-    if (QFileInfo::exists(QStringLiteral("/etc/mx-version"))) {
-        name = Cmd().getOut("cat /etc/mx-version |cut -f1 -d' '");
+    QFile versionFile(QStringLiteral("/etc/mx-version"));
+    if (versionFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        name = QString::fromUtf8(versionFile.readLine()).section(' ', 0, 0).trimmed();
+        versionFile.close();
     } else {
-        qDebug() << "/etc/mx-version not found. Not MX Linux?";
+        qDebug() << "/etc/mx-version not found or unreadable. Not MX Linux?";
         name = "MX_" + QString(x86 ? "386" : "x64");
     }
     if (argParser.value("file").isEmpty()) {
