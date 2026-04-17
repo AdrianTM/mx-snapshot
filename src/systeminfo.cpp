@@ -18,11 +18,15 @@ bool SystemInfo::isLive()
 
 QStringList SystemInfo::listUsers()
 {
-    return Cmd().getOut("lslogins --noheadings -u -o user |grep -vw root", Cmd::QuietMode::Yes).split('\n');
+    QStringList users = Cmd().getOut("lslogins --noheadings -u -o user", Cmd::QuietMode::Yes)
+                            .split('\n', Qt::SkipEmptyParts);
+    users.removeAll(QStringLiteral("root"));
+    return users;
 }
 
 QString SystemInfo::readKernelOpts()
 {
-    return Cmd().getOut((QString("/usr/share/%1/scripts/snapshot-bootparameter.sh | tr '\n' ' '")
-                             .arg(QCoreApplication::applicationName())));
+    const QString script = QString("/usr/share/%1/scripts/snapshot-bootparameter.sh")
+                               .arg(QCoreApplication::applicationName());
+    return Cmd().getOut(script).replace('\n', ' ');
 }
