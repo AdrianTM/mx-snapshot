@@ -620,7 +620,7 @@ void Settings::setVariables()
     } else if (!osName.isEmpty()) {
         projectName = osName;
     } else {
-        projectName = Cmd().getOut("lsb_release -i | cut -f2");
+        projectName = Cmd().getOut("lsb_release -i").section('\t', 1, 1).trimmed();
     }
     projectName.replace('"', "");
     if (!distroVersionFile.isEmpty()) {
@@ -629,7 +629,7 @@ void Settings::setVariables()
     } else if (!osVersionId.isEmpty()) {
         distroVersion = osVersionId;
     } else {
-        distroVersion = Cmd().getOut("lsb_release -r | cut -f2");
+        distroVersion = Cmd().getOut("lsb_release -r").section('\t', 1, 1).trimmed();
     }
 
     // Handle MX on Arch
@@ -656,7 +656,7 @@ void Settings::setVariables()
     } else if (isArch) {
         codename = "rolling";
     } else {
-        codename = Cmd().getOut("lsb_release -c | cut -f2");
+        codename = Cmd().getOut("lsb_release -c").section('\t', 1, 1).trimmed();
     }
     codename.replace('"', "");
 
