@@ -1,6 +1,3 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Format: 3.0 (native)
 Source: mx-snapshot
 Binary: mx-snapshot, iso-snapshot-cli
@@ -15,20 +12,8 @@ Package-List:
  iso-snapshot-cli deb admin optional arch=any
  mx-snapshot deb admin optional arch=any
 Checksums-Sha1:
- 52bd9c6732adca9fec23867bbe0c7bcb27761524 2779112 mx-snapshot_26.04.1.tar.xz
+ 4479e197d07432d037fa423e3b81cd2a6aa891dd 3088600 mx-snapshot_26.04.1.tar.xz
 Checksums-Sha256:
- 93e9772bc4a5b59c0cac00d4ac42a8c787b1ae83e6274987f572754855fd5cce 2779112 mx-snapshot_26.04.1.tar.xz
+ b4de8656715066c40836e6e2636e053032714700cd4a0bf2e322871e9d30f92d 3088600 mx-snapshot_26.04.1.tar.xz
 Files:
- b54af6fd20e1ac9611ad1beab2946dc4 2779112 mx-snapshot_26.04.1.tar.xz
-
------BEGIN PGP SIGNATURE-----
-
-iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmnbzWgTHGFkcmlhbkBt
-eGxpbnV4Lm9yZwAKCRBwk4x4BnnumPA4CADBLRtH54tADchenqesPFgTN0Cy139P
-kEtl2MwFw5HhpDN1+z9ZAW5lwPKf0tygLrlAY/C49rbGPhGBKmky/ppps1/TE44q
-fSJzxOMW74ijRv/6ARxH5enXjWObSrWX2Iu9kSSwT3/8amiC7zqtWVbOrW/aEoWK
-G7m8kySYcaweYiwOyyzowDph7Qgme6pSkoTs6bgdHV7kCqZgY8dkkWc+LnQz9gmA
-LgOaPMfmZRgFfos5zvL2ygDsiMSDScwcS4cR+fNrv51qcEmLDYoqMb1LjkYGx/h7
-p9XUmwtyAFjtQRbKPtYbo+97E6c8uQ0UcSMwhgzmHQYvOtY3Tm7FV3l5
-=lWhC
------END PGP SIGNATURE-----
+ 1b7000fea53ae703488ea00ebc703532 3088600 mx-snapshot_26.04.1.tar.xz
