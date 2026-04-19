@@ -18,9 +18,16 @@ bool SystemInfo::isLive()
 
 QStringList SystemInfo::listUsers()
 {
-    QStringList users = Cmd().getOut("lslogins --noheadings -u -o user", Cmd::QuietMode::Yes)
-                            .split('\n', Qt::SkipEmptyParts);
-    users.removeAll(QStringLiteral("root"));
+    const QStringList lines = Cmd().getOut("lslogins --noheadings -u -o user,HOMEDIR", Cmd::QuietMode::Yes)
+                                  .split('\n', Qt::SkipEmptyParts);
+    QStringList users;
+    for (const QString &line : lines) {
+        const QString trimmed = line.trimmed();
+        const int sep = trimmed.indexOf(' ');
+        if (sep > 0 && trimmed.mid(sep + 1).trimmed().startsWith("/home/")) {
+            users << trimmed.left(sep);
+        }
+    }
     return users;
 }
 
