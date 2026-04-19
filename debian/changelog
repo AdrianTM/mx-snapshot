@@ -1,3 +1,11 @@
+mx-snapshot (26.04.2) mx; urgency=medium
+
+  * change way users are collected
+  * eliminates some non existing home folders when system users are 
+    configured as user-level users.
+
+ -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 19 Apr 2026 14:19:14 -0400
+
 mx-snapshot (26.04.1) mx; urgency=medium
 
   * Update initrd helper scripts
