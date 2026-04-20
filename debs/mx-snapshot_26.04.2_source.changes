@@ -1,0 +1,27 @@
+Format: 1.8
+Date: Sun, 19 Apr 2026 20:52:10 -0400
+Source: mx-snapshot
+Architecture: source
+Version: 26.04.2
+Distribution: mx
+Urgency: medium
+Maintainer: Adrian <adrian@mxlinux.org>
+Changed-By: Dolphin Oracle <dolphinoracle@gmail.com>
+Changes:
+ mx-snapshot (26.04.2) mx; urgency=medium
+ .
+   * change way users are collected
+   * eliminates some non existing home folders when system users are
+     configured as user-level users.
+Checksums-Sha1:
+ fd66d3032cfdb025b6518aef79be9b652b3a4dd1 801 mx-snapshot_26.04.2.dsc
+ 3aa532cb07f87ea410c7a6d6a120b7000b8d1944 304908 mx-snapshot_26.04.2.tar.xz
+ 136e50d9d6ebeb372a4677744369cc22aaf21f5d 10858 mx-snapshot_26.04.2_source.buildinfo
+Checksums-Sha256:
+ b584fe69db3fcb971b6c3b7790ea7c27b6ab4c3b4397449f5bd3290d52abb9bb 801 mx-snapshot_26.04.2.dsc
+ c79a9969edb79f81f355a6bfd631f1c096f467c5b3a87aea6161bf66f78bd60c 304908 mx-snapshot_26.04.2.tar.xz
+ a51ac5b03439f31cc9ae824c680dd286a1e967d0e22408427e7fcca70c34dab3 10858 mx-snapshot_26.04.2_source.buildinfo
+Files:
+ d5869f99e261225dfe0f304c7080e4c0 801 admin optional mx-snapshot_26.04.2.dsc
+ d259d5f14c8586c1c90b3854ee024a60 304908 admin optional mx-snapshot_26.04.2.tar.xz
+ 0066ab5b4a6e5f4e50f551e915210e54 10858 admin optional mx-snapshot_26.04.2_source.buildinfo
