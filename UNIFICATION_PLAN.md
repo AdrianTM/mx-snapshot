@@ -198,9 +198,17 @@ because PKGBUILD references the live-files tree and the polkit rules file.
       untracked). Installed **only** via PKGBUILD; on Debian this content
       comes from the separate `mx-remaster-live-files` package. PKGBUILD
       keeps `Conflicts/Replaces: mx-remaster-live-files`.
-- [x] **5d:** Add `polkit/10-mx-snapshot-restrict.rules` to the repo and
-      install it on both distros via `debian/mx-snapshot.install` and
-      `debian/iso-snapshot-cli.install`.
+- [x] **5d:** Add the polkit rules files. Split into two so the
+      mx-snapshot and iso-snapshot-cli .deb packages don't collide on
+      the same path under `/usr/share/polkit-1/rules.d/`:
+      - `polkit/10-mx-snapshot-restrict.rules` (GUI helper) → installed
+        by `debian/mx-snapshot.install`.
+      - `polkit/10-iso-snapshot-cli-restrict.rules` (CLI helper) →
+        installed by `debian/iso-snapshot-cli.install`.
+      The Arch PKGBUILD ships **only** the mx-snapshot rule and the
+      `*mx-snapshot*.policy` files; the CLI policies and CLI rule would
+      be inert without an `iso-snapshot-cli` binary, and Arch packaging
+      is GUI-only by design (see PKGBUILD `build()` comment).
 - [x] **Decision:** keep `polkit` policy defaults at `auth_admin_keep`.
       The rules file *tightens* it by denying any caller whose resolved
       executable path is not exactly `/usr/bin/mx-snapshot` or

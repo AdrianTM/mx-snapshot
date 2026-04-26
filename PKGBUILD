@@ -17,6 +17,13 @@ sha256sums=()
 build() {
     cd "${startdir}"
 
+    # Arch packaging is intentionally GUI-only.
+    # iso-snapshot-cli is a Debian-only deliverable: on Debian it ships in its
+    # own .deb so headless / CI workflows can install just the CLI tool. On
+    # Arch we don't build it and don't install its scripts, polkit policies,
+    # or rules. If you need a CLI build for development, override with
+    # `-DBUILD_CLI=ON` via makepkg's CFLAGS/options or build directly with
+    # cmake.
     cmake -G Ninja \
         -B build \
         -DCMAKE_BUILD_TYPE=Release \
@@ -46,8 +53,11 @@ package() {
     install -Dm755 build/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
     install -Dm755 polkit/snapshot-lib "${pkgdir}/usr/lib/mx-snapshot/snapshot-lib"
 
+    # GUI-only: install only the mx-snapshot policies and rule. The
+    # iso-snapshot-cli policies and 10-iso-snapshot-cli-restrict.rules
+    # would be inert without the CLI binary on this distro.
     install -dm755 "${pkgdir}/usr/share/polkit-1/actions"
-    for policy in polkit/*.policy; do
+    for policy in polkit/*mx-snapshot*.policy; do
         install -Dm644 "$policy" "${pkgdir}/usr/share/polkit-1/actions/$(basename "$policy")"
     done
 
