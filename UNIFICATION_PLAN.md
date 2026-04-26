@@ -158,30 +158,31 @@ The Arch chain to cherry-pick from `arch`, in order:
 
 These fixes are not Arch-specific and should land regardless.
 
-- [ ] `cmd.cpp`: `disconnect(conn)` after the event loop (`9e304eb`).
-- [ ] `cmd.cpp` / `cmd.h`: add `setOutputSuppressed`/`outputSuppressed`,
+- [x] `cmd.cpp`: `disconnect(conn)` after the event loop (`9e304eb`).
+- [x] `cmd.cpp` / `cmd.h`: add `setOutputSuppressed`/`outputSuppressed`,
       `runAsRoot`, `getOutAsRoot(cmd, quiet)` overload, `snapshotLibCommand`,
       `runSnapshotLib`. Reconcile with `main`'s untouched `Cmd`.
-- [ ] `main.cpp`: switch from `exit(EXIT_FAILURE)` calls to exception path
-      with single `exitCode` at the bottom (`8668685`).
-- [ ] `Log::messageHandler`: thread-local reentrancy guard.
-- [ ] `MainWindow`: `closeEvent` override + `closeApp(fromCloseEvent)`
-      rework. Reconcile against `c38c52d Save/restore window geometry` from
-      `main` — preserve the geometry save call inside `closeApp` (`arch`
-      removed it; `main` added it).
-- [ ] `MainWindow`: `cleanupInProgress` guard.
-- [ ] `Work`: change `cleanUp` from `[[noreturn]]` to non-returning-via-exit,
-      add `cleanupStarted` guard, `requestExit` indirection.
-- [ ] `Work::checkNoSpaceAndExit`: change to `[[nodiscard]] bool`, update
+- [x] `main.cpp`: switch from `exit(EXIT_FAILURE)` calls to exception path
+      with single `exitCode` at the bottom (`8668685`). Settings ctor and
+      friends throw `std::runtime_error` instead of calling `exit()` so the
+      catch in `main()` can record the exit code.
+- [x] `Log::messageHandler`: thread-local reentrancy guard.
+- [x] `MainWindow`: `closeEvent` override + `closeApp(fromCloseEvent)`
+      rework. Geometry save preserved from main (`c38c52d`).
+- [x] `MainWindow`: `cleanupInProgress` guard.
+- [x] `Work`: change `cleanUp` from `[[noreturn]]` to non-returning-via-exit,
+      add `cleanupStarted` guard, `requestExit` indirection. All `cleanUp()`
+      call sites now have explicit `return` after them.
+- [x] `Work::checkNoSpaceAndExit`: change to `[[nodiscard]] bool`, update
       callers in `checkEnoughSpace`.
-- [ ] `Batchprocessing`: insert `if (work.isCleaningUp()) return;` checkpoints
+- [x] `Batchprocessing`: insert `if (work.isCleaningUp()) return;` checkpoints
       between pipeline stages.
-- [ ] `FileSystemUtils::unsupportedPartitions`: extend with `9p`, `cifs`,
+- [x] `FileSystemUtils::unsupportedPartitions`: extend with `9p`, `cifs`,
       `smbfs`, `fuse`, `fuseblk`, `fuse.vmhgfs-fuse`, `vmhgfs`, `vboxsf`,
       `virtiofs`.
-- [ ] `excludesutils::hasNvidiaGraphicsCard`: simplify to
+- [x] `excludesutils::hasNvidiaGraphicsCard`: simplify to
       `shell.getOut("glxinfo", QuietMode::Yes)`.
-- [ ] `SystemInfo::isLive`: also check `/run/archiso/bootmnt`.
+- [x] `SystemInfo::isLive`: also check `/run/archiso/bootmnt`.
 
 ## Step 5 — Packaging
 
