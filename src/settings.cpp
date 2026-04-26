@@ -711,6 +711,14 @@ quint64 Settings::getLiveRootSpace()
     // rootspaceneeded is the size of the linuxfs file * a compression factor + contents of the rootfs, conservative
     // but fast factors are same as used in live-remaster
 
+    // The MX live layout (/live/config/initrd.out, /live/boot-dev/antiX/linuxfs,
+    // /live/linux) doesn't exist on Arch live media, where SystemInfo::isLive()
+    // also returns true. Return 0 so the caller can fall back to a generic
+    // estimate instead of reading defaults that point at non-existent files.
+    if (!QFileInfo::exists("/live/config/initrd.out") && !QFileInfo::exists("/live/linux")) {
+        return 0;
+    }
+
     // Load some live variables
     QSettings livesettings("/live/config/initrd.out", QSettings::NativeFormat);
     QString sqfile_full = livesettings.value("SQFILE_FULL", "/live/boot-dev/antiX/linuxfs").toString();
@@ -749,13 +757,22 @@ QString Settings::getUsedSpace()
 {
     constexpr double factor = 1024 * 1024 * 1024;
     QString out = "\n- " + QObject::tr("Used space on / (root): ");
+    bool estimated = false;
     if (live) {
         rootSize = getLiveRootSpace();
-        out += QString::number(static_cast<double>(rootSize) / factor, 'f', 2) + "GiB -- " + QObject::tr("estimated");
-    } else {
+        estimated = true;
+    }
+    // Recalculate every time for installed systems (rootSize is a member that
+    // would otherwise hold stale data across calls); also fall back here when
+    // getLiveRootSpace returned 0 on non-MX live media (e.g. Arch live), still
+    // labeled "estimated" because live root sizing is fundamentally an estimate.
+    if (!live || rootSize == 0) {
         QStorageInfo rootInfo("/");
         rootSize = rootInfo.bytesTotal() - rootInfo.bytesFree();
-        out += QString::number(static_cast<double>(rootSize) / factor, 'f', 2) + "GiB";
+    }
+    out += QString::number(static_cast<double>(rootSize) / factor, 'f', 2) + "GiB";
+    if (estimated) {
+        out += " -- " + QObject::tr("estimated");
     }
     QStorageInfo homeInfo("/home/");
     if (homeInfo.isValid() && homeInfo.isRoot()) {
