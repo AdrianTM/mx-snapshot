@@ -1093,22 +1093,22 @@ void Settings::otherExclusions()
 
     if (resetAccounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
-#ifndef ARCH_BUILD
-        // Exclude /etc/localtime if link and timezone not America/New_York.
-        // Skipped on Arch — /etc/timezone is absent and the heuristic doesn't apply.
-        QFileInfo localtimeInfo("/etc/localtime");
-        QFile timezoneFile("/etc/timezone");
-        if (localtimeInfo.isSymLink()) {
-            if (timezoneFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                QTextStream in(&timezoneFile);
-                QString timezone = in.readLine();
-                if (timezone != "America/New_York") {
-                    addRemoveExclusion(true, "/etc/localtime");
+        if (!isArch) {
+            // Exclude /etc/localtime if link and timezone not America/New_York.
+            // Skipped on Arch — /etc/timezone is absent and the heuristic doesn't apply.
+            QFileInfo localtimeInfo("/etc/localtime");
+            QFile timezoneFile("/etc/timezone");
+            if (localtimeInfo.isSymLink()) {
+                if (timezoneFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                    QTextStream in(&timezoneFile);
+                    QString timezone = in.readLine();
+                    if (timezone != "America/New_York") {
+                        addRemoveExclusion(true, "/etc/localtime");
+                    }
+                    timezoneFile.close();
                 }
-                timezoneFile.close();
             }
         }
-#endif
     }
     excludeSwapFile();
 }
