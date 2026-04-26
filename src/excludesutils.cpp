@@ -132,15 +132,7 @@ bool touchExcludesTimestamp(const QString &configuredPath)
 
 bool hasNvidiaGraphicsCard(Cmd &shell)
 {
-    Q_UNUSED(shell);
-
-    QProcess glxinfo;
-    glxinfo.start("glxinfo");
-    if (!glxinfo.waitForFinished()) {
-        return false;
-    }
-
-    return QString::fromLocal8Bit(glxinfo.readAllStandardOutput()).contains(QStringLiteral("NVIDIA"));
+    return shell.getOut("glxinfo", Cmd::QuietMode::Yes).contains(QStringLiteral("NVIDIA"));
 }
 
 } // namespace ExcludesUtils

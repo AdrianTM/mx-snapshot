@@ -3,7 +3,9 @@
 #include <QtCore/QDebug>
 #include <QtCore/QStorageInfo>
 const QSet<QString> FileSystemUtils::unsupportedPartitions = {
-    "fat", "vfat", "msdos", "exfat", "ntfs", "ntfs3", "ntfs-3g"
+    "fat", "vfat", "msdos", "exfat", "ntfs", "ntfs3", "ntfs-3g",
+    "9p", "cifs", "smbfs", "fuse", "fuseblk", "fuse.vmhgfs-fuse",
+    "vmhgfs", "vboxsf", "virtiofs"
 };
 
 quint64 FileSystemUtils::getFreeSpace(const QString &path)

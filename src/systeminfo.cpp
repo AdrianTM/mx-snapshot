@@ -13,6 +13,9 @@ bool SystemInfo::is386()
 
 bool SystemInfo::isLive()
 {
+    if (QProcess::execute("mountpoint", {"-q", "/run/archiso/bootmnt"}) == 0) {
+        return true;
+    }
     return QProcess::execute("mountpoint", {"-q", "/live/aufs"}) == 0;
 }
 
