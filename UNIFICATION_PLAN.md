@@ -215,7 +215,7 @@ because PKGBUILD references the live-files tree and the polkit rules file.
       Also fixed a bug carried from the arch version where the rule
       indexed into `polkit.spawn`'s return as an array — it returns a
       string, so `caller_exe[0]` was reading the first character.
-- [ ] **5b:** Add `PKGBUILD`, `release.sh` (with `MAIN_BRANCH=main` default
+- [x] **5b:** Add `PKGBUILD`, `release.sh` (with `MAIN_BRANCH=main` default
       and `AUR_DIR` overridable). Arch packaging is **GUI-only**:
       `BUILD_CLI=OFF`, scripts installed only under
       `/usr/share/mx-snapshot/`. `scripts-arch/snapshot-bootparameter.sh`
@@ -231,9 +231,17 @@ because PKGBUILD references the live-files tree and the polkit rules file.
 
 ## Step 6 — Translations
 
-- [ ] After all source merges land, run `lupdate` to regenerate `.ts` files.
-- [ ] Verify intent of `arch`'s `mx-snapshot_en_US.ts` removal — diff it
-      against `main`'s en_US first; if there's distinct content, preserve it.
+- [x] After all source merges land, run `lupdate` to regenerate `.ts` files.
+      Did via `cmake --build build --target mx-snapshot_lupdate`. Result:
+      260 source strings (17 net new from Steps 3 + 4 — Arch ISO/initrd
+      messages, "Fatal error:" wrapper, "No supported filesystem found
+      ...", etc.). 35 `.ts` files updated; large line diff is mostly
+      message reordering by source location.
+- [x] Verify intent of `arch`'s `mx-snapshot_en_US.ts` removal — diff it
+      against `main`'s en_US first; if there's distinct content, preserve
+      it. Diff'd: en_US has 245 messages vs en's 246, differing only in
+      a single "Done" entry. en_US is effectively a duplicate of en —
+      removing it (matching arch's decision).
 - [ ] Notify translators that strings have shifted; do **not** hand-merge
       translation diffs.
 
