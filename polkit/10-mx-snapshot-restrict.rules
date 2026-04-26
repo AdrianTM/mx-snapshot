@@ -24,7 +24,7 @@ polkit.addRule(function(action, subject) {
     }
 
     try {
-        var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.caller_pid + "/exe"]);
+        var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.pid + "/exe"]);
         // polkit.spawn returns the captured stdout as a string with a trailing
         // newline from readlink; strip whitespace before comparing.
         if (typeof caller_exe === "string"

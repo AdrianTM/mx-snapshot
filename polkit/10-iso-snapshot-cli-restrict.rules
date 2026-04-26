@@ -14,7 +14,7 @@ polkit.addRule(function(action, subject) {
     }
 
     try {
-        var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.caller_pid + "/exe"]);
+        var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.pid + "/exe"]);
         if (typeof caller_exe === "string"
             && caller_exe.replace(/\s+$/, "") === "/usr/bin/iso-snapshot-cli") {
             return polkit.Result.AUTH_ADMIN_KEEP;
