@@ -1,13 +1,13 @@
-// Restrict the iso-snapshot-cli pkexec helper to be invoked only by the
-// installed frontend binary. See the mirror file
-// 10-mx-snapshot-restrict.rules for the full rationale; the rule body
-// here is identical apart from the action id and the allowed frontend
-// path.
+// Restrict the iso-snapshot-cli pkexec helper to be invoked only by a
+// caller whose executable's basename is exactly "iso-snapshot-cli".
+// See the mirror file 10-mx-snapshot-restrict.rules for the full
+// rationale on basename-vs-exact-path matching and why we never
+// return polkit.Result.YES.
 //
 // Lives in its own file so the mx-snapshot and iso-snapshot-cli .deb
 // packages can each ship their own helper rule without colliding on the
-// same path under /usr/share/polkit-1/rules.d/. The Arch package (single
-// PKGBUILD) installs both files.
+// same path under /usr/share/polkit-1/rules.d/. The Arch package
+// (single PKGBUILD) is GUI-only and only installs the mx-snapshot rule.
 polkit.addRule(function(action, subject) {
     if (action.id != "org.mxlinux.pkexec.iso-snapshot-cli-helper") {
         return; // not our action — let other rules decide
@@ -15,9 +15,13 @@ polkit.addRule(function(action, subject) {
 
     try {
         var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.pid + "/exe"]);
-        if (typeof caller_exe === "string"
-            && caller_exe.replace(/\s+$/, "") === "/usr/bin/iso-snapshot-cli") {
-            return polkit.Result.AUTH_ADMIN_KEEP;
+        if (typeof caller_exe === "string") {
+            var path = caller_exe.replace(/\s+$/, "");
+            var suffix = "/iso-snapshot-cli";
+            var idx = path.lastIndexOf(suffix);
+            if (idx !== -1 && idx === path.length - suffix.length) {
+                return polkit.Result.AUTH_ADMIN_KEEP;
+            }
         }
     } catch (e) {
         // If the spawn itself fails, fall through to NO.

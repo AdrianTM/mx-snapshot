@@ -211,18 +211,29 @@ because PKGBUILD references the live-files tree and the polkit rules file.
       is GUI-only by design (see PKGBUILD `build()` comment).
 - [x] **Decision:** keep `polkit` policy defaults at `auth_admin_keep`.
       The rules file *tightens* it by denying any caller whose resolved
-      executable path is not exactly `/usr/bin/mx-snapshot` or
-      `/usr/bin/iso-snapshot-cli`. Two things rejected during review and
-      not implemented:
-      - the "root-owned caller → YES" branch from the arch version
-        (almost any /usr/bin caller would have bypassed auth given the
-        helper's broad allow-list);
-      - substring matching on the path (any path containing
+      executable basename is not `mx-snapshot` / `iso-snapshot-cli`.
+      Three things rejected/fixed in the course of getting this right:
+      - rejected the "root-owned caller → YES" branch from the arch
+        version (almost any /usr/bin caller would have bypassed auth
+        given the helper's broad allow-list);
+      - rejected substring matching on the path (any path containing
         `mx-snapshot` anywhere, e.g. `/tmp/mx-snapshot-evil/foo`, would
-        have satisfied the rule).
-      Also fixed a bug carried from the arch version where the rule
-      indexed into `polkit.spawn`'s return as an array — it returns a
-      string, so `caller_exe[0]` was reading the first character.
+        have satisfied the rule);
+      - tried exact-path matching first (`/usr/bin/mx-snapshot`), then
+        relaxed to **basename matching** (end-of-string `/mx-snapshot`)
+        after the user's smoke test showed it failed for unclear
+        reasons (symlinks? snap wrapper? dev build?). The `auth_admin_keep`
+        prompt is the real gate; basename matching keeps unrelated
+        callers (random scripts, other apps' helpers) from invoking
+        the helper while letting any binary literally named
+        `mx-snapshot` through to the password prompt.
+
+      Bugs fixed along the way:
+      - `polkit.spawn`'s return is a string, not an array; the arch
+        rule's `caller_exe[0]` was reading the first character;
+      - `subject.caller_pid` is undefined; the documented field is
+        `subject.pid`. The rule's readlink path was effectively
+        `/proc/undefined/exe`, so the comparison never matched.
 - [x] **5b:** Add `PKGBUILD`, `release.sh` (with `MAIN_BRANCH=main` default
       and `AUR_DIR` overridable). Arch packaging is **GUI-only**:
       `BUILD_CLI=OFF`, scripts installed only under
