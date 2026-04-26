@@ -121,36 +121,38 @@ The Arch chain to cherry-pick from `arch`, in order:
 `5bc9249` → `fa3bbd1` → `60f8f3e` → `5a07ae4` → `7bab12f` → `fb9a3da` →
 `114671d` → `baef70c`.
 
-- [ ] `Work::copyNewIso`: branch on `isArch`. Keep `main`'s `--grub-mbr` and
+- [x] `Work::copyNewIso`: branch on `isArch`. Keep `main`'s `--grub-mbr` and
       multi-init template logic in the `else` branch. Arch branch handles
       `/usr/lib/iso-template/arch/iso-template.tar.gz`, `.disk` UUID stamp,
       kernel + `archiso.img` copy to `boot/<i686|x86_64>/`, archiso initramfs
       rebuild via `mkinitcpio` when stale or missing.
-- [ ] Add private helpers `Work::kernelImageVersion`,
+- [x] Add private helpers `Work::kernelImageVersion`,
       `Work::initramfsKernelVersion`, `Work::rebuildArchisoInitramfs`.
-- [ ] `Work::createIso`: branch `squashfsPath` (`airootfs.sfs` for Arch vs
+- [x] `Work::createIso`: branch `squashfsPath` (`airootfs.sfs` for Arch vs
       `linuxfs` for MX), checksum (sha512 vs md5), xorriso volume label and
       boot args. Keep `main`'s `forceProgressSupported` detection and
       `-throttle` capability probe.
-- [ ] `Work::installPackage`: pacman branch (with `mx-installer` →
+- [x] `Work::installPackage`: pacman branch (with `mx-installer` →
       `gazelle-installer` substitution and `checkInstalled` short-circuit).
-- [ ] `Work::checkInstalled`: pacman `-Q` branch.
-- [ ] `Work::savePackageList`: pacman branch writes
+- [x] `Work::checkInstalled`: pacman `-Q` branch.
+- [x] `Work::savePackageList`: pacman branch writes
       `iso-template/arch/pkglist.<arch>.txt`.
-- [ ] `Work::setupEnv`: installer Desktop link logic (minstall vs
-      gazelle-installer detection, `/etc/skel/Desktop` symlink, demo home
-      symlink under `resetAccounts`, current-user `Desktop` symlink in
-      non-reset mode with `installerLinkToRemove` cleanup tracking). This
-      block runs on both distros — it just picks whichever `.desktop` file
-      exists.
-- [ ] `helper.cpp` allow-list: merge in the additional commands from `arch`
+- [x] `Work::setupEnv`: installer Desktop link logic — Arch only.
+      MX continues to rely on mx-installer + `installed-to-live` to place the
+      link via the skel-to-demo flow; `if (settings->isArch)` gate avoids
+      redundant `ln -sf` on the MX path. Includes `/etc/skel/Desktop` symlink,
+      demo home symlink under `resetAccounts`, and current-user `Desktop`
+      symlink in non-reset mode with `installerLinkToRemove` cleanup
+      tracking.
+- [x] `helper.cpp` allow-list: merge in the additional commands from `arch`
       (`bash`, `chmod`, `cp`, `cat`, `adduser`, `deluser`, `install`, `ln`,
       `localize-repo`, `mkinitcpio`, `pacman`, `readlink`, `rm`, `sh`, `stat`,
       `touch`, `userdel`).
 - [ ] Smoke-test on MX: build a snapshot, verify nothing about the MX path
       regressed.
 - [ ] Smoke-test on Arch (`-DARCH_BUILD=ON`): build a snapshot, boot the
-      resulting ISO.
+      resulting ISO. *(Blocked on Step 2 — `setupEnv` still calls
+      `installed-to-live` which is absent on Arch.)*
 
 ## Step 4 — Distro-agnostic hardening from `arch`
 

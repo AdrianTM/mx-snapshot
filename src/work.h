@@ -93,6 +93,11 @@ private:
     void openInitrd(const QString &file, const QString &initrd_dir);
     void copyModules(const QString &to, const QString &kernel);
 
+    // Arch initramfs helpers
+    [[nodiscard]] QString kernelImageVersion(const QString &kernelPath) const;
+    [[nodiscard]] QString initramfsKernelVersion(const QString &initramfsPath) const;
+    bool rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath);
+
     // Configuration file generation
     void replaceMenuStrings();
     void writeLsbRelease();
@@ -109,4 +114,5 @@ private:
     QString bindRootPath = "/.bind-root";
     QString bindRootOverlayBase;
     bool bindRootOverlayActive = false;
+    QString installerLinkToRemove;  // Installer Desktop link in user's home; cleared on cleanup
 };
