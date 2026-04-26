@@ -5,8 +5,8 @@
 #include <QEventLoop>
 #include <QFile>
 #include <QStringList>
-#include <QTimer>
 
+#include <cstdlib>
 #include <unistd.h>
 
 #include "messagehandler.h"
@@ -16,12 +16,21 @@ Cmd::Cmd(QObject *parent)
       elevationToolPath {Cmd::elevationTool()},
       helperPath {"/usr/lib/" + QCoreApplication::applicationName() + "/helper"}
 {
-    connect(this, &Cmd::readyReadStandardOutput,
-            [this] { emit outputAvailable(QString::fromLocal8Bit(readAllStandardOutput())); });
-    connect(this, &Cmd::readyReadStandardError,
-            [this] { emit errorAvailable(QString::fromLocal8Bit(readAllStandardError())); });
-    connect(this, &Cmd::outputAvailable, [this](const QString &out) { outBuffer += out; });
-    connect(this, &Cmd::errorAvailable, [this](const QString &out) { outBuffer += out; });
+    // Buffer everything; only emit the public signals when not suppressed.
+    connect(this, &Cmd::readyReadStandardOutput, [this] {
+        const QString out = QString::fromLocal8Bit(readAllStandardOutput());
+        outBuffer += out;
+        if (!suppressOutput) {
+            emit outputAvailable(out);
+        }
+    });
+    connect(this, &Cmd::readyReadStandardError, [this] {
+        const QString out = QString::fromLocal8Bit(readAllStandardError());
+        outBuffer += out;
+        if (!suppressOutput) {
+            emit errorAvailable(out);
+        }
+    });
 }
 
 QString Cmd::elevationTool()
@@ -37,6 +46,31 @@ QString Cmd::elevationTool()
     if (QFile::exists("/usr/bin/gksu")) return QStringLiteral("/usr/bin/gksu");
     if (QFile::exists("/usr/bin/sudo")) return QStringLiteral("/usr/bin/sudo");
     return {};
+}
+
+QString Cmd::snapshotLibCommand(const QString &args)
+{
+    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
+    if (getuid() == 0) {
+        return snapshotLib + " " + args;
+    }
+    // Prefer pkexec when available regardless of CLI/GUI mode: snapshot-lib calls
+    // happen non-interactively (no TTY for a sudo password prompt), and the
+    // accompanying polkit rules restrict the action to mx-snapshot callers.
+    if (QFile::exists("/usr/bin/pkexec")) {
+        return QStringLiteral("/usr/bin/pkexec ") + snapshotLib + " " + args;
+    }
+    const QString elevate = Cmd::elevationTool();
+    if (elevate.isEmpty()) {
+        return snapshotLib + " " + args;
+    }
+    return elevate + " " + snapshotLib + " " + args;
+}
+
+bool Cmd::runSnapshotLib(const QString &args, QuietMode quiet)
+{
+    Cmd cmd;
+    return cmd.run(snapshotLibCommand(args), quiet);
 }
 
 bool Cmd::isCliMode()
@@ -95,6 +129,13 @@ QString Cmd::getOutAsRoot(const QString &cmd, const QStringList &args, QuietMode
     return output;
 }
 
+QString Cmd::getOutAsRoot(const QString &cmd, QuietMode quiet)
+{
+    QString output;
+    procAsRoot("bash", {"-c", cmd}, &output, nullptr, quiet);
+    return output;
+}
+
 bool Cmd::helperProc(const QStringList &helperArgs, QString *output, const QByteArray *input, QuietMode quiet)
 {
     if (getuid() != 0 && elevationToolPath.isEmpty()) {
@@ -135,13 +176,17 @@ bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, con
     }
 
     QEventLoop loop;
-    connect(this, &QProcess::finished, &loop, &QEventLoop::quit);
+    // Track the connection so we can disconnect after the loop exits — otherwise
+    // a later QProcess::finished from a different invocation can resurrect this
+    // loop's quit handler against a stale local QEventLoop.
+    const auto conn = connect(this, &QProcess::finished, &loop, &QEventLoop::quit);
     start(cmd, args);
     if (input && !input->isEmpty()) {
         write(*input);
     }
     closeWriteChannel();
     loop.exec();
+    disconnect(conn);
 
     if (output) {
         *output = outBuffer.trimmed();
@@ -161,9 +206,24 @@ bool Cmd::run(const QString &cmd, QuietMode quiet)
     return proc("/bin/bash", {"-c", cmd}, nullptr, nullptr, quiet);
 }
 
+bool Cmd::runAsRoot(const QString &cmd, QuietMode quiet)
+{
+    return procAsRoot("bash", {"-c", cmd}, nullptr, nullptr, quiet);
+}
+
 QString Cmd::readAllOutput()
 {
     return outBuffer.trimmed();
+}
+
+void Cmd::setOutputSuppressed(bool suppressed)
+{
+    suppressOutput = suppressed;
+}
+
+bool Cmd::outputSuppressed() const
+{
+    return suppressOutput;
 }
 
 void Cmd::handleElevationError()
@@ -171,6 +231,11 @@ void Cmd::handleElevationError()
     MessageHandler::showMessage(MessageHandler::Critical, tr("Administrator Access Required"),
                                 tr("This operation requires administrator privileges. Please restart the "
                                    "application and enter your password when prompted."));
-    QTimer::singleShot(0, qApp, &QCoreApplication::quit);
-    exit(EXIT_FAILURE);
+    // Prefer Qt's event-loop-aware exit so destructors run; only fall back to
+    // std::exit when no QCoreApplication has been created yet.
+    if (QCoreApplication::instance()) {
+        QCoreApplication::exit(EXIT_FAILURE);
+        return;
+    }
+    std::exit(EXIT_FAILURE);
 }

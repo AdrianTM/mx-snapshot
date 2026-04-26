@@ -19,16 +19,30 @@ public:
     static bool isCliMode();
     static QString loggedInUserName();
 
+    // Build a shell command string that invokes /usr/lib/<app>/snapshot-lib with
+    // the given args, prefixed with whichever elevation tool fits the context.
+    static QString snapshotLibCommand(const QString &args);
+    static bool runSnapshotLib(const QString &args, QuietMode quiet = QuietMode::No);
+
     bool proc(const QString &cmd, const QStringList &args = {}, QString *output = nullptr,
               const QByteArray *input = nullptr, QuietMode quiet = QuietMode::No,
               Elevation elevation = Elevation::No);
     bool procAsRoot(const QString &cmd, const QStringList &args = {}, QString *output = nullptr,
                     const QByteArray *input = nullptr, QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No);
-    [[nodiscard]] QString getOutAsRoot(const QString &cmd, const QStringList &args = {},
-                                       QuietMode quiet = QuietMode::No);
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, const QStringList &args, QuietMode quiet);
+    // Shell-string overload: runs `bash -c "cmd"` as root.
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString readAllOutput();
     bool run(const QString &cmd, QuietMode quiet = QuietMode::No);
+    // Shell-string overload: runs `bash -c "cmd"` as root.
+    bool runAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
+
+    // Suppress emission of outputAvailable/errorAvailable signals while still
+    // buffering for readAllOutput(). Useful for noisy commands run inside other
+    // commands' progress streams.
+    void setOutputSuppressed(bool suppressed);
+    [[nodiscard]] bool outputSuppressed() const;
 
 signals:
     void done();
@@ -39,6 +53,7 @@ private:
     const QString elevationToolPath;
     const QString helperPath;
     QString outBuffer;
+    bool suppressOutput = false;
     static constexpr int EXIT_CODE_COMMAND_NOT_FOUND = 127;
     static constexpr int EXIT_CODE_PERMISSION_DENIED = 126;
 
