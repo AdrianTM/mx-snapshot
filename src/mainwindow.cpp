@@ -756,13 +756,28 @@ void MainWindow::prepareForOutput(const QString &file_name)
     ui->outputBox->clear();
     pendingOutputBuffer.clear();
     transientOutputLineActive = false;
+    // Each stage may trigger cleanUp() (which is no longer [[noreturn]] —
+    // see Step 4d). Bail out between stages when that happens, otherwise
+    // we run the rest of the pipeline against a torn-down bind-root.
     work.setupEnv();
+    if (work.isCleaningUp()) {
+        return;
+    }
     if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
+        if (work.isCleaningUp()) {
+            return;
+        }
     }
     work.copyNewIso();
+    if (work.isCleaningUp()) {
+        return;
+    }
     ui->outputLabel->clear();
     work.savePackageList(file_name);
+    if (work.isCleaningUp()) {
+        return;
+    }
 
     if (settings->editBootMenu) {
         editBootMenu();
