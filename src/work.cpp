@@ -138,7 +138,7 @@ void Work::checkEnoughSpace()
     }
 }
 
-bool Work::checkInstalled(const QString &package)
+bool Work::checkInstalled(const QString &package) const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
@@ -151,16 +151,17 @@ bool Work::checkInstalled(const QString &package)
         return false;
     }
 
-#ifdef ARCH_BUILD
-    QProcess pacmanQuery;
-    pacmanQuery.start("pacman", {"-Q", package});
-    if (!pacmanQuery.waitForFinished(5000)) {
-        pacmanQuery.kill();
-        pacmanQuery.waitForFinished(1000);
-        return false;
+    if (settings->isArch) {
+        QProcess pacmanQuery;
+        pacmanQuery.start("pacman", {"-Q", package});
+        if (!pacmanQuery.waitForFinished(5000)) {
+            pacmanQuery.kill();
+            pacmanQuery.waitForFinished(1000);
+            return false;
+        }
+        return pacmanQuery.exitStatus() == QProcess::NormalExit && pacmanQuery.exitCode() == 0;
     }
-    return pacmanQuery.exitStatus() == QProcess::NormalExit && pacmanQuery.exitCode() == 0;
-#else
+
     QProcess dpkgQuery;
     dpkgQuery.start("dpkg-query", {"-W", "-f=${Status}", "--", package});
     if (!dpkgQuery.waitForFinished(5000)) {
@@ -173,7 +174,6 @@ bool Work::checkInstalled(const QString &package)
     }
     const QByteArray status = dpkgQuery.readAllStandardOutput();
     return status.contains("install ok installed");
-#endif
 }
 
 void Work::cleanUp()

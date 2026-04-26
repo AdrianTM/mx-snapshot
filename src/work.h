@@ -59,7 +59,7 @@ public:
     void markDone() { done = true; }
 
     // Utility methods
-    [[nodiscard]] static bool checkInstalled(const QString &package);
+    [[nodiscard]] bool checkInstalled(const QString &package) const;
     [[nodiscard]] bool isEnvironmentReady() const;
     bool installPackage(const QString &package);
 
