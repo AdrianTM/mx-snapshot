@@ -43,6 +43,49 @@
 
 namespace
 {
+QString trimQuotesValue(QString value)
+{
+    value = value.trimmed();
+    if (value.startsWith('\'') && value.endsWith('\'') && value.length() > 1) {
+        value = value.mid(1, value.length() - 2);
+    }
+    if (value.startsWith('"') && value.endsWith('"') && value.length() > 1) {
+        value = value.mid(1, value.length() - 2);
+    }
+    return value;
+}
+
+QString readOsReleaseValue(const QString &key)
+{
+    QFile file("/etc/os-release");
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return {};
+    }
+
+    QTextStream in(&file);
+    const QString keyPrefix = key + "=";
+    while (!in.atEnd()) {
+        const QString line = in.readLine().trimmed();
+        if (line.isEmpty() || line.startsWith('#') || !line.startsWith(keyPrefix)) {
+            continue;
+        }
+        return trimQuotesValue(line.section('=', 1));
+    }
+    return {};
+}
+
+QString ensureCowSpacesize(QString options)
+{
+    static const QRegularExpression pattern(R"((^|\s)cow_spacesize=\S+)");
+    if (options.contains(pattern)) {
+        return options;
+    }
+    if (options.trimmed().isEmpty()) {
+        return "cow_spacesize=80%";
+    }
+    return options.trimmed() + " cow_spacesize=80%";
+}
+
 QString loggedInUserName()
 {
     return Cmd::loggedInUserName();
@@ -146,6 +189,11 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
 // Check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
+    if (isArch) {
+        // Arch ships kernels without the corresponding /boot/config-* file by default;
+        // mksquashfs in userspace pulls the algorithm in dynamically.
+        return true;
+    }
     if (compression == "gzip"
         || !QFileInfo::exists("/boot/config-"
                               + kernel)) { // Don't check for gzip or if the kernel config file is missing
@@ -262,8 +310,9 @@ bool Settings::checkConfiguration() const
         return false;
     }
 
-    // Check if SQUASHFS is available in kernel
-    if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
+    // Check if SQUASHFS is available in kernel (skip on Arch where /boot/config-* is absent)
+    if (!isArch
+        && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
         qCritical() << QObject::tr("Kernel %1 doesn't support Squashfs").arg(kernel);
         return false;
     }
@@ -528,8 +577,9 @@ void Settings::selectKernel()
             }
         }
     }
-    // Check if SQUASHFS is available
-    if (QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
+    // Check if SQUASHFS is available (skip on Arch — kernel config not shipped)
+    if (!isArch
+        && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", "/boot/config-" + kernel}) != 0) {
         QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
@@ -574,10 +624,24 @@ void Settings::setVariables()
         lsbFile.close();
     }
 
-    projectName = lsbRelease.contains("DISTRIB_ID")
-                      ? lsbRelease.value("DISTRIB_ID")
-                      : Cmd().getOut("lsb_release -is");
+    const QString osName = readOsReleaseValue("NAME");
+    const QString osVersionId = readOsReleaseValue("VERSION_ID");
+    const QString osVersionCodename = readOsReleaseValue("VERSION_CODENAME");
+#ifdef ARCH_BUILD
+    isArch = true;
+#else
+    isArch = osName.contains("Arch", Qt::CaseInsensitive);
+#endif
+
+    if (lsbRelease.contains("DISTRIB_ID")) {
+        projectName = lsbRelease.value("DISTRIB_ID");
+    } else if (!osName.isEmpty()) {
+        projectName = osName;
+    } else {
+        projectName = Cmd().getOut("lsb_release -is");
+    }
     projectName.remove('"');
+
     if (!distroVersionFile.isEmpty()) {
         QFile versionFile(distroVersionFile);
         if (versionFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -585,16 +649,44 @@ void Settings::setVariables()
             versionFile.close();
         }
         distroVersion.remove(QRegularExpression("^" + projectName + "[_-]"));
+    } else if (!osVersionId.isEmpty()) {
+        distroVersion = osVersionId;
     } else {
         distroVersion = Cmd().getOut("lsb_release -rs");
     }
-    fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
+
+    // MX-on-Arch hybrid: /etc/mx-version contains e.g. "Infinity_Arch"
+    if (distroVersion.contains("Arch")) {
+        const QString baseName = projectName; // "MX"
+        const QStringList parts = distroVersion.split('_');
+        if (parts.size() >= 2) {
+            projectName = baseName + parts[0];     // "MXInfinity" or similar
+            codename = parts[1] + " " + parts[0];  // "Arch Infinity"
+        }
+    }
+
+    if (isArch) {
+        fullDistroName = distroVersion + "_" + QString(x86 ? "386" : "x64");
+    } else {
+        fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
+    }
     releaseDate = QDate::currentDate().toString("MMMM dd, yyyy");
-    codename = lsbRelease.contains("DISTRIB_CODENAME")
-                   ? lsbRelease.value("DISTRIB_CODENAME")
-                   : Cmd().getOut("lsb_release -cs");
-    codename.remove('"');
+
+    if (codename.isEmpty()) {
+        if (lsbRelease.contains("DISTRIB_CODENAME")) {
+            codename = lsbRelease.value("DISTRIB_CODENAME");
+        } else if (!osVersionCodename.isEmpty()) {
+            codename = osVersionCodename;
+        } else if (isArch) {
+            codename = "rolling";
+        } else {
+            codename = Cmd().getOut("lsb_release -cs");
+        }
+        codename.remove('"');
+    }
+
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
+    bootOptions = ensureCowSpacesize(bootOptions);
 }
 
 QString Settings::getFilename() const
@@ -682,6 +774,11 @@ QString Settings::getUsedSpace()
 int Settings::getDebianVerNum()
 {
     QFile file("/etc/debian_version");
+    if (!file.exists()) {
+        // Non-Debian system (Arch, etc.); return a recent version so callers
+        // gating mksquashfs feature checks behave sensibly.
+        return Release::Bookworm;
+    }
     QStringList list;
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         QTextStream in(&file);
@@ -689,8 +786,8 @@ int Settings::getDebianVerNum()
         list = line.split('.');
         file.close();
     } else {
-        qCritical() << "Could not open /etc/debian_version:" << file.errorString() << "Assumes Bullseye";
-        return Release::Bullseye;
+        qCritical() << "Could not open /etc/debian_version:" << file.errorString() << "Assumes Bookworm";
+        return Release::Bookworm;
     }
     bool ok = false;
     int ver = list.at(0).toInt(&ok);
@@ -996,7 +1093,9 @@ void Settings::otherExclusions()
 
     if (resetAccounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
-        // Exclude /etc/localtime if link and timezone not America/New_York
+#ifndef ARCH_BUILD
+        // Exclude /etc/localtime if link and timezone not America/New_York.
+        // Skipped on Arch — /etc/timezone is absent and the heuristic doesn't apply.
         QFileInfo localtimeInfo("/etc/localtime");
         QFile timezoneFile("/etc/timezone");
         if (localtimeInfo.isSymLink()) {
@@ -1009,6 +1108,7 @@ void Settings::otherExclusions()
                 timezoneFile.close();
             }
         }
+#endif
     }
     excludeSwapFile();
 }
@@ -1157,7 +1257,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
         compression = "zstd";
     }
     resetAccounts = true;
-    bootOptions = "quiet splasht nosplash";
+    bootOptions = ensureCowSpacesize("quiet splasht nosplash");
     excludeAll();
 }
 

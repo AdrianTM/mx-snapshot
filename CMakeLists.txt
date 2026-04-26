@@ -22,24 +22,55 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-# Get version from debian/changelog
-execute_process(
-    COMMAND dpkg-parsechangelog -SVersion
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    RESULT_VARIABLE DPKG_RESULT
-)
+# Resolve project version with a fallback chain so the build works in:
+#   - git checkouts (uses the latest tag)
+#   - Debian source builds (uses dpkg-parsechangelog)
+#   - Arch / source tarballs without git or dpkg (regex on debian/changelog)
+# Override with -DGIT_TAG_VERSION=x.y.z to skip detection.
+if(NOT GIT_TAG_VERSION)
+    find_program(GIT_EXECUTABLE git)
+    if(GIT_EXECUTABLE)
+        # Match version-shaped tags only (e.g. 26.04.2), so non-version tags
+        # like "pre-unify-main" don't pollute the project version.
+        execute_process(
+            COMMAND ${GIT_EXECUTABLE} describe --tags --abbrev=0 --match "[0-9]*"
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            RESULT_VARIABLE GIT_RESULT
+            ERROR_QUIET
+        )
+    endif()
+endif()
 
-if(NOT DPKG_RESULT EQUAL 0 OR NOT PROJECT_VERSION_FROM_CHANGELOG)
-    message(FATAL_ERROR "Failed to get version from debian/changelog using dpkg-parsechangelog")
+if(NOT GIT_TAG_VERSION)
+    find_program(DPKG_PARSECHANGELOG dpkg-parsechangelog)
+    if(DPKG_PARSECHANGELOG)
+        execute_process(
+            COMMAND ${DPKG_PARSECHANGELOG} -SVersion
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            ERROR_QUIET
+        )
+    endif()
+endif()
+
+if(NOT GIT_TAG_VERSION AND EXISTS "${CMAKE_SOURCE_DIR}/debian/changelog")
+    file(READ "${CMAKE_SOURCE_DIR}/debian/changelog" CHANGELOG_CONTENTS)
+    string(REGEX MATCH "^[^ ]+ \\(([^)]+)\\)" _match "${CHANGELOG_CONTENTS}")
+    set(GIT_TAG_VERSION "${CMAKE_MATCH_1}")
+endif()
+
+if(NOT GIT_TAG_VERSION)
+    message(FATAL_ERROR "Failed to determine version from git tag, dpkg-parsechangelog, or debian/changelog")
 endif()
 
 project(mx-snapshot
-    VERSION ${PROJECT_VERSION_FROM_CHANGELOG}
     DESCRIPTION "MX Snapshot - A tool for creating live ISO images from running MX Linux systems"
     LANGUAGES CXX
 )
+set(PROJECT_VERSION "${GIT_TAG_VERSION}")
 
 # Set default build type if not specified
 if(NOT CMAKE_BUILD_TYPE)
@@ -76,6 +107,11 @@ endif()
 # Options to control what to build
 option(BUILD_GUI "Build GUI version" ON)
 option(BUILD_CLI "Build CLI version" ON)
+option(ARCH_BUILD "Build for Arch Linux" OFF)
+
+if(ARCH_BUILD)
+    add_compile_definitions(ARCH_BUILD)
+endif()
 
 # Find Qt6 components - include all components needed for either build
 set(QT_COMPONENTS Core LinguistTools)
@@ -84,6 +120,9 @@ if(BUILD_GUI)
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
+
+# Find libcrypt (used by future BindRootManager password handling on Arch)
+find_library(LIBCRYPT crypt)
 
 # Enable automatic MOC, UIC, and RCC processing
 set(CMAKE_AUTOMOC ON)
@@ -160,6 +199,9 @@ if(BUILD_GUI)
         Qt6::Gui
         Qt6::Widgets
     )
+    if(LIBCRYPT)
+        target_link_libraries(mx-snapshot ${LIBCRYPT})
+    endif()
 
     set_target_properties(mx-snapshot PROPERTIES
         OUTPUT_NAME "mx-snapshot"
@@ -195,6 +237,9 @@ if(BUILD_CLI)
     target_link_libraries(iso-snapshot-cli
         Qt6::Core
     )
+    if(LIBCRYPT)
+        target_link_libraries(iso-snapshot-cli ${LIBCRYPT})
+    endif()
 
     set_target_properties(iso-snapshot-cli PROPERTIES
         OUTPUT_NAME "iso-snapshot-cli"

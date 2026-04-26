@@ -278,12 +278,17 @@ void checkSquashfs()
     proc.waitForFinished();
     currentKernel = proc.readAllStandardOutput().trimmed();
 
+#ifdef ARCH_BUILD
+    // Arch ships kernels without /boot/config-* by default; mksquashfs is userspace anyway.
+    return;
+#else
     const QString configPath = "/boot/config-" + currentKernel;
     if (QFile::exists(configPath) && QProcess::execute("grep", {"-q", "^CONFIG_SQUASHFS=[ym]", configPath}) != 0) {
         const QString message = QObject::tr("Current kernel doesn't support Squashfs, cannot continue.");
         MessageHandler::showMessage(MessageHandler::Critical, QObject::tr("Error"), message);
         exit(EXIT_FAILURE);
     }
+#endif
 }
 
 void signalHandler(int signal)
