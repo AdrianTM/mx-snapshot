@@ -229,10 +229,30 @@ bool Settings::checkSnapshotDir() const
 bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition
-    if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent) || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
-        tempDirParent = FileSystemUtils::isOnSupportedPartition(snapshotDir) ? FileSystemUtils::largerFreeSpace("/tmp", "/home", snapshotDir)
-                                                                             : FileSystemUtils::largerFreeSpace("/tmp", "/home");
+    // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition.
+    // When picking a fallback, only consider candidates whose underlying filesystem can hold the
+    // intermediate snapshot artifacts (excludes vfat/ntfs, network mounts, fuse-backed shares, etc.).
+    if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent)
+        || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
+        QStringList candidates;
+        for (const QString &candidate : {QStringLiteral("/tmp"), QStringLiteral("/home"), snapshotDir}) {
+            if (candidate.isEmpty() || candidates.contains(candidate)) {
+                continue;
+            }
+            if (!QFile::exists(candidate) || !FileSystemUtils::isOnSupportedPartition(candidate)) {
+                continue;
+            }
+            candidates << candidate;
+        }
+        if (candidates.isEmpty()) {
+            qCritical() << QObject::tr(
+                "No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.");
+            return false;
+        }
+        tempDirParent = candidates.takeFirst();
+        for (const QString &candidate : std::as_const(candidates)) {
+            tempDirParent = FileSystemUtils::largerFreeSpace(tempDirParent, candidate);
+        }
     }
     if (tempDirParent == "/home") {
         QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();

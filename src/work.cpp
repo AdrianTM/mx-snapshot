@@ -257,6 +257,12 @@ void Work::cleanUp()
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
+    // Reject unsupported filesystems (vfat/ntfs, network mounts, fuse shares, etc.)
+    // up front — settings->checkTempDir() would later silently relocate to a
+    // different parent if we accepted one, breaking the "move to <dir>" contract.
+    if (!QFile::exists(dir) || !FileSystemUtils::isOnSupportedPartition(dir)) {
+        return false;
+    }
     // See first if the dir is on different partition otherwise it's irrelevant
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
