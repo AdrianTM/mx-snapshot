@@ -24,6 +24,7 @@
 #include <QDateTime>
 #include <QFileInfo>
 
+#include <cstdio>
 #include <unistd.h>
 #include <sys/stat.h>
 
@@ -47,22 +48,37 @@ Log::Log(const QString &fileName)
 
 void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogContext &context, const QString &msg)
 {
+    // Reentrancy guard: if a qWarning() inside this handler triggers another
+    // dispatch (Qt does this on some message types), bail to plain stderr to
+    // avoid infinite recursion.
+    static thread_local bool inHandler = false;
+    if (inHandler) {
+        std::fputs((msg + '\n').toLocal8Bit().constData(), stderr);
+        return;
+    }
+    inHandler = true;
+
     QTextStream termOut(stdout);
 
     // Check if the message contains carriage return or starts with the escape sequence for clearing the line
     if (msg.contains('\r') || msg.startsWith("\033[2K")) {
         termOut << "\033[?25l" << msg;
+        inHandler = false;
         return; // Skip writing to the log file
     }
 
     termOut << msg << '\n';
 
     if (!logFile.isOpen()) {
-        qWarning() << "Log file is not open for writing:" << logFile.fileName();
+        // Use raw stderr instead of qWarning() — we're already inside the
+        // message handler and qWarning would re-enter it.
+        std::fputs(
+            ("Log file is not open for writing: " + logFile.fileName() + '\n').toLocal8Bit().constData(), stderr);
         // Try to fix ownership and reopen
         fixLogFileOwnership(logFile.fileName());
         if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
-            qWarning() << "Still could not open log file after ownership fix";
+            std::fputs("Still could not open log file after ownership fix\n", stderr);
+            inHandler = false;
             return;
         }
     }
@@ -89,6 +105,7 @@ void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogConte
     }
 
     out << ": " << msg << '\n';
+    inHandler = false;
 }
 
 QString Log::getLog()
@@ -113,21 +130,18 @@ void Log::fixLogFileOwnership(const QString &fileName)
         return;
     }
 
-    // Case 1: Running as regular user, but file is owned by root
+    // Case 1: Running as regular user, but file is owned by root.
+    // No qDebug — fixLogFileOwnership runs from inside the message handler.
     if (fileStat.st_uid == 0 && currentUid != 0) {
         Cmd cmd;
         const QString username = Cmd::loggedInUserName();
-        if (!username.isEmpty()
-            && cmd.procAsRoot("chown", {username + ":", fileName}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
-            qDebug() << "Fixed log file ownership for:" << fileName;
+        if (!username.isEmpty()) {
+            cmd.procAsRoot("chown", {username + ":", fileName}, nullptr, nullptr, Cmd::QuietMode::Yes);
         }
     }
     // Case 2: Running as root, but file is owned by regular user with restrictive permissions
     else if (fileStat.st_uid != 0 && currentUid == 0) {
-        // When running as root, take ownership of the log file for consistency
         if (chown(fileNameBytes.constData(), 0, 0) == 0) {
-            qDebug() << "Took ownership of log file as root:" << fileName;
-            // Also ensure it has reasonable permissions
             chmod(fileNameBytes.constData(), S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
         }
     }
