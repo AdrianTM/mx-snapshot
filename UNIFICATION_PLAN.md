@@ -186,32 +186,46 @@ These fixes are not Arch-specific and should land regardless.
 
 ## Step 5 — Packaging
 
-- [ ] Add `PKGBUILD` from `arch` (root). Adjust install paths so
-      `scripts-arch/snapshot-bootparameter.sh` overrides
-      `scripts/snapshot-bootparameter.sh`, but `copy-initrd-modules` /
-      `copy-initrd-programs` are **not** installed on Arch (mkinitcpio
-      handles initramfs).
-- [ ] Add `aur/PKGBUILD` and `aur/.SRCINFO` from `arch`.
-- [ ] Add `release.sh` from `arch`.
-- [ ] Replace `build.sh` with `arch`'s version (already supports `--debian`
-      and `--arch` modes).
-- [ ] Add `scripts-arch/snapshot-bootparameter.sh`.
-- [ ] Add `live-files/` from `arch`. Install **only** via `PKGBUILD`; on
-      Debian this content is supplied by the separate `mx-remaster-live-files`
-      package. Keep `Conflicts/Replaces: mx-remaster-live-files` in
-      `PKGBUILD`.
-- [ ] `polkit/10-mx-snapshot-restrict.rules`: add to repo and install on both
-      distros (security hardening, distro-agnostic).
-- [ ] `debian/mx-snapshot.install` + `debian/iso-snapshot-cli.install`: add
-      install line for `polkit/10-mx-snapshot-restrict.rules`.
-- [ ] **Decision:** `polkit` policy default — `auth_admin_keep` (current
-      `main`, more secure prompt) or `yes` + restrict rules (`arch`'s choice,
-      no prompt for non-interactive snapshot-lib calls). Pick one and
-      document. Default recommendation: keep `auth_admin_keep` until the
-      rules file has been audited.
-- [ ] `mx-snapshot-exclude.list` and `iso-snapshot-cli-exclude.list`: add the
-      Arch-specific lines (`var/cache/pacman/pkg/*`,
-      `var/lib/pacman/sync/*`). Harmless on Debian.
+Reordered from the original sequence: Step 5 substeps land 5a → 5c → 5d → 5b
+because PKGBUILD references the live-files tree and the polkit rules file.
+
+- [x] **5a:** Replace `build.sh` with arch's version (`--debian` / `--arch` /
+      `--asan` modes); add `scripts-arch/snapshot-bootparameter.sh`; add
+      `var/cache/pacman/pkg/*` and `var/lib/pacman/sync/*` to both exclude
+      lists.
+- [x] **5c:** Add `live-files/files` and `live-files/general-files` from
+      arch (selectively staged — pre-existing `live-files/.claude/` is left
+      untracked). Installed **only** via PKGBUILD; on Debian this content
+      comes from the separate `mx-remaster-live-files` package. PKGBUILD
+      keeps `Conflicts/Replaces: mx-remaster-live-files`.
+- [x] **5d:** Add `polkit/10-mx-snapshot-restrict.rules` to the repo and
+      install it on both distros via `debian/mx-snapshot.install` and
+      `debian/iso-snapshot-cli.install`.
+- [x] **Decision:** keep `polkit` policy defaults at `auth_admin_keep`.
+      The rules file *tightens* it by denying any caller whose resolved
+      executable path is not exactly `/usr/bin/mx-snapshot` or
+      `/usr/bin/iso-snapshot-cli`. Two things rejected during review and
+      not implemented:
+      - the "root-owned caller → YES" branch from the arch version
+        (almost any /usr/bin caller would have bypassed auth given the
+        helper's broad allow-list);
+      - substring matching on the path (any path containing
+        `mx-snapshot` anywhere, e.g. `/tmp/mx-snapshot-evil/foo`, would
+        have satisfied the rule).
+      Also fixed a bug carried from the arch version where the rule
+      indexed into `polkit.spawn`'s return as an array — it returns a
+      string, so `caller_exe[0]` was reading the first character.
+- [ ] **5b:** Add `PKGBUILD`, `release.sh` (with `MAIN_BRANCH=main` default
+      and `AUR_DIR` overridable). Arch packaging is **GUI-only**:
+      `BUILD_CLI=OFF`, scripts installed only under
+      `/usr/share/mx-snapshot/`. `scripts-arch/snapshot-bootparameter.sh`
+      replaces the Debian `snapshot-bootparameter.sh`; `copy-initrd-*`
+      are not installed on Arch (mkinitcpio handles initramfs). `aur/`
+      is a separate sibling git repo (the AUR submission); not committed
+      in this tree.
+- [x] `mx-snapshot-exclude.list` and `iso-snapshot-cli-exclude.list`: add
+      the Arch-specific lines (`var/cache/pacman/pkg/*`,
+      `var/lib/pacman/sync/*`). Harmless on Debian. *(Landed with 5a.)*
 - [ ] `debian/control`: leave `mx-remaster (>= 25.12.01)` Depends in place
       until Step 2 lands and removes the `installed-to-live` dependency.
 
