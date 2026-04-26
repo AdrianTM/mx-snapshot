@@ -1,0 +1,40 @@
+// Restrict the mx-snapshot/iso-snapshot-cli pkexec helpers to be invoked
+// only by the matching frontend binary at its installed path. The base
+// policy is auth_admin_keep, so callers that match still get the password
+// prompt (kept across the pkexec session). Anything else is denied
+// outright.
+//
+// We deliberately do NOT return polkit.Result.YES anywhere: returning YES
+// would skip the auth prompt for the helper, and the helper's allow-list
+// includes broad tools (rm, cp, chmod, chown, mount, pacman, ...). A blanket
+// "no prompt for any root-owned caller" rule was rejected in review —
+// almost every executable in /usr/bin is owned by root, so that branch
+// effectively bypasses authentication.
+//
+// We also use exact-path equality, not substring matching: a caller path
+// containing "mx-snapshot" anywhere (e.g. /tmp/mx-snapshot-evil/foo) would
+// otherwise satisfy the rule. Dev builds run from outside /usr/bin must
+// therefore either install the package or invoke the helper as root.
+polkit.addRule(function(action, subject) {
+    var allowedFrontend = null;
+    if (action.id == "org.mxlinux.pkexec.mx-snapshot-helper") {
+        allowedFrontend = "/usr/bin/mx-snapshot";
+    } else if (action.id == "org.mxlinux.pkexec.iso-snapshot-cli-helper") {
+        allowedFrontend = "/usr/bin/iso-snapshot-cli";
+    } else {
+        return; // not our action — let other rules decide
+    }
+
+    try {
+        var caller_exe = polkit.spawn(["readlink", "-f", "/proc/" + subject.caller_pid + "/exe"]);
+        // polkit.spawn returns the captured stdout as a string with a trailing
+        // newline from readlink; strip whitespace before comparing.
+        if (typeof caller_exe === "string"
+            && caller_exe.replace(/\s+$/, "") === allowedFrontend) {
+            return polkit.Result.AUTH_ADMIN_KEEP;
+        }
+    } catch (e) {
+        // If the spawn itself fails, fall through to NO.
+    }
+    return polkit.Result.NO;
+});
