@@ -255,9 +255,18 @@ because PKGBUILD references the live-files tree and the polkit rules file.
       `arch` branch.
 - [ ] Update CI/release scripts to publish Debian + Arch packages from one
       tag.
-- [ ] Update `CLAUDE.md` and `README.md` to document the build matrix
+- [~] Update `CLAUDE.md` and `README.md` to document the build matrix
       (`-DARCH_BUILD=ON` for Arch, default for Debian; runtime detection
       handles unusual setups).
+      - `CLAUDE.md` updated locally with build matrix + runtime detection
+        notes. The file is gitignored globally on this workstation, so
+        the changes stay as local session context and are not committed.
+      - `README.md` deliberately not touched yet. The current README is
+        strongly worded as "MX/antiX only" and warns against installing
+        the deb on other systems. Adding Arch documentation while Step 2
+        (BindRootManager) is still deferred — i.e. while Arch runtime
+        isn't feature-complete — would mislead users. Update the README
+        when Step 2 lands and Arch is a fully supported runtime.
 
 ## Effort estimate
 
