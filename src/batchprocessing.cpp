@@ -66,11 +66,23 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     }
     settings->otherExclusions();
     work.setupEnv();
+    if (work.isCleaningUp()) {
+        return;
+    }
     if (!settings->monthly && !settings->overrideSize) {
         work.checkEnoughSpace();
+        if (work.isCleaningUp()) {
+            return;
+        }
     }
     work.copyNewIso();
+    if (work.isCleaningUp()) {
+        return;
+    }
     work.savePackageList(settings->snapshotName);
+    if (work.isCleaningUp()) {
+        return;
+    }
 
     if (settings->editBootMenu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");

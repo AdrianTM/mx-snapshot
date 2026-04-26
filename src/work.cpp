@@ -40,12 +40,26 @@
 #include <QTextStream>
 
 #include <algorithm>
+#include <cstdlib>
 #include <stdexcept>
 
 #include "filesystemutils.h"
 
 namespace
 {
+// cleanUp() is no longer [[noreturn]] — it walks the tear-down sequence and
+// then asks the event loop to exit. requestExit() centralizes the choice
+// between Qt's event-loop exit (preferred) and a hard std::exit fallback for
+// the rare case where no QCoreApplication exists.
+void requestExit(int code)
+{
+    if (QCoreApplication::instance()) {
+        QCoreApplication::exit(code);
+        return;
+    }
+    std::exit(code);
+}
+
 QString loggedInUserName()
 {
     return Cmd::loggedInUserName();
@@ -115,8 +129,12 @@ bool Work::isEnvironmentReady() const
 void Work::checkEnoughSpace()
 {
     quint64 required_space = getRequiredSpace();
-    // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
-    checkNoSpaceAndExit(required_space, settings->freeSpace, settings->snapshotDir);
+    // Check foremost if enough space for ISO on snapshot_dir; checkNoSpaceAndExit
+    // kicks off cleanUp() on its own when there's not enough room, so we just
+    // bail out of this pipeline stage in that case.
+    if (!checkNoSpaceAndExit(required_space, settings->freeSpace, settings->snapshotDir)) {
+        return;
+    }
 
     /* If snapshot and workdir are on the same partition we need about double the size of required_space.
      * If both TMP work_dir and ISO don't fit on snapshot_dir, see if work_dir can be put on /home or /tmp
@@ -130,11 +148,13 @@ void Work::checkEnoughSpace()
             if (checkAndMoveWorkDir("/home", required_space)) {
                 return;
             }
-            checkNoSpaceAndExit(required_space * 2, settings->freeSpace,
-                                settings->snapshotDir); // Print out error and exit
+            (void) checkNoSpaceAndExit(required_space * 2, settings->freeSpace,
+                                       settings->snapshotDir); // surfaces the error and triggers cleanUp
+            return;
         }
     } else { // If not on the same partitions, check if work_dir has enough free space for temp files for required_space
-        checkNoSpaceAndExit(required_space, settings->freeSpaceWork, settings->workDir);
+        (void) checkNoSpaceAndExit(required_space, settings->freeSpaceWork, settings->workDir);
+        return;
     }
 }
 
@@ -178,6 +198,13 @@ bool Work::checkInstalled(const QString &package) const
 
 void Work::cleanUp()
 {
+    // Idempotency guard: cleanUp can be called from multiple paths (signal,
+    // close event, error handler) and reentrancy here corrupts the state.
+    if (cleanupStarted) {
+        return;
+    }
+    cleanupStarted = true;
+
     const QString snapshotLib = snapshotLibPath();
     const QString elevateTool = Cmd::elevationTool();
     Cmd().run(elevateTool + " " + snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
@@ -185,7 +212,8 @@ void Work::cleanUp()
         shell.close();
         initrd_dir.remove();
         cleanupBindRootOverlay();
-        exit(EXIT_SUCCESS);
+        requestExit(EXIT_SUCCESS);
+        return;
     }
     emit message(tr("Cleaning..."));
     QTextStream out(stdout);
@@ -202,7 +230,6 @@ void Work::cleanUp()
         installerLinkToRemove.clear();
     }
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        const QString elevateTool = Cmd::elevationTool();
         Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
     }
     cleanupBindRootOverlay();
@@ -219,12 +246,12 @@ void Work::cleanUp()
                               {"--system", "--print-reply", "--dest=org.freedesktop.login1", "/org/freedesktop/login1",
                                "org.freedesktop.login1.Manager.PowerOff", "boolean:true"});
         }
-        exit(EXIT_SUCCESS);
-    } else {
-        emit message(tr("Interrupted or failed to complete"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
-        exit(EXIT_FAILURE);
+        requestExit(EXIT_SUCCESS);
+        return;
     }
+    emit message(tr("Interrupted or failed to complete"));
+    Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
+    requestExit(EXIT_FAILURE);
 }
 
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
@@ -241,6 +268,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
             cleanUp();
+            return false;
         }
         setupEnv();
         return true;
@@ -248,7 +276,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     return false;
 }
 
-void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
+bool Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     constexpr float factor = 1024 * 1024;
@@ -266,7 +294,9 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
                 + "\n"
                 + tr("If you are sure you have enough free space rerun the program with -o/--override-size option"));
         cleanUp();
+        return false;
     }
+    return true;
 }
 
 bool Work::setupBindRootOverlay()
@@ -371,6 +401,7 @@ void Work::copyNewIso()
     if (!QFileInfo::exists(templateTar)) {
         emit messageBox(BoxType::critical, tr("Error"), tr("ISO template not found: ") + templateTar);
         cleanUp();
+        return;
     }
 
     if (settings->isArch) {
@@ -409,6 +440,7 @@ void Work::copyNewIso()
             details += "\n" + tr("Template: %1").arg(templateTar);
             emit messageBox(BoxType::critical, tr("Error"), details);
             cleanUp();
+            return;
         }
 
         const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
@@ -451,6 +483,7 @@ void Work::copyNewIso()
                                     "stale file.");
                     emit messageBox(BoxType::critical, tr("Error"), details);
                     cleanUp();
+                    return;
                 }
                 // mkinitcpio already verified the target kernel; skip post-rebuild probing.
             }
@@ -478,6 +511,7 @@ void Work::copyNewIso()
         if (initramfsSource.isEmpty()) {
             emit messageBox(BoxType::critical, tr("Error"), tr("Could not find an initramfs image to use."));
             cleanUp();
+            return;
         }
 
         shell.procAsRoot("cp", {initramfsSource, archBootPath + "/archiso.img"}, nullptr, nullptr,
@@ -503,6 +537,7 @@ void Work::copyNewIso()
                                 tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from "
                                    "iso-template"));
                 cleanUp();
+                return;
             }
         }
         shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
@@ -514,6 +549,7 @@ void Work::copyNewIso()
         if (!initrd_dir.isValid()) {
             qDebug() << tr("Could not create temp directory. ") + path;
             cleanUp();
+            return;
         }
 
         openInitrd(settings->workDir + "/iso-template/antiX/initrd.gz", path);
@@ -729,6 +765,7 @@ bool Work::createIso(const QString &filename)
     if (settings->shutdown) {
         done = true;
         cleanUp();
+        return true;
     }
     emit messageBox(BoxType::information, tr("Success"),
                     tr("MX Snapshot completed successfully!") + '\n'
@@ -1032,6 +1069,7 @@ void Work::setupEnv()
     // Checks if work_dir looks OK
     if (!settings->workDir.contains("/mx-snapshot")) {
         cleanUp();
+        return;
     }
 
     QString bind_boot;
@@ -1056,6 +1094,7 @@ void Work::setupEnv()
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not prepare a safe bind-root overlay. Snapshot cannot continue."));
         cleanUp();
+        return;
     }
 
     // Arch-only: place an installer Desktop shortcut. On MX, mx-installer's own
@@ -1091,6 +1130,7 @@ void Work::setupEnv()
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
+            return;
         }
         // Belt-and-braces: ensure demo's Desktop has the link even if the skel copy
         // happened before our skel symlink was placed.
@@ -1108,6 +1148,7 @@ void Work::setupEnv()
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
+            return;
         }
         // Drop a link in the current user's Desktop too. If /home is a bind mount,
         // we have to write to the real filesystem (not the overlay) and remember to
@@ -1462,6 +1503,7 @@ quint64 Work::getRequiredSpace()
         qDebug() << "Error: calculating size of excluded files\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
+        return 0;
     }
     emit message(tr("Calculating size of root..."));
     quint64 root_size = 0;
@@ -1486,6 +1528,7 @@ quint64 Work::getRequiredSpace()
         qDebug() << "Error: calculating root size.\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
+        return 0;
     }
     if (excl_size > root_size) {
         qWarning() << "Excluded size exceeds root size; clamping excluded size for estimate."

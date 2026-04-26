@@ -90,7 +90,7 @@ private:
     bool transientOutputLineActive {};
 
     [[nodiscard]] bool confirmStart();
-    [[noreturn]] void cleanUp();
+    void cleanUp();
     bool installPackage(const QString &package);
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();

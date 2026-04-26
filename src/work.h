@@ -41,7 +41,7 @@ public:
 
     // Main workflow methods
     [[nodiscard]] quint64 getRequiredSpace();
-    [[noreturn]] void cleanUp();
+    void cleanUp();
     bool createIso(const QString &filename);
     void checkEnoughSpace();
     void setupEnv();
@@ -51,6 +51,7 @@ public:
     // Status accessors
     [[nodiscard]] bool isStarted() const { return started; }
     [[nodiscard]] bool isDone() const { return done; }
+    [[nodiscard]] bool isCleaningUp() const { return cleanupStarted; }
     [[nodiscard]] qint64 getElapsedTime() const { return e_timer.elapsed(); }
     [[nodiscard]] const Settings& getSettings() const { return *settings; }
 
@@ -76,7 +77,9 @@ private:
 
     // Space and environment management
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
-    void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
+    // Returns true when there is enough space to continue; false after kicking off
+    // cleanUp() so callers can early-return without exiting from inside this helper.
+    [[nodiscard]] bool checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
 
     // Bind-root overlay management
     [[nodiscard]] bool setupBindRootOverlay();
@@ -110,6 +113,7 @@ private:
     QElapsedTimer e_timer;
     bool started = false;
     bool done = false;
+    bool cleanupStarted = false;
     QTemporaryDir initrd_dir;
     QString bindRootPath = "/.bind-root";
     QString bindRootOverlayBase;
