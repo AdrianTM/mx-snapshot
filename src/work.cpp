@@ -366,6 +366,7 @@ bool Work::setupBindRootOverlay()
         qWarning() << "overlay mount failed at" << bindRoot
                    << "— falling back to plain bind-mount (snapshot is no longer isolated from live writes)";
         shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        shell.procAsRoot("rm", {"-rf", overlayBase}, nullptr, nullptr, Cmd::QuietMode::Yes);
         bindRootPath = "/.bind-root";
         bindRootOverlayBase.clear();
         bindRootOverlayActive = false;
@@ -691,12 +692,16 @@ bool Work::createIso(const QString &filename)
     if (settings->isArch) {
         const QString archIsoDir = "iso-2/arch/" + archCpuDir;
         QDir().mkpath(archIsoDir);
-        shell.run("mv iso-template/arch/" + archCpuDir + "/airootfs.sfs* " + archIsoDir);
+        if (!shell.run("mv iso-template/arch/" + archCpuDir + "/airootfs.sfs* " + archIsoDir) || cleanupStarted) {
+            return false;
+        }
         makeChecksum(HashType::sha512, settings->workDir + "/" + archIsoDir, "airootfs.sfs");
     } else {
         // Move linuxfs files to iso-2/antiX folder
         QDir().mkpath("iso-2/antiX");
-        shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
+        if (!shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX") || cleanupStarted) {
+            return false;
+        }
         makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
     }
     if (cleanupStarted) {
