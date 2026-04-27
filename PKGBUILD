@@ -53,16 +53,12 @@ package() {
     install -Dm755 build/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
     install -Dm755 polkit/snapshot-lib "${pkgdir}/usr/lib/mx-snapshot/snapshot-lib"
 
-    # GUI-only: install only the mx-snapshot policies and rule. The
-    # iso-snapshot-cli policies and 10-iso-snapshot-cli-restrict.rules
-    # would be inert without the CLI binary on this distro.
+    # GUI-only: install only the mx-snapshot policies. The iso-snapshot-cli
+    # policies would be inert without the CLI binary on this distro.
     install -dm755 "${pkgdir}/usr/share/polkit-1/actions"
     for policy in polkit/*mx-snapshot*.policy; do
         install -Dm644 "$policy" "${pkgdir}/usr/share/polkit-1/actions/$(basename "$policy")"
     done
-
-    install -dm755 "${pkgdir}/usr/share/polkit-1/rules.d"
-    install -Dm644 polkit/10-mx-snapshot-restrict.rules "${pkgdir}/usr/share/polkit-1/rules.d/10-mx-snapshot-restrict.rules"
 
     install -Dm644 mx-snapshot.desktop "${pkgdir}/usr/share/applications/mx-snapshot.desktop"
     install -Dm644 icons/mx-snapshot.png "${pkgdir}/usr/share/icons/hicolor/48x48/apps/mx-snapshot.png"

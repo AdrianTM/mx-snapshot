@@ -180,14 +180,13 @@ These fixes are not Arch-specific and should land regardless.
 - [x] `FileSystemUtils::unsupportedPartitions`: extend with `9p`, `cifs`,
       `smbfs`, `fuse`, `fuseblk`, `fuse.vmhgfs-fuse`, `vmhgfs`, `vboxsf`,
       `virtiofs`.
-- [x] `excludesutils::hasNvidiaGraphicsCard`: simplify to
-      `shell.getOut("glxinfo", QuietMode::Yes)`.
+- [x] `excludesutils::hasNvidiaGraphicsCard`: use `glxinfo` via `Cmd` while
+      suppressing emitted output so the probe does not flood the log.
 - [x] `SystemInfo::isLive`: also check `/run/archiso/bootmnt`.
 
 ## Step 5 — Packaging
 
-Reordered from the original sequence: Step 5 substeps land 5a → 5c → 5d → 5b
-because PKGBUILD references the live-files tree and the polkit rules file.
+Reordered from the original sequence: Step 5 substeps land 5a → 5c → 5d → 5b.
 
 - [x] **5a:** Replace `build.sh` with arch's version (`--debian` / `--arch` /
       `--asan` modes); add `scripts-arch/snapshot-bootparameter.sh`; add
@@ -198,42 +197,33 @@ because PKGBUILD references the live-files tree and the polkit rules file.
       untracked). Installed **only** via PKGBUILD; on Debian this content
       comes from the separate `mx-remaster-live-files` package. PKGBUILD
       keeps `Conflicts/Replaces: mx-remaster-live-files`.
-- [x] **5d:** Add the polkit rules files. Split into two so the
-      mx-snapshot and iso-snapshot-cli .deb packages don't collide on
-      the same path under `/usr/share/polkit-1/rules.d/`:
-      - `polkit/10-mx-snapshot-restrict.rules` (GUI helper) → installed
-        by `debian/mx-snapshot.install`.
-      - `polkit/10-iso-snapshot-cli-restrict.rules` (CLI helper) →
-        installed by `debian/iso-snapshot-cli.install`.
-      The Arch PKGBUILD ships **only** the mx-snapshot rule and the
-      `*mx-snapshot*.policy` files; the CLI policies and CLI rule would
-      be inert without an `iso-snapshot-cli` binary, and Arch packaging
-      is GUI-only by design (see PKGBUILD `build()` comment).
+- [x] **5d:** Keep the polkit helper policy files, but do **not** install
+      separate `.rules` restrictions for the pkexec helpers. The policy
+      `exec.path` annotation already selects `/usr/lib/<app>/helper`, and
+      the policy default remains `auth_admin_keep`.
 - [x] **Decision:** keep `polkit` policy defaults at `auth_admin_keep`.
-      The rules file *tightens* it by denying any caller whose resolved
-      executable basename is not `mx-snapshot` / `iso-snapshot-cli`.
-      Three things rejected/fixed in the course of getting this right:
+      The compiled helper's allow-list remains the command boundary.
+      A caller-executable restriction in `.rules` was rejected after smoke
+      testing because the pkexec authorization subject is the pkexec request,
+      not a reliable pointer back to the Qt frontend; returning
+      `polkit.Result.NO` there caused a hard denial with no password prompt.
+      Three things were rejected/fixed in the course of getting this right:
       - rejected the "root-owned caller → YES" branch from the arch
         version (almost any /usr/bin caller would have bypassed auth
         given the helper's broad allow-list);
       - rejected substring matching on the path (any path containing
         `mx-snapshot` anywhere, e.g. `/tmp/mx-snapshot-evil/foo`, would
         have satisfied the rule);
-      - tried exact-path matching first (`/usr/bin/mx-snapshot`), then
-        relaxed to **basename matching** (end-of-string `/mx-snapshot`)
-        after the user's smoke test showed it failed for unclear
-        reasons (symlinks? snap wrapper? dev build?). The `auth_admin_keep`
-        prompt is the real gate; basename matching keeps unrelated
-        callers (random scripts, other apps' helpers) from invoking
-        the helper while letting any binary literally named
-        `mx-snapshot` through to the password prompt.
+      - tried exact-path and basename matching first, then removed the
+        rules because both variants still converted the policy default
+        prompt into a no-prompt denial in real use.
 
       Bugs fixed along the way:
       - `polkit.spawn`'s return is a string, not an array; the arch
         rule's `caller_exe[0]` was reading the first character;
       - `subject.caller_pid` is undefined; the documented field is
-        `subject.pid`. The rule's readlink path was effectively
-        `/proc/undefined/exe`, so the comparison never matched.
+        `subject.pid`. That still was not a suitable frontend executable
+        check for pkexec helper invocations.
 - [x] **5b:** Add `PKGBUILD`, `release.sh` (with `MAIN_BRANCH=main` default
       and `AUR_DIR` overridable). Arch packaging is **GUI-only**:
       `BUILD_CLI=OFF`, scripts installed only under

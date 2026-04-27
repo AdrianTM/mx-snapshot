@@ -56,7 +56,7 @@ QString Cmd::snapshotLibCommand(const QString &args)
     }
     // Prefer pkexec when available regardless of CLI/GUI mode: snapshot-lib calls
     // happen non-interactively (no TTY for a sudo password prompt), and the
-    // accompanying polkit rules restrict the action to mx-snapshot callers.
+    // accompanying polkit policy uses auth_admin_keep for this helper.
     if (QFile::exists("/usr/bin/pkexec")) {
         return QStringLiteral("/usr/bin/pkexec ") + snapshotLib + " " + args;
     }
