@@ -197,9 +197,13 @@ Reordered from the original sequence: Step 5 substeps land 5a → 5c → 5d → 
       untracked). Installed **only** via PKGBUILD; on Debian this content
       comes from the separate `mx-remaster-live-files` package. PKGBUILD
       keeps `Conflicts/Replaces: mx-remaster-live-files`.
-- [x] **5d:** Keep the polkit helper policy files, but do **not** install
-      separate `.rules` restrictions for the pkexec helpers. The policy
-      `exec.path` annotation already selects `/usr/lib/<app>/helper`, and
+- [x] **5d:** Keep the polkit helper policy files, but do **not** ship
+      `.rules` restrictions for the pkexec helpers. The
+      `polkit/10-mx-snapshot-restrict.rules` and
+      `polkit/10-iso-snapshot-cli-restrict.rules` files were deleted from
+      the tree (commit `581585e`) along with their install lines in the
+      Debian install files and PKGBUILD; the policy `exec.path`
+      annotation already pins the helper to `/usr/lib/<app>/helper`, and
       the policy default remains `auth_admin_keep`.
 - [x] **Decision:** keep `polkit` policy defaults at `auth_admin_keep`.
       The compiled helper's allow-list remains the command boundary.
