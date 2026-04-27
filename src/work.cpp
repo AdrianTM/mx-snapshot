@@ -646,14 +646,15 @@ bool Work::createIso(const QString &filename)
         QDir().mkpath(settings->workDir + "/iso-template/arch/" + archCpuDir);
     }
 
-    // Probe mksquashfs for -throttle/-progress support directly rather than inferring from
-    // Debian version, so this works on Arch and on Debian backports.
-    const bool throttleSupported
-        = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -throttle", Cmd::QuietMode::Yes);
-    const bool forceProgressSupported
-        = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -progress", Cmd::QuietMode::Yes);
-    const bool percentageSupported
-        = !Cmd::isCliMode() && Cmd().run("mksquashfs -help 2>&1 | grep -q -- -percentage", Cmd::QuietMode::Yes);
+    // squashfs-tools 4.5+ has all three flags we care about (-throttle,
+    // -progress, -percentage). The earlier feature-probe via
+    // `mksquashfs -help` produced false-negatives on some distros where
+    // the help text was paged differently or `-help` didn't enumerate
+    // every option. Just pass the flags unconditionally — mksquashfs
+    // will error out clearly on a truly ancient version.
+    constexpr bool throttleSupported = true;
+    constexpr bool forceProgressSupported = true;
+    constexpr bool percentageSupported = true;
 
     const SquashfsUtils::Command squashfsCommand = SquashfsUtils::buildCommand({
         .bindRootPath = bindRootPath,
