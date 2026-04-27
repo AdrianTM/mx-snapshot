@@ -225,6 +225,17 @@ void Work::cleanUp()
         QFile::remove(installerLinkToRemove);
         installerLinkToRemove.clear();
     }
+    // Two possible bind-root setups, two cleanup paths:
+    //   - mx-remaster's installed-to-live (Debian) drops a marker at
+    //     /tmp/installed-to-live/cleanup.conf and is undone via snapshot-lib;
+    //   - installed-to-live-arch persists state at /run/<app>/cleanup-arch.state
+    //     (or /tmp/<app>/...) and undoes itself via its own `cleanup` subcmd.
+    const QString appName = QCoreApplication::applicationName();
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    if (archStatePresent) {
+        shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
         Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
     }
@@ -262,6 +273,13 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     // See first if the dir is on different partition otherwise it's irrelevant
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
+        // See Work::cleanUp for the rationale on the dual cleanup paths
+        // (installed-to-live for Debian, installed-to-live-arch for Arch).
+        const QString appName = QCoreApplication::applicationName();
+        if (QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+            || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state")) {
+            shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        }
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             const QString snapshotLib = snapshotLibPath();
             const QString elevateTool = Cmd::elevationTool();
@@ -1113,6 +1131,13 @@ void Work::setupEnv()
         }
     }
 
+    // On Debian we shell out to mx-remaster's /usr/sbin/installed-to-live;
+    // on Arch we use installed-to-live-arch (scripts-arch/), which mirrors
+    // the same CLI shape but is implemented as a self-contained shell port
+    // of the legacy BindRootManager Qt class.
+    const QString installedToLive = settings->isArch ? QStringLiteral("installed-to-live-arch")
+                                                     : QStringLiteral("installed-to-live");
+
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->resetAccounts) {
         QStringList args {"-F", "-b", bindRootPath, "start"};
@@ -1120,7 +1145,7 @@ void Work::setupEnv()
             args << "bind=/boot";
         }
         args << "empty=/home" << "general" << "version-file";
-        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
@@ -1138,7 +1163,7 @@ void Work::setupEnv()
     } else {
         QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home" + bind_boot_too,
                           "live-files", "version-file", "adjtime"};
-        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
@@ -1167,7 +1192,7 @@ void Work::setupEnv()
         }
     }
     if (!bindRootOverlayActive) {
-        shell.procAsRoot("installed-to-live", {"-b", bindRootPath, "read-only"}, nullptr, nullptr,
+        shell.procAsRoot(installedToLive, {"-b", bindRootPath, "read-only"}, nullptr, nullptr,
                          Cmd::QuietMode::Yes);
     }
 }

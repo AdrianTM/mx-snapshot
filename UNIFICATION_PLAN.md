@@ -86,34 +86,54 @@ compile and detect distro at runtime.
 - [x] Smoke-test on MX: verify `isArch=false`, no behavior change.
 - [x] Smoke-test build with `-DARCH_BUILD=ON`: verify it compiles.
 
-## Step 2 — `BindRootManager` port (DEFERRED)
+## Step 2 — Arch bind-root setup (resolved via shell port)
 
-> **Not part of this unification pass.** Bring the source in (Step 3 needs
-> nothing from it), but Debian keeps invoking `installed-to-live` directly.
-> Track here so it isn't forgotten.
+> **Not the original BindRootManager Qt port.** That ~1100-line C++ class
+> was ultimately rejected after weighing maintenance cost against benefit;
+> Arch's bind-root setup is instead handled by a shell script that mirrors
+> `installed-to-live`'s CLI (`scripts-arch/installed-to-live-arch`).
 
-- [ ] Cherry-pick `e16c9a4 Ported installed-to-live to Qt code`,
-      `75bfd7e Move bind-root cleanup into snapshot-lib`,
-      `6926bf8 Simplify bind-root cleanup`.
-- [ ] Add `cleanup_bindrootmanager` action to `polkit/snapshot-lib`.
-- [ ] In `Work::setupEnv`, `Work::cleanUp`, `Work::checkAndMoveWorkDir`,
-      `Work::createIso`, and `Settings` ctor: gate every `BindRootManager` use
-      with `if (settings->isArch)` (runtime) or `#ifdef ARCH_BUILD` (compile
-      time, in the early-ctor cleanup site where `Settings` isn't populated
-      yet). Debian branches keep calling `installed-to-live` and
-      `/tmp/installed-to-live/cleanup.conf` checks unchanged.
-- [ ] Once Arch users have validated `BindRootManager` for one or two
-      releases, schedule a follow-up to flip Debian onto it and drop the
-      `installed-to-live` runtime dependency.
+- [x] Add `scripts-arch/installed-to-live-arch` mirroring
+      `BindRootManager`'s public surface: `start`, `bind=<dir>`,
+      `empty=<dir>`, `live-files`, `general` (= live-files + general-files
+      + passwd + timezone), `version-file[=<title>]`, `adjtime`,
+      `read-only`, `cleanup`. State file at
+      `/run/<app>/cleanup-arch.state` (with `/tmp/<app>/...` fallback).
+      Demo-user passwd-munging keeps the `live_temp_user` trick, primary
+      group rename, sha512 password hashes (openssl with python3 fallback),
+      subuid/subgid `SUB_*_MIN` defaults, and demo home from `/etc/skel`.
+      `doRepo` is omitted — apt-only. The C++ `doEmptyDirs` skip-when-
+      target-missing bug was fixed (the script creates the target before
+      mounting empty over it).
+- [x] `Work::setupEnv` dispatches between `installed-to-live` and
+      `installed-to-live-arch` on `settings->isArch`; same args, same
+      control flow.
+- [x] `Work::cleanUp` and `Work::checkAndMoveWorkDir` dispatch cleanup
+      based on which state file is present (Debian
+      `/tmp/installed-to-live/cleanup.conf` vs Arch
+      `/run/<app>/cleanup-arch.state`).
+- [x] `Settings` ctor early cleanup: same dispatch by file presence
+      (`isArch` isn't set yet at that point).
+- [x] `helper.cpp` allow-list: add `installed-to-live-arch` with the
+      `/usr/share/{mx-snapshot,iso-snapshot-cli}/scripts/` paths.
+- [x] PKGBUILD already wildcard-installs `scripts-arch/*` to
+      `/usr/share/mx-snapshot/scripts/`; no packaging change needed.
 
-**Risks accepted by deferring:**
-- Cleanup/teardown logic stays duplicated between `installed-to-live` and
-  `BindRootManager`; bug fixes must land in both.
-- `Settings` ctor cleanup runs before `setVariables()` sets `isArch`, so that
-  one site must use the compile-time `ARCH_BUILD` flag instead of the runtime
-  flag. Easy to get wrong.
-- `BindRootManager` testing surface stays narrow (Arch users only).
-- Future upstream `installed-to-live` updates do not reach Arch automatically.
+**Why a shell port instead of porting the Qt class:**
+- ~840 lines of bash vs. ~1100 lines of Qt that mostly drives subprocess
+  calls; same external behaviour for less code.
+- Lives in scripts-arch/ alongside the other Arch helpers, mirrors the
+  shape of mx-remaster's `installed-to-live` for cross-distro symmetry.
+- Easier to debug standalone (run the script with `bash -x`) than a
+  privileged Qt class wired through a helper.
+
+**Lingering trade-offs:**
+- Setup logic now exists in two languages (mx-remaster's
+  `installed-to-live` shell on Debian, our shell port on Arch). Bug
+  fixes still need to land in both.
+- The Arch shell script's testing surface stays narrow (Arch users only).
+- Future upstream `installed-to-live` updates still do not reach Arch
+  automatically.
 
 ## Step 3 — Arch ISO/initrd code paths in `Work`
 
@@ -151,8 +171,8 @@ The Arch chain to cherry-pick from `arch`, in order:
 - [x] Smoke-test on MX: built an MX snapshot and it worked fine; no MX path
       regressed.
 - [ ] Smoke-test on Arch (`-DARCH_BUILD=ON`): build a snapshot, boot the
-      resulting ISO. *(Blocked on Step 2 — `setupEnv` still calls
-      `installed-to-live` which is absent on Arch.)*
+      resulting ISO. *(No longer blocked — Step 2 resolved via
+      `installed-to-live-arch` shell port.)*
 
 ## Step 4 — Distro-agnostic hardening from `arch`
 
