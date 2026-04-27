@@ -18,7 +18,6 @@ struct Options {
     uint cores = 1;
     uint throttle = 0;
     bool throttleSupported = false;
-    bool progressSupported = false;
     bool percentageSupported = false;
     QString mksqOpt;
     QString excludesFileName;

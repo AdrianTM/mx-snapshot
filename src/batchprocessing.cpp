@@ -32,6 +32,7 @@
 #include <cstdlib>
 
 #include "excludesutils.h"
+#include "squashfsutils.h"
 #include "work.h"
 
 using namespace std::chrono_literals;
@@ -101,16 +102,10 @@ void Batchprocessing::setConnections()
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
     connect(&work.shell, &Cmd::started, this, [this] { timer.start(500ms); });
     connect(&work.shell, &Cmd::done, this, [this] { timer.stop(); });
-    connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) {
-        QTextStream stream(stdout);
-        stream << out;
-        stream.flush();
-    });
-    connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) {
-        QTextStream stream(stderr);
-        stream << out;
-        stream.flush();
-    });
+    connect(&work.shell, &Cmd::outputAvailable, this,
+            [this](const QString &out) { handleStreamChunk(stdoutBuffer, out, true); });
+    connect(&work.shell, &Cmd::errorAvailable, this,
+            [this](const QString &out) { handleStreamChunk(stderrBuffer, out, false); });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work, &Work::messageBox,
             [](BoxType /*unused*/, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });
@@ -123,6 +118,50 @@ void Batchprocessing::progress()
     stream << "\033[2KProcessing command" << (toggle ? "...\r" : "\r");
     stream.flush();
     toggle = !toggle;
+}
+
+void Batchprocessing::handleStreamChunk(QString &buffer, const QString &chunk, bool toStdout)
+{
+    for (const QChar ch : chunk) {
+        if (ch == QLatin1Char('\n')) {
+            flushStreamLine(buffer, toStdout, false);
+            buffer.clear();
+            continue;
+        }
+        if (ch == QLatin1Char('\r')) {
+            flushStreamLine(buffer, toStdout, true);
+            buffer.clear();
+            continue;
+        }
+        buffer += ch;
+    }
+}
+
+void Batchprocessing::flushStreamLine(const QString &line, bool toStdout, bool isTransient)
+{
+    bool ok = false;
+    const int percentage = SquashfsUtils::parsePercentageLine(line, &ok);
+    QTextStream stderrStream(stderr);
+    if (ok) {
+        stderrStream << QStringLiteral("\r\033[K %1%").arg(percentage);
+        stderrStream.flush();
+        progressLineActive = true;
+        return;
+    }
+    if (line.isEmpty() && isTransient) {
+        return;
+    }
+    QTextStream stream(toStdout ? stdout : stderr);
+    if (progressLineActive) {
+        stream << QLatin1Char('\n');
+        progressLineActive = false;
+    }
+    if (isTransient) {
+        stream << QStringLiteral("\r\033[K") << line;
+    } else {
+        stream << line << QLatin1Char('\n');
+    }
+    stream.flush();
 }
 
 bool Batchprocessing::isSourceExcludesNewer(QString &diffOutput) const

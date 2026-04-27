@@ -22,9 +22,6 @@ Command buildCommand(const Options &options)
     if (options.throttleSupported) {
         squashfsArgs << "-throttle" << QString::number(options.throttle);
     }
-    if (options.progressSupported) {
-        squashfsArgs << "-progress";
-    }
     if (options.percentageSupported) {
         squashfsArgs << "-percentage";
     }
