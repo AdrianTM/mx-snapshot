@@ -347,12 +347,31 @@ bool Work::setupBindRootOverlay()
         return false;
     }
 
+    // Make sure the overlay module is loaded — Arch ships it as a module
+    // (CONFIG_OVERLAY_FS=m) and on a freshly booted system without an
+    // earlier overlay user, autoload may not have happened yet. modprobe
+    // is harmless when the module is already loaded or built-in.
+    shell.procAsRoot("modprobe", {"overlay"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+
     const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
                           Cmd::QuietMode::Yes)) {
-        qWarning() << "Failed to mount overlay at" << bindRoot;
+        // Overlay genuinely isn't available (kernel without CONFIG_OVERLAY_FS,
+        // or a hardened/locked-down kernel that refuses overlay). Fall back to
+        // a plain bind-mount at /.bind-root and let installed-to-live(-arch)
+        // run the rest of the setup against the live tree directly. This
+        // loses the overlay's "isolated from runtime changes" property —
+        // the snapshot will see whatever the system writes during squashing —
+        // so warn loudly. Better than refusing to run at all.
+        qWarning() << "overlay mount failed at" << bindRoot
+                   << "— falling back to plain bind-mount (snapshot is no longer isolated from live writes)";
         shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-        return false;
+        bindRootPath = "/.bind-root";
+        bindRootOverlayBase.clear();
+        bindRootOverlayActive = false;
+        // installed-to-live(-arch) `start` will create + bind-mount /.bind-root
+        // itself, so we don't pre-mount anything here.
+        return true;
     }
 
     bindRootPath = bindRoot;

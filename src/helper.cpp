@@ -77,6 +77,7 @@ void printError(const QString &message)
         {"mkdir", {"/usr/bin/mkdir", "/bin/mkdir"}},
         {"mkinitcpio", {"/usr/bin/mkinitcpio"}},
         {"mksquashfs", {"/usr/bin/mksquashfs"}},
+        {"modprobe", {"/usr/sbin/modprobe", "/sbin/modprobe", "/usr/bin/modprobe"}},
         {"mount", {"/usr/bin/mount", "/bin/mount"}},
         {"mountpoint", {"/usr/bin/mountpoint", "/bin/mountpoint"}},
         {"pacman", {"/usr/bin/pacman"}},
