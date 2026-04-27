@@ -1015,19 +1015,30 @@ void Work::replaceMenuStrings()
         QString(
             R"(sed -i "s|%OPTIONS%|$(sed -r 's/[[:space:]]%2/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g'<<<' %1')|" '%3')")
             .arg(settings->bootOptions, boot_pararameter_regexp, settings->workDir + grub_cfg));
+    // The Arch ISO template is GRUB-only — no syslinux / isolinux. Skip
+    // files that aren't present so we don't spam "Failed to open file:"
+    // warnings during snapshots on Arch.
     const QString syslinux_cfg {"/iso-template/boot/syslinux/syslinux.cfg"};
     const QString isolinux_cfg {"/iso-template/boot/isolinux/isolinux.cfg"};
     for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
-        replaceStringInFile("%OPTIONS%", settings->bootOptions, settings->workDir + file);
-        replaceStringInFile("%CODE_NAME%", settings->codename, settings->workDir + file);
+        const QString fullPath = settings->workDir + file;
+        if (!QFileInfo::exists(fullPath)) {
+            continue;
+        }
+        replaceStringInFile("%OPTIONS%", settings->bootOptions, fullPath);
+        replaceStringInFile("%CODE_NAME%", settings->codename, fullPath);
     }
 
     const QString sys_readme = "/iso-template/boot/syslinux/readme.msg";
     const QString iso_readme = "/iso-template/boot/isolinux/readme.msg";
     const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme};
     for (const QString &file : cfg_files) {
-        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + file);
-        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + file);
+        const QString fullPath = settings->workDir + file;
+        if (!QFileInfo::exists(fullPath)) {
+            continue;
+        }
+        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, fullPath);
+        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, fullPath);
     }
 
     QDir themeDir(settings->workDir + "/iso-template/boot/grub/theme");
