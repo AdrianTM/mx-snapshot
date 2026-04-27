@@ -672,9 +672,19 @@ bool Work::createIso(const QString &filename)
 
     emit message(tr("Squashing filesystem..."));
     if (!shell.procAsRoot(squashfsCommand.program, squashfsCommand.args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        // Failure here can be a real mksquashfs error OR the user hitting
+        // Cancel mid-squash, in which case cleanUp() has already run and
+        // is asking the event loop to exit. Don't pile a misleading
+        // "could not create linuxfs" error box on top of that.
+        if (cleanupStarted) {
+            return false;
+        }
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create linuxfs file, please check /var/log/%1.log").arg(QCoreApplication::applicationName()));
+        return false;
+    }
+    if (cleanupStarted) {
         return false;
     }
     writeUnsquashfsSize(shell.readAllOutput());
@@ -690,10 +700,17 @@ bool Work::createIso(const QString &filename)
         shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
         makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
     }
+    if (cleanupStarted) {
+        return false;
+    }
 
     const QString snapshotLib = snapshotLibPath();
     const QString elevateTool = Cmd::elevationTool();
     Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+
+    if (cleanupStarted) {
+        return false;
+    }
 
     // Create the iso file
     QDir::setCurrent(settings->workDir + "/iso-template");
@@ -771,9 +788,15 @@ bool Work::createIso(const QString &filename)
     }
     emit message(tr("Creating CD/DVD image file..."));
     if (!shell.run(cmd)) {
+        if (cleanupStarted) {
+            return false;
+        }
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
+        return false;
+    }
+    if (cleanupStarted) {
         return false;
     }
 
@@ -781,6 +804,9 @@ bool Work::createIso(const QString &filename)
     if (settings->makeIsohybrid && !settings->isArch) {
         emit message(tr("Making hybrid iso"));
         shell.run("isohybrid --uefi \"" + settings->snapshotDir + "/" + filename + "\"");
+    }
+    if (cleanupStarted) {
+        return false;
     }
 
     // Make ISO checksums
