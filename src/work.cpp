@@ -602,7 +602,7 @@ bool Work::createIso(const QString &filename)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
     // Squash the filesystem copy
-    const bool useUnbuffer = checkInstalled("expect");
+    const bool useUnbuffer = !QStandardPaths::findExecutable("unbuffer").isEmpty();
     using Release::Version;
 
     const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
@@ -618,7 +618,9 @@ bool Work::createIso(const QString &filename)
     const bool throttleSupported
         = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -throttle", Cmd::QuietMode::Yes);
     const bool forceProgressSupported
-        = !useUnbuffer && Cmd().run("mksquashfs -help 2>&1 | grep -q -- -progress", Cmd::QuietMode::Yes);
+        = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -progress", Cmd::QuietMode::Yes);
+    const bool percentageSupported
+        = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -percentage", Cmd::QuietMode::Yes);
 
     QStringList squashfsArgs {bindRootPath, squashfsPath,
                               "-comp", settings->compression,
@@ -629,6 +631,9 @@ bool Work::createIso(const QString &filename)
     if (forceProgressSupported) {
         squashfsArgs << "-progress";
     }
+    if (percentageSupported) {
+        squashfsArgs << "-percentage";
+    }
     squashfsArgs += splitShellWords(settings->mksqOpt);
     squashfsArgs << "-wildcards" << "-ef" << settings->snapshotExcludes.fileName();
     const QStringList sessionExcludes = splitShellWords(settings->sessionExcludes);
@@ -637,12 +642,11 @@ bool Work::createIso(const QString &filename)
         squashfsArgs += sessionExcludes;
     }
 
-    QString wrapperCommand = useUnbuffer ? "unbuffer" : "stdbuf";
+    QString wrapperCommand = useUnbuffer ? "unbuffer" : "mksquashfs";
     QStringList wrapperArgs;
-    if (!useUnbuffer) {
-        wrapperArgs << "-o0" << "-e0";
+    if (useUnbuffer) {
+        wrapperArgs << "mksquashfs";
     }
-    wrapperArgs << "mksquashfs";
     wrapperArgs += squashfsArgs;
 
     emit message(tr("Squashing filesystem..."));

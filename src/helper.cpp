@@ -82,7 +82,6 @@ void printError(const QString &message)
         {"runuser", {"/usr/sbin/runuser", "/sbin/runuser", "/usr/bin/runuser"}},
         {"sh", {"/usr/bin/sh", "/bin/sh"}},
         {"stat", {"/usr/bin/stat", "/bin/stat"}},
-        {"stdbuf", {"/usr/bin/stdbuf"}},
         {"touch", {"/usr/bin/touch", "/bin/touch"}},
         {"true", {"/usr/bin/true", "/bin/true"}},
         {"umount", {"/usr/bin/umount", "/bin/umount"}},

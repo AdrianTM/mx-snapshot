@@ -803,7 +803,8 @@ void MainWindow::appendOutputLine(const QString &line)
 
 void MainWindow::handleOutputLine(const QString &line, bool transientHint)
 {
-    if (line.startsWith("xorriso : UPDATE :") || transientHint) {
+    static const QRegularExpression squashfsPercentageLine(QStringLiteral("^\\s*(?:100|\\d{1,2})\\s*$"));
+    if (line.startsWith("xorriso : UPDATE :") || transientHint || squashfsPercentageLine.match(line).hasMatch()) {
         showTransientOutputLine(line);
         return;
     }

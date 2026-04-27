@@ -28,6 +28,7 @@
 #include <QRegularExpression>
 #include <QTextStream>
 #include <chrono>
+#include <cstdio>
 #include <cstdlib>
 
 #include "excludesutils.h"
@@ -100,8 +101,16 @@ void Batchprocessing::setConnections()
     connect(&timer, &QTimer::timeout, this, &Batchprocessing::progress);
     connect(&work.shell, &Cmd::started, this, [this] { timer.start(500ms); });
     connect(&work.shell, &Cmd::done, this, [this] { timer.stop(); });
-    connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) { qDebug().noquote() << out; });
-    connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) { qWarning().noquote() << out; });
+    connect(&work.shell, &Cmd::outputAvailable, this, [](const QString &out) {
+        QTextStream stream(stdout);
+        stream << out;
+        stream.flush();
+    });
+    connect(&work.shell, &Cmd::errorAvailable, this, [](const QString &out) {
+        QTextStream stream(stderr);
+        stream << out;
+        stream.flush();
+    });
     connect(&work, &Work::message, [](const QString &out) { qDebug().noquote() << out; });
     connect(&work, &Work::messageBox,
             [](BoxType /*unused*/, const QString &title, const QString &msg) { qDebug().noquote() << title << msg; });
@@ -110,7 +119,9 @@ void Batchprocessing::setConnections()
 void Batchprocessing::progress()
 {
     static bool toggle = false;
-    qDebug() << "\033[2KProcessing command" << (toggle ? "...\r" : "\r");
+    QTextStream stream(stderr);
+    stream << "\033[2KProcessing command" << (toggle ? "...\r" : "\r");
+    stream.flush();
     toggle = !toggle;
 }
 
