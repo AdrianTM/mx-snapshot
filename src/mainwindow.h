@@ -90,6 +90,7 @@ private:
     QFileSystemWatcher excludesWatcher;
     QString pendingOutputBuffer;
     bool transientOutputLineActive {};
+    bool realProgressActive {};
     bool cleanupInProgress = false;
 
     [[nodiscard]] bool confirmStart();
@@ -108,6 +109,7 @@ private:
     void listUsedSpace();
     void loadSettings();
     void prepareForOutput(const QString &file_name);
+    bool updateSquashfsProgress(const QString &line);
     bool hasCustomExcludes() const;
     enum class ExcludesChoice { None, ShowDiff, KeepCustom, UseUpdatedDefault };
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;

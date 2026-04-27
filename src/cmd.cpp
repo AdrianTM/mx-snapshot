@@ -78,6 +78,9 @@ bool Cmd::isCliMode()
 #ifdef CLI_BUILD
     return true;
 #else
+    if (QCoreApplication::instance() && !QCoreApplication::instance()->inherits("QApplication")) {
+        return true;
+    }
     const auto args = QCoreApplication::arguments();
     const bool forceCliMode = args.contains("--cli") || args.contains("-c") ||
                               args.contains("--help") || args.contains("-h") ||

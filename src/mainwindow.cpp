@@ -471,6 +471,8 @@ void MainWindow::cleanUp()
 
 void MainWindow::procStart()
 {
+    realProgressActive = false;
+    ui->progressBar->setTextVisible(false);
     timer.start(500ms);
     setCursor(QCursor(Qt::BusyCursor));
 }
@@ -501,7 +503,7 @@ void MainWindow::processMsg(const QString &msg)
 void MainWindow::procDone()
 {
     if (!pendingOutputBuffer.isEmpty()) {
-        appendOutputLine(pendingOutputBuffer);
+        handleOutputLine(pendingOutputBuffer, false);
         pendingOutputBuffer.clear();
     }
     timer.stop();
@@ -541,12 +543,17 @@ void MainWindow::outputAvailable(const QString &out)
         pendingOutputBuffer += ch;
     }
     if (sawCarriageReturn && !pendingOutputBuffer.isEmpty()) {
-        showTransientOutputLine(pendingOutputBuffer);
+        if (!updateSquashfsProgress(pendingOutputBuffer)) {
+            showTransientOutputLine(pendingOutputBuffer);
+        }
     }
 }
 
 void MainWindow::progress()
 {
+    if (realProgressActive) {
+        return;
+    }
     ui->progressBar->setValue((ui->progressBar->value() + 1) % ui->progressBar->maximum() + 1);
 
     // In live environment and first page, blink text while calculating used disk space
@@ -803,8 +810,10 @@ void MainWindow::appendOutputLine(const QString &line)
 
 void MainWindow::handleOutputLine(const QString &line, bool transientHint)
 {
-    static const QRegularExpression squashfsPercentageLine(QStringLiteral("^\\s*(?:100|\\d{1,2})\\s*$"));
-    if (line.startsWith("xorriso : UPDATE :") || transientHint || squashfsPercentageLine.match(line).hasMatch()) {
+    if (updateSquashfsProgress(line)) {
+        return;
+    }
+    if (line.startsWith("xorriso : UPDATE :") || transientHint) {
         showTransientOutputLine(line);
         return;
     }
@@ -812,6 +821,33 @@ void MainWindow::handleOutputLine(const QString &line, bool transientHint)
         return;
     }
     appendOutputLine(line);
+}
+
+bool MainWindow::updateSquashfsProgress(const QString &line)
+{
+    static const QRegularExpression ansiEscape(QStringLiteral("\\x1B\\[[0-?]*[ -/]*[@-~]"));
+    static const QRegularExpression squashfsPercentageLine(QStringLiteral("^\\s*(100|\\d{1,2})\\s*%?\\s*$"));
+
+    const QString cleanedLine = QString(line).remove(ansiEscape);
+    const QRegularExpressionMatch match = squashfsPercentageLine.match(cleanedLine);
+    if (!match.hasMatch()) {
+        return false;
+    }
+
+    bool ok = false;
+    const int percentage = match.captured(1).toInt(&ok);
+    if (!ok) {
+        return false;
+    }
+
+    realProgressActive = true;
+    timer.stop();
+    ui->progressBar->setRange(0, 100);
+    ui->progressBar->setTextVisible(true);
+    ui->progressBar->setFormat(QStringLiteral("%p%"));
+    ui->progressBar->setValue(percentage);
+    showTransientOutputLine(QStringLiteral(" %1%").arg(percentage));
+    return true;
 }
 
 void MainWindow::showTransientOutputLine(const QString &line)

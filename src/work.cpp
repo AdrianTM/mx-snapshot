@@ -620,7 +620,7 @@ bool Work::createIso(const QString &filename)
     const bool forceProgressSupported
         = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -progress", Cmd::QuietMode::Yes);
     const bool percentageSupported
-        = Cmd().run("mksquashfs -help 2>&1 | grep -q -- -percentage", Cmd::QuietMode::Yes);
+        = !Cmd::isCliMode() && Cmd().run("mksquashfs -help 2>&1 | grep -q -- -percentage", Cmd::QuietMode::Yes);
 
     QStringList squashfsArgs {bindRootPath, squashfsPath,
                               "-comp", settings->compression,
