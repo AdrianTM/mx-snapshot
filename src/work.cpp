@@ -44,6 +44,7 @@
 #include <stdexcept>
 
 #include "filesystemutils.h"
+#include "squashfsutils.h"
 
 namespace
 {
@@ -63,11 +64,6 @@ void requestExit(int code)
 QString loggedInUserName()
 {
     return Cmd::loggedInUserName();
-}
-
-QStringList splitShellWords(const QString &text)
-{
-    return text.trimmed().isEmpty() ? QStringList() : QProcess::splitCommand(text);
 }
 
 quint64 parseDuKilobytes(const QString &output, bool *ok)
@@ -622,35 +618,23 @@ bool Work::createIso(const QString &filename)
     const bool percentageSupported
         = !Cmd::isCliMode() && Cmd().run("mksquashfs -help 2>&1 | grep -q -- -percentage", Cmd::QuietMode::Yes);
 
-    QStringList squashfsArgs {bindRootPath, squashfsPath,
-                              "-comp", settings->compression,
-                              "-processors", QString::number(settings->cores)};
-    if (throttleSupported) {
-        squashfsArgs << "-throttle" << QString::number(settings->throttle);
-    }
-    if (forceProgressSupported) {
-        squashfsArgs << "-progress";
-    }
-    if (percentageSupported) {
-        squashfsArgs << "-percentage";
-    }
-    squashfsArgs += splitShellWords(settings->mksqOpt);
-    squashfsArgs << "-wildcards" << "-ef" << settings->snapshotExcludes.fileName();
-    const QStringList sessionExcludes = splitShellWords(settings->sessionExcludes);
-    if (!sessionExcludes.isEmpty()) {
-        squashfsArgs << "-e";
-        squashfsArgs += sessionExcludes;
-    }
-
-    QString wrapperCommand = useUnbuffer ? "unbuffer" : "mksquashfs";
-    QStringList wrapperArgs;
-    if (useUnbuffer) {
-        wrapperArgs << "mksquashfs";
-    }
-    wrapperArgs += squashfsArgs;
+    const SquashfsUtils::Command squashfsCommand = SquashfsUtils::buildCommand({
+        .bindRootPath = bindRootPath,
+        .outputPath = squashfsPath,
+        .compression = settings->compression,
+        .cores = settings->cores,
+        .throttle = settings->throttle,
+        .throttleSupported = throttleSupported,
+        .progressSupported = forceProgressSupported,
+        .percentageSupported = percentageSupported,
+        .mksqOpt = settings->mksqOpt,
+        .excludesFileName = settings->snapshotExcludes.fileName(),
+        .sessionExcludes = settings->sessionExcludes,
+        .useUnbuffer = useUnbuffer,
+    });
 
     emit message(tr("Squashing filesystem..."));
-    if (!shell.procAsRoot(wrapperCommand, wrapperArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
+    if (!shell.procAsRoot(squashfsCommand.program, squashfsCommand.args, nullptr, nullptr, Cmd::QuietMode::No)) {
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create linuxfs file, please check /var/log/%1.log").arg(QCoreApplication::applicationName()));

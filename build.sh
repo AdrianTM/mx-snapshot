@@ -34,6 +34,7 @@ ARCH_BUILD=false
 BUILD_GUI=true
 BUILD_CLI=true
 USE_ASAN=false
+BUILD_TESTS=false
 
 # Parse command line arguments
 while [[ $# -gt 0 ]]; do
@@ -72,6 +73,10 @@ while [[ $# -gt 0 ]]; do
             USE_ASAN=true
             shift
             ;;
+        --tests)
+            BUILD_TESTS=true
+            shift
+            ;;
         -h|--help)
             echo "Usage: $0 [OPTIONS]"
             echo "Options:"
@@ -83,6 +88,7 @@ while [[ $# -gt 0 ]]; do
             echo "  --gui-only      Build only GUI version (mx-snapshot)"
             echo "  --cli-only      Build only CLI version (iso-snapshot-cli)"
             echo "  --asan          Enable AddressSanitizer for memory debugging"
+            echo "  --tests         Build and run the test suite"
             echo "  -h, --help      Show this help message"
             exit 0
             ;;
@@ -196,6 +202,7 @@ CMAKE_ARGS=(
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
     -DBUILD_GUI="$([ "$BUILD_GUI" = true ] && echo ON || echo OFF)"
     -DBUILD_CLI="$([ "$BUILD_CLI" = true ] && echo ON || echo OFF)"
+    -DBUILD_TESTS="$([ "$BUILD_TESTS" = true ] && echo ON || echo OFF)"
 )
 
 if [ "$USE_CLANG" = true ]; then
@@ -214,6 +221,7 @@ fi
 echo "Build configuration:"
 echo "  GUI: $([ "$BUILD_GUI" = true ] && echo "enabled" || echo "disabled")"
 echo "  CLI: $([ "$BUILD_CLI" = true ] && echo "enabled" || echo "disabled")"
+echo "  Tests: $([ "$BUILD_TESTS" = true ] && echo "enabled" || echo "disabled")"
 echo "  ASAN: $([ "$USE_ASAN" = true ] && echo "enabled" || echo "disabled")"
 
 cmake "${CMAKE_ARGS[@]}"
@@ -221,6 +229,11 @@ cmake "${CMAKE_ARGS[@]}"
 # Build the project
 echo "Building project with Ninja..."
 cmake --build "$BUILD_DIR" --parallel
+
+if [ "$BUILD_TESTS" = true ]; then
+    echo "Running tests..."
+    ctest --test-dir "$BUILD_DIR" --output-on-failure
+fi
 
 echo "Build completed successfully!"
 if [ "$BUILD_GUI" = true ]; then

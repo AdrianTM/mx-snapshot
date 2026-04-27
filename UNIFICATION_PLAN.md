@@ -148,7 +148,7 @@ The Arch chain to cherry-pick from `arch`, in order:
       (`bash`, `chmod`, `cp`, `cat`, `adduser`, `deluser`, `install`, `ln`,
       `localize-repo`, `mkinitcpio`, `pacman`, `readlink`, `rm`, `sh`, `stat`,
       `touch`, `userdel`).
-- [ ] Smoke-test on MX: build a snapshot, verify nothing about the MX path
+- [x] Smoke-test on MX: built an MX snapshot and it worked fine; no MX path
       regressed.
 - [ ] Smoke-test on Arch (`-DARCH_BUILD=ON`): build a snapshot, boot the
       resulting ISO. *(Blocked on Step 2 — `setupEnv` still calls

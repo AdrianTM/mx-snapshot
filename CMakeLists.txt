@@ -108,6 +108,7 @@ endif()
 option(BUILD_GUI "Build GUI version" ON)
 option(BUILD_CLI "Build CLI version" ON)
 option(ARCH_BUILD "Build for Arch Linux" OFF)
+option(BUILD_TESTS "Build test suite" OFF)
 
 if(ARCH_BUILD)
     add_compile_definitions(ARCH_BUILD)
@@ -117,6 +118,9 @@ endif()
 set(QT_COMPONENTS Core LinguistTools)
 if(BUILD_GUI)
     list(APPEND QT_COMPONENTS Gui Widgets)
+endif()
+if(BUILD_TESTS)
+    list(APPEND QT_COMPONENTS Test Widgets)
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
@@ -141,6 +145,7 @@ set(COMMON_SOURCES
     src/systeminfo.cpp
     src/messagehandler.cpp
     src/excludesutils.cpp
+    src/squashfsutils.cpp
 )
 
 set(COMMON_HEADERS
@@ -154,6 +159,7 @@ set(COMMON_HEADERS
     src/systeminfo.h
     src/messagehandler.h
     src/excludesutils.h
+    src/squashfsutils.h
 )
 
 set(HELPER_SOURCES
@@ -302,6 +308,32 @@ if(BUILD_CLI)
 endif()
 
 set_common_properties(helper)
+
+if(BUILD_TESTS)
+    enable_testing()
+
+    add_executable(test-squashfsutils
+        tests/test_squashfsutils.cpp
+        src/squashfsutils.cpp
+        src/squashfsutils.h
+    )
+    target_link_libraries(test-squashfsutils Qt6::Core Qt6::Test)
+    target_include_directories(test-squashfsutils PRIVATE src)
+    set_common_properties(test-squashfsutils)
+    add_test(NAME squashfsutils COMMAND test-squashfsutils)
+
+    add_executable(test-cmd
+        tests/test_cmd.cpp
+        src/cmd.cpp
+        src/messagehandler.cpp
+        src/cmd.h
+        src/messagehandler.h
+    )
+    target_link_libraries(test-cmd Qt6::Core Qt6::Test Qt6::Widgets)
+    target_include_directories(test-cmd PRIVATE src)
+    set_common_properties(test-cmd)
+    add_test(NAME cmd COMMAND test-cmd)
+endif()
 
 # Handle translations
 if(BUILD_GUI)

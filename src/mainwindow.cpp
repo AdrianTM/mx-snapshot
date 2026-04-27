@@ -53,6 +53,7 @@
 #include "about.h"
 #include "excludesutils.h"
 #include "settings.h"
+#include "squashfsutils.h"
 #include "work.h"
 #include <chrono>
 
@@ -825,17 +826,8 @@ void MainWindow::handleOutputLine(const QString &line, bool transientHint)
 
 bool MainWindow::updateSquashfsProgress(const QString &line)
 {
-    static const QRegularExpression ansiEscape(QStringLiteral("\\x1B\\[[0-?]*[ -/]*[@-~]"));
-    static const QRegularExpression squashfsPercentageLine(QStringLiteral("^\\s*(100|\\d{1,2})\\s*%?\\s*$"));
-
-    const QString cleanedLine = QString(line).remove(ansiEscape);
-    const QRegularExpressionMatch match = squashfsPercentageLine.match(cleanedLine);
-    if (!match.hasMatch()) {
-        return false;
-    }
-
     bool ok = false;
-    const int percentage = match.captured(1).toInt(&ok);
+    const int percentage = SquashfsUtils::parsePercentageLine(line, &ok);
     if (!ok) {
         return false;
     }
