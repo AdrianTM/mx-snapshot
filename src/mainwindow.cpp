@@ -523,8 +523,10 @@ void MainWindow::disableOutput()
 
 void MainWindow::outputAvailable(const QString &out)
 {
+    bool sawCarriageReturn = false;
     for (const QChar ch : out) {
         if (ch == '\r') {
+            sawCarriageReturn = true;
             if (!pendingOutputBuffer.isEmpty()) {
                 handleOutputLine(pendingOutputBuffer, true);
                 pendingOutputBuffer.clear();
@@ -537,6 +539,9 @@ void MainWindow::outputAvailable(const QString &out)
             continue;
         }
         pendingOutputBuffer += ch;
+    }
+    if (sawCarriageReturn && !pendingOutputBuffer.isEmpty()) {
+        showTransientOutputLine(pendingOutputBuffer);
     }
 }
 
