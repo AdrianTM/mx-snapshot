@@ -228,6 +228,14 @@ main() {
             # Added by Grub
             BOOT_IMAGE=*) ;;
 
+            # archiso live boot parameters - meaningless and destructive in a snapshot
+            archisobasedir=*) ;;
+            archisosearchuuid=*) ;;
+            archisolabel=*) ;;
+            archisosearchlabel=*) ;;
+            archisodevice=*) ;;
+            copytoram|copytoram=*) ;;
+
             # Sometimes added with grub loop mounts
                 *root=*) ;;
 
