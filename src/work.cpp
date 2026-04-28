@@ -708,9 +708,17 @@ bool Work::createIso(const QString &filename)
         return false;
     }
 
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+    const QString appName = QCoreApplication::applicationName();
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    if (archStatePresent) {
+        shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
+    if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
+        const QString snapshotLib = snapshotLibPath();
+        const QString elevateTool = Cmd::elevationTool();
+        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+    }
 
     if (cleanupStarted) {
         return false;

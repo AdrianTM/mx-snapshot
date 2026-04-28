@@ -22,7 +22,6 @@ void TestSquashfsUtils::buildCommandDirect()
         .cores = 4,
         .throttle = 75,
         .throttleSupported = true,
-        .progressSupported = true,
         .percentageSupported = true,
         .mksqOpt = "-Xcompression-level 15",
         .excludesFileName = "/tmp/excludes.list",
@@ -33,7 +32,7 @@ void TestSquashfsUtils::buildCommandDirect()
     QCOMPARE(command.program, QStringLiteral("mksquashfs"));
     const QStringList expected {
         "/bind-root", "/tmp/linuxfs", "-comp", "zstd", "-processors", "4",
-        "-throttle", "75", "-progress", "-percentage", "-Xcompression-level", "15",
+        "-throttle", "75", "-percentage", "-Xcompression-level", "15",
         "-wildcards", "-ef", "/tmp/excludes.list", "-e", "home/user/Downloads", "home/user/My Files",
     };
     QCOMPARE(command.args, expected);
@@ -62,12 +61,10 @@ void TestSquashfsUtils::buildCommandOmitsPercentageWhenDisabled()
         .outputPath = "/tmp/linuxfs",
         .compression = "gzip",
         .cores = 1,
-        .progressSupported = true,
         .percentageSupported = false,
         .excludesFileName = "/tmp/excludes.list",
     });
 
-    QVERIFY(command.args.contains("-progress"));
     QVERIFY(!command.args.contains("-percentage"));
 }
 
