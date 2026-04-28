@@ -1152,12 +1152,7 @@ void Work::setupEnv()
         return;
     }
 
-    QString bind_boot;
-    QString bind_boot_too;
-    if (shell.run("mountpoint /boot")) {
-        bind_boot = "bind=/boot ";
-        bind_boot_too = ",/boot";
-    }
+    const bool bootIsMount = shell.run("mountpoint /boot");
 
     // Install installer if absent (mx-installer on Debian, gazelle-installer on Arch)
     const QString installerPkg = settings->isArch ? QStringLiteral("gazelle-installer")
@@ -1209,10 +1204,13 @@ void Work::setupEnv()
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->resetAccounts) {
         QStringList args {"-F", "-b", bindRootPath, "start"};
-        if (!bind_boot.isEmpty()) {
+        if (bootIsMount) {
             args << "bind=/boot";
         }
         args << "empty=/home" << "general" << "version-file";
+        if (settings->isArch) {
+            args << "live-setup";
+        }
         if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
@@ -1229,8 +1227,14 @@ void Work::setupEnv()
             shell.procAsRoot("chown", {"-R", "1000:1000", demoDesktop}, nullptr, nullptr, Cmd::QuietMode::Yes);
         }
     } else {
-        QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home" + bind_boot_too,
-                          "live-files", "version-file", "adjtime"};
+        QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home"};
+        if (bootIsMount) {
+            args << "bind=/boot";
+        }
+        args << "live-files" << "version-file" << "adjtime";
+        if (settings->isArch) {
+            args << "live-setup";
+        }
         if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
