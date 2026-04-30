@@ -321,6 +321,20 @@ bool Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
 
 bool Work::setupBindRootOverlay()
 {
+    const QString rootFsType = Cmd().getOut("findmnt -n -o FSTYPE /", Cmd::QuietMode::Yes).trimmed();
+    if (rootFsType == "overlay") {
+        qDebug() << "Root filesystem is overlay; skipping bind-root overlay setup.";
+        bindRootPath = "/.bind-root";
+        bindRootOverlayActive = false;
+        bindRootOverlayBase.clear();
+        return true;
+    }
+
+    if (!ensureOverlayModuleLoaded()) {
+        qWarning() << "Kernel overlay filesystem support is unavailable; "
+                      "will attempt overlay mount and fall back to plain bind-mount on failure.";
+    }
+
     const QString appName = QCoreApplication::applicationName();
     const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
     const QString lowerDir = overlayBase + "/lower";
@@ -346,12 +360,6 @@ bool Work::setupBindRootOverlay()
         qWarning() << "Failed to bind mount / to" << lowerDir;
         return false;
     }
-
-    // Make sure the overlay module is loaded — Arch ships it as a module
-    // (CONFIG_OVERLAY_FS=m) and on a freshly booted system without an
-    // earlier overlay user, autoload may not have happened yet. modprobe
-    // is harmless when the module is already loaded or built-in.
-    shell.procAsRoot("modprobe", {"overlay"}, nullptr, nullptr, Cmd::QuietMode::Yes);
 
     const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
@@ -379,6 +387,30 @@ bool Work::setupBindRootOverlay()
     bindRootOverlayBase = overlayBase;
     bindRootOverlayActive = true;
     return true;
+}
+
+bool Work::ensureOverlayModuleLoaded()
+{
+    auto overlayRegistered = []() {
+        QFile filesystems("/proc/filesystems");
+        if (!filesystems.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return false;
+        }
+        while (!filesystems.atEnd()) {
+            const QByteArray line = filesystems.readLine().trimmed();
+            const auto parts = line.split('\t');
+            if (!parts.isEmpty() && parts.last() == "overlay") {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    if (overlayRegistered()) {
+        return true;
+    }
+    shell.procAsRoot("modprobe", {"overlay"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    return overlayRegistered();
 }
 
 void Work::cleanupBindRootOverlay()
