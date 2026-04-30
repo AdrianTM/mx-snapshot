@@ -82,6 +82,7 @@ private:
     // Bind-root overlay management
     [[nodiscard]] bool setupBindRootOverlay();
     void cleanupBindRootOverlay();
+    [[nodiscard]] bool ensureOverlayModuleLoaded();
 
     // File operations
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);

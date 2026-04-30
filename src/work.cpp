@@ -304,6 +304,11 @@ bool Work::setupBindRootOverlay()
         return true;
     }
 
+    if (!ensureOverlayModuleLoaded()) {
+        qWarning() << "Kernel overlay filesystem support is unavailable; bind-root overlay cannot be set up.";
+        return false;
+    }
+
     const QString appName = QCoreApplication::applicationName();
     const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
     const QString lowerDir = overlayBase + "/lower";
@@ -342,6 +347,30 @@ bool Work::setupBindRootOverlay()
     bindRootOverlayBase = overlayBase;
     bindRootOverlayActive = true;
     return true;
+}
+
+bool Work::ensureOverlayModuleLoaded()
+{
+    auto overlayRegistered = []() {
+        QFile filesystems("/proc/filesystems");
+        if (!filesystems.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return false;
+        }
+        while (!filesystems.atEnd()) {
+            const QByteArray line = filesystems.readLine().trimmed();
+            const auto parts = line.split('\t');
+            if (!parts.isEmpty() && parts.last() == "overlay") {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    if (overlayRegistered()) {
+        return true;
+    }
+    shell.procAsRoot("modprobe", {"overlay"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    return overlayRegistered();
 }
 
 void Work::cleanupBindRootOverlay()
