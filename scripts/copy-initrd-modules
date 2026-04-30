@@ -44,11 +44,6 @@ battery
 btrfs
 cdrom
 crc16
-crc32c-generic
-crc32-pclmul
-crct10dif-common
-crct10dif-generic
-crct10dif-pclmul
 ecb
 ehci-hcd
 ehci-pci
@@ -82,7 +77,6 @@ hyperv-keyboard
 isofs
 jbd2
 jfs
-libcrc32c
 libahci
 loop
 mbcache
@@ -97,7 +91,6 @@ ohci-pci
 overlay
 pci-hyperv
 pci-hyperv-intf
-reiserfs
 rtsx_pci
 rtsx_pci_sdmmc
 scsi-mod
@@ -154,16 +147,23 @@ xts
 # radeon
 
 CONDITIONAL_MODULES="
+crc32c-generic
+crc32-pclmul
+crct10dif-common
+crct10dif-generic
+crct10dif-pclmul
 hyperv_fb
+libcrc32c
 linear
 multipath
+reiserfs
 "
 
 module_exists_in_tree() {
     local module_dir=$1
     local module_name=$2
     local file_name=${module_name//-/_}
-    find "$module_dir" -type f -name "${file_name}.ko*" -print -quit | grep -q .
+    find "$module_dir" -type f -name "${file_name}.ko*" -print -quit 2>/dev/null | grep -q .
 }
 
 main() {
