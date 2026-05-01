@@ -305,8 +305,8 @@ bool Work::setupBindRootOverlay()
     }
 
     if (!ensureOverlayModuleLoaded()) {
-        qWarning() << "Kernel overlay filesystem support is unavailable; bind-root overlay cannot be set up.";
-        return false;
+        qWarning() << "Kernel overlay filesystem support is unavailable; "
+                      "will attempt overlay mount and fall back to plain bind-mount on failure.";
     }
 
     const QString appName = QCoreApplication::applicationName();
@@ -338,9 +338,18 @@ bool Work::setupBindRootOverlay()
     const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
                           Cmd::QuietMode::Yes)) {
-        qWarning() << "Failed to mount overlay at" << bindRoot;
+        qWarning() << "Overlay mount failed at" << bindRoot
+                   << "- falling back to plain bind-mount. Snapshot is no longer isolated from live writes.";
         shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-        return false;
+        if (shell.procAsRoot("mountpoint", {"-q", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+            qWarning() << "Refusing to remove overlay base while lower dir is still mounted:" << lowerDir;
+        } else {
+            shell.procAsRoot("rm", {"-rf", overlayBase}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        }
+        bindRootPath = "/.bind-root";
+        bindRootOverlayBase.clear();
+        bindRootOverlayActive = false;
+        return true;
     }
 
     bindRootPath = bindRoot;
@@ -1132,9 +1141,12 @@ void Work::setupEnv()
     }
     if (!installerSource.isEmpty()) {
         const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
+        const QString skelInstallerLink = skelDesktopDir + "/minstall.desktop";
         shell.procAsRoot("mkdir", {"-p", skelDesktopDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-        shell.procAsRoot("ln", {"-sf", installerSource, skelDesktopDir + "/minstall.desktop"}, nullptr, nullptr,
-                         Cmd::QuietMode::Yes);
+        if (!bindRootOverlayActive && !QFileInfo::exists(skelInstallerLink)) {
+            bindManager.addRmFile("/etc/skel/Desktop/minstall.desktop");
+        }
+        shell.procAsRoot("ln", {"-sf", installerSource, skelInstallerLink}, nullptr, nullptr, Cmd::QuietMode::Yes);
         qDebug() << "Created installer link in skel:" << skelDesktopDir << "->" << installerSource;
     } else {
         qDebug() << "No installer desktop file found";
