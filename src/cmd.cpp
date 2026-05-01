@@ -179,16 +179,32 @@ bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, con
     }
 
     QEventLoop loop;
-    // Track the connection so we can disconnect after the loop exits — otherwise
-    // a later QProcess::finished from a different invocation can resurrect this
-    // loop's quit handler against a stale local QEventLoop.
-    const auto conn = connect(this, &QProcess::finished, &loop, &QEventLoop::quit);
+    bool processFinished = false;
+    // Track the connection so we can disconnect after this invocation; otherwise
+    // a later QProcess::finished can call into a stale local event loop.
+    const auto conn = connect(this, &QProcess::finished, &loop, [&loop, &processFinished](int, QProcess::ExitStatus) {
+        processFinished = true;
+        loop.quit();
+    });
     start(cmd, args);
+    if (!waitForStarted()) {
+        const QString message = tr("Failed to start command: %1").arg(cmd);
+        qWarning().noquote() << message << errorString();
+        emit errorAvailable(message + ": " + errorString());
+        if (output) {
+            *output = outBuffer.trimmed();
+        }
+        emit done();
+        disconnect(conn);
+        return false;
+    }
     if (input && !input->isEmpty()) {
         write(*input);
     }
     closeWriteChannel();
-    loop.exec();
+    if (!processFinished) {
+        loop.exec();
+    }
     disconnect(conn);
 
     if (output) {

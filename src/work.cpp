@@ -78,6 +78,19 @@ quint64 parseDuKilobytes(const QString &output, bool *ok)
     const QString firstField = lines.constLast().section('\t', 0, 0).trimmed();
     return firstField.toULongLong(ok);
 }
+
+void requestPowerOff()
+{
+    const QString powerOffCommand =
+        "sleep 2; dbus-send --system --print-reply --dest=org.freedesktop.login1 "
+        "/org/freedesktop/login1 org.freedesktop.login1.Manager.PowerOff boolean:true";
+    if (!QProcess::startDetached("/bin/sh", {"-c", powerOffCommand})) {
+        qWarning() << "Failed to schedule delayed poweroff; trying immediate poweroff request.";
+        QProcess::execute("dbus-send",
+                          {"--system", "--print-reply", "--dest=org.freedesktop.login1", "/org/freedesktop/login1",
+                           "org.freedesktop.login1.Manager.PowerOff", "boolean:true"});
+    }
+}
 } // namespace
 
 QString Work::snapshotLibPath()
@@ -249,9 +262,7 @@ void Work::cleanUp()
             QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
             QProcess::execute("sync", {});
-            QProcess::execute("dbus-send",
-                              {"--system", "--print-reply", "--dest=org.freedesktop.login1", "/org/freedesktop/login1",
-                               "org.freedesktop.login1.Manager.PowerOff", "boolean:true"});
+            requestPowerOff();
         }
         requestExit(EXIT_SUCCESS);
         return;
@@ -862,9 +873,9 @@ bool Work::createIso(const QString &filename)
     }
 
     auto elapsedTime = QTime(0, 0).addMSecs(e_timer.elapsed());
+    done = true;
     emit message(tr("Done"));
     if (settings->shutdown) {
-        done = true;
         cleanUp();
         return true;
     }
@@ -872,7 +883,6 @@ bool Work::createIso(const QString &filename)
                     tr("MX Snapshot completed successfully!") + '\n'
                         + tr("Snapshot took %1 to finish.").arg(elapsedTime.toString("hh:mm:ss")) + "\n\n"
                         + tr("Thanks for using MX Snapshot, run MX Live USB Maker next!"));
-    done = true;
     return true;
 }
 

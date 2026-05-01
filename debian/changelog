@@ -1,7 +1,19 @@
+mx-snapshot (26.05) mx; urgency=medium
+
+  * Make shutdown poweroff non-blocking and harden Cmd::proc startup
+    - Cmd::proc(): check waitForStarted() and skip event loop if the
+    process already finished, avoiding a hang/race on early failures.
+    - Work::cleanUp(): delegate poweroff to a detached shell that sleeps
+    briefly before the dbus call, so the app can exit cleanly.
+    - Work::createIso(): set done=true before cleanUp() on the shutdown
+    path so completion state is correct.
+
+ -- Adrian <adrian@mxlinux.org>  Fri, 01 May 2026 16:41:40 -0400
+
 mx-snapshot (26.04.2) mx; urgency=medium
 
-  * change way users are collected 
-  * eliminates some non existing home folders when system users are 
+  * change way users are collected
+  * eliminates some non existing home folders when system users are
     configured as user-level users.
 
  -- Dolphin Oracle <dolphinoracle@gmail.com>  Sun, 19 Apr 2026 20:52:10 -0400
