@@ -132,577 +132,532 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="380"/>
-        <location filename="../src/mainwindow.cpp" line="759"/>
-        <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/mainwindow.cpp" line="382"/>
+        <location filename="../src/mainwindow.cpp" line="826"/>
         <source>MX Snapshot</source>
         <translation>MX 快照</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="33"/>
-        <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>Optional customization</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="65"/>
-        <location filename="../src/ui_mainwindow.h" line="747"/>
         <source>Release version:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="79"/>
-        <location filename="../src/ui_mainwindow.h" line="748"/>
         <source>Boot options:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="86"/>
-        <location filename="../src/ui_mainwindow.h" line="749"/>
         <source>Live kernel:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
-        <location filename="../src/ui_mainwindow.h" line="750"/>
         <source>Project name:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
-        <location filename="../src/ui_mainwindow.h" line="751"/>
         <source>Release date:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="107"/>
-        <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Release codename:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="133"/>
-        <location filename="../src/ui_mainwindow.h" line="753"/>
         <source>Current date</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
-        <location filename="../src/ui_mainwindow.h" line="754"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快照工具是為電腦正在運作的系統製作一份可開機映像檔（ISO），此檔案可以用來備份或流通。當它在執行的時候，你仍然可以繼續使用不太消耗資源的程式。&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
-        <location filename="../src/ui_mainwindow.h" line="755"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>/（根目錄）和 /home 磁碟區已使用的空間：</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="192"/>
-        <location filename="../src/ui_mainwindow.h" line="756"/>
         <source>Location and ISO name</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="219"/>
-        <location filename="../src/ui_mainwindow.h" line="758"/>
         <source>Snapshot location:</source>
         <translation>快照存放位置：</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
-        <location filename="../src/ui_mainwindow.h" line="759"/>
         <source>Select a different snapshot directory</source>
         <translation>將快照存放在別的目錄</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="575"/>
-        <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.cpp" line="590"/>
         <source>Snapshot name:</source>
         <translation>快照檔名：</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="360"/>
-        <location filename="../src/ui_mainwindow.h" line="764"/>
         <source>Type of snapshot:</source>
         <translation>快照類型：</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="367"/>
-        <location filename="../src/ui_mainwindow.h" line="765"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>保留帳密（個人備份用）</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
-        <location filename="../src/ui_mainwindow.h" line="767"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;選擇此項，則會回復 MX Linux 預設的 demo 和 root 帳密，而不複製任何自訂的個人帳號資料。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="380"/>
-        <location filename="../src/ui_mainwindow.h" line="769"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>重新設定帳密（公開流通用）</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
-        <location filename="../src/ui_mainwindow.h" line="770"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
-        <location filename="../src/ui_mainwindow.h" line="771"/>
         <source>sha512</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="519"/>
-        <location filename="../src/ui_mainwindow.h" line="773"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="525"/>
-        <location filename="../src/ui_mainwindow.h" line="775"/>
         <source>I/O throttle:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="532"/>
-        <location filename="../src/ui_mainwindow.h" line="776"/>
         <source>Calculate checksums:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
-        <location filename="../src/ui_mainwindow.h" line="777"/>
         <source>ISO compression scheme:</source>
         <translation>ISO 壓縮方案:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="546"/>
-        <location filename="../src/ui_mainwindow.h" line="778"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="553"/>
-        <location filename="../src/ui_mainwindow.h" line="779"/>
         <source>md5</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="563"/>
-        <location filename="../src/ui_mainwindow.h" line="780"/>
         <source>Options:</source>
         <translation>選項：</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="610"/>
-        <location filename="../src/ui_mainwindow.h" line="781"/>
         <source>Edit Exclusion File</source>
         <translation>編輯排除檔</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="779"/>
-        <location filename="../src/ui_mainwindow.h" line="782"/>
+        <location filename="../src/mainwindow.cpp" line="846"/>
         <source>Remove Custom Exclusion File</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
-        <location filename="../src/ui_mainwindow.h" line="783"/>
         <source>Pictures</source>
         <translation>圖片</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="686"/>
-        <location filename="../src/ui_mainwindow.h" line="784"/>
         <source>Videos</source>
         <translation>影片</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="693"/>
-        <location filename="../src/ui_mainwindow.h" line="785"/>
         <source>All of the above</source>
         <translation>以上全選</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="700"/>
-        <location filename="../src/ui_mainwindow.h" line="787"/>
         <source>exclude network configurations</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="703"/>
-        <location filename="../src/ui_mainwindow.h" line="789"/>
         <source>Networks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="710"/>
-        <location filename="../src/ui_mainwindow.h" line="790"/>
         <source>Downloads</source>
         <translation>所有下載</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="717"/>
-        <location filename="../src/ui_mainwindow.h" line="791"/>
         <source>Desktop</source>
         <translation>桌面</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="724"/>
-        <location filename="../src/ui_mainwindow.h" line="792"/>
         <source>Documents</source>
         <translation>文件</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="731"/>
-        <location filename="../src/ui_mainwindow.h" line="793"/>
         <source>Flatpaks</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="738"/>
-        <location filename="../src/ui_mainwindow.h" line="794"/>
         <source>Music</source>
         <translation>音樂</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="850"/>
-        <location filename="../src/ui_mainwindow.h" line="797"/>
+        <location filename="../src/mainwindow.ui" line="876"/>
         <source>About this application</source>
         <translation>關於本程式</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="853"/>
-        <location filename="../src/ui_mainwindow.h" line="799"/>
+        <location filename="../src/mainwindow.ui" line="879"/>
         <source>About...</source>
         <translation>關於……</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="859"/>
-        <location filename="../src/ui_mainwindow.h" line="801"/>
+        <location filename="../src/mainwindow.ui" line="885"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="875"/>
-        <location filename="../src/ui_mainwindow.h" line="803"/>
+        <location filename="../src/mainwindow.ui" line="901"/>
         <source>Next</source>
         <translation>下一個</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="900"/>
-        <location filename="../src/ui_mainwindow.h" line="808"/>
+        <location filename="../src/mainwindow.ui" line="926"/>
         <source>Display help </source>
         <translation>顯示說明</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="903"/>
-        <location filename="../src/ui_mainwindow.h" line="810"/>
+        <location filename="../src/mainwindow.ui" line="929"/>
         <source>Help</source>
         <translation>說明</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="909"/>
-        <location filename="../src/ui_mainwindow.h" line="812"/>
+        <location filename="../src/mainwindow.ui" line="935"/>
         <source>Alt+H</source>
         <translation>Alt+H</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="922"/>
-        <location filename="../src/ui_mainwindow.h" line="815"/>
+        <location filename="../src/mainwindow.ui" line="948"/>
         <source>Quit application</source>
         <translation>退出程式</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="925"/>
-        <location filename="../src/ui_mainwindow.h" line="817"/>
+        <location filename="../src/mainwindow.ui" line="951"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="931"/>
-        <location filename="../src/ui_mainwindow.h" line="819"/>
+        <location filename="../src/mainwindow.ui" line="957"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="985"/>
-        <location filename="../src/ui_mainwindow.h" line="822"/>
+        <location filename="../src/mainwindow.ui" line="1011"/>
         <source>Back</source>
         <translation>後退</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="342"/>
+        <location filename="../src/mainwindow.cpp" line="344"/>
         <source>Select Release Date</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386"/>
+        <location filename="../src/mainwindow.cpp" line="388"/>
         <source>fastest, worst compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386"/>
+        <location filename="../src/mainwindow.cpp" line="388"/>
         <source>fast, worse compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="387"/>
+        <location filename="../src/mainwindow.cpp" line="389"/>
         <source>slow, better compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="387"/>
+        <location filename="../src/mainwindow.cpp" line="389"/>
         <source>best compromise</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="388"/>
+        <location filename="../src/mainwindow.cpp" line="390"/>
         <source>slowest, best compression</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="417"/>
+        <location filename="../src/mainwindow.cpp" line="419"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>快照目錄所在的 %1 尚可利用的空間：</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="420"/>
+        <location filename="../src/mainwindow.cpp" line="422"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="432"/>
-        <location filename="../src/mainwindow.cpp" line="433"/>
+        <location filename="../src/mainwindow.cpp" line="434"/>
+        <location filename="../src/mainwindow.cpp" line="435"/>
         <source>Installing </source>
         <translation>正在安裝……</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/mainwindow.cpp" line="533"/>
         <source>Please wait.</source>
         <translation>請稍待。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="520"/>
+        <location filename="../src/mainwindow.cpp" line="535"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>請稍待。正在計算佔用多少磁碟空間……</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="271"/>
-        <location filename="../src/mainwindow.cpp" line="554"/>
-        <location filename="../src/mainwindow.cpp" line="561"/>
-        <location filename="../src/mainwindow.cpp" line="643"/>
-        <location filename="../src/mainwindow.cpp" line="654"/>
-        <location filename="../src/mainwindow.cpp" line="844"/>
+        <location filename="../src/mainwindow.cpp" line="272"/>
+        <location filename="../src/mainwindow.cpp" line="569"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="669"/>
+        <location filename="../src/mainwindow.cpp" line="911"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="171"/>
-        <location filename="../src/mainwindow.cpp" line="207"/>
+        <location filename="../src/mainwindow.cpp" line="172"/>
+        <location filename="../src/mainwindow.cpp" line="208"/>
         <source>Updated Exclusion List</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="174"/>
+        <location filename="../src/mainwindow.cpp" line="175"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="176"/>
+        <location filename="../src/mainwindow.cpp" line="177"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="183"/>
         <source>Show Differences</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="189"/>
         <source>Keep Custom</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="194"/>
+        <location filename="../src/mainwindow.cpp" line="195"/>
         <source>Use Updated Default</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="555"/>
+        <location filename="../src/mainwindow.cpp" line="481"/>
+        <source>Done</source>
+        <translation>完成</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="570"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="562"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="566"/>
+        <location filename="../src/mainwindow.cpp" line="581"/>
         <source>Settings</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="572"/>
+        <location filename="../src/mainwindow.cpp" line="587"/>
         <source>Snapshot will use the following settings:</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="574"/>
+        <location filename="../src/mainwindow.cpp" line="589"/>
         <source>- Snapshot directory:</source>
         <translation>- 快照存放目錄：</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="575"/>
+        <location filename="../src/mainwindow.cpp" line="590"/>
         <source>- Kernel to be used:</source>
         <translation>- 使用核心：</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
-        <location filename="../src/mainwindow.cpp" line="608"/>
+        <location filename="../src/mainwindow.cpp" line="614"/>
+        <location filename="../src/mainwindow.cpp" line="623"/>
         <source>NVIDIA Detected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="600"/>
+        <location filename="../src/mainwindow.cpp" line="615"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="619"/>
         <source>NVIDIA Selected</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="605"/>
+        <location filename="../src/mainwindow.cpp" line="620"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="609"/>
+        <location filename="../src/mainwindow.cpp" line="624"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="272"/>
-        <location filename="../src/mainwindow.cpp" line="644"/>
+        <location filename="../src/mainwindow.cpp" line="273"/>
+        <location filename="../src/mainwindow.cpp" line="659"/>
         <source>Could not replace the exclusion file with the updated default.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="670"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>當前內核不支持所選的壓縮算法，請編輯配置文件並選擇其他算法。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="678"/>
+        <location filename="../src/mainwindow.cpp" line="693"/>
         <source>Final chance</source>
         <translation>最後確認</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="680"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>快照工具已經掌握了所有相關資料，可以從現在運行的系統中創造出 ISO 檔。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="681"/>
+        <location filename="../src/mainwindow.cpp" line="696"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>要花上一些時間才能完成，實際狀況取決於現行系統大小以及電腦性能。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="683"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>OK to start?</source>
         <translation>可以開始嗎？</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="687"/>
+        <location filename="../src/mainwindow.ui" line="824"/>
+        <location filename="../src/mainwindow.cpp" line="702"/>
         <source>Shutdown computer when done.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="720"/>
+        <location filename="../src/mainwindow.cpp" line="736"/>
         <source>Output</source>
         <translation>輸出</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="756"/>
         <source>Close</source>
         <translation>關閉</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="743"/>
+        <location filename="../src/mainwindow.cpp" line="810"/>
         <source>Edit Boot Menu</source>
         <translation>編輯開機選單</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="744"/>
+        <location filename="../src/mainwindow.cpp" line="811"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>本程式即將暫停，讓你有機會編修工作目錄之中的每個檔案。選擇「是」便可編輯開機選單，選擇「否」 則會省略此一步驟，直接製作快照。</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="780"/>
+        <location filename="../src/mainwindow.cpp" line="847"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="812"/>
+        <location filename="../src/mainwindow.cpp" line="879"/>
         <source>About %1</source>
         <translation>大約 %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="814"/>
+        <location filename="../src/mainwindow.cpp" line="881"/>
         <source>Version: </source>
         <translation>版本：</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="815"/>
+        <location filename="../src/mainwindow.cpp" line="882"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>本程式可將正在運作的 MX Linux 系統做成現場版 CD</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="817"/>
+        <location filename="../src/mainwindow.cpp" line="884"/>
         <source>Copyright (c) MX Linux</source>
         <translation>版權所有 (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="819"/>
+        <location filename="../src/mainwindow.cpp" line="886"/>
         <source>%1 License</source>
         <translation>%1 許可</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="832"/>
+        <location filename="../src/mainwindow.cpp" line="899"/>
         <source>%1 Help</source>
         <translation>%1 幫助</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="837"/>
+        <location filename="../src/mainwindow.cpp" line="904"/>
         <source>Select Snapshot Directory</source>
         <translation>選擇快照目錄</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="845"/>
+        <location filename="../src/mainwindow.cpp" line="912"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="865"/>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>Confirmation</source>
         <translation>確認</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="865"/>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>真的要退出此程式嗎？</translation>
     </message>

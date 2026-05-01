@@ -115,7 +115,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="101"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>S’u gjet mjet ngritjeje privilegjesh (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="171"/>
@@ -132,351 +132,300 @@
     <name>MainWindow</name>
     <message>
         <location filename="../src/mainwindow.ui" line="14"/>
-        <location filename="../src/mainwindow.cpp" line="380"/>
-        <location filename="../src/mainwindow.cpp" line="759"/>
-        <location filename="../src/ui_mainwindow.h" line="745"/>
+        <location filename="../src/mainwindow.cpp" line="382"/>
+        <location filename="../src/mainwindow.cpp" line="826"/>
         <source>MX Snapshot</source>
         <translation>Fotografim MX Sistemi</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="33"/>
-        <location filename="../src/ui_mainwindow.h" line="746"/>
         <source>Optional customization</source>
         <translation>Përshtatje opsionale</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="65"/>
-        <location filename="../src/ui_mainwindow.h" line="747"/>
         <source>Release version:</source>
         <translation>Version hedhjeje në qarkullim:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="79"/>
-        <location filename="../src/ui_mainwindow.h" line="748"/>
         <source>Boot options:</source>
         <translation>Mundësi nisjeje:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="86"/>
-        <location filename="../src/ui_mainwindow.h" line="749"/>
         <source>Live kernel:</source>
         <translation>Kernel “live”:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="93"/>
-        <location filename="../src/ui_mainwindow.h" line="750"/>
         <source>Project name:</source>
         <translation>Emër projekti:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="100"/>
-        <location filename="../src/ui_mainwindow.h" line="751"/>
         <source>Release date:</source>
         <translation>Datë hedhjeje në qarkullim:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="107"/>
-        <location filename="../src/ui_mainwindow.h" line="752"/>
         <source>Release codename:</source>
         <translation>Emër kod për hedhjen në qarkullim:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="133"/>
-        <location filename="../src/ui_mainwindow.h" line="753"/>
         <source>Current date</source>
         <translation>Data e sotme</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
-        <location filename="../src/ui_mainwindow.h" line="754"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Fotografimi është një mjet që krijon një pamje të nisshme (ISO) të sistemit që përdorni, e cila mund të përdoret për depozitim ose shpërndarje. Mund të vazhdoni të punoni me aplikacione jo të rënda, teksa xhiron mjeti.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
-        <location filename="../src/ui_mainwindow.h" line="755"/>
         <source>Used space on / (root) and /home partitions:</source>
         <translation>Hapësirë e përdorur në pjesët / (rrënjë) dhe /home:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="192"/>
-        <location filename="../src/ui_mainwindow.h" line="756"/>
         <source>Location and ISO name</source>
         <translation>Vendndodhje dhe emër ISO-je</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="219"/>
-        <location filename="../src/ui_mainwindow.h" line="758"/>
         <source>Snapshot location:</source>
         <translation>Vendndodhje fotografimi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="226"/>
-        <location filename="../src/ui_mainwindow.h" line="759"/>
         <source>Select a different snapshot directory</source>
         <translation>Përzgjidhni tjetër drejtori fotografimesh</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="236"/>
-        <location filename="../src/mainwindow.cpp" line="575"/>
-        <location filename="../src/ui_mainwindow.h" line="760"/>
+        <location filename="../src/mainwindow.cpp" line="590"/>
         <source>Snapshot name:</source>
         <translation>Emër fotografimi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="360"/>
-        <location filename="../src/ui_mainwindow.h" line="764"/>
         <source>Type of snapshot:</source>
         <translation>Lloj fotografimi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="367"/>
-        <location filename="../src/ui_mainwindow.h" line="765"/>
         <source>Preserving accounts (for personal backup)</source>
         <translation>Ruajtje llogarish (për kopjeruajtje personale)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="377"/>
-        <location filename="../src/ui_mainwindow.h" line="767"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;This option will reset &amp;quot;demo&amp;quot; and &amp;quot;root&amp;quot; passwords to the MX Linux defaults and will not copy any personal accounts created.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Kjo mundësi do të bëjë kthimin e fjalëkalimeve për “demo” dhe “root” te parazgjedhjet e MX Linux-it dhe s’do të kopjojë ndonjë llogari personale të krijuar.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="380"/>
-        <location filename="../src/ui_mainwindow.h" line="769"/>
         <source>Resetting accounts (for distribution to others)</source>
         <translation>Po rikthehen llogaritë te parazgjedhjet (për shpërndarje të tjerëve)</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
-        <location filename="../src/ui_mainwindow.h" line="770"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
         <translation>Mundeni edhe të përjashtoni drejtori të caktuara, duke u vënë shenjë zgjidhjeve të zakonshme më poshtë, ose duke klikuar mbi butonin, për të përpunuar drejtpërsëdrejti /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
-        <location filename="../src/ui_mainwindow.h" line="771"/>
         <source>sha512</source>
         <translation>sha512</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="519"/>
-        <location filename="../src/ui_mainwindow.h" line="773"/>
         <source>Throttle the I/O input rate by the given percentage.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="525"/>
-        <location filename="../src/ui_mainwindow.h" line="775"/>
         <source>I/O throttle:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="532"/>
-        <location filename="../src/ui_mainwindow.h" line="776"/>
         <source>Calculate checksums:</source>
         <translation>Njehsoni checksum-e:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="539"/>
-        <location filename="../src/ui_mainwindow.h" line="777"/>
         <source>ISO compression scheme:</source>
         <translation>Skemë ngjeshjeje për ISO-n:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="546"/>
-        <location filename="../src/ui_mainwindow.h" line="778"/>
         <source>Number of CPU cores to use:</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="553"/>
-        <location filename="../src/ui_mainwindow.h" line="779"/>
         <source>md5</source>
         <translation>md5</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="563"/>
-        <location filename="../src/ui_mainwindow.h" line="780"/>
         <source>Options:</source>
         <translation>Mundësi:</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="610"/>
-        <location filename="../src/ui_mainwindow.h" line="781"/>
         <source>Edit Exclusion File</source>
         <translation>Përpunoni Kartelë Përjashtimesh</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="626"/>
-        <location filename="../src/mainwindow.cpp" line="779"/>
-        <location filename="../src/ui_mainwindow.h" line="782"/>
+        <location filename="../src/mainwindow.cpp" line="846"/>
         <source>Remove Custom Exclusion File</source>
         <translation>Hiq Kartelë Vetjake Përjashtimesh</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
-        <location filename="../src/ui_mainwindow.h" line="783"/>
         <source>Pictures</source>
         <translation>Foto</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="686"/>
-        <location filename="../src/ui_mainwindow.h" line="784"/>
         <source>Videos</source>
         <translation>Video</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="693"/>
-        <location filename="../src/ui_mainwindow.h" line="785"/>
         <source>All of the above</source>
         <translation>Krejt sa më sipër</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="700"/>
-        <location filename="../src/ui_mainwindow.h" line="787"/>
         <source>exclude network configurations</source>
         <translation>përjashto formësime rrjeti</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="703"/>
-        <location filename="../src/ui_mainwindow.h" line="789"/>
         <source>Networks</source>
         <translation>Rrjete</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="710"/>
-        <location filename="../src/ui_mainwindow.h" line="790"/>
         <source>Downloads</source>
         <translation>Shkarkime</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="717"/>
-        <location filename="../src/ui_mainwindow.h" line="791"/>
         <source>Desktop</source>
         <translation>Desktop</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="724"/>
-        <location filename="../src/ui_mainwindow.h" line="792"/>
         <source>Documents</source>
         <translation>Dokumente</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="731"/>
-        <location filename="../src/ui_mainwindow.h" line="793"/>
         <source>Flatpaks</source>
         <translation>Paketime Flatpak</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="738"/>
-        <location filename="../src/ui_mainwindow.h" line="794"/>
         <source>Music</source>
         <translation>Muzikë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="850"/>
-        <location filename="../src/ui_mainwindow.h" line="797"/>
+        <location filename="../src/mainwindow.ui" line="876"/>
         <source>About this application</source>
         <translation>Mbi këtë aplikacion</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="853"/>
-        <location filename="../src/ui_mainwindow.h" line="799"/>
+        <location filename="../src/mainwindow.ui" line="879"/>
         <source>About...</source>
         <translation>Mbi…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="859"/>
-        <location filename="../src/ui_mainwindow.h" line="801"/>
+        <location filename="../src/mainwindow.ui" line="885"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="875"/>
-        <location filename="../src/ui_mainwindow.h" line="803"/>
+        <location filename="../src/mainwindow.ui" line="901"/>
         <source>Next</source>
         <translation>Pasuesi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="900"/>
-        <location filename="../src/ui_mainwindow.h" line="808"/>
+        <location filename="../src/mainwindow.ui" line="926"/>
         <source>Display help </source>
         <translation>Shfaq ndihmë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="903"/>
-        <location filename="../src/ui_mainwindow.h" line="810"/>
+        <location filename="../src/mainwindow.ui" line="929"/>
         <source>Help</source>
         <translation>Ndihmë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="909"/>
-        <location filename="../src/ui_mainwindow.h" line="812"/>
+        <location filename="../src/mainwindow.ui" line="935"/>
         <source>Alt+H</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="922"/>
-        <location filename="../src/ui_mainwindow.h" line="815"/>
+        <location filename="../src/mainwindow.ui" line="948"/>
         <source>Quit application</source>
         <translation>Mbylle aplikacionin</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="925"/>
-        <location filename="../src/ui_mainwindow.h" line="817"/>
+        <location filename="../src/mainwindow.ui" line="951"/>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="931"/>
-        <location filename="../src/ui_mainwindow.h" line="819"/>
+        <location filename="../src/mainwindow.ui" line="957"/>
         <source>Alt+N</source>
         <translation>Alt+N</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.ui" line="985"/>
-        <location filename="../src/ui_mainwindow.h" line="822"/>
+        <location filename="../src/mainwindow.ui" line="1011"/>
         <source>Back</source>
         <translation>Mbrapsht</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="342"/>
+        <location filename="../src/mainwindow.cpp" line="344"/>
         <source>Select Release Date</source>
         <translation>Përzgjidhni Datë Hedhjeje Në Qarkullim</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386"/>
+        <location filename="../src/mainwindow.cpp" line="388"/>
         <source>fastest, worst compression</source>
         <translation>më e shpejta, ngjeshja më e dobët</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="386"/>
+        <location filename="../src/mainwindow.cpp" line="388"/>
         <source>fast, worse compression</source>
         <translation>e shpejtë, ngjeshje e dobët</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="387"/>
+        <location filename="../src/mainwindow.cpp" line="389"/>
         <source>slow, better compression</source>
         <translation>e ngadaltë, ngjeshje më e mirë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="387"/>
+        <location filename="../src/mainwindow.cpp" line="389"/>
         <source>best compromise</source>
         <translation>kompromisi më i mirë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="388"/>
+        <location filename="../src/mainwindow.cpp" line="390"/>
         <source>slowest, best compression</source>
         <translation>më e ngadalta, ngjeshja më e mirë</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="417"/>
+        <location filename="../src/mainwindow.cpp" line="419"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Hapësirë e lirë në %1, ku vendoset dosja e fotografimeve: </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="420"/>
+        <location filename="../src/mainwindow.cpp" line="422"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
@@ -485,226 +434,232 @@
       Në u dashtë, mund të krijoni më tepër hapësirë të lirë, duke hequr fotografime të mëparshme dhe kopje të ruajtura: %1 fotografime zënë aktualisht %2 të hapësirës së diskut.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="432"/>
-        <location filename="../src/mainwindow.cpp" line="433"/>
+        <location filename="../src/mainwindow.cpp" line="434"/>
+        <location filename="../src/mainwindow.cpp" line="435"/>
         <source>Installing </source>
         <translation>Po instalohet </translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="518"/>
+        <location filename="../src/mainwindow.cpp" line="533"/>
         <source>Please wait.</source>
         <translation>Ju lutemi, pritni.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="520"/>
+        <location filename="../src/mainwindow.cpp" line="535"/>
         <source>Please wait. Calculating used disk space...</source>
         <translation>Ju lutemi, pritni. Po llogaritet hapësira e përdorur në disk…</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="271"/>
-        <location filename="../src/mainwindow.cpp" line="554"/>
-        <location filename="../src/mainwindow.cpp" line="561"/>
-        <location filename="../src/mainwindow.cpp" line="643"/>
-        <location filename="../src/mainwindow.cpp" line="654"/>
-        <location filename="../src/mainwindow.cpp" line="844"/>
+        <location filename="../src/mainwindow.cpp" line="272"/>
+        <location filename="../src/mainwindow.cpp" line="569"/>
+        <location filename="../src/mainwindow.cpp" line="576"/>
+        <location filename="../src/mainwindow.cpp" line="658"/>
+        <location filename="../src/mainwindow.cpp" line="669"/>
+        <location filename="../src/mainwindow.cpp" line="911"/>
         <source>Error</source>
         <translation>Gabim</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="171"/>
-        <location filename="../src/mainwindow.cpp" line="207"/>
+        <location filename="../src/mainwindow.cpp" line="172"/>
+        <location filename="../src/mainwindow.cpp" line="208"/>
         <source>Updated Exclusion List</source>
         <translation>U përditësua Listë Përjashtimesh</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="174"/>
+        <location filename="../src/mainwindow.cpp" line="175"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
         <translation>Kartela e përjashtimit te %1 është më e re se sa kartela juaj e formësuar te %2.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="176"/>
+        <location filename="../src/mainwindow.cpp" line="177"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
         <translation>Shqyrtoni ndryshimet më poshtë. Mbajini kartelën tuaj të përshtatur, ose zëvendësojeni me parazgjedhjen e përditësuar.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="182"/>
+        <location filename="../src/mainwindow.cpp" line="183"/>
         <source>Show Differences</source>
         <translation>Shfaq Dallimet</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="188"/>
+        <location filename="../src/mainwindow.cpp" line="189"/>
         <source>Keep Custom</source>
         <translation>Mbaj të Përshtaturën</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="194"/>
+        <location filename="../src/mainwindow.cpp" line="195"/>
         <source>Use Updated Default</source>
         <translation>Përdor Parazgjedhjen e Përditësuar</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="555"/>
+        <location filename="../src/mainwindow.cpp" line="481"/>
+        <source>Done</source>
+        <translation>U bë</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="570"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Kartela përfundim %1 ekziston tashmë. Ju lutemi, përdorni një tjetër emër kartele, ose fshini kartelën ekzistuese.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="562"/>
+        <location filename="../src/mainwindow.cpp" line="577"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
         <translation>Hapësirë e lirë e pamjaftueshme. Ju lutemi, përzgjidhni një tjetër drejtori fotografimesh sistemi, ose lironi ca hapësirë.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="566"/>
+        <location filename="../src/mainwindow.cpp" line="581"/>
         <source>Settings</source>
         <translation>Rregullime</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="572"/>
+        <location filename="../src/mainwindow.cpp" line="587"/>
         <source>Snapshot will use the following settings:</source>
         <translation>Fotografimi do të përdorë rregullimet vijuese:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="574"/>
+        <location filename="../src/mainwindow.cpp" line="589"/>
         <source>- Snapshot directory:</source>
         <translation>- Drejtorimi fotografimesh:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="575"/>
+        <location filename="../src/mainwindow.cpp" line="590"/>
         <source>- Kernel to be used:</source>
         <translation>- Kernel për t’u përdorur:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="599"/>
-        <location filename="../src/mainwindow.cpp" line="608"/>
+        <location filename="../src/mainwindow.cpp" line="614"/>
+        <location filename="../src/mainwindow.cpp" line="623"/>
         <source>NVIDIA Detected</source>
         <translation>U pikas NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="600"/>
+        <location filename="../src/mainwindow.cpp" line="615"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
         <translation>Ky kompjuter përdor një kartë grafike NVIDIA. Keni në plan ta përdorni IOS-n e prodhuar keni në plan ta përdorni në të njëjtin kompjuter, apo në një tjetër kompjuter me një kartë NVIDIA?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="604"/>
+        <location filename="../src/mainwindow.cpp" line="619"/>
         <source>NVIDIA Selected</source>
         <translation>U përzgjodh NVIDIA</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="605"/>
+        <location filename="../src/mainwindow.cpp" line="620"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
         <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter pa një kartë NVIDIA, gjasat janë t’ju duhet të hiqni &apos;xorg=nvidia&apos; nga mundësitë e nisjes.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="609"/>
+        <location filename="../src/mainwindow.cpp" line="624"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
         <translation>Shënim: Nëse ISO-n e prodhuar e përdorni në një kompjuter me një kartë NVIDIA, mund t’ju duhet të shtoni &apos;xorg=nvidia&apos; te mundësitë e nisjes.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="272"/>
-        <location filename="../src/mainwindow.cpp" line="644"/>
+        <location filename="../src/mainwindow.cpp" line="273"/>
+        <location filename="../src/mainwindow.cpp" line="659"/>
         <source>Could not replace the exclusion file with the updated default.</source>
         <translation>S’u zëvendësua kartela e përjashtimeve me parazgjedhjen e përditësuar.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="655"/>
+        <location filename="../src/mainwindow.cpp" line="670"/>
         <source>Current kernel doesn&apos;t support selected compression algorithm, please edit the configuration file and select a different algorithm.</source>
         <translation>Kerneli i tanishëm nuk mbulon algoritëm të përzgjedhur për ngjeshje, ju lutemi, përpunon kartelën e formësimit dhe përzgjidhni një tjetër logaritëm.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="678"/>
+        <location filename="../src/mainwindow.cpp" line="693"/>
         <source>Final chance</source>
         <translation>Shansi i fundit</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="680"/>
+        <location filename="../src/mainwindow.cpp" line="695"/>
         <source>Snapshot now has all the information it needs to create an ISO from your running system.</source>
         <translation>Fotografimi tani ka krejt informacionin që i duhet për të krijuar një ISO nga sistemi që xhironi.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="681"/>
+        <location filename="../src/mainwindow.cpp" line="696"/>
         <source>It will take some time to finish, depending on the size of the installed system and the capacity of your computer.</source>
         <translation>Do të duhet ca kohë për ta përfunduar, në varësi të madhësisë së sistemit të instaluar dhe kapaciteteve të kompjuterit tuaj.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="683"/>
+        <location filename="../src/mainwindow.cpp" line="698"/>
         <source>OK to start?</source>
         <translation>OK të fillohet?</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="687"/>
+        <location filename="../src/mainwindow.ui" line="824"/>
+        <location filename="../src/mainwindow.cpp" line="702"/>
         <source>Shutdown computer when done.</source>
         <translation>Fikni kompjuterin, kur të ketë mbaruar.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="720"/>
+        <location filename="../src/mainwindow.cpp" line="736"/>
         <source>Output</source>
         <translation>Përfundim</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="736"/>
+        <location filename="../src/mainwindow.cpp" line="756"/>
         <source>Close</source>
         <translation>Mbylle</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="743"/>
+        <location filename="../src/mainwindow.cpp" line="810"/>
         <source>Edit Boot Menu</source>
         <translation>Përpunoni Menu Nisjeje</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="744"/>
+        <location filename="../src/mainwindow.cpp" line="811"/>
         <source>The program will now pause to allow you to edit any files in the work directory. Select Yes to edit the boot menu or select No to bypass this step and continue creating the snapshot.</source>
         <translation>Programi tani do të ndalet, për t’ju lejuar të përpunoni çfarëdo kartelash te drejtoria e punës. Përzgjidhni Po që të përpunoni menunë e nisjeve, ose përzgjidhni Jo, për të anashkaluar këtë hap dhe të vazhdoni me krijimin e fotografimit.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="780"/>
+        <location filename="../src/mainwindow.cpp" line="847"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
         <translation>Të rikthehet lista e përjashtimeve te kartela parazgjedhje? Kjo do të mbishkruajë përjashtimet tuaja ekzistuese.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="812"/>
+        <location filename="../src/mainwindow.cpp" line="879"/>
         <source>About %1</source>
         <translation>Mbi %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="814"/>
+        <location filename="../src/mainwindow.cpp" line="881"/>
         <source>Version: </source>
         <translation>Version:</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="815"/>
+        <location filename="../src/mainwindow.cpp" line="882"/>
         <source>Program for creating a live-CD from the running system for MX Linux</source>
         <translation>Program për krijimin e një CD-je sistemi MX Linux “live” që nga sistemi që po xhironi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="817"/>
+        <location filename="../src/mainwindow.cpp" line="884"/>
         <source>Copyright (c) MX Linux</source>
         <translation>Të drejta kopjimi (c) MX Linux</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="819"/>
+        <location filename="../src/mainwindow.cpp" line="886"/>
         <source>%1 License</source>
         <translation>Licencë %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="832"/>
+        <location filename="../src/mainwindow.cpp" line="899"/>
         <source>%1 Help</source>
         <translation>Ndihmë për %1</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="837"/>
+        <location filename="../src/mainwindow.cpp" line="904"/>
         <source>Select Snapshot Directory</source>
         <translation>Përzgjidhni Drejtori Fotografimi</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="845"/>
+        <location filename="../src/mainwindow.cpp" line="912"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
         <translation>Hapësirë e lirë e pamjaftueshme në drejtorinë e përzgjedhur. Ju lutemi, përzgjidhni një tjetër vend.</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="865"/>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>Confirmation</source>
         <translation>Ripohim</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="865"/>
+        <location filename="../src/mainwindow.cpp" line="932"/>
         <source>Are you sure you want to quit the application?</source>
         <translation>Jeni i sigurt se doni të mbyllet aplikacioni?</translation>
     </message>
@@ -829,7 +784,7 @@
     <message>
         <location filename="../src/main.cpp" line="140"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"/>
+        <translation>Për nisje ISO-je në skedë mëmë të dikurshme përdor grub, në vend se isolinux/syslinux.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="214"/>
@@ -1249,7 +1204,7 @@
     <message>
         <location filename="../src/work.cpp" line="356"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
-        <translation type="unfinished"/>
+        <translation>U dha mundësia --grub-mbr, por te iso-template mungon boot/grub/i386-pc/eltorito.img</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="368"/>
