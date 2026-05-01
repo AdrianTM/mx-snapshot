@@ -1,3 +1,9 @@
+mx-snapshot (26.05.1) mx; urgency=medium
+
+  * Add amd/intel-ucode injection into initrd if uc-tool is available
+
+ -- fehlix <fehlix@mxlinux.org>  Fri, 01 May 2026 17:50:31 -0400
+
 mx-snapshot (26.05) mx; urgency=medium
 
   * Make shutdown poweroff non-blocking and harden Cmd::proc startup
