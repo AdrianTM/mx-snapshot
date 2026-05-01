@@ -135,13 +135,29 @@ bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, con
     }
 
     QEventLoop loop;
-    connect(this, &QProcess::finished, &loop, &QEventLoop::quit);
+    bool processFinished = false;
+    connect(this, &QProcess::finished, &loop, [&loop, &processFinished](int, QProcess::ExitStatus) {
+        processFinished = true;
+        loop.quit();
+    });
     start(cmd, args);
+    if (!waitForStarted()) {
+        const QString message = tr("Failed to start command: %1").arg(cmd);
+        qWarning().noquote() << message << errorString();
+        emit errorAvailable(message + ": " + errorString());
+        if (output) {
+            *output = outBuffer.trimmed();
+        }
+        emit done();
+        return false;
+    }
     if (input && !input->isEmpty()) {
         write(*input);
     }
     closeWriteChannel();
-    loop.exec();
+    if (!processFinished) {
+        loop.exec();
+    }
 
     if (output) {
         *output = outBuffer.trimmed();

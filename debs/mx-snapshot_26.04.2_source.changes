@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
 Format: 1.8
 Date: Sun, 19 Apr 2026 20:52:10 -0400
 Source: mx-snapshot
@@ -14,14 +17,26 @@ Changes:
    * eliminates some non existing home folders when system users are
      configured as user-level users.
 Checksums-Sha1:
- fd66d3032cfdb025b6518aef79be9b652b3a4dd1 801 mx-snapshot_26.04.2.dsc
- 3aa532cb07f87ea410c7a6d6a120b7000b8d1944 304908 mx-snapshot_26.04.2.tar.xz
- 136e50d9d6ebeb372a4677744369cc22aaf21f5d 10858 mx-snapshot_26.04.2_source.buildinfo
+ 1ce08b4848f0324f3382b247e2318775c8d1a0d1 1366 mx-snapshot_26.04.2.dsc
+ 0e6dbcf1bd58e6b2dbb45acafc70d2c3fd1addd1 4699160 mx-snapshot_26.04.2.tar.xz
+ fd091a214325ccd1c27a2002aadf9dd4653817b6 11240 mx-snapshot_26.04.2_amd64.buildinfo
 Checksums-Sha256:
- b584fe69db3fcb971b6c3b7790ea7c27b6ab4c3b4397449f5bd3290d52abb9bb 801 mx-snapshot_26.04.2.dsc
- c79a9969edb79f81f355a6bfd631f1c096f467c5b3a87aea6161bf66f78bd60c 304908 mx-snapshot_26.04.2.tar.xz
- a51ac5b03439f31cc9ae824c680dd286a1e967d0e22408427e7fcca70c34dab3 10858 mx-snapshot_26.04.2_source.buildinfo
+ 407aa038b4ca8b66ff6f42947796a1e7ef4925173d63e55ef0a194d61cb529e3 1366 mx-snapshot_26.04.2.dsc
+ 58c808ffb763e5d9ed306cb1525394c7fb3442c2843d825ce8888577661336fa 4699160 mx-snapshot_26.04.2.tar.xz
+ a7b56fa32422ffbc0b4b233e92f618e4fd2997a236288aa2bed16efc49d3d272 11240 mx-snapshot_26.04.2_amd64.buildinfo
 Files:
- d5869f99e261225dfe0f304c7080e4c0 801 admin optional mx-snapshot_26.04.2.dsc
- d259d5f14c8586c1c90b3854ee024a60 304908 admin optional mx-snapshot_26.04.2.tar.xz
- 0066ab5b4a6e5f4e50f551e915210e54 10858 admin optional mx-snapshot_26.04.2_source.buildinfo
+ b9742207448be2e2b2a09f3e7f472975 1366 admin optional mx-snapshot_26.04.2.dsc
+ 72ad02f9f9cb42fee1b26ff4b684de68 4699160 admin optional mx-snapshot_26.04.2.tar.xz
+ 664293a1d3a1ce4c2f71f1bc7ab20160 11240 admin optional mx-snapshot_26.04.2_amd64.buildinfo
+
+-----BEGIN PGP SIGNATURE-----
+
+iQFHBAEBCgAxFiEE8ndToY6S45N+YzXncJOMeAZ57pgFAmn1DOkTHGFkcmlhbkBt
+eGxpbnV4Lm9yZwAKCRBwk4x4BnnumKvIB/oCMp5fAS8cUplYLqjB6P6cXgToikOw
+/sVsURysmutPdBWTxAHrNklMvX9Dz/1Ju05OWACqrOjUZdSbBND/dqU47iVXKnLn
+yJQcL2QcTTv8tdUPSmnoZHKpZyK1+K3ZtbXFi3N0uasUi6W8ydxl17YYfdmYLdpi
+YpoTv8EUm63GpVq+M6SjBbJgoOcTyJvtt4JXYJnqxHOyrUL6NQvRZ1XVTtgf55eP
+eZ/yBZSJ7/ONinsBFirVBIMMaNEeoOW8bG7BWwwQ9H+xnK9LOdqBs9jrqwIfyQW8
+brImB2m2DALvhVuNNHkpig/sM5ZHmGbWkOLa8EtDCPD2yZo1kfyFFBIJ
+=8ciR
+-----END PGP SIGNATURE-----
