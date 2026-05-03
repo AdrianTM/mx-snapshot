@@ -118,12 +118,17 @@
         <translation>Nie znaleziono narzędzia do podnoszenia uprawnień (pkexec/gksu/sudo).</translation>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="171"/>
+        <location filename="../src/cmd.cpp" line="145"/>
+        <source>Failed to start command: %1</source>
+        <translation>Nie udało się uruchomić polecenia: %1</translation>
+    </message>
+    <message>
+        <location filename="../src/cmd.cpp" line="187"/>
         <source>Administrator Access Required</source>
         <translation>Wymagany dostęp administratora</translation>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="172"/>
+        <location filename="../src/cmd.cpp" line="188"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
         <translation>Ta operacja wymaga uprawnień administratora. Uruchom ponownie aplikację i wprowadź hasło, gdy zostaniesz o to poproszony.</translation>
     </message>
@@ -807,163 +812,163 @@
         <translation>MX Zrzut systemu</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="526"/>
+        <location filename="../src/settings.cpp" line="534"/>
+        <location filename="../src/settings.cpp" line="1057"/>
+        <location filename="../src/settings.cpp" line="1153"/>
         <location filename="../src/main.cpp" line="216"/>
         <location filename="../src/main.cpp" line="284"/>
-        <location filename="../src/settings.cpp" line="525"/>
-        <location filename="../src/settings.cpp" line="533"/>
-        <location filename="../src/settings.cpp" line="1039"/>
-        <location filename="../src/settings.cpp" line="1133"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="533"/>
         <location filename="../src/main.cpp" line="283"/>
-        <location filename="../src/settings.cpp" line="532"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Bieżące jądro (kernel) nie obsługuje Squashfs, nie można kontynuować.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="98"/>
+        <location filename="../src/settings.cpp" line="99"/>
         <source>Failed to initialize configuration</source>
         <translation>Nie udało się zainicjować konfiguracji</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="132"/>
+        <location filename="../src/settings.cpp" line="133"/>
         <source>Configuration validation failed</source>
         <translation>Walidacja konfiguracji się nie powiodła</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="137"/>
+        <location filename="../src/settings.cpp" line="138"/>
         <source>Exception during initialization: %1</source>
         <translation>Wyjątek podczas inicjalizacji: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="140"/>
+        <location filename="../src/settings.cpp" line="141"/>
         <source>Unknown exception during initialization</source>
         <translation>Nieznany wyjątek podczas inicjalizacji</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="171"/>
+        <location filename="../src/settings.cpp" line="172"/>
         <source>Could not create work directory. </source>
         <translation>Nie można utworzyć katalogu roboczego.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="198"/>
+        <location filename="../src/settings.cpp" line="199"/>
         <source>Could not create temp directory:</source>
         <translation>Nie można utworzyć katalogu tymczasowego:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="199"/>
+        <location filename="../src/settings.cpp" line="200"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Sprawdź, czy katalog nadrzędny istnieje i jest zapisany:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="217"/>
+        <location filename="../src/settings.cpp" line="218"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>Format kompresji „%1” nie jest obsługiwany przez obecne jądro</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="223"/>
+        <location filename="../src/settings.cpp" line="224"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Nieprawidłowe ustawienie rdzeni: %1. Musi być od 1 do %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="229"/>
+        <location filename="../src/settings.cpp" line="230"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>Nieprawidłowe ustawienie ograniczania prędkości: %1. Musi być od 0 do 20</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="236"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>Katalog migawki nie może być pusty</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="243"/>
+        <location filename="../src/settings.cpp" line="244"/>
         <source>Snapshot name cannot be empty</source>
         <translation>Nazwa migawki nie może być pusta</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="249"/>
+        <location filename="../src/settings.cpp" line="250"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>Nazwa migawki zawiera nieprawidłowe znaki: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="255"/>
+        <location filename="../src/settings.cpp" line="256"/>
         <source>Kernel version cannot be empty</source>
         <translation>Wersja jądra nie może być pusta</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="260"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>Nie znaleziono pliku jądra: /boot /vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="266"/>
+        <location filename="../src/settings.cpp" line="267"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Jądro %1 nie obsługuje SquashFS</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="297"/>
+        <location filename="../src/settings.cpp" line="298"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>Plik wykluczeń nie istnieje: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="306"/>
+        <location filename="../src/settings.cpp" line="307"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Niezrównoważone znaki cytatowania na liście wykluczeń</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="331"/>
+        <location filename="../src/settings.cpp" line="332"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Niewystarczająca wolna przestrzeń: %1 kib dostępne, wymagane minimum 2 kib</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="338"/>
+        <location filename="../src/settings.cpp" line="339"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Niewystarczające wolne miejsce w katalogu roboczym: %1 kib, wymagane minimum 2 kib</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="353"/>
+        <location filename="../src/settings.cpp" line="354"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Nie udało się określić liczby rdzeni procesora</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="359"/>
+        <location filename="../src/settings.cpp" line="360"/>
         <source>Configuration file does not exist: %1</source>
         <translation>Plik konfiguracyjny nie istnieje: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="360"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Using default settings</source>
         <translation>Za pomocą ustawień domyślnych</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="362"/>
+        <location filename="../src/settings.cpp" line="363"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Nie można odczytać pliku konfiguracyjnego: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="363"/>
+        <location filename="../src/settings.cpp" line="364"/>
         <source>Error: %1</source>
         <translation>Błąd: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="373"/>
+        <location filename="../src/settings.cpp" line="374"/>
         <source>Required tool not found: %1</source>
         <translation>Wymagane narzędzie nie znaleziono: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="382"/>
+        <location filename="../src/settings.cpp" line="383"/>
         <source>Required directory not found: %1</source>
         <translation>Wymagany katalog nie znaleziono: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="401"/>
+        <location filename="../src/settings.cpp" line="402"/>
         <source>Initialization Error</source>
         <translation>Błąd inicjalizacji</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="402"/>
+        <location filename="../src/settings.cpp" line="403"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -972,47 +977,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="523"/>
+        <location filename="../src/settings.cpp" line="524"/>
         <source>Could not find a usable kernel</source>
         <translation>Nie można znaleźć użytecznego kernela</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="524"/>
+        <location filename="../src/settings.cpp" line="525"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Wyszukiwano pliki jądra w / boot /, ale żaden nie został znaleziony ani dostępny.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="545"/>
+        <location filename="../src/settings.cpp" line="546"/>
         <source>No users found in the system</source>
         <translation>Żadnych użytkowników w systemie</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="548"/>
+        <location filename="../src/settings.cpp" line="549"/>
         <source>Failed to determine system information</source>
         <translation>Nie udało się określić informacji systemowych</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="642"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Used space on / (root): </source>
         <translation>Wykorzystane miejsce na partycji głównej (root) / : </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="645"/>
+        <location filename="../src/settings.cpp" line="663"/>
         <source>estimated</source>
         <translation>szacowane</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="654"/>
+        <location filename="../src/settings.cpp" line="672"/>
         <source>Used space on /home: </source>
         <translation>Wykorzystane miejsce na partycji /home: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="710"/>
+        <location filename="../src/settings.cpp" line="728"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Wolne miejsce na %1, zawierającej katalog zrzutu: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="714"/>
+        <location filename="../src/settings.cpp" line="732"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -1026,68 +1031,68 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="728"/>
+        <location filename="../src/settings.cpp" line="746"/>
         <source>Desktop</source>
         <translation>Pulpit</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="729"/>
+        <location filename="../src/settings.cpp" line="747"/>
         <source>Documents</source>
         <translation>Dokumenty</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="730"/>
+        <location filename="../src/settings.cpp" line="748"/>
         <source>Downloads</source>
         <translation>Pobrane</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="731"/>
+        <location filename="../src/settings.cpp" line="749"/>
         <source>Flatpaks</source>
         <translation>Flatpaki</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="732"/>
+        <location filename="../src/settings.cpp" line="750"/>
         <source>Music</source>
         <translation>Muzyka</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="733"/>
+        <location filename="../src/settings.cpp" line="751"/>
         <source>Networks</source>
         <translation>Sieci</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="734"/>
+        <location filename="../src/settings.cpp" line="752"/>
         <source>Pictures</source>
         <translation>Obrazy</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="736"/>
+        <location filename="../src/settings.cpp" line="754"/>
         <source>Videos</source>
         <translation>Wideo</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="861"/>
+        <location filename="../src/settings.cpp" line="879"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Błąd odczytu pliku konfiguracji systemu: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="869"/>
+        <location filename="../src/settings.cpp" line="887"/>
         <source>Error accessing user configuration</source>
         <translation>Błąd dostępu do konfiguracji użytkownika</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="921"/>
+        <location filename="../src/settings.cpp" line="939"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation>Nie można skopiować pliku wykluczeń z %1 do %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="964"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Nieprawidłowe ustawienie liczby przechowywanych rdzeni (%1). Wykryto użycie liczby procesorów: %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1037"/>
-        <location filename="../src/settings.cpp" line="1131"/>
+        <location filename="../src/settings.cpp" line="1055"/>
+        <location filename="../src/settings.cpp" line="1151"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Plik wyjściowy %1 już istnieje. Użyj innej nazwy pliku lub usuń istniejący plik.</translation>
     </message>
@@ -1152,152 +1157,152 @@ poprzez usunięcie poprzednich zrzutów i zapisanych kopii:
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="178"/>
+        <location filename="../src/work.cpp" line="192"/>
         <source>Cleaning...</source>
         <translation>Czyszczenie...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="194"/>
-        <location filename="../src/work.cpp" line="497"/>
+        <location filename="../src/work.cpp" line="208"/>
+        <location filename="../src/work.cpp" line="510"/>
         <source>Done</source>
         <translation>Gotowe</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="206"/>
+        <location filename="../src/work.cpp" line="218"/>
         <source>Interrupted or failed to complete</source>
         <translation>Przerwano lub nie udało się ukończyć</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="242"/>
-        <location filename="../src/work.cpp" line="355"/>
-        <location filename="../src/work.cpp" line="440"/>
-        <location filename="../src/work.cpp" line="477"/>
-        <location filename="../src/work.cpp" line="515"/>
-        <location filename="../src/work.cpp" line="656"/>
-        <location filename="../src/work.cpp" line="690"/>
-        <location filename="../src/work.cpp" line="703"/>
-        <location filename="../src/work.cpp" line="711"/>
+        <location filename="../src/work.cpp" line="254"/>
+        <location filename="../src/work.cpp" line="367"/>
+        <location filename="../src/work.cpp" line="452"/>
+        <location filename="../src/work.cpp" line="489"/>
+        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="667"/>
+        <location filename="../src/work.cpp" line="701"/>
+        <location filename="../src/work.cpp" line="714"/>
+        <location filename="../src/work.cpp" line="722"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="243"/>
+        <location filename="../src/work.cpp" line="255"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Nie ma wystarczającej ilości wolnego miejsca na dysku docelowym, potrzebujesz co najmniej %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="246"/>
+        <location filename="../src/work.cpp" line="258"/>
         <source>You have %1 free space on %2</source>
         <translation>Masz %1 wolnego miejsca na %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="249"/>
+        <location filename="../src/work.cpp" line="261"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Jeśli jesteś pewien, że masz wystarczająco dużo wolnego miejsca, uruchom ponownie program z opcją -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="347"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopiowanie systemu plików nowego iso...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="356"/>
+        <location filename="../src/work.cpp" line="368"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>Określono opcję --grub-mbr, ale w szablonie ISO brakuje pliku boot/grub/i386-pc/eltorito.img</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="380"/>
         <source>Could not create temp directory. </source>
         <translation>Nie można utworzyć katalogu tymczasowego.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="449"/>
         <source>Squashing filesystem...</source>
         <translation>Kompresowanie systemu plików...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="441"/>
+        <location filename="../src/work.cpp" line="453"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Nie można utworzyć pliku linuxfs, sprawdź plik /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="474"/>
+        <location filename="../src/work.cpp" line="486"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Tworzenie pliku obrazu CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="478"/>
+        <location filename="../src/work.cpp" line="490"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Nie można utworzyć pliku ISO, sprawdź, czy masz wystarczającą ilość miejsca na partycji docelowej.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="484"/>
+        <location filename="../src/work.cpp" line="496"/>
         <source>Making hybrid iso</source>
         <translation>Tworzenie obrazu hybrydowego ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="502"/>
+        <location filename="../src/work.cpp" line="514"/>
         <source>Success</source>
         <translation>Sukces </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="503"/>
+        <location filename="../src/work.cpp" line="515"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Zrzut systemu ukończony pomyślnie!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="504"/>
+        <location filename="../src/work.cpp" line="516"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Wykonanie zrzutu systemu zajęło %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="505"/>
+        <location filename="../src/work.cpp" line="517"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Dziękujemy za korzystanie z MX Zrzut systemu, uruchom następnie MX Live USB Maker!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="512"/>
+        <location filename="../src/work.cpp" line="523"/>
         <source>Installing </source>
         <translation>Instalowanie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="515"/>
+        <location filename="../src/work.cpp" line="526"/>
         <source>Could not install </source>
         <translation>Nie można zainstalować</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="525"/>
+        <location filename="../src/work.cpp" line="536"/>
         <source>Calculating checksum...</source>
         <translation>Obliczanie sumy kontrolnej...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="566"/>
+        <location filename="../src/work.cpp" line="577"/>
         <source>Building new initrd...</source>
         <translation>Budowanie nowego initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="657"/>
+        <location filename="../src/work.cpp" line="668"/>
         <source>Could not create working directory. </source>
         <translation>Nie można utworzyć katalogu roboczego.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="691"/>
+        <location filename="../src/work.cpp" line="702"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Nie udało się przygotować bezpiecznej nakładki bind-root. Nie można kontynuować tworzenia migawki.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="704"/>
-        <location filename="../src/work.cpp" line="712"/>
+        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="723"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Nie można przygotować migawki środowiska bind-root.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1018"/>
+        <location filename="../src/work.cpp" line="1029"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Obliczanie całkowitego rozmiaru wykluczonych plików...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1044"/>
+        <location filename="../src/work.cpp" line="1055"/>
         <source>Calculating size of root...</source>
         <translation>Obliczanie rozmiaru root...</translation>
     </message>

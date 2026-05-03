@@ -118,12 +118,17 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="171"/>
+        <location filename="../src/cmd.cpp" line="145"/>
+        <source>Failed to start command: %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <location filename="../src/cmd.cpp" line="187"/>
         <source>Administrator Access Required</source>
         <translation>アクセスするには管理者権限が必要です</translation>
     </message>
     <message>
-        <location filename="../src/cmd.cpp" line="172"/>
+        <location filename="../src/cmd.cpp" line="188"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
         <translation>この操作には管理者権限が必要です。アプリケーションを再起動し、プロンプトが表示されたらパスワードを入力してください。</translation>
     </message>
@@ -807,163 +812,163 @@
         <translation>MX スナップショット</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="526"/>
+        <location filename="../src/settings.cpp" line="534"/>
+        <location filename="../src/settings.cpp" line="1057"/>
+        <location filename="../src/settings.cpp" line="1153"/>
         <location filename="../src/main.cpp" line="216"/>
         <location filename="../src/main.cpp" line="284"/>
-        <location filename="../src/settings.cpp" line="525"/>
-        <location filename="../src/settings.cpp" line="533"/>
-        <location filename="../src/settings.cpp" line="1039"/>
-        <location filename="../src/settings.cpp" line="1133"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
+        <location filename="../src/settings.cpp" line="533"/>
         <location filename="../src/main.cpp" line="283"/>
-        <location filename="../src/settings.cpp" line="532"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="98"/>
+        <location filename="../src/settings.cpp" line="99"/>
         <source>Failed to initialize configuration</source>
         <translation>設定の初期化に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="132"/>
+        <location filename="../src/settings.cpp" line="133"/>
         <source>Configuration validation failed</source>
         <translation>設定の検証に失敗しました</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="137"/>
+        <location filename="../src/settings.cpp" line="138"/>
         <source>Exception during initialization: %1</source>
         <translation>初期化中に例外が発生しました: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="140"/>
+        <location filename="../src/settings.cpp" line="141"/>
         <source>Unknown exception during initialization</source>
         <translation>初期化中に不明な例外が発生しました</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="171"/>
+        <location filename="../src/settings.cpp" line="172"/>
         <source>Could not create work directory. </source>
         <translation>作業用ディレクトリを作成できません。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="198"/>
+        <location filename="../src/settings.cpp" line="199"/>
         <source>Could not create temp directory:</source>
         <translation>テンポラリディレクトリを作成できません:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="199"/>
+        <location filename="../src/settings.cpp" line="200"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>親ディレクトリが存在し、書き込み可能かどうかをチェックしてください:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="217"/>
+        <location filename="../src/settings.cpp" line="218"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>現在のカーネルは、圧縮形式 &apos;%1&apos; をサポートしません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="223"/>
+        <location filename="../src/settings.cpp" line="224"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>無効なコア数設定: %1。1 から %2 の範囲にしてください</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="229"/>
+        <location filename="../src/settings.cpp" line="230"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
         <translation>無効なスロットル設定: %1。0 から 20 の範囲にしてください</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="235"/>
+        <location filename="../src/settings.cpp" line="236"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>スナップショットディレクトリは空にできません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="243"/>
+        <location filename="../src/settings.cpp" line="244"/>
         <source>Snapshot name cannot be empty</source>
         <translation>スナップショット名は空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="249"/>
+        <location filename="../src/settings.cpp" line="250"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>スナップショット名に次の無効な文字が含まれています: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="255"/>
+        <location filename="../src/settings.cpp" line="256"/>
         <source>Kernel version cannot be empty</source>
         <translation>カーネルのバージョンは空欄にできません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="260"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>カーネルファイルが見つかりません: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="266"/>
+        <location filename="../src/settings.cpp" line="267"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>カーネル %1 は Squashfs をサポートしません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="297"/>
+        <location filename="../src/settings.cpp" line="298"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>除外ファイルは存在しません: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="306"/>
+        <location filename="../src/settings.cpp" line="307"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>除外リスト内の引用符がおかしいです</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="331"/>
+        <location filename="../src/settings.cpp" line="332"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>十分な空き容量がありません: %1 KiB が利用可能で、最小は %2 KiB 必要です</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="338"/>
+        <location filename="../src/settings.cpp" line="339"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>作業用ディレクトリ内の空き容量が不足です: %1 KiB の空き、最低 %2 KiB が必要</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="353"/>
+        <location filename="../src/settings.cpp" line="354"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>CPU コア数の判定ができません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="359"/>
+        <location filename="../src/settings.cpp" line="360"/>
         <source>Configuration file does not exist: %1</source>
         <translation>設定ファイルが存在しません: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="360"/>
+        <location filename="../src/settings.cpp" line="361"/>
         <source>Using default settings</source>
         <translation>既定の設定を使用する</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="362"/>
+        <location filename="../src/settings.cpp" line="363"/>
         <source>Cannot read configuration file: %1</source>
         <translation>設定ファイルを読み込めません: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="363"/>
+        <location filename="../src/settings.cpp" line="364"/>
         <source>Error: %1</source>
         <translation>エラー: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="373"/>
+        <location filename="../src/settings.cpp" line="374"/>
         <source>Required tool not found: %1</source>
         <translation>必要なツールが見つかりません: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="382"/>
+        <location filename="../src/settings.cpp" line="383"/>
         <source>Required directory not found: %1</source>
         <translation>指定のディレクトリが見つかりません: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="401"/>
+        <location filename="../src/settings.cpp" line="402"/>
         <source>Initialization Error</source>
         <translation>初期化エラー</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="402"/>
+        <location filename="../src/settings.cpp" line="403"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -972,47 +977,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="523"/>
+        <location filename="../src/settings.cpp" line="524"/>
         <source>Could not find a usable kernel</source>
         <translation>使用可能なカーネルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="524"/>
+        <location filename="../src/settings.cpp" line="525"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>/boot/ ディレクトリ内でカーネルファイルを検索しましたが、見つからなかったかアクセス不可でした。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="545"/>
+        <location filename="../src/settings.cpp" line="546"/>
         <source>No users found in the system</source>
         <translation>システム内にユーザーが見つかりません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="548"/>
+        <location filename="../src/settings.cpp" line="549"/>
         <source>Failed to determine system information</source>
         <translation>システム情報が取得できません</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="642"/>
+        <location filename="../src/settings.cpp" line="660"/>
         <source>Used space on / (root): </source>
         <translation>/ (root) の空き容量: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="645"/>
+        <location filename="../src/settings.cpp" line="663"/>
         <source>estimated</source>
         <translation>推定</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="654"/>
+        <location filename="../src/settings.cpp" line="672"/>
         <source>Used space on /home: </source>
         <translation>/home の空き容量: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="710"/>
+        <location filename="../src/settings.cpp" line="728"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>スナップショットを作成するフォルダがある場所の空き容量 %1：</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="714"/>
+        <location filename="../src/settings.cpp" line="732"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -1022,68 +1027,68 @@
         <translation>/ および /home の圧縮データを保管するには、十分な空き容量がないといけません。必要に応じて、以前生成したスナップショットや保存したコピーを削除することで空き容量を増やすことができます:　スナップショット %1 は空き容量の %2 を消費しています。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="728"/>
+        <location filename="../src/settings.cpp" line="746"/>
         <source>Desktop</source>
         <translation>デスクトップ</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="729"/>
+        <location filename="../src/settings.cpp" line="747"/>
         <source>Documents</source>
         <translation>文書</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="730"/>
+        <location filename="../src/settings.cpp" line="748"/>
         <source>Downloads</source>
         <translation>ダウンロード</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="731"/>
+        <location filename="../src/settings.cpp" line="749"/>
         <source>Flatpaks</source>
         <translation>Flatpaks</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="732"/>
+        <location filename="../src/settings.cpp" line="750"/>
         <source>Music</source>
         <translation>音楽</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="733"/>
+        <location filename="../src/settings.cpp" line="751"/>
         <source>Networks</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="734"/>
+        <location filename="../src/settings.cpp" line="752"/>
         <source>Pictures</source>
         <translation>画像</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="736"/>
+        <location filename="../src/settings.cpp" line="754"/>
         <source>Videos</source>
         <translation>動画</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="861"/>
+        <location filename="../src/settings.cpp" line="879"/>
         <source>Error reading system configuration file: %1</source>
         <translation>システム設定ファイルの読み込みエラー: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="869"/>
+        <location filename="../src/settings.cpp" line="887"/>
         <source>Error accessing user configuration</source>
         <translation>ユーザ設定へのアクセス中にエラーが発生しました</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="921"/>
+        <location filename="../src/settings.cpp" line="939"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="946"/>
+        <location filename="../src/settings.cpp" line="964"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>保存したコア設定は (%1) は無効です。検出した CPU 数 %2 を使用します。</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1037"/>
-        <location filename="../src/settings.cpp" line="1131"/>
+        <location filename="../src/settings.cpp" line="1055"/>
+        <location filename="../src/settings.cpp" line="1151"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>出力ファイル名 %1 はすでに存在します。別の名前を使用するか、すでにあるそのファイルを削除してください。</translation>
     </message>
@@ -1148,152 +1153,152 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="178"/>
+        <location filename="../src/work.cpp" line="192"/>
         <source>Cleaning...</source>
         <translation>クリーニング中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="194"/>
-        <location filename="../src/work.cpp" line="497"/>
+        <location filename="../src/work.cpp" line="208"/>
+        <location filename="../src/work.cpp" line="510"/>
         <source>Done</source>
         <translation>完了</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="206"/>
+        <location filename="../src/work.cpp" line="218"/>
         <source>Interrupted or failed to complete</source>
         <translation>中断されたか、または完了できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="242"/>
-        <location filename="../src/work.cpp" line="355"/>
-        <location filename="../src/work.cpp" line="440"/>
-        <location filename="../src/work.cpp" line="477"/>
-        <location filename="../src/work.cpp" line="515"/>
-        <location filename="../src/work.cpp" line="656"/>
-        <location filename="../src/work.cpp" line="690"/>
-        <location filename="../src/work.cpp" line="703"/>
-        <location filename="../src/work.cpp" line="711"/>
+        <location filename="../src/work.cpp" line="254"/>
+        <location filename="../src/work.cpp" line="367"/>
+        <location filename="../src/work.cpp" line="452"/>
+        <location filename="../src/work.cpp" line="489"/>
+        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="667"/>
+        <location filename="../src/work.cpp" line="701"/>
+        <location filename="../src/work.cpp" line="714"/>
+        <location filename="../src/work.cpp" line="722"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="243"/>
+        <location filename="../src/work.cpp" line="255"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>作成するディスクに十分な空き領域がありません。最低でも %1 必要です</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="246"/>
+        <location filename="../src/work.cpp" line="258"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 に %1 の空き領域があります</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="249"/>
+        <location filename="../src/work.cpp" line="261"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>充分な空き容量があると分かっているのであれば、-o/--override-size オプションを付けてプログラムを再実行してください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="335"/>
+        <location filename="../src/work.cpp" line="347"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>新たな iso ファイルシステムをコピー中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="356"/>
+        <location filename="../src/work.cpp" line="368"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="380"/>
         <source>Could not create temp directory. </source>
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="437"/>
+        <location filename="../src/work.cpp" line="449"/>
         <source>Squashing filesystem...</source>
         <translation>ファイルシステムに Squash を適用中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="441"/>
+        <location filename="../src/work.cpp" line="453"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>linuxfs ファイルを作成できませんでした。/var/log/%1.log をチェックしてください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="474"/>
+        <location filename="../src/work.cpp" line="486"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD イメージファイルを生成中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="478"/>
+        <location filename="../src/work.cpp" line="490"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISOファイルを作成できませんでした。パーティションに十分な空き容量があるかご確認ください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="484"/>
+        <location filename="../src/work.cpp" line="496"/>
         <source>Making hybrid iso</source>
         <translation>ハイブリット ISO を作成中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="502"/>
+        <location filename="../src/work.cpp" line="514"/>
         <source>Success</source>
         <translation>成功</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="503"/>
+        <location filename="../src/work.cpp" line="515"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX スナップショットの作成に成功しました！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="504"/>
+        <location filename="../src/work.cpp" line="516"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>スナップショットの作成が完了するまで %1 かかりました。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="505"/>
+        <location filename="../src/work.cpp" line="517"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX Live USB メーカ を起動してください！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="512"/>
+        <location filename="../src/work.cpp" line="523"/>
         <source>Installing </source>
         <translation>インストール中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="515"/>
+        <location filename="../src/work.cpp" line="526"/>
         <source>Could not install </source>
         <translation>インストールできません</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="525"/>
+        <location filename="../src/work.cpp" line="536"/>
         <source>Calculating checksum...</source>
         <translation>チェックサムの計算中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="566"/>
+        <location filename="../src/work.cpp" line="577"/>
         <source>Building new initrd...</source>
         <translation>新しい initrd を構築中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="657"/>
+        <location filename="../src/work.cpp" line="668"/>
         <source>Could not create working directory. </source>
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="691"/>
+        <location filename="../src/work.cpp" line="702"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="704"/>
-        <location filename="../src/work.cpp" line="712"/>
+        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="723"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1018"/>
+        <location filename="../src/work.cpp" line="1029"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1044"/>
+        <location filename="../src/work.cpp" line="1055"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>
