@@ -326,7 +326,6 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     QDir::setCurrent(initrd_dir);
     shell.run("(find . |cpio -o -H newc --owner root:root |gzip -9) >\"" + file + "\"");
-    makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz");
 }
 
 // copyModules(mod_dir/kernel kernel)
@@ -412,6 +411,14 @@ void Work::copyNewIso()
     if (initrd_dir.isValid()) {
         copyModules(path, settings->kernel);
         closeInitrd(path, settings->workDir + "/iso-template/antiX/initrd.gz");
+        const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
+        if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
+            qDebug() << "uc-tool found, injecting ucode into initrd";
+            shell.run("uc-tool -q -i \"" + settings->workDir + "/iso-template/antiX/initrd.gz\"");
+        } else {
+            qDebug() << "uc-tool not found, skipping ucode injection";
+        }
+        makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz");
         initrd_dir.remove();
     }
 }
