@@ -376,20 +376,27 @@ bool Work::setupBindRootOverlay()
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
                           Cmd::QuietMode::Yes)) {
         // Overlay genuinely isn't available (kernel without CONFIG_OVERLAY_FS,
-        // or a hardened/locked-down kernel that refuses overlay). Fall back to
-        // a plain bind-mount at /.bind-root and let installed-to-live(-arch)
-        // run the rest of the setup against the live tree directly. This
-        // loses the overlay's "isolated from runtime changes" property —
-        // the snapshot will see whatever the system writes during squashing —
-        // so warn loudly. Better than refusing to run at all.
-        qWarning() << "overlay mount failed at" << bindRoot
-                   << "— falling back to plain bind-mount (snapshot is no longer isolated from live writes)";
+        // or a hardened/locked-down kernel that refuses overlay).
         shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
         shell.procAsRoot("rm", {"-rf", overlayBase}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        if (!settings->isArch) {
+            // Debian/MX kernels universally ship overlay; a failure here means
+            // something is genuinely wrong. Match historical behavior and abort
+            // rather than producing a non-isolated snapshot silently.
+            qWarning() << "overlay mount failed at" << bindRoot << "— aborting (Debian/MX path requires overlay)";
+            return false;
+        }
+        // Arch: fall back to a plain bind-mount at /.bind-root and let
+        // installed-to-live-arch run the rest of the setup against the live
+        // tree directly. This loses the "isolated from runtime changes"
+        // property — the snapshot will see whatever the system writes during
+        // squashing — so warn loudly.
+        qWarning() << "overlay mount failed at" << bindRoot
+                   << "— falling back to plain bind-mount (snapshot is no longer isolated from live writes)";
         bindRootPath = "/.bind-root";
         bindRootOverlayBase.clear();
         bindRootOverlayActive = false;
-        // installed-to-live(-arch) `start` will create + bind-mount /.bind-root
+        // installed-to-live-arch `start` will create + bind-mount /.bind-root
         // itself, so we don't pre-mount anything here.
         return true;
     }
