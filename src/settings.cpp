@@ -208,14 +208,11 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
 // Check if compression is available in the kernel (lz4, lzo, xz)
 bool Settings::checkCompression() const
 {
-    if (isArch) {
-        // Arch ships kernels without the corresponding /boot/config-* file by default;
-        // mksquashfs in userspace pulls the algorithm in dynamically.
-        return true;
-    }
-    if (compression == "gzip"
-        || !QFileInfo::exists("/boot/config-"
-                              + kernel)) { // Don't check for gzip or if the kernel config file is missing
+    // Skip the check for gzip (always supported) or if the kernel config file
+    // is unavailable. On Arch, /boot/config-* is typically absent so the check
+    // passes by default; if the user has a kernel package that does ship the
+    // config (e.g. linux-lts), we'll actually validate it.
+    if (compression == "gzip" || !QFileInfo::exists("/boot/config-" + kernel)) {
         return true;
     }
     return Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel);
