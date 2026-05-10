@@ -701,11 +701,7 @@ void Settings::setVariables()
         }
     }
 
-    if (isArch) {
-        fullDistroName = distroVersion + "_" + QString(x86 ? "386" : "x64");
-    } else {
-        fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
-    }
+    fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
     releaseDate = QDate::currentDate().toString("MMMM dd, yyyy");
 
     if (codename.isEmpty()) {
