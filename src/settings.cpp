@@ -725,7 +725,9 @@ void Settings::setVariables()
     }
 
     bootOptions = monthly ? "quiet splasht nosplash" : SystemInfo::readKernelOpts();
-    bootOptions = ensureCowSpacesize(bootOptions);
+    if (isArch) {
+        bootOptions = ensureCowSpacesize(bootOptions);
+    }
 }
 
 QString Settings::getFilename() const
@@ -1313,7 +1315,7 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
         compression = "zstd";
     }
     resetAccounts = true;
-    bootOptions = ensureCowSpacesize("quiet splasht nosplash");
+    bootOptions = isArch ? ensureCowSpacesize("quiet splasht nosplash") : "quiet splasht nosplash";
     excludeAll();
 }
 
