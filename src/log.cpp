@@ -68,17 +68,16 @@ void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogConte
     }
 
     termOut << msg << '\n';
+    appendToFile(type, msg);
+    inHandler = false;
+}
 
+void Log::appendToFile(QtMsgType type, const QString &msg)
+{
     if (!logFile.isOpen()) {
-        // Use raw stderr instead of qWarning() — we're already inside the
-        // message handler and qWarning would re-enter it.
-        std::fputs(
-            ("Log file is not open for writing: " + logFile.fileName() + '\n').toLocal8Bit().constData(), stderr);
-        // Try to fix ownership and reopen
+        // Try to fix ownership and reopen.
         fixLogFileOwnership(logFile.fileName());
         if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
-            std::fputs("Still could not open log file after ownership fix\n", stderr);
-            inHandler = false;
             return;
         }
     }
@@ -105,7 +104,6 @@ void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogConte
     }
 
     out << ": " << msg << '\n';
-    inHandler = false;
 }
 
 QString Log::getLog()

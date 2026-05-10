@@ -32,6 +32,7 @@
 #include <cstdlib>
 
 #include "excludesutils.h"
+#include "log.h"
 #include "squashfsutils.h"
 #include "work.h"
 
@@ -160,6 +161,10 @@ void Batchprocessing::flushStreamLine(const QString &line, bool toStdout, bool i
         stream << QStringLiteral("\r\033[K") << line;
     } else {
         stream << line << QLatin1Char('\n');
+        // Mirror committed lines into the log file so /tmp/iso-snapshot-cli.log
+        // captures mksquashfs/xorriso output (transient \r progress lines and
+        // the percentage indicator are intentionally skipped to avoid spam).
+        Log::appendToFile(toStdout ? QtDebugMsg : QtWarningMsg, line);
     }
     stream.flush();
 }
