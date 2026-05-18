@@ -1114,7 +1114,9 @@ void Work::replaceMenuStrings()
     // warnings during snapshots on Arch.
     const QString syslinux_cfg {"/iso-template/boot/syslinux/syslinux.cfg"};
     const QString isolinux_cfg {"/iso-template/boot/isolinux/isolinux.cfg"};
-    for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
+    const QString checkmediasys_cfg {"/iso-template/boot/syslinux/checkmedia.cfg"};
+    const QString checkmediaiso_cfg {"/iso-template/boot/isolinux/checkmedia.cfg"};
+    for (const QString &file : {syslinux_cfg, isolinux_cfg, checkmediaiso_cfg, checkmediasys_cfg}) {
         const QString fullPath = settings->workDir + file;
         if (!QFileInfo::exists(fullPath)) {
             continue;
@@ -1125,7 +1127,7 @@ void Work::replaceMenuStrings()
 
     const QString sys_readme = "/iso-template/boot/syslinux/readme.msg";
     const QString iso_readme = "/iso-template/boot/isolinux/readme.msg";
-    const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme};
+    const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme, checkmediaiso_cfg, checkmediasys_cfg};
     for (const QString &file : cfg_files) {
         const QString fullPath = settings->workDir + file;
         if (!QFileInfo::exists(fullPath)) {
