@@ -612,14 +612,16 @@ void Work::replaceMenuStrings()
             .arg(settings->bootOptions, boot_pararameter_regexp, settings->workDir + grub_cfg));
     const QString syslinux_cfg {"/iso-template/boot/syslinux/syslinux.cfg"};
     const QString isolinux_cfg {"/iso-template/boot/isolinux/isolinux.cfg"};
-    for (const QString &file : {syslinux_cfg, isolinux_cfg}) {
+    const QString checkmediasys_cfg {"/iso-template/boot/syslinux/checkmedia.cfg"};
+    const QString checkmediaiso_cfg {"/iso-template/boot/isolinux/checkmedia.cfg"};
+    for (const QString &file : {syslinux_cfg, isolinux_cfg, checkmediaiso_cfg, checkmediasys_cfg}) {
         replaceStringInFile("%OPTIONS%", settings->bootOptions, settings->workDir + file);
         replaceStringInFile("%CODE_NAME%", settings->codename, settings->workDir + file);
     }
 
     const QString sys_readme = "/iso-template/boot/syslinux/readme.msg";
     const QString iso_readme = "/iso-template/boot/isolinux/readme.msg";
-    const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme};
+    const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme, checkmediaiso_cfg, checkmediasys_cfg};
     for (const QString &file : cfg_files) {
         replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + file);
         replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + file);
