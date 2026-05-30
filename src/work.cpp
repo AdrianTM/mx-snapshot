@@ -207,7 +207,8 @@ void Work::cleanUp()
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
+                  Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy(Log::getLog(),
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
@@ -217,7 +218,8 @@ void Work::cleanUp()
         exit(EXIT_SUCCESS);
     } else {
         emit message(tr("Interrupted or failed to complete"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
+        Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
+                  Cmd::QuietMode::Yes);
         exit(EXIT_FAILURE);
     }
 }
