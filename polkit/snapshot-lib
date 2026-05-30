@@ -31,6 +31,15 @@ cleanup_overlay() {
 copy_log() {
     local app src dest uid dir
     local -a logdirs=()
+    # The caller passes its own application name so we archive the log of the
+    # run that just finished, not whichever app happens to have left a log
+    # lying around. Whitelist it: this value reaches us as a root-run argument
+    # and is interpolated into a path, so reject anything unexpected.
+    app="$1"
+    case "$app" in
+        iso-snapshot-cli|mx-snapshot) ;;
+        *) return 1;;
+    esac
     # Where the app wrote its log (see Log::defaultLogPath): a GUI run logs to
     # the caller's private runtime dir (/run/user/<uid>); a root CLI run logs to
     # /run. Both are non-world-writable, unlike the legacy /tmp fallback.
@@ -43,23 +52,21 @@ copy_log() {
     fi
     [[ "$uid" =~ ^[0-9]+$ && "$uid" -ne 0 ]] && logdirs+=("/run/user/${uid}")
     logdirs+=("/run" "/tmp")
-    for app in iso-snapshot-cli mx-snapshot; do
-        for dir in "${logdirs[@]}"; do
-            [[ -d "$dir" ]] || continue
-            src="${dir}/${app}.log"
-            # Only copy an actual regular file, never a symlink, so the source
-            # cannot be redirected at a root-owned file.
-            [[ -f "$src" && ! -L "$src" ]] || continue
-            dest="/var/log/${app}.log"
-            [[ ! -e "$dest" && ! -L "$dest" ]] || {
-                [[ -f "$dest" && ! -L "$dest" ]] || return 1
-                mv -- "$dest" "${dest}.old"
-            }
-            # -P (no-dereference): if the file is swapped for a symlink after
-            # the check (TOCTOU), copy the link itself, not its target.
-            cp -P -- "$src" "$dest"
-            return 0
-        done
+    for dir in "${logdirs[@]}"; do
+        [[ -d "$dir" ]] || continue
+        src="${dir}/${app}.log"
+        # Only copy an actual regular file, never a symlink, so the source
+        # cannot be redirected at a root-owned file.
+        [[ -f "$src" && ! -L "$src" ]] || continue
+        dest="/var/log/${app}.log"
+        [[ ! -e "$dest" && ! -L "$dest" ]] || {
+            [[ -f "$dest" && ! -L "$dest" ]] || return 1
+            mv -- "$dest" "${dest}.old"
+        }
+        # -P (no-dereference): if the file is swapped for a symlink after
+        # the check (TOCTOU), copy the link itself, not its target.
+        cp -P -- "$src" "$dest"
+        return 0
     done
 }
 
@@ -118,7 +125,7 @@ case "$1" in
     cleanup_overlay)
         cleanup_overlay "$2";;
     copy_log)
-        copy_log;;
+        copy_log "$2";;
     datetime_log)
         datetime_log;;
     kill_mksquashfs)
