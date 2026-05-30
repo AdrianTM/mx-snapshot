@@ -29,17 +29,37 @@ cleanup_overlay() {
 }
 
 copy_log() {
-    local app src
+    local app src dest uid dir
+    local -a logdirs=()
+    # Where the app wrote its log (see Log::defaultLogPath): a GUI run logs to
+    # the caller's private runtime dir (/run/user/<uid>); a root CLI run logs to
+    # /run. Both are non-world-writable, unlike the legacy /tmp fallback.
+    if [[ "$PKEXEC_UID" =~ ^[0-9]+$ ]]; then
+        uid="$PKEXEC_UID"
+    elif [[ "$SUDO_UID" =~ ^[0-9]+$ ]]; then
+        uid="$SUDO_UID"
+    else
+        uid=$(id -u "$(logname)" 2>/dev/null)
+    fi
+    [[ "$uid" =~ ^[0-9]+$ && "$uid" -ne 0 ]] && logdirs+=("/run/user/${uid}")
+    logdirs+=("/run" "/tmp")
     for app in iso-snapshot-cli mx-snapshot; do
-        src="/tmp/${app}.log"
-        # /tmp is world-writable: only copy an actual regular file, never a
-        # symlink, so the source cannot be redirected at a root-owned file.
-        [[ -f "$src" && ! -L "$src" ]] || continue
-        [[ -f /var/log/${app}.log ]] && mv /var/log/${app}.log /var/log/${app}.log.old
-        # -P (no-dereference): if the file is swapped for a symlink after the
-        # check (TOCTOU), copy the link itself instead of leaking its target.
-        cp -P -- "$src" "/var/log/${app}.log"
-        break
+        for dir in "${logdirs[@]}"; do
+            [[ -d "$dir" ]] || continue
+            src="${dir}/${app}.log"
+            # Only copy an actual regular file, never a symlink, so the source
+            # cannot be redirected at a root-owned file.
+            [[ -f "$src" && ! -L "$src" ]] || continue
+            dest="/var/log/${app}.log"
+            [[ ! -e "$dest" && ! -L "$dest" ]] || {
+                [[ -f "$dest" && ! -L "$dest" ]] || return 1
+                mv -- "$dest" "${dest}.old"
+            }
+            # -P (no-dereference): if the file is swapped for a symlink after
+            # the check (TOCTOU), copy the link itself, not its target.
+            cp -P -- "$src" "$dest"
+            return 0
+        done
     done
 }
 

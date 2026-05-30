@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
             if (getuid() != 0 && (!isGuiApp || !hasAuthTools)) {
                 qDebug().noquote() << QObject::tr("You must run this program with sudo or pkexec.");
             } else {
-                const Log setLog("/tmp/" + app->applicationName() + ".log");
+                const Log setLog(Log::defaultLogPath(app->applicationName()));
                 qInstallMessageHandler(Log::messageHandler);
                 qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
                 if (argc > 1) {
