@@ -72,6 +72,9 @@ chown_conf() {
     user=$(getent passwd "$uid" | cut -d: -f1)
     home=$(getent passwd "$uid" | cut -d: -f6)
     [[ -z "$user" || -z "$home" || ! -d "$home" ]] && exit 2
+    # Resolve the home path too, so the confinement check below still
+    # matches when /home (or a parent) is itself a symlink.
+    home=$(realpath -e "$home" 2>/dev/null) || exit 2
 
     for app in iso-snapshot-cli mx-snapshot; do
         file="${home}/.config/MX-Linux/${app}.conf"
