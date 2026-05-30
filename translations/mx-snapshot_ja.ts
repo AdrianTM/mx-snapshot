@@ -812,18 +812,18 @@
         <translation>MX スナップショット</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="216"/>
+        <location filename="../src/main.cpp" line="284"/>
         <location filename="../src/settings.cpp" line="526"/>
         <location filename="../src/settings.cpp" line="534"/>
         <location filename="../src/settings.cpp" line="1057"/>
         <location filename="../src/settings.cpp" line="1153"/>
-        <location filename="../src/main.cpp" line="216"/>
-        <location filename="../src/main.cpp" line="284"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="533"/>
         <location filename="../src/main.cpp" line="283"/>
+        <location filename="../src/settings.cpp" line="533"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>
@@ -1159,7 +1159,7 @@
     </message>
     <message>
         <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="510"/>
+        <location filename="../src/work.cpp" line="517"/>
         <source>Done</source>
         <translation>完了</translation>
     </message>
@@ -1170,14 +1170,14 @@
     </message>
     <message>
         <location filename="../src/work.cpp" line="254"/>
-        <location filename="../src/work.cpp" line="367"/>
-        <location filename="../src/work.cpp" line="452"/>
-        <location filename="../src/work.cpp" line="489"/>
-        <location filename="../src/work.cpp" line="526"/>
-        <location filename="../src/work.cpp" line="667"/>
-        <location filename="../src/work.cpp" line="701"/>
-        <location filename="../src/work.cpp" line="714"/>
-        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="366"/>
+        <location filename="../src/work.cpp" line="459"/>
+        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="533"/>
+        <location filename="../src/work.cpp" line="674"/>
+        <location filename="../src/work.cpp" line="708"/>
+        <location filename="../src/work.cpp" line="721"/>
+        <location filename="../src/work.cpp" line="729"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -1197,108 +1197,108 @@
         <translation>充分な空き容量があると分かっているのであれば、-o/--override-size オプションを付けてプログラムを再実行してください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="347"/>
+        <location filename="../src/work.cpp" line="346"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>新たな iso ファイルシステムをコピー中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="367"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="380"/>
+        <location filename="../src/work.cpp" line="379"/>
         <source>Could not create temp directory. </source>
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="449"/>
+        <location filename="../src/work.cpp" line="456"/>
         <source>Squashing filesystem...</source>
         <translation>ファイルシステムに Squash を適用中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="453"/>
+        <location filename="../src/work.cpp" line="460"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>linuxfs ファイルを作成できませんでした。/var/log/%1.log をチェックしてください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="486"/>
+        <location filename="../src/work.cpp" line="493"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD イメージファイルを生成中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="490"/>
+        <location filename="../src/work.cpp" line="497"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISOファイルを作成できませんでした。パーティションに十分な空き容量があるかご確認ください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="503"/>
         <source>Making hybrid iso</source>
         <translation>ハイブリット ISO を作成中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="514"/>
+        <location filename="../src/work.cpp" line="521"/>
         <source>Success</source>
         <translation>成功</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="515"/>
+        <location filename="../src/work.cpp" line="522"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX スナップショットの作成に成功しました！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="516"/>
+        <location filename="../src/work.cpp" line="523"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>スナップショットの作成が完了するまで %1 かかりました。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="517"/>
+        <location filename="../src/work.cpp" line="524"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX Live USB メーカ を起動してください！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="523"/>
+        <location filename="../src/work.cpp" line="530"/>
         <source>Installing </source>
         <translation>インストール中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="533"/>
         <source>Could not install </source>
         <translation>インストールできません</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="536"/>
+        <location filename="../src/work.cpp" line="543"/>
         <source>Calculating checksum...</source>
         <translation>チェックサムの計算中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="584"/>
         <source>Building new initrd...</source>
         <translation>新しい initrd を構築中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="668"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Could not create working directory. </source>
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="702"/>
+        <location filename="../src/work.cpp" line="709"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="715"/>
-        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="730"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1029"/>
+        <location filename="../src/work.cpp" line="1036"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1055"/>
+        <location filename="../src/work.cpp" line="1062"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>

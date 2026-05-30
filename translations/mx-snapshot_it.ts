@@ -812,18 +812,18 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <translation>MX Snapshot</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="216"/>
+        <location filename="../src/main.cpp" line="284"/>
         <location filename="../src/settings.cpp" line="526"/>
         <location filename="../src/settings.cpp" line="534"/>
         <location filename="../src/settings.cpp" line="1057"/>
         <location filename="../src/settings.cpp" line="1153"/>
-        <location filename="../src/main.cpp" line="216"/>
-        <location filename="../src/main.cpp" line="284"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="533"/>
         <location filename="../src/main.cpp" line="283"/>
+        <location filename="../src/settings.cpp" line="533"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Il kernel attuale non supporta Squashfs, non si può continuare.</translation>
     </message>
@@ -1162,7 +1162,7 @@ rimuovendo precedenti snapshots e copie salvate:
     </message>
     <message>
         <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="510"/>
+        <location filename="../src/work.cpp" line="517"/>
         <source>Done</source>
         <translation>Fatto</translation>
     </message>
@@ -1173,14 +1173,14 @@ rimuovendo precedenti snapshots e copie salvate:
     </message>
     <message>
         <location filename="../src/work.cpp" line="254"/>
-        <location filename="../src/work.cpp" line="367"/>
-        <location filename="../src/work.cpp" line="452"/>
-        <location filename="../src/work.cpp" line="489"/>
-        <location filename="../src/work.cpp" line="526"/>
-        <location filename="../src/work.cpp" line="667"/>
-        <location filename="../src/work.cpp" line="701"/>
-        <location filename="../src/work.cpp" line="714"/>
-        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="366"/>
+        <location filename="../src/work.cpp" line="459"/>
+        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="533"/>
+        <location filename="../src/work.cpp" line="674"/>
+        <location filename="../src/work.cpp" line="708"/>
+        <location filename="../src/work.cpp" line="721"/>
+        <location filename="../src/work.cpp" line="729"/>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
@@ -1200,108 +1200,108 @@ rimuovendo precedenti snapshots e copie salvate:
         <translation>Se sei sicuro di avere abbastanza spazio libero, esegui nuovamente il programma con l&apos;opzione -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="347"/>
+        <location filename="../src/work.cpp" line="346"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copia del filesystem della nuova-iso ...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="367"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="380"/>
+        <location filename="../src/work.cpp" line="379"/>
         <source>Could not create temp directory. </source>
         <translation>Impossibile creare una directory temporanea.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="449"/>
+        <location filename="../src/work.cpp" line="456"/>
         <source>Squashing filesystem...</source>
         <translation>Compressione del filesystem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="453"/>
+        <location filename="../src/work.cpp" line="460"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="486"/>
+        <location filename="../src/work.cpp" line="493"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creazione del file immagine CD/DVD in corso...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="490"/>
+        <location filename="../src/work.cpp" line="497"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Impossibile creare il file ISO, verifica di avere spazio a sufficienza sulla partizione di destinazione.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="503"/>
         <source>Making hybrid iso</source>
         <translation>Creazione di un&apos;ISO ibrida in corso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="514"/>
+        <location filename="../src/work.cpp" line="521"/>
         <source>Success</source>
         <translation>Operazione riuscita</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="515"/>
+        <location filename="../src/work.cpp" line="522"/>
         <source>MX Snapshot completed successfully!</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="516"/>
+        <location filename="../src/work.cpp" line="523"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>L&apos;istantanea ha richeisto l&apos;1% per terminare</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="517"/>
+        <location filename="../src/work.cpp" line="524"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Grazie per aver usato MX Snapshot, prova anche MX Live Maker!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="523"/>
+        <location filename="../src/work.cpp" line="530"/>
         <source>Installing </source>
         <translation>Installazione in corso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="533"/>
         <source>Could not install </source>
         <translation>Non è stato possibile installare</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="536"/>
+        <location filename="../src/work.cpp" line="543"/>
         <source>Calculating checksum...</source>
         <translation>Calcolo checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="584"/>
         <source>Building new initrd...</source>
         <translation>Realizzazione del nuovo initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="668"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Could not create working directory. </source>
         <translation>Impossibile creare una directory attiva.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="702"/>
+        <location filename="../src/work.cpp" line="709"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="715"/>
-        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="730"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1029"/>
+        <location filename="../src/work.cpp" line="1036"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcolo della dimensione totale dei file esclusi...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1055"/>
+        <location filename="../src/work.cpp" line="1062"/>
         <source>Calculating size of root...</source>
         <translation>Calcolo la dimensione di root...</translation>
     </message>

@@ -812,18 +812,18 @@
         <translation>MX Snapshot</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="216"/>
+        <location filename="../src/main.cpp" line="284"/>
         <location filename="../src/settings.cpp" line="526"/>
         <location filename="../src/settings.cpp" line="534"/>
         <location filename="../src/settings.cpp" line="1057"/>
         <location filename="../src/settings.cpp" line="1153"/>
-        <location filename="../src/main.cpp" line="216"/>
-        <location filename="../src/main.cpp" line="284"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="533"/>
         <location filename="../src/main.cpp" line="283"/>
+        <location filename="../src/settings.cpp" line="533"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
@@ -1164,7 +1164,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
     <message>
         <location filename="../src/work.cpp" line="208"/>
-        <location filename="../src/work.cpp" line="510"/>
+        <location filename="../src/work.cpp" line="517"/>
         <source>Done</source>
         <translation>Klar</translation>
     </message>
@@ -1175,14 +1175,14 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
     <message>
         <location filename="../src/work.cpp" line="254"/>
-        <location filename="../src/work.cpp" line="367"/>
-        <location filename="../src/work.cpp" line="452"/>
-        <location filename="../src/work.cpp" line="489"/>
-        <location filename="../src/work.cpp" line="526"/>
-        <location filename="../src/work.cpp" line="667"/>
-        <location filename="../src/work.cpp" line="701"/>
-        <location filename="../src/work.cpp" line="714"/>
-        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="366"/>
+        <location filename="../src/work.cpp" line="459"/>
+        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="533"/>
+        <location filename="../src/work.cpp" line="674"/>
+        <location filename="../src/work.cpp" line="708"/>
+        <location filename="../src/work.cpp" line="721"/>
+        <location filename="../src/work.cpp" line="729"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -1202,108 +1202,108 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Om du är säker på att du har tillräckligt med fritt utrymme, kör programmet en gång till med  -o/--override-size alternativet</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="347"/>
+        <location filename="../src/work.cpp" line="346"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopierar new-iso filsystem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="367"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>--grub-mbr alternativ specifierat men boot/grub/i386-pc/eltorito.img saknas i iso-template</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="380"/>
+        <location filename="../src/work.cpp" line="379"/>
         <source>Could not create temp directory. </source>
         <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="449"/>
+        <location filename="../src/work.cpp" line="456"/>
         <source>Squashing filesystem...</source>
         <translation>Squashing filsystem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="453"/>
+        <location filename="../src/work.cpp" line="460"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Kunde inte skapa linuxfs fil, var vänlig kontrollera /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="486"/>
+        <location filename="../src/work.cpp" line="493"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Skapar CD/DVD avbildsfil...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="490"/>
+        <location filename="../src/work.cpp" line="497"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kunde inte skapa ISO fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="496"/>
+        <location filename="../src/work.cpp" line="503"/>
         <source>Making hybrid iso</source>
         <translation>Skapar hybrid iso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="514"/>
+        <location filename="../src/work.cpp" line="521"/>
         <source>Success</source>
         <translation>Det lyckades</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="515"/>
+        <location filename="../src/work.cpp" line="522"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot cframgångsrikt avslutat!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="516"/>
+        <location filename="../src/work.cpp" line="523"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot tog %1 för att avslutas.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="517"/>
+        <location filename="../src/work.cpp" line="524"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Tack för att du använder MX Snapshot, kör sedan MX Live USB Maker! </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="523"/>
+        <location filename="../src/work.cpp" line="530"/>
         <source>Installing </source>
         <translation>Installerar</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="533"/>
         <source>Could not install </source>
         <translation>Kunde inte installera</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="536"/>
+        <location filename="../src/work.cpp" line="543"/>
         <source>Calculating checksum...</source>
         <translation>Beräknar checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="577"/>
+        <location filename="../src/work.cpp" line="584"/>
         <source>Building new initrd...</source>
         <translation>Skapar ny initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="668"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Could not create working directory. </source>
         <translation>Kunde inte skapa arbetskatalog.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="702"/>
+        <location filename="../src/work.cpp" line="709"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Kunde inte förbereda en säker bind-root overlay. Snapshot kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="715"/>
-        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="722"/>
+        <location filename="../src/work.cpp" line="730"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Kunde inte förbereda snapshotets bind-root miljö.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1029"/>
+        <location filename="../src/work.cpp" line="1036"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1055"/>
+        <location filename="../src/work.cpp" line="1062"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>

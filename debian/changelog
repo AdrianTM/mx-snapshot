@@ -1,3 +1,11 @@
+mx-snapshot (26.05.2) mx; urgency=medium
+
+  * Tighten up the privileged helper script for safer file handling.
+    - Improve how configuration and log files are checked before they are
+      copied or have their ownership adjusted.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 30 May 2026 10:00:00 -0400
+
 mx-snapshot (26.05.1) mx; urgency=medium
 
   * Add amd/intel-ucode injection into initrd if uc-tool is available

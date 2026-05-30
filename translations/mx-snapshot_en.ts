@@ -1172,10 +1172,10 @@
         <location filename="../src/work.cpp" line="459"/>
         <location filename="../src/work.cpp" line="496"/>
         <location filename="../src/work.cpp" line="533"/>
-        <location filename="../src/work.cpp" line="674"/>
-        <location filename="../src/work.cpp" line="708"/>
-        <location filename="../src/work.cpp" line="721"/>
-        <location filename="../src/work.cpp" line="729"/>
+        <location filename="../src/work.cpp" line="676"/>
+        <location filename="../src/work.cpp" line="710"/>
+        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1275,28 +1275,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="677"/>
         <source>Could not create working directory. </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="709"/>
+        <location filename="../src/work.cpp" line="711"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="722"/>
-        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="724"/>
+        <location filename="../src/work.cpp" line="732"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1036"/>
+        <location filename="../src/work.cpp" line="1038"/>
         <source>Calculating total size of excluded files...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Calculating size of root...</source>
         <translation type="unfinished"></translation>
     </message>
