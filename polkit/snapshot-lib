@@ -104,9 +104,33 @@ cleanup_bindrootmanager() {
 }
 
 chown_conf() {
+    local uid user home app file real
+
+    # Determine the calling (non-root) user reliably. pkexec exports
+    # PKEXEC_UID; fall back to logname for non-pkexec invocations.
+    if [[ -n "$PKEXEC_UID" ]]; then
+        uid="$PKEXEC_UID"
+    else
+        uid=$(id -u "$(logname)" 2>/dev/null)
+    fi
+    [[ "$uid" =~ ^[0-9]+$ ]] || exit 2
+    # Never operate on behalf of root.
+    [[ "$uid" -eq 0 ]] && exit 2
+
+    user=$(getent passwd "$uid" | cut -d: -f1)
+    home=$(getent passwd "$uid" | cut -d: -f6)
+    [[ -z "$user" || -z "$home" || ! -d "$home" ]] && exit 2
+
     for app in iso-snapshot-cli mx-snapshot; do
-        FILE_NAME="/home/$(logname)/.config/MX-Linux/${app}.conf"
-        [[ -f "$FILE_NAME" ]] && chown $(logname): "$FILE_NAME"
+        file="${home}/.config/MX-Linux/${app}.conf"
+        # Must be an existing regular file that is NOT itself a symlink.
+        [[ -f "$file" && ! -L "$file" ]] || continue
+        # Resolve symlinks in any path component and confine the result
+        # to the user's home, defeating symlink-redirection attacks.
+        real=$(realpath -e "$file" 2>/dev/null) || continue
+        [[ "$real" == "$home"/* ]] || continue
+        # -h: do not dereference, guarding against a TOCTOU symlink swap.
+        chown -h "${user}:" "$real"
     done
 }
 
