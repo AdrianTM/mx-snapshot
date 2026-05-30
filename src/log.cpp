@@ -24,6 +24,7 @@
 #include <QDateTime>
 #include <QFileInfo>
 
+#include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
 
@@ -38,11 +39,44 @@ Log::Log(const QString &fileName)
         fixLogFileOwnership(fileName);
     }
 
-    if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
+    if (!openLogFile()) {
         qWarning() << "Could not open log file:" << fileName;
     } else {
         qInstallMessageHandler(Log::messageHandler);
     }
+}
+
+QString Log::defaultLogPath(const QString &appName)
+{
+    // Keep the log out of world-writable /tmp. As root use /run (root-only);
+    // as the user use the private per-user runtime dir ($XDG_RUNTIME_DIR,
+    // i.e. /run/user/<uid>, mode 0700). Fall back to /tmp only if no runtime
+    // dir is available (openLogFile() still refuses to follow a symlink there).
+    if (geteuid() == 0) {
+        return "/run/" + appName + ".log";
+    }
+    const QString runtimeDir = qEnvironmentVariable("XDG_RUNTIME_DIR");
+    if (!runtimeDir.isEmpty() && QFileInfo(runtimeDir).isDir()) {
+        return runtimeDir + '/' + appName + ".log";
+    }
+    return "/tmp/" + appName + ".log";
+}
+
+bool Log::openLogFile()
+{
+    const QByteArray name = logFile.fileName().toLocal8Bit();
+    // O_NOFOLLOW: never follow a symlink at the final path component, so even
+    // the world-writable /tmp fallback cannot be redirected at another file.
+    const int fd = ::open(name.constData(), O_WRONLY | O_CREAT | O_APPEND | O_NOFOLLOW | O_CLOEXEC,
+                          S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    if (fd < 0) {
+        return false;
+    }
+    if (!logFile.open(fd, QIODevice::Append | QIODevice::Text, QFileDevice::AutoCloseHandle)) {
+        ::close(fd);
+        return false;
+    }
+    return true;
 }
 
 void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogContext &context, const QString &msg)
@@ -61,7 +95,7 @@ void Log::messageHandler(QtMsgType type, [[maybe_unused]] const QMessageLogConte
         qWarning() << "Log file is not open for writing:" << logFile.fileName();
         // Try to fix ownership and reopen
         fixLogFileOwnership(logFile.fileName());
-        if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
+        if (!openLogFile()) {
             qWarning() << "Still could not open log file after ownership fix";
             return;
         }
@@ -109,6 +143,11 @@ void Log::fixLogFileOwnership(const QString &fileName)
     // Get file ownership and permissions
     struct stat fileStat;
     const QByteArray fileNameBytes = fileName.toLocal8Bit();
+    // Never act on a symlink: a chown here follows the link, so a planted
+    // symlink could otherwise hand ownership of an arbitrary file to the user.
+    if (lstat(fileNameBytes.constData(), &fileStat) != 0 || S_ISLNK(fileStat.st_mode)) {
+        return;
+    }
     if (stat(fileNameBytes.constData(), &fileStat) != 0) {
         return;
     }

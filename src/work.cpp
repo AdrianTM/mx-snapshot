@@ -43,6 +43,7 @@
 #include <stdexcept>
 
 #include "filesystemutils.h"
+#include "log.h"
 
 namespace
 {
@@ -208,7 +209,7 @@ void Work::cleanUp()
         emit message(tr("Done"));
         Cmd().run(elevateTool + " " + snapshotLib + " copy_log", Cmd::QuietMode::Yes);
         if (settings->shutdown) {
-            QFile::copy("/tmp/" + QCoreApplication::applicationName() + ".log",
+            QFile::copy(Log::getLog(),
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
             QProcess::execute("sync", {});
             requestPowerOff();

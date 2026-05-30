@@ -227,7 +227,7 @@ int main(int argc, char *argv[])
         return EXIT_FAILURE;
     }
 
-    const Log setLog("/tmp/" + app->applicationName() + ".log");
+    const Log setLog(Log::defaultLogPath(app->applicationName()));
     qInstallMessageHandler(Log::messageHandler);
     qDebug().noquote() << app->applicationName() << QObject::tr("version:") << app->applicationVersion();
     if (argc > 1) {
