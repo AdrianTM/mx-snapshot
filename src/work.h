@@ -74,8 +74,10 @@ signals:
 private:
     // Utility
     [[nodiscard]] static QString snapshotLibPath();
-    // Run a snapshot-lib subcommand as root, passing args as argv (no shell).
-    static void runSnapshotLib(const QStringList &args);
+    // If a prior root call in this pipeline was denied/cancelled, report it and
+    // abort via cleanUp() instead of silently proceeding to the next privileged
+    // step (which would otherwise re-prompt for auth right after a cancel).
+    void abortIfElevationDenied();
 
     // Space and environment management
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);

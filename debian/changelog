@@ -1,3 +1,42 @@
+mx-snapshot (26.07) mx; urgency=medium
+
+  * Fix config and exclude-list files created during a snapshot being
+    root-owned and uneditable by the regular user.
+  * Fix the snapshot process failing when a cleanup path contains spaces.
+  * Fix logging being silently lost after the output display is closed
+    during a snapshot operation.
+  * Fix misleading disk-space warnings when an exclude pattern resolves
+    to the root directory.
+  * Add --nvidia CLI flag to iso-snapshot-cli, which adds the
+    xorg=nvidia boot option for NVIDIA hardware.
+  * Harden command execution: file names and boot options are passed as
+    arguments instead of embedded in shell commands, preventing injection.
+  * Improve log archiving: each run captures only its own log and uses
+    secure directories.
+  * Fix the application exiting when the user cancels the administrator
+    authentication dialog; it now returns to the settings page so the
+    snapshot can be started again.
+  * Skip the startup cleanup helpers when there is no leftover state
+    from a previous interrupted run.
+  * Require administrator authentication for writing the live-files
+    version/lsb-release templates, closing a passwordless path to
+    tampering with distro metadata baked into future snapshots.
+  * Fix a denied re-authentication going unnoticed when the work
+    directory needed to be relocated for space, or when consecutive
+    privileged steps ran back-to-back after a cancelled prompt.
+  * Fix the privileged helper's own internal errors (unknown or missing
+    command) being mistaken for a cancelled authentication.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 04 Jul 2026 17:51:33 -0400
+
+mx-snapshot (26.05.2) mx; urgency=medium
+
+  * Tighten up the privileged helper script for safer file handling.
+    - Improve how configuration and log files are checked before they are
+      copied or have their ownership adjusted.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 30 May 2026 10:00:00 -0400
+
 mx-snapshot (26.05.1) mx; urgency=medium
 
   * Add amd/intel-ucode injection into initrd if uc-tool is available

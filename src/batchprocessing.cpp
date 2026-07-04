@@ -63,12 +63,14 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     }
 
     work.startTimer();
+    Cmd::clearElevationDenied();
     if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
         work.cleanUp();
         return;
     }
     settings->otherExclusions();
     work.setupEnv();
+    abortIfElevationDenied();
     if (work.isCleaningUp()) {
         return;
     }
@@ -78,7 +80,15 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
             return;
         }
     }
+    // checkEnoughSpace() can relocate the work dir onto another partition, which
+    // re-runs setupEnv() (and its own privileged steps) internally — check again
+    // here in case that nested run was the one that got denied.
+    abortIfElevationDenied();
+    if (work.isCleaningUp()) {
+        return;
+    }
     work.copyNewIso();
+    abortIfElevationDenied();
     if (work.isCleaningUp()) {
         return;
     }
@@ -99,6 +109,18 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
     work.createIso(settings->snapshotName);
+}
+
+// A failed or refused root operation (the CLI normally runs as root, so this
+// means the privileged helper rejected a command) must abort the run through
+// the regular cleanup path rather than continue with skipped steps.
+void Batchprocessing::abortIfElevationDenied()
+{
+    if (!Cmd::elevationDenied()) {
+        return;
+    }
+    qCritical().noquote() << tr("Administrator access was not granted; the snapshot cannot continue.");
+    work.cleanUp();
 }
 
 void Batchprocessing::setConnections()

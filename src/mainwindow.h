@@ -95,6 +95,7 @@ private:
 
     [[nodiscard]] bool confirmStart();
     void cleanUp();
+    void abortIfElevationDenied();
     bool installPackage(const QString &package);
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();

@@ -158,40 +158,45 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
             throw std::runtime_error("Failed to initialize configuration");
         }
 
+        // Clean up leftovers of a previous interrupted run. Only invoke the root
+        // helper when something is actually left behind: a normal startup then
+        // performs no elevated call at all (previously cleanup_overlay ran, and
+        // could prompt, on every launch even with nothing to clean).
         const QString appName = QCoreApplication::applicationName();
         const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
-        bool cleanupRan = false;
-        bool cleanupOk = true;
-        const QString elevateTool = Cmd::elevationTool();
         // Two possible bind-root setups left behind from a previous run:
         // installed-to-live (Debian, marker at /tmp/installed-to-live/cleanup.conf)
         // and installed-to-live-arch (Arch, state at /run/<app>/cleanup-arch.state
         // or its /tmp/ fallback). Run whichever cleanup matches.
+        const QString elevateTool = Cmd::elevationTool();
         const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
                                       || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+        bool archCleanupOk = true;
         if (archStatePresent) {
-            cleanupRan = true;
             const QString archScript
                 = "/usr/share/" + appName + "/scripts/installed-to-live-arch";
             if (QFileInfo::exists(archScript)) {
-                cleanupOk = Cmd().run(elevateTool + " " + archScript + " cleanup");
+                archCleanupOk = Cmd().run(elevateTool + " " + archScript + " cleanup");
             } else {
                 qCritical().noquote() << QObject::tr(
                     "Pending Arch bind-root cleanup state but installed-to-live-arch is missing: %1")
                                              .arg(archScript);
-                cleanupOk = false;
+                archCleanupOk = false;
             }
         }
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf") || QFileInfo::exists(overlayBase)) {
-            cleanupRan = true;
-            cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup")
-                        && cleanupOk;
-        }
-        const QString overlayRoot = "/run/" + appName + "/bind-root-overlay/root";
+        const bool hasLiveCleanup = QFileInfo::exists("/tmp/installed-to-live/cleanup.conf");
+        const bool hasOverlayBase = QFileInfo::exists(overlayBase);
         const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
-            || Cmd().run("mountpoint -q \"" + overlayRoot + "\"", Cmd::QuietMode::Yes);
-        if (!cleanupRan || cleanupOk || !bindRootMounted) {
-            Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            || (hasOverlayBase
+                && Cmd().run("mountpoint -q \"" + overlayBase + "/root\"", Cmd::QuietMode::Yes));
+        if (hasLiveCleanup || hasOverlayBase || bindRootMounted) {
+            const bool cleanupOk
+                = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup") && archCleanupOk;
+            // Remove the overlay directories only when it is safe: either the
+            // cleanup above succeeded or nothing is mounted under them anymore.
+            if (hasOverlayBase && (cleanupOk || !bindRootMounted)) {
+                Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            }
         }
 
         loadConfig(); // Load settings from .conf file

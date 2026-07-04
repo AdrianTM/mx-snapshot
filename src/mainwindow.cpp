@@ -470,6 +470,20 @@ void MainWindow::cleanUp()
     work.cleanUp();
 }
 
+// Once the snapshot pipeline is underway a denied re-authentication (the polkit
+// grant is only kept for a few minutes) can leave root steps silently skipped,
+// so abort through the regular cleanup path instead of continuing with a
+// potentially corrupt ISO.
+void MainWindow::abortIfElevationDenied()
+{
+    if (!Cmd::elevationDenied()) {
+        return;
+    }
+    processMsgBox(BoxType::critical, tr("Error"),
+                  tr("Administrator access was not granted; the snapshot cannot continue."));
+    cleanUp();
+}
+
 void MainWindow::procStart()
 {
     realProgressActive = false;
@@ -709,13 +723,28 @@ void MainWindow::handleSettingsPage(const QString &file_name)
         return;
     }
 
-    work.startTimer();
-    if (!settings->checkSnapshotDir() || !settings->checkTempDir()) {
-        cleanUp();
+    // These are the first operations that ask for administrator access. If the
+    // user cancels the authentication dialog (or it fails otherwise), stay on
+    // the settings page so they can simply press Next again — don't kill the app.
+    Cmd::clearElevationDenied();
+    const bool dirsOk = settings->checkSnapshotDir() && settings->checkTempDir();
+    if (dirsOk) {
+        applyExclusions();
+    }
+    if (Cmd::elevationDenied() || !dirsOk) {
+        settings->tmpdir.reset(); // Drop any created work dir; a retry recreates it
+        if (Cmd::elevationDenied()) {
+            processMsgBox(BoxType::warning, tr("Cancelled"),
+                          tr("Administrator access is required to create a snapshot.") + '\n'
+                              + tr("The operation was cancelled. Select Next when you are ready to try again."));
+        } else {
+            processMsgBox(BoxType::critical, tr("Error"),
+                          tr("Could not create the snapshot or work directory."));
+        }
         return;
     }
 
-    applyExclusions();
+    work.startTimer();
     prepareForOutput(file_name);
 }
 
@@ -776,6 +805,7 @@ void MainWindow::prepareForOutput(const QString &file_name)
     // see Step 4d). Bail out between stages when that happens, otherwise
     // we run the rest of the pipeline against a torn-down bind-root.
     work.setupEnv();
+    abortIfElevationDenied();
     if (work.isCleaningUp()) {
         return;
     }
@@ -785,7 +815,15 @@ void MainWindow::prepareForOutput(const QString &file_name)
             return;
         }
     }
+    // checkEnoughSpace() can relocate the work dir onto another partition, which
+    // re-runs setupEnv() (and its own privileged steps) internally — check again
+    // here in case that nested run was the one that got denied.
+    abortIfElevationDenied();
+    if (work.isCleaningUp()) {
+        return;
+    }
     work.copyNewIso();
+    abortIfElevationDenied();
     if (work.isCleaningUp()) {
         return;
     }

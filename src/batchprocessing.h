@@ -44,6 +44,7 @@ private:
     Work work;
     QTimer timer;
 
+    void abortIfElevationDenied();
     void checkUpdatedDefaultExcludesCli();
     [[nodiscard]] QString colorizeDiffAnsi(const QString &diff) const;
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;
