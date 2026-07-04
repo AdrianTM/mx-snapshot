@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QEventLoop>
 #include <QFile>
+#include <QFileInfo>
 #include <QStringList>
 
 #include <cstdlib>
@@ -84,7 +85,7 @@ bool Cmd::isCliMode()
     const auto args = QCoreApplication::arguments();
     const bool forceCliMode = args.contains("--cli") || args.contains("-c") ||
                               args.contains("--help") || args.contains("-h") ||
-                              QCoreApplication::applicationFilePath().contains("cli") ||
+                              QFileInfo(QCoreApplication::applicationFilePath()).baseName().endsWith("cli") ||
                               !qgetenv("MX_SNAPSHOT_CLI").isEmpty();
     const bool noWindowSystem = qgetenv("DISPLAY").isEmpty() && qgetenv("WAYLAND_DISPLAY").isEmpty();
     const QString qpa = QString::fromLocal8Bit(qgetenv("QT_QPA_PLATFORM"));
