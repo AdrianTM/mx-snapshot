@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
 #else
     // Determine if we should run in CLI mode based on multiple factors
     const bool forceCliMode = parser.isSet("cli") ||
-                              QString(argv[0]).contains("cli") ||
+                              QFileInfo(QString::fromLocal8Bit(argv[0])).baseName().endsWith("cli") ||
                               !qEnvironmentVariableIsEmpty("MX_SNAPSHOT_CLI");
     const bool noWindowSystem = qEnvironmentVariableIsEmpty("DISPLAY") &&
                                 qEnvironmentVariableIsEmpty("WAYLAND_DISPLAY");
