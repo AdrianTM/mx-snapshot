@@ -74,10 +74,13 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
 
     if (settings->editBootMenu) {
         qDebug() << tr("The program will pause the build and open the boot menu in your text editor.");
-        QString cmd = settings->getEditor() + " \"" + settings->workDir + "/iso-template/boot/grub/grub.cfg\" \""
-                      + settings->workDir + "/iso-template/boot/syslinux/syslinux.cfg\" \"" + settings->workDir
-                      + "/iso-template/boot/isolinux/isolinux.cfg\"";
-        Cmd().run(cmd);
+        // getEditor() intentionally contains shell constructs (e.g. $(logname), $DISPLAY)
+        // that must be evaluated by bash, so it stays in the script. The file paths embed
+        // workDir, so they are passed as positional parameters ($1..$3) that the shell
+        // never parses — preventing command injection through the work directory.
+        const QString bootDir = settings->workDir + "/iso-template/boot";
+        Cmd().proc("/bin/bash", {"-c", settings->getEditor() + R"( "$1" "$2" "$3")", "_", bootDir + "/grub/grub.cfg",
+                                 bootDir + "/syslinux/syslinux.cfg", bootDir + "/isolinux/isolinux.cfg"});
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
     work.createIso(settings->snapshotName);
