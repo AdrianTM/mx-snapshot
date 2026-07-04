@@ -405,7 +405,7 @@ do_clean() {
     done
 
     local dir
-    for dir in "$to_dir"/lib*/ $bin_dir "$to_dir$X86_64_DIR"; do
+    for dir in "$to_dir"/lib*/ "$bin_dir" "$to_dir$X86_64_DIR"; do
         test -d "$dir" || continue
         [[ -z "$(ls -A "$dir" 2>/dev/null)" ]] && pretend rmdir "$dir"
     done

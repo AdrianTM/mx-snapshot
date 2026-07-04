@@ -105,8 +105,15 @@ main() {
 
     [[ -f "$list_file" ]] || fatal "List file does not exist: $list_file"
 
-    local module_dirs=()
-    readarray -t module_dirs < <(resolve_module_dirs "$@")
+    # Capture into a variable first so a fatal() inside resolve_module_dirs aborts
+    # the script: with `< <(resolve_module_dirs ...)` the fatal ran in the process-
+    # substitution subshell and its exit status was lost, silently dropping every
+    # path listed after a bad one instead of erroring out.
+    local module_dirs=() resolved
+    resolved=$(resolve_module_dirs "$@") || exit $?
+    if [[ -n "$resolved" ]]; then
+        readarray -t module_dirs <<< "$resolved"
+    fi
     [[ ${#module_dirs[@]} -gt 0 ]] || fatal "No module directories found"
 
     local kernels=()
