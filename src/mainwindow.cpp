@@ -500,8 +500,11 @@ void MainWindow::displayOutput()
 
 void MainWindow::disableOutput()
 {
-    disconnect(&work.shell, &Cmd::outputAvailable, this, nullptr);
-    disconnect(&work.shell, &Cmd::errorAvailable, this, nullptr);
+    // Disconnect only the slot displayOutput() added. Passing nullptr for the
+    // slot would remove every connection from these signals to this object,
+    // including the persistent logging lambdas set up in setConnections().
+    disconnect(&work.shell, &Cmd::outputAvailable, this, &MainWindow::outputAvailable);
+    disconnect(&work.shell, &Cmd::errorAvailable, this, &MainWindow::outputAvailable);
 }
 
 void MainWindow::outputAvailable(const QString &out)
