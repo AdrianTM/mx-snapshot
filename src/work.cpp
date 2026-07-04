@@ -622,8 +622,8 @@ void Work::copyNewIso()
             qDebug() << "file is " << file;
             if (QFile::exists(file)) {
                 // comment out switch_to_syslinux menus as they don't work when grub is main boot
-                shell.run("sed -i '/^[^#]*switch_to_syslinux/s/^/#/' " + settings->workDir
-                          + "/iso-template/boot/grub/config/bootmenu.cfg");
+                shell.proc("sed", {"-i", "/^[^#]*switch_to_syslinux/s/^/#/",
+                                   settings->workDir + "/iso-template/boot/grub/config/bootmenu.cfg"});
             } else {
                 emit messageBox(BoxType::critical, tr("Error"),
                                 tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from "
@@ -633,7 +633,7 @@ void Work::copyNewIso()
             }
         }
         shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
-        shell.run("cp /boot/vmlinuz-" + settings->kernel + " iso-template/antiX/vmlinuz");
+        shell.proc("cp", {"/boot/vmlinuz-" + settings->kernel, "iso-template/antiX/vmlinuz"});
 
         makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "vmlinuz");
 
@@ -678,7 +678,7 @@ void Work::copyNewIso()
             const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
             if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
                 qDebug() << "uc-tool found, injecting ucode into initrd";
-                shell.run("uc-tool -q -i \"" + settings->workDir + "/iso-template/antiX/initrd.gz\"");
+                shell.proc("uc-tool", {"-q", "-i", settings->workDir + "/iso-template/antiX/initrd.gz"});
             } else {
                 qDebug() << "uc-tool not found, skipping ucode injection";
             }
@@ -784,7 +784,10 @@ bool Work::createIso(const QString &filename)
         return false;
     }
 
-    // Create the iso file
+    // Create the iso file. The static xorriso flags stay inline; the two variable
+    // paths (output ISO and iso-2 dir) are passed as bash positional parameters
+    // ($1, $2) so the shell never parses them — this prevents command injection
+    // through snapshotDir/filename/workDir.
     QDir::setCurrent(settings->workDir + "/iso-template");
     const QString volumeLabel = settings->isArch ? settings->fullDistroName : "MXLIVE";
     QString cmd;
@@ -830,6 +833,7 @@ bool Work::createIso(const QString &filename)
                 }
             }
             if (!foundMbrPath.isEmpty()) {
+                // foundMbrPath comes from the trusted candidate list above, never user input.
                 isohybridArgs = " -isohybrid-mbr \"" + foundMbrPath + "\" -isohybrid-gpt-basdat";
                 qDebug() << "Using isohybrid MBR:" << foundMbrPath;
             } else {
@@ -837,29 +841,27 @@ bool Work::createIso(const QString &filename)
             }
         }
 
-        cmd = "xorriso -as mkisofs -l -V \"" + volumeLabel + "\" -R -J -pad -iso-level 3" + isohybridArgs
-              + bootArgs + " -o \""
-              + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+        // The volume label is user-influenced (fullDistroName), so it rides in $3.
+        cmd = R"(xorriso -as mkisofs -l -V "$3" -R -J -pad -iso-level 3)" + isohybridArgs + bootArgs
+              + R"( -o "$1" . "$2")";
     } else if (settings->grubmbr) {
         // grub for mbr boot instead of isolinux
-        cmd = "xorriso -as mkisofs -l -V " + volumeLabel
-              + " -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info "
-                "-b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot "
-                "-isohybrid-apm-hfsplus -isohybrid-gpt-basdat -o \""
-              + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+        cmd = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info )"
+              R"(-b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -isohybrid-apm-hfsplus -isohybrid-gpt-basdat -o "$1" . "$2")";
     } else {
-        cmd = "xorriso -as mkisofs -l -V " + volumeLabel
-              + " -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table "
-                "-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c "
-                "boot/isolinux/isolinux.cat -o \""
-              + settings->snapshotDir + "/" + filename + "\" . \"" + settings->workDir + "/iso-2\"";
+        cmd = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table )"
+              R"(-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c )"
+              R"(boot/isolinux/isolinux.cat -o "$1" . "$2")";
     }
 
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
         cmd.prepend("umask 022; ");
     }
     emit message(tr("Creating CD/DVD image file..."));
-    if (!shell.run(cmd)) {
+    if (!shell.proc("/bin/bash",
+                    {"-c", cmd, "_", settings->snapshotDir + "/" + filename, settings->workDir + "/iso-2",
+                     volumeLabel},
+                    nullptr, nullptr, Cmd::QuietMode::No)) {
         if (cleanupStarted) {
             return false;
         }
@@ -875,7 +877,8 @@ bool Work::createIso(const QString &filename)
     // Make it isohybrid (Arch already folded the hybrid MBR into xorriso above)
     if (settings->makeIsohybrid && !settings->isArch) {
         emit message(tr("Making hybrid iso"));
-        shell.run("isohybrid --uefi \"" + settings->snapshotDir + "/" + filename + "\"");
+        shell.proc("isohybrid", {"--uefi", settings->snapshotDir + "/" + filename}, nullptr, nullptr,
+                   Cmd::QuietMode::No);
     }
     if (cleanupStarted) {
         return false;
@@ -939,23 +942,27 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     emit message(tr("Calculating checksum..."));
     shell.run("sync");
     QDir::setCurrent(folder);
-    QString ce = QVariant::fromValue(hash_type).toString();
+    const QString ce = QVariant::fromValue(hash_type).toString();
+    const QString temp_dir {"/tmp/snapshot-checksum-temp"};
+    // file_name -> $1 and folder -> $2 are passed to bash as positional parameters
+    // so the shell never parses them (no injection via a crafted file name or
+    // output folder); ce and temp_dir are trusted constants and are concatenated in.
+    const QString checksum_cmd = ce + "sum -- \"$1\" > \"$2/$1." + ce + "\"";
+    const QString checksum_tmp
+        = "TD='" + temp_dir + "'; KEEP=\"$TD/.keep\"; [ -d \"$TD\" ] || mkdir \"$TD\"; "
+          "FN=\"$1\"; CF=\"$2/$FN." + ce + "\"; cp -- \"$FN\" \"$TD/$FN\"; "
+          "pushd \"$TD\" >/dev/null; " + ce + "sum -- \"$FN\" > \"$FN." + ce + "\"; "
+          "cp -- \"$FN." + ce + "\" \"$CF\"; popd >/dev/null; [ -e \"$KEEP\" ] || rm -rf \"$TD\"";
     QString cmd;
-    QString checksum_cmd = QString("%1sum \"%2\">\"%3/%2.%1\"").arg(ce, file_name, folder);
-    QString temp_dir {"/tmp/snapshot-checksum-temp"};
-    QString checksum_tmp
-        = QString(
-              "TD=%1; KEEP=$TD/.keep; [ -d $TD ] || mkdir $TD ; FN=\"%2\"; CF=\"%3/${FN}.%4\"; cp $FN $TD/$FN; pushd "
-              "$TD>/dev/null; %4sum $FN > $FN.%4 ; cp $FN.%4 $CF; popd >/dev/null ; [ -e $KEEP ] || rm -rf $TD")
-              .arg(temp_dir, file_name, folder, ce);
 
     if (settings->preempt) {
         // Check free space available on /tmp
-        shell.run(QString("TF=%1/\"%2\"; [ -f \"$TF\" ] && rm -f \"$TF\"").arg(temp_dir, file_name));
-        if (!shell.run(
-                QString("DUF=$(du -BM \"%1\" |grep -oE '^[[:digit:]]+'); TDA=$(df -BM --output=avail /tmp |grep -oE "
-                        "'^[[:digit:]]+'); ((TDA/10*8 >= DUF))")
-                    .arg(file_name))) {
+        shell.proc("/bin/bash", {"-c", R"(TF="$1/$2"; [ -f "$TF" ] && rm -f "$TF")", "_", temp_dir, file_name});
+        if (!shell.proc("/bin/bash",
+                        {"-c",
+                         R"(DUF=$(du -BM -- "$1" | grep -oE '^[[:digit:]]+'); )"
+                         R"(TDA=$(df -BM --output=avail /tmp | grep -oE '^[[:digit:]]+'); ((TDA/10*8 >= DUF)))",
+                         "_", file_name})) {
             settings->preempt = false;
         }
     }
@@ -970,7 +977,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
-    shell.run(cmd);
+    shell.proc("/bin/bash", {"-c", cmd, "_", file_name, folder});
     QDir::setCurrent(settings->workDir);
 }
 
@@ -1106,12 +1113,16 @@ void Work::replaceMenuStrings()
 
     const QString grubenv_cfg {"/iso-template/boot/grub/grubenv.cfg"};
     const QString boot_pararameter_regexp {"(lang|kbd|kbvar|kbopt|tz)=[^[:space:]]*"};
-    shell.run(QString("printf '%s\\n' %1 | grep -E '^%2' >> '%3'")
-                  .arg(settings->bootOptions, boot_pararameter_regexp, settings->workDir + grubenv_cfg));
-    shell.run(
-        QString(
-            R"(sed -i "s|%OPTIONS%|$(sed -r 's/[[:space:]]%2/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g'<<<' %1')|" '%3')")
-            .arg(settings->bootOptions, boot_pararameter_regexp, settings->workDir + grub_cfg));
+    // bootOptions ($1) and the target file ($2) are passed as bash positional
+    // parameters so the shell never parses them as code (no injection through a
+    // crafted work dir or kernel option). $1 is intentionally left unquoted in
+    // printf: word splitting emits one option per line, while positional expansion
+    // still prevents command-substitution/quote injection in the value.
+    const QString grubenv_script = "printf '%s\\n' $1 | grep -E '^" + boot_pararameter_regexp + "' >> \"$2\"";
+    shell.proc("/bin/bash", {"-c", grubenv_script, "_", settings->bootOptions, settings->workDir + grubenv_cfg});
+    const QString options_script = "sed -i \"s|%OPTIONS%|$(sed -r 's/[[:space:]]" + boot_pararameter_regexp
+        + "/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g' <<<\" $1\")|\" \"$2\"";
+    shell.proc("/bin/bash", {"-c", options_script, "_", settings->bootOptions, settings->workDir + grub_cfg});
     // The Arch ISO template is GRUB-only — no syslinux / isolinux. Skip
     // files that aren't present so we don't spam "Failed to open file:"
     // warnings during snapshots on Arch.
