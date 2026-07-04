@@ -224,6 +224,16 @@ void Work::cleanUp()
     }
 }
 
+void Work::abortIfElevationDenied()
+{
+    if (!Cmd::elevationDenied()) {
+        return;
+    }
+    emit messageBox(BoxType::critical, tr("Error"),
+                    tr("Administrator access was not granted; the snapshot cannot continue."));
+    cleanUp();
+}
+
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
@@ -724,13 +734,16 @@ void Work::setupEnv()
 
     writeSnapshotInfo();
     writeVersionFile();
+    abortIfElevationDenied();
     writeLsbRelease();
+    abortIfElevationDenied();
 
     if (!setupBindRootOverlay()) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not prepare a safe bind-root overlay. Snapshot cannot continue."));
         cleanUp();
     }
+    abortIfElevationDenied();
 
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->resetAccounts) {
@@ -759,27 +772,16 @@ void Work::setupEnv()
     }
 }
 
-void Work::runSnapshotLib(const QStringList &args)
-{
-    const QString elevateTool = Cmd::elevationTool();
-    // Mirror the elevateTool + snapshot-lib pattern used elsewhere: when no
-    // elevation tool is present (e.g. a minimal root CLI environment) run the
-    // helper directly — that works because we are already root. Everything is
-    // passed as argv, so the values are never parsed by a shell.
-    if (elevateTool.isEmpty()) {
-        Cmd().proc(snapshotLibPath(), args, nullptr, nullptr, Cmd::QuietMode::Yes);
-    } else {
-        Cmd().proc(elevateTool, QStringList {snapshotLibPath()} + args, nullptr, nullptr, Cmd::QuietMode::Yes);
-    }
-}
-
 void Work::writeLsbRelease()
 {
     // The lsb-release template lives under root-owned /usr(/local)/share, so the
     // GUI (unprivileged) cannot write it directly — a plain QFile write silently
-    // failed there, shipping stale distro metadata in the ISO. Write it through
-    // the root helper (snapshot-lib), passing the values as argv (no shell).
-    runSnapshotLib({"write_lsb_release", settings->projectName, settings->distroVersion, settings->codename});
+    // failed there, shipping stale distro metadata in the ISO. Written through the
+    // authenticated helper (not the passwordless snapshot-lib): unlike the other
+    // snapshot-lib verbs, this writes arbitrary caller-supplied content to a
+    // template file, so it requires admin auth. Values are passed as argv (no shell).
+    shell.runHelperAction("write_lsb_release", {settings->projectName, settings->distroVersion, settings->codename},
+                          nullptr, Cmd::QuietMode::Yes);
 }
 
 // Write date of the snapshot in a "snapshot_created" file
@@ -793,10 +795,11 @@ void Work::writeSnapshotInfo()
 void Work::writeVersionFile()
 {
     // Same rationale as writeLsbRelease(): the mx-version template is root-owned,
-    // so write it through snapshot-lib rather than an unprivileged QFile that
-    // silently fails in the GUI. Values are passed as argv and only used as
-    // file content.
-    runSnapshotLib({"write_version_file", settings->fullDistroName, settings->codename, settings->releaseDate});
+    // so write it through the authenticated helper rather than an unprivileged
+    // QFile that silently fails in the GUI. Values are passed as argv and only
+    // used as file content.
+    shell.runHelperAction("write_version_file", {settings->fullDistroName, settings->codename, settings->releaseDate},
+                          nullptr, Cmd::QuietMode::Yes);
 }
 
 void Work::writeUnsquashfsSize(const QString &text)

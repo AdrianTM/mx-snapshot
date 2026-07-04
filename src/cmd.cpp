@@ -6,11 +6,8 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
-#include <QTimer>
 
 #include <unistd.h>
-
-#include "messagehandler.h"
 
 Cmd::Cmd(QObject *parent)
     : QProcess(parent),
@@ -173,6 +170,13 @@ bool Cmd::procAsRoot(const QString &cmd, const QStringList &args, QString *outpu
     return proc(cmd, args, output, input, quiet, Elevation::Yes);
 }
 
+bool Cmd::runHelperAction(const QString &action, const QStringList &args, QString *output, QuietMode quiet)
+{
+    QStringList helperArgs {action};
+    helperArgs += args;
+    return helperProc(helperArgs, output, nullptr, quiet);
+}
+
 bool Cmd::run(const QString &cmd, QuietMode quiet)
 {
     return proc("/bin/bash", {"-c", cmd}, nullptr, nullptr, quiet);
@@ -185,9 +189,11 @@ QString Cmd::readAllOutput()
 
 void Cmd::handleElevationError()
 {
-    MessageHandler::showMessage(MessageHandler::Critical, tr("Administrator Access Required"),
-                                tr("This operation requires administrator privileges. Please restart the "
-                                   "application and enter your password when prompted."));
-    QTimer::singleShot(0, qApp, &QCoreApplication::quit);
-    exit(EXIT_FAILURE);
+    // Do not abort here: record the denial and let the caller decide. A user who
+    // cancels the authentication dialog should land back at the stage that asked
+    // for elevation, not have the application exit under them.
+    s_elevationDenied = true;
+    const QString message = tr("Administrator access was not granted (authentication cancelled or denied).");
+    qWarning().noquote() << message;
+    emit errorAvailable(message + '\n');
 }

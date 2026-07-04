@@ -32,6 +32,16 @@
 
 namespace
 {
+// Exit codes 126/127 are reserved: pkexec maps them to "authentication failed"
+// and "authorization could not be obtained" respectively, and Cmd::helperProc()
+// on the caller side treats either as a denied/cancelled elevation. pkexec itself
+// cannot disambiguate this from an allow-listed command that legitimately exits
+// with one of these codes — it forwards the child's real exit status verbatim —
+// so this helper must never let either value escape, whether from its own
+// internal errors or from a wrapped command's real exit code.
+constexpr int HELPER_EXIT_INTERNAL_ERROR = 125; // this helper's own error (unknown/missing/unspawnable command)
+constexpr int HELPER_EXIT_CHILD_REMAPPED = 124; // an allowed command legitimately exited 126 or 127
+
 struct ProcessResult
 {
     bool started = false;
@@ -101,7 +111,7 @@ void printError(const QString &message)
     process.start(program, args, QIODevice::ReadWrite);
     if (!process.waitForStarted()) {
         writeAndFlush(stderr, QString("Failed to start %1\n").arg(program).toUtf8());
-        result.exitCode = 127;
+        result.exitCode = HELPER_EXIT_INTERNAL_ERROR;
         return result;
     }
 
@@ -122,7 +132,17 @@ void printError(const QString &message)
     if (!result.started) {
         return result.exitCode;
     }
-    return result.exitStatus == QProcess::NormalExit ? result.exitCode : 1;
+    if (result.exitStatus != QProcess::NormalExit) {
+        return 1;
+    }
+    if (result.exitCode == 126 || result.exitCode == 127) {
+        printError(QString("Note: command exited %1, remapped to %2 to avoid the reserved "
+                           "pkexec authentication exit codes")
+                       .arg(result.exitCode)
+                       .arg(HELPER_EXIT_CHILD_REMAPPED));
+        return HELPER_EXIT_CHILD_REMAPPED;
+    }
+    return result.exitCode;
 }
 
 [[nodiscard]] QByteArray readHelperInput()
@@ -139,16 +159,86 @@ void printError(const QString &message)
     const auto commandIt = allowedCommands().constFind(command);
     if (commandIt == allowedCommands().constEnd()) {
         printError(QString("Command is not allowed: %1").arg(command));
-        return 127;
+        return HELPER_EXIT_INTERNAL_ERROR;
     }
 
     const QString resolvedCommand = resolveBinary(commandIt.value());
     if (resolvedCommand.isEmpty()) {
         printError(QString("Command is not available: %1").arg(command));
-        return 127;
+        return HELPER_EXIT_INTERNAL_ERROR;
     }
 
     return relayResult(runProcess(resolvedCommand, commandArgs, input));
+}
+
+// Resolve a live-files template path, preferring the /usr/local copy when it
+// already exists (matches the paths used by the live-files package).
+[[nodiscard]] QString resolveLiveFile(const QString &relativeName)
+{
+    const QString localPath = "/usr/local/share/live-files/files/etc/" + relativeName;
+    if (QFile::exists(localPath)) {
+        return localPath;
+    }
+    return "/usr/share/live-files/files/etc/" + relativeName;
+}
+
+// The values are written as file content only, never evaluated. Strip quotes
+// and newlines so a crafted value cannot add extra lines or break the quoting
+// of these shell-sourced template files.
+[[nodiscard]] QString sanitizeTemplateValue(QString value)
+{
+    value.remove('"');
+    value.replace('\n', ' ');
+    value.replace('\r', ' ');
+    return value;
+}
+
+[[nodiscard]] int writeLiveFile(const QString &relativeName, const QString &content)
+{
+    QFile file(resolveLiveFile(relativeName));
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+        printError(QString("Could not write %1").arg(file.fileName()));
+        return 1;
+    }
+    const QByteArray data = content.toUtf8();
+    if (file.write(data) != data.size()) {
+        printError(QString("Could not write %1").arg(file.fileName()));
+        return 1;
+    }
+    return 0;
+}
+
+// Write the live-files mx-version template. These files are root-owned, so the
+// GUI (which runs unprivileged) cannot write them directly.
+[[nodiscard]] int writeVersionFile(const QStringList &args)
+{
+    if (args.size() != 3) {
+        printError(QStringLiteral("write_version_file requires: <full_distro> <codename> <release_date>"));
+        return 1;
+    }
+    const QString fullDistro = sanitizeTemplateValue(args.at(0));
+    const QString codename = sanitizeTemplateValue(args.at(1));
+    const QString releaseDate = sanitizeTemplateValue(args.at(2));
+    return writeLiveFile(QStringLiteral("mx-version"),
+                         QString("%1 %2 %3\n").arg(fullDistro, codename, releaseDate));
+}
+
+[[nodiscard]] int writeLsbRelease(const QStringList &args)
+{
+    if (args.size() != 3) {
+        printError(QStringLiteral("write_lsb_release requires: <project> <version> <codename>"));
+        return 1;
+    }
+    const QString project = sanitizeTemplateValue(args.at(0));
+    const QString version = sanitizeTemplateValue(args.at(1));
+    const QString codename = sanitizeTemplateValue(args.at(2));
+    const QString content = QString("PRETTY_NAME=\"%1 %2 %3\"\n"
+                                    "DISTRIB_ID=\"%1\"\n"
+                                    "DISTRIB_RELEASE=%2\n"
+                                    "DISTRIB_CODENAME=\"%3\"\n"
+                                    "DISTRIB_DESCRIPTION=\"%1 %2 %3\"\n")
+                                .arg(project, version, codename);
+    return writeLiveFile(QStringLiteral("lsb-release"), content);
 }
 } // namespace
 
@@ -164,6 +254,12 @@ int main(int argc, char *argv[])
     }
 
     const QString action = arguments.takeFirst();
+    if (action == QLatin1String("write_version_file")) {
+        return writeVersionFile(arguments);
+    }
+    if (action == QLatin1String("write_lsb_release")) {
+        return writeLsbRelease(arguments);
+    }
     if (action != QLatin1String("exec")) {
         printError(QString("Unsupported helper action: %1").arg(action));
         return 1;

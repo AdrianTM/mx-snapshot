@@ -115,20 +115,25 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
             exit(EXIT_FAILURE);
         }
 
+        // Clean up leftovers of a previous interrupted run. Only invoke the root
+        // helper when something is actually left behind: a normal startup then
+        // performs no elevated call at all (previously cleanup_overlay ran, and
+        // could prompt, on every launch even with nothing to clean).
         const QString appName = QCoreApplication::applicationName();
         const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
-        bool cleanupRan = false;
-        bool cleanupOk = true;
-        const QString elevateTool = Cmd::elevationTool();
-        if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf") || QFileInfo::exists(overlayBase)) {
-            cleanupRan = true;
-            cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup");
-        }
-        const QString overlayRoot = "/run/" + appName + "/bind-root-overlay/root";
+        const bool hasLiveCleanup = QFileInfo::exists("/tmp/installed-to-live/cleanup.conf");
+        const bool hasOverlayBase = QFileInfo::exists(overlayBase);
         const bool bindRootMounted = Cmd().run("mountpoint -q /.bind-root", Cmd::QuietMode::Yes)
-            || Cmd().run("mountpoint -q \"" + overlayRoot + "\"", Cmd::QuietMode::Yes);
-        if (!cleanupRan || cleanupOk || !bindRootMounted) {
-            Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            || (hasOverlayBase
+                && Cmd().run("mountpoint -q \"" + overlayBase + "/root\"", Cmd::QuietMode::Yes));
+        if (hasLiveCleanup || hasOverlayBase || bindRootMounted) {
+            const QString elevateTool = Cmd::elevationTool();
+            const bool cleanupOk = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup");
+            // Remove the overlay directories only when it is safe: either the
+            // cleanup above succeeded or nothing is mounted under them anymore.
+            if (hasOverlayBase && (cleanupOk || !bindRootMounted)) {
+                Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+            }
         }
 
         loadConfig(); // Load settings from .conf file
