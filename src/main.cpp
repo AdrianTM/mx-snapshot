@@ -138,7 +138,9 @@ int main(int argc, char *argv[])
              QObject::tr("Compression format, valid choices: ") + "lz4, lzo, gzip, xz, zstd",
              "format"},
             {"shutdown", QObject::tr("Shutdown computer when done.")},
-            {"grub-mbr", QObject::tr("Use grub for legacy mbr iso boot instead of isolinux/syslinux.")}};
+            {"grub-mbr", QObject::tr("Use grub for legacy mbr iso boot instead of isolinux/syslinux.")},
+            {"nvidia", QObject::tr("Add the 'xorg=nvidia' boot option to the ISO (for booting on a system with an "
+                                   "NVIDIA card).")}};
 
         for (const auto &option : options) {
             parser.addOption(option);

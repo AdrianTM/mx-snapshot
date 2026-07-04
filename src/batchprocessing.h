@@ -45,7 +45,6 @@ private:
     QTimer timer;
 
     void checkUpdatedDefaultExcludesCli();
-    void checkNvidiaGraphicsCard();
     [[nodiscard]] QString colorizeDiffAnsi(const QString &diff) const;
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;
     [[nodiscard]] bool resetCustomExcludesCli(const QString &configuredPath, const QString &sourcePath) const;

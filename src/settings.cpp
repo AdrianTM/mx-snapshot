@@ -204,6 +204,13 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
             setMonthlySnapshot(argParser);
         }
 
+        // Append the NVIDIA boot option after bootOptions is finalized (set in
+        // setVariables(), or reset in setMonthlySnapshot() for monthly builds).
+        // This is the non-interactive CLI equivalent of the GUI's NVIDIA prompt.
+        if (argParser.isSet("nvidia") && !bootOptions.contains("xorg=nvidia")) {
+            bootOptions = bootOptions.isEmpty() ? QStringLiteral("xorg=nvidia") : bootOptions + " xorg=nvidia";
+        }
+
         processExclArgs(argParser);
 
         // Validate final configuration
