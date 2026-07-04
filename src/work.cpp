@@ -755,26 +755,27 @@ void Work::setupEnv()
     }
 }
 
+void Work::runSnapshotLib(const QStringList &args)
+{
+    const QString elevateTool = Cmd::elevationTool();
+    // Mirror the elevateTool + snapshot-lib pattern used elsewhere: when no
+    // elevation tool is present (e.g. a minimal root CLI environment) run the
+    // helper directly — that works because we are already root. Everything is
+    // passed as argv, so the values are never parsed by a shell.
+    if (elevateTool.isEmpty()) {
+        Cmd().proc(snapshotLibPath(), args, nullptr, nullptr, Cmd::QuietMode::Yes);
+    } else {
+        Cmd().proc(elevateTool, QStringList {snapshotLibPath()} + args, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
+}
+
 void Work::writeLsbRelease()
 {
-    QString filePath = "/usr/local/share/live-files/files/etc/lsb-release";
-    if (!QFile::exists(filePath)) {
-        filePath = "/usr/share/live-files/files/etc/lsb-release";
-    }
-    QFile file(filePath);
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        return;
-    }
-
-    QTextStream stream(&file);
-    stream << "PRETTY_NAME=\"" << settings->projectName << " " << settings->distroVersion << " " << settings->codename
-           << "\"\n";
-    stream << "DISTRIB_ID=\"" << settings->projectName << "\"\n";
-    stream << "DISTRIB_RELEASE=" << settings->distroVersion << "\n";
-    stream << "DISTRIB_CODENAME=\"" << settings->codename << "\"\n";
-    stream << "DISTRIB_DESCRIPTION=\"" << settings->projectName << " " << settings->distroVersion << " "
-           << settings->codename << "\"\n";
-    file.close();
+    // The lsb-release template lives under root-owned /usr(/local)/share, so the
+    // GUI (unprivileged) cannot write it directly — a plain QFile write silently
+    // failed there, shipping stale distro metadata in the ISO. Write it through
+    // the root helper (snapshot-lib), passing the values as argv (no shell).
+    runSnapshotLib({"write_lsb_release", settings->projectName, settings->distroVersion, settings->codename});
 }
 
 // Write date of the snapshot in a "snapshot_created" file
@@ -787,18 +788,11 @@ void Work::writeSnapshotInfo()
 
 void Work::writeVersionFile()
 {
-    QString filePath = "/usr/local/share/live-files/files/etc/mx-version";
-    if (!QFile::exists(filePath)) {
-        filePath = "/usr/share/live-files/files/etc/mx-version";
-    }
-    QFile file(filePath);
-    if (!file.open(QFile::WriteOnly | QFile::Truncate)) {
-        return;
-    }
-
-    QTextStream stream(&file);
-    stream << settings->fullDistroName << " " << settings->codename << " " << settings->releaseDate << "\n";
-    file.close();
+    // Same rationale as writeLsbRelease(): the mx-version template is root-owned,
+    // so write it through snapshot-lib rather than an unprivileged QFile that
+    // silently fails in the GUI. Values are passed as argv and only used as
+    // file content.
+    runSnapshotLib({"write_version_file", settings->fullDistroName, settings->codename, settings->releaseDate});
 }
 
 void Work::writeUnsquashfsSize(const QString &text)

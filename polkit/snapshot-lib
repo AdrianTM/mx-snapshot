@@ -74,6 +74,38 @@ datetime_log() {
     date +"%Y%m%d_%H%M" > /etc/snapshot_created
 }
 
+# Resolve a live-files template path, preferring the /usr/local copy when it
+# already exists (matches Work::writeVersionFile / writeLsbRelease).
+resolve_live_file() {
+    local rel=$1 local_path="/usr/local/share/live-files/files/etc/$1"
+    if [[ -e "$local_path" ]]; then
+        printf '%s\n' "$local_path"
+    else
+        printf '%s\n' "/usr/share/live-files/files/etc/$rel"
+    fi
+}
+
+# Write the live-files mx-version template as root. These files are root-owned,
+# so the GUI (which runs unprivileged) cannot write them directly; the values
+# are passed as arguments and only ever used as file content, never evaluated.
+write_version_file() {
+    local full_distro=$1 codename=$2 release_date=$3 file
+    file=$(resolve_live_file mx-version)
+    printf '%s %s %s\n' "$full_distro" "$codename" "$release_date" > "$file"
+}
+
+write_lsb_release() {
+    local project=$1 version=$2 codename=$3 file
+    file=$(resolve_live_file lsb-release)
+    {
+        printf 'PRETTY_NAME="%s %s %s"\n' "$project" "$version" "$codename"
+        printf 'DISTRIB_ID="%s"\n' "$project"
+        printf 'DISTRIB_RELEASE=%s\n' "$version"
+        printf 'DISTRIB_CODENAME="%s"\n' "$codename"
+        printf 'DISTRIB_DESCRIPTION="%s %s %s"\n' "$project" "$version" "$codename"
+    } > "$file"
+}
+
 kill_mksquashfs() {
     pkill mksquashfs
 }
@@ -128,6 +160,10 @@ case "$1" in
         copy_log "$2";;
     datetime_log)
         datetime_log;;
+    write_version_file)
+        write_version_file "$2" "$3" "$4";;
+    write_lsb_release)
+        write_lsb_release "$2" "$3" "$4";;
     kill_mksquashfs)
         kill_mksquashfs;;
     drop_caches)
