@@ -74,6 +74,8 @@ signals:
 private:
     // Utility
     [[nodiscard]] static QString snapshotLibPath();
+    // Run a snapshot-lib subcommand as root, passing args as argv (no shell).
+    static void runSnapshotLib(const QStringList &args);
 
     // Space and environment management
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
