@@ -386,8 +386,12 @@ void Work::copyNewIso()
 
     openInitrd(settings->workDir + "/iso-template/antiX/initrd.gz", path);
 
-    // Strip modules; make sure initrd_dir is correct to avoid disaster
-    if (path.startsWith("/tmp/")) {
+    // Strip modules, but only inside our own temp dir so a wrong path can never
+    // remove a real /lib/modules. Key the guard on the actual temp base
+    // (QTemporaryDir honours $TMPDIR) rather than a literal "/tmp/", which
+    // silently skipped the strip whenever TMPDIR pointed elsewhere (e.g. /var/tmp),
+    // leaving the template's stale modules to pile up with the copied ones.
+    if (initrd_dir.isValid() && path.startsWith(QDir::tempPath() + '/')) {
         QDir modulesDir(path + "/lib/modules");
         if (modulesDir.exists()) {
             modulesDir.removeRecursively();
