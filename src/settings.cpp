@@ -38,6 +38,9 @@
 
 #include <exception>
 #include <stdexcept>
+
+#include <pwd.h>
+#include <sys/stat.h>
 #include <unistd.h>
 
 #include "messagehandler.h"
@@ -112,11 +115,23 @@ void chownFileToLoggedInUser(const QString &path)
     if (username.isEmpty() || path.isEmpty()) {
         return;
     }
-    const QFileInfo fileInfo(path);
-    if (!fileInfo.exists() || fileInfo.isWritable()) {
+    // Never chown through a symlink: run as root the chown would follow it and
+    // could hand ownership of an arbitrary target file to the user.
+    struct stat st;
+    const QByteArray pathBytes = path.toLocal8Bit();
+    if (lstat(pathBytes.constData(), &st) != 0 || S_ISLNK(st.st_mode)) {
         return;
     }
-    Cmd().procAsRoot("chown", {username + ":", path}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    // Only chown when the file is not already owned by the target user. The
+    // previous isWritable() guard was wrong: a root process can write almost any
+    // file, so the chown was always skipped and root-created config/exclude files
+    // stayed root-owned, leaving the user unable to edit them.
+    const struct passwd *pw = getpwnam(username.toLocal8Bit().constData());
+    if (pw == nullptr || st.st_uid == pw->pw_uid) {
+        return;
+    }
+    // -h: operate on the path itself (defends against a TOCTOU symlink swap).
+    Cmd().procAsRoot("chown", {"-h", username + ":", path}, nullptr, nullptr, Cmd::QuietMode::Yes);
 }
 
 } // namespace
