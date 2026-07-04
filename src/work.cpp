@@ -1519,6 +1519,7 @@ quint64 Work::getRequiredSpace()
     };
     // Expand patterns without shell globbing or symlinked intermediate traversal.
     const auto expandExcludePattern = [&](QString rawPattern) -> QStringList {
+        const QString original = rawPattern;
         if (rawPattern.startsWith('/')) {
             rawPattern.remove(0, 1);
         }
@@ -1533,7 +1534,14 @@ quint64 Work::getRequiredSpace()
             relativePattern.remove(0, 1);
         }
         if (relativePattern.isEmpty()) {
-            return {sizeRootBase};
+            // A pattern that resolves to the whole root (e.g. "/", ".", "foo/..")
+            // is malformed — excluding everything is meaningless. Returning the
+            // root here made the nested-path filter collapse every exclude into
+            // the root, so excl_size == root_size and the space check was bypassed
+            // (near-zero estimate). Ignore it instead, which keeps the estimate
+            // conservative (nothing subtracted).
+            qWarning() << "Ignoring exclude pattern that resolves to the whole root:" << original;
+            return {};
         }
         QStringList components = relativePattern.split('/', Qt::SkipEmptyParts);
         QStringList current {sizeRootBase};
