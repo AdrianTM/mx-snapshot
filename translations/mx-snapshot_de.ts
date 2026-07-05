@@ -792,7 +792,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/main.cpp" line="140"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"/>
+        <translation>GRUB verwenden für das - veraltete- Booten der Iso-Datei vom MBR anstelle von isolinux/syslinux.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="214"/>
@@ -1182,10 +1182,10 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <location filename="../src/work.cpp" line="459"/>
         <location filename="../src/work.cpp" line="496"/>
         <location filename="../src/work.cpp" line="533"/>
-        <location filename="../src/work.cpp" line="674"/>
-        <location filename="../src/work.cpp" line="708"/>
-        <location filename="../src/work.cpp" line="721"/>
-        <location filename="../src/work.cpp" line="729"/>
+        <location filename="../src/work.cpp" line="676"/>
+        <location filename="../src/work.cpp" line="710"/>
+        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -1212,7 +1212,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/work.cpp" line="367"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
-        <translation type="unfinished"/>
+        <translation>--grub-mbr Optionen sind angegeben aber die Datei boot/grub/i386-pc/eltorito.img von iso-template fehlt</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="379"/>
@@ -1285,28 +1285,28 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
         <translation>Neue initrd Datei wird erstellt ....</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="677"/>
         <source>Could not create working directory. </source>
         <translation>Konnte kein Arbeitsverzeichnis anlegen.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="709"/>
+        <location filename="../src/work.cpp" line="711"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Sicheres bind-root Overlay konnte nicht vorbereitet werden. Snapshot kann nicht weiter ausgeführt werden.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="722"/>
-        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="724"/>
+        <location filename="../src/work.cpp" line="732"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Die bind-root Umgebung für Snapshot konnte nicht vorbereitet werden.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1036"/>
+        <location filename="../src/work.cpp" line="1038"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Berechne die Gesamtgröße der ausgeschlossenen Dateien ...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Calculating size of root...</source>
         <translation>Berechne die Größe von root ...</translation>
     </message>

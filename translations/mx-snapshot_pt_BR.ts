@@ -1179,10 +1179,10 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <location filename="../src/work.cpp" line="459"/>
         <location filename="../src/work.cpp" line="496"/>
         <location filename="../src/work.cpp" line="533"/>
-        <location filename="../src/work.cpp" line="674"/>
-        <location filename="../src/work.cpp" line="708"/>
-        <location filename="../src/work.cpp" line="721"/>
-        <location filename="../src/work.cpp" line="729"/>
+        <location filename="../src/work.cpp" line="676"/>
+        <location filename="../src/work.cpp" line="710"/>
+        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
@@ -1282,28 +1282,28 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Construindo o novo ‘initrd’...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="677"/>
         <source>Could not create working directory. </source>
         <translation>Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="709"/>
+        <location filename="../src/work.cpp" line="711"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Não foi possível montar um outro diretório por cima do diretório raiz do sistema. Não é possível continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="722"/>
-        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="724"/>
+        <location filename="../src/work.cpp" line="732"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Não foi possível montar o ambiente de captura do diretório raiz do sistema.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1036"/>
+        <location filename="../src/work.cpp" line="1038"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando o tamanho total dos arquivos excluídos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Calculating size of root...</source>
         <translation>Calculando o tamanho da raiz (‘root’)...</translation>
     </message>

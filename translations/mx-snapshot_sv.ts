@@ -1179,10 +1179,10 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <location filename="../src/work.cpp" line="459"/>
         <location filename="../src/work.cpp" line="496"/>
         <location filename="../src/work.cpp" line="533"/>
-        <location filename="../src/work.cpp" line="674"/>
-        <location filename="../src/work.cpp" line="708"/>
-        <location filename="../src/work.cpp" line="721"/>
-        <location filename="../src/work.cpp" line="729"/>
+        <location filename="../src/work.cpp" line="676"/>
+        <location filename="../src/work.cpp" line="710"/>
+        <location filename="../src/work.cpp" line="723"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -1282,28 +1282,28 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Skapar ny initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="677"/>
         <source>Could not create working directory. </source>
         <translation>Kunde inte skapa arbetskatalog.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="709"/>
+        <location filename="../src/work.cpp" line="711"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Kunde inte förbereda en säker bind-root overlay. Snapshot kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="722"/>
-        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="724"/>
+        <location filename="../src/work.cpp" line="732"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Kunde inte förbereda snapshotets bind-root miljö.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1036"/>
+        <location filename="../src/work.cpp" line="1038"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>
