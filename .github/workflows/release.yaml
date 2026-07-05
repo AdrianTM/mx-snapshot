@@ -2,8 +2,11 @@ name: Create Release
 
 on:
   push:
-    tags:
-      - '*'
+    tags-ignore:
+      - '*arch*'
+
+permissions:
+  contents: write
 
 jobs:
   create-release:
