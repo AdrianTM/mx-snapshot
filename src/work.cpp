@@ -1481,7 +1481,11 @@ quint64 Work::getRequiredSpace()
     bool includeHomeDevice = false;
     if (!settings->live) {
         rootDevice = rootInfo.device();
-        if (homeInfo.isValid() && homeInfo.isRoot() && homeInfo.device() != rootDevice) {
+        // isRoot() is true exactly when /home shares the root filesystem, which
+        // means device() == rootDevice always holds in that case — the intended
+        // check is the opposite: /home is a separate partition (!isRoot()) whose
+        // usage must be added to the required-space estimate below.
+        if (homeInfo.isValid() && !homeInfo.isRoot() && homeInfo.device() != rootDevice) {
             homeDevice = homeInfo.device();
             includeHomeDevice = true;
         }
