@@ -23,6 +23,7 @@
  **********************************************************************/
 #include "elevationbroker.h"
 
+#include <QCoreApplication>
 #include <QDebug>
 #include <QEventLoop>
 
@@ -38,6 +39,14 @@ ElevationBroker::ElevationBroker(QObject *parent)
     connect(&proc, &QProcess::readyReadStandardOutput, this, &ElevationBroker::onStdout);
     connect(&proc, &QProcess::readyReadStandardError, this, &ElevationBroker::onStderr);
     connect(&proc, &QProcess::finished, this, &ElevationBroker::onFinished);
+    if (QCoreApplication::instance() != nullptr) {
+        connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &ElevationBroker::shutdown);
+    }
+}
+
+ElevationBroker::~ElevationBroker()
+{
+    shutdown();
 }
 
 bool ElevationBroker::isReady() const
@@ -49,6 +58,9 @@ ElevationBroker::Launch ElevationBroker::ensureStarted(const QString &helperPath
 {
     if (isReady()) {
         return Launch::Ready;
+    }
+    if (shuttingDown) {
+        return Launch::Failed;
     }
     if (proc.state() == QProcess::NotRunning) {
         ready = false;
@@ -120,6 +132,28 @@ void ElevationBroker::killActiveChild()
     if (proc.state() == QProcess::Running) {
         proc.write("KILL\n");
     }
+}
+
+void ElevationBroker::shutdown()
+{
+    if (proc.state() == QProcess::NotRunning) {
+        return;
+    }
+    shuttingDown = true;
+    ready = false;
+    failAllPending();
+    wakeLaunchWaiters();
+
+    proc.closeWriteChannel(); // helper serve exits on stdin EOF
+    if (proc.waitForFinished(3000)) {
+        return;
+    }
+    proc.terminate();
+    if (proc.waitForFinished(1000)) {
+        return;
+    }
+    proc.kill();
+    proc.waitForFinished(1000);
 }
 
 void ElevationBroker::onStdout()

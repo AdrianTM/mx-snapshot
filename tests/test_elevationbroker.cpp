@@ -96,6 +96,15 @@ private slots:
         QCOMPARE(code, 0);
     }
 
+    void shutdownStopsBroker()
+    {
+        auto &broker = ElevationBroker::instance();
+        QCOMPARE(broker.ensureStarted(helperPath, "/usr/bin/env"), ElevationBroker::Launch::Ready);
+
+        broker.shutdown();
+        QVERIFY(!broker.isReady());
+    }
+
 private:
     QString helperPath;
 };

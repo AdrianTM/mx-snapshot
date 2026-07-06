@@ -45,6 +45,7 @@ public:
     enum class Launch { Ready, Denied, Failed };
 
     static ElevationBroker &instance();
+    ~ElevationBroker() override;
 
     // Start (or confirm) the broker. Blocks — pumping the event loop, so the
     // GUI stays responsive behind the pkexec dialog — until the broker prints
@@ -62,6 +63,7 @@ public:
     // Out-of-band: terminate the currently running child's process group
     // (e.g. mksquashfs on cancel). Queued requests still run afterwards.
     void killActiveChild();
+    void shutdown();
 
     [[nodiscard]] bool isReady() const;
 
@@ -91,6 +93,7 @@ private:
     QList<class QEventLoop *> launchWaiters;
     quint64 nextId = 1;
     bool ready = false;
+    bool shuttingDown = false;
     // O-frame payload currently being streamed
     quint64 frameId = 0;
     qint64 frameRemaining = -1;
