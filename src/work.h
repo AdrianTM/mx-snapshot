@@ -41,7 +41,7 @@ public:
 
     // Main workflow methods
     [[nodiscard]] quint64 getRequiredSpace();
-    [[noreturn]] void cleanUp();
+    void cleanUp();
     bool createIso(const QString &filename);
     void checkEnoughSpace();
     void setupEnv();
@@ -51,6 +51,7 @@ public:
     // Status accessors
     [[nodiscard]] bool isStarted() const { return started; }
     [[nodiscard]] bool isDone() const { return done; }
+    [[nodiscard]] bool isCleaningUp() const { return cleanupStarted; }
     [[nodiscard]] qint64 getElapsedTime() const { return e_timer.elapsed(); }
     [[nodiscard]] const Settings& getSettings() const { return *settings; }
 
@@ -59,7 +60,7 @@ public:
     void markDone() { done = true; }
 
     // Utility methods
-    [[nodiscard]] static bool checkInstalled(const QString &package);
+    [[nodiscard]] bool checkInstalled(const QString &package) const;
     [[nodiscard]] bool isEnvironmentReady() const;
     bool installPackage(const QString &package);
 
@@ -72,7 +73,6 @@ signals:
 
 private:
     // Utility
-    [[nodiscard]] static QString snapshotLibPath();
     // If a prior root call in this pipeline was denied/cancelled, report it and
     // abort via cleanUp() instead of silently proceeding to the next privileged
     // step (which would otherwise re-prompt for auth right after a cancel).
@@ -80,11 +80,14 @@ private:
 
     // Space and environment management
     [[nodiscard]] bool checkAndMoveWorkDir(const QString &dir, quint64 req_size);
-    void checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
+    // Returns true when there is enough space to continue; false after kicking off
+    // cleanUp() so callers can early-return without exiting from inside this helper.
+    [[nodiscard]] bool checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir);
 
     // Bind-root overlay management
     [[nodiscard]] bool setupBindRootOverlay();
     void cleanupBindRootOverlay();
+    [[nodiscard]] bool ensureOverlayModuleLoaded();
 
     // File operations
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);
@@ -96,6 +99,11 @@ private:
     void closeInitrd(const QString &initrd_dir, const QString &file);
     void openInitrd(const QString &file, const QString &initrd_dir);
     void copyModules(const QString &to, const QString &kernel);
+
+    // Arch initramfs helpers
+    [[nodiscard]] QString kernelImageVersion(const QString &kernelPath) const;
+    [[nodiscard]] QString initramfsKernelVersion(const QString &initramfsPath) const;
+    bool rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath);
 
     // Configuration file generation
     void replaceMenuStrings();
@@ -109,8 +117,10 @@ private:
     QElapsedTimer e_timer;
     bool started = false;
     bool done = false;
+    bool cleanupStarted = false;
     QTemporaryDir initrd_dir;
     QString bindRootPath = "/.bind-root";
     QString bindRootOverlayBase;
     bool bindRootOverlayActive = false;
+    QString installerLinkToRemove;  // Installer Desktop link in user's home; cleared on cleanup
 };

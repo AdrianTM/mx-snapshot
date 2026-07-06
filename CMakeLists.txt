@@ -22,24 +22,65 @@
 
 cmake_minimum_required(VERSION 3.16)
 
-# Get version from debian/changelog
-execute_process(
-    COMMAND dpkg-parsechangelog -SVersion
-    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-    OUTPUT_VARIABLE PROJECT_VERSION_FROM_CHANGELOG
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-    RESULT_VARIABLE DPKG_RESULT
-)
+# Resolve project version with a fallback chain so the build works in:
+#   - git checkouts (uses the latest tag)
+#   - Debian source builds (uses dpkg-parsechangelog)
+#   - Arch / source tarballs without git or dpkg (regex on debian/changelog)
+# Override with -DGIT_TAG_VERSION=x.y.z to skip detection.
+if(NOT GIT_TAG_VERSION)
+    find_program(GIT_EXECUTABLE git)
+    if(GIT_EXECUTABLE)
+        # Match version-shaped tags only (e.g. 26.04.2), so non-version tags
+        # like "pre-unify-main" don't pollute the project version.
+        execute_process(
+            COMMAND ${GIT_EXECUTABLE} describe --tags --abbrev=0 --match "[0-9]*"
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            RESULT_VARIABLE GIT_RESULT
+            ERROR_QUIET
+        )
+    endif()
+endif()
 
-if(NOT DPKG_RESULT EQUAL 0 OR NOT PROJECT_VERSION_FROM_CHANGELOG)
-    message(FATAL_ERROR "Failed to get version from debian/changelog using dpkg-parsechangelog")
+if(NOT GIT_TAG_VERSION)
+    find_program(DPKG_PARSECHANGELOG dpkg-parsechangelog)
+    if(DPKG_PARSECHANGELOG)
+        execute_process(
+            COMMAND ${DPKG_PARSECHANGELOG} -SVersion
+            WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+            OUTPUT_VARIABLE GIT_TAG_VERSION
+            OUTPUT_STRIP_TRAILING_WHITESPACE
+            ERROR_QUIET
+        )
+    endif()
+endif()
+
+if(NOT GIT_TAG_VERSION AND EXISTS "${CMAKE_SOURCE_DIR}/debian/changelog")
+    file(READ "${CMAKE_SOURCE_DIR}/debian/changelog" CHANGELOG_CONTENTS)
+    string(REGEX MATCH "^[^ ]+ \\(([^)]+)\\)" _match "${CHANGELOG_CONTENTS}")
+    set(GIT_TAG_VERSION "${CMAKE_MATCH_1}")
+endif()
+
+if(NOT GIT_TAG_VERSION)
+    message(FATAL_ERROR "Failed to determine version from git tag, dpkg-parsechangelog, or debian/changelog")
+endif()
+
+# Option to use clang for testing builds. The compiler must be chosen BEFORE
+# project() enables the CXX language — setting CMAKE_CXX_COMPILER afterwards is
+# silently ignored, which used to make --clang build with the default compiler.
+option(USE_CLANG "Use clang compiler" OFF)
+if(USE_CLANG)
+    set(CMAKE_C_COMPILER clang)
+    set(CMAKE_CXX_COMPILER clang++)
+    message(STATUS "Using clang compiler")
 endif()
 
 project(mx-snapshot
-    VERSION ${PROJECT_VERSION_FROM_CHANGELOG}
     DESCRIPTION "MX Snapshot - A tool for creating live ISO images from running MX Linux systems"
     LANGUAGES CXX
 )
+set(PROJECT_VERSION "${GIT_TAG_VERSION}")
 
 # Set default build type if not specified
 if(NOT CMAKE_BUILD_TYPE)
@@ -64,23 +105,23 @@ if(CMAKE_GENERATOR STREQUAL "Ninja")
     endif()
 endif()
 
-# Option to use clang for testing builds
-option(USE_CLANG "Use clang compiler" OFF)
-if(USE_CLANG)
-    set(CMAKE_C_COMPILER clang)
-    set(CMAKE_CXX_COMPILER clang++)
-    set(CMAKE_CXX_COMPILER_ID "Clang")
-    message(STATUS "Using clang compiler")
-endif()
-
 # Options to control what to build
 option(BUILD_GUI "Build GUI version" ON)
 option(BUILD_CLI "Build CLI version" ON)
+option(ARCH_BUILD "Build for Arch Linux" OFF)
+option(BUILD_TESTS "Build test suite" OFF)
+
+if(ARCH_BUILD)
+    add_compile_definitions(ARCH_BUILD)
+endif()
 
 # Find Qt6 components - include all components needed for either build
 set(QT_COMPONENTS Core LinguistTools)
 if(BUILD_GUI)
     list(APPEND QT_COMPONENTS Gui Widgets)
+endif()
+if(BUILD_TESTS)
+    list(APPEND QT_COMPONENTS Test Widgets)
 endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
@@ -95,6 +136,7 @@ set(COMMON_SOURCES
     src/log.cpp
     src/main.cpp
     src/cmd.cpp
+    src/elevationbroker.cpp
     src/settings.cpp
     src/batchprocessing.cpp
     src/work.cpp
@@ -102,12 +144,14 @@ set(COMMON_SOURCES
     src/systeminfo.cpp
     src/messagehandler.cpp
     src/excludesutils.cpp
+    src/squashfsutils.cpp
 )
 
 set(COMMON_HEADERS
     src/common.h
     src/log.h
     src/cmd.h
+    src/elevationbroker.h
     src/settings.h
     src/batchprocessing.h
     src/work.h
@@ -115,6 +159,7 @@ set(COMMON_HEADERS
     src/systeminfo.h
     src/messagehandler.h
     src/excludesutils.h
+    src/squashfsutils.h
 )
 
 set(HELPER_SOURCES
@@ -160,7 +205,6 @@ if(BUILD_GUI)
         Qt6::Gui
         Qt6::Widgets
     )
-
     set_target_properties(mx-snapshot PROPERTIES
         OUTPUT_NAME "mx-snapshot"
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -195,7 +239,6 @@ if(BUILD_CLI)
     target_link_libraries(iso-snapshot-cli
         Qt6::Core
     )
-
     set_target_properties(iso-snapshot-cli PROPERTIES
         OUTPUT_NAME "iso-snapshot-cli"
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -257,6 +300,45 @@ if(BUILD_CLI)
 endif()
 
 set_common_properties(helper)
+
+if(BUILD_TESTS)
+    enable_testing()
+
+    add_executable(test-squashfsutils
+        tests/test_squashfsutils.cpp
+        src/squashfsutils.cpp
+        src/squashfsutils.h
+    )
+    target_link_libraries(test-squashfsutils Qt6::Core Qt6::Test)
+    target_include_directories(test-squashfsutils PRIVATE src)
+    set_common_properties(test-squashfsutils)
+    add_test(NAME squashfsutils COMMAND test-squashfsutils)
+
+    add_executable(test-cmd
+        tests/test_cmd.cpp
+        src/cmd.cpp
+        src/elevationbroker.cpp
+        src/messagehandler.cpp
+        src/cmd.h
+        src/elevationbroker.h
+        src/messagehandler.h
+    )
+    target_link_libraries(test-cmd Qt6::Core Qt6::Test Qt6::Widgets)
+    target_include_directories(test-cmd PRIVATE src)
+    set_common_properties(test-cmd)
+    add_test(NAME cmd COMMAND test-cmd)
+
+    add_executable(test-elevationbroker
+        tests/test_elevationbroker.cpp
+        src/elevationbroker.cpp
+        src/elevationbroker.h
+    )
+    target_link_libraries(test-elevationbroker Qt6::Core Qt6::Test)
+    target_include_directories(test-elevationbroker PRIVATE src)
+    set_common_properties(test-elevationbroker)
+    add_dependencies(test-elevationbroker helper)
+    add_test(NAME elevationbroker COMMAND test-elevationbroker)
+endif()
 
 # Handle translations
 if(BUILD_GUI)

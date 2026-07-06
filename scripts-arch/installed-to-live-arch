@@ -1,0 +1,991 @@
+#!/bin/bash
+# **********************************************************************
+# * installed-to-live-arch — Arch counterpart to mx-remaster's
+# *   /usr/sbin/installed-to-live, used by mx-snapshot to prepare a
+# *   bind-root environment from a running system before snapshotting.
+# *
+# *   Behavioural parity target: the BindRootManager Qt class on the
+# *   pre-unify `arch` branch (src/bindrootmanager.cpp). This shell
+# *   port keeps the same actions, the same on-disk layout, the same
+# *   demo-user / passwd-munging policy, and the same cleanup
+# *   contract — just expressed in bash so we don't have to maintain
+# *   ~1100 lines of Qt code that mostly drives subprocess invocations.
+# *
+# *   CLI contract (matched to the existing Qt call sites):
+# *     installed-to-live-arch [-F] -b <bindRoot> start [ACTION...]
+# *     installed-to-live-arch    -b <bindRoot> read-only
+# *     installed-to-live-arch                  cleanup
+# *
+# *   Actions accepted with `start` (any combination, repeatable):
+# *     bind=<dir>          mount --bind /<dir>          → bindRoot/<dir>
+# *     empty=<dir>         mount empty tmpdir           → bindRoot/<dir>
+# *     live-files          ship /usr/share/live-files/files
+# *     general             live-files + general-files + passwd + timezone
+# *     version-file[=t]    write /etc/live/version/linuxfs.ver template
+# *     adjtime             zero-out /etc/adjtime in template
+# *
+# * Copyright (C) 2026 MX Authors
+# * Authors: Adrian, MX Linux <http://mxlinux.org>
+# *
+# * This program is free software: you can redistribute it and/or modify
+# * it under the terms of the GNU General Public License as published by
+# * the Free Software Foundation, either version 3 of the License, or
+# * (at your option) any later version.
+# *
+# * Distributed in the hope that it will be useful, but WITHOUT ANY
+# * WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# * FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+# * for more details.
+# **********************************************************************/
+
+set -u
+
+ME=${0##*/}
+APP_NAME=${APP_NAME:-mx-snapshot}
+
+LIVE_FILES_DIR=/usr/share/live-files
+PRIMARY_STATE_DIR=/run/$APP_NAME
+FALLBACK_STATE_DIR=/tmp/$APP_NAME
+STATE_FILE_NAME=cleanup-arch.state
+
+# Globals populated by argument parsing / start.
+BIND_ROOT=""
+WORK_DIR=""
+FORCE=0
+REAL_ROOT=/
+
+# Cleanup state (mirrors BindRootManager::rmDirs / rmFiles).
+RM_FILES=()
+RM_DIRS=()
+
+# ------------------------------------------------------------------- log
+log() { printf '%s: %s\n' "$ME" "$*" >&2; }
+warn() { log "warn: $*"; }
+fatal() { log "error: $*"; exit 2; }
+require_root() {
+    if [[ $(id -u) -ne 0 ]]; then
+        fatal "must run as root (currently uid=$(id -u))"
+    fi
+}
+
+# ------------------------------------------------------------------- state
+state_dir() {
+    if [[ -d $PRIMARY_STATE_DIR && -w $PRIMARY_STATE_DIR ]] || install -d -m 0755 "$PRIMARY_STATE_DIR" 2>/dev/null; then
+        printf '%s\n' "$PRIMARY_STATE_DIR"
+        return 0
+    fi
+    install -d -m 0755 "$FALLBACK_STATE_DIR" 2>/dev/null || fatal "cannot create state dir"
+    printf '%s\n' "$FALLBACK_STATE_DIR"
+}
+
+state_file() {
+    local d
+    if [[ -f $PRIMARY_STATE_DIR/$STATE_FILE_NAME ]]; then
+        printf '%s\n' "$PRIMARY_STATE_DIR/$STATE_FILE_NAME"
+        return 0
+    fi
+    if [[ -f $FALLBACK_STATE_DIR/$STATE_FILE_NAME ]]; then
+        printf '%s\n' "$FALLBACK_STATE_DIR/$STATE_FILE_NAME"
+        return 0
+    fi
+    d=$(state_dir)
+    printf '%s\n' "$d/$STATE_FILE_NAME"
+}
+
+# Lines:
+#   BIND_ROOT=<path>
+#   WORK_DIR=<path>
+#   REAL_ROOT=<path>
+#   FILE\t<path>
+#   DIR\t<path>
+persist_state() {
+    local f
+    f=$(state_file) || return 1
+    {
+        printf 'BIND_ROOT=%s\n' "$BIND_ROOT"
+        printf 'WORK_DIR=%s\n' "$WORK_DIR"
+        printf 'REAL_ROOT=%s\n' "$REAL_ROOT"
+        local p
+        for p in "${RM_FILES[@]}"; do
+            printf 'FILE\t%s\n' "$p"
+        done
+        for p in "${RM_DIRS[@]}"; do
+            printf 'DIR\t%s\n' "$p"
+        done
+    } > "$f.tmp" || return 1
+    mv "$f.tmp" "$f"
+    chmod 0644 "$f"
+}
+
+load_state() {
+    local f
+    f=$(state_file) || return 1
+    [[ -f $f ]] || return 1
+    RM_FILES=()
+    RM_DIRS=()
+    local line
+    while IFS= read -r line; do
+        case $line in
+            BIND_ROOT=*) BIND_ROOT=${line#BIND_ROOT=} ;;
+            WORK_DIR=*) WORK_DIR=${line#WORK_DIR=} ;;
+            REAL_ROOT=*) REAL_ROOT=${line#REAL_ROOT=} ;;
+            FILE$'\t'*) RM_FILES+=("${line#FILE$'\t'}") ;;
+            DIR$'\t'*) RM_DIRS+=("${line#DIR$'\t'}") ;;
+        esac
+    done < "$f"
+    return 0
+}
+
+add_rm_file() {
+    local p=$1
+    local existing
+    for existing in "${RM_FILES[@]}"; do
+        [[ $existing == "$p" ]] && return 0
+    done
+    RM_FILES+=("$p")
+    persist_state
+}
+
+add_rm_dir() {
+    local p=$1
+    local existing
+    for existing in "${RM_DIRS[@]}"; do
+        [[ $existing == "$p" ]] && return 0
+    done
+    RM_DIRS+=("$p")
+    persist_state
+}
+
+# ------------------------------------------------------------------- mount helpers
+is_mounted() { mountpoint -q "$1" 2>/dev/null; }
+
+bind_mount() {
+    # bind_mount <src> <dst>  — best-effort, warns on failure.
+    local src=$1 dst=$2
+    mount --bind "$src" "$dst" || { warn "bind mount failed: $src -> $dst"; return 1; }
+}
+
+# Mirrors BindRootManager::makeDir: create <target>, and if <orig> didn't
+# exist on the real root (so we created an empty dir there indirectly via
+# the bind-mount layout), record <orig> for cleanup removal.
+make_dir() {
+    local target=$1 orig=$2
+    if [[ -d $target ]]; then
+        return 0
+    fi
+    if [[ ! -e $orig ]]; then
+        add_rm_dir "$orig"
+    fi
+    mkdir -p "$target"
+}
+
+# Mirrors BindRootManager::touchFile: ensure <target> exists as a regular
+# file, creating its parent dirs and tracking <orig> for cleanup if it had
+# to be created.
+touch_file() {
+    local target=$1 orig=$2
+    if [[ -e $target ]]; then
+        [[ -f $target ]]
+        return $?
+    fi
+    local parent_target=${target%/*}
+    local parent_orig=${orig%/*}
+    make_dir "$parent_target" "$parent_orig" || return 1
+    if [[ ! -e $orig ]]; then
+        add_rm_file "$orig"
+    fi
+    : > "$target"
+}
+
+copy_template_dir() {
+    # Mirrors BindRootManager::copyTemplateDir: cp -a source/. dest/
+    local source=$1 dest=$2
+    [[ -d $source ]] || { warn "template missing: $source"; return 0; }
+    mkdir -p "$dest"
+    cp -a "$source"/. "$dest"/
+}
+
+# Mirrors BindRootManager::bindMountTemplate: walk every regular file in
+# <templateDir>, ensure a same-named placeholder exists at the matching
+# bindRoot path (creating dirs/files as needed), and bind-mount the
+# template file over it. Symlinks and .part marker files are skipped on
+# the Arch port.
+bind_mount_template() {
+    local template_dir=$1
+    [[ -d $template_dir ]] || { warn "template dir missing: $template_dir"; return 0; }
+
+    # find prints absolute paths under template_dir; strip prefix to get the
+    # path relative to template root, which is the same path under realRoot
+    # and bindRoot.
+    local file relative orig target
+    while IFS= read -r -d '' file; do
+        # Skip .part marker files (Arch-specific live-files convention).
+        case ${file##*/} in
+            files.part|general-files.part) continue ;;
+        esac
+
+        relative=${file#"$template_dir"}
+        orig=${REAL_ROOT%/}$relative
+        target=${BIND_ROOT%/}$relative
+
+        # Symlinks: copy into the real root if absent, mirroring the C++
+        # logic. Don't bind-mount symlinks.
+        if [[ -L $file ]]; then
+            if [[ ! -e $orig ]]; then
+                cp -a "$file" "$orig" || { warn "failed to copy symlink: $file"; continue; }
+                local link_target
+                link_target=$(readlink "$orig" 2>/dev/null || true)
+                if [[ -n $link_target && -e $link_target ]]; then
+                    add_rm_file "$orig"
+                else
+                    rm -f "$orig"
+                fi
+            fi
+            continue
+        fi
+
+        # Refuse to clobber a symlink at the bind target.
+        if [[ -L $orig ]]; then
+            warn "refusing to bind-mount over symlink: $orig"
+            continue
+        fi
+
+        if ! touch_file "$target" "$orig"; then
+            warn "failed to prepare bind target: $target"
+            continue
+        fi
+        if ! bind_mount "$file" "$target"; then
+            return 1
+        fi
+    done < <(find "$template_dir" -type f -print0; find "$template_dir" -type l -print0)
+    return 0
+}
+
+# ------------------------------------------------------------------- start
+do_start() {
+    require_root
+    [[ -n $BIND_ROOT ]] || fatal "start: missing -b <bindRoot>"
+
+    if [[ -z $WORK_DIR ]]; then
+        WORK_DIR=$(mktemp -d -t "$APP_NAME-bind-root-work-XXXXXX")
+    elif [[ $FORCE -eq 1 || ! -d $WORK_DIR ]]; then
+        rm -rf "$WORK_DIR"
+        mkdir -p "$WORK_DIR"
+    fi
+
+    mkdir -p "$BIND_ROOT"
+
+    if ! is_mounted "$BIND_ROOT"; then
+        # --make-slave isolates the bind-root from later mount events on /.
+        mount --bind --make-slave "$REAL_ROOT" "$BIND_ROOT" \
+            || fatal "could not bind-mount $REAL_ROOT -> $BIND_ROOT"
+    fi
+
+    RM_FILES=()
+    RM_DIRS=()
+    persist_state
+}
+
+# ------------------------------------------------------------------- bind=
+action_bind() {
+    local dir=$1
+    [[ $dir = /* ]] || dir=/$dir
+    local real_dir=${REAL_ROOT%/}$dir
+    local target=${BIND_ROOT%/}$dir
+    is_mounted "$real_dir" || { warn "bind: $real_dir is not a mount point, skipping"; return 0; }
+    bind_mount "$real_dir" "$target"
+}
+
+# ------------------------------------------------------------------- empty=
+action_empty() {
+    local dir=$1
+    [[ $dir = /* ]] || dir=/$dir
+    local empty_dir=$WORK_DIR/empty
+    mkdir -p "$empty_dir"
+    local target=${BIND_ROOT%/}$dir
+    local orig=${REAL_ROOT%/}$dir
+    # Create the target if it doesn't exist yet (BindRootManager's C++
+    # version skipped here, but that's a real bug — the whole point of
+    # empty=<dir> is to ensure the snapshot sees an empty <dir> regardless
+    # of whether the source has one). make_dir tracks orig for cleanup
+    # removal if we had to create it under realRoot.
+    if ! make_dir "$target" "$orig"; then
+        warn "empty: failed to prepare $target"
+        return 1
+    fi
+    if [[ ! -d $target ]]; then
+        warn "empty: target is not a directory: $target"
+        return 1
+    fi
+    local template_dir=$empty_dir$dir
+    mkdir -p "$template_dir"
+    bind_mount "$template_dir" "$target"
+}
+
+# ------------------------------------------------------------------- live-files
+action_live_files() {
+    local source=$LIVE_FILES_DIR/files
+    local dest=$WORK_DIR/live-files
+    copy_template_dir "$source" "$dest" || return 1
+    bind_mount_template "$dest"
+}
+
+action_general_files() {
+    local source=$LIVE_FILES_DIR/general-files
+    local dest=$WORK_DIR/general-files
+    copy_template_dir "$source" "$dest" || return 1
+    bind_mount_template "$dest"
+}
+
+# ------------------------------------------------------------------- empty dirs (general)
+action_empty_dirs_general() {
+    local d
+    for d in /etc/modprobe.d /etc/grub.d /etc/network/interfaces.d; do
+        action_empty "$d" || warn "empty $d failed"
+    done
+}
+
+# ------------------------------------------------------------------- timezone
+action_timezone() {
+    local tz=""
+    if [[ -f /etc/timezone ]]; then
+        tz=$(< /etc/timezone)
+        tz=${tz%$'\n'}
+    fi
+    if [[ -z $tz && -L /etc/localtime ]]; then
+        local link
+        link=$(readlink -f /etc/localtime 2>/dev/null || true)
+        if [[ $link == /usr/share/zoneinfo/* ]]; then
+            tz=${link#/usr/share/zoneinfo/}
+        fi
+    fi
+    if [[ -z $tz ]]; then
+        warn "could not determine current timezone"
+        return 0
+    fi
+
+    local zone_file=/usr/share/zoneinfo/$tz
+    if [[ ! -f $zone_file ]]; then
+        warn "timezone file missing: $zone_file"
+        return 1
+    fi
+
+    local tz_dir=$WORK_DIR/tz
+    local etc_dir=$tz_dir/etc
+    mkdir -p "$etc_dir"
+    printf '%s\n' "$tz" > "$etc_dir/timezone"
+    cp -a "$zone_file" "$etc_dir/localtime"
+
+    bind_mount_template "$tz_dir"
+
+    # Also fix up the bind-root copies so live tools see the right values
+    # even if their bind-mount source was stale.
+    local bind_localtime=${BIND_ROOT%/}/etc/localtime
+    if [[ ! -e $bind_localtime || -L $bind_localtime ]]; then
+        rm -f "$bind_localtime"
+        cp -a "$zone_file" "$bind_localtime"
+    fi
+    printf '%s\n' "$tz" > "${BIND_ROOT%/}/etc/timezone"
+}
+
+# Hash a password with SHA-512 crypt. openssl is the primary tool (a declared
+# package dependency); mkpasswd (from the whois package) is a fallback if
+# present. The old python3 `crypt` fallback was dropped: PEP 594 removed the
+# crypt module in Python 3.13, so it is dead on current Arch and only ever
+# masked a missing openssl. Prints the hash on success, returns non-zero if no
+# tool is available so the caller aborts loudly rather than shipping a bad login.
+hash_password() {
+    local pw=$1 out
+    if out=$(openssl passwd -6 "$pw" 2>/dev/null) && [[ -n $out ]]; then
+        printf '%s' "$out"
+        return 0
+    fi
+    if command -v mkpasswd >/dev/null 2>&1 && out=$(mkpasswd -m sha-512 "$pw" 2>/dev/null) && [[ -n $out ]]; then
+        printf '%s' "$out"
+        return 0
+    fi
+    return 1
+}
+
+# ------------------------------------------------------------------- passwd munging
+# Drops in a synthetic 'demo' user (uid/gid 1000) and 'root' with default
+# passwords, removing real /home/* user accounts. Mirrors
+# BindRootManager::doPasswd, including the live_temp_user trick used to
+# materialise correct subuid/subgid mappings via the system's adduser.
+action_passwd() {
+    local template_dir=$LIVE_FILES_DIR
+    local bind_from=$WORK_DIR/bind
+    local def_user=demo
+    local def_user_pw=demo
+    local root_pw=root
+    local bind_files=(/etc/passwd /etc/shadow /etc/gshadow /etc/group /etc/subuid /etc/subgid)
+
+    mkdir -p "$bind_from"
+
+    pad_colon_fields() {
+        local min_fields=$1
+        while (( ${#fields[@]} < min_fields )); do
+            fields+=("")
+        done
+    }
+
+    replace_preserving_metadata() {
+        local tmp=$1 target=$2
+        chown --reference="$target" "$tmp" 2>/dev/null || true
+        chmod --reference="$target" "$tmp" 2>/dev/null || true
+        mv "$tmp" "$target"
+    }
+
+    # Pick the default shell for the temp user.
+    local def_shell=/usr/bin/bash
+    if [[ -f /etc/adduser.conf ]]; then
+        local conf_shell
+        conf_shell=$(awk -F= '/^DSHELL=/{print $2; exit}' /etc/adduser.conf | tr -d '[:space:]')
+        [[ -n $conf_shell ]] && def_shell=$conf_shell
+    fi
+    [[ $def_shell = /* ]] || def_shell=/usr/bin/$def_shell
+
+    local added_user
+    added_user="live_temp_user$(tr -dc 'a-f0-9' < /dev/urandom | head -c 12)"
+    local has_adduser=0
+    if [[ -x /usr/sbin/adduser || -x /usr/bin/adduser ]]; then
+        has_adduser=1
+    fi
+
+    if [[ $has_adduser -eq 1 ]]; then
+        local comment_opt=--gecos
+        if adduser --help 2>&1 | grep -q -- --comment; then
+            comment_opt=--comment
+        fi
+        if ! adduser --disabled-login --shell "$def_shell" --no-create-home \
+                    "$comment_opt" "$def_user" "$added_user" 2>/dev/null; then
+            warn "adduser failed for $added_user"
+            return 1
+        fi
+    else
+        if ! useradd -M -s "$def_shell" -U -c "$def_user" -p '!' "$added_user"; then
+            warn "useradd failed for $added_user"
+            return 1
+        fi
+    fi
+
+    # When the bind-root is on an overlayfs and the new user did not appear
+    # in bindRoot/etc/passwd, source the originals from realRoot instead.
+    local src_root=$BIND_ROOT
+    local fs_type
+    fs_type=$(findmnt -n -o FSTYPE "$BIND_ROOT" 2>/dev/null || true)
+    if [[ $fs_type == overlay ]]; then
+        if ! grep -q "^$added_user:" "$BIND_ROOT/etc/passwd" 2>/dev/null; then
+            src_root=$REAL_ROOT
+        fi
+    fi
+
+    # Stage the system files we'll edit. Skip ones already shipped by the
+    # live-files template (the template wins).
+    local f
+    for f in "${bind_files[@]}"; do
+        [[ -e ${BIND_ROOT%/}$f ]] || continue
+        [[ -e $template_dir$f ]] && continue
+        mkdir -p "$bind_from$(dirname "$f")"
+        cp -a "${src_root%/}$f" "$bind_from$f" || { warn "copy failed: $f"; return 1; }
+    done
+
+    # Remove the temp user from the live system.
+    if [[ -x /usr/sbin/deluser || -x /usr/bin/deluser ]]; then
+        deluser "$added_user" >/dev/null 2>&1 || true
+    else
+        userdel "$added_user" >/dev/null 2>&1 || true
+    fi
+
+    # Identify other regular users (home in /home, login shell ending in
+    # 'sh') so we can scrub them out.
+    local other_users=()
+    while IFS=: read -r u _ _ _ _ home shellfield; do
+        [[ -z $u ]] && continue
+        [[ $u == "$added_user" ]] && continue
+        if [[ $home == /home/* && $shellfield == *sh ]]; then
+            other_users+=("$u")
+        fi
+    done < /etc/passwd
+
+    # Find the staged group line whose gid is 1000 — that's the primary
+    # group whose name we'll rewrite to "demo".
+    local primary_group=""
+    if [[ -f $bind_from/etc/group ]]; then
+        primary_group=$(awk -F: '$3=="1000"{print $1; exit}' "$bind_from/etc/group")
+    fi
+
+    # ---- /etc/passwd, /etc/shadow, /etc/gshadow, /etc/subuid, /etc/subgid
+    local pw_files=(/etc/passwd /etc/shadow /etc/gshadow /etc/subuid /etc/subgid)
+    for f in "${pw_files[@]}"; do
+        local target=$bind_from$f
+        [[ -f $target ]] || continue
+        local tmp="$target.new"
+        : > "$tmp"
+        local line user
+        while IFS= read -r line; do
+            [[ -z $line ]] && continue
+            IFS=: read -r -a fields <<< "$line"
+            [[ ${#fields[@]} -gt 0 ]] || continue
+            user=${fields[0]}
+            # Drop other users entirely.
+            local skip=0
+            local ou
+            for ou in "${other_users[@]}"; do
+                [[ $user == "$ou" ]] && { skip=1; break; }
+            done
+            [[ $skip -eq 1 ]] && continue
+            # Rename the temp user to demo.
+            if [[ $user == "$added_user" ]]; then
+                fields[0]=$def_user
+            fi
+            # On /etc/passwd, force demo's uid/gid/home to canonical values.
+            if [[ $f == /etc/passwd && ${#fields[@]} -ge 7 && ${fields[0]} == "$def_user" ]]; then
+                fields[2]=1000
+                fields[3]=1000
+                fields[5]=/home/$def_user
+            fi
+            if [[ $f == /etc/shadow ]]; then
+                pad_colon_fields 9
+            elif [[ $f == /etc/gshadow ]]; then
+                pad_colon_fields 4
+            fi
+            local joined
+            printf -v joined '%s:' "${fields[@]}"
+            printf '%s\n' "${joined%:}" >> "$tmp"
+        done < "$target"
+        replace_preserving_metadata "$tmp" "$target"
+    done
+
+    # ---- /etc/group, /etc/gshadow group-membership rewrites
+    local grp_files=(/etc/group /etc/gshadow)
+    local standard_groups=(wheel audio video storage lp scanner)
+
+    sanitize_member_list() {
+        # Strip other_users + temp users from a comma list, rename temp -> demo.
+        local input=$1
+        local out=""
+        local IFS=,
+        local m
+        for m in $input; do
+            [[ -z $m ]] && continue
+            [[ $m == "$added_user" ]] && m=$def_user
+            local skip=0
+            local ou
+            for ou in "${other_users[@]}"; do
+                [[ $m == "$ou" ]] && { skip=1; break; }
+            done
+            [[ $skip -eq 1 ]] && continue
+            [[ $m == live_temp_user* ]] && continue
+            if [[ -z $out ]]; then
+                out=$m
+            else
+                out=$out,$m
+            fi
+        done
+        printf '%s' "$out"
+    }
+
+    add_member_to_list() {
+        local input=$1 member=$2
+        local present=0
+        local IFS=,
+        local m
+        for m in $input; do
+            [[ $m == "$member" ]] && { present=1; break; }
+        done
+        if [[ $present -eq 1 ]]; then
+            printf '%s' "$input"
+        elif [[ -z $input ]]; then
+            printf '%s' "$member"
+        else
+            printf '%s,%s' "$input" "$member"
+        fi
+    }
+
+    for f in "${grp_files[@]}"; do
+        local target=$bind_from$f
+        [[ -f $target ]] || continue
+        local tmp="$target.new"
+        : > "$tmp"
+        local line
+        while IFS= read -r line; do
+            [[ -z $line ]] && continue
+            IFS=: read -r -a fields <<< "$line"
+            if [[ ${#fields[@]} -lt 4 ]]; then
+                printf '%s\n' "$line" >> "$tmp"
+                continue
+            fi
+            [[ ${fields[0]} == live_temp_user* ]] && continue
+
+            if [[ $f == /etc/gshadow ]]; then
+                if [[ -n $primary_group && ${fields[0]} == "$primary_group" ]]; then
+                    fields[0]=$def_user
+                fi
+                fields[2]=$(sanitize_member_list "${fields[2]:-}")
+                fields[3]=$(sanitize_member_list "${fields[3]:-}")
+                local sg
+                for sg in "${standard_groups[@]}"; do
+                    if [[ ${fields[0]} == "$sg" ]]; then
+                        fields[3]=$(add_member_to_list "${fields[3]:-}" "$def_user")
+                        break
+                    fi
+                done
+            else
+                fields[3]=$(sanitize_member_list "${fields[3]:-}")
+                if [[ -n $primary_group && ${fields[0]} == "$primary_group" ]]; then
+                    fields[0]=$def_user
+                fi
+                if [[ ${fields[0]} == "$def_user" ]]; then
+                    fields[2]=1000
+                fi
+                local sg
+                for sg in "${standard_groups[@]}"; do
+                    if [[ ${fields[0]} == "$sg" ]]; then
+                        fields[3]=$(add_member_to_list "${fields[3]:-}" "$def_user")
+                        break
+                    fi
+                done
+            fi
+            local joined
+            printf -v joined '%s:' "${fields[@]}"
+            printf '%s\n' "${joined%:}" >> "$tmp"
+        done < "$target"
+        replace_preserving_metadata "$tmp" "$target"
+    done
+
+    # ---- /etc/subuid, /etc/subgid: rewrite single-line "demo:N:M" to use
+    # the system's SUB_*_MIN default if available.
+    update_subid_defaults() {
+        local file=$1 default_key=$2
+        local target=$bind_from$file
+        [[ -f $target ]] || return 0
+        local lines
+        mapfile -t lines < "$target"
+        [[ ${#lines[@]} -eq 1 ]] || return 0
+        local default_value=""
+        if [[ -f /etc/login.defs ]]; then
+            default_value=$(awk -v k="$default_key" '
+                $1 == k { print $2; exit }
+            ' /etc/login.defs | tr -d '[:space:]')
+        fi
+        [[ -z $default_value ]] && default_value=100000
+        local first=${lines[0]}
+        if [[ $first == "$def_user":* ]]; then
+            IFS=: read -r -a sf <<< "$first"
+            if [[ ${#sf[@]} -ge 3 ]]; then
+                printf '%s:%s:%s\n' "$def_user" "$default_value" "${sf[2]}" > "$target"
+            fi
+        fi
+    }
+    update_subid_defaults /etc/subuid SUB_UID_MIN
+    update_subid_defaults /etc/subgid SUB_GID_MIN
+
+    # ---- /etc/shadow: hash demo and root passwords with sha512.
+    local shadow_target=$bind_from/etc/shadow
+    if [[ -f $shadow_target ]]; then
+        local demo_hash root_hash
+        demo_hash=$(hash_password "$def_user_pw") \
+            || { warn "no sha512 password tool (need openssl or mkpasswd)"; return 1; }
+        root_hash=$(hash_password "$root_pw") \
+            || { warn "no sha512 password tool (need openssl or mkpasswd)"; return 1; }
+
+        local tmp="$shadow_target.new"
+        : > "$tmp"
+        local line
+        while IFS= read -r line; do
+            if [[ -z ${line// } ]]; then
+                printf '\n' >> "$tmp"
+                continue
+            fi
+            IFS=: read -r -a fields <<< "$line"
+            if [[ ${#fields[@]} -ge 2 ]]; then
+                if [[ ${fields[0]} == "$def_user" ]]; then
+                    fields[1]=$demo_hash
+                elif [[ ${fields[0]} == root ]]; then
+                    fields[1]=$root_hash
+                fi
+                pad_colon_fields 9
+                local joined
+                printf -v joined '%s:' "${fields[@]}"
+                printf '%s\n' "${joined%:}" >> "$tmp"
+            else
+                printf '%s\n' "$line" >> "$tmp"
+            fi
+        done < "$shadow_target"
+        replace_preserving_metadata "$tmp" "$shadow_target"
+    fi
+
+    # ---- bind-mount the rewritten files over their bindRoot counterparts
+    # (and over any -backup copies pacman/dpkg may have left behind).
+    for f in "${bind_files[@]}"; do
+        local from=$bind_from$f
+        local to=${BIND_ROOT%/}$f
+        local backup=$to-
+        [[ -f $from && -e $to ]] || continue
+        bind_mount "$from" "$to" || return 1
+        [[ -e $backup ]] && bind_mount "$from" "$backup" || true
+    done
+
+    # ---- materialise demo's home from /etc/skel.
+    local demo_home=${BIND_ROOT%/}/home/$def_user
+    if [[ ! -e $demo_home ]]; then
+        local skel_from=/etc/skel
+        [[ -d ${BIND_ROOT%/}/etc/skel ]] && skel_from=${BIND_ROOT%/}/etc/skel
+        mkdir -p "$demo_home"
+        if [[ -d $skel_from ]]; then
+            cp -a "$skel_from/." "$demo_home"
+        fi
+        chown -R 1000:1000 "$demo_home"
+    fi
+}
+
+# ------------------------------------------------------------------- autologin
+# A reset-accounts snapshot scrubs the original user and installs "demo", but a
+# display manager configured to autologin the original user is carried through
+# unchanged — so the live ISO tries to autologin a now-nonexistent account and
+# drops to a confusing greeter. Point every DM autologin we can find at demo.
+# The live-files package ships a demo-autologin /etc/sddm.conf, but that only
+# helps SDDM; Plasma 6.5's plasmalogin (and lightdm/gdm) need the same fix, and
+# drop-ins under *.conf.d/ can still override a shipped config. Staged and
+# bind-mounted like the other rewrites so it is safe on the overlay and on the
+# plain-bind fallback bind-root alike.
+action_reset_autologin() {
+    local def_user=demo
+    local stage=$WORK_DIR/autologin
+
+    # rewrite_autologin <relpath> <key-regex-through-'='>
+    # If the file exists and already sets the key, force its value to demo,
+    # preserving the key's original spelling/indentation.
+    rewrite_autologin() {
+        local rel=$1 keyre=$2
+        local src=${BIND_ROOT%/}/$rel dst=$stage/$rel
+        [[ -f $src ]] || return 0
+        grep -Eq "$keyre" "$src" 2>/dev/null || return 0
+        mkdir -p "${dst%/*}" || return 0
+        sed -E "s|(${keyre}[[:space:]]*).*|\1${def_user}|" "$src" > "$dst" || return 0
+        bind_mount "$dst" "$src" || warn "autologin: bind failed for $rel"
+    }
+
+    rewrite_autologin etc/plasmalogin.conf '^[[:space:]]*User[[:space:]]*='
+    rewrite_autologin etc/sddm.conf '^[[:space:]]*User[[:space:]]*='
+    rewrite_autologin etc/lightdm/lightdm.conf '^[[:space:]]*autologin-user[[:space:]]*='
+    rewrite_autologin etc/gdm/custom.conf '^[[:space:]]*AutomaticLogin[[:space:]]*='
+
+    # Drop-ins under *.conf.d/ (sddm, plasmalogin) can override the main config.
+    local d f
+    for d in etc/sddm.conf.d etc/plasmalogin.conf.d; do
+        [[ -d ${BIND_ROOT%/}/$d ]] || continue
+        for f in "${BIND_ROOT%/}/$d"/*.conf; do
+            [[ -f $f ]] || continue
+            rewrite_autologin "$d/${f##*/}" '^[[:space:]]*User[[:space:]]*='
+        done
+    done
+    return 0
+}
+
+# ------------------------------------------------------------------- general
+action_general() {
+    action_empty_dirs_general
+    action_live_files || return 1
+    action_general_files || return 1
+    action_passwd || return 1
+    action_reset_autologin
+    # doRepo is Debian-only (apt sources). Skipped here.
+    action_timezone || return 1
+}
+
+# ------------------------------------------------------------------- version-file
+action_version_file() {
+    local title=${1:-}
+    local version_dir=$WORK_DIR/version-file
+    local version_file=$version_dir/etc/live/version/linuxfs.ver
+    mkdir -p "$(dirname "$version_file")"
+
+    local existing=/etc/live/version/linuxfs.ver
+    if [[ -f $existing ]]; then
+        cp -a "$existing" "$version_file" 2>/dev/null || true
+    fi
+
+    {
+        printf '==== %s\n' "$(tr -dc 'a-f0-9' < /dev/urandom | head -c 32)"
+        printf '\n'
+        printf 'title: %s\n' "$title"
+        printf 'creation date: %s\n' "$(date '+%-d %B %Y %H:%M:%S %Z')"
+        printf 'kernel: %s\n' "$(uname -sr)"
+        printf 'machine: %s\n' "$(uname -m)"
+    } >> "$version_file"
+
+    bind_mount_template "$version_dir"
+}
+
+# ------------------------------------------------------------------- adjtime
+action_adjtime() {
+    local adjtime=/etc/adjtime
+    [[ -f $adjtime ]] || return 0
+    local template_dir=$WORK_DIR/adjtime
+    local target_file=$template_dir/etc/adjtime
+    mkdir -p "$(dirname "$target_file")"
+    # Replace lines 1 and 2 (drift, last-adjusted) with neutral values.
+    awk 'NR==1 { print "0.0 0 0.0"; next }
+         NR==2 { print "0"; next }
+         { print }' "$adjtime" > "$target_file"
+    bind_mount_template "$template_dir"
+}
+
+# ------------------------------------------------------------------- live-setup
+# Three small but essential live-system tweaks that aren't shipped by the
+# Arch live-files package itself. Without them, every boot of the resulting
+# ISO triggers systemd-firstboot.service (because /etc/machine-id is missing
+# from the snapshotted system) which interactively prompts for locale,
+# keymap, timezone and root password — and then getty has no autologin
+# override, so even after firstboot finishes the user lands on a plain
+# login prompt.
+#
+#   * /etc/machine-id (empty)        — let systemd treat the live boot as
+#                                      "first boot" so it generates a fresh
+#                                      machine-id on every run.
+#   * systemd-firstboot.service.d    — neutralise the firstboot prompts by
+#                                      overriding ExecStart to /bin/true.
+#   * getty@tty1.service.d           — autologin demo on tty1 so the user
+#                                      can use the live system even when
+#                                      the graphical session manager fails
+#                                      to start.
+action_live_setup() {
+    local template_dir=$WORK_DIR/live-setup
+    local etc=$template_dir/etc
+
+    mkdir -p "$etc" || { warn "live-setup: failed to create $etc"; return 1; }
+    : > "$etc/machine-id" || { warn "live-setup: failed to stage /etc/machine-id"; return 1; }
+
+    local firstboot_dropin_dir=$etc/systemd/system/systemd-firstboot.service.d
+    mkdir -p "$firstboot_dropin_dir"
+    cat > "$firstboot_dropin_dir/00-disable.conf" <<'CONF'
+# Installed by mx-snapshot's installed-to-live-arch.
+# Neutralise systemd-firstboot's interactive prompts on the live ISO; the
+# live user (demo) is preconfigured by action_passwd, and locale/keymap/
+# timezone come from the snapshotted host.
+[Service]
+ExecStart=
+ExecStart=/bin/true
+CONF
+
+    local autologin_dir=$etc/systemd/system/getty@tty1.service.d
+    mkdir -p "$autologin_dir"
+    cat > "$autologin_dir/autologin.conf" <<'CONF'
+# Installed by mx-snapshot's installed-to-live-arch.
+# Autologin the live user on tty1 so the system is usable even when the
+# display manager can't start (e.g. inside a VM without GPU acceleration).
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin demo --noclear %I $TERM
+CONF
+
+    bind_mount_template "$template_dir"
+}
+
+# ------------------------------------------------------------------- read-only
+do_read_only() {
+    require_root
+    [[ -n $BIND_ROOT ]] || fatal "read-only: missing -b <bindRoot>"
+    mount -o remount,bind,ro "$BIND_ROOT"
+}
+
+# ------------------------------------------------------------------- cleanup
+do_cleanup() {
+    require_root
+    if ! load_state; then
+        log "no cleanup state; nothing to undo"
+        return 0
+    fi
+    [[ -n $BIND_ROOT ]] || { warn "cleanup: state has no BIND_ROOT"; return 0; }
+
+    # Lazily unmount everything under bind-root, retrying a few times.
+    local i
+    for ((i=0; i<10; i++)); do
+        is_mounted "$BIND_ROOT" || break
+        umount --recursive --lazy "$BIND_ROOT" 2>/dev/null || true
+        sleep 0.1
+    done
+    rmdir "$BIND_ROOT" 2>/dev/null || true
+
+    # Remove tracked files in reverse order (to undo nesting safely).
+    local p
+    for ((i=${#RM_FILES[@]}-1; i>=0; i--)); do
+        p=${RM_FILES[i]}
+        [[ -n $p ]] && rm -f "$p" 2>/dev/null || true
+    done
+    for ((i=${#RM_DIRS[@]}-1; i>=0; i--)); do
+        p=${RM_DIRS[i]}
+        [[ -n $p ]] && rmdir --ignore-fail-on-non-empty --parents "$p" 2>/dev/null || true
+    done
+
+    [[ -n $WORK_DIR && -d $WORK_DIR ]] && rm -rf "$WORK_DIR"
+
+    rm -f "$(state_file)"
+}
+
+# ------------------------------------------------------------------- arg parse
+usage() {
+    cat <<EOF
+Usage:
+  $ME [-F] -b <bindRoot> start [ACTION...]
+  $ME    -b <bindRoot> read-only
+  $ME                  cleanup
+
+Actions for 'start':
+  bind=<dir>          mount --bind /<dir>      → bindRoot/<dir>
+  empty=<dir>         mount empty tmpdir       → bindRoot/<dir>
+  live-files          ship /usr/share/live-files/files
+  general             live-files + general-files + passwd + timezone
+  version-file[=t]    write /etc/live/version/linuxfs.ver template
+  adjtime             zero out /etc/adjtime in template
+  live-setup          empty machine-id + systemd-firstboot/getty drop-ins
+EOF
+}
+
+main() {
+    while [[ $# -gt 0 ]]; do
+        case $1 in
+            -h|--help) usage; exit 0 ;;
+            -F) FORCE=1; shift ;;
+            -b) shift; BIND_ROOT=${1:-}; [[ -n $BIND_ROOT ]] || fatal "-b requires a path"; shift ;;
+            -b*) BIND_ROOT=${1#-b}; shift ;;
+            --) shift; break ;;
+            -*) fatal "unknown option: $1" ;;
+            *) break ;;
+        esac
+    done
+
+    [[ $# -ge 1 ]] || { usage; exit 2; }
+    local cmd=$1; shift
+
+    case $cmd in
+        start)
+            do_start
+            # Accumulate action failures and exit non-zero so the Qt caller
+            # (Work::setupEnv) actually notices a broken bind-root setup
+            # instead of going on to build an ISO from a half-prepared tree.
+            local action rc=0
+            for action in "$@"; do
+                case $action in
+                    bind=*) action_bind "${action#bind=}" || { warn "bind action failed: $action"; rc=1; } ;;
+                    empty=*) action_empty "${action#empty=}" || { warn "empty action failed: $action"; rc=1; } ;;
+                    live-files) action_live_files || { warn "live-files action failed"; rc=1; } ;;
+                    general) action_general || { warn "general action failed"; rc=1; } ;;
+                    version-file) action_version_file "" || { warn "version-file action failed"; rc=1; } ;;
+                    version-file=*) action_version_file "${action#version-file=}" || { warn "version-file action failed"; rc=1; } ;;
+                    adjtime) action_adjtime || { warn "adjtime action failed"; rc=1; } ;;
+                    live-setup) action_live_setup || { warn "live-setup action failed"; rc=1; } ;;
+                    *) warn "unknown action: $action"; rc=1 ;;
+                esac
+            done
+            return $rc
+            ;;
+        read-only) do_read_only ;;
+        cleanup) do_cleanup ;;
+        *) fatal "unknown command: $cmd" ;;
+    esac
+}
+
+main "$@"

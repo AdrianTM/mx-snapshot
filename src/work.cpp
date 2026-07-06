@@ -26,6 +26,7 @@
 
 #include <QCoreApplication>
 #include <QDate>
+#include <QDateTime>
 #include <QDebug>
 #include <QDirIterator>
 #include <QFile>
@@ -42,19 +43,29 @@
 #include <cstdlib>
 #include <stdexcept>
 
+#include "elevationbroker.h"
 #include "filesystemutils.h"
 #include "log.h"
+#include "squashfsutils.h"
 
 namespace
 {
+// cleanUp() is no longer [[noreturn]] — it walks the tear-down sequence and
+// then asks the event loop to exit. requestExit() centralizes the choice
+// between Qt's event-loop exit (preferred) and a hard std::exit fallback for
+// the rare case where no QCoreApplication exists.
+void requestExit(int code)
+{
+    if (QCoreApplication::instance()) {
+        QCoreApplication::exit(code);
+        return;
+    }
+    std::exit(code);
+}
+
 QString loggedInUserName()
 {
     return Cmd::loggedInUserName();
-}
-
-QStringList splitShellWords(const QString &text)
-{
-    return text.trimmed().isEmpty() ? QStringList() : QProcess::splitCommand(text);
 }
 
 quint64 parseDuKilobytes(const QString &output, bool *ok)
@@ -83,11 +94,6 @@ void requestPowerOff()
     }
 }
 } // namespace
-
-QString Work::snapshotLibPath()
-{
-    return "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-}
 
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
@@ -129,8 +135,12 @@ bool Work::isEnvironmentReady() const
 void Work::checkEnoughSpace()
 {
     quint64 required_space = getRequiredSpace();
-    // Check foremost if enough space for ISO on snapshot_dir, print error and exit if not
-    checkNoSpaceAndExit(required_space, settings->freeSpace, settings->snapshotDir);
+    // Check foremost if enough space for ISO on snapshot_dir; checkNoSpaceAndExit
+    // kicks off cleanUp() on its own when there's not enough room, so we just
+    // bail out of this pipeline stage in that case.
+    if (!checkNoSpaceAndExit(required_space, settings->freeSpace, settings->snapshotDir)) {
+        return;
+    }
 
     /* If snapshot and workdir are on the same partition we need about double the size of required_space.
      * If both TMP work_dir and ISO don't fit on snapshot_dir, see if work_dir can be put on /home or /tmp
@@ -144,25 +154,38 @@ void Work::checkEnoughSpace()
             if (checkAndMoveWorkDir("/home", required_space)) {
                 return;
             }
-            checkNoSpaceAndExit(required_space * 2, settings->freeSpace,
-                                settings->snapshotDir); // Print out error and exit
+            (void) checkNoSpaceAndExit(required_space * 2, settings->freeSpace,
+                                       settings->snapshotDir); // surfaces the error and triggers cleanUp
+            return;
         }
     } else { // If not on the same partitions, check if work_dir has enough free space for temp files for required_space
-        checkNoSpaceAndExit(required_space, settings->freeSpaceWork, settings->workDir);
+        (void) checkNoSpaceAndExit(required_space, settings->freeSpaceWork, settings->workDir);
+        return;
     }
 }
 
-bool Work::checkInstalled(const QString &package)
+bool Work::checkInstalled(const QString &package) const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
-    // Validate package name contains only safe characters to prevent command injection
-    // Debian package names allow: lowercase letters, digits, plus, minus, dot.
-    // Also allow optional architecture qualifiers like ":amd64".
-    static const QRegularExpression validPackageName("^[a-z0-9+.:-]+$");
+    // Validate package name contains only safe characters to prevent command injection.
+    // Debian allows lowercase letters, digits, plus, minus, dot (+ optional ":amd64");
+    // Arch also allows underscore. Accept a superset since both target distros tolerate it.
+    static const QRegularExpression validPackageName("^[a-z0-9+_.:-]+$");
     if (!validPackageName.match(package).hasMatch()) {
         qWarning() << "Invalid package name:" << package;
         return false;
+    }
+
+    if (settings->isArch) {
+        QProcess pacmanQuery;
+        pacmanQuery.start("pacman", {"-Q", package});
+        if (!pacmanQuery.waitForFinished(5000)) {
+            pacmanQuery.kill();
+            pacmanQuery.waitForFinished(1000);
+            return false;
+        }
+        return pacmanQuery.exitStatus() == QProcess::NormalExit && pacmanQuery.exitCode() == 0;
     }
 
     QProcess dpkgQuery;
@@ -181,47 +204,77 @@ bool Work::checkInstalled(const QString &package)
 
 void Work::cleanUp()
 {
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
+    // Idempotency guard: cleanUp can be called from multiple paths (signal,
+    // close event, error handler) and reentrancy here corrupts the state.
+    if (cleanupStarted) {
+        return;
+    }
+    cleanupStarted = true;
+
+    // Stop a running mksquashfs before queueing any other privileged request:
+    // the broker executes FIFO, so anything queued below would otherwise wait
+    // for the squash to finish on its own. The out-of-band KILL terminates the
+    // currently running child; snapshot-lib's pkill remains the catch-all (and
+    // covers root/CLI runs, which bypass the broker).
+    if (started) {
+        ElevationBroker::instance().killActiveChild();
+        Cmd().procAsRoot("snapshot-lib", {"kill_mksquashfs"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
+    Cmd().procAsRoot("snapshot-lib", {"chown_conf"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     if (!started) {
         shell.close();
         initrd_dir.remove();
         cleanupBindRootOverlay();
-        exit(EXIT_SUCCESS);
+        requestExit(EXIT_SUCCESS);
+        return;
     }
     emit message(tr("Cleaning..."));
     QTextStream out(stdout);
     out << "\033[?25h";
     out.flush();
-    Cmd().run(elevateTool + " " + snapshotLib + " kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
+    // Remove the installer Desktop link from the real (bind-mounted) /home; the
+    // overlay copy is discarded with the rest of the bind-root state.
+    if (!installerLinkToRemove.isEmpty()) {
+        QFile::remove(installerLinkToRemove);
+        installerLinkToRemove.clear();
+    }
+    // Two possible bind-root setups, two cleanup paths:
+    //   - mx-remaster's installed-to-live (Debian) drops a marker at
+    //     /tmp/installed-to-live/cleanup.conf and is undone via snapshot-lib;
+    //   - installed-to-live-arch persists state at /run/<app>/cleanup-arch.state
+    //     (or /tmp/<app>/...) and undoes itself via its own `cleanup` subcmd.
+    const QString appName = QCoreApplication::applicationName();
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    if (archStatePresent) {
+        shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+        Cmd().procAsRoot("snapshot-lib", {"cleanup"});
     }
     cleanupBindRootOverlay();
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
-                  Cmd::QuietMode::Yes);
+        Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
+                         Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy(Log::getLog(),
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
             QProcess::execute("sync", {});
             requestPowerOff();
         }
-        exit(EXIT_SUCCESS);
-    } else {
-        emit message(tr("Interrupted or failed to complete"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
-                  Cmd::QuietMode::Yes);
-        exit(EXIT_FAILURE);
+        requestExit(EXIT_SUCCESS);
+        return;
     }
+    emit message(tr("Interrupted or failed to complete"));
+    Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
+                     Cmd::QuietMode::Yes);
+    requestExit(EXIT_FAILURE);
 }
 
 void Work::abortIfElevationDenied()
@@ -237,17 +290,29 @@ void Work::abortIfElevationDenied()
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
+    // Reject unsupported filesystems (vfat/ntfs, network mounts, fuse shares, etc.)
+    // up front — settings->checkTempDir() would later silently relocate to a
+    // different parent if we accepted one, breaking the "move to <dir>" contract.
+    if (!QFile::exists(dir) || !FileSystemUtils::isOnSupportedPartition(dir)) {
+        return false;
+    }
     // See first if the dir is on different partition otherwise it's irrelevant
     if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
         && FileSystemUtils::getFreeSpace(dir) > req_size) {
+        // See Work::cleanUp for the rationale on the dual cleanup paths
+        // (installed-to-live for Debian, installed-to-live-arch for Arch).
+        const QString appName = QCoreApplication::applicationName();
+        if (QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+            || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state")) {
+            shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        }
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-            const QString snapshotLib = snapshotLibPath();
-            const QString elevateTool = Cmd::elevationTool();
-            Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+            Cmd().procAsRoot("snapshot-lib", {"cleanup"});
         }
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
             cleanUp();
+            return false;
         }
         setupEnv();
         return true;
@@ -255,7 +320,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
     return false;
 }
 
-void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
+bool Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     constexpr float factor = 1024 * 1024;
@@ -273,11 +338,27 @@ void Work::checkNoSpaceAndExit(quint64 needed_space, quint64 free_space, const Q
                 + "\n"
                 + tr("If you are sure you have enough free space rerun the program with -o/--override-size option"));
         cleanUp();
+        return false;
     }
+    return true;
 }
 
 bool Work::setupBindRootOverlay()
 {
+    const QString rootFsType = Cmd().getOut("findmnt -n -o FSTYPE /", Cmd::QuietMode::Yes).trimmed();
+    if (rootFsType == "overlay") {
+        qDebug() << "Root filesystem is overlay; skipping bind-root overlay setup.";
+        bindRootPath = "/.bind-root";
+        bindRootOverlayActive = false;
+        bindRootOverlayBase.clear();
+        return true;
+    }
+
+    if (!ensureOverlayModuleLoaded()) {
+        qWarning() << "Kernel overlay filesystem support is unavailable; "
+                      "will attempt overlay mount and fall back to plain bind-mount on failure.";
+    }
+
     const QString appName = QCoreApplication::applicationName();
     const QString overlayBase = "/run/" + appName + "/bind-root-overlay";
     const QString lowerDir = overlayBase + "/lower";
@@ -307,15 +388,60 @@ bool Work::setupBindRootOverlay()
     const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
                           Cmd::QuietMode::Yes)) {
-        qWarning() << "Failed to mount overlay at" << bindRoot;
+        // Overlay genuinely isn't available (kernel without CONFIG_OVERLAY_FS,
+        // or a hardened/locked-down kernel that refuses overlay).
         shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-        return false;
+        shell.procAsRoot("rm", {"-rf", overlayBase}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        if (!settings->isArch) {
+            // Debian/MX kernels universally ship overlay; a failure here means
+            // something is genuinely wrong. Match historical behavior and abort
+            // rather than producing a non-isolated snapshot silently.
+            qWarning() << "overlay mount failed at" << bindRoot << "— aborting (Debian/MX path requires overlay)";
+            return false;
+        }
+        // Arch: fall back to a plain bind-mount at /.bind-root and let
+        // installed-to-live-arch run the rest of the setup against the live
+        // tree directly. This loses the "isolated from runtime changes"
+        // property — the snapshot will see whatever the system writes during
+        // squashing — so warn loudly.
+        qWarning() << "overlay mount failed at" << bindRoot
+                   << "— falling back to plain bind-mount (snapshot is no longer isolated from live writes)";
+        bindRootPath = "/.bind-root";
+        bindRootOverlayBase.clear();
+        bindRootOverlayActive = false;
+        // installed-to-live-arch `start` will create + bind-mount /.bind-root
+        // itself, so we don't pre-mount anything here.
+        return true;
     }
 
     bindRootPath = bindRoot;
     bindRootOverlayBase = overlayBase;
     bindRootOverlayActive = true;
     return true;
+}
+
+bool Work::ensureOverlayModuleLoaded()
+{
+    auto overlayRegistered = []() {
+        QFile filesystems("/proc/filesystems");
+        if (!filesystems.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            return false;
+        }
+        while (!filesystems.atEnd()) {
+            const QByteArray line = filesystems.readLine().trimmed();
+            const auto parts = line.split('\t');
+            if (!parts.isEmpty() && parts.last() == "overlay") {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    if (overlayRegistered()) {
+        return true;
+    }
+    shell.procAsRoot("modprobe", {"overlay"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    return overlayRegistered();
 }
 
 void Work::cleanupBindRootOverlay()
@@ -325,10 +451,8 @@ void Work::cleanupBindRootOverlay()
         bindRootPath = "/.bind-root";
         return;
     }
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " cleanup_overlay " + QCoreApplication::applicationName(),
-              Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib", {"cleanup_overlay", QCoreApplication::applicationName()}, nullptr, nullptr,
+                     Cmd::QuietMode::Yes);
     bindRootOverlayActive = false;
     bindRootOverlayBase.clear();
     bindRootPath = "/.bind-root";
@@ -359,86 +483,223 @@ void Work::copyNewIso()
     emit message(tr("Copying the new-iso filesystem..."));
     QDir::setCurrent(settings->workDir);
 
-    // Use multi-init template if available and both init systems are installed
-    if (QFile::exists("/usr/lib/iso-template/iso-template-multi.tar.gz")
-        && QFile::exists("/usr/lib/sysvinit/init") && QFile::exists("/usr/lib/systemd/systemd")) {
-        shell.run("tar xf /usr/lib/iso-template/iso-template-multi.tar.gz");
-    } else {
-        shell.run("tar xf /usr/lib/iso-template/iso-template.tar.gz");
+    QString templateTar = "/usr/lib/iso-template/iso-template.tar.gz";
+    if (settings->isArch) {
+        templateTar = "/usr/lib/iso-template/arch/iso-template.tar.gz";
+        if (!QFileInfo::exists(templateTar)) {
+            const QString fallback = QDir::homePath() + "/mx-iso-template/arch/iso-template.tar.gz";
+            if (QFileInfo::exists(fallback)) {
+                templateTar = fallback;
+            }
+        }
+    } else if (QFile::exists("/usr/lib/iso-template/iso-template-multi.tar.gz")
+               && QFile::exists("/usr/lib/sysvinit/init") && QFile::exists("/usr/lib/systemd/systemd")) {
+        // Use multi-init template if available and both init systems are installed
+        templateTar = "/usr/lib/iso-template/iso-template-multi.tar.gz";
     }
 
-    //check to make sure grub mbr is possible
-    if (settings->grubmbr) {
-        QString file = settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img";
-        qDebug() << "file is " << file;
-        if (QFile::exists(settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img")){
-            //comment out switch_to_syslinux menus as they don't work when grub is main boot
-            shell.proc("sed", {"-i", "/^[^#]*switch_to_syslinux/s/^/#/",
-                               settings->workDir + "/iso-template/boot/grub/config/bootmenu.cfg"});
-        } else {
-            emit messageBox(
-                BoxType::critical, tr("Error"),
-                tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template"));
+    if (!QFileInfo::exists(templateTar)) {
+        emit messageBox(BoxType::critical, tr("Error"), tr("ISO template not found: ") + templateTar);
+        cleanUp();
+        return;
+    }
+
+    if (settings->isArch) {
+        QDir().mkpath("iso-template");
+        shell.run("tar xf \"" + templateTar + "\" -C iso-template");
+
+        const QString diskDirPath = settings->workDir + "/iso-template/.disk";
+        QDir().mkpath(diskDirPath);
+        QDir diskDir(diskDirPath);
+        const QStringList oldUuids = diskDir.entryList(QStringList() << "*.uuid", QDir::Files);
+        for (const QString &oldUuid : oldUuids) {
+            diskDir.remove(oldUuid);
+        }
+        const QString uuidStamp = QDateTime::currentDateTime().toString("yyyy-MM-dd-HH-mm-ss-00");
+        QFile uuidFile(diskDir.filePath(uuidStamp + ".uuid"));
+        if (!uuidFile.open(QIODevice::WriteOnly)) {
+            qWarning() << "Failed to create .disk UUID file:" << uuidFile.fileName();
+        }
+
+        const QString antiXPath = settings->workDir + "/iso-template/antiX";
+        if (QFileInfo::exists(antiXPath)) {
+            QDir(antiXPath).removeRecursively();
+        }
+
+        const QString bootDir = settings->workDir + "/iso-template/boot";
+        const QString efiDir = settings->workDir + "/iso-template/efi";
+        if (!QFileInfo::exists(bootDir) || !QFileInfo::exists(efiDir)) {
+            const QString wrongBoot = settings->workDir + "/boot";
+            const QString wrongEfi = settings->workDir + "/efi";
+            QString details = tr("Arch ISO template is missing boot/ or efi/ directories.");
+            if (QFileInfo::exists(wrongBoot) || QFileInfo::exists(wrongEfi)) {
+                details += "\n"
+                           + tr("Detected boot/ or efi/ under the work directory root; "
+                                "the template may have been extracted to the wrong location.");
+            }
+            details += "\n" + tr("Template: %1").arg(templateTar);
+            emit messageBox(BoxType::critical, tr("Error"), details);
             cleanUp();
+            return;
+        }
+
+        const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
+        const QString archBootDir = "iso-template/arch/boot/" + archCpuDir;
+        const QString archBootPath = settings->workDir + "/" + archBootDir;
+        const QString kernelPath = "/boot/vmlinuz-" + settings->kernel;
+        QDir().mkpath(archBootDir);
+
+        shell.procAsRoot("cp", {kernelPath, archBootPath + "/vmlinuz-linux"}, nullptr, nullptr, Cmd::QuietMode::No);
+        const QString cpUser = loggedInUserName();
+        if (!cpUser.isEmpty()) {
+            shell.procAsRoot("chown", {cpUser + ":", archBootPath + "/vmlinuz-linux"}, nullptr, nullptr,
+                             Cmd::QuietMode::Yes);
+        }
+        shell.run("chmod a+r \"" + archBootPath + "/vmlinuz-linux\"");
+
+        QString initramfsSource;
+        const QString archisoPath = "/boot/archiso.img";
+        if (QFileInfo::exists(archisoPath)) {
+            const QString archisoKernel = initramfsKernelVersion(archisoPath);
+            const QString expectedKernel = kernelImageVersion(kernelPath);
+            if (!expectedKernel.isEmpty()) {
+                qDebug() << "Expected kernel from image:" << expectedKernel;
+            } else {
+                qWarning() << "Could not determine kernel version from" << kernelPath;
+            }
+            if (!archisoKernel.isEmpty()) {
+                qDebug() << "archiso initramfs kernel:" << archisoKernel;
+            }
+            const bool needsRebuild
+                = archisoKernel.isEmpty() || (!expectedKernel.isEmpty() && archisoKernel != expectedKernel);
+            if (needsRebuild) {
+                emit message(tr("Stale archiso initramfs detected, rebuilding..."));
+                if (!rebuildArchisoInitramfs(archisoPath, kernelPath)) {
+                    QString details = tr("Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.")
+                                          .arg(archisoKernel,
+                                               expectedKernel.isEmpty() ? settings->kernel : expectedKernel);
+                    details += "\n"
+                               + tr("Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the "
+                                    "stale file.");
+                    emit messageBox(BoxType::critical, tr("Error"), details);
+                    cleanUp();
+                    return;
+                }
+                // mkinitcpio already verified the target kernel; skip post-rebuild probing.
+            }
+            initramfsSource = archisoPath;
+        } else {
+            // /boot/archiso.img doesn't exist — try to create one so the ISO can boot as live media.
+            // A regular initramfs lacks the archiso hook and will fail at switch_root.
+            emit message(tr("No /boot/archiso.img found, attempting to create one..."));
+            if (rebuildArchisoInitramfs(archisoPath, kernelPath)) {
+                initramfsSource = archisoPath;
+            } else {
+                emit messageBox(
+                    BoxType::warning, tr("Warning"),
+                    tr("Could not create /boot/archiso.img (is the 'archiso' package installed?). "
+                       "Falling back to the regular initramfs — the resulting ISO will likely fail to "
+                       "boot (\"Failed to start Switch Root\")."));
+                if (QFileInfo::exists("/boot/initramfs-" + settings->kernel + ".img")) {
+                    initramfsSource = "/boot/initramfs-" + settings->kernel + ".img";
+                } else if (QFileInfo::exists("/boot/initramfs-linux.img")) {
+                    initramfsSource = "/boot/initramfs-linux.img";
+                }
+            }
+        }
+
+        if (initramfsSource.isEmpty()) {
+            emit messageBox(BoxType::critical, tr("Error"), tr("Could not find an initramfs image to use."));
+            cleanUp();
+            return;
+        }
+
+        shell.procAsRoot("cp", {initramfsSource, archBootPath + "/archiso.img"}, nullptr, nullptr,
+                         Cmd::QuietMode::No);
+        if (!cpUser.isEmpty()) {
+            shell.procAsRoot("chown", {cpUser + ":", archBootPath + "/archiso.img"}, nullptr, nullptr,
+                             Cmd::QuietMode::Yes);
+        }
+        shell.run("chmod a+r \"" + archBootPath + "/archiso.img\"");
+    } else {
+        shell.run("tar xf \"" + templateTar + "\"");
+
+        // check to make sure grub mbr is possible
+        if (settings->grubmbr) {
+            QString file = settings->workDir + "/iso-template/boot/grub/i386-pc/eltorito.img";
+            qDebug() << "file is " << file;
+            if (QFile::exists(file)) {
+                // comment out switch_to_syslinux menus as they don't work when grub is main boot
+                shell.proc("sed", {"-i", "/^[^#]*switch_to_syslinux/s/^/#/",
+                                   settings->workDir + "/iso-template/boot/grub/config/bootmenu.cfg"});
+            } else {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from "
+                                   "iso-template"));
+                cleanUp();
+                return;
+            }
+        }
+        shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
+        shell.proc("cp", {"/boot/vmlinuz-" + settings->kernel, "iso-template/antiX/vmlinuz"});
+
+        makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "vmlinuz");
+
+        QString path = initrd_dir.path();
+        if (!initrd_dir.isValid()) {
+            qDebug() << tr("Could not create temp directory. ") + path;
+            cleanUp();
+            return;
+        }
+
+        openInitrd(settings->workDir + "/iso-template/antiX/initrd.gz", path);
+
+        // Strip modules, but only inside our own temp dir so a wrong path can never
+        // remove a real /lib/modules. Key the guard on the actual temp base
+        // (QTemporaryDir honours $TMPDIR) rather than a literal "/tmp/", which
+        // silently skipped the strip whenever TMPDIR pointed elsewhere (e.g. /var/tmp),
+        // leaving the template's stale modules to pile up with the copied ones.
+        if (initrd_dir.isValid() && path.startsWith(QDir::tempPath() + '/')) {
+            QDir modulesDir(path + "/lib/modules");
+            if (modulesDir.exists()) {
+                modulesDir.removeRecursively();
+            }
+        }
+
+        // For old versions we copy initrd-release for newer ones we copy initrd_release
+        QString sourcePath = "/etc/initrd-release";
+        QString destinationPath = path + "/etc/initrd-release";
+        QFileInfo sourceFileInfo(sourcePath);
+        if (sourceFileInfo.exists() && sourceFileInfo.isFile()) {
+            if (!QFile::exists(destinationPath) || QFile::remove(destinationPath)) {
+                QFile::copy(sourcePath, destinationPath);
+            }
+        }
+        sourcePath = "/etc/initrd_release";
+        destinationPath = path + "/etc/initrd_release";
+        sourceFileInfo.setFile(sourcePath);
+        if (sourceFileInfo.exists() && sourceFileInfo.isFile()) {
+            if (!QFile::exists(destinationPath) || QFile::remove(destinationPath)) {
+                QFile::copy(sourcePath, destinationPath);
+            }
+        }
+
+        if (initrd_dir.isValid()) {
+            copyModules(path, settings->kernel);
+            closeInitrd(path, settings->workDir + "/iso-template/antiX/initrd.gz");
+            const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
+            if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
+                qDebug() << "uc-tool found, injecting ucode into initrd";
+                shell.proc("uc-tool", {"-q", "-i", settings->workDir + "/iso-template/antiX/initrd.gz"});
+            } else {
+                qDebug() << "uc-tool not found, skipping ucode injection";
+            }
+            makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz");
+            initrd_dir.remove();
         }
     }
-    shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
-    shell.proc("cp", {"/boot/vmlinuz-" + settings->kernel, "iso-template/antiX/vmlinuz"});
 
     replaceMenuStrings();
-    makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "vmlinuz");
-
-    QString path = initrd_dir.path();
-    if (!initrd_dir.isValid()) {
-        qDebug() << tr("Could not create temp directory. ") + path;
-        cleanUp();
-    }
-
-    openInitrd(settings->workDir + "/iso-template/antiX/initrd.gz", path);
-
-    // Strip modules, but only inside our own temp dir so a wrong path can never
-    // remove a real /lib/modules. Key the guard on the actual temp base
-    // (QTemporaryDir honours $TMPDIR) rather than a literal "/tmp/", which
-    // silently skipped the strip whenever TMPDIR pointed elsewhere (e.g. /var/tmp),
-    // leaving the template's stale modules to pile up with the copied ones.
-    if (initrd_dir.isValid() && path.startsWith(QDir::tempPath() + '/')) {
-        QDir modulesDir(path + "/lib/modules");
-        if (modulesDir.exists()) {
-            modulesDir.removeRecursively();
-        }
-    }
-
-    // For old versions we copy initrd-release for newer ones we copy initrd_release
-    QString sourcePath = "/etc/initrd-release";
-    QString destinationPath = path + "/etc/initrd-release";
-    QFileInfo sourceFileInfo(sourcePath);
-    if (sourceFileInfo.exists() && sourceFileInfo.isFile()) {
-        if (!QFile::exists(destinationPath) || QFile::remove(destinationPath)) {
-            QFile::copy(sourcePath, destinationPath);
-        }
-    }
-    sourcePath = "/etc/initrd_release";
-    destinationPath = path + "/etc/initrd_release";
-    sourceFileInfo.setFile(sourcePath);
-    if (sourceFileInfo.exists() && sourceFileInfo.isFile()) {
-        if (!QFile::exists(destinationPath) || QFile::remove(destinationPath)) {
-            QFile::copy(sourcePath, destinationPath);
-        }
-    }
-
-    if (initrd_dir.isValid()) {
-        copyModules(path, settings->kernel);
-        closeInitrd(path, settings->workDir + "/iso-template/antiX/initrd.gz");
-        const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
-        if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
-            qDebug() << "uc-tool found, injecting ucode into initrd";
-            shell.proc("uc-tool", {"-q", "-i", settings->workDir + "/iso-template/antiX/initrd.gz"});
-        } else {
-            qDebug() << "uc-tool not found, skipping ucode injection";
-        }
-        makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz");
-        initrd_dir.remove();
-    }
 }
 
 // Create squashfs and then the iso
@@ -447,63 +708,170 @@ bool Work::createIso(const QString &filename)
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
 
     // Squash the filesystem copy
-    const bool useUnbuffer = checkInstalled("expect");
+    const bool useUnbuffer = !QStandardPaths::findExecutable("unbuffer").isEmpty();
     using Release::Version;
-    QStringList squashfsArgs {bindRootPath, settings->workDir + "/iso-template/antiX/linuxfs",
-                              "-comp", settings->compression,
-                              "-processors", QString::number(settings->cores)};
-    if (Settings::getDebianVerNum() >= Version::Bookworm) {
-        squashfsArgs << "-throttle" << QString::number(settings->throttle);
-    }
-    squashfsArgs += splitShellWords(settings->mksqOpt);
-    squashfsArgs << "-wildcards" << "-ef" << settings->snapshotExcludes.fileName();
-    const QStringList sessionExcludes = splitShellWords(settings->sessionExcludes);
-    if (!sessionExcludes.isEmpty()) {
-        squashfsArgs << "-e";
-        squashfsArgs += sessionExcludes;
+
+    const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
+    const QString squashfsPath = settings->isArch
+                                     ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.sfs"
+                                     : settings->workDir + "/iso-template/antiX/linuxfs";
+    if (settings->isArch) {
+        QDir().mkpath(settings->workDir + "/iso-template/arch/" + archCpuDir);
     }
 
-    QString wrapperCommand = useUnbuffer ? "unbuffer" : "stdbuf";
-    QStringList wrapperArgs;
-    if (!useUnbuffer) {
-        wrapperArgs << "-o0";
-    }
-    wrapperArgs << "mksquashfs";
-    wrapperArgs += squashfsArgs;
+    // squashfs-tools 4.5+ has the flags we care about (-throttle,
+    // -percentage). The earlier feature-probe via `mksquashfs -help`
+    // produced false-negatives on some distros where the help text was
+    // paged differently or `-help` didn't enumerate every option. Just
+    // pass the flags unconditionally — mksquashfs will error out
+    // clearly on a truly ancient version.
+    constexpr bool throttleSupported = true;
+    constexpr bool percentageSupported = true;
+
+    const SquashfsUtils::Command squashfsCommand = SquashfsUtils::buildCommand({
+        .bindRootPath = bindRootPath,
+        .outputPath = squashfsPath,
+        .compression = settings->compression,
+        .cores = settings->cores,
+        .throttle = settings->throttle,
+        .throttleSupported = throttleSupported,
+        .percentageSupported = percentageSupported,
+        .mksqOpt = settings->mksqOpt,
+        .excludesFileName = settings->snapshotExcludes.fileName(),
+        .sessionExcludes = settings->sessionExcludes,
+        .useUnbuffer = useUnbuffer,
+    });
 
     emit message(tr("Squashing filesystem..."));
-    if (!shell.procAsRoot(wrapperCommand, wrapperArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
+    if (!shell.procAsRoot(squashfsCommand.program, squashfsCommand.args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        // Failure here can be a real mksquashfs error OR the user hitting
+        // Cancel mid-squash, in which case cleanUp() has already run and
+        // is asking the event loop to exit. Don't pile a misleading
+        // "could not create linuxfs" error box on top of that.
+        if (cleanupStarted) {
+            return false;
+        }
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create linuxfs file, please check /var/log/%1.log").arg(QCoreApplication::applicationName()));
         return false;
     }
+    if (cleanupStarted) {
+        return false;
+    }
     writeUnsquashfsSize(shell.readAllOutput());
 
-    // Move linuxfs files to iso-2/antiX folder
-    QDir().mkpath("iso-2/antiX");
-    shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX");
-    makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
+    if (settings->isArch) {
+        const QString archIsoDir = "iso-2/arch/" + archCpuDir;
+        QDir().mkpath(archIsoDir);
+        if (!shell.run("mv iso-template/arch/" + archCpuDir + "/airootfs.sfs* " + archIsoDir) || cleanupStarted) {
+            return false;
+        }
+        makeChecksum(HashType::sha512, settings->workDir + "/" + archIsoDir, "airootfs.sfs");
+    } else {
+        // Move linuxfs files to iso-2/antiX folder
+        QDir().mkpath("iso-2/antiX");
+        if (!shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX") || cleanupStarted) {
+            return false;
+        }
+        makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
+    }
+    if (cleanupStarted) {
+        return false;
+    }
 
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+    const QString appName = QCoreApplication::applicationName();
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
+                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    if (archStatePresent) {
+        shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
+    if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
+        Cmd().procAsRoot("snapshot-lib", {"cleanup"});
+    }
+
+    if (cleanupStarted) {
+        return false;
+    }
 
     // Create the iso file. The static xorriso flags stay inline; the two variable
     // paths (output ISO and iso-2 dir) are passed as bash positional parameters
     // ($1, $2) so the shell never parses them — this prevents command injection
     // through snapshotDir/filename/workDir.
     QDir::setCurrent(settings->workDir + "/iso-template");
-    QString cmd
-        = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table )"
-          R"(-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c )"
-          R"(boot/isolinux/isolinux.cat -o "$1" . "$2")";
+    // On Arch the label derives from fullDistroName, which can contain spaces on
+    // a pure Arch host (projectName comes from os-release NAME="Arch Linux").
+    // Boot configs may consume the label (archisolabel=, search --label), where a
+    // space breaks parsing, and ISO 9660 caps volume IDs at 32 characters — so
+    // sanitize rather than passing the display name through verbatim.
+    QString volumeLabel = "MXLIVE";
+    if (settings->isArch) {
+        volumeLabel = settings->fullDistroName;
+        volumeLabel.replace(' ', '-');
+        volumeLabel.truncate(32);
+    }
+    QString cmd;
+    if (settings->isArch) {
+        // Arch ISO uses the GRUB eltorito image for BIOS boot and a flat efi.img at the
+        // template root. isohybrid is folded into xorriso here (no separate post-step).
+        const QString archAntiXPath = settings->workDir + "/iso-2/antiX";
+        if (QFileInfo::exists(archAntiXPath)) {
+            QDir(archAntiXPath).removeRecursively();
+        }
 
-    //grub for mbr boot instead of isolinux
-    if (settings->grubmbr) {
-        cmd
-            = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info )"
+        QString bootArgs;
+        const QString biosBootRel = "boot/grub/i386-pc/eltorito.img";
+        const QString biosBootPath = settings->workDir + "/iso-template/" + biosBootRel;
+        if (QFileInfo::exists(biosBootPath)) {
+            bootArgs += " -b " + biosBootRel
+                        + " -no-emul-boot -boot-load-size 4 -boot-info-table -c boot.catalog";
+        } else {
+            qWarning() << "Missing BIOS boot image:" << biosBootPath;
+        }
+
+        const QString efiBootRel = "efi.img";
+        const QString efiBootPath = settings->workDir + "/iso-template/" + efiBootRel;
+        if (QFileInfo::exists(efiBootPath)) {
+            bootArgs += " -eltorito-alt-boot -e " + efiBootRel + " -no-emul-boot";
+        } else {
+            qWarning() << "Missing EFI boot image:" << efiBootPath;
+        }
+
+        QString isohybridArgs;
+        if (settings->makeIsohybrid) {
+            static const QStringList mbrCandidates = {
+                "/usr/lib/syslinux/bios/isohdpfx.bin",
+                "/usr/lib/syslinux/isohdpfx.bin",
+                "/usr/share/syslinux/isohdpfx.bin",
+                "/usr/lib/ISOLINUX/isohdpfx.bin",
+            };
+            QString foundMbrPath;
+            for (const QString &candidate : mbrCandidates) {
+                if (QFileInfo::exists(candidate)) {
+                    foundMbrPath = candidate;
+                    break;
+                }
+            }
+            if (!foundMbrPath.isEmpty()) {
+                // foundMbrPath comes from the trusted candidate list above, never user input.
+                isohybridArgs = " -isohybrid-mbr \"" + foundMbrPath + "\" -isohybrid-gpt-basdat";
+                qDebug() << "Using isohybrid MBR:" << foundMbrPath;
+            } else {
+                qWarning() << "isohdpfx.bin not found; skipping xorriso hybrid flags.";
+            }
+        }
+
+        // The volume label is user-influenced (fullDistroName), so it rides in $3.
+        cmd = R"(xorriso -as mkisofs -l -V "$3" -R -J -pad -iso-level 3)" + isohybridArgs + bootArgs
+              + R"( -o "$1" . "$2")";
+    } else if (settings->grubmbr) {
+        // grub for mbr boot instead of isolinux
+        cmd = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table --grub2-boot-info )"
               R"(-b boot/grub/i386-pc/eltorito.img -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -isohybrid-apm-hfsplus -isohybrid-gpt-basdat -o "$1" . "$2")";
+    } else {
+        cmd = R"(xorriso -as mkisofs -l -V MXLIVE -R -J -pad -iso-level 3 -no-emul-boot -boot-load-size 4 -boot-info-table )"
+              R"(-b boot/isolinux/isolinux.bin -eltorito-alt-boot -e boot/grub/efi.img -no-emul-boot -c )"
+              R"(boot/isolinux/isolinux.cat -o "$1" . "$2")";
     }
 
     if (Cmd().getOut("umask", Cmd::QuietMode::Yes) != "0022") {
@@ -511,19 +879,29 @@ bool Work::createIso(const QString &filename)
     }
     emit message(tr("Creating CD/DVD image file..."));
     if (!shell.proc("/bin/bash",
-                    {"-c", cmd, "_", settings->snapshotDir + "/" + filename, settings->workDir + "/iso-2"}, nullptr,
-                    nullptr, Cmd::QuietMode::No)) {
+                    {"-c", cmd, "_", settings->snapshotDir + "/" + filename, settings->workDir + "/iso-2",
+                     volumeLabel},
+                    nullptr, nullptr, Cmd::QuietMode::No)) {
+        if (cleanupStarted) {
+            return false;
+        }
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
         return false;
     }
+    if (cleanupStarted) {
+        return false;
+    }
 
-    // Make it isohybrid
-    if (settings->makeIsohybrid) {
+    // Make it isohybrid (Arch already folded the hybrid MBR into xorriso above)
+    if (settings->makeIsohybrid && !settings->isArch) {
         emit message(tr("Making hybrid iso"));
         shell.proc("isohybrid", {"--uefi", settings->snapshotDir + "/" + filename}, nullptr, nullptr,
                    Cmd::QuietMode::No);
+    }
+    if (cleanupStarted) {
+        return false;
     }
 
     // Make ISO checksums
@@ -539,6 +917,7 @@ bool Work::createIso(const QString &filename)
     emit message(tr("Done"));
     if (settings->shutdown) {
         cleanUp();
+        return true;
     }
     emit messageBox(BoxType::information, tr("Success"),
                     tr("MX Snapshot completed successfully!") + '\n'
@@ -549,6 +928,36 @@ bool Work::createIso(const QString &filename)
 
 bool Work::installPackage(const QString &package)
 {
+    if (settings->isArch) {
+        // Substitute Arch's installer (gazelle-installer) for the MX equivalent.
+        QString archPackage = package;
+        if (package == "mx-installer") {
+            if (checkInstalled("gazelle-installer")) {
+                return true;
+            }
+            archPackage = "gazelle-installer";
+        }
+        emit message(tr("Installing ") + archPackage);
+        // gazelle-installer lives in the AUR, not the official repos, so it
+        // needs an AUR helper. paru runs as the regular user (AUR helpers
+        // refuse root) and escalates internally for the install step. If paru
+        // is missing or the build fails, warn and carry on — the snapshot is
+        // still valid, just without the installer on the ISO.
+        bool installed = false;
+        if (!QStandardPaths::findExecutable("paru").isEmpty()) {
+            installed = shell.proc("paru", {"-S", "--noconfirm", "--needed", archPackage}, nullptr, nullptr,
+                                   Cmd::QuietMode::No);
+        } else {
+            emit message(tr("paru not found; cannot install %1 from the AUR.").arg(archPackage));
+        }
+        if (!installed) {
+            emit messageBox(BoxType::warning, tr("Warning"),
+                            tr("Could not install %1; continuing without the installer.").arg(archPackage));
+            return false;
+        }
+        return true;
+    }
+
     emit message(tr("Installing ") + package);
     shell.procAsRoot("apt-get", {"update"}, nullptr, nullptr, Cmd::QuietMode::No);
     if (!shell.procAsRoot("apt-get", {"install", "-y", package}, nullptr, nullptr, Cmd::QuietMode::No)) {
@@ -594,9 +1003,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     } else {
         // Free pagecache
         shell.run("sync; sleep 1");
-        const QString snapshotLib = snapshotLibPath();
-        const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + snapshotLib + " drop_caches");
+        Cmd().procAsRoot("snapshot-lib", {"drop_caches"});
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -613,6 +1020,110 @@ void Work::openInitrd(const QString &file, const QString &initrd_dir)
     shell.run(QString("gunzip -c \"%1\" |cpio -idum").arg(file));
 }
 
+QString Work::initramfsKernelVersion(const QString &initramfsPath) const
+{
+    if (!QFileInfo::exists(initramfsPath)) {
+        return {};
+    }
+
+    QString listCmd;
+    const QString lsinitcpio = QStandardPaths::findExecutable("lsinitcpio");
+    if (lsinitcpio.isEmpty()) {
+        if (QStandardPaths::findExecutable("cpio").isEmpty()) {
+            return {};
+        }
+        listCmd = QString("cpio -it < \"%1\" 2>/dev/null").arg(initramfsPath);
+    } else {
+        listCmd = QString("\"%1\" -a \"%2\" 2>/dev/null").arg(lsinitcpio, initramfsPath);
+    }
+    const QString cmd
+        = listCmd + " | awk -F/ '{for (i=1; i<=NF; i++) if ($i == \"modules\" && (i+1) <= NF) {print $(i+1); exit}}'";
+
+    return Cmd().getOut(cmd, Cmd::QuietMode::Yes).trimmed();
+}
+
+QString Work::kernelImageVersion(const QString &kernelPath) const
+{
+    if (!QFileInfo::exists(kernelPath)) {
+        return {};
+    }
+    if (QStandardPaths::findExecutable("file").isEmpty()) {
+        return {};
+    }
+    const QString output = Cmd().getOut("file -b \"" + kernelPath + "\"", Cmd::QuietMode::Yes);
+    const QRegularExpression versionRegex(R"(version\s+([^\s,]+))");
+    const auto match = versionRegex.match(output);
+    return match.hasMatch() ? match.captured(1) : QString();
+}
+
+bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath)
+{
+    if (QStandardPaths::findExecutable("mkinitcpio").isEmpty()) {
+        qWarning() << "mkinitcpio not found; cannot rebuild archiso initramfs.";
+        return false;
+    }
+    if (!QFileInfo::exists(kernelPath)) {
+        qWarning() << "Kernel image not found:" << kernelPath;
+        return false;
+    }
+
+    QString presetName;
+    const QDir presetDir("/etc/mkinitcpio.d");
+    if (presetDir.exists()) {
+        const QStringList presets = presetDir.entryList({"*.preset"}, QDir::Files, QDir::Name);
+        for (const QString &presetFile : presets) {
+            if (presetFile == "archiso.preset") {
+                presetName = "archiso";
+                break;
+            }
+            QFile file(presetDir.filePath(presetFile));
+            if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+                continue;
+            }
+            QTextStream stream(&file);
+            while (!stream.atEnd()) {
+                const QString line = stream.readLine();
+                if (line.contains("archiso.img")) {
+                    presetName = presetFile.left(presetFile.size() - QString(".preset").size());
+                    break;
+                }
+            }
+            if (!presetName.isEmpty()) {
+                break;
+            }
+        }
+    }
+
+    QStringList mkinitcpioArgs;
+    if (!presetName.isEmpty()) {
+        mkinitcpioArgs = {"-p", presetName};
+    } else {
+        const QStringList configCandidates {
+            "/usr/lib/archiso/mkinitcpio.conf",
+            "/etc/mkinitcpio-archiso.conf",
+            "/usr/share/archiso/configs/releng/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+            "/usr/share/archiso/configs/baseline/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+        };
+        QString configPath;
+        for (const QString &candidate : configCandidates) {
+            if (QFileInfo::exists(candidate)) {
+                configPath = candidate;
+                break;
+            }
+        }
+        if (configPath.isEmpty()) {
+            qWarning() << "No archiso preset or config found for rebuilding archiso initramfs.";
+            return false;
+        }
+        mkinitcpioArgs = {"-c", configPath, "-k", kernelPath, "-g", archisoPath};
+    }
+    emit message(tr("Rebuilding initramfs with: mkinitcpio %1").arg(mkinitcpioArgs.join(' ')));
+    if (!shell.procAsRoot("mkinitcpio", mkinitcpioArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
+        return false;
+    }
+    return QFileInfo::exists(archisoPath);
+}
+
 // Replace text in menu items in grub.cfg, syslinux.cfg, isolinux.cfg
 void Work::replaceMenuStrings()
 {
@@ -620,13 +1131,19 @@ void Work::replaceMenuStrings()
     QString fullDistroNameSpace = settings->fullDistroName;
     fullDistroNameSpace.replace("_", " ");
 
+    // Guard each grub file with an existence check: templates don't all ship
+    // every file, and the grubenv append below would otherwise create a stray
+    // grubenv.cfg in the ISO via the >> redirection.
     const QString grub_cfg {"/iso-template/boot/grub/grub.cfg"};
-    replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion,
-                        settings->workDir + grub_cfg);
-    replaceStringInFile("%DISTRO_NAME%", settings->projectName, settings->workDir + grub_cfg);
-    replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + grub_cfg);
-    replaceStringInFile("%FULL_DISTRO_NAME_SPACE%", fullDistroNameSpace, settings->workDir + grub_cfg);
-    replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + grub_cfg);
+    const bool haveGrubCfg = QFileInfo::exists(settings->workDir + grub_cfg);
+    if (haveGrubCfg) {
+        replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion,
+                            settings->workDir + grub_cfg);
+        replaceStringInFile("%DISTRO_NAME%", settings->projectName, settings->workDir + grub_cfg);
+        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + grub_cfg);
+        replaceStringInFile("%FULL_DISTRO_NAME_SPACE%", fullDistroNameSpace, settings->workDir + grub_cfg);
+        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + grub_cfg);
+    }
 
     const QString grubenv_cfg {"/iso-template/boot/grub/grubenv.cfg"};
     const QString boot_pararameter_regexp {"(lang|kbd|kbvar|kbopt|tz)=[^[:space:]]*"};
@@ -635,26 +1152,41 @@ void Work::replaceMenuStrings()
     // crafted work dir or kernel option). $1 is intentionally left unquoted in
     // printf: word splitting emits one option per line, while positional expansion
     // still prevents command-substitution/quote injection in the value.
-    const QString grubenv_script = "printf '%s\\n' $1 | grep -E '^" + boot_pararameter_regexp + "' >> \"$2\"";
-    shell.proc("/bin/bash", {"-c", grubenv_script, "_", settings->bootOptions, settings->workDir + grubenv_cfg});
-    const QString options_script = "sed -i \"s|%OPTIONS%|$(sed -r 's/[[:space:]]" + boot_pararameter_regexp
-        + "/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g' <<<\" $1\")|\" \"$2\"";
-    shell.proc("/bin/bash", {"-c", options_script, "_", settings->bootOptions, settings->workDir + grub_cfg});
+    if (QFileInfo::exists(settings->workDir + grubenv_cfg)) {
+        const QString grubenv_script = "printf '%s\\n' $1 | grep -E '^" + boot_pararameter_regexp + "' >> \"$2\"";
+        shell.proc("/bin/bash", {"-c", grubenv_script, "_", settings->bootOptions, settings->workDir + grubenv_cfg});
+    }
+    if (haveGrubCfg) {
+        const QString options_script = "sed -i \"s|%OPTIONS%|$(sed -r 's/[[:space:]]" + boot_pararameter_regexp
+            + "/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g' <<<\" $1\")|\" \"$2\"";
+        shell.proc("/bin/bash", {"-c", options_script, "_", settings->bootOptions, settings->workDir + grub_cfg});
+    }
+    // The Arch ISO template is GRUB-only — no syslinux / isolinux. Skip
+    // files that aren't present so we don't spam "Failed to open file:"
+    // warnings during snapshots on Arch.
     const QString syslinux_cfg {"/iso-template/boot/syslinux/syslinux.cfg"};
     const QString isolinux_cfg {"/iso-template/boot/isolinux/isolinux.cfg"};
     const QString checkmediasys_cfg {"/iso-template/boot/syslinux/checkmedia.cfg"};
     const QString checkmediaiso_cfg {"/iso-template/boot/isolinux/checkmedia.cfg"};
     for (const QString &file : {syslinux_cfg, isolinux_cfg, checkmediaiso_cfg, checkmediasys_cfg}) {
-        replaceStringInFile("%OPTIONS%", settings->bootOptions, settings->workDir + file);
-        replaceStringInFile("%CODE_NAME%", settings->codename, settings->workDir + file);
+        const QString fullPath = settings->workDir + file;
+        if (!QFileInfo::exists(fullPath)) {
+            continue;
+        }
+        replaceStringInFile("%OPTIONS%", settings->bootOptions, fullPath);
+        replaceStringInFile("%CODE_NAME%", settings->codename, fullPath);
     }
 
     const QString sys_readme = "/iso-template/boot/syslinux/readme.msg";
     const QString iso_readme = "/iso-template/boot/isolinux/readme.msg";
     const QStringList cfg_files {syslinux_cfg, isolinux_cfg, sys_readme, iso_readme, checkmediaiso_cfg, checkmediasys_cfg};
     for (const QString &file : cfg_files) {
-        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + file);
-        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + file);
+        const QString fullPath = settings->workDir + file;
+        if (!QFileInfo::exists(fullPath)) {
+            continue;
+        }
+        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, fullPath);
+        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, fullPath);
     }
 
     QDir themeDir(settings->workDir + "/iso-template/boot/grub/theme");
@@ -700,6 +1232,15 @@ bool Work::replaceStringInFile(const QString &old_text, const QString &new_text,
 void Work::savePackageList(const QString &file_name)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    if (settings->isArch) {
+        const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
+        const QString archDir = settings->workDir + "/iso-template/arch";
+        QDir().mkpath(archDir);
+        const QString fullName = QString("%1/pkglist.%2.txt").arg(archDir, archCpuDir);
+        const QString cmd = QString("pacman -Q | awk '{print $1 \" \" $2}' > '%1'").arg(fullName);
+        shell.run(cmd);
+        return;
+    }
     QFileInfo fi(file_name);
     QDir dir(settings->workDir + "/iso-template/" + fi.completeBaseName());
     if (!dir.mkpath(dir.absolutePath())) {
@@ -718,56 +1259,136 @@ void Work::setupEnv()
     // Checks if work_dir looks OK
     if (!settings->workDir.contains("/mx-snapshot")) {
         cleanUp();
+        return;
     }
 
-    QString bind_boot;
-    QString bind_boot_too;
-    if (shell.run("mountpoint /boot")) {
-        bind_boot = "bind=/boot ";
-        bind_boot_too = ",/boot";
-    }
+    const bool bootIsMount = shell.run("mountpoint /boot");
 
-    // Install mx-installer if absent
-    if (settings->forceInstaller && !checkInstalled("mx-installer")) {
-        installPackage("mx-installer");
+    // Install installer if absent (mx-installer on Debian, gazelle-installer on Arch)
+    const QString installerPkg = settings->isArch ? QStringLiteral("gazelle-installer")
+                                                  : QStringLiteral("mx-installer");
+    if (settings->forceInstaller && !checkInstalled(installerPkg)) {
+        installPackage(installerPkg);
     }
 
     writeSnapshotInfo();
+    // abortIfElevationDenied() routes through cleanUp(), which is not
+    // [[noreturn]] here (see Step 4d) — bail out after each checkpoint.
     writeVersionFile();
     abortIfElevationDenied();
+    if (cleanupStarted) {
+        return;
+    }
     writeLsbRelease();
     abortIfElevationDenied();
+    if (cleanupStarted) {
+        return;
+    }
 
     if (!setupBindRootOverlay()) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not prepare a safe bind-root overlay. Snapshot cannot continue."));
         cleanUp();
+        return;
     }
     abortIfElevationDenied();
+    if (cleanupStarted) {
+        return;
+    }
+
+    // Arch-only: place an installer Desktop shortcut. On MX, mx-installer's own
+    // postinst + installed-to-live flow handles this, so we skip it there.
+    QString installerSource;
+    if (settings->isArch) {
+        if (QFileInfo::exists("/usr/share/applications/gazelle-installer.desktop")) {
+            installerSource = "/usr/share/applications/gazelle-installer.desktop";
+        } else if (QFileInfo::exists("/usr/share/applications/minstall.desktop")) {
+            installerSource = "/usr/share/applications/minstall.desktop";
+        }
+        // Drop the link in /etc/skel before the installer flow so any skel-to-demo
+        // copy step picks it up.
+        if (!installerSource.isEmpty()) {
+            const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
+            shell.procAsRoot("mkdir", {"-p", skelDesktopDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
+            shell.procAsRoot("ln", {"-sf", installerSource, skelDesktopDir + "/minstall.desktop"}, nullptr, nullptr,
+                             Cmd::QuietMode::Yes);
+            qDebug() << "Created installer link in skel:" << skelDesktopDir << "->" << installerSource;
+        } else {
+            qDebug() << "No installer desktop file found";
+        }
+    }
+
+    // On Debian we shell out to mx-remaster's /usr/sbin/installed-to-live;
+    // on Arch we use installed-to-live-arch (scripts-arch/), which mirrors
+    // the same CLI shape but is implemented as a self-contained shell port
+    // of the legacy BindRootManager Qt class.
+    const QString installedToLive = settings->isArch ? QStringLiteral("installed-to-live-arch")
+                                                     : QStringLiteral("installed-to-live");
 
     // Setup environment if creating a respin (reset root/demo, remove personal accounts)
     if (settings->resetAccounts) {
         QStringList args {"-F", "-b", bindRootPath, "start"};
-        if (!bind_boot.isEmpty()) {
+        if (bootIsMount) {
             args << "bind=/boot";
         }
         args << "empty=/home" << "general" << "version-file";
-        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        if (settings->isArch) {
+            args << "live-setup";
+        }
+        if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
+            return;
+        }
+        // Belt-and-braces: ensure demo's Desktop has the link even if the skel copy
+        // happened before our skel symlink was placed.
+        if (!installerSource.isEmpty()) {
+            const QString demoDesktop = bindRootPath + "/home/demo/Desktop";
+            shell.procAsRoot("mkdir", {"-p", demoDesktop}, nullptr, nullptr, Cmd::QuietMode::Yes);
+            shell.procAsRoot("ln", {"-sf", installerSource, demoDesktop + "/minstall.desktop"}, nullptr, nullptr,
+                             Cmd::QuietMode::Yes);
+            shell.procAsRoot("chown", {"-R", "1000:1000", demoDesktop}, nullptr, nullptr, Cmd::QuietMode::Yes);
         }
     } else {
-        QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home" + bind_boot_too,
-                          "live-files", "version-file", "adjtime"};
-        if (!shell.procAsRoot("installed-to-live", args, nullptr, nullptr, Cmd::QuietMode::No)) {
+        QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home"};
+        if (bootIsMount) {
+            args << "bind=/boot";
+        }
+        args << "live-files" << "version-file" << "adjtime";
+        if (settings->isArch) {
+            args << "live-setup";
+        }
+        if (!shell.procAsRoot(installedToLive, args, nullptr, nullptr, Cmd::QuietMode::No)) {
             emit messageBox(BoxType::critical, tr("Error"),
                             tr("Could not prepare the snapshot bind-root environment."));
             cleanUp();
+            return;
+        }
+        // Drop a link in the current user's Desktop too. If /home is a bind mount,
+        // we have to write to the real filesystem (not the overlay) and remember to
+        // remove it during cleanup.
+        if (!installerSource.isEmpty()) {
+            const QString currentUser = loggedInUserName();
+            if (!currentUser.isEmpty()) {
+                const QString userDesktop = "/home/" + currentUser + "/Desktop";
+                if (QFileInfo::exists(userDesktop)) {
+                    const bool homeIsMountpoint = shell.run("mountpoint -q /home", Cmd::QuietMode::Yes);
+                    const QString installerLinkPath = userDesktop + "/minstall.desktop";
+                    if (homeIsMountpoint) {
+                        shell.procAsRoot("ln", {"-sf", installerSource, installerLinkPath}, nullptr, nullptr,
+                                         Cmd::QuietMode::Yes);
+                        installerLinkToRemove = installerLinkPath;
+                    } else {
+                        shell.procAsRoot("ln", {"-sf", installerSource, bindRootPath + installerLinkPath}, nullptr,
+                                         nullptr, Cmd::QuietMode::Yes);
+                    }
+                }
+            }
         }
     }
     if (!bindRootOverlayActive) {
-        shell.procAsRoot("installed-to-live", {"-b", bindRootPath, "read-only"}, nullptr, nullptr,
+        shell.procAsRoot(installedToLive, {"-b", bindRootPath, "read-only"}, nullptr, nullptr,
                          Cmd::QuietMode::Yes);
     }
 }
@@ -787,9 +1408,7 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " datetime_log", Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib", {"datetime_log"}, nullptr, nullptr, Cmd::QuietMode::Yes);
 }
 
 void Work::writeVersionFile()
@@ -804,7 +1423,11 @@ void Work::writeVersionFile()
 
 void Work::writeUnsquashfsSize(const QString &text)
 {
-    QSettings file(settings->workDir + "/iso-template/antiX/linuxfs.info", QSettings::NativeFormat);
+    const QString archCpuDir = settings->x86 ? "i686" : "x86_64";
+    const QString infoPath = settings->isArch
+                                 ? settings->workDir + "/iso-template/arch/" + archCpuDir + "/airootfs.info"
+                                 : settings->workDir + "/iso-template/antiX/linuxfs.info";
+    QSettings file(infoPath, QSettings::NativeFormat);
     file.setValue("UncompressedSizeKB",
                   text.section(QRegularExpression(" uncompressed filesystem size \\("), 1, 1).section(" ", 0, 0));
 }
@@ -1085,6 +1708,7 @@ quint64 Work::getRequiredSpace()
         qDebug() << "Error: calculating size of excluded files\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
+        return 0;
     }
     emit message(tr("Calculating size of root..."));
     quint64 root_size = 0;
@@ -1109,6 +1733,7 @@ quint64 Work::getRequiredSpace()
         qDebug() << "Error: calculating root size.\n"
                     "If you are sure you have enough free space rerun the program with -o/--override-size option";
         cleanUp();
+        return 0;
     }
     if (excl_size > root_size) {
         qWarning() << "Excluded size exceeds root size; clamping excluded size for estimate."

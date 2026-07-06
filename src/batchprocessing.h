@@ -49,4 +49,11 @@ private:
     [[nodiscard]] QString colorizeDiffAnsi(const QString &diff) const;
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;
     [[nodiscard]] bool resetCustomExcludesCli(const QString &configuredPath, const QString &sourcePath) const;
+
+    void handleStreamChunk(QString &buffer, const QString &chunk, bool toStdout);
+    void flushStreamLine(const QString &line, bool toStdout, bool isTransient);
+
+    QString stdoutBuffer;
+    QString stderrBuffer;
+    bool progressLineActive = false;
 };

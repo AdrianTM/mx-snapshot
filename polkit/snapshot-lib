@@ -4,9 +4,12 @@
 
 cleanup() {
     pkill mksquashfs
+    # installed-to-live is Debian/MX-only (mx-remaster); on Arch the bind-root
+    # is torn down by installed-to-live-arch instead, so a missing script is
+    # not an error here — succeed as a no-op rather than exiting 127.
     if [[ -x /usr/sbin/installed-to-live ]]; then
         /usr/sbin/installed-to-live cleanup
-    else
+    elif [[ -x /usr/bin/installed-to-live ]]; then
         /usr/bin/installed-to-live cleanup
     fi
 }

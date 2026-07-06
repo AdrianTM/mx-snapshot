@@ -38,10 +38,19 @@ public:
     bool runHelperAction(const QString &action, const QStringList &args = {}, QString *output = nullptr,
                          QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString getOut(const QString &cmd, QuietMode quiet = QuietMode::No);
-    [[nodiscard]] QString getOutAsRoot(const QString &cmd, const QStringList &args = {},
-                                       QuietMode quiet = QuietMode::No);
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, const QStringList &args, QuietMode quiet);
+    // Shell-string overload: runs `bash -c "cmd"` as root.
+    [[nodiscard]] QString getOutAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
     [[nodiscard]] QString readAllOutput();
     bool run(const QString &cmd, QuietMode quiet = QuietMode::No);
+    // Shell-string overload: runs `bash -c "cmd"` as root.
+    bool runAsRoot(const QString &cmd, QuietMode quiet = QuietMode::No);
+
+    // Suppress emission of outputAvailable/errorAvailable signals while still
+    // buffering for readAllOutput(). Useful for noisy commands run inside other
+    // commands' progress streams.
+    void setOutputSuppressed(bool suppressed);
+    [[nodiscard]] bool outputSuppressed() const;
 
 signals:
     void done();
@@ -52,6 +61,7 @@ private:
     const QString elevationToolPath;
     const QString helperPath;
     QString outBuffer;
+    bool suppressOutput = false;
     inline static bool s_elevationDenied = false;
     // pkexec's own exit codes for a denied/cancelled authorization (see its man
     // page). The privileged helper (helper.cpp) is required to never return

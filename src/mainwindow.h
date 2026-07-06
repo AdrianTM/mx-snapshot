@@ -35,6 +35,7 @@
 #include "work.h"
 
 class QCommandLineParser;
+class QCloseEvent;
 
 namespace Ui
 {
@@ -50,6 +51,7 @@ public:
     ~MainWindow() override;
 
 protected:
+    void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
 public slots:
@@ -88,17 +90,18 @@ private:
     QFileSystemWatcher excludesWatcher;
     QString pendingOutputBuffer;
     bool transientOutputLineActive {};
+    bool realProgressActive {};
+    bool cleanupInProgress = false;
 
     [[nodiscard]] bool confirmStart();
-    [[noreturn]] void cleanUp();
+    void cleanUp();
     void abortIfElevationDenied();
     bool installPackage(const QString &package);
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();
     void checkNvidiaGraphicsCard();
-    void checkSaveWork();
     void checkUpdatedDefaultExcludes();
-    void closeApp();
+    bool closeApp(bool fromCloseEvent = false);
     void editBootMenu();
     void handleSelectionPage(const QString &file_name);
     void handleSettingsPage(const QString &file_name);
@@ -106,6 +109,7 @@ private:
     void listUsedSpace();
     void loadSettings();
     void prepareForOutput(const QString &file_name);
+    bool updateSquashfsProgress(const QString &line);
     bool hasCustomExcludes() const;
     enum class ExcludesChoice { None, ShowDiff, KeepCustom, UseUpdatedDefault };
     [[nodiscard]] bool isSourceExcludesNewer(QString &diffOutput) const;

@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 # The desktop entry name will be displayed within the menu.
 Name=MX Snapshot
 # # The desktop entry comment will be shown within the menu.
@@ -8,6 +7,6 @@ Exec=mx-snapshot
 Terminal=false
 Type=Application
 Icon=mx-snapshot
-Categories=GNOME;GTK;System;MX-Live;
+Categories=GNOME;GTK;System;X-MX-Live;
 NoDisplay=false
 
