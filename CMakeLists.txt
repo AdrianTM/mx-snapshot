@@ -125,9 +125,6 @@ endif()
 
 find_package(Qt6 REQUIRED COMPONENTS ${QT_COMPONENTS})
 
-# Find libcrypt (used by future BindRootManager password handling on Arch)
-find_library(LIBCRYPT crypt)
-
 # Enable automatic MOC, UIC, and RCC processing
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -205,10 +202,6 @@ if(BUILD_GUI)
         Qt6::Gui
         Qt6::Widgets
     )
-    if(LIBCRYPT)
-        target_link_libraries(mx-snapshot ${LIBCRYPT})
-    endif()
-
     set_target_properties(mx-snapshot PROPERTIES
         OUTPUT_NAME "mx-snapshot"
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -243,10 +236,6 @@ if(BUILD_CLI)
     target_link_libraries(iso-snapshot-cli
         Qt6::Core
     )
-    if(LIBCRYPT)
-        target_link_libraries(iso-snapshot-cli ${LIBCRYPT})
-    endif()
-
     set_target_properties(iso-snapshot-cli PROPERTIES
         OUTPUT_NAME "iso-snapshot-cli"
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}
