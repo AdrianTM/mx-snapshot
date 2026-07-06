@@ -403,6 +403,20 @@ action_passwd() {
 
     mkdir -p "$bind_from"
 
+    pad_colon_fields() {
+        local min_fields=$1
+        while (( ${#fields[@]} < min_fields )); do
+            fields+=("")
+        done
+    }
+
+    replace_preserving_metadata() {
+        local tmp=$1 target=$2
+        chown --reference="$target" "$tmp" 2>/dev/null || true
+        chmod --reference="$target" "$tmp" 2>/dev/null || true
+        mv "$tmp" "$target"
+    }
+
     # Pick the default shell for the temp user.
     local def_shell=/usr/bin/bash
     if [[ -f /etc/adduser.conf ]]; then
@@ -511,11 +525,16 @@ action_passwd() {
                 fields[3]=1000
                 fields[5]=/home/$def_user
             fi
+            if [[ $f == /etc/shadow ]]; then
+                pad_colon_fields 9
+            elif [[ $f == /etc/gshadow ]]; then
+                pad_colon_fields 4
+            fi
             local joined
             printf -v joined '%s:' "${fields[@]}"
             printf '%s\n' "${joined%:}" >> "$tmp"
         done < "$target"
-        mv "$tmp" "$target"
+        replace_preserving_metadata "$tmp" "$target"
     done
 
     # ---- /etc/group, /etc/gshadow group-membership rewrites
@@ -612,7 +631,7 @@ action_passwd() {
             printf -v joined '%s:' "${fields[@]}"
             printf '%s\n' "${joined%:}" >> "$tmp"
         done < "$target"
-        mv "$tmp" "$target"
+        replace_preserving_metadata "$tmp" "$target"
     done
 
     # ---- /etc/subuid, /etc/subgid: rewrite single-line "demo:N:M" to use
@@ -668,6 +687,7 @@ action_passwd() {
                 elif [[ ${fields[0]} == root ]]; then
                     fields[1]=$root_hash
                 fi
+                pad_colon_fields 9
                 local joined
                 printf -v joined '%s:' "${fields[@]}"
                 printf '%s\n' "${joined%:}" >> "$tmp"
@@ -675,7 +695,7 @@ action_passwd() {
                 printf '%s\n' "$line" >> "$tmp"
             fi
         done < "$shadow_target"
-        mv "$tmp" "$shadow_target"
+        replace_preserving_metadata "$tmp" "$shadow_target"
     fi
 
     # ---- bind-mount the rewritten files over their bindRoot counterparts
