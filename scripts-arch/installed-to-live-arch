@@ -388,6 +388,25 @@ action_timezone() {
     printf '%s\n' "$tz" > "${BIND_ROOT%/}/etc/timezone"
 }
 
+# Hash a password with SHA-512 crypt. openssl is the primary tool (a declared
+# package dependency); mkpasswd (from the whois package) is a fallback if
+# present. The old python3 `crypt` fallback was dropped: PEP 594 removed the
+# crypt module in Python 3.13, so it is dead on current Arch and only ever
+# masked a missing openssl. Prints the hash on success, returns non-zero if no
+# tool is available so the caller aborts loudly rather than shipping a bad login.
+hash_password() {
+    local pw=$1 out
+    if out=$(openssl passwd -6 "$pw" 2>/dev/null) && [[ -n $out ]]; then
+        printf '%s' "$out"
+        return 0
+    fi
+    if command -v mkpasswd >/dev/null 2>&1 && out=$(mkpasswd -m sha-512 "$pw" 2>/dev/null) && [[ -n $out ]]; then
+        printf '%s' "$out"
+        return 0
+    fi
+    return 1
+}
+
 # ------------------------------------------------------------------- passwd munging
 # Drops in a synthetic 'demo' user (uid/gid 1000) and 'root' with default
 # passwords, removing real /home/* user accounts. Mirrors
@@ -665,12 +684,10 @@ action_passwd() {
     local shadow_target=$bind_from/etc/shadow
     if [[ -f $shadow_target ]]; then
         local demo_hash root_hash
-        demo_hash=$(openssl passwd -6 "$def_user_pw" 2>/dev/null) \
-            || demo_hash=$(python3 -c 'import crypt,sys; print(crypt.crypt(sys.argv[1], crypt.mksalt(crypt.METHOD_SHA512)))' "$def_user_pw" 2>/dev/null) \
-            || { warn "no sha512 password tool (need openssl or python3)"; return 1; }
-        root_hash=$(openssl passwd -6 "$root_pw" 2>/dev/null) \
-            || root_hash=$(python3 -c 'import crypt,sys; print(crypt.crypt(sys.argv[1], crypt.mksalt(crypt.METHOD_SHA512)))' "$root_pw" 2>/dev/null) \
-            || { warn "no sha512 password tool"; return 1; }
+        demo_hash=$(hash_password "$def_user_pw") \
+            || { warn "no sha512 password tool (need openssl or mkpasswd)"; return 1; }
+        root_hash=$(hash_password "$root_pw") \
+            || { warn "no sha512 password tool (need openssl or mkpasswd)"; return 1; }
 
         local tmp="$shadow_target.new"
         : > "$tmp"
