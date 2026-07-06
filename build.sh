@@ -179,6 +179,13 @@ if [ "$ARCH_BUILD" = true ]; then
     exit 0
 fi
 
+# A build dir configured with gcc keeps its cached compiler and silently
+# ignores a later compiler change; give --clang builds their own directory so
+# the option always takes effect without wiping the default build.
+if [ "$USE_CLANG" = true ] && [ "$BUILD_DIR" = "build" ]; then
+    BUILD_DIR="build-clang"
+fi
+
 # Clean build directory if requested
 if [ "$CLEAN" = true ]; then
     echo "Cleaning build directory and debian artifacts..."
@@ -188,13 +195,6 @@ if [ "$CLEAN" = true ]; then
     rm -f translations/*.qm src/version.h
     rm -f ../*build* ../*.buildinfo 2>/dev/null || true
     rm -rf pkg *.pkg.tar.zst
-fi
-
-# A build dir configured with gcc keeps its cached compiler and silently
-# ignores a later compiler change; give --clang builds their own directory so
-# the option always takes effect without wiping the default build.
-if [ "$USE_CLANG" = true ] && [ "$BUILD_DIR" = "build" ]; then
-    BUILD_DIR="build-clang"
 fi
 
 # Create build directory
