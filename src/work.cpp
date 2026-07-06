@@ -1499,32 +1499,22 @@ quint64 Work::getRequiredSpace()
             includeHomeDevice = true;
         }
     }
-    const auto isBindMount = [](const QString &mountPoint) -> bool {
-        QFile mounts(QStringLiteral("/proc/self/mounts"));
-        if (!mounts.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            return false;
-        }
-        QTextStream in(&mounts);
-        while (!in.atEnd()) {
-            const QString line = in.readLine();
-            const QStringList parts = line.split(' ', Qt::SkipEmptyParts);
-            if (parts.size() < 4) {
-                continue;
-            }
-            QString target = parts.at(1);
-            target.replace(QStringLiteral("\\040"), QStringLiteral(" "));
-            if (target != mountPoint) {
-                continue;
-            }
-            const QStringList options = parts.at(3).split(',', Qt::SkipEmptyParts);
-            return options.contains(QStringLiteral("bind")) || options.contains(QStringLiteral("rbind"));
-        }
-        return false;
-    };
     // If /home is bind-mounted or reset (empty in overlay), exclude it from the size estimate.
-    if (!settings->live && homeInfo.isValid() && homeInfo.isRoot() && homeInfo.device() == rootDevice) {
-        bool shouldExclude = isBindMount(QStringLiteral("/home"));
-        if (!shouldExclude && bindRootOverlayActive) {
+    //
+    // A real bind mount always gets its own mount-table entry, so isRoot() is
+    // false for it even when its device() matches root's exactly (confirmed
+    // empirically: a same-filesystem `mount --bind` reports isRoot=false,
+    // device==rootDevice) -- /proc/self/mounts's options field never contains
+    // "bind"/"rbind" either (it shows the underlying filesystem's real mount
+    // options), so parsing it for that string can never detect one. A
+    // genuinely different device is already handled above via
+    // includeHomeDevice, so !isRoot() && device()==rootDevice is specifically
+    // the signature of a same-device bind mount.
+    if (!settings->live && homeInfo.isValid() && homeInfo.device() == rootDevice) {
+        bool shouldExclude = false;
+        if (!homeInfo.isRoot()) {
+            shouldExclude = true;
+        } else if (bindRootOverlayActive) {
             const QString overlayHome = bindRootOverlayBase + "/root/home";
             QDir homeDir(overlayHome);
             if (homeDir.exists() && homeDir.isEmpty()) {
