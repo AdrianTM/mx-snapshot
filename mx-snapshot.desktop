@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name[am]=MX የ መመልከቻ ፎቶ
 Name[ca]=MX Snapshot 
 Name[cs]=MX Snapshot
@@ -152,6 +151,6 @@ Exec=mx-snapshot
 Terminal=false
 Type=Application
 Icon=mx-snapshot
-Categories=GNOME;GTK;System;MX-Live;
+Categories=GNOME;GTK;System;X-MX-Live;
 NoDisplay=false
 
