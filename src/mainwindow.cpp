@@ -945,7 +945,11 @@ void MainWindow::btnEditExclude_clicked()
 {
     hide();
     Cmd editor(this);
-    editor.run(settings->getEditor() + " " + settings->snapshotExcludes.fileName());
+    // getEditor() intentionally contains shell constructs (e.g. $(logname),
+    // $DISPLAY) that must be evaluated by bash, so it stays in the script. The
+    // excludes path is user-configurable, so it rides as a positional parameter
+    // ($1) the shell never parses — same pattern as editBootMenu().
+    editor.proc("/bin/bash", {"-c", settings->getEditor() + R"( "$1")", "_", settings->snapshotExcludes.fileName()});
     updateCustomExcludesButton();
     checkUpdatedDefaultExcludes();
     show();
