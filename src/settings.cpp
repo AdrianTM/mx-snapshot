@@ -109,6 +109,20 @@ QString userConfigBaseDir()
     return QStandardPaths::writableLocation(QStandardPaths::ConfigLocation);
 }
 
+// Redirects QSettings' user-scope path to the invoking user's ~/.config before
+// any member initializer below reads a QSettings value. QSettings::setPath()
+// is a process-wide static, so this only needs to run once; it must happen
+// before Settings::editBootMenu's initializer (getEditBootMenuSetting()) runs,
+// which is why this is itself a member initializer ordered ahead of it in
+// settings.h rather than a call inside the constructor body (loadConfig(),
+// called from the body, already runs far too late for the ones in the
+// member-initializer list).
+bool redirectUserConfigPath()
+{
+    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, userConfigBaseDir());
+    return true;
+}
+
 void chownFileToLoggedInUser(const QString &path)
 {
     const QString username = loggedInUserName();
@@ -141,6 +155,7 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
       maxCores(Cmd().getOut("nproc", Cmd::QuietMode::Yes).trimmed().toUInt()),
       monthly(argParser.isSet("month")),
       overrideSize(argParser.isSet("override-size")),
+      userConfigPathReady(redirectUserConfigPath()),
       editBootMenu(getEditBootMenuSetting()),
       isGuiApp(isGuiApp),
       forceInstaller(getInitialSettings().forceInstaller),
@@ -1065,9 +1080,10 @@ void Settings::loadConfig()
         qWarning() << QObject::tr("Error reading system configuration file: %1").arg(configFile.fileName());
     }
 
-    // Ensure we use the logged-in user's config location even when running under sudo/root
+    // QSettings' user-scope path was already redirected to the logged-in user's
+    // ~/.config by userConfigPathReady's initializer, before this constructor
+    // body even started running.
     const QString configDir = userConfigBaseDir();
-    QSettings::setPath(QSettings::NativeFormat, QSettings::UserScope, configDir);
     QSettings settingsUser;
     if (settingsUser.status() != QSettings::NoError) {
         qWarning() << QObject::tr("Error accessing user configuration");

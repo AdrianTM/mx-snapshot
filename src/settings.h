@@ -106,6 +106,11 @@ public:
     const uint maxCores;
     const bool monthly;
     const bool overrideSize;
+    // Must be declared (and therefore initialized) before editBootMenu and every
+    // other member below that reads QSettings — it redirects QSettings' user-scope
+    // path to the invoking user's ~/.config before any of those reads happen.
+    // See redirectUserConfigPath()/userConfigBaseDir() in settings.cpp.
+    const bool userConfigPathReady;
     const bool editBootMenu;
     const bool isGuiApp;
     const QHash<QString, quint8> compressionFactor {{"xz", 31},  {"zstd", 35}, {"gzip", 37},
