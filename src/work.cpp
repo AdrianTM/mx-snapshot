@@ -942,9 +942,21 @@ bool Work::installPackage(const QString &package)
             archPackage = "gazelle-installer";
         }
         emit message(tr("Installing ") + archPackage);
-        if (!shell.procAsRoot("pacman", {"-Sy", "--noconfirm", "--needed", archPackage}, nullptr, nullptr,
-                              Cmd::QuietMode::No)) {
-            emit messageBox(BoxType::critical, tr("Error"), tr("Could not install ") + archPackage);
+        // gazelle-installer lives in the AUR, not the official repos, so it
+        // needs an AUR helper. paru runs as the regular user (AUR helpers
+        // refuse root) and escalates internally for the install step. If paru
+        // is missing or the build fails, warn and carry on — the snapshot is
+        // still valid, just without the installer on the ISO.
+        bool installed = false;
+        if (!QStandardPaths::findExecutable("paru").isEmpty()) {
+            installed = shell.proc("paru", {"-S", "--noconfirm", "--needed", archPackage}, nullptr, nullptr,
+                                   Cmd::QuietMode::No);
+        } else {
+            emit message(tr("paru not found; cannot install %1 from the AUR.").arg(archPackage));
+        }
+        if (!installed) {
+            emit messageBox(BoxType::warning, tr("Warning"),
+                            tr("Could not install %1; continuing without the installer.").arg(archPackage));
             return false;
         }
         return true;
