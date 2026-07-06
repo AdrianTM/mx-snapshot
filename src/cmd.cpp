@@ -1,5 +1,7 @@
 #include "cmd.h"
 
+#include "elevationbroker.h"
+
 #include <QCoreApplication>
 #include <QDebug>
 #include <QEventLoop>
@@ -146,6 +148,50 @@ bool Cmd::helperProc(const QStringList &helperArgs, QString *output, const QByte
         emit errorAvailable(message);
         emit done();
         return false;
+    }
+
+    // Unprivileged: go through the persistent broker so the user authenticates
+    // once — on the first elevated command — instead of once per ~5-minute
+    // auth_admin_keep window (a long mksquashfs always outlives the grant).
+    if (getuid() != 0) {
+        auto &broker = ElevationBroker::instance();
+        switch (broker.ensureStarted(helperPath, elevationToolPath)) {
+        case ElevationBroker::Launch::Denied:
+            handleElevationError();
+            emit done();
+            return false;
+        case ElevationBroker::Launch::Ready: {
+            if (quiet == QuietMode::No) {
+                qDebug() << "helper(serve)" << helperArgs;
+            }
+            outBuffer.clear();
+            const auto sink = [this](const QByteArray &chunk, bool isError) {
+                const QString text = QString::fromLocal8Bit(chunk);
+                outBuffer += text;
+                if (!suppressOutput) {
+                    if (isError) {
+                        emit errorAvailable(text);
+                    } else {
+                        emit outputAvailable(text);
+                    }
+                }
+            };
+            const int code = broker.execute(
+                helperArgs, input != nullptr ? *input : QByteArray(),
+                [&sink](const QByteArray &chunk) { sink(chunk, false); },
+                [&sink](const QByteArray &chunk) { sink(chunk, true); });
+            if (output != nullptr) {
+                *output = outBuffer.trimmed();
+            }
+            emit done();
+            return code == 0;
+        }
+        case ElevationBroker::Launch::Failed:
+            // No broker (helper missing, exec failure, ...): fall back to the
+            // one-shot per-call elevation below.
+            qWarning() << "Elevation broker unavailable, using per-call elevation";
+            break;
+        }
     }
 
     const QString program = (getuid() == 0) ? helperPath : elevationToolPath;

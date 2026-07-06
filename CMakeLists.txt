@@ -135,6 +135,7 @@ set(COMMON_SOURCES
     src/log.cpp
     src/main.cpp
     src/cmd.cpp
+    src/elevationbroker.cpp
     src/settings.cpp
     src/batchprocessing.cpp
     src/work.cpp
@@ -149,6 +150,7 @@ set(COMMON_HEADERS
     src/common.h
     src/log.h
     src/cmd.h
+    src/elevationbroker.h
     src/settings.h
     src/batchprocessing.h
     src/work.h
@@ -314,14 +316,27 @@ if(BUILD_TESTS)
     add_executable(test-cmd
         tests/test_cmd.cpp
         src/cmd.cpp
+        src/elevationbroker.cpp
         src/messagehandler.cpp
         src/cmd.h
+        src/elevationbroker.h
         src/messagehandler.h
     )
     target_link_libraries(test-cmd Qt6::Core Qt6::Test Qt6::Widgets)
     target_include_directories(test-cmd PRIVATE src)
     set_common_properties(test-cmd)
     add_test(NAME cmd COMMAND test-cmd)
+
+    add_executable(test-elevationbroker
+        tests/test_elevationbroker.cpp
+        src/elevationbroker.cpp
+        src/elevationbroker.h
+    )
+    target_link_libraries(test-elevationbroker Qt6::Core Qt6::Test)
+    target_include_directories(test-elevationbroker PRIVATE src)
+    set_common_properties(test-elevationbroker)
+    add_dependencies(test-elevationbroker helper)
+    add_test(NAME elevationbroker COMMAND test-elevationbroker)
 endif()
 
 # Handle translations
