@@ -309,11 +309,20 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
             Cmd().procAsRoot("snapshot-lib", {"cleanup"});
         }
+        // checkTempDir() below replaces settings->workDir with a new path; the old
+        // one is still sitting in sessionExcludes from otherExclusions() earlier in
+        // the pipeline, and mksquashfs never learns about the replacement. Without
+        // re-pointing the exclusion, a relocation onto the very partition being
+        // squashed (e.g. /tmp -> /home) makes mksquashfs squash its own output
+        // directory while writing to it.
+        const QString previousWorkDir = settings->workDir;
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
             cleanUp();
             return false;
         }
+        settings->addRemoveExclusion(false, previousWorkDir);
+        settings->addRemoveExclusion(true, settings->workDir);
         setupEnv();
         return true;
     }
