@@ -351,9 +351,12 @@ bool Settings::checkConfiguration() const
         return false;
     }
 
-    // Check throttle setting
-    if (throttle > 20) {
-        qCritical() << QObject::tr("Invalid throttle setting: %1. Must be between 0 and 20").arg(throttle);
+    // Check throttle setting. 99 matches the range processArgs() already
+    // validates the --throttle CLI value against (and the GUI's spinThrottle,
+    // which relies on QSpinBox's default 0-99 range) -- mksquashfs's -throttle
+    // takes an I/O percentage with no lower cap of its own.
+    if (throttle > 99) {
+        qCritical() << QObject::tr("Invalid throttle setting: %1. Must be between 0 and 99").arg(throttle);
         return false;
     }
 
