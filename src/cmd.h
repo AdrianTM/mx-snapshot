@@ -19,11 +19,6 @@ public:
     static bool isCliMode();
     static QString loggedInUserName();
 
-    // Build a shell command string that invokes /usr/lib/<app>/snapshot-lib with
-    // the given args, prefixed with whichever elevation tool fits the context.
-    static QString snapshotLibCommand(const QString &args);
-    static bool runSnapshotLib(const QString &args, QuietMode quiet = QuietMode::No);
-
     // A root operation failed because authentication was cancelled/denied (or the
     // privileged helper refused the command). Set by any Cmd instance; callers at
     // workflow entry points clear it first, then check it after the root calls to

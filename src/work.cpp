@@ -43,6 +43,7 @@
 #include <cstdlib>
 #include <stdexcept>
 
+#include "elevationbroker.h"
 #include "filesystemutils.h"
 #include "log.h"
 #include "squashfsutils.h"
@@ -93,11 +94,6 @@ void requestPowerOff()
     }
 }
 } // namespace
-
-QString Work::snapshotLibPath()
-{
-    return "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-}
 
 Work::Work(Settings *settings, QObject *parent)
     : QObject(parent),
@@ -215,9 +211,16 @@ void Work::cleanUp()
     }
     cleanupStarted = true;
 
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " chown_conf", Cmd::QuietMode::Yes);
+    // Stop a running mksquashfs before queueing any other privileged request:
+    // the broker executes FIFO, so anything queued below would otherwise wait
+    // for the squash to finish on its own. The out-of-band KILL terminates the
+    // currently running child; snapshot-lib's pkill remains the catch-all (and
+    // covers root/CLI runs, which bypass the broker).
+    if (started) {
+        ElevationBroker::instance().killActiveChild();
+        Cmd().procAsRoot("snapshot-lib", {"kill_mksquashfs"}, nullptr, nullptr, Cmd::QuietMode::Yes);
+    }
+    Cmd().procAsRoot("snapshot-lib", {"chown_conf"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     if (!started) {
         shell.close();
         initrd_dir.remove();
@@ -229,7 +232,6 @@ void Work::cleanUp()
     QTextStream out(stdout);
     out << "\033[?25h";
     out.flush();
-    Cmd().run(elevateTool + " " + snapshotLib + " kill_mksquashfs", Cmd::QuietMode::Yes);
     shell.close();
     QProcess::execute("sync", {});
     QDir::setCurrent("/");
@@ -251,15 +253,15 @@ void Work::cleanUp()
         shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+        Cmd().procAsRoot("snapshot-lib", {"cleanup"});
     }
     cleanupBindRootOverlay();
     initrd_dir.remove();
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
-                  Cmd::QuietMode::Yes);
+        Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
+                         Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             QFile::copy(Log::getLog(),
                         settings->snapshotDir + "/" + settings->snapshotName + ".log");
@@ -270,8 +272,8 @@ void Work::cleanUp()
         return;
     }
     emit message(tr("Interrupted or failed to complete"));
-    Cmd().run(elevateTool + " " + snapshotLib + " copy_log " + QCoreApplication::applicationName(),
-              Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
+                     Cmd::QuietMode::Yes);
     requestExit(EXIT_FAILURE);
 }
 
@@ -305,9 +307,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
             shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
         }
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-            const QString snapshotLib = snapshotLibPath();
-            const QString elevateTool = Cmd::elevationTool();
-            Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+            Cmd().procAsRoot("snapshot-lib", {"cleanup"});
         }
         settings->tempDirParent = dir;
         if (!settings->checkTempDir()) {
@@ -451,10 +451,8 @@ void Work::cleanupBindRootOverlay()
         bindRootPath = "/.bind-root";
         return;
     }
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " cleanup_overlay " + QCoreApplication::applicationName(),
-              Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib", {"cleanup_overlay", QCoreApplication::applicationName()}, nullptr, nullptr,
+                     Cmd::QuietMode::Yes);
     bindRootOverlayActive = false;
     bindRootOverlayBase.clear();
     bindRootPath = "/.bind-root";
@@ -789,9 +787,7 @@ bool Work::createIso(const QString &filename)
         shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
     if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
-        const QString snapshotLib = snapshotLibPath();
-        const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + snapshotLib + " cleanup");
+        Cmd().procAsRoot("snapshot-lib", {"cleanup"});
     }
 
     if (cleanupStarted) {
@@ -1007,9 +1003,7 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     } else {
         // Free pagecache
         shell.run("sync; sleep 1");
-        const QString snapshotLib = snapshotLibPath();
-        const QString elevateTool = Cmd::elevationTool();
-        Cmd().run(elevateTool + " " + snapshotLib + " drop_caches");
+        Cmd().procAsRoot("snapshot-lib", {"drop_caches"});
         shell.run("sleep 1");
         cmd = checksum_tmp;
     }
@@ -1414,9 +1408,7 @@ void Work::writeLsbRelease()
 // Write date of the snapshot in a "snapshot_created" file
 void Work::writeSnapshotInfo()
 {
-    const QString snapshotLib = snapshotLibPath();
-    const QString elevateTool = Cmd::elevationTool();
-    Cmd().run(elevateTool + " " + snapshotLib + " datetime_log", Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib", {"datetime_log"}, nullptr, nullptr, Cmd::QuietMode::Yes);
 }
 
 void Work::writeVersionFile()

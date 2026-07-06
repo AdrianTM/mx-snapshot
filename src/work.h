@@ -73,7 +73,6 @@ signals:
 
 private:
     // Utility
-    [[nodiscard]] static QString snapshotLibPath();
     // If a prior root call in this pipeline was denied/cancelled, report it and
     // abort via cleanUp() instead of silently proceeding to the next privileged
     // step (which would otherwise re-prompt for auth right after a cancel).

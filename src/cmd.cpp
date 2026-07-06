@@ -49,31 +49,6 @@ QString Cmd::elevationTool()
     return {};
 }
 
-QString Cmd::snapshotLibCommand(const QString &args)
-{
-    const QString snapshotLib = "/usr/lib/" + QCoreApplication::applicationName() + "/snapshot-lib";
-    if (getuid() == 0) {
-        return snapshotLib + " " + args;
-    }
-    // Prefer pkexec when available regardless of CLI/GUI mode: snapshot-lib calls
-    // happen non-interactively (no TTY for a sudo password prompt), and the
-    // accompanying polkit policy uses auth_admin_keep for this helper.
-    if (QFile::exists("/usr/bin/pkexec")) {
-        return QStringLiteral("/usr/bin/pkexec ") + snapshotLib + " " + args;
-    }
-    const QString elevate = Cmd::elevationTool();
-    if (elevate.isEmpty()) {
-        return snapshotLib + " " + args;
-    }
-    return elevate + " " + snapshotLib + " " + args;
-}
-
-bool Cmd::runSnapshotLib(const QString &args, QuietMode quiet)
-{
-    Cmd cmd;
-    return cmd.run(snapshotLibCommand(args), quiet);
-}
-
 bool Cmd::isCliMode()
 {
 #ifdef CLI_BUILD

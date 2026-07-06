@@ -101,6 +101,7 @@ void printError(const QString &message)
         {"rm", {"/usr/bin/rm", "/bin/rm"}},
         {"runuser", {"/usr/sbin/runuser", "/sbin/runuser", "/usr/bin/runuser"}},
         {"sh", {"/usr/bin/sh", "/bin/sh"}},
+        {"snapshot-lib", {"/usr/lib/mx-snapshot/snapshot-lib", "/usr/lib/iso-snapshot-cli/snapshot-lib"}},
         {"stat", {"/usr/bin/stat", "/bin/stat"}},
         {"touch", {"/usr/bin/touch", "/bin/touch"}},
         {"true", {"/usr/bin/true", "/bin/true"}},

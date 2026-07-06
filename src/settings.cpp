@@ -168,7 +168,6 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
         // installed-to-live (Debian, marker at /tmp/installed-to-live/cleanup.conf)
         // and installed-to-live-arch (Arch, state at /run/<app>/cleanup-arch.state
         // or its /tmp/ fallback). Run whichever cleanup matches.
-        const QString elevateTool = Cmd::elevationTool();
         const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
                                       || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
         bool archCleanupOk = true;
@@ -176,7 +175,7 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
             const QString archScript
                 = "/usr/share/" + appName + "/scripts/installed-to-live-arch";
             if (QFileInfo::exists(archScript)) {
-                archCleanupOk = Cmd().run(elevateTool + " " + archScript + " cleanup");
+                archCleanupOk = Cmd().procAsRoot("installed-to-live-arch", {"cleanup"});
             } else {
                 qCritical().noquote() << QObject::tr(
                     "Pending Arch bind-root cleanup state but installed-to-live-arch is missing: %1")
@@ -190,12 +189,11 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
             || (hasOverlayBase
                 && Cmd().run("mountpoint -q \"" + overlayBase + "/root\"", Cmd::QuietMode::Yes));
         if (hasLiveCleanup || hasOverlayBase || bindRootMounted) {
-            const bool cleanupOk
-                = Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup") && archCleanupOk;
+            const bool cleanupOk = Cmd().procAsRoot("snapshot-lib", {"cleanup"}) && archCleanupOk;
             // Remove the overlay directories only when it is safe: either the
             // cleanup above succeeded or nothing is mounted under them anymore.
             if (hasOverlayBase && (cleanupOk || !bindRootMounted)) {
-                Cmd().run(elevateTool + " /usr/lib/" + appName + "/snapshot-lib cleanup_overlay " + appName);
+                Cmd().procAsRoot("snapshot-lib", {"cleanup_overlay", appName});
             }
         }
 
