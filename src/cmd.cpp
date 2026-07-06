@@ -151,6 +151,7 @@ bool Cmd::helperProc(const QStringList &helperArgs, QString *output, const QByte
                     }
                 }
             };
+            emit started();
             const int code = broker.execute(
                 helperArgs, input != nullptr ? *input : QByteArray(),
                 [&sink](const QByteArray &chunk) { sink(chunk, false); },
@@ -218,6 +219,7 @@ bool Cmd::proc(const QString &cmd, const QStringList &args, QString *output, con
         disconnect(conn);
         return false;
     }
+    emit started();
     if (input && !input->isEmpty()) {
         write(*input);
     }

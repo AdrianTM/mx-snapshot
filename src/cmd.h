@@ -53,6 +53,16 @@ public:
     [[nodiscard]] bool outputSuppressed() const;
 
 signals:
+    // Deliberately shadows the inherited QProcess::started(QPrivateSignal) --
+    // that one can only ever be emitted by QProcess itself, and only fires for
+    // the one-shot path (this class's own start()/waitForStarted()), never for
+    // the persistent-broker path in helperProc(), which never calls start() on
+    // this instance at all. This is Cmd's own busy/progress-start signal, kept
+    // under the same name so every existing `&Cmd::started` connection (which
+    // resolves to whichever `started` is visible on Cmd, i.e. this one) keeps
+    // working without call-site changes; both proc() and helperProc() now emit
+    // it explicitly at the point work actually begins.
+    void started();
     void done();
     void errorAvailable(const QString &err);
     void outputAvailable(const QString &out);
