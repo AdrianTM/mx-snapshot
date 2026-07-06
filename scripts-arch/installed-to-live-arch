@@ -739,12 +739,57 @@ action_passwd() {
     fi
 }
 
+# ------------------------------------------------------------------- autologin
+# A reset-accounts snapshot scrubs the original user and installs "demo", but a
+# display manager configured to autologin the original user is carried through
+# unchanged — so the live ISO tries to autologin a now-nonexistent account and
+# drops to a confusing greeter. Point every DM autologin we can find at demo.
+# The live-files package ships a demo-autologin /etc/sddm.conf, but that only
+# helps SDDM; Plasma 6.5's plasmalogin (and lightdm/gdm) need the same fix, and
+# drop-ins under *.conf.d/ can still override a shipped config. Staged and
+# bind-mounted like the other rewrites so it is safe on the overlay and on the
+# plain-bind fallback bind-root alike.
+action_reset_autologin() {
+    local def_user=demo
+    local stage=$WORK_DIR/autologin
+
+    # rewrite_autologin <relpath> <key-regex-through-'='>
+    # If the file exists and already sets the key, force its value to demo,
+    # preserving the key's original spelling/indentation.
+    rewrite_autologin() {
+        local rel=$1 keyre=$2
+        local src=${BIND_ROOT%/}/$rel dst=$stage/$rel
+        [[ -f $src ]] || return 0
+        grep -Eq "$keyre" "$src" 2>/dev/null || return 0
+        mkdir -p "${dst%/*}" || return 0
+        sed -E "s|(${keyre}[[:space:]]*).*|\1${def_user}|" "$src" > "$dst" || return 0
+        bind_mount "$dst" "$src" || warn "autologin: bind failed for $rel"
+    }
+
+    rewrite_autologin etc/plasmalogin.conf '^[[:space:]]*User[[:space:]]*='
+    rewrite_autologin etc/sddm.conf '^[[:space:]]*User[[:space:]]*='
+    rewrite_autologin etc/lightdm/lightdm.conf '^[[:space:]]*autologin-user[[:space:]]*='
+    rewrite_autologin etc/gdm/custom.conf '^[[:space:]]*AutomaticLogin[[:space:]]*='
+
+    # Drop-ins under *.conf.d/ (sddm, plasmalogin) can override the main config.
+    local d f
+    for d in etc/sddm.conf.d etc/plasmalogin.conf.d; do
+        [[ -d ${BIND_ROOT%/}/$d ]] || continue
+        for f in "${BIND_ROOT%/}/$d"/*.conf; do
+            [[ -f $f ]] || continue
+            rewrite_autologin "$d/${f##*/}" '^[[:space:]]*User[[:space:]]*='
+        done
+    done
+    return 0
+}
+
 # ------------------------------------------------------------------- general
 action_general() {
     action_empty_dirs_general
     action_live_files || return 1
     action_general_files || return 1
     action_passwd || return 1
+    action_reset_autologin
     # doRepo is Debian-only (apt sources). Skipped here.
     action_timezone || return 1
 }
