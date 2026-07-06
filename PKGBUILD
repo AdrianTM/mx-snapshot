@@ -9,6 +9,7 @@ license=('GPL3')
 # openssl: installed-to-live-arch hashes the demo/root passwords with
 # `openssl passwd -6` in reset-accounts mode (python3 is the fallback).
 depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch' 'lsb-release' 'openssl')
+optdepends=('paru: install gazelle-installer from the AUR when missing')
 makedepends=('cmake' 'ninja' 'qt6-tools')
 conflicts=('mx-remaster-live-files')
 replaces=('mx-remaster-live-files')
