@@ -15,7 +15,6 @@ NC='\033[0m' # No Color
 AUR_DIR="${AUR_DIR:-aur}"
 MAIN_BRANCH="${MAIN_BRANCH:-main}"
 ANNOTATION=""
-FORCE_UPDATE=0
 
 # Helper functions
 print_header() {
@@ -80,7 +79,8 @@ check_tag_exists() {
 # Get latest tag version for comparison
 get_latest_tag() {
     # Filter to only version-like tags (v?X.Y or v?X.Y.Z with optional suffix)
-    local latest_tag=$(git tag -l | grep -E '^v?[0-9]+\.[0-9]+(\.[0-9]+)?[a-z]*$' | sort -V | tail -n1)
+    local latest_tag
+    latest_tag=$(git tag -l | grep -E '^v?[0-9]+\.[0-9]+(\.[0-9]+)?[a-z]*$' | sort -V | tail -n1)
     if [ -z "$latest_tag" ]; then
         echo "0.0.0"  # No tags exist yet
     else
@@ -305,7 +305,6 @@ main() {
         case "$2" in
             --update|--force)
                 mode="update"
-                FORCE_UPDATE=1
                 ;;
             *)
                 print_error "Unknown option: $2"
@@ -336,7 +335,8 @@ main() {
     fi
 
     # Check if on main branch
-    local current_branch=$(git branch --show-current)
+    local current_branch
+    current_branch=$(git branch --show-current)
     if [ "$current_branch" != "$MAIN_BRANCH" ]; then
         print_warning "Not on $MAIN_BRANCH branch (currently on: $current_branch)"
         echo "Continue anyway? (y/N)"
@@ -356,7 +356,8 @@ main() {
 
     # Compare with latest tag
     print_step "Checking version progression..."
-    local latest_tag=$(get_latest_tag)
+    local latest_tag
+    latest_tag=$(get_latest_tag)
     local clean_version=${version#v}
 
     if ! compare_versions "$clean_version" "$latest_tag"; then

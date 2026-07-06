@@ -123,7 +123,7 @@ load_state() {
     [[ -f $f ]] || return 1
     RM_FILES=()
     RM_DIRS=()
-    local key value tag rest
+    local line
     while IFS= read -r line; do
         case $line in
             BIND_ROOT=*) BIND_ROOT=${line#BIND_ROOT=} ;;
@@ -445,7 +445,8 @@ action_passwd() {
     fi
     [[ $def_shell = /* ]] || def_shell=/usr/bin/$def_shell
 
-    local added_user="live_temp_user$(tr -dc 'a-f0-9' < /dev/urandom | head -c 12)"
+    local added_user
+    added_user="live_temp_user$(tr -dc 'a-f0-9' < /dev/urandom | head -c 12)"
     local has_adduser=0
     if [[ -x /usr/sbin/adduser || -x /usr/bin/adduser ]]; then
         has_adduser=1
@@ -521,7 +522,7 @@ action_passwd() {
         [[ -f $target ]] || continue
         local tmp="$target.new"
         : > "$tmp"
-        local line fields_ifs save_ifs user
+        local line user
         while IFS= read -r line; do
             [[ -z $line ]] && continue
             IFS=: read -r -a fields <<< "$line"
