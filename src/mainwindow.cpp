@@ -413,10 +413,10 @@ void MainWindow::listUsedSpace()
     ui->btnNext->setDisabled(true);
     ui->btnCancel->setDisabled(true);
     ui->btnSelectSnapshot->setDisabled(true);
+    ui->labelUsedSpace->setText(settings->getUsedSpace());
     ui->btnNext->setEnabled(true);
     ui->btnCancel->setEnabled(true);
     ui->btnSelectSnapshot->setEnabled(true);
-    ui->labelUsedSpace->setText(settings->getUsedSpace());
 }
 
 void MainWindow::listFreeSpace()
