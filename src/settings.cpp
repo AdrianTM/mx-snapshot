@@ -240,7 +240,9 @@ bool Settings::checkCompression() const
     if (compression == "gzip" || !QFileInfo::exists("/boot/config-" + kernel)) {
         return true;
     }
-    return Cmd().run("grep ^CONFIG_SQUASHFS_" + compression.toUpper() + "=y /boot/config-" + kernel);
+    // Argument array: compression/kernel are user-supplied (config file or CLI)
+    // and must never be parsed by a shell.
+    return Cmd().proc("grep", {"-q", "^CONFIG_SQUASHFS_" + compression.toUpper() + "=y", "/boot/config-" + kernel});
 }
 
 // Adds or removes exclusion to the exclusion string
@@ -789,9 +791,20 @@ quint64 Settings::getLiveRootSpace()
         sqfile_full = toram_mp + "/" + sqfile_path + "/" + sqfile_name;
     }
 
-    // Get compression factor by reading the linuxfs squasfs file, if available
-    QString linuxfs_compression_type
-        = Cmd().getOut("dd if=" + sqfile_full + " bs=1 skip=20 count=2 status=none 2>/dev/null |od -An -tdI");
+    // Get compression factor by reading the linuxfs squashfs file, if available:
+    // the superblock stores the compression id as a little-endian u16 at offset
+    // 20. Read it directly — sqfile_full comes from live-media config and must
+    // not be interpolated into a shell pipeline (the old dd|od approach).
+    QString linuxfs_compression_type;
+    QFile sqfile(sqfile_full);
+    if (sqfile.open(QIODevice::ReadOnly) && sqfile.seek(20)) {
+        const QByteArray bytes = sqfile.read(2);
+        if (bytes.size() == 2) {
+            const quint16 id = static_cast<quint8>(bytes.at(0))
+                               | (static_cast<quint16>(static_cast<quint8>(bytes.at(1))) << 8);
+            linuxfs_compression_type = QString::number(id);
+        }
+    }
     constexpr quint8 default_factor = 30;
     quint8 c_factor = default_factor;
     // gzip, xz, or lz4
@@ -1127,6 +1140,14 @@ void Settings::loadConfig()
     makeMd5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     makeSha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
     compression = trimQuotes(settingsUser.value("compression", "zstd").toString());
+    // The CLI path validates --compression in main.cpp; the config file value
+    // was taken on trust. Reject anything outside the supported set so a
+    // malformed value never reaches mksquashfs or the kernel-config probe.
+    static const QStringList allowedCompression {"lz4", "lzo", "gzip", "xz", "zstd"};
+    if (!allowedCompression.contains(compression)) {
+        qWarning().noquote() << QObject::tr("Unsupported compression '%1' in configuration, using zstd.").arg(compression);
+        compression = "zstd";
+    }
     mksqOpt = trimQuotes(settingsUser.value("mksq_opt").toString());
     // edit_boot_menu is now const, initialized in constructor
     tempDirParent = trimQuotes(settingsUser.value("workdir").toString());
