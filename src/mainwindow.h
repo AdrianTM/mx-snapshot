@@ -100,7 +100,6 @@ private:
     void appendIsoExtension(QString &file_name) const;
     void applyExclusions();
     void checkNvidiaGraphicsCard();
-    void checkSaveWork();
     void checkUpdatedDefaultExcludes();
     bool closeApp(bool fromCloseEvent = false);
     void editBootMenu();
