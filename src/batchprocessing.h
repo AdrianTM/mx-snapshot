@@ -36,6 +36,11 @@ public:
 
     void setConnections();
 
+    // True once the snapshot pipeline ran to completion (Work::createIso()
+    // finished); false for every early-abort path (space/config/elevation
+    // failures), so callers can derive a real process exit code.
+    [[nodiscard]] bool succeeded() const { return work.isDone(); }
+
 public slots:
     static void progress();
 

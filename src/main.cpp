@@ -267,8 +267,16 @@ int main(int argc, char *argv[])
 
                 if (!isGuiApp) {
                     Batchprocessing batch(&settings);
+                    // The whole pipeline already ran synchronously inside the
+                    // constructor above (Cmd::proc uses its own nested QEventLoop
+                    // per call), so exec()'s return value here is meaningless:
+                    // QCoreApplication::exit() called before exec() starts has no
+                    // effect, and the queued quit() below always makes exec()
+                    // return 0 regardless of what Work::cleanUp() requested. Read
+                    // the real outcome from Batchprocessing instead.
                     QTimer::singleShot(0, app, &QCoreApplication::quit);
-                    exitCode = app->exec();
+                    app->exec();
+                    exitCode = batch.succeeded() ? EXIT_SUCCESS : EXIT_FAILURE;
                 }
 #ifndef CLI_BUILD
                 else {

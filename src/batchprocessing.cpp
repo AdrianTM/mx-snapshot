@@ -297,15 +297,22 @@ void Batchprocessing::checkUpdatedDefaultExcludesCli()
 
         if (response.compare(quitOptionKey, Qt::CaseInsensitive) == 0
             || response.compare(quitOptionText, Qt::CaseInsensitive) == 0 || response.isEmpty()) {
-            qDebug() << tr("Leaving custom exclusion file unchanged.");
+            // A null (as opposed to merely empty) line means readLine() hit EOF —
+            // there was no terminal to prompt (e.g. a cron/piped run) rather than a
+            // deliberate choice.
+            if (response.isNull()) {
+                qCritical().noquote() << tr(
+                    "No input available to answer the exclusion file prompt; aborting without creating a snapshot.");
+            } else {
+                qDebug() << tr("Leaving custom exclusion file unchanged.");
+            }
             const bool debugStop = qEnvironmentVariableIsSet("MX_SNAPSHOT_EXCLUDES_DEBUG_STOP");
             if (debugStop) {
                 qDebug() << "Debug stop requested; exiting after excludes check.";
                 std::exit(0);
-            } else {
-                std::exit(EXIT_SUCCESS);
             }
-            return; // exit requested
+            // Either way no snapshot is produced here, so this must not report success.
+            std::exit(EXIT_FAILURE);
         }
 
         out << tr("Invalid choice. Please select again.") << '\n';
