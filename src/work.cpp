@@ -1117,13 +1117,19 @@ void Work::replaceMenuStrings()
     QString fullDistroNameSpace = settings->fullDistroName;
     fullDistroNameSpace.replace("_", " ");
 
+    // Guard each grub file with an existence check: templates don't all ship
+    // every file, and the grubenv append below would otherwise create a stray
+    // grubenv.cfg in the ISO via the >> redirection.
     const QString grub_cfg {"/iso-template/boot/grub/grub.cfg"};
-    replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion,
-                        settings->workDir + grub_cfg);
-    replaceStringInFile("%DISTRO_NAME%", settings->projectName, settings->workDir + grub_cfg);
-    replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + grub_cfg);
-    replaceStringInFile("%FULL_DISTRO_NAME_SPACE%", fullDistroNameSpace, settings->workDir + grub_cfg);
-    replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + grub_cfg);
+    const bool haveGrubCfg = QFileInfo::exists(settings->workDir + grub_cfg);
+    if (haveGrubCfg) {
+        replaceStringInFile("%DISTRO%", settings->projectName + "-" + settings->distroVersion,
+                            settings->workDir + grub_cfg);
+        replaceStringInFile("%DISTRO_NAME%", settings->projectName, settings->workDir + grub_cfg);
+        replaceStringInFile("%FULL_DISTRO_NAME%", settings->fullDistroName, settings->workDir + grub_cfg);
+        replaceStringInFile("%FULL_DISTRO_NAME_SPACE%", fullDistroNameSpace, settings->workDir + grub_cfg);
+        replaceStringInFile("%RELEASE_DATE%", settings->releaseDate, settings->workDir + grub_cfg);
+    }
 
     const QString grubenv_cfg {"/iso-template/boot/grub/grubenv.cfg"};
     const QString boot_pararameter_regexp {"(lang|kbd|kbvar|kbopt|tz)=[^[:space:]]*"};
@@ -1132,11 +1138,15 @@ void Work::replaceMenuStrings()
     // crafted work dir or kernel option). $1 is intentionally left unquoted in
     // printf: word splitting emits one option per line, while positional expansion
     // still prevents command-substitution/quote injection in the value.
-    const QString grubenv_script = "printf '%s\\n' $1 | grep -E '^" + boot_pararameter_regexp + "' >> \"$2\"";
-    shell.proc("/bin/bash", {"-c", grubenv_script, "_", settings->bootOptions, settings->workDir + grubenv_cfg});
-    const QString options_script = "sed -i \"s|%OPTIONS%|$(sed -r 's/[[:space:]]" + boot_pararameter_regexp
-        + "/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g' <<<\" $1\")|\" \"$2\"";
-    shell.proc("/bin/bash", {"-c", options_script, "_", settings->bootOptions, settings->workDir + grub_cfg});
+    if (QFileInfo::exists(settings->workDir + grubenv_cfg)) {
+        const QString grubenv_script = "printf '%s\\n' $1 | grep -E '^" + boot_pararameter_regexp + "' >> \"$2\"";
+        shell.proc("/bin/bash", {"-c", grubenv_script, "_", settings->bootOptions, settings->workDir + grubenv_cfg});
+    }
+    if (haveGrubCfg) {
+        const QString options_script = "sed -i \"s|%OPTIONS%|$(sed -r 's/[[:space:]]" + boot_pararameter_regexp
+            + "/ /g; s/^[[:space:]]+//; s/[[:space:]]+/ /g' <<<\" $1\")|\" \"$2\"";
+        shell.proc("/bin/bash", {"-c", options_script, "_", settings->bootOptions, settings->workDir + grub_cfg});
+    }
     // The Arch ISO template is GRUB-only — no syslinux / isolinux. Skip
     // files that aren't present so we don't spam "Failed to open file:"
     // warnings during snapshots on Arch.
