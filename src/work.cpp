@@ -803,7 +803,17 @@ bool Work::createIso(const QString &filename)
     // ($1, $2) so the shell never parses them — this prevents command injection
     // through snapshotDir/filename/workDir.
     QDir::setCurrent(settings->workDir + "/iso-template");
-    const QString volumeLabel = settings->isArch ? settings->fullDistroName : "MXLIVE";
+    // On Arch the label derives from fullDistroName, which can contain spaces on
+    // a pure Arch host (projectName comes from os-release NAME="Arch Linux").
+    // Boot configs may consume the label (archisolabel=, search --label), where a
+    // space breaks parsing, and ISO 9660 caps volume IDs at 32 characters — so
+    // sanitize rather than passing the display name through verbatim.
+    QString volumeLabel = "MXLIVE";
+    if (settings->isArch) {
+        volumeLabel = settings->fullDistroName;
+        volumeLabel.replace(' ', '-');
+        volumeLabel.truncate(32);
+    }
     QString cmd;
     if (settings->isArch) {
         // Arch ISO uses the GRUB eltorito image for BIOS boot and a flat efi.img at the
