@@ -190,6 +190,13 @@ if [ "$CLEAN" = true ]; then
     rm -rf pkg *.pkg.tar.zst
 fi
 
+# A build dir configured with gcc keeps its cached compiler and silently
+# ignores a later compiler change; give --clang builds their own directory so
+# the option always takes effect without wiping the default build.
+if [ "$USE_CLANG" = true ] && [ "$BUILD_DIR" = "build" ]; then
+    BUILD_DIR="build-clang"
+fi
+
 # Create build directory
 mkdir -p "$BUILD_DIR"
 

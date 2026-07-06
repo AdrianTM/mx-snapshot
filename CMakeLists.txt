@@ -66,6 +66,16 @@ if(NOT GIT_TAG_VERSION)
     message(FATAL_ERROR "Failed to determine version from git tag, dpkg-parsechangelog, or debian/changelog")
 endif()
 
+# Option to use clang for testing builds. The compiler must be chosen BEFORE
+# project() enables the CXX language — setting CMAKE_CXX_COMPILER afterwards is
+# silently ignored, which used to make --clang build with the default compiler.
+option(USE_CLANG "Use clang compiler" OFF)
+if(USE_CLANG)
+    set(CMAKE_C_COMPILER clang)
+    set(CMAKE_CXX_COMPILER clang++)
+    message(STATUS "Using clang compiler")
+endif()
+
 project(mx-snapshot
     DESCRIPTION "MX Snapshot - A tool for creating live ISO images from running MX Linux systems"
     LANGUAGES CXX
@@ -93,15 +103,6 @@ if(CMAKE_GENERATOR STREQUAL "Ninja")
     elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         add_compile_options(-fcolor-diagnostics)
     endif()
-endif()
-
-# Option to use clang for testing builds
-option(USE_CLANG "Use clang compiler" OFF)
-if(USE_CLANG)
-    set(CMAKE_C_COMPILER clang)
-    set(CMAKE_CXX_COMPILER clang++)
-    set(CMAKE_CXX_COMPILER_ID "Clang")
-    message(STATUS "Using clang compiler")
 endif()
 
 # Options to control what to build
