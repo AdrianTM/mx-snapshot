@@ -304,8 +304,12 @@ void MainWindow::setConnections()
     connect(&work.shell, &Cmd::started, this, &MainWindow::procStart);
     connect(qApp, &QCoreApplication::aboutToQuit, this, [this] {
         // Skip cleanup on aboutToQuit when there's nothing to tear down — the
-        // user closed the window before starting work, or work already finished.
-        if (!work.isStarted() || work.isDone()) {
+        // user closed the window before starting work, or cleanup already ran
+        // (e.g. the shutdown-when-done path, which calls it eagerly). Checking
+        // isDone() here instead of isCleaningUp() would skip teardown (bind-root
+        // overlay unmount, log copy, chown_conf) for every successful snapshot
+        // that doesn't request a shutdown.
+        if (!work.isStarted() || work.isCleaningUp()) {
             return;
         }
         cleanUp();
@@ -458,7 +462,10 @@ bool MainWindow::installPackage(const QString &package)
 
 void MainWindow::cleanUp()
 {
-    if (!work.isStarted() || work.isDone()) {
+    // isCleaningUp(), not isDone(): a successful, non-shutdown snapshot is
+    // "done" but has not torn down the bind-root overlay yet — that still
+    // needs to happen once, whenever the app actually closes.
+    if (!work.isStarted() || work.isCleaningUp()) {
         return;
     }
     if (cleanupInProgress) {
@@ -1075,15 +1082,18 @@ bool MainWindow::closeApp(bool fromCloseEvent)
     }
     qt_settings.setValue("geometry", saveGeometry());
 
-    // If a snapshot is still in flight, kick off cleanup and keep the window
-    // open — the cleanup will close us via QCoreApplication::exit when done.
-    const bool hasActiveWork = work.isStarted() && !work.isDone();
-    if (hasActiveWork) {
+    // If a snapshot is still in flight, or finished but its bind-root overlay
+    // teardown hasn't run yet (isCleaningUp(), not isDone() -- a successful
+    // non-shutdown snapshot is "done" without having torn anything down), kick
+    // off cleanup and keep the window open — the cleanup will close us via
+    // QCoreApplication::exit when done.
+    const bool needsCleanup = work.isStarted() && !work.isCleaningUp();
+    if (needsCleanup) {
         cleanUp();
         return false;
     }
-    // No active work: close the window. closeEvent ignores programmatic closes
-    // so this won't recurse.
+    // Nothing left to tear down: close the window. closeEvent ignores
+    // programmatic closes so this won't recurse.
     if (!fromCloseEvent) {
         close();
     }
