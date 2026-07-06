@@ -233,8 +233,12 @@ bind_mount_template() {
         if [[ -L $file ]]; then
             if [[ ! -e $orig ]]; then
                 cp -a "$file" "$orig" || { warn "failed to copy symlink: $file"; continue; }
+                # Resolve relative to $orig's own directory (readlink -f), not the
+                # script's CWD — a relative target like "../foo" tested with plain
+                # readlink + [[ -e ]] almost always looks broken and gets deleted
+                # below even when it's perfectly valid.
                 local link_target
-                link_target=$(readlink "$orig" 2>/dev/null || true)
+                link_target=$(readlink -f "$orig" 2>/dev/null || true)
                 if [[ -n $link_target && -e $link_target ]]; then
                     add_rm_file "$orig"
                 else
@@ -612,6 +616,12 @@ action_passwd() {
         while IFS= read -r line; do
             [[ -z $line ]] && continue
             IFS=: read -r -a fields <<< "$line"
+            # A trailing empty members field (e.g. "video:x:986:") is dropped by
+            # `read -a`, not preserved as an empty element. Pad back to 4 fields
+            # once name:passwd:gid are present, so a group with no members isn't
+            # mistaken for a malformed line; anything shorter than that triplet
+            # is still passed through unchanged.
+            [[ ${#fields[@]} -ge 3 ]] && pad_colon_fields 4
             if [[ ${#fields[@]} -lt 4 ]]; then
                 printf '%s\n' "$line" >> "$tmp"
                 continue

@@ -1,6 +1,6 @@
 # Maintainer: Adrian <adrian@mxlinux.org>
 pkgname=mx-snapshot
-pkgver=${PKGVER:-25.09.1}
+pkgver=${PKGVER:-26.07.1}
 pkgrel=1
 pkgdesc="A tool for creating live ISO images from running systems"
 arch=('x86_64' 'i686')
@@ -8,12 +8,20 @@ url="https://mxlinux.org"
 license=('GPL3')
 # openssl: installed-to-live-arch hashes the demo/root passwords with
 # `openssl passwd -6` in reset-accounts mode (python3 is the fallback).
-depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch' 'lsb-release' 'openssl')
+# xdg-user-dirs: Settings::getXdgUserDirs() shells out to xdg-user-dir to
+# resolve localized Documents/Downloads/etc. paths for exclusions.
+# syslinux: provides isohdpfx.bin, needed for make_isohybrid=yes (the
+# shipped default) to actually produce a BIOS/USB-hybrid ISO.
+depends=('qt6-base' 'polkit' 'squashfs-tools' 'xorriso' 'mx-iso-template-arch' 'lsb-release' 'openssl'
+         'xdg-user-dirs' 'syslinux')
 optdepends=('paru: install gazelle-installer from the AUR when missing')
 makedepends=('cmake' 'ninja' 'qt6-tools')
 conflicts=('mx-remaster-live-files')
 replaces=('mx-remaster-live-files')
 provides=('mx-remaster-live-files=1.0.0')
+# /etc/mx-snapshot.conf and the exclude list are meant to be user-edited;
+# without this, pacman would overwrite local changes on every upgrade.
+backup=('etc/mx-snapshot.conf' 'etc/mx-snapshot-exclude.list')
 source=()
 sha256sums=()
 
