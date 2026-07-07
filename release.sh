@@ -68,7 +68,13 @@ check_tag_exists() {
     fi
 
     # Check remote tags
-    if git ls-remote --tags mxlinux 2>/dev/null | grep -q "refs/tags/${version}$"; then
+    local remote_tags
+    if ! remote_tags=$(git ls-remote --tags mxlinux 2>&1); then
+        print_error "Failed to query remote tags from 'mxlinux':"
+        echo "$remote_tags"
+        return 1
+    fi
+    if echo "$remote_tags" | grep -q "refs/tags/${version}$"; then
         print_error "Tag '$version' already exists on remote"
         return 1
     fi
@@ -118,13 +124,16 @@ prompt_annotation() {
         print_error "Failed to create temp file"
         exit 1
     }
-    cat > "$tmpfile" <<EOF
+    local placeholder
+    placeholder=$(cat <<EOF
 ## Release $version
 
 - Feature 1
 - Bug fix 2
 - Other changes
 EOF
+)
+    printf "%s\n" "$placeholder" > "$tmpfile"
 
     if [ -n "${EDITOR:-}" ]; then
         "${EDITOR}" "$tmpfile"
@@ -142,6 +151,13 @@ EOF
 
     if [ -z "$annotation" ]; then
         print_error "Annotation cannot be empty"
+        exit 1
+    fi
+
+    local stripped_placeholder
+    stripped_placeholder=$(printf "%s\n" "$placeholder" | sed '/^[[:space:]]*$/d')
+    if [ "$annotation" = "$stripped_placeholder" ]; then
+        print_error "Annotation was not edited from the placeholder template"
         exit 1
     fi
 
