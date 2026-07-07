@@ -99,6 +99,7 @@ bool resetCustomExcludes(const QString &configuredPath, const QString &sourcePat
         const QString backupPath = configuredPath + "." + QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
         if (!QFile::copy(configuredPath, backupPath)) {
             qWarning().noquote() << QObject::tr("Could not backup existing exclusion file to %1.").arg(backupPath);
+            return false;
         }
         if (!QFile::remove(configuredPath)) {
             qWarning().noquote()
