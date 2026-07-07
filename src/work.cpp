@@ -1246,8 +1246,9 @@ void Work::savePackageList(const QString &file_name)
         const QString archDir = settings->workDir + "/iso-template/arch";
         QDir().mkpath(archDir);
         const QString fullName = QString("%1/pkglist.%2.txt").arg(archDir, archCpuDir);
-        const QString cmd = QString("pacman -Q | awk '{print $1 \" \" $2}' > '%1'").arg(fullName);
-        shell.run(cmd);
+        // fullName rides as $1, a positional parameter the shell never parses,
+        // so it can't be used to break out of the redirect target.
+        shell.proc("/bin/bash", {"-c", R"(pacman -Q | awk '{print $1 " " $2}' > "$1")", "_", fullName});
         return;
     }
     QFileInfo fi(file_name);
@@ -1256,9 +1257,12 @@ void Work::savePackageList(const QString &file_name)
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not create working directory. ") + dir.absolutePath());
     }
+    // file_name is user-controlled (CLI -f/--file or the GUI output filename), so
+    // fullName rides as $1, a positional parameter the shell never parses, rather
+    // than being interpolated into the command string.
     const QString fullName = QString("%1/iso-template/%2/package_list").arg(settings->workDir, fi.completeBaseName());
-    const QString cmd = QString(R"(dpkg -l | awk '/^ii /{printf "%-41s %s\n", $2, $3}' > '%1')").arg(fullName);
-    shell.run(cmd);
+    shell.proc("/bin/bash",
+               {"-c", R"(dpkg -l | awk '/^ii /{printf "%-41s %s\n", $2, $3}' > "$1")", "_", fullName});
 }
 
 // Setup the environment before taking the snapshot
