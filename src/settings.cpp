@@ -865,8 +865,10 @@ QString Settings::getUsedSpace()
     if (estimated) {
         out += " -- " + QObject::tr("estimated");
     }
+    // isRoot() is true exactly when /home shares the root filesystem — the
+    // separate-partition case (worth reporting) is !isRoot(), not isRoot().
     QStorageInfo homeInfo("/home/");
-    if (homeInfo.isValid() && homeInfo.isRoot()) {
+    if (homeInfo.isValid() && !homeInfo.isRoot()) {
         homeSize = homeInfo.bytesTotal() - homeInfo.bytesFree();
         out.append("\n- " + QObject::tr("Used space on /home: ")
                    + QString::number(static_cast<double>(homeSize) / factor, 'f', 2) + "GiB");
