@@ -1194,7 +1194,14 @@ void Settings::loadConfig()
     }
     cores = storedCores;
 
-    throttle = settingsUser.value("throttle", 0).toUInt();
+    const QVariant throttleValue = settingsUser.value("throttle", 0);
+    uint storedThrottle = throttleValue.toUInt();
+    if (storedThrottle > 99) {
+        qWarning() << QObject::tr("Invalid stored throttle setting (%1). Using 0.").arg(throttleValue.toString());
+        storedThrottle = 0;
+        settingsUser.setValue("throttle", storedThrottle);
+    }
+    throttle = storedThrottle;
     resetAccounts = false;
 }
 
