@@ -561,21 +561,32 @@ QString Settings::getEditor() const
         = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editor).hasMatch();
     const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editor).hasMatch();
 
-    QString elevate = Cmd::elevationTool();
     if (isEditorThatElevates && !isRoot) {
         return editor;
-    } else if (isRoot && isEditorThatElevates) {
-        // Adjust user switch flag based on tool
-        if (elevate.contains("sudo")) {
-            elevate += " -u $(logname)";
-        } else {
-            elevate += " --user $(logname)";
+    }
+
+    // Only elevate when the process itself is already root (CLI run via sudo),
+    // where the target files were created root-owned. In a normal unprivileged
+    // GUI session the files are already owned by the invoking user, so
+    // elevating here would just force an unnecessary pkexec/sudo prompt.
+    QString elevate;
+    if (isRoot) {
+        elevate = Cmd::elevationTool();
+        if (isEditorThatElevates) {
+            // Adjust user switch flag based on tool
+            if (elevate.contains("sudo")) {
+                elevate += " -u $(logname)";
+            } else {
+                elevate += " --user $(logname)";
+            }
         }
     }
+    const QString elevatePrefix = elevate.isEmpty() ? QString() : elevate + " ";
+
     if (isCliEditor) {
-        return "x-terminal-emulator -e " + elevate + " " + editor;
+        return "x-terminal-emulator -e " + elevatePrefix + editor;
     }
-    return elevate + " env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
+    return elevatePrefix + "env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
 }
 
 // Return the size of the snapshot folder in MiB

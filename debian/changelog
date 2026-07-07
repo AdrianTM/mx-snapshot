@@ -1,3 +1,19 @@
+mx-snapshot (26.07.1) mx; urgency=medium
+
+  * Keep the authentication prompt alive across the whole snapshot run
+    so it only prompts once, even after long operations.
+  * Add amd/intel-ucode injection into initrd, and make the initrd
+    helper scripts safer with better module path handling.
+  * Improve mksquashfs progress: CLI shows percentage on a single
+    updating line; sync GUI progress on carriage returns.
+  * Harden snapshot helper scripts against symlink attacks and path
+    traversal in the privilege-escalated subcommands.
+  * Remove passwordless polkit access to snapshot-lib actions, closing
+    a privilege-escalation path.
+  * Unify codebase with the Arch branch
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 06 Jul 2026 01:43:31 -0400
+
 mx-snapshot (26.07) mx; urgency=medium
 
   * Fix config and exclude-list files created during a snapshot being
