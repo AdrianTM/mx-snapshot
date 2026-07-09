@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="de">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -26,25 +24,25 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="175"/>
         <source>s</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;show diff&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
         <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="176"/>
         <source>u</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;use updated default&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
         <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="177"/>
         <source>k</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;keep custom (update timestamp)&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
         <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="178"/>
         <source>q</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;quit&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
         <translation>q</translation>
     </message>
     <message>
@@ -122,7 +120,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="231"/>
         <source>Administrator Access Required</source>
-        <translation>Rootrechte erforderlich</translation>
+        <translation>Administratorenrechte erforderlich</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="232"/>
@@ -497,7 +495,7 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
         <source>Done</source>
-        <translation type="unfinished">Fertig</translation>
+        <translation>Fertig</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="587"/>
@@ -789,7 +787,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"></translation>
+        <translation>GRUB verwenden für das - veraltete- Booten der Iso-Datei vom MBR anstelle von isolinux/syslinux.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="217"/>
@@ -824,26 +822,18 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/main.cpp" line="254"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="256"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="296"/>
         <location filename="../src/settings.cpp" line="602"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Der installierte Kernel unterstützt Squashfs nicht; Abbruch.</translation>
-    </message>
-    <message>
-        <source>Failed to initialize configuration</source>
-        <translation type="vanished">Initialisierung der Konfiguration fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>Configuration validation failed</source>
-        <translation type="vanished">Plausibilitätsprüfung der Konfiguration fehlgeschlagen</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
@@ -863,7 +853,7 @@ Es wird eine .ISO-Datei erstellt, bootfähig auch von USB-Stick. Es ist typische
     <message>
         <location filename="../src/settings.cpp" line="248"/>
         <source>No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="266"/>
@@ -1227,62 +1217,62 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/work.cpp" line="408"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="440"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="443"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="446"/>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="482"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="484"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="488"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="500"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="505"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Warnung</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="506"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="518"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="543"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
-        <translation type="unfinished"></translation>
+        <translation>--grub-mbr Optionen sind angegeben aber die Datei boot/grub/i386-pc/eltorito.img von iso-template fehlt</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="556"/>
@@ -1359,12 +1349,12 @@ gespeicherte Kopien von früheren Schnappschüssen löschen:
     <message>
         <location filename="../src/work.cpp" line="961"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="962"/>
         <source>Note: warnings about missing ipconfig, nfsmount, or nbd-client are harmless — those are only needed for network booting.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1064"/>

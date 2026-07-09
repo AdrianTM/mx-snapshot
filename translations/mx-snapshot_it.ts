@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="it">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="it">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -21,49 +19,49 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="169"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="175"/>
         <source>s</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;show diff&apos;</comment>
-        <translation type="unfinished"></translation>
+        <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="176"/>
         <source>u</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;use updated default&apos;</comment>
-        <translation type="unfinished"></translation>
+        <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="177"/>
         <source>k</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;keep custom (update timestamp)&apos;</comment>
-        <translation type="unfinished"></translation>
+        <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="178"/>
         <source>q</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;quit&apos;</comment>
-        <translation type="unfinished"></translation>
+        <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="180"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="181"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="182"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="183"/>
@@ -74,42 +72,42 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="186"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="191"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="207"/>
         <source>Reverted to updated default exclusion file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="220"/>
         <source>Leaving custom exclusion file unchanged.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="231"/>
         <source>Invalid choice. Please select again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="238"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="248"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -117,17 +115,17 @@
     <message>
         <location filename="../src/cmd.cpp" line="142"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="231"/>
         <source>Administrator Access Required</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="232"/>
         <source>This operation requires administrator privileges. Please restart the application and enter your password when prompted.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -177,7 +175,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="133"/>
         <source>Current date</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
@@ -284,7 +282,7 @@
         <location filename="../src/mainwindow.ui" line="626"/>
         <location filename="../src/mainwindow.cpp" line="863"/>
         <source>Remove Custom Exclusion File</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
@@ -394,7 +392,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="353"/>
         <source>Select Release Date</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="397"/>
@@ -465,37 +463,37 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <location filename="../src/mainwindow.cpp" line="174"/>
         <location filename="../src/mainwindow.cpp" line="210"/>
         <source>Updated Exclusion List</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="177"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="179"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="185"/>
         <source>Show Differences</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="191"/>
         <source>Keep Custom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="197"/>
         <source>Use Updated Default</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
         <source>Done</source>
-        <translation type="unfinished">Fatto</translation>
+        <translation>Fatto</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="587"/>
@@ -505,7 +503,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/mainwindow.cpp" line="594"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="598"/>
@@ -531,33 +529,33 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
         <location filename="../src/mainwindow.cpp" line="631"/>
         <location filename="../src/mainwindow.cpp" line="640"/>
         <source>NVIDIA Detected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="632"/>
         <source>This computer uses an NVIDIA graphics card. Are you planning to use the resulting ISO on the same computer or another computer with an NVIDIA card?</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="636"/>
         <source>NVIDIA Selected</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="637"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="641"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="275"/>
         <location filename="../src/mainwindow.cpp" line="676"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="687"/>
@@ -613,7 +611,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/mainwindow.cpp" line="864"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="896"/>
@@ -653,7 +651,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/mainwindow.cpp" line="929"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="973"/>
@@ -726,7 +724,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/main.cpp" line="121"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="122"/>
@@ -786,7 +784,7 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="217"/>
@@ -821,12 +819,12 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/main.cpp" line="254"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="256"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="296"/>
@@ -837,144 +835,144 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/settings.cpp" line="180"/>
         <source>Exception during initialization: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="183"/>
         <source>Unknown exception during initialization</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="219"/>
         <source>Could not create work directory. </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="248"/>
         <source>No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="266"/>
         <source>Could not create temp directory:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="267"/>
         <source>Please check that the parent directory exists and is writable:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="285"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="297"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 20</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="303"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="311"/>
         <source>Snapshot name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="317"/>
         <source>Snapshot name contains invalid characters: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="323"/>
         <source>Kernel version cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="328"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="335"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="366"/>
         <source>Exclusion file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="375"/>
         <source>Unbalanced quotes in exclusion list</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="400"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="407"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="422"/>
         <source>Failed to determine number of CPU cores</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="428"/>
         <source>Configuration file does not exist: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="429"/>
         <source>Using default settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="431"/>
         <source>Cannot read configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="432"/>
         <source>Error: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="442"/>
         <source>Required tool not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="451"/>
         <source>Required directory not found: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="470"/>
         <source>Initialization Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="471"/>
         <source>Failed to initialize application settings:
 
 %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="592"/>
@@ -984,17 +982,17 @@ Se necessario, puoi creare più spazio disponibile rimuovendo istantanee precede
     <message>
         <location filename="../src/settings.cpp" line="593"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="615"/>
         <source>No users found in the system</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="618"/>
         <source>Failed to determine system information</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="779"/>
@@ -1074,22 +1072,22 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/settings.cpp" line="1012"/>
         <source>Error reading system configuration file: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1020"/>
         <source>Error accessing user configuration</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1072"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1097"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1191"/>
@@ -1100,7 +1098,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/about.cpp" line="73"/>
         <source>Could not load %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/about.cpp" line="96"/>
@@ -1121,7 +1119,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/about.cpp" line="119"/>
         <source>Could not load changelog.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/about.cpp" line="53"/>
@@ -1132,27 +1130,27 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/excludesutils.cpp" line="77"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="89"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="101"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="105"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="112"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1214,62 +1212,62 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/work.cpp" line="408"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="440"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="443"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="446"/>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="482"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="484"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="488"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="500"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="505"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Attenzione</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="506"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="518"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="543"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="556"/>
@@ -1284,7 +1282,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/work.cpp" line="652"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="747"/>
@@ -1309,7 +1307,7 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/work.cpp" line="777"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="778"/>
@@ -1346,12 +1344,12 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/work.cpp" line="961"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="962"/>
         <source>Note: warnings about missing ipconfig, nfsmount, or nbd-client are harmless — those are only needed for network booting.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1064"/>
@@ -1361,13 +1359,13 @@ rimuovendo precedenti snapshots e copie salvate:
     <message>
         <location filename="../src/work.cpp" line="1101"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1137"/>
         <location filename="../src/work.cpp" line="1155"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1487"/>

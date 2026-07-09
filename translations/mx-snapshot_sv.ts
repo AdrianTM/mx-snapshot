@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sv">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sv">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -26,25 +24,25 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="175"/>
         <source>s</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;show diff&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
         <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="176"/>
         <source>u</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;use updated default&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
         <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="177"/>
         <source>k</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;keep custom (update timestamp)&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
         <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="178"/>
         <source>q</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;quit&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
         <translation>q</translation>
     </message>
     <message>
@@ -495,7 +493,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
         <source>Done</source>
-        <translation type="unfinished">Klar</translation>
+        <translation>Klar</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="587"/>
@@ -821,26 +819,18 @@
     <message>
         <location filename="../src/main.cpp" line="254"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"></translation>
+        <translation>Fatalt fel:</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="256"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"></translation>
+        <translation>Fatalt fel: okänt undantag</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="296"/>
         <location filename="../src/settings.cpp" line="602"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
-    </message>
-    <message>
-        <source>Failed to initialize configuration</source>
-        <translation type="vanished">Misslyckades med att initiera konfigurationen</translation>
-    </message>
-    <message>
-        <source>Configuration validation failed</source>
-        <translation type="vanished">Konfigurationsvalidering misslyckades</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
@@ -860,7 +850,7 @@
     <message>
         <location filename="../src/settings.cpp" line="248"/>
         <source>No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"></translation>
+        <translation>Inga stödda filsystem hittade för tempkatalogen. Försökte /tmp, /home, och snapshot katalogen.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="266"/>
@@ -1224,57 +1214,57 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../src/work.cpp" line="408"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"></translation>
+        <translation>ISO mall inte hittad: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="440"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"></translation>
+        <translation>Arch ISO mall saknar boot/ eller efi/ kataloger.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="443"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"></translation>
+        <translation>Upptäckte boot/ eller efi/ under arbetskatalogens root; mallen kan ha blivit extraherad till fel plats.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="446"/>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Mall: %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="482"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"></translation>
+        <translation>Gammal archiso initramfs upptäckt, återuppbygger...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="484"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"></translation>
+        <translation>Hittade /boot/archiso.img byggd för kärna %1, men vald kärna är %2.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="488"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"></translation>
+        <translation>Återuppbyggnad av /boot/archiso.img misslyckades. Var vänlig återuppbygg den manuellt eller ta bort den gamla filen.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="500"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"></translation>
+        <translation>Ingen /boot/archiso.img hittad, försöker skapa en...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="505"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Varning</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="506"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte skapa /boot/archiso.img (är &apos;archiso&apos; paketet installerat?). Återgår till den vanliga initramfs — den resulterande ISO kommer troligen att misslyckas med att boota (&quot;Misslyckades med att starta Switch Root&quot;).</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="518"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"></translation>
+        <translation>Kunde inte hitta en initramfs image att använda.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="543"/>
@@ -1356,12 +1346,12 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../src/work.cpp" line="961"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Återuppbygger initramfs med: mkinitcpio %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="962"/>
         <source>Note: warnings about missing ipconfig, nfsmount, or nbd-client are harmless — those are only needed for network booting.</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmärkning: varningar om saknad ipconfig, nfsmount, eller nbd-client är ofarliga — de behövs endast för nätverks-booting.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1064"/>

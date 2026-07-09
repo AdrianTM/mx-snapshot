@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr_BE">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr_BE">
 <context>
     <name>Batchprocessing</name>
     <message>
@@ -26,25 +24,25 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="175"/>
         <source>s</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;show diff&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
         <translation>a</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="176"/>
         <source>u</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;use updated default&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
         <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="177"/>
         <source>k</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;keep custom (update timestamp)&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
         <translation>c</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="178"/>
         <source>q</source>
-        <comment>CLI excludes prompt: single-letter shortcut for &apos;quit&apos;</comment>
+        <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
         <translation>q</translation>
     </message>
     <message>
@@ -104,12 +102,12 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="248"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer « xorg=nvidia » des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="251"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter « xorg=nvidia » aux options de démarrage.</translation>
     </message>
 </context>
 <context>
@@ -117,7 +115,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="142"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation>Impossible de trouver un outil d’élévation de privilèges (pkexec/gksu/sudo). </translation>
+        <translation>Impossible de trouver un outil d’élévation de privilèges (pkexec/gksu/sudo).</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="231"/>
@@ -344,7 +342,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="879"/>
         <source>About...</source>
-        <translation>À propos&#xa0;…</translation>
+        <translation>À propos …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="885"/>
@@ -433,7 +431,7 @@
       If necessary, you can create more available space by removing previous snapshots and saved copies: %1 snapshots are taking up %2 of disk space.</source>
         <translation>L’espace libre doit être suffisant pour contenir les données compressées de / et de /home.
 
-      Si nécessaire, vous pouvez créer plus d’espace disponible en supprimant les instantanés précédents et les copies sauvegardées: les instantanés « snapshots » %1 occupent %2 de l’espace disque.</translation>
+      Si nécessaire, vous pouvez créer plus d’espace disponible en supprimant les instantanés précédents et les copies sauvegardées: les instantanés « snapshots » %1 occupent %2 de l’espace disque.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="443"/>
@@ -444,12 +442,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="550"/>
         <source>Please wait.</source>
-        <translation>Veuillez patienter&#xa0;…</translation>
+        <translation>Veuillez patienter …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="552"/>
         <source>Please wait. Calculating used disk space...</source>
-        <translation>Veuillez patienter. Calcul de l’espace disque utilisé&#xa0;…</translation>
+        <translation>Veuillez patienter. Calcul de l’espace disque utilisé …</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="274"/>
@@ -495,7 +493,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="498"/>
         <source>Done</source>
-        <translation type="unfinished">Terminé</translation>
+        <translation>Terminé</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="587"/>
@@ -546,12 +544,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="637"/>
         <source>Note: If you use the resulting ISO on a computer without an NVIDIA card, you will likely need to remove &apos;xorg=nvidia&apos; from the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer «&#xa0;xorg=nvidia&#xa0;» des options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO résultant sur un ordinateur sans carte NVIDIA, vous devrez probablement supprimer « xorg=nvidia » des options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="641"/>
         <source>Note: If you use the resulting ISO on a computer with an NVIDIA card, you may need to add &apos;xorg=nvidia&apos; to the boot options.</source>
-        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter «&#xa0;xorg=nvidia&#xa0;» aux options de démarrage.</translation>
+        <translation>Remarque: si vous utilisez l’ISO obtenu sur un ordinateur équipé d’une carte NVIDIA, vous devrez peut-être ajouter « xorg=nvidia » aux options de démarrage.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="275"/>
@@ -696,7 +694,7 @@
     <message>
         <location filename="../src/main.cpp" line="108"/>
         <source>Name a different kernel to use other than the default running kernel, use format returned by &apos;uname -r&apos;</source>
-        <translation>Désignez un noyau différent devant être utilisé à la place du noyau fonctionnant par défaut, en utilisant le format renvoyé par «&#xa0;uname -r&#xa0;»</translation>
+        <translation>Désignez un noyau différent devant être utilisé à la place du noyau fonctionnant par défaut, en utilisant le format renvoyé par « uname -r »</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="110"/>
@@ -716,7 +714,7 @@
     <message>
         <location filename="../src/main.cpp" line="118"/>
         <source>Create a monthly snapshot, add &apos;Month&apos; name in the ISO name, skip used space calculation</source>
-        <translation>Créer un instantané mensuel, inclure le nom du «&#xa0;mois&#xa0;» dans le nom de l’ISO et ignorer le calcul de l’espace utilisé</translation>
+        <translation>Créer un instantané mensuel, inclure le nom du « mois » dans le nom de l’ISO et ignorer le calcul de l’espace utilisé</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="119"/>
@@ -726,7 +724,7 @@
     <message>
         <location filename="../src/main.cpp" line="121"/>
         <source>Optionally specify a suffix to add to the month name (e.g., &apos;1&apos; for &apos;July.1&apos;)</source>
-        <translation>Vous pouvez éventuellement spécifier un suffixe à ajouter au nom du mois (par exemple, « 1 » pour « juillet.1 »).</translation>
+        <translation>Vous pouvez éventuellement spécifier un suffixe à ajouter au nom du mois (par exemple, « 1 » pour « juillet.1 »).</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="122"/>
@@ -786,7 +784,7 @@
     <message>
         <location filename="../src/main.cpp" line="141"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser GRUB pour l’amorçage ISO MBR hérité (legacy) à la place d’ISOLINUX/SYSLINUX.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="217"/>
@@ -821,26 +819,18 @@
     <message>
         <location filename="../src/main.cpp" line="254"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="256"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/main.cpp" line="296"/>
         <location filename="../src/settings.cpp" line="602"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
-    </message>
-    <message>
-        <source>Failed to initialize configuration</source>
-        <translation type="vanished">Impossible d’initialiser la configuration</translation>
-    </message>
-    <message>
-        <source>Configuration validation failed</source>
-        <translation type="vanished">Erreur de validation de la configuration</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="180"/>
@@ -860,7 +850,7 @@
     <message>
         <location filename="../src/settings.cpp" line="248"/>
         <source>No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="266"/>
@@ -875,7 +865,7 @@
     <message>
         <location filename="../src/settings.cpp" line="285"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
-        <translation>Le format de compression « %1 » n’est pas pris en charge par le noyau actuel</translation>
+        <translation>Le format de compression « %1 » n’est pas pris en charge par le noyau actuel</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="291"/>
@@ -1037,7 +1027,7 @@
         <translation>L’espace libre doit pouvoir contenir les données compressées de / et de /home
 
 Si nécessaire, vous pouvez obtenir de l’espace supplémentaire en supprimant les instantanés et les copies créées auparavant:
-Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
+Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 </translation>
     </message>
     <message>
@@ -1141,7 +1131,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/excludesutils.cpp" line="77"/>
         <source>No diff output available.</source>
-        <translation>La commande «&#xa0;diff&#xa0;» ne donne aucun résultat.</translation>
+        <translation>La commande « diff » ne donne aucun résultat.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="89"/>
@@ -1169,7 +1159,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="218"/>
         <source>Cleaning...</source>
-        <translation>Nettoyage&#xa0;…</translation>
+        <translation>Nettoyage …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="239"/>
@@ -1218,67 +1208,67 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="389"/>
         <source>Copying the new-iso filesystem...</source>
-        <translation>Copie du nouveau système de fichiers iso en cours&#xa0;…</translation>
+        <translation>Copie du nouveau système de fichiers iso en cours …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="408"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="440"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="443"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="446"/>
         <source>Template: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="482"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="484"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="488"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="500"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="505"/>
         <source>Warning</source>
-        <translation type="unfinished"></translation>
+        <translation>Attention</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="506"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="518"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="543"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
-        <translation type="unfinished"></translation>
+        <translation>Option --grub-mbr spécifiée mais le fichier boot/grub/i386-pc/eltorito.img est absent du modèle ISO</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="556"/>
@@ -1288,7 +1278,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="648"/>
         <source>Squashing filesystem...</source>
-        <translation>Création du système de fichiers compressé «&#xa0;SquashFS&#xa0;»&#xa0;…</translation>
+        <translation>Création du système de fichiers compressé « SquashFS » …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="652"/>
@@ -1298,7 +1288,7 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="747"/>
         <source>Creating CD/DVD image file...</source>
-        <translation>Création du fichier image pour CD/DVD&#xa0;…</translation>
+        <translation>Création du fichier image pour CD/DVD …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="751"/>
@@ -1345,22 +1335,22 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="817"/>
         <source>Calculating checksum...</source>
-        <translation>Calcul de la somme de contrôle&#xa0;…</translation>
+        <translation>Calcul de la somme de contrôle …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="858"/>
         <source>Building new initrd...</source>
-        <translation>Nouvel initrd en cours de création&#xa0;…</translation>
+        <translation>Nouvel initrd en cours de création …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="961"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="962"/>
         <source>Note: warnings about missing ipconfig, nfsmount, or nbd-client are harmless — those are only needed for network booting.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1064"/>
@@ -1381,12 +1371,12 @@ Les instantanés «&#xa0;snapshots&#xa0;» %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="1487"/>
         <source>Calculating total size of excluded files...</source>
-        <translation>Calcul de la taille totale des fichiers exclus&#xa0;…</translation>
+        <translation>Calcul de la taille totale des fichiers exclus …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1514"/>
         <source>Calculating size of root...</source>
-        <translation>Calcul de la taille de root&#xa0;…</translation>
+        <translation>Calcul de la taille de root …</translation>
     </message>
 </context>
 </TS>
