@@ -81,16 +81,18 @@ quint64 parseDuKilobytes(const QString &output, bool *ok)
     return firstField.toULongLong(ok);
 }
 
-void requestPowerOff()
+// Goes through the elevated helper (root), and uses the plain `poweroff`
+// command rather than a D-Bus call to org.freedesktop.login1: logind only
+// exists under systemd, but MX Linux/antiX also ship a SysVinit option with
+// no logind at all, where the login1 D-Bus name can't be activated (this is
+// what "Launch helper exited with unknown return code 1" from dbus-send
+// means: the bus tried to activate org.freedesktop.login1 and the spawned
+// process exited immediately). `poweroff` itself works under either init
+// system and needs no D-Bus.
+void requestPowerOff(Cmd &shell)
 {
-    const QString powerOffCommand =
-        "sleep 2; dbus-send --system --print-reply --dest=org.freedesktop.login1 "
-        "/org/freedesktop/login1 org.freedesktop.login1.Manager.PowerOff boolean:true";
-    if (!QProcess::startDetached("/bin/sh", {"-c", powerOffCommand})) {
-        qWarning() << "Failed to schedule delayed poweroff; trying immediate poweroff request.";
-        QProcess::execute("dbus-send",
-                          {"--system", "--print-reply", "--dest=org.freedesktop.login1", "/org/freedesktop/login1",
-                           "org.freedesktop.login1.Manager.PowerOff", "boolean:true"});
+    if (!shell.runAsRoot("poweroff")) {
+        qWarning() << "Failed to request poweroff.";
     }
 }
 } // namespace
@@ -263,10 +265,12 @@ void Work::cleanUp()
         Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
                          Cmd::QuietMode::Yes);
         if (settings->shutdown) {
-            QFile::copy(Log::getLog(),
-                        settings->snapshotDir + "/" + settings->snapshotName + ".log");
+            const QString logDestination = settings->snapshotDir + "/" + settings->snapshotName + ".log";
+            if (!QFile::copy(Log::getLog(), logDestination)) {
+                qWarning() << "Failed to copy log to" << logDestination;
+            }
             QProcess::execute("sync", {});
-            requestPowerOff();
+            requestPowerOff(shell);
         }
         requestExit(EXIT_SUCCESS);
         return;
