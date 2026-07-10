@@ -31,6 +31,7 @@ private slots:
     void preemptCommandCreatesChecksum();
     void preemptCommandFailurePropagates();
     void preemptCommandFailsWhenSourceMissing();
+    void preemptCommandFailsWhenTempDirMissing();
     void verifyRejectsMissingOrEmptyFile();
 
 private:
@@ -116,12 +117,14 @@ void TestChecksumUtils::preemptCommandCreatesChecksum()
     QVERIFY(dir.isValid());
     const QByteArray content = "checksum me too\n";
     QVERIFY(!writeSourceFile(dir.path(), "test.iso", content).isEmpty());
+    // The caller (Work::makeChecksum) creates and owns the private temp dir.
     const QString tempDir = dir.path() + "/checksum-temp";
+    QVERIFY(QDir().mkpath(tempDir));
 
     QCOMPARE(runScript(ChecksumUtils::preemptCommand("md5", tempDir), "test.iso", dir.path()), 0);
     QVERIFY(ChecksumUtils::verifyChecksumFile(dir.path(), "test.iso", "md5"));
-    // Without a .keep marker the script removes its own temp directory.
-    QVERIFY(!QFileInfo::exists(tempDir));
+    // Removal is the caller's job; the script must never delete the directory.
+    QVERIFY(QFileInfo::exists(tempDir));
 
     QFile checksumFile(ChecksumUtils::checksumFilePath(dir.path(), "test.iso", "md5"));
     QVERIFY(checksumFile.open(QIODevice::ReadOnly));
@@ -137,6 +140,7 @@ void TestChecksumUtils::preemptCommandFailurePropagates()
     const QString stubDir = makeFailingStubDir(dir);
     QVERIFY(!stubDir.isEmpty());
     const QString tempDir = dir.path() + "/checksum-temp";
+    QVERIFY(QDir().mkpath(tempDir));
 
     QVERIFY(runScript(ChecksumUtils::preemptCommand("md5", tempDir), "test.iso", dir.path(), stubDir) != 0);
     QVERIFY(!ChecksumUtils::verifyChecksumFile(dir.path(), "test.iso", "md5"));
@@ -147,11 +151,27 @@ void TestChecksumUtils::preemptCommandFailsWhenSourceMissing()
     QTemporaryDir dir;
     QVERIFY(dir.isValid());
     const QString tempDir = dir.path() + "/checksum-temp";
+    QVERIFY(QDir().mkpath(tempDir));
 
     // cp of the missing source must fail the whole script (set -e), not be
-    // masked by the trailing temp-dir removal succeeding.
+    // masked by a later command succeeding.
     QVERIFY(runScript(ChecksumUtils::preemptCommand("md5", tempDir), "no-such-file.iso", dir.path()) != 0);
     QVERIFY(!ChecksumUtils::verifyChecksumFile(dir.path(), "no-such-file.iso", "md5"));
+}
+
+void TestChecksumUtils::preemptCommandFailsWhenTempDirMissing()
+{
+    QTemporaryDir dir;
+    QVERIFY(dir.isValid());
+    QVERIFY(!writeSourceFile(dir.path(), "test.iso", "data\n").isEmpty());
+
+    // The script must not create the temp dir itself (that would reopen the
+    // door to a pre-created attacker path being acceptable); a missing dir is
+    // a hard failure.
+    const QString tempDir = dir.path() + "/does-not-exist";
+    QVERIFY(runScript(ChecksumUtils::preemptCommand("md5", tempDir), "test.iso", dir.path()) != 0);
+    QVERIFY(!QFileInfo::exists(tempDir));
+    QVERIFY(!ChecksumUtils::verifyChecksumFile(dir.path(), "test.iso", "md5"));
 }
 
 void TestChecksumUtils::verifyRejectsMissingOrEmptyFile()

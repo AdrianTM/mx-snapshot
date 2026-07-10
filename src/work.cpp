@@ -36,11 +36,13 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QStorageInfo>
+#include <QTemporaryDir>
 #include <QTemporaryFile>
 #include <QTextStream>
 
 #include <algorithm>
 #include <cstdlib>
+#include <optional>
 #include <stdexcept>
 
 #include "checksumutils.h"
@@ -1079,17 +1081,29 @@ bool Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     shell.run("sync");
     QDir::setCurrent(folder);
     const QString ce = QVariant::fromValue(hash_type).toString();
-    const QString temp_dir {"/tmp/snapshot-checksum-temp"};
     QString cmd;
 
     if (settings->preempt) {
         // Check free space available on /tmp
-        shell.proc("/bin/bash", {"-c", R"(TF="$1/$2"; [ -f "$TF" ] && rm -f "$TF")", "_", temp_dir, file_name});
         if (!shell.proc("/bin/bash",
                         {"-c",
                          R"(DUF=$(du -BM -- "$1" | grep -oE '^[[:digit:]]+'); )"
                          R"(TDA=$(df -BM --output=avail /tmp | grep -oE '^[[:digit:]]+'); ((TDA/10*8 >= DUF)))",
                          "_", file_name})) {
+            settings->preempt = false;
+        }
+    }
+    // Per-run private temp dir for the preempt copy (mkdtemp: 0700, owned by
+    // this process, unpredictable name) instead of a fixed world-guessable
+    // /tmp path a concurrent run or another local user could pre-create or
+    // tamper with. Removed automatically when this instance goes out of scope
+    // — never by the shell script, and never a directory this run didn't create.
+    std::optional<QTemporaryDir> checksumTempDir;
+    if (settings->preempt) {
+        checksumTempDir.emplace(QStringLiteral("/tmp/snapshot-checksum-XXXXXX"));
+        if (!checksumTempDir->isValid()) {
+            qWarning() << "Could not create private checksum temp dir, checksumming in place:"
+                       << checksumTempDir->errorString();
             settings->preempt = false;
         }
     }
@@ -1100,12 +1114,12 @@ bool Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         shell.run("sync; sleep 1");
         Cmd().procAsRoot("snapshot-lib", {"drop_caches"});
         shell.run("sleep 1");
-        cmd = ChecksumUtils::preemptCommand(ce, temp_dir);
+        cmd = ChecksumUtils::preemptCommand(ce, checksumTempDir->path());
     }
     // file_name -> $1 and folder -> $2 are passed to bash as positional parameters
     // so the shell never parses them (no injection via a crafted file name or
-    // output folder); ce and temp_dir are trusted constants concatenated in by
-    // ChecksumUtils.
+    // output folder); ce and the temp dir path are trusted values concatenated
+    // in by ChecksumUtils.
     const bool commandOk = shell.proc("/bin/bash", {"-c", cmd, "_", file_name, folder});
     QDir::setCurrent(settings->workDir);
     return commandOk && ChecksumUtils::verifyChecksumFile(folder, file_name, ce);

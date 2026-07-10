@@ -12,12 +12,15 @@ QString directCommand(const QString &suffix)
 
 QString preemptCommand(const QString &suffix, const QString &tempDir)
 {
-    // set -e: a failed cp/pushd/checksum must fail the whole script instead of
-    // being masked by the trailing temp-dir removal succeeding.
-    return "set -e; TD='" + tempDir + "'; KEEP=\"$TD/.keep\"; [ -d \"$TD\" ] || mkdir \"$TD\"; "
+    // tempDir must be a private (0700), per-run directory created and removed
+    // by the caller — the script only writes inside it and never creates or
+    // deletes the directory itself, so it can't be lured into an
+    // attacker-prepared path. set -e: a failed cp/cd/checksum must fail the
+    // whole script instead of being masked by a later command succeeding.
+    return "set -e; TD='" + tempDir + "'; "
            "FN=\"$1\"; CF=\"$2/$FN." + suffix + "\"; cp -- \"$FN\" \"$TD/$FN\"; "
-           "pushd \"$TD\" >/dev/null; " + suffix + "sum -- \"$FN\" > \"$FN." + suffix + "\"; "
-           "cp -- \"$FN." + suffix + "\" \"$CF\"; popd >/dev/null; [ -e \"$KEEP\" ] || rm -rf \"$TD\"";
+           "cd \"$TD\"; " + suffix + "sum -- \"$FN\" > \"$FN." + suffix + "\"; "
+           "cp -- \"$FN." + suffix + "\" \"$CF\"";
 }
 
 QString checksumFilePath(const QString &folder, const QString &fileName, const QString &suffix)
