@@ -145,6 +145,7 @@ set(COMMON_SOURCES
     src/messagehandler.cpp
     src/excludesutils.cpp
     src/squashfsutils.cpp
+    src/checksumutils.cpp
 )
 
 set(COMMON_HEADERS
@@ -160,6 +161,7 @@ set(COMMON_HEADERS
     src/messagehandler.h
     src/excludesutils.h
     src/squashfsutils.h
+    src/checksumutils.h
 )
 
 set(HELPER_SOURCES
@@ -327,6 +329,16 @@ if(BUILD_TESTS)
     target_include_directories(test-cmd PRIVATE src)
     set_common_properties(test-cmd)
     add_test(NAME cmd COMMAND test-cmd)
+
+    add_executable(test-checksumutils
+        tests/test_checksumutils.cpp
+        src/checksumutils.cpp
+        src/checksumutils.h
+    )
+    target_link_libraries(test-checksumutils Qt6::Core Qt6::Test)
+    target_include_directories(test-checksumutils PRIVATE src)
+    set_common_properties(test-checksumutils)
+    add_test(NAME checksumutils COMMAND test-checksumutils)
 
     add_executable(test-elevationbroker
         tests/test_elevationbroker.cpp

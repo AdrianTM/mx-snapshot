@@ -43,6 +43,7 @@
 #include <cstdlib>
 #include <stdexcept>
 
+#include "checksumutils.h"
 #include "elevationbroker.h"
 #include "filesystemutils.h"
 #include "log.h"
@@ -479,15 +480,22 @@ void Work::closeInitrd(const QString &initrd_dir, const QString &file)
 }
 
 // copyModules(mod_dir/kernel kernel)
-void Work::copyModules(const QString &to, const QString &kernel)
+bool Work::copyModules(const QString &to, const QString &kernel)
 {
-    shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -e -t="%2" -k="%3")")
-                  .arg(qApp->applicationName(), to, kernel));
-    shell.procAsRoot("copy-initrd-programs", {"-e", "--to=" + to}, nullptr, nullptr, Cmd::QuietMode::No);
+    if (!shell.run(QString(R"(/usr/share/%1/scripts/copy-initrd-modules -e -t="%2" -k="%3")")
+                       .arg(qApp->applicationName(), to, kernel))) {
+        return false;
+    }
+    if (!shell.procAsRoot("copy-initrd-programs", {"-e", "--to=" + to}, nullptr, nullptr, Cmd::QuietMode::No)) {
+        return false;
+    }
+    // Ownership fixup is cosmetic (the initrd is repacked root:root anyway),
+    // so a chown failure doesn't fail the copy.
     const QString username = loggedInUserName();
     if (!username.isEmpty()) {
         shell.procAsRoot("chown", {"-R", username + ":", to}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
+    return true;
 }
 
 // Copying the iso-template filesystem
@@ -519,7 +527,11 @@ void Work::copyNewIso()
 
     if (settings->isArch) {
         QDir().mkpath("iso-template");
-        shell.run("tar xf \"" + templateTar + "\" -C iso-template");
+        if (!shell.run("tar xf \"" + templateTar + "\" -C iso-template")) {
+            emit messageBox(BoxType::critical, tr("Error"), tr("Could not extract the ISO template: ") + templateTar);
+            cleanUp();
+            return;
+        }
 
         const QString diskDirPath = settings->workDir + "/iso-template/.disk";
         QDir().mkpath(diskDirPath);
@@ -635,7 +647,11 @@ void Work::copyNewIso()
         }
         shell.run("chmod a+r \"" + archBootPath + "/archiso.img\"");
     } else {
-        shell.run("tar xf \"" + templateTar + "\"");
+        if (!shell.run("tar xf \"" + templateTar + "\"")) {
+            emit messageBox(BoxType::critical, tr("Error"), tr("Could not extract the ISO template: ") + templateTar);
+            cleanUp();
+            return;
+        }
 
         // check to make sure grub mbr is possible
         if (settings->grubmbr) {
@@ -653,10 +669,27 @@ void Work::copyNewIso()
                 return;
             }
         }
-        shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz");
-        shell.proc("cp", {"/boot/vmlinuz-" + settings->kernel, "iso-template/antiX/vmlinuz"});
+        if (!shell.run("cp /usr/lib/iso-template/template-initrd.gz iso-template/antiX/initrd.gz")) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not copy the template initrd: ") + "/usr/lib/iso-template/template-initrd.gz");
+            cleanUp();
+            return;
+        }
+        if (!shell.proc("cp", {"/boot/vmlinuz-" + settings->kernel, "iso-template/antiX/vmlinuz"})) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not copy the kernel: ") + "/boot/vmlinuz-" + settings->kernel);
+            cleanUp();
+            return;
+        }
 
-        makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "vmlinuz");
+        if (!makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "vmlinuz")) {
+            if (!cleanupStarted) {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("Could not create the checksum for %1.").arg("vmlinuz"));
+                cleanUp();
+            }
+            return;
+        }
 
         QString path = initrd_dir.path();
         if (!initrd_dir.isValid()) {
@@ -698,7 +731,14 @@ void Work::copyNewIso()
         }
 
         if (initrd_dir.isValid()) {
-            copyModules(path, settings->kernel);
+            if (!copyModules(path, settings->kernel)) {
+                if (!cleanupStarted) {
+                    emit messageBox(BoxType::critical, tr("Error"),
+                                    tr("Could not copy the kernel modules or programs into the initrd."));
+                    cleanUp();
+                }
+                return;
+            }
             closeInitrd(path, settings->workDir + "/iso-template/antiX/initrd.gz");
             const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
             if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
@@ -707,7 +747,14 @@ void Work::copyNewIso()
             } else {
                 qDebug() << "uc-tool not found, skipping ucode injection";
             }
-            makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz");
+            if (!makeChecksum(HashType::md5, settings->workDir + "/iso-template/antiX", "initrd.gz")) {
+                if (!cleanupStarted) {
+                    emit messageBox(BoxType::critical, tr("Error"),
+                                    tr("Could not create the checksum for %1.").arg("initrd.gz"));
+                    cleanUp();
+                }
+                return;
+            }
             initrd_dir.remove();
         }
     }
@@ -767,6 +814,7 @@ bool Work::createIso(const QString &filename)
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create linuxfs file, please check /var/log/%1.log").arg(QCoreApplication::applicationName()));
+        cleanUp();
         return false;
     }
     if (cleanupStarted) {
@@ -778,16 +826,40 @@ bool Work::createIso(const QString &filename)
         const QString archIsoDir = "iso-2/arch/" + archCpuDir;
         QDir().mkpath(archIsoDir);
         if (!shell.run("mv iso-template/arch/" + archCpuDir + "/airootfs.sfs* " + archIsoDir) || cleanupStarted) {
+            if (!cleanupStarted) {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("Could not move %1 to the ISO directory.").arg("airootfs.sfs"));
+                cleanUp();
+            }
             return false;
         }
-        makeChecksum(HashType::sha512, settings->workDir + "/" + archIsoDir, "airootfs.sfs");
+        if (!makeChecksum(HashType::sha512, settings->workDir + "/" + archIsoDir, "airootfs.sfs")) {
+            if (!cleanupStarted) {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("Could not create the checksum for %1.").arg("airootfs.sfs"));
+                cleanUp();
+            }
+            return false;
+        }
     } else {
         // Move linuxfs files to iso-2/antiX folder
         QDir().mkpath("iso-2/antiX");
         if (!shell.run("mv iso-template/antiX/linuxfs* iso-2/antiX") || cleanupStarted) {
+            if (!cleanupStarted) {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("Could not move %1 to the ISO directory.").arg("linuxfs"));
+                cleanUp();
+            }
             return false;
         }
-        makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs");
+        if (!makeChecksum(HashType::md5, settings->workDir + "/iso-2/antiX", "linuxfs")) {
+            if (!cleanupStarted) {
+                emit messageBox(BoxType::critical, tr("Error"),
+                                tr("Could not create the checksum for %1.").arg("linuxfs"));
+                cleanUp();
+            }
+            return false;
+        }
     }
     if (cleanupStarted) {
         return false;
@@ -901,6 +973,7 @@ bool Work::createIso(const QString &filename)
         emit messageBox(
             BoxType::critical, tr("Error"),
             tr("Could not create ISO file, please check whether you have enough space on the destination partition."));
+        cleanUp();
         return false;
     }
     if (cleanupStarted) {
@@ -910,19 +983,37 @@ bool Work::createIso(const QString &filename)
     // Make it isohybrid (Arch already folded the hybrid MBR into xorriso above)
     if (settings->makeIsohybrid && !settings->isArch) {
         emit message(tr("Making hybrid iso"));
-        shell.proc("isohybrid", {"--uefi", settings->snapshotDir + "/" + filename}, nullptr, nullptr,
-                   Cmd::QuietMode::No);
+        if (!shell.proc("isohybrid", {"--uefi", settings->snapshotDir + "/" + filename}, nullptr, nullptr,
+                        Cmd::QuietMode::No)) {
+            if (cleanupStarted) {
+                return false;
+            }
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not make the ISO hybrid; it would not boot correctly from USB."));
+            cleanUp();
+            return false;
+        }
     }
     if (cleanupStarted) {
         return false;
     }
 
     // Make ISO checksums
-    if (settings->makeMd5sum) {
-        makeChecksum(HashType::md5, settings->snapshotDir, filename);
+    if (settings->makeMd5sum && !makeChecksum(HashType::md5, settings->snapshotDir, filename)) {
+        if (!cleanupStarted) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not create the %1 checksum for the ISO.").arg("MD5"));
+            cleanUp();
+        }
+        return false;
     }
-    if (settings->makeSha512sum) {
-        makeChecksum(HashType::sha512, settings->snapshotDir, filename);
+    if (settings->makeSha512sum && !makeChecksum(HashType::sha512, settings->snapshotDir, filename)) {
+        if (!cleanupStarted) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not create the %1 checksum for the ISO.").arg("SHA512"));
+            cleanUp();
+        }
+        return false;
     }
 
     auto elapsedTime = QTime(0, 0).addMSecs(e_timer.elapsed());
@@ -981,7 +1072,7 @@ bool Work::installPackage(const QString &package)
 }
 
 // Create checksums for different files
-void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const QString &file_name)
+bool Work::makeChecksum(Work::HashType hash_type, const QString &folder, const QString &file_name)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
     emit message(tr("Calculating checksum..."));
@@ -989,15 +1080,6 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
     QDir::setCurrent(folder);
     const QString ce = QVariant::fromValue(hash_type).toString();
     const QString temp_dir {"/tmp/snapshot-checksum-temp"};
-    // file_name -> $1 and folder -> $2 are passed to bash as positional parameters
-    // so the shell never parses them (no injection via a crafted file name or
-    // output folder); ce and temp_dir are trusted constants and are concatenated in.
-    const QString checksum_cmd = ce + "sum -- \"$1\" > \"$2/$1." + ce + "\"";
-    const QString checksum_tmp
-        = "TD='" + temp_dir + "'; KEEP=\"$TD/.keep\"; [ -d \"$TD\" ] || mkdir \"$TD\"; "
-          "FN=\"$1\"; CF=\"$2/$FN." + ce + "\"; cp -- \"$FN\" \"$TD/$FN\"; "
-          "pushd \"$TD\" >/dev/null; " + ce + "sum -- \"$FN\" > \"$FN." + ce + "\"; "
-          "cp -- \"$FN." + ce + "\" \"$CF\"; popd >/dev/null; [ -e \"$KEEP\" ] || rm -rf \"$TD\"";
     QString cmd;
 
     if (settings->preempt) {
@@ -1012,16 +1094,21 @@ void Work::makeChecksum(Work::HashType hash_type, const QString &folder, const Q
         }
     }
     if (!settings->preempt) {
-        cmd = checksum_cmd;
+        cmd = ChecksumUtils::directCommand(ce);
     } else {
         // Free pagecache
         shell.run("sync; sleep 1");
         Cmd().procAsRoot("snapshot-lib", {"drop_caches"});
         shell.run("sleep 1");
-        cmd = checksum_tmp;
+        cmd = ChecksumUtils::preemptCommand(ce, temp_dir);
     }
-    shell.proc("/bin/bash", {"-c", cmd, "_", file_name, folder});
+    // file_name -> $1 and folder -> $2 are passed to bash as positional parameters
+    // so the shell never parses them (no injection via a crafted file name or
+    // output folder); ce and temp_dir are trusted constants concatenated in by
+    // ChecksumUtils.
+    const bool commandOk = shell.proc("/bin/bash", {"-c", cmd, "_", file_name, folder});
     QDir::setCurrent(settings->workDir);
+    return commandOk && ChecksumUtils::verifyChecksumFile(folder, file_name, ce);
 }
 
 void Work::openInitrd(const QString &file, const QString &initrd_dir)
@@ -1251,8 +1338,15 @@ void Work::savePackageList(const QString &file_name)
         QDir().mkpath(archDir);
         const QString fullName = QString("%1/pkglist.%2.txt").arg(archDir, archCpuDir);
         // fullName rides as $1, a positional parameter the shell never parses,
-        // so it can't be used to break out of the redirect target.
-        shell.proc("/bin/bash", {"-c", R"(pacman -Q | awk '{print $1 " " $2}' > "$1")", "_", fullName});
+        // so it can't be used to break out of the redirect target. pipefail so a
+        // pacman failure isn't masked by awk succeeding on empty input.
+        const bool listOk
+            = shell.proc("/bin/bash", {"-c", R"(set -o pipefail; pacman -Q | awk '{print $1 " " $2}' > "$1")", "_",
+                                       fullName});
+        if (!listOk || QFileInfo(fullName).size() <= 0) {
+            emit messageBox(BoxType::critical, tr("Error"), tr("Could not create the package list: ") + fullName);
+            cleanUp();
+        }
         return;
     }
     QFileInfo fi(file_name);
@@ -1260,13 +1354,21 @@ void Work::savePackageList(const QString &file_name)
     if (!dir.mkpath(dir.absolutePath())) {
         emit messageBox(BoxType::critical, tr("Error"),
                         tr("Could not create working directory. ") + dir.absolutePath());
+        cleanUp();
+        return;
     }
     // file_name is user-controlled (CLI -f/--file or the GUI output filename), so
     // fullName rides as $1, a positional parameter the shell never parses, rather
-    // than being interpolated into the command string.
+    // than being interpolated into the command string. pipefail so a dpkg failure
+    // isn't masked by awk succeeding on empty input.
     const QString fullName = QString("%1/iso-template/%2/package_list").arg(settings->workDir, fi.completeBaseName());
-    shell.proc("/bin/bash",
-               {"-c", R"(dpkg -l | awk '/^ii /{printf "%-41s %s\n", $2, $3}' > "$1")", "_", fullName});
+    const bool listOk
+        = shell.proc("/bin/bash", {"-c", R"(set -o pipefail; dpkg -l | awk '/^ii /{printf "%-41s %s\n", $2, $3}' > "$1")",
+                                   "_", fullName});
+    if (!listOk || QFileInfo(fullName).size() <= 0) {
+        emit messageBox(BoxType::critical, tr("Error"), tr("Could not create the package list: ") + fullName);
+        cleanUp();
+    }
 }
 
 // Setup the environment before taking the snapshot
