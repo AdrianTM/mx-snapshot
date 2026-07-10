@@ -310,7 +310,11 @@ bool Settings::checkTempDir()
     if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent)
         || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
         QStringList candidates;
-        for (const QString &candidate : {QStringLiteral("/tmp"), resolveHome(QStringLiteral("/home")), snapshotDir}) {
+        // resolveHome() on every candidate: snapshotDir can be configured as
+        // literally "/home" too, and must get the same per-user expansion and
+        // validation as the built-in fallback.
+        for (const QString &rawCandidate : {QStringLiteral("/tmp"), QStringLiteral("/home"), snapshotDir}) {
+            const QString candidate = resolveHome(rawCandidate);
             if (candidate.isEmpty() || candidates.contains(candidate)) {
                 continue;
             }
