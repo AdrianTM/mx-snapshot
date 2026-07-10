@@ -330,6 +330,16 @@ if(BUILD_TESTS)
     set_common_properties(test-cmd)
     add_test(NAME cmd COMMAND test-cmd)
 
+    add_executable(test-filesystemutils
+        tests/test_filesystemutils.cpp
+        src/filesystemutils.cpp
+        src/filesystemutils.h
+    )
+    target_link_libraries(test-filesystemutils Qt6::Core Qt6::Test)
+    target_include_directories(test-filesystemutils PRIVATE src)
+    set_common_properties(test-filesystemutils)
+    add_test(NAME filesystemutils COMMAND test-filesystemutils)
+
     add_executable(test-checksumutils
         tests/test_checksumutils.cpp
         src/checksumutils.cpp

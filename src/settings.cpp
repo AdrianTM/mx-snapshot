@@ -288,13 +288,29 @@ bool Settings::checkSnapshotDir() const
 bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
+    // Resolve /home to the invoking user's home BEFORE any validation or
+    // free-space comparison: the home can be a separate mount (NFS automount,
+    // FUSE/ecryptfs, ...) even when /home itself sits on a supported local
+    // filesystem, so checks against /home would not cover the directory
+    // actually used for the work dir.
+    const auto resolveHome = [](const QString &dir) -> QString {
+        if (dir != "/home") {
+            return dir;
+        }
+        QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
+        if (userName.isEmpty()) {
+            userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
+        }
+        return "/home/" + userName;
+    };
+    tempDirParent = resolveHome(tempDirParent);
     // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition.
     // When picking a fallback, only consider candidates whose underlying filesystem can hold the
     // intermediate snapshot artifacts (excludes vfat/ntfs, network mounts, fuse-backed shares, etc.).
     if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent)
         || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
         QStringList candidates;
-        for (const QString &candidate : {QStringLiteral("/tmp"), QStringLiteral("/home"), snapshotDir}) {
+        for (const QString &candidate : {QStringLiteral("/tmp"), resolveHome(QStringLiteral("/home")), snapshotDir}) {
             if (candidate.isEmpty() || candidates.contains(candidate)) {
                 continue;
             }
@@ -312,13 +328,6 @@ bool Settings::checkTempDir()
         for (const QString &candidate : std::as_const(candidates)) {
             tempDirParent = FileSystemUtils::largerFreeSpace(tempDirParent, candidate);
         }
-    }
-    if (tempDirParent == "/home") {
-        QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
-        if (userName.isEmpty()) {
-            userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
-        }
-        tempDirParent = "/home/" + userName;
     }
     tmpdir.reset(new QTemporaryDir(tempDirParent + "/mx-snapshot-XXXXXXXX"));
     if (!tmpdir->isValid()) {

@@ -2,10 +2,12 @@
 
 #include <QtCore/QDebug>
 #include <QtCore/QStorageInfo>
-const QSet<QString> FileSystemUtils::unsupportedPartitions = {
-    "fat", "vfat", "msdos", "exfat", "ntfs", "ntfs3", "ntfs-3g",
-    "9p", "cifs", "smbfs", "fuse", "fuseblk", "fuse.vmhgfs-fuse",
-    "vmhgfs", "vboxsf", "virtiofs"
+const QSet<QString> FileSystemUtils::supportedPartitions = {
+    "ext2", "ext3", "ext4", "btrfs", "xfs", "f2fs", "jfs", "tmpfs",
+    "zfs", "bcachefs", "nilfs2", "reiserfs",
+    // Live systems: snapshots are routinely taken from a running live session,
+    // where / (and thus /tmp or /home) sits on an overlay.
+    "overlay", "aufs",
 };
 
 quint64 FileSystemUtils::getFreeSpace(const QString &path)
@@ -29,11 +31,20 @@ QString FileSystemUtils::getFreeSpaceString(const QString &path)
 bool FileSystemUtils::isOnSupportedPartition(const QString &dir)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    const QString partType = QStorageInfo(dir + "/").fileSystemType();
-    const bool isUnsupported = unsupportedPartitions.contains(partType);
-    const bool isSupported = !isUnsupported;
+    const QStorageInfo storage(dir + "/");
+    if (!storage.isValid() || !storage.isReady() || storage.isReadOnly()) {
+        qDebug() << "Rejecting" << dir << ": storage not valid, not ready, or read-only";
+        return false;
+    }
+    const QString partType = storage.fileSystemType();
+    const bool isSupported = isSupportedFilesystemType(partType);
     qDebug() << "Detected partition:" << partType << "Supported part:" << isSupported;
     return isSupported;
+}
+
+bool FileSystemUtils::isSupportedFilesystemType(const QString &type)
+{
+    return supportedPartitions.contains(type);
 }
 
 QString FileSystemUtils::largerFreeSpace(const QString &dir1, const QString &dir2)
