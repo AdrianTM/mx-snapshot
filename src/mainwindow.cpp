@@ -927,14 +927,14 @@ void MainWindow::editBootMenu()
                "snapshot."),
             QMessageBox::Yes | QMessageBox::No)) {
         hide();
-        // getEditor() intentionally contains shell constructs (e.g. $(logname), $DISPLAY)
-        // that must be evaluated by bash, so it stays in the script. The file paths embed
-        // workDir, so they are passed as positional parameters ($1..$3) that the shell
-        // never parses — preventing command injection through the work directory.
+        // getEditorCommand() is a resolved argument list executed directly (no
+        // shell), so neither the configured editor nor the workDir-derived file
+        // paths can inject commands.
         const QString bootDir = settings->workDir + "/iso-template/boot";
-        work.shell.proc("/bin/bash",
-                        {"-c", settings->getEditor() + R"( "$1" "$2" "$3")", "_", bootDir + "/grub/grub.cfg",
-                         bootDir + "/syslinux/syslinux.cfg", bootDir + "/isolinux/isolinux.cfg"});
+        QStringList editorCmd = settings->getEditorCommand();
+        const QString editorProgram = editorCmd.takeFirst();
+        work.shell.proc(editorProgram, editorCmd << bootDir + "/grub/grub.cfg" << bootDir + "/syslinux/syslinux.cfg"
+                                                 << bootDir + "/isolinux/isolinux.cfg");
         show();
     }
 }
@@ -952,11 +952,12 @@ void MainWindow::btnEditExclude_clicked()
 {
     hide();
     Cmd editor(this);
-    // getEditor() intentionally contains shell constructs (e.g. $(logname),
-    // $DISPLAY) that must be evaluated by bash, so it stays in the script. The
-    // excludes path is user-configurable, so it rides as a positional parameter
-    // ($1) the shell never parses — same pattern as editBootMenu().
-    editor.proc("/bin/bash", {"-c", settings->getEditor() + R"( "$1")", "_", settings->snapshotExcludes.fileName()});
+    // getEditorCommand() is a resolved argument list executed directly (no
+    // shell), so neither the configured editor nor the user-configurable
+    // excludes path can inject commands.
+    QStringList editorCmd = settings->getEditorCommand();
+    const QString editorProgram = editorCmd.takeFirst();
+    editor.proc(editorProgram, editorCmd << settings->snapshotExcludes.fileName());
     updateCustomExcludesButton();
     checkUpdatedDefaultExcludes();
     show();

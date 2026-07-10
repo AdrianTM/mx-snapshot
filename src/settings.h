@@ -46,7 +46,9 @@ class Settings
 public:
     explicit Settings(const QCommandLineParser &argParser, bool isGuiApp);
 
-    [[nodiscard]] QString getEditor() const;
+    // Editor invocation as a resolved argument list (program + args); execute
+    // directly with QProcess — never through a shell.
+    [[nodiscard]] QStringList getEditorCommand() const;
     [[nodiscard]] QString getFilename() const;
     [[nodiscard]] QString getFreeSpaceStrings(const QString &path);
     [[nodiscard]] QString getSnapshotSize() const;

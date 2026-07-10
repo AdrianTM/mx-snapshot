@@ -533,33 +533,60 @@ void Settings::handleInitializationError(const QString &error) const
                                QObject::tr("Failed to initialize application settings:\n\n%1").arg(error));
 }
 
-QString Settings::getEditor() const
+QStringList Settings::getEditorCommand() const
 {
-    QString editor = guiEditor;
-    if (editor.isEmpty() || QStandardPaths::findExecutable(editor, {path}).isEmpty()) {
+    // Parse a configured or .desktop-provided editor command into an argument
+    // list. QProcess::splitCommand honours quotes but performs no shell
+    // evaluation, and the executable must resolve on PATH — so a crafted
+    // gui_editor value or Exec= line yields arguments, never shell syntax.
+    // Callers execute the returned list directly via QProcess (no bash -c),
+    // which is what makes running it from a root process safe against
+    // injection through the configuration.
+    const auto resolveCommand = [this](const QString &commandLine) -> QStringList {
+        QStringList args = QProcess::splitCommand(commandLine);
+        // Drop .desktop Exec field codes (%f, %U, ...) and the historical -b flag.
+        static const QRegularExpression fieldCode("^%[a-zA-Z]$");
+        args.removeIf([](const QString &arg) { return arg == "-b" || fieldCode.match(arg).hasMatch(); });
+        if (args.isEmpty()) {
+            return {};
+        }
+        const QString executable = QStandardPaths::findExecutable(args.constFirst(), path);
+        if (executable.isEmpty()) {
+            return {};
+        }
+        args[0] = executable;
+        return args;
+    };
+
+    QStringList editor = resolveCommand(guiEditor);
+    if (editor.isEmpty()) {
         const QString defaultEditor = Cmd().getOut("xdg-mime query default text/plain");
         const QString desktopFile
             = QStandardPaths::locate(QStandardPaths::ApplicationsLocation, defaultEditor, QStandardPaths::LocateFile);
         QFile file(desktopFile);
         if (file.open(QIODevice::ReadOnly)) {
             while (!file.atEnd()) {
-                QString line = file.readLine();
-                if (line.contains(QRegularExpression("^Exec="))) {
-                    editor = line.remove(QRegularExpression("^Exec=|%u|%U|%f|%F|%c|%C|-b")).trimmed();
+                const QString line = file.readLine();
+                if (line.startsWith("Exec=")) {
+                    editor = resolveCommand(line.mid(QStringLiteral("Exec=").size()).trimmed());
                     break;
                 }
             }
             file.close();
         }
-        if (editor.isEmpty()) { // Use nano as backup editor
-            editor = "nano";
+    }
+    if (editor.isEmpty()) { // Use nano as backup editor
+        editor = resolveCommand(QStringLiteral("nano"));
+        if (editor.isEmpty()) {
+            editor = QStringList {QStringLiteral("nano")};
         }
     }
 
+    const QString editorName = QFileInfo(editor.constFirst()).fileName();
     const bool isRoot = getuid() == 0;
     const bool isEditorThatElevates
-        = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editor).hasMatch();
-    const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editor).hasMatch();
+        = QRegularExpression(R"((kate|kwrite|featherpad|code|codium)$)").match(editorName).hasMatch();
+    const bool isCliEditor = QRegularExpression(R"(nano|vi|vim|nvim|micro|emacs)").match(editorName).hasMatch();
 
     if (isEditorThatElevates && !isRoot) {
         return editor;
@@ -569,24 +596,32 @@ QString Settings::getEditor() const
     // where the target files were created root-owned. In a normal unprivileged
     // GUI session the files are already owned by the invoking user, so
     // elevating here would just force an unnecessary pkexec/sudo prompt.
-    QString elevate;
+    QStringList elevate;
     if (isRoot) {
-        elevate = Cmd::elevationTool();
-        if (isEditorThatElevates) {
-            // Adjust user switch flag based on tool
-            if (elevate.contains("sudo")) {
-                elevate += " -u $(logname)";
-            } else {
-                elevate += " --user $(logname)";
+        const QString elevationTool = Cmd::elevationTool();
+        if (!elevationTool.isEmpty()) {
+            elevate << elevationTool;
+            if (isEditorThatElevates) {
+                // Editors that elevate internally are dropped back to the
+                // logged-in user; adjust the user switch flag per tool.
+                const QString username = Cmd::loggedInUserName();
+                if (!username.isEmpty()) {
+                    elevate << (elevationTool.contains("sudo") ? QStringLiteral("-u") : QStringLiteral("--user"))
+                            << username;
+                }
             }
         }
     }
-    const QString elevatePrefix = elevate.isEmpty() ? QString() : elevate + " ";
 
     if (isCliEditor) {
-        return "x-terminal-emulator -e " + elevatePrefix + editor;
+        return QStringList {QStringLiteral("x-terminal-emulator"), QStringLiteral("-e")} + elevate + editor;
     }
-    return elevatePrefix + "env DISPLAY=$DISPLAY XAUTHORITY=$XAUTHORITY " + editor;
+    // GUI editors need the invoking session's display across the elevation
+    // boundary; forward the current values as literal env arguments.
+    return elevate
+           + QStringList {QStringLiteral("env"), "DISPLAY=" + qEnvironmentVariable("DISPLAY"),
+                          "XAUTHORITY=" + qEnvironmentVariable("XAUTHORITY")}
+           + editor;
 }
 
 // Return the size of the snapshot folder in MiB
