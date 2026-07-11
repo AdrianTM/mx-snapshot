@@ -1,3 +1,12 @@
+mx-snapshot (26.07.3) mx; urgency=medium
+
+  * Fix error dialog titles in English by removing a broken en_US translation
+    that replaced "Error" with an unrelated compression message.
+  * Allow snapshot work directories on compatible NTFS and exFAT mounts when
+    they support the file operations the snapshot actually uses.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 11 Jul 2026 11:09:57 -0400
+
 mx-snapshot (26.07.2) mx; urgency=medium
 
   * Stop reporting a successful snapshot when required ISO steps fail;
