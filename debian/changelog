@@ -1,3 +1,10 @@
+mx-snapshot (26.07.5) mx; urgency=medium
+
+  * Prevent failed snapshot cleanup from deleting files through a mounted copy
+    of the system root, while safely removing temporary mounts when possible.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 11 Jul 2026 19:03:03 -0400
+
 mx-snapshot (26.07.4) mx; urgency=medium
 
   * Allow snapshot creation with squashfs-tools versions that do not provide
