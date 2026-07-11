@@ -54,12 +54,16 @@ public:
     [[nodiscard]] QString getSnapshotSize() const;
     [[nodiscard]] QString getUsedSpace();
     [[nodiscard]] QString getXdgUserDirs(const QString &folder);
+    [[nodiscard]] static QString resolveWorkDirParent(const QString &dir);
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkConfiguration() const;
     [[nodiscard]] bool checkSnapshotDir() const;
     [[nodiscard]] QString getExcludesSourcePath() const { return excludesSourcePath; }
     [[nodiscard]] bool checkTempDir();
     [[nodiscard]] bool initializeConfiguration();
+    // A workflow caller must clear Cmd::elevationDenied() before its first
+    // invocation; a prior denial makes this return false without probing.
+    [[nodiscard]] bool supportsWorkDirectory(const QString &candidate) const;
     [[nodiscard]] bool validateExclusions() const;
     [[nodiscard]] bool validateSpaceRequirements() const;
     [[nodiscard]] int getSnapshotCount() const;

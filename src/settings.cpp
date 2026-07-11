@@ -285,6 +285,48 @@ bool Settings::checkSnapshotDir() const
     return true;
 }
 
+QString Settings::resolveWorkDirParent(const QString &dir)
+{
+    if (dir != "/home") {
+        return dir;
+    }
+    QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
+    if (userName.isEmpty()) {
+        userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
+    }
+    return "/home/" + userName;
+}
+
+bool Settings::supportsWorkDirectory(const QString &candidate) const
+{
+    if (Cmd::elevationDenied()) {
+        return false;
+    }
+
+    const QString resolvedCandidate = resolveWorkDirParent(candidate);
+    if (!QFile::exists(resolvedCandidate) || !FileSystemUtils::isOnSupportedPartition(resolvedCandidate)) {
+        return false;
+    }
+
+    // The work directory is created by the user, but mksquashfs and other
+    // snapshot steps write into it through the elevated helper. A FUSE mount
+    // without allow_other/allow_root or an NFS root_squash export can pass the
+    // user-side filesystem probe yet reject those writes. Keep the probe
+    // directory user-private (like the real QTemporaryDir) and make one tiny
+    // root write inside it to verify the access that matters.
+    QTemporaryDir rootProbe(QDir(resolvedCandidate).filePath(".mx-snapshot-root-check-XXXXXX"));
+    if (!rootProbe.isValid()) {
+        qDebug() << "Rejecting" << resolvedCandidate << ": could not create elevated probe directory";
+        return false;
+    }
+    const QString rootProbeFile = rootProbe.filePath("root-write");
+    if (!Cmd().procAsRoot("touch", {rootProbeFile}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+        qDebug() << "Rejecting" << resolvedCandidate << ": elevated probe write failed";
+        return false;
+    }
+    return true;
+}
+
 bool Settings::checkTempDir()
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -293,57 +335,27 @@ bool Settings::checkTempDir()
     // FUSE/ecryptfs, ...) even when /home itself sits on a supported local
     // filesystem, so checks against /home would not cover the directory
     // actually used for the work dir.
-    const auto resolveHome = [](const QString &dir) -> QString {
-        if (dir != "/home") {
-            return dir;
-        }
-        QString userName = QString::fromUtf8(qgetenv("SUDO_USER")).trimmed();
-        if (userName.isEmpty()) {
-            userName = QString::fromUtf8(qgetenv("LOGNAME")).trimmed();
-        }
-        return "/home/" + userName;
-    };
-    const auto supportsElevatedWorkDir = [](const QString &candidate) {
-        if (!QFile::exists(candidate) || !FileSystemUtils::isOnSupportedPartition(candidate)) {
-            return false;
-        }
-
-        // The work directory is created by the user, but mksquashfs and other
-        // snapshot steps write into it through the elevated helper. A FUSE
-        // mount without allow_other/allow_root or an NFS root_squash export can
-        // pass the user-side filesystem probe yet reject those writes. Keep the
-        // probe directory user-private (like the real QTemporaryDir) and make
-        // one tiny root write inside it to verify the access that matters.
-        QTemporaryDir rootProbe(QDir(candidate).filePath(".mx-snapshot-root-check-XXXXXX"));
-        if (!rootProbe.isValid()) {
-            qDebug() << "Rejecting" << candidate << ": could not create elevated probe directory";
-            return false;
-        }
-        const QString rootProbeFile = rootProbe.filePath("root-write");
-        if (!Cmd().procAsRoot("touch", {rootProbeFile}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
-            qDebug() << "Rejecting" << candidate << ": elevated probe write failed";
-            return false;
-        }
-        return true;
-    };
-    tempDirParent = resolveHome(tempDirParent);
+    tempDirParent = resolveWorkDirParent(tempDirParent);
     // Set workdir location if not defined in .conf file, doesn't exist, or cannot support
     // the filesystem operations used by the intermediate artifacts as either
     // the user or the elevated snapshot helper.
-    if (tempDirParent.isEmpty() || !supportsElevatedWorkDir(tempDirParent)) {
+    if (tempDirParent.isEmpty() || !supportsWorkDirectory(tempDirParent)) {
         QStringList candidates;
-        // resolveHome() on every candidate: snapshotDir can be configured as
-        // literally "/home" too, and must get the same per-user expansion and
+        // Resolve every candidate: snapshotDir can be configured as literally
+        // "/home" too, and must get the same per-user expansion and
         // validation as the built-in fallback.
         for (const QString &rawCandidate : {QStringLiteral("/tmp"), QStringLiteral("/home"), snapshotDir}) {
-            const QString candidate = resolveHome(rawCandidate);
+            const QString candidate = resolveWorkDirParent(rawCandidate);
             if (candidate.isEmpty() || candidates.contains(candidate)) {
                 continue;
             }
-            if (!supportsElevatedWorkDir(candidate)) {
+            if (!supportsWorkDirectory(candidate)) {
                 continue;
             }
             candidates << candidate;
+        }
+        if (Cmd::elevationDenied()) {
+            return false;
         }
         if (candidates.isEmpty()) {
             qCritical() << QObject::tr(

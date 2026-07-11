@@ -297,15 +297,16 @@ void Work::abortIfElevationDenied()
 // Check if we can put work_dir on another partition with enough space, move work_dir there and setupEnv again
 bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
 {
-    // Reject work-directory candidates that fail the capability probe up front
-    // — settings->checkTempDir() would later silently relocate to a different
-    // parent if we accepted one, breaking the "move to <dir>" contract.
-    if (!QFile::exists(dir) || !FileSystemUtils::isOnSupportedPartition(dir)) {
+    // Reject candidates that cannot be used by both the user and elevated
+    // helper up front — checkTempDir() would later silently relocate to a
+    // different parent if we accepted one, breaking this move-to-dir contract.
+    const QString candidate = Settings::resolveWorkDirParent(dir);
+    if (!settings->supportsWorkDirectory(candidate)) {
         return false;
     }
     // See first if the dir is on different partition otherwise it's irrelevant
-    if (QStorageInfo(dir + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
-        && FileSystemUtils::getFreeSpace(dir) > req_size) {
+    if (QStorageInfo(candidate + "/").device() != QStorageInfo(settings->snapshotDir + "/").device()
+        && FileSystemUtils::getFreeSpace(candidate) > req_size) {
         // See Work::cleanUp for the rationale on the dual cleanup paths
         // (installed-to-live for Debian, installed-to-live-arch for Arch).
         const QString appName = QCoreApplication::applicationName();
@@ -323,7 +324,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
         // squashed (e.g. /tmp -> /home) makes mksquashfs squash its own output
         // directory while writing to it.
         const QString previousWorkDir = settings->workDir;
-        settings->tempDirParent = dir;
+        settings->tempDirParent = candidate;
         if (!settings->checkTempDir()) {
             cleanUp();
             return false;
