@@ -3,7 +3,7 @@
 # Root level functions requiring password for mx-snapshot
 
 cleanup() {
-    pkill mksquashfs
+    kill_mksquashfs
     # installed-to-live is Debian/MX-only (mx-remaster); on Arch the bind-root
     # is torn down by installed-to-live-arch instead, so a missing script is
     # not an error here — succeed as a no-op rather than exiting 127.
@@ -12,6 +12,20 @@ cleanup() {
     elif [[ -x /usr/bin/installed-to-live ]]; then
         /usr/bin/installed-to-live cleanup
     fi
+}
+
+# Unmount a tree with retries, falling back to a lazy detach. The lazy
+# fallback matters for safety, not just tidiness: once detached, the mount is
+# gone from the namespace, so a later rm -rf cannot traverse into it.
+umount_retry() {
+    local target=$1 i
+    for ((i = 0; i < 10; i++)); do
+        mountpoint -q "$target" || return 0
+        umount --recursive "$target" 2>/dev/null
+        sleep 0.3
+    done
+    umount --recursive --lazy "$target" 2>/dev/null
+    ! mountpoint -q "$target"
 }
 
 cleanup_overlay() {
@@ -25,10 +39,23 @@ cleanup_overlay() {
     lower_dir="${overlay_base}/lower"
     local overlay_root="${overlay_base}/root"
 
-    mountpoint -q "$overlay_root" && umount --recursive "$overlay_root"
-    mountpoint -q "$lower_dir" && umount --recursive "$lower_dir"
+    # Order matters: the overlay pins its lowerdir, so the merged root must go
+    # first or the lower bind can never unmount.
+    umount_retry "$overlay_root"
+    umount_retry "$lower_dir"
     [[ -L "$overlay_base" ]] && exit 3
-    [[ -d "$overlay_base" && "$overlay_base" == /run/*/bind-root-overlay ]] && rm -rf "$overlay_base"
+    # NEVER delete while anything is still mounted below: lower is a bind of
+    # the real / — an rm -rf through a live bind would wipe the system.
+    if findmnt --raw --noheadings --output TARGET \
+            | grep -q -e "^${overlay_base}$" -e "^${overlay_base}/"; then
+        echo "cleanup_overlay: mounts still active under ${overlay_base}; refusing to delete" >&2
+        exit 4
+    fi
+    # --one-file-system is a second line of defense: overlay_base lives on the
+    # /run tmpfs, so rm refuses to cross into any foreign mount it might meet.
+    if [[ -d "$overlay_base" && "$overlay_base" == /run/*/bind-root-overlay ]]; then
+        rm -rf --one-file-system "$overlay_base"
+    fi
 }
 
 copy_log() {
@@ -77,8 +104,24 @@ datetime_log() {
     date +"%Y%m%d_%H%M" > /etc/snapshot_created
 }
 
+# Kill mksquashfs and wait for it to actually exit. Cleanup unmounts the
+# overlay right after this; a still-dying mksquashfs keeps the merged root
+# busy, the busy overlay pins the lower bind of /, and teardown then has to
+# leave mounts behind. Escalate to SIGKILL if TERM isn't enough.
 kill_mksquashfs() {
-    pkill mksquashfs
+    local i
+    pgrep -x mksquashfs >/dev/null || return 0
+    pkill -x mksquashfs
+    for ((i = 0; i < 50; i++)); do
+        pgrep -x mksquashfs >/dev/null || return 0
+        sleep 0.1
+    done
+    pkill -9 -x mksquashfs
+    for ((i = 0; i < 20; i++)); do
+        pgrep -x mksquashfs >/dev/null || return 0
+        sleep 0.1
+    done
+    return 1
 }
 
 drop_caches() {

@@ -412,14 +412,23 @@ bool Work::setupBindRootOverlay()
         qWarning() << "Failed to bind mount / to" << lowerDir;
         return false;
     }
+    // Sever mount propagation: / is normally a shared mount, so without this
+    // any mount made while the snapshot runs (ISOs, USB sticks, ...) would
+    // propagate into the bind, keep cleanup's umount from succeeding, and a
+    // recursive umount of the bind would propagate back and rip the user's
+    // mounts out from under them.
+    if (!shell.procAsRoot("mount", {"--make-private", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+        qWarning() << "Failed to make bind mount private at" << lowerDir;
+        teardownOverlayBase(overlayBase);
+        return false;
+    }
 
     const QString overlayOptions = "lowerdir=" + lowerDir + ",upperdir=" + upperDir + ",workdir=" + workDir;
     if (!shell.procAsRoot("mount", {"-t", "overlay", "overlay", "-o", overlayOptions, bindRoot}, nullptr, nullptr,
                           Cmd::QuietMode::Yes)) {
         // Overlay genuinely isn't available (kernel without CONFIG_OVERLAY_FS,
         // or a hardened/locked-down kernel that refuses overlay).
-        shell.procAsRoot("umount", {"--recursive", lowerDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-        shell.procAsRoot("rm", {"-rf", overlayBase}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        teardownOverlayBase(overlayBase);
         if (!settings->isArch) {
             // Debian/MX kernels universally ship overlay; a failure here means
             // something is genuinely wrong. Match historical behavior and abort
@@ -446,6 +455,22 @@ bool Work::setupBindRootOverlay()
     bindRootOverlayBase = overlayBase;
     bindRootOverlayActive = true;
     return true;
+}
+
+// Undo a partially built overlay base. The lower dir is a bind mount of the
+// real /, so the directory must NEVER be rm -rf'd while anything under it is
+// still mounted — that would delete the running system through the bind.
+// Delegate to snapshot-lib cleanup_overlay, which derives the same
+// /run/<app>/bind-root-overlay path and holds the hardened teardown logic
+// (unmount retries, lazy-detach fallback, refusal to delete while any mount
+// remains anywhere below the base).
+void Work::teardownOverlayBase(const QString &overlayBase)
+{
+    if (!shell.procAsRoot("snapshot-lib", {"cleanup_overlay", QCoreApplication::applicationName()}, nullptr, nullptr,
+                          Cmd::QuietMode::Yes)) {
+        qWarning() << "cleanup_overlay could not fully tear down" << overlayBase
+                   << "— overlay state left under /run for inspection";
+    }
 }
 
 bool Work::ensureOverlayModuleLoaded()
@@ -479,8 +504,7 @@ void Work::cleanupBindRootOverlay()
         bindRootPath = "/.bind-root";
         return;
     }
-    Cmd().procAsRoot("snapshot-lib", {"cleanup_overlay", QCoreApplication::applicationName()}, nullptr, nullptr,
-                     Cmd::QuietMode::Yes);
+    teardownOverlayBase(bindRootOverlayBase);
     bindRootOverlayActive = false;
     bindRootOverlayBase.clear();
     bindRootPath = "/.bind-root";
