@@ -76,10 +76,10 @@ package() {
     install -Dm644 icons/mx-snapshot.png "${pkgdir}/usr/share/pixmaps/mx-snapshot.png"
 
     install -Dm644 mx-snapshot.conf "${pkgdir}/etc/mx-snapshot.conf"
-    install -Dm644 mx-snapshot-exclude.list "${pkgdir}/etc/mx-snapshot-exclude.list"
+    install -Dm644 mx-snapshot-exclude-arch.list "${pkgdir}/etc/mx-snapshot-exclude.list"
 
     install -dm755 "${pkgdir}/usr/share/excludes"
-    install -Dm644 mx-snapshot-exclude.list "${pkgdir}/usr/share/excludes/mx-snapshot-exclude.list"
+    install -Dm644 mx-snapshot-exclude-arch.list "${pkgdir}/usr/share/excludes/mx-snapshot-exclude.list"
 
     install -Dm644 manual/mx-snapshot.8 "${pkgdir}/usr/share/man/man8/mx-snapshot.8"
 
