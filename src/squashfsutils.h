@@ -26,6 +26,7 @@ struct Options {
 };
 
 [[nodiscard]] Command buildCommand(const Options &options);
+[[nodiscard]] bool helpListsOption(const QString &helpText, const QString &option);
 [[nodiscard]] int parsePercentageLine(const QString &line, bool *ok = nullptr);
 
 } // namespace SquashfsUtils

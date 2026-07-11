@@ -43,6 +43,13 @@ Command buildCommand(const Options &options)
     return command;
 }
 
+bool helpListsOption(const QString &helpText, const QString &option)
+{
+    const QRegularExpression optionLine(
+        QStringLiteral("(?:^|\\s)%1(?:\\s|$)").arg(QRegularExpression::escape(option)));
+    return optionLine.match(helpText).hasMatch();
+}
+
 int parsePercentageLine(const QString &line, bool *ok)
 {
     static const QRegularExpression ansiEscape(QStringLiteral("\\x1B\\[[0-?]*[ -/]*[@-~]"));

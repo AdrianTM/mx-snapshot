@@ -10,6 +10,7 @@ private slots:
     void buildCommandDirect();
     void buildCommandWithUnbuffer();
     void buildCommandOmitsPercentageWhenDisabled();
+    void helpListsOption();
     void parsePercentageLine();
 };
 
@@ -66,6 +67,17 @@ void TestSquashfsUtils::buildCommandOmitsPercentageWhenDisabled()
     });
 
     QVERIFY(!command.args.contains("-percentage"));
+}
+
+void TestSquashfsUtils::helpListsOption()
+{
+    const QString help = QStringLiteral(
+        "-throttle <percentage>\tthrottle I/O\n"
+        "-processors <number>\tUse processors\n");
+
+    QVERIFY(SquashfsUtils::helpListsOption(help, QStringLiteral("-throttle")));
+    QVERIFY(SquashfsUtils::helpListsOption(help, QStringLiteral("-processors")));
+    QVERIFY(!SquashfsUtils::helpListsOption(help, QStringLiteral("-percentage")));
 }
 
 void TestSquashfsUtils::parsePercentageLine()

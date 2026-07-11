@@ -84,6 +84,17 @@ quint64 parseDuKilobytes(const QString &output, bool *ok)
     return firstField.toULongLong(ok);
 }
 
+QString mksquashfsHelp()
+{
+    QProcess process;
+    process.start(QStringLiteral("mksquashfs"), {QStringLiteral("-help")});
+    if (!process.waitForStarted() || !process.waitForFinished(5000)) {
+        return {};
+    }
+    return QString::fromLocal8Bit(process.readAllStandardOutput())
+           + QString::fromLocal8Bit(process.readAllStandardError());
+}
+
 // Goes through the elevated helper (root), and uses the plain `poweroff`
 // command rather than a D-Bus call to org.freedesktop.login1: logind only
 // exists under systemd, but MX Linux/antiX also ship a SysVinit option with
@@ -782,14 +793,12 @@ bool Work::createIso(const QString &filename)
         QDir().mkpath(settings->workDir + "/iso-template/arch/" + archCpuDir);
     }
 
-    // squashfs-tools 4.5+ has the flags we care about (-throttle,
-    // -percentage). The earlier feature-probe via `mksquashfs -help`
-    // produced false-negatives on some distros where the help text was
-    // paged differently or `-help` didn't enumerate every option. Just
-    // pass the flags unconditionally — mksquashfs will error out
-    // clearly on a truly ancient version.
-    constexpr bool throttleSupported = true;
-    constexpr bool percentageSupported = true;
+    // -percentage only exists in squashfs-tools 4.6+ (and MX builds that
+    // backport it). Read the local tool's help directly instead of using a
+    // shell pipeline, then include only the options this build advertises.
+    const QString squashfsHelp = mksquashfsHelp();
+    const bool throttleSupported = SquashfsUtils::helpListsOption(squashfsHelp, QStringLiteral("-throttle"));
+    const bool percentageSupported = SquashfsUtils::helpListsOption(squashfsHelp, QStringLiteral("-percentage"));
 
     const SquashfsUtils::Command squashfsCommand = SquashfsUtils::buildCommand({
         .bindRootPath = bindRootPath,
