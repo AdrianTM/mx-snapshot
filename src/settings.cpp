@@ -303,11 +303,34 @@ bool Settings::checkTempDir()
         }
         return "/home/" + userName;
     };
+    const auto supportsElevatedWorkDir = [](const QString &candidate) {
+        if (!QFile::exists(candidate) || !FileSystemUtils::isOnSupportedPartition(candidate)) {
+            return false;
+        }
+
+        // The work directory is created by the user, but mksquashfs and other
+        // snapshot steps write into it through the elevated helper. A FUSE
+        // mount without allow_other/allow_root or an NFS root_squash export can
+        // pass the user-side filesystem probe yet reject those writes. Keep the
+        // probe directory user-private (like the real QTemporaryDir) and make
+        // one tiny root write inside it to verify the access that matters.
+        QTemporaryDir rootProbe(QDir(candidate).filePath(".mx-snapshot-root-check-XXXXXX"));
+        if (!rootProbe.isValid()) {
+            qDebug() << "Rejecting" << candidate << ": could not create elevated probe directory";
+            return false;
+        }
+        const QString rootProbeFile = rootProbe.filePath("root-write");
+        if (!Cmd().procAsRoot("touch", {rootProbeFile}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+            qDebug() << "Rejecting" << candidate << ": elevated probe write failed";
+            return false;
+        }
+        return true;
+    };
     tempDirParent = resolveHome(tempDirParent);
     // Set workdir location if not defined in .conf file, doesn't exist, or cannot support
-    // the small set of filesystem operations used by the intermediate artifacts.
-    if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent)
-        || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
+    // the filesystem operations used by the intermediate artifacts as either
+    // the user or the elevated snapshot helper.
+    if (tempDirParent.isEmpty() || !supportsElevatedWorkDir(tempDirParent)) {
         QStringList candidates;
         // resolveHome() on every candidate: snapshotDir can be configured as
         // literally "/home" too, and must get the same per-user expansion and
@@ -317,14 +340,14 @@ bool Settings::checkTempDir()
             if (candidate.isEmpty() || candidates.contains(candidate)) {
                 continue;
             }
-            if (!QFile::exists(candidate) || !FileSystemUtils::isOnSupportedPartition(candidate)) {
+            if (!supportsElevatedWorkDir(candidate)) {
                 continue;
             }
             candidates << candidate;
         }
         if (candidates.isEmpty()) {
             qCritical() << QObject::tr(
-                "No supported filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.");
+                "No suitable filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.");
             return false;
         }
         tempDirParent = candidates.takeFirst();
