@@ -12,16 +12,13 @@ public:
     // Get formatted free space string for display
     [[nodiscard]] static QString getFreeSpaceString(const QString &path);
 
-    // Check if directory is on a partition the snapshot work dir can live on:
-    // valid, ready, writable, and a filesystem type from the allowlist below.
+    // Check whether a directory can host the snapshot work dir. The filesystem
+    // must be valid, ready, writable, and pass a small POSIX capability probe.
     [[nodiscard]] static bool isOnSupportedPartition(const QString &dir);
 
-    // Pure classifier behind isOnSupportedPartition(): true only for local
-    // POSIX filesystems known to handle the work-dir load (multi-GB files,
-    // symlinks, ownership). Everything else — vfat/ntfs, network mounts, any
-    // fuse.* type, VM shared folders (vmhgfs/vboxsf/virtiofs), and unknown
-    // types — is rejected; callers fall back to another candidate directory.
-    [[nodiscard]] static bool isSupportedFilesystemType(const QString &type);
+    // Filesystems with a known maximum file size incompatible with ISO and
+    // squashfs artifacts. Other filesystem types are assessed by the probe.
+    [[nodiscard]] static bool isKnownIncompatibleFilesystemType(const QString &type);
 
     // Return directory with larger free space between two options
     [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2);
@@ -30,8 +27,7 @@ public:
     [[nodiscard]] static QString largerFreeSpace(const QString &dir1, const QString &dir2, const QString &dir3);
 
 private:
-    // Allowlist of filesystems exercised with the snapshot workflow. A wrong
-    // rejection here just moves the work dir to /tmp or /home; a wrong
-    // acceptance surfaces as an hours-late mksquashfs/xorriso failure.
-    static const QSet<QString> supportedPartitions;
+    [[nodiscard]] static bool supportsWorkDirectory(const QString &dir);
+
+    static const QSet<QString> incompatiblePartitions;
 };

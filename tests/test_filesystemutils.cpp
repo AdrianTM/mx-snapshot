@@ -10,59 +10,50 @@
  **********************************************************************/
 #include <QtTest/QtTest>
 
+#include <QtCore/QDir>
+
 #include "filesystemutils.h"
 
-// Guards the work-dir placement classifier: only local POSIX filesystems may
-// be accepted, and everything unknown, remote, fuse-backed, or unreadable must
-// be rejected so the fallback chain picks a safe candidate instead of failing
-// hours later inside mksquashfs/xorriso.
+// The type classifier only excludes filesystems with known incompatible file
+// limits. All other valid writable mounts are accepted or rejected by the
+// small capability probe in isOnSupportedPartition().
 class TestFileSystemUtils : public QObject
 {
     Q_OBJECT
 
 private slots:
-    void acceptsLocalPosixFilesystems_data()
+    void rejectsKnownIncompatibleFilesystems_data()
     {
         QTest::addColumn<QString>("type");
-        for (const char *type : {"ext2", "ext3", "ext4", "btrfs", "xfs", "f2fs", "jfs", "tmpfs", "zfs", "overlay"}) {
+        for (const char *type : {"fat", "vfat", "msdos"}) {
             QTest::newRow(type) << QString(type);
         }
     }
 
-    void acceptsLocalPosixFilesystems()
+    void rejectsKnownIncompatibleFilesystems()
     {
         QFETCH(QString, type);
-        QVERIFY(FileSystemUtils::isSupportedFilesystemType(type));
+        QVERIFY(FileSystemUtils::isKnownIncompatibleFilesystemType(type));
     }
 
-    void rejectsNonPosixRemoteAndUnknownTypes_data()
+    void leavesOtherFilesystemTypesToCapabilityProbe_data()
     {
         QTest::addColumn<QString>("type");
-        // No POSIX permissions / no large files
-        for (const char *type : {"vfat", "exfat", "ntfs", "ntfs3", "msdos"}) {
+        for (const char *type : {"ext4", "exfat", "ntfs", "nfs", "cifs", "fuse.sshfs", "fuse.vmhgfs-fuse",
+                                 "vboxsf", "virtiofs", "somefs", ""}) {
             QTest::newRow(type) << QString(type);
         }
-        // Network filesystems -- including nfs, which the old denylist missed
-        for (const char *type : {"nfs", "nfs4", "cifs", "smbfs", "9p", "glusterfs"}) {
-            QTest::newRow(type) << QString(type);
-        }
-        // fuse.* is an open set; any spelling must be rejected without enumeration
-        for (const char *type : {"fuse", "fuseblk", "fuse.sshfs", "fuse.rclone", "fuse.vmhgfs-fuse"}) {
-            QTest::newRow(type) << QString(type);
-        }
-        // VM host-shared folders (VMware HGFS, VirtualBox, virtiofs)
-        for (const char *type : {"vmhgfs", "vmhgfs-fuse", "vboxsf", "virtiofs"}) {
-            QTest::newRow(type) << QString(type);
-        }
-        // Unknown or empty (invalid QStorageInfo reports an empty type)
-        QTest::newRow("empty") << QString();
-        QTest::newRow("unknown") << QStringLiteral("somefs");
     }
 
-    void rejectsNonPosixRemoteAndUnknownTypes()
+    void leavesOtherFilesystemTypesToCapabilityProbe()
     {
         QFETCH(QString, type);
-        QVERIFY(!FileSystemUtils::isSupportedFilesystemType(type));
+        QVERIFY(!FileSystemUtils::isKnownIncompatibleFilesystemType(type));
+    }
+
+    void acceptsWorkingTemporaryDirectory()
+    {
+        QVERIFY(FileSystemUtils::isOnSupportedPartition(QDir::tempPath()));
     }
 
     void rejectsNonexistentPath()

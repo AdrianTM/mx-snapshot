@@ -304,9 +304,8 @@ bool Settings::checkTempDir()
         return "/home/" + userName;
     };
     tempDirParent = resolveHome(tempDirParent);
-    // Set workdir location if not defined in .conf file, doesn't exist, or not supported partition.
-    // When picking a fallback, only consider candidates whose underlying filesystem can hold the
-    // intermediate snapshot artifacts (excludes vfat/ntfs, network mounts, fuse-backed shares, etc.).
+    // Set workdir location if not defined in .conf file, doesn't exist, or cannot support
+    // the small set of filesystem operations used by the intermediate artifacts.
     if (tempDirParent.isEmpty() || !QFile::exists(tempDirParent)
         || !FileSystemUtils::isOnSupportedPartition(tempDirParent)) {
         QStringList candidates;

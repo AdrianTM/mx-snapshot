@@ -1,3 +1,18 @@
+mx-snapshot (26.07.2) mx; urgency=medium
+
+  * Stop reporting a successful snapshot when required ISO steps fail;
+    checksum, boot, initrd, package-list, and template errors now stop the run.
+  * Clean up the snapshot work area immediately after failed ISO steps, instead
+    of leaving temporary mounts and files behind until the program exits.
+  * Run the configured text editor directly instead of through a shell, closing
+    a command-injection risk from editor settings and desktop-file entries.
+  * Make preempt checksum handling safer by using a private temporary directory
+    for each snapshot run.
+  * Probe snapshot work directories for the required file operations, allowing
+    compatible shared mounts while rejecting unsuitable locations early.
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 09 Jul 2026 23:03:14 -0400
+
 mx-snapshot (26.07.1) mx; urgency=medium
 
   * Keep the authentication prompt alive across the whole snapshot run
