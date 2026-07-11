@@ -39,6 +39,11 @@ if command -v tx >/dev/null; then
    echodo tx pull -r antix-development.$APPNAME --all
 fi
 
+# en_US is redundant with the English source strings and the copy on
+# Transifex contains bad data (e.g. "Error" mistranslated as a full
+# compression-algorithm message); never keep it.
+rm -f "${APPNAME}_en_US.ts"
+
 # Find lupdate command in common locations
 LUPDATE=""
 for cmd in lupdate lupdate-qt6 /usr/lib/qt6/bin/lupdate /usr/bin/lupdate /usr/local/bin/lupdate; do
