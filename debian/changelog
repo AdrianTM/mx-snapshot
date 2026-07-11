@@ -1,3 +1,10 @@
+mx-snapshot (26.07.4) mx; urgency=medium
+
+  * Allow snapshot creation with squashfs-tools versions that do not provide
+    optional throttling or percentage-progress controls.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 11 Jul 2026 17:41:10 -0400
+
 mx-snapshot (26.07.3) mx; urgency=medium
 
   * Fix error dialog titles in English by removing a broken en_US translation
