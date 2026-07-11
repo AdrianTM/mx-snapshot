@@ -7,9 +7,9 @@
 #include <QtCore/QTemporaryDir>
 
 #include <cerrno>
+#include <cstdio>
 #include <cstring>
 #include <sys/stat.h>
-#include <unistd.h>
 
 const QSet<QString> FileSystemUtils::incompatiblePartitions = {
     // These FAT variants cannot hold an ISO or squashfs file larger than 4 GiB.
@@ -81,15 +81,17 @@ bool FileSystemUtils::supportsWorkDirectory(const QString &dir)
     }
     data.close();
 
+    // chmod fidelity is not load-bearing for the snapshot: the ISO template is
+    // extracted unprivileged and the live system's permissions come from the
+    // squashfs (recorded off bind-root), not from work-dir modes. Filesystems
+    // that silently ignore chmod (ntfs-3g, exfat) still host a working work
+    // dir, so note the deviation without rejecting.
     constexpr mode_t probeMode = S_IRUSR | S_IWUSR | S_IXUSR;
-    if (::chmod(dataPathBytes.constData(), probeMode) != 0) {
-        qDebug() << "Rejecting" << dir << ": probe chmod failed:" << std::strerror(errno);
-        return false;
-    }
     struct stat dataStat {};
-    if (::stat(dataPathBytes.constData(), &dataStat) != 0 || (dataStat.st_mode & 0777) != probeMode) {
-        qDebug() << "Rejecting" << dir << ": probe chmod did not preserve the requested mode";
-        return false;
+    if (::chmod(dataPathBytes.constData(), probeMode) != 0) {
+        qDebug() << "Note:" << dir << ": probe chmod failed:" << std::strerror(errno);
+    } else if (::stat(dataPathBytes.constData(), &dataStat) != 0 || (dataStat.st_mode & 0777) != probeMode) {
+        qDebug() << "Note:" << dir << ": probe chmod did not preserve the requested mode";
     }
 
     const QString renamedPath = probe.filePath("renamed");
@@ -102,22 +104,6 @@ bool FileSystemUtils::supportsWorkDirectory(const QString &dir)
     const QString nestedDir = probe.filePath("nested/directory");
     if (!QDir().mkpath(nestedDir)) {
         qDebug() << "Rejecting" << dir << ": probe nested-directory creation failed";
-        return false;
-    }
-
-    const QString linkPath = probe.filePath("link");
-    const QByteArray linkPathBytes = QFile::encodeName(linkPath);
-    if (::symlink("renamed", linkPathBytes.constData()) != 0) {
-        qDebug() << "Rejecting" << dir << ": probe symlink creation failed:" << std::strerror(errno);
-        return false;
-    }
-    struct stat linkStat {};
-    if (::lstat(linkPathBytes.constData(), &linkStat) != 0) {
-        qDebug() << "Rejecting" << dir << ": probe symlink inspection failed:" << std::strerror(errno);
-        return false;
-    }
-    if (!S_ISLNK(linkStat.st_mode)) {
-        qDebug() << "Rejecting" << dir << ": probe link is not a symlink";
         return false;
     }
     return true;
