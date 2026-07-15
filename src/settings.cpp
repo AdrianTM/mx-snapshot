@@ -28,6 +28,7 @@
 #include <QDate>
 #include <QDebug>
 #include <QDir>
+#include <QDirIterator>
 #include <QFileInfo>
 #include <QHash>
 #include <QProcess>
@@ -47,6 +48,26 @@
 
 namespace
 {
+// Qt cannot enumerate system processes (QProcess only manages its own
+// children), so read /proc/<pid>/comm directly — the same source pgrep uses.
+// comm holds the process name truncated to 15 characters, so the name passed
+// in must fit within that limit.
+bool isProcessRunning(const QByteArray &name)
+{
+    QDirIterator it(QStringLiteral("/proc"), QDir::Dirs | QDir::NoDotAndDotDot);
+    while (it.hasNext()) {
+        it.next();
+        if (!it.fileName().at(0).isDigit()) {
+            continue; // not a PID entry
+        }
+        QFile comm(it.filePath() + "/comm");
+        if (comm.open(QIODevice::ReadOnly) && comm.readLine().trimmed() == name) {
+            return true;
+        }
+    }
+    return false;
+}
+
 QString trimQuotesValue(QString value)
 {
     value = value.trimmed();
@@ -1459,7 +1480,20 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
             month += "." + argParser.value("month");
         }
         auto suffix = name.section('_', 1, 1);
-        if (qgetenv("DESKTOP_SESSION") == "plasma") {
+        // XDG_CURRENT_DESKTOP is a colon-separated list (e.g. "KDE" or "ubuntu:GNOME");
+        // it is set to "KDE" on both X11 and Wayland Plasma sessions, while
+        // DESKTOP_SESSION varies by session file ("plasma", "plasmax11", ...).
+        const QStringList currentDesktop
+            = QString::fromLocal8Bit(qgetenv("XDG_CURRENT_DESKTOP")).split(':', Qt::SkipEmptyParts);
+        bool isPlasma = currentDesktop.contains(QLatin1String("KDE"), Qt::CaseInsensitive)
+                        || qgetenv("DESKTOP_SESSION") == "plasma";
+        // Plain sudo strips both variables; only when neither is set fall back to
+        // detecting a running Plasma shell (named plasmashell on Plasma 5 and 6).
+        // A present non-KDE value is authoritative, so don't second-guess it.
+        if (!isPlasma && currentDesktop.isEmpty() && qgetenv("DESKTOP_SESSION").isEmpty()) {
+            isPlasma = isProcessRunning("plasmashell");
+        }
+        if (isPlasma) {
             suffix = "KDE";
         }
         snapshotName = name.section('_', 0, 0) + '_' + month + '_' + suffix + ".iso";
