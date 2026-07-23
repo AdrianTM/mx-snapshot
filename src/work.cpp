@@ -524,7 +524,10 @@ bool Work::copyModules(const QString &to, const QString &kernel)
                        .arg(qApp->applicationName(), to, kernel))) {
         return false;
     }
-    if (!shell.procAsRoot("copy-initrd-programs", {"-e", "--to=" + to}, nullptr, nullptr, Cmd::QuietMode::No)) {
+    // -F/--force: missing optional initrd programs (ntfs-3g, eject, cryptsetup, ...)
+    // become a warning instead of aborting the whole snapshot.
+    if (!shell.procAsRoot("copy-initrd-programs", {"-e", "-F", "--to=" + to}, nullptr, nullptr,
+                          Cmd::QuietMode::No)) {
         return false;
     }
     // Ownership fixup is cosmetic (the initrd is repacked root:root anyway),
