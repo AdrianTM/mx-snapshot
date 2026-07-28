@@ -24,7 +24,7 @@
 # *     version-file[=t]    write /etc/live/version/linuxfs.ver template
 # *     adjtime             zero-out /etc/adjtime in template
 # *
-# * Copyright (C) 2026 MX Authors
+# * Copyright (C) 2026-2026 MX Authors
 # * Authors: Adrian, MX Linux <http://mxlinux.org>
 # *
 # * This program is free software: you can redistribute it and/or modify
