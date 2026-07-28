@@ -209,12 +209,15 @@ void printError(const QString &message)
     return "/usr/share/live-files/files/etc/" + relativeName;
 }
 
-// The values are written as file content only, never evaluated. Strip quotes
-// and newlines so a crafted value cannot add extra lines or break the quoting
-// of these shell-sourced template files.
+// These values may be written to shell-sourced files. Keep every value literal
+// inside double quotes by removing the characters that retain special meaning
+// there, and prevent a crafted value from adding another assignment or command.
 [[nodiscard]] QString sanitizeTemplateValue(QString value)
 {
     value.remove('"');
+    value.remove('\\');
+    value.remove('$');
+    value.remove('`');
     value.replace('\n', ' ');
     value.replace('\r', ' ');
     return value;
@@ -261,7 +264,7 @@ void printError(const QString &message)
     const QString codename = sanitizeTemplateValue(args.at(2));
     const QString content = QString("PRETTY_NAME=\"%1 %2 %3\"\n"
                                     "DISTRIB_ID=\"%1\"\n"
-                                    "DISTRIB_RELEASE=%2\n"
+                                    "DISTRIB_RELEASE=\"%2\"\n"
                                     "DISTRIB_CODENAME=\"%3\"\n"
                                     "DISTRIB_DESCRIPTION=\"%1 %2 %3\"\n")
                                 .arg(project, version, codename);
