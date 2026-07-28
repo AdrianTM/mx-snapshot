@@ -65,11 +65,12 @@ recommend it for anything other than MX or antiX compatible systems.
     \<level\>", or "-Xalgorithm \<algorithm\>", or "-Xhc", see
     mksquashfs man page
 
-  - **-m**, **--month**  
+  - **-m**, **--month** [suffix]
     Create a monthly snapshot, add 'Month' name in the ISO name, skip
     used space calculation This option sets reset-accounts and
     compression to defaults, arguments changing those items will be
-    ignored
+    ignored. Optionally specify a suffix to add to the month name (e.g.,
+    `-m 1` for `July.1`).
 
   - **-n**, **--no-checksums**  
     Don't calculate checksums for resulting ISO file

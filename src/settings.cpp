@@ -1476,8 +1476,9 @@ void Settings::setMonthlySnapshot(const QCommandLineParser &argParser)
     }
     if (argParser.value("file").isEmpty()) {
         auto month = QDate::currentDate().toString("MMMM");
-        if (!argParser.value("month").isEmpty()) {
-            month += "." + argParser.value("month");
+        const QString monthSuffix = argParser.positionalArguments().value(0);
+        if (!monthSuffix.isEmpty()) {
+            month += "." + monthSuffix;
         }
         auto suffix = name.section('_', 1, 1);
         // XDG_CURRENT_DESKTOP is a colon-separated list (e.g. "KDE" or "ubuntu:GNOME");
