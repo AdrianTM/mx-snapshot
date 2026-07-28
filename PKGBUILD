@@ -71,7 +71,7 @@ package() {
     done
 
     install -Dm644 mx-snapshot.desktop "${pkgdir}/usr/share/applications/mx-snapshot.desktop"
-    install -Dm644 icons/mx-snapshot.png "${pkgdir}/usr/share/icons/hicolor/48x48/apps/mx-snapshot.png"
+    install -Dm644 icons/mx-snapshot.png "${pkgdir}/usr/share/icons/hicolor/64x64/apps/mx-snapshot.png"
     install -Dm644 icons/mx-snapshot.svg "${pkgdir}/usr/share/icons/hicolor/scalable/apps/mx-snapshot.svg"
     install -Dm644 icons/mx-snapshot.png "${pkgdir}/usr/share/pixmaps/mx-snapshot.png"
 
@@ -91,6 +91,8 @@ package() {
     # Install live-files (replaces mx-remaster-live-files package)
     install -dm755 "${pkgdir}/usr/share/live-files"
     cp -a live-files/files live-files/general-files "${pkgdir}/usr/share/live-files/"
+    ln -s /usr/lib/libostree/grub2-15_ostree \
+        "${pkgdir}/usr/share/live-files/files/etc/grub.d/15_ostree"
 
     # Install changelog
     if [ -f debian/changelog ]; then

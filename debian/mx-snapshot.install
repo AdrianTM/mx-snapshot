@@ -1,5 +1,5 @@
 docs/*				usr/share/doc/mx-snapshot
-icons/mx-snapshot.png		usr/share/icons/hicolor/48x48/apps
+icons/mx-snapshot.png		usr/share/icons/hicolor/64x64/apps
 icons/mx-snapshot.svg		usr/share/icons/hicolor/scalable/apps
 manual/mx-snapshot.8.gz		usr/share/man/man8
 usr/bin/mx-snapshot		usr/bin

@@ -1,3 +1,7 @@
+#!/bin/sh
+
+set -e
+
 mkdir -p /usr/share/excludes
 ln -fs /etc/mx-snapshot-exclude.list /usr/share/excludes/mx-snapshot-exclude.list
 
@@ -6,3 +10,7 @@ ln -fs /etc/mx-snapshot-exclude.list /usr/share/excludes/mx-snapshot-exclude.lis
 if [ -e /usr/share/local/excludes/mx-snapshot-exclude.list ]; then
     rm -f /usr/share/local/excludes/mx-snapshot-exclude.list
 fi
+
+#DEBHELPER#
+
+exit 0

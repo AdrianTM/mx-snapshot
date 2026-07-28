@@ -2,9 +2,15 @@ Copyright (2014-2026) by Adrian; MX Linux <http://mxlinux.org>
 
 and released under the GPL 3
 
+On Debian systems, the complete text of the GNU General Public License
+version 3 can be found in `/usr/share/common-licenses/GPL-3`.
+
 
 Files: debian/*
 
 Packaging copyright 2014-2026 by Steven Pusser [stevep@mxlinux.org]
 
 and is released under the GPL 3 license.
+
+On Debian systems, the complete text of the GNU General Public License
+version 3 can be found in `/usr/share/common-licenses/GPL-3`.

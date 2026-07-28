@@ -1078,7 +1078,7 @@ mx-snapshot (20.3) mx; urgency=medium
 
   * add /etc/snapshot_created with date of creation
 
- -- Adrian <adrian@mx>  Thu, 12 Mar 2020 01:09:26 -0400
+ -- Adrian <adrian@mxlinux.org>  Thu, 12 Mar 2020 01:09:26 -0400
 
 mx-snapshot (20.2) mx; urgency=medium
 
