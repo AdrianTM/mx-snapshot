@@ -1,5 +1,5 @@
 # **********************************************************************
-# * Copyright (C) 2015-2025 MX Authors
+# * Copyright (C) 2015-2026 MX Authors
 # *
 # * Authors: Adrian
 # *          MX Linux <http://mxlinux.org>
@@ -189,6 +189,7 @@ set(RESOURCE_FILES
 
 # Get all translation files
 file(GLOB TRANSLATION_FILES "translations/*.ts")
+list(FILTER TRANSLATION_FILES EXCLUDE REGEX "/mx-snapshot_en_US\\.ts$")
 
 # Create GUI executable
 if(BUILD_GUI)
