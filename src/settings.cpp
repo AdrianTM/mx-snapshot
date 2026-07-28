@@ -1063,16 +1063,16 @@ QString Settings::getFreeSpaceStrings(const QString &path)
 void Settings::excludeItem(const QString &item)
 {
     static const QMap<QString, void (Settings::*)(bool)> itemExclusions {
-        {QObject::tr("Desktop"), &Settings::excludeDesktop},
-        {QObject::tr("Documents"), &Settings::excludeDocuments},
-        {QObject::tr("Downloads"), &Settings::excludeDownloads},
-        {QObject::tr("Flatpaks"), &Settings::excludeFlatpaks},
-        {QObject::tr("Music"), &Settings::excludeMusic},
-        {QObject::tr("Networks"), &Settings::excludeNetworks},
-        {QObject::tr("Pictures"), &Settings::excludePictures},
-        {"Steam", &Settings::excludeSteam},
-        {QObject::tr("Videos"), &Settings::excludeVideos},
-        {"VirtualBox", &Settings::excludeVirtualBox}};
+        {QStringLiteral("Desktop"), &Settings::excludeDesktop},
+        {QStringLiteral("Documents"), &Settings::excludeDocuments},
+        {QStringLiteral("Downloads"), &Settings::excludeDownloads},
+        {QStringLiteral("Flatpaks"), &Settings::excludeFlatpaks},
+        {QStringLiteral("Music"), &Settings::excludeMusic},
+        {QStringLiteral("Networks"), &Settings::excludeNetworks},
+        {QStringLiteral("Pictures"), &Settings::excludePictures},
+        {QStringLiteral("Steam"), &Settings::excludeSteam},
+        {QStringLiteral("Videos"), &Settings::excludeVideos},
+        {QStringLiteral("VirtualBox"), &Settings::excludeVirtualBox}};
 
     auto it = itemExclusions.find(item);
     if (it != itemExclusions.end()) {
