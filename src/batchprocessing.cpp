@@ -105,8 +105,16 @@ Batchprocessing::Batchprocessing(Settings *settings, QObject *parent)
         const QString bootDir = settings->workDir + "/iso-template/boot";
         QStringList editorCmd = settings->getEditorCommand();
         const QString editorProgram = editorCmd.takeFirst();
-        Cmd().proc(editorProgram, editorCmd << bootDir + "/grub/grub.cfg" << bootDir + "/syslinux/syslinux.cfg"
-                                            << bootDir + "/isolinux/isolinux.cfg");
+        const bool editorSucceeded
+            = Cmd().proc(editorProgram, editorCmd << bootDir + "/grub/grub.cfg"
+                                                  << bootDir + "/syslinux/syslinux.cfg"
+                                                  << bootDir + "/isolinux/isolinux.cfg");
+        if (!editorSucceeded) {
+            qCritical().noquote()
+                << tr("The boot-menu editor failed; the snapshot cannot continue with potentially unedited files.");
+            work.cleanUp();
+            return;
+        }
     }
     disconnect(&timer, &QTimer::timeout, nullptr, nullptr);
     work.createIso(settings->snapshotName);
