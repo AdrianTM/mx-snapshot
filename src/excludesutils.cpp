@@ -30,6 +30,7 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QProcess>
+#include <QSaveFile>
 
 #include <utime.h>
 
@@ -85,30 +86,55 @@ bool resetCustomExcludes(const QString &configuredPath, const QString &sourcePat
         return false;
     }
 
-    if (!QFileInfo::exists(sourcePath)) {
-        qWarning().noquote() << QObject::tr("Default exclusion file not found at %1.").arg(sourcePath);
+    QFile sourceFile(sourcePath);
+    if (!sourceFile.open(QIODevice::ReadOnly)) {
+        qWarning().noquote() << QObject::tr("Could not open default exclusion file at %1.").arg(sourcePath);
         return false;
     }
 
     const QString targetDir = QFileInfo(configuredPath).absolutePath();
-    if (!targetDir.isEmpty()) {
-        QDir().mkpath(targetDir);
+    if (!targetDir.isEmpty() && !QDir().mkpath(targetDir)) {
+        qWarning().noquote() << QObject::tr("Could not create exclusion file directory at %1.").arg(targetDir);
+        return false;
+    }
+
+    QSaveFile configuredFile(configuredPath);
+    // Never fall back to truncating the destination directly: a failed reset
+    // must leave the existing configured file intact.
+    configuredFile.setDirectWriteFallback(false);
+    if (!configuredFile.open(QIODevice::WriteOnly)) {
+        qWarning().noquote() << QObject::tr("Could not prepare exclusion file at %1.").arg(configuredPath);
+        return false;
     }
 
     if (QFileInfo::exists(configuredPath)) {
         const QString backupPath = configuredPath + "." + QDateTime::currentDateTime().toString("yyyyMMddhhmmss");
         if (!QFile::copy(configuredPath, backupPath)) {
             qWarning().noquote() << QObject::tr("Could not backup existing exclusion file to %1.").arg(backupPath);
-            return false;
-        }
-        if (!QFile::remove(configuredPath)) {
-            qWarning().noquote()
-                << QObject::tr("Could not remove existing exclusion file at %1.").arg(configuredPath);
+            configuredFile.cancelWriting();
             return false;
         }
     }
 
-    if (!QFile::copy(sourcePath, configuredPath)) {
+    QByteArray buffer(64 * 1024, Qt::Uninitialized);
+    while (true) {
+        const qint64 bytesRead = sourceFile.read(buffer.data(), buffer.size());
+        if (bytesRead < 0) {
+            qWarning().noquote() << QObject::tr("Could not read default exclusion file at %1.").arg(sourcePath);
+            configuredFile.cancelWriting();
+            return false;
+        }
+        if (bytesRead == 0) {
+            break;
+        }
+        if (configuredFile.write(buffer.constData(), bytesRead) != bytesRead) {
+            qWarning().noquote() << QObject::tr("Could not write exclusion file at %1.").arg(configuredPath);
+            configuredFile.cancelWriting();
+            return false;
+        }
+    }
+
+    if (!configuredFile.commit()) {
         qWarning().noquote()
             << QObject::tr("Could not copy default exclusion file from %1 to %2.").arg(sourcePath, configuredPath);
         return false;
