@@ -19,54 +19,54 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="123"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>管理者権限が付与されなかったので、スナップショットの処理は続行できません。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="250"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
-        <translation type="unfinished"/>
+        <translation>%2 と比較して、%1 に新規の除外ファイルを検出しました。対処方法について確認します。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="256"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
-        <translation type="unfinished"/>
+        <translation>s</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="257"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
-        <translation type="unfinished"/>
+        <translation>u</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="258"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
-        <translation type="unfinished"/>
+        <translation>k</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="259"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
-        <translation type="unfinished"/>
+        <translation>q</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="261"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>差分の表示</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="262"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>更新された既定値を使用する</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="263"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
-        <translation type="unfinished"/>
+        <translation>カスタム設定の維持（タイムスタンプを更新）</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="264"/>
@@ -77,32 +77,32 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="267"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
-        <translation type="unfinished"/>
+        <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="272"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>%1 の除外ファイルは、%2 の設定ファイルよりも新しいものです。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="288"/>
         <source>Reverted to updated default exclusion file.</source>
-        <translation type="unfinished"/>
+        <translation>更新済みの既定の除外ファイルに戻しました。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="305"/>
         <source>No input available to answer the exclusion file prompt; aborting without creating a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>除外ファイルに対するプロンプトへの応答がなかったので、スナップショットの作成を中止します。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="308"/>
         <source>Leaving custom exclusion file unchanged.</source>
-        <translation type="unfinished"/>
+        <translation>カスタムの除外ファイルは変更しません。</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="319"/>
         <source>Invalid choice. Please select again.</source>
-        <translation type="unfinished"/>
+        <translation>無効な選択です。もう一度選択してください。</translation>
     </message>
 </context>
 <context>
@@ -110,17 +110,17 @@
     <message>
         <location filename="../src/cmd.cpp" line="121"/>
         <source>No elevation tool found (pkexec/gksu/sudo).</source>
-        <translation type="unfinished"/>
+        <translation>権限昇格ツール（pkexec/gksu/sudo）が見つかりません。</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="212"/>
         <source>Failed to start command: %1</source>
-        <translation type="unfinished"/>
+        <translation>コマンド %1 の起動に失敗しました</translation>
     </message>
     <message>
         <location filename="../src/cmd.cpp" line="283"/>
         <source>Administrator access was not granted (authentication cancelled or denied).</source>
-        <translation type="unfinished"/>
+        <translation>管理者権限が付与されませんでした（認証がキャンセルまたは拒否されました）。</translation>
     </message>
 </context>
 <context>
@@ -277,7 +277,7 @@
         <location filename="../src/mainwindow.ui" line="626"/>
         <location filename="../src/mainwindow.cpp" line="969"/>
         <source>Remove Custom Exclusion File</source>
-        <translation type="unfinished"/>
+        <translation>カスタム除外ファイルの削除</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="679"/>
@@ -460,37 +460,37 @@
         <location filename="../src/mainwindow.cpp" line="175"/>
         <location filename="../src/mainwindow.cpp" line="211"/>
         <source>Updated Exclusion List</source>
-        <translation type="unfinished"/>
+        <translation>更新済みの除外リスト</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="178"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
-        <translation type="unfinished"/>
+        <translation>%1 の除外ファイルは、%2 の設定ファイルよりも新しいものです。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="180"/>
         <source>Review the changes below. Keep your custom file or replace it with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>以下の変更内容を確認してください。カスタムファイルをそのまま残すか、更新済みの既定ファイルへ置き換えてください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="186"/>
         <source>Show Differences</source>
-        <translation type="unfinished"/>
+        <translation>相違点の表示</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="192"/>
         <source>Keep Custom</source>
-        <translation type="unfinished"/>
+        <translation>カスタムを保持</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="198"/>
         <source>Use Updated Default</source>
-        <translation type="unfinished"/>
+        <translation>更新した既定を使用</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>管理者権限が付与されなかったので、スナップショットの処理は続行できません。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="522"/>
@@ -505,7 +505,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="631"/>
         <source>Insufficient free space. Please select a different snapshot directory or free up space.</source>
-        <translation type="unfinished"/>
+        <translation>空き容量が不足しています。スナップショットに別のディレクトリを選択するか、空き容量を確保してください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="635"/>
@@ -557,7 +557,7 @@
         <location filename="../src/mainwindow.cpp" line="276"/>
         <location filename="../src/mainwindow.cpp" line="713"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation type="unfinished"/>
+        <translation>除外ファイルを更新済みの既定ファイルで置き換えることができませんでした。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="724"/>
@@ -567,22 +567,22 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="744"/>
         <source>Cancelled</source>
-        <translation type="unfinished"/>
+        <translation>中止しました</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="745"/>
         <source>Administrator access is required to create a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>スナップショットの作成には、管理者権限が必要です。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="746"/>
         <source>The operation was cancelled. Select Next when you are ready to try again.</source>
-        <translation type="unfinished"/>
+        <translation>操作を取り消しました。もう一度実行するには、準備を整えてから「次へ」を選択してください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="749"/>
         <source>Could not create the snapshot or work directory.</source>
-        <translation type="unfinished"/>
+        <translation>スナップショット用のディレクトリまたは作業用のディレクトリを作成できません。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="762"/>
@@ -633,7 +633,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="970"/>
         <source>Revert the exclusion list to the default file? This will overwrite your current exclusions.</source>
-        <translation type="unfinished"/>
+        <translation>除外リストを既定のファイルに戻しますか？ この操作によって、現在の除外リストを上書きします。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1002"/>
@@ -673,7 +673,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1035"/>
         <source>Insufficient free space in the selected directory. Please choose a different location.</source>
-        <translation type="unfinished"/>
+        <translation>選択したディレクトリでは空き容量が不足です。別の場所を選択してください。</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1079"/>
@@ -806,12 +806,12 @@
     <message>
         <location filename="../src/main.cpp" line="154"/>
         <source>Use grub for legacy mbr iso boot instead of isolinux/syslinux.</source>
-        <translation type="unfinished"/>
+        <translation>レガシー MBR ISO ブートには、isolinux/syslinux の代わりに grub を使用する</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="155"/>
         <source>Add the &apos;xorg=nvidia&apos; boot option to the ISO (for booting on a system with an NVIDIA card).</source>
-        <translation type="unfinished"/>
+        <translation>ISO に「xorg=nvidia」という起動オプションを追加する（NVIDIA カード搭載のシステムで起動する場合）。</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="245"/>
@@ -846,12 +846,12 @@
     <message>
         <location filename="../src/main.cpp" line="290"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"/>
+        <translation>致命的エラー:</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="292"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"/>
+        <translation>致命的エラー: 不明な例外です</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="332"/>
@@ -882,7 +882,7 @@
     <message>
         <location filename="../src/settings.cpp" line="361"/>
         <source>No suitable filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"/>
+        <translation>一時ディレクトリとして適切なファイルシステムが見つかりません。/tmp、/home、および snapshot ディレクトリは試しました。</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="372"/>
@@ -907,7 +907,7 @@
     <message>
         <location filename="../src/settings.cpp" line="406"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 99</source>
-        <translation type="unfinished"/>
+        <translation>スロットルの設定が不適切です: %1。0～99 の範囲で指定してください。</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="412"/>
@@ -1111,7 +1111,7 @@
     <message>
         <location filename="../src/settings.cpp" line="1239"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation type="unfinished"/>
+        <translation>除外ファイルを %1 から %2 へコピーできませんでした</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1262"/>
@@ -1137,7 +1137,7 @@
     <message>
         <location filename="../src/about.cpp" line="73"/>
         <source>Could not load %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 を読み込めませんでした</translation>
     </message>
     <message>
         <location filename="../src/about.cpp" line="96"/>
@@ -1158,7 +1158,7 @@
     <message>
         <location filename="../src/about.cpp" line="119"/>
         <source>Could not load changelog.</source>
-        <translation type="unfinished"/>
+        <translation>更新履歴を読み込めませんでした。</translation>
     </message>
     <message>
         <location filename="../src/about.cpp" line="53"/>
@@ -1169,328 +1169,328 @@
     <message>
         <location filename="../src/excludesutils.cpp" line="77"/>
         <source>No diff output available.</source>
-        <translation type="unfinished"/>
+        <translation>差分出力は利用不可です。</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="89"/>
         <source>Default exclusion file not found at %1.</source>
-        <translation type="unfinished"/>
+        <translation>%1 に既定の除外ファイルが見つかりません。</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="101"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation type="unfinished"/>
+        <translation>既存の除外ファイルを %1 へバックアップできません。</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="106"/>
         <source>Could not remove existing exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>%1 にある既存の除外ファイルを削除できません。</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="113"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation type="unfinished"/>
+        <translation>既定の除外ファイルを %1 から %2 へコピーできません。</translation>
     </message>
 </context>
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="236"/>
+        <location filename="../src/work.cpp" line="247"/>
         <source>Cleaning...</source>
         <translation>クリーニング中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="267"/>
-        <location filename="../src/work.cpp" line="1024"/>
+        <location filename="../src/work.cpp" line="278"/>
+        <location filename="../src/work.cpp" line="1057"/>
         <source>Done</source>
         <translation>完了</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="281"/>
+        <location filename="../src/work.cpp" line="292"/>
         <source>Interrupted or failed to complete</source>
         <translation>中断されたか、または完了できませんでした</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="292"/>
-        <location filename="../src/work.cpp" line="349"/>
-        <location filename="../src/work.cpp" line="526"/>
-        <location filename="../src/work.cpp" line="534"/>
+        <location filename="../src/work.cpp" line="303"/>
+        <location filename="../src/work.cpp" line="360"/>
+        <location filename="../src/work.cpp" line="561"/>
         <location filename="../src/work.cpp" line="569"/>
-        <location filename="../src/work.cpp" line="612"/>
-        <location filename="../src/work.cpp" line="640"/>
-        <location filename="../src/work.cpp" line="654"/>
-        <location filename="../src/work.cpp" line="668"/>
-        <location filename="../src/work.cpp" line="676"/>
-        <location filename="../src/work.cpp" line="682"/>
-        <location filename="../src/work.cpp" line="690"/>
-        <location filename="../src/work.cpp" line="739"/>
-        <location filename="../src/work.cpp" line="755"/>
-        <location filename="../src/work.cpp" line="818"/>
-        <location filename="../src/work.cpp" line="833"/>
-        <location filename="../src/work.cpp" line="841"/>
-        <location filename="../src/work.cpp" line="852"/>
-        <location filename="../src/work.cpp" line="860"/>
-        <location filename="../src/work.cpp" line="977"/>
-        <location filename="../src/work.cpp" line="994"/>
-        <location filename="../src/work.cpp" line="1007"/>
-        <location filename="../src/work.cpp" line="1015"/>
-        <location filename="../src/work.cpp" line="1071"/>
-        <location filename="../src/work.cpp" line="1362"/>
-        <location filename="../src/work.cpp" line="1370"/>
-        <location filename="../src/work.cpp" line="1384"/>
-        <location filename="../src/work.cpp" line="1423"/>
-        <location filename="../src/work.cpp" line="1473"/>
-        <location filename="../src/work.cpp" line="1497"/>
+        <location filename="../src/work.cpp" line="604"/>
+        <location filename="../src/work.cpp" line="647"/>
+        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="689"/>
+        <location filename="../src/work.cpp" line="703"/>
+        <location filename="../src/work.cpp" line="711"/>
+        <location filename="../src/work.cpp" line="717"/>
+        <location filename="../src/work.cpp" line="725"/>
+        <location filename="../src/work.cpp" line="774"/>
+        <location filename="../src/work.cpp" line="790"/>
+        <location filename="../src/work.cpp" line="851"/>
+        <location filename="../src/work.cpp" line="866"/>
+        <location filename="../src/work.cpp" line="874"/>
+        <location filename="../src/work.cpp" line="885"/>
+        <location filename="../src/work.cpp" line="893"/>
+        <location filename="../src/work.cpp" line="1010"/>
+        <location filename="../src/work.cpp" line="1027"/>
+        <location filename="../src/work.cpp" line="1040"/>
+        <location filename="../src/work.cpp" line="1048"/>
+        <location filename="../src/work.cpp" line="1104"/>
+        <location filename="../src/work.cpp" line="1395"/>
+        <location filename="../src/work.cpp" line="1403"/>
+        <location filename="../src/work.cpp" line="1417"/>
+        <location filename="../src/work.cpp" line="1456"/>
+        <location filename="../src/work.cpp" line="1506"/>
+        <location filename="../src/work.cpp" line="1530"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="293"/>
+        <location filename="../src/work.cpp" line="304"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>管理者権限が付与されなかったので、スナップショットの処理は続行できません。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="350"/>
+        <location filename="../src/work.cpp" line="361"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>作成するディスクに十分な空き領域がありません。最低でも %1 必要です</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="353"/>
+        <location filename="../src/work.cpp" line="364"/>
         <source>You have %1 free space on %2</source>
         <translation>%2 に %1 の空き領域があります</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="356"/>
+        <location filename="../src/work.cpp" line="367"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>充分な空き容量があると分かっているのであれば、-o/--override-size オプションを付けてプログラムを再実行してください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="507"/>
+        <location filename="../src/work.cpp" line="542"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>新たな iso ファイルシステムをコピー中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="561"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"/>
+        <translation>ISO template が見つかりません: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="534"/>
-        <location filename="../src/work.cpp" line="654"/>
+        <location filename="../src/work.cpp" line="569"/>
+        <location filename="../src/work.cpp" line="689"/>
         <source>Could not extract the ISO template: </source>
-        <translation type="unfinished"/>
+        <translation>ISO template を抽出できません:</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="562"/>
+        <location filename="../src/work.cpp" line="597"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="565"/>
+        <location filename="../src/work.cpp" line="600"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="568"/>
+        <location filename="../src/work.cpp" line="603"/>
         <source>Template: %1</source>
-        <translation type="unfinished"/>
+        <translation>テンプレート: %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="604"/>
+        <location filename="../src/work.cpp" line="639"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="606"/>
+        <location filename="../src/work.cpp" line="641"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="610"/>
+        <location filename="../src/work.cpp" line="645"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="657"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="627"/>
-        <location filename="../src/work.cpp" line="1061"/>
+        <location filename="../src/work.cpp" line="662"/>
+        <location filename="../src/work.cpp" line="1094"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="628"/>
+        <location filename="../src/work.cpp" line="663"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="640"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Could not find an initramfs image to use.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="669"/>
+        <location filename="../src/work.cpp" line="704"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="677"/>
+        <location filename="../src/work.cpp" line="712"/>
         <source>Could not copy the template initrd: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="683"/>
+        <location filename="../src/work.cpp" line="718"/>
         <source>Could not copy the kernel: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="691"/>
-        <location filename="../src/work.cpp" line="756"/>
-        <location filename="../src/work.cpp" line="842"/>
-        <location filename="../src/work.cpp" line="861"/>
+        <location filename="../src/work.cpp" line="726"/>
+        <location filename="../src/work.cpp" line="791"/>
+        <location filename="../src/work.cpp" line="875"/>
+        <location filename="../src/work.cpp" line="894"/>
         <source>Could not create the checksum for %1.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="699"/>
+        <location filename="../src/work.cpp" line="734"/>
         <source>Could not create temp directory. </source>
         <translation>temp ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="740"/>
+        <location filename="../src/work.cpp" line="775"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="808"/>
+        <location filename="../src/work.cpp" line="841"/>
         <source>Squashing filesystem...</source>
         <translation>ファイルシステムに Squash を適用中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="819"/>
+        <location filename="../src/work.cpp" line="852"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>linuxfs ファイルを作成できませんでした。/var/log/%1.log をチェックしてください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="834"/>
-        <location filename="../src/work.cpp" line="853"/>
+        <location filename="../src/work.cpp" line="867"/>
+        <location filename="../src/work.cpp" line="886"/>
         <source>Could not move %1 to the ISO directory.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="968"/>
+        <location filename="../src/work.cpp" line="1001"/>
         <source>Creating CD/DVD image file...</source>
         <translation>CD/DVD イメージファイルを生成中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="978"/>
+        <location filename="../src/work.cpp" line="1011"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>ISOファイルを作成できませんでした。パーティションに十分な空き容量があるかご確認ください。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="988"/>
+        <location filename="../src/work.cpp" line="1021"/>
         <source>Making hybrid iso</source>
         <translation>ハイブリット ISO を作成中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="995"/>
+        <location filename="../src/work.cpp" line="1028"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1008"/>
-        <location filename="../src/work.cpp" line="1016"/>
+        <location filename="../src/work.cpp" line="1041"/>
+        <location filename="../src/work.cpp" line="1049"/>
         <source>Could not create the %1 checksum for the ISO.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1029"/>
+        <location filename="../src/work.cpp" line="1062"/>
         <source>Success</source>
         <translation>成功</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1030"/>
+        <location filename="../src/work.cpp" line="1063"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX スナップショットの作成に成功しました！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1031"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>スナップショットの作成が完了するまで %1 かかりました。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1032"/>
+        <location filename="../src/work.cpp" line="1065"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>MX スナップショットをご利用いただきありがとうございました。続いて MX Live USB メーカ を起動してください！</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1047"/>
-        <location filename="../src/work.cpp" line="1068"/>
+        <location filename="../src/work.cpp" line="1080"/>
+        <location filename="../src/work.cpp" line="1101"/>
         <source>Installing </source>
         <translation>インストール中</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1058"/>
+        <location filename="../src/work.cpp" line="1091"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1095"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1071"/>
+        <location filename="../src/work.cpp" line="1104"/>
         <source>Could not install </source>
         <translation>インストールできません</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1081"/>
+        <location filename="../src/work.cpp" line="1114"/>
         <source>Calculating checksum...</source>
         <translation>チェックサムの計算中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1132"/>
+        <location filename="../src/work.cpp" line="1165"/>
         <source>Building new initrd...</source>
         <translation>新しい initrd を構築中...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1235"/>
+        <location filename="../src/work.cpp" line="1268"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1362"/>
-        <location filename="../src/work.cpp" line="1384"/>
+        <location filename="../src/work.cpp" line="1395"/>
+        <location filename="../src/work.cpp" line="1417"/>
         <source>Could not create the package list: </source>
-        <translation type="unfinished"/>
+        <translation>パッケージ一覧を作成できませんでした:</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1371"/>
+        <location filename="../src/work.cpp" line="1404"/>
         <source>Could not create working directory. </source>
         <translation>作業用ディレクトリを作成できませんでした。</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1424"/>
+        <location filename="../src/work.cpp" line="1457"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1474"/>
-        <location filename="../src/work.cpp" line="1498"/>
+        <location filename="../src/work.cpp" line="1507"/>
+        <location filename="../src/work.cpp" line="1531"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1814"/>
+        <location filename="../src/work.cpp" line="1847"/>
         <source>Calculating total size of excluded files...</source>
         <translation>除外するファイルの合計サイズを計算中です...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1841"/>
+        <location filename="../src/work.cpp" line="1874"/>
         <source>Calculating size of root...</source>
         <translation>root のサイズを計算中です...</translation>
     </message>

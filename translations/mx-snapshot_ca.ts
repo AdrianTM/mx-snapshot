@@ -1193,302 +1193,302 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="236"/>
+        <location filename="../src/work.cpp" line="247"/>
         <source>Cleaning...</source>
         <translation>Endreçant... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="267"/>
-        <location filename="../src/work.cpp" line="1024"/>
+        <location filename="../src/work.cpp" line="278"/>
+        <location filename="../src/work.cpp" line="1057"/>
         <source>Done</source>
         <translation>Fet </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="281"/>
+        <location filename="../src/work.cpp" line="292"/>
         <source>Interrupted or failed to complete</source>
         <translation>Aturat o fallat en completar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="292"/>
-        <location filename="../src/work.cpp" line="349"/>
-        <location filename="../src/work.cpp" line="526"/>
-        <location filename="../src/work.cpp" line="534"/>
+        <location filename="../src/work.cpp" line="303"/>
+        <location filename="../src/work.cpp" line="360"/>
+        <location filename="../src/work.cpp" line="561"/>
         <location filename="../src/work.cpp" line="569"/>
-        <location filename="../src/work.cpp" line="612"/>
-        <location filename="../src/work.cpp" line="640"/>
-        <location filename="../src/work.cpp" line="654"/>
-        <location filename="../src/work.cpp" line="668"/>
-        <location filename="../src/work.cpp" line="676"/>
-        <location filename="../src/work.cpp" line="682"/>
-        <location filename="../src/work.cpp" line="690"/>
-        <location filename="../src/work.cpp" line="739"/>
-        <location filename="../src/work.cpp" line="755"/>
-        <location filename="../src/work.cpp" line="818"/>
-        <location filename="../src/work.cpp" line="833"/>
-        <location filename="../src/work.cpp" line="841"/>
-        <location filename="../src/work.cpp" line="852"/>
-        <location filename="../src/work.cpp" line="860"/>
-        <location filename="../src/work.cpp" line="977"/>
-        <location filename="../src/work.cpp" line="994"/>
-        <location filename="../src/work.cpp" line="1007"/>
-        <location filename="../src/work.cpp" line="1015"/>
-        <location filename="../src/work.cpp" line="1071"/>
-        <location filename="../src/work.cpp" line="1362"/>
-        <location filename="../src/work.cpp" line="1370"/>
-        <location filename="../src/work.cpp" line="1384"/>
-        <location filename="../src/work.cpp" line="1423"/>
-        <location filename="../src/work.cpp" line="1473"/>
-        <location filename="../src/work.cpp" line="1497"/>
+        <location filename="../src/work.cpp" line="604"/>
+        <location filename="../src/work.cpp" line="647"/>
+        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="689"/>
+        <location filename="../src/work.cpp" line="703"/>
+        <location filename="../src/work.cpp" line="711"/>
+        <location filename="../src/work.cpp" line="717"/>
+        <location filename="../src/work.cpp" line="725"/>
+        <location filename="../src/work.cpp" line="774"/>
+        <location filename="../src/work.cpp" line="790"/>
+        <location filename="../src/work.cpp" line="851"/>
+        <location filename="../src/work.cpp" line="866"/>
+        <location filename="../src/work.cpp" line="874"/>
+        <location filename="../src/work.cpp" line="885"/>
+        <location filename="../src/work.cpp" line="893"/>
+        <location filename="../src/work.cpp" line="1010"/>
+        <location filename="../src/work.cpp" line="1027"/>
+        <location filename="../src/work.cpp" line="1040"/>
+        <location filename="../src/work.cpp" line="1048"/>
+        <location filename="../src/work.cpp" line="1104"/>
+        <location filename="../src/work.cpp" line="1395"/>
+        <location filename="../src/work.cpp" line="1403"/>
+        <location filename="../src/work.cpp" line="1417"/>
+        <location filename="../src/work.cpp" line="1456"/>
+        <location filename="../src/work.cpp" line="1506"/>
+        <location filename="../src/work.cpp" line="1530"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="293"/>
+        <location filename="../src/work.cpp" line="304"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
         <translation>No s&apos;ha garantit l&apos;accés com a administrador; la instantània no pot continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="350"/>
+        <location filename="../src/work.cpp" line="361"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>No hi ha prou espai lliure al vostre disc objectiu, us cal com a mínim %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="353"/>
+        <location filename="../src/work.cpp" line="364"/>
         <source>You have %1 free space on %2</source>
         <translation>Teniu un espai lliure de %1  a %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="356"/>
+        <location filename="../src/work.cpp" line="367"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si teniu la seguretat de tenir prou espai lliure, torneu a executar el programa amb l&apos;opció -o/--override-size </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="507"/>
+        <location filename="../src/work.cpp" line="542"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copiant el sistema de fitxers del nou-iso: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="526"/>
+        <location filename="../src/work.cpp" line="561"/>
         <source>ISO template not found: </source>
         <translation>No he trobat la plantilla ISO: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="534"/>
-        <location filename="../src/work.cpp" line="654"/>
+        <location filename="../src/work.cpp" line="569"/>
+        <location filename="../src/work.cpp" line="689"/>
         <source>Could not extract the ISO template: </source>
         <translation>No puc extreure la plantilla del ISO: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="562"/>
+        <location filename="../src/work.cpp" line="597"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
         <translation>La plantilla ISO Arch no té els directoris boot/ o efi/.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="565"/>
+        <location filename="../src/work.cpp" line="600"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
         <translation>Detectats boot/ o efi/ a l&apos;arrel del directori de treball; la plantilla potser s&apos;ha extret a la ubicació equivocada.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="568"/>
+        <location filename="../src/work.cpp" line="603"/>
         <source>Template: %1</source>
         <translation>Plantilla: %1 </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="604"/>
+        <location filename="../src/work.cpp" line="639"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
         <translation>Detectat un archiso initramfs vell, reconstruint...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="606"/>
+        <location filename="../src/work.cpp" line="641"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
         <translation>Trobada una /boot/archiso.img feta per al kernel %1, però el kernel seleccionat és el %2.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="610"/>
+        <location filename="../src/work.cpp" line="645"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
         <translation>Ha fallat la reconstrucció de /boot/archiso.img . Si us plau, reconstruïu-lo manualment o elimineu el fitxer vell.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="622"/>
+        <location filename="../src/work.cpp" line="657"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
         <translation>No he trobat la /boot/archiso.img, intentant crear-ne una...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="627"/>
-        <location filename="../src/work.cpp" line="1061"/>
+        <location filename="../src/work.cpp" line="662"/>
+        <location filename="../src/work.cpp" line="1094"/>
         <source>Warning</source>
         <translation>Atenció </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="628"/>
+        <location filename="../src/work.cpp" line="663"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
         <translation>No puc crear /boot/archiso.img (està instal·lat el paquet &apos;archiso&apos;?). Retornant a l &apos;initramfs normal — El ISO resultant probablement fallarà en arrencar (&quot;Falla en iniciar Switch Root&quot;).</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="640"/>
+        <location filename="../src/work.cpp" line="675"/>
         <source>Could not find an initramfs image to use.</source>
         <translation>No trobo una imatge  initramfs per usar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="669"/>
+        <location filename="../src/work.cpp" line="704"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>--s&apos;ha especificat l&apos;opció grub-mbr però no hi ha boot/grub/i386-pc/eltorito.img a l&apos;iso-template</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="677"/>
+        <location filename="../src/work.cpp" line="712"/>
         <source>Could not copy the template initrd: </source>
         <translation>No puc copiar la plantilla initrd: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="683"/>
+        <location filename="../src/work.cpp" line="718"/>
         <source>Could not copy the kernel: </source>
         <translation>No puc copiar el kernel: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="691"/>
-        <location filename="../src/work.cpp" line="756"/>
-        <location filename="../src/work.cpp" line="842"/>
-        <location filename="../src/work.cpp" line="861"/>
+        <location filename="../src/work.cpp" line="726"/>
+        <location filename="../src/work.cpp" line="791"/>
+        <location filename="../src/work.cpp" line="875"/>
+        <location filename="../src/work.cpp" line="894"/>
         <source>Could not create the checksum for %1.</source>
         <translation>No puc crear la suma de verificació per %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="699"/>
+        <location filename="../src/work.cpp" line="734"/>
         <source>Could not create temp directory. </source>
         <translation>No puc crear el directori temporal.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="740"/>
+        <location filename="../src/work.cpp" line="775"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
         <translation>No puct copiar els mòduls del kernel o programes dins de initrd.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="808"/>
+        <location filename="../src/work.cpp" line="841"/>
         <source>Squashing filesystem...</source>
         <translation>Compactant el sistema de fitxers... </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="819"/>
+        <location filename="../src/work.cpp" line="852"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>No he pogut crear el fitxer linuxfs, si us plau comproveu /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="834"/>
-        <location filename="../src/work.cpp" line="853"/>
+        <location filename="../src/work.cpp" line="867"/>
+        <location filename="../src/work.cpp" line="886"/>
         <source>Could not move %1 to the ISO directory.</source>
         <translation>Mo puc moure %1 al directori ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="968"/>
+        <location filename="../src/work.cpp" line="1001"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Creant el fitxer d&apos;imatge CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="978"/>
+        <location filename="../src/work.cpp" line="1011"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>No he pogut crear el fitxer ISO; si us plau, comproveu que hi hagi prou espai a la partició de destinació.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="988"/>
+        <location filename="../src/work.cpp" line="1021"/>
         <source>Making hybrid iso</source>
         <translation>Creant imatge ISO híbrida </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="995"/>
+        <location filename="../src/work.cpp" line="1028"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
         <translation>No puc crear l&apos;ISO híbrid; no arrencaria correctament des d&apos;un USB.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1008"/>
-        <location filename="../src/work.cpp" line="1016"/>
+        <location filename="../src/work.cpp" line="1041"/>
+        <location filename="../src/work.cpp" line="1049"/>
         <source>Could not create the %1 checksum for the ISO.</source>
         <translation>No puc crear la suma de verificació %1 per a la ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1029"/>
+        <location filename="../src/work.cpp" line="1062"/>
         <source>Success</source>
         <translation>Èxit</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1030"/>
+        <location filename="../src/work.cpp" line="1063"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot completat amb èxit!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1031"/>
+        <location filename="../src/work.cpp" line="1064"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot ha necessitat %1 per acabar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1032"/>
+        <location filename="../src/work.cpp" line="1065"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Gràcies per usar MX Snapshot, executeu MX Live USB Maker ara!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1047"/>
-        <location filename="../src/work.cpp" line="1068"/>
+        <location filename="../src/work.cpp" line="1080"/>
+        <location filename="../src/work.cpp" line="1101"/>
         <source>Installing </source>
         <translation>S&apos;instal·la </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1058"/>
+        <location filename="../src/work.cpp" line="1091"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation>No he trobat paru: no es pot instal·lar  %1 de l&apos;AUR.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1095"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation>No he pogut instal·lar %1; continuo sense l&apos;instal·lador.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1071"/>
+        <location filename="../src/work.cpp" line="1104"/>
         <source>Could not install </source>
         <translation>No s&apos;ha pogut instal·lar </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1081"/>
+        <location filename="../src/work.cpp" line="1114"/>
         <source>Calculating checksum...</source>
         <translation>Calculant la suma de verificació...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1132"/>
+        <location filename="../src/work.cpp" line="1165"/>
         <source>Building new initrd...</source>
         <translation>Generant nou initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1235"/>
+        <location filename="../src/work.cpp" line="1268"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation>Reconstruint intramfs amb mkinitcpio %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1362"/>
-        <location filename="../src/work.cpp" line="1384"/>
+        <location filename="../src/work.cpp" line="1395"/>
+        <location filename="../src/work.cpp" line="1417"/>
         <source>Could not create the package list: </source>
         <translation>No puc crear la llista de paquets.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1371"/>
+        <location filename="../src/work.cpp" line="1404"/>
         <source>Could not create working directory. </source>
         <translation>No puc crear el directori de treball.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1424"/>
+        <location filename="../src/work.cpp" line="1457"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>No s&apos;ha pogut preparar una superposició d&apos;arrel de vinculació segura. La instantània no pot continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1474"/>
-        <location filename="../src/work.cpp" line="1498"/>
+        <location filename="../src/work.cpp" line="1507"/>
+        <location filename="../src/work.cpp" line="1531"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>No s&apos;ha pogut preparar l&apos;entorn d&apos;arrel de vinculació de la instantània.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1814"/>
+        <location filename="../src/work.cpp" line="1847"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculant la mida total dels fitxers exclosos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1841"/>
+        <location filename="../src/work.cpp" line="1874"/>
         <source>Calculating size of root...</source>
         <translation>Calculant la mida de l&apos;arrel...</translation>
     </message>

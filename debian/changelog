@@ -1,3 +1,18 @@
+mx-snapshot (26.07.6) mx; urgency=medium
+
+  * Allow monthly snapshots to include an optional suffix in their ISO name.
+  * Detect KDE Plasma reliably when naming monthly snapshots, including when
+    the snapshot is started through sudo.
+  * Continue snapshot creation when optional initrd programs are unavailable.
+  * Stop a CLI snapshot if the boot-menu editor fails, instead of continuing
+    with potentially unedited boot files.
+  * Keep existing exclusion files intact when resetting them fails, and keep
+    command-line exclusion names working regardless of the system language.
+  * Protect generated snapshot release information from special characters
+    that could alter the generated files.
+
+ -- Adrian <adrian@mxlinux.org>  Tue, 28 Jul 2026 22:18:04 -0400
+
 mx-snapshot (26.07.5) mx; urgency=medium
 
   * Prevent failed snapshot cleanup from deleting files through a mounted copy
