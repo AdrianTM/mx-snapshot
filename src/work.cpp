@@ -1718,17 +1718,30 @@ quint64 Work::getRequiredSpace()
         return probeDevice == rootDevice || (includeHomeDevice && probeDevice == homeDevice);
     };
     // Expand patterns without shell globbing or symlinked intermediate traversal.
-    const auto expandExcludePattern = [&](QString rawPattern) -> QStringList {
+    //
+    // The overlay lower directory is a non-recursive bind of /.  Consequently,
+    // when /home is a separate filesystem, lower/home is only the underlying
+    // (usually empty) mount point and cannot be used to expand home exclusions.
+    // Use the real root for those patterns; /home is also bound into the snapshot
+    // tree, so it names the same files while preserving the home device identity
+    // needed by isAllowedDevice().
+    const auto expandExcludePattern = [&](QString rawPattern, const QString &patternRoot) -> QStringList {
         const QString original = rawPattern;
         if (rawPattern.startsWith('/')) {
             rawPattern.remove(0, 1);
         }
         rawPattern.replace(QRegularExpression("/\\*$"), ""); // Remove trailing /*
-        QString fullPattern = QDir(sizeRootPrefix).filePath(rawPattern);
+        QString patternRootPrefix = patternRoot;
+        if (!patternRootPrefix.endsWith('/')) {
+            patternRootPrefix += '/';
+        }
+        const QString patternRootBase
+            = patternRootPrefix == QStringLiteral("/") ? patternRootPrefix : patternRootPrefix.chopped(1);
+        QString fullPattern = QDir(patternRootPrefix).filePath(rawPattern);
         fullPattern = QDir::cleanPath(fullPattern);
         QString relativePattern = fullPattern;
-        if (relativePattern.startsWith(sizeRootBase)) {
-            relativePattern.remove(0, sizeRootBase.size());
+        if (relativePattern.startsWith(patternRootBase)) {
+            relativePattern.remove(0, patternRootBase.size());
         }
         if (relativePattern.startsWith('/')) {
             relativePattern.remove(0, 1);
@@ -1744,7 +1757,7 @@ quint64 Work::getRequiredSpace()
             return {};
         }
         QStringList components = relativePattern.split('/', Qt::SkipEmptyParts);
-        QStringList current {sizeRootBase};
+        QStringList current {patternRootBase};
         for (int i = 0; i < components.size(); ++i) {
             const QString &component = components.at(i);
             const bool isLast = (i == components.size() - 1);
@@ -1810,7 +1823,14 @@ quint64 Work::getRequiredSpace()
         if (cleaned.isEmpty()) {
             continue;
         }
-        const QStringList matches = expandExcludePattern(cleaned);
+        QString relativeExclude = cleaned;
+        if (relativeExclude.startsWith('/')) {
+            relativeExclude.remove(0, 1);
+        }
+        const bool isHomeExclude = relativeExclude == QStringLiteral("home")
+                                   || relativeExclude.startsWith(QStringLiteral("home/"));
+        const QString patternRoot = includeHomeDevice && isHomeExclude ? QStringLiteral("/") : sizeRootBase;
+        const QStringList matches = expandExcludePattern(cleaned, patternRoot);
         for (const QString &match : matches) {
             if (!isAllowedDevice(match)) {
                 continue;
