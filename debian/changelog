@@ -1,3 +1,9 @@
+mx-snapshot (26.08) mx; urgency=medium
+
+  * Fix separate-home exclusion size estimates
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 01 Aug 2026 23:53:46 -0400
+
 mx-snapshot (26.07.6) mx; urgency=medium
 
   * Allow monthly snapshots to include an optional suffix in their ISO name.

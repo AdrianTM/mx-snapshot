@@ -17,90 +17,95 @@
         <translation>Programmet kommer att pausa byggandet och öppna boot-menyn i din textredigerare.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="123"/>
+        <location filename="../src/batchprocessing.cpp" line="114"/>
+        <source>The boot-menu editor failed; the snapshot cannot continue with potentially unedited files.</source>
+        <translation>Bootmeny-redigeraren misslyckades; snapshotet kan inte fortsätta med potentiellt oredigerade filer.</translation>
+    </message>
+    <message>
+        <location filename="../src/batchprocessing.cpp" line="131"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
         <translation>Administratöråtkomst tilläts ej; snapshotet kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="250"/>
+        <location filename="../src/batchprocessing.cpp" line="258"/>
         <source>Detected newer exclusion file at %1 compared to %2. Prompting for action.</source>
         <translation>Upptäckte nyare exklusionsfil på %1 jämfört med %2. Uppmanar till handling.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="256"/>
+        <location filename="../src/batchprocessing.cpp" line="264"/>
         <source>s</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'show diff'</comment>
         <translation>s</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="257"/>
+        <location filename="../src/batchprocessing.cpp" line="265"/>
         <source>u</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'use updated default'</comment>
         <translation>u</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="258"/>
+        <location filename="../src/batchprocessing.cpp" line="266"/>
         <source>k</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'keep custom (update timestamp)'</comment>
         <translation>k</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="259"/>
+        <location filename="../src/batchprocessing.cpp" line="267"/>
         <source>q</source>
         <comment>CLI excludes prompt: single-letter shortcut for 'quit'</comment>
         <translation>q</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="261"/>
+        <location filename="../src/batchprocessing.cpp" line="269"/>
         <source>show diff</source>
         <comment>CLI excludes prompt option label</comment>
         <translation>visa diff</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="262"/>
+        <location filename="../src/batchprocessing.cpp" line="270"/>
         <source>use updated default</source>
         <comment>CLI excludes prompt option label</comment>
         <translation>använd uppdaterad standard</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="263"/>
+        <location filename="../src/batchprocessing.cpp" line="271"/>
         <source>keep custom (update timestamp)</source>
         <comment>CLI excludes prompt option label</comment>
         <translation>behåll anpassad (uppdatera tidsstämpel)</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="264"/>
+        <location filename="../src/batchprocessing.cpp" line="272"/>
         <source>quit</source>
         <comment>CLI excludes prompt option label</comment>
         <translation>avsluta</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="267"/>
+        <location filename="../src/batchprocessing.cpp" line="275"/>
         <source>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </source>
         <translation>[%1]%2  [%3]%4  [%5]%6  [%7]%8: </translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="272"/>
+        <location filename="../src/batchprocessing.cpp" line="280"/>
         <source>The exclusion file at %1 is newer than your configured file at %2.</source>
         <translation>Exklusionsfilen på %1 är nyare än din konfigurerade fil på %2.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="288"/>
+        <location filename="../src/batchprocessing.cpp" line="296"/>
         <source>Reverted to updated default exclusion file.</source>
         <translation>Återgick till uppdaterad standard exklusionsfil.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="305"/>
+        <location filename="../src/batchprocessing.cpp" line="313"/>
         <source>No input available to answer the exclusion file prompt; aborting without creating a snapshot.</source>
         <translation>Ingen utdata tillgänglig för att besvara exklusionsfilens inmatningsmarkör; avbryter utan att skapa ett snapshot.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="308"/>
+        <location filename="../src/batchprocessing.cpp" line="316"/>
         <source>Leaving custom exclusion file unchanged.</source>
         <translation>Låter anpassad exklusionsfil vara oförändrad.</translation>
     </message>
     <message>
-        <location filename="../src/batchprocessing.cpp" line="319"/>
+        <location filename="../src/batchprocessing.cpp" line="327"/>
         <source>Invalid choice. Please select again.</source>
         <translation>Ogiltigt val. Var vänlig välj igen.</translation>
     </message>
@@ -814,193 +819,203 @@
         <translation>Lägg till &apos;xorg=nvidia&apos; boot-alternativ till ISO (för att boota ett system med ett NVIDIA-kort).</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="245"/>
+        <location filename="../src/main.cpp" line="163"/>
+        <source>Optional suffix for a monthly snapshot; only valid together with --month.</source>
+        <translation>Frivillig ändelse för ett månatligt snapshot; endast giltigt tillsammans med --månad.</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="196"/>
+        <source>A single suffix positional argument is only valid together with --month.</source>
+        <translation>Ett enstaka positionsargument som ändelse är enbart giltigt tillsammans med --månad.</translation>
+    </message>
+    <message>
+        <location filename="../src/main.cpp" line="255"/>
         <source>You seem to be logged in as root, please log out and log in as normal user to use this program.</source>
         <translation>Du verkar vara inloggad som root, var vänlig logga ut och logga in som vanlig användare för att använda detta program.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="260"/>
+        <location filename="../src/main.cpp" line="270"/>
         <source>version:</source>
         <translation>version:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="256"/>
+        <location filename="../src/main.cpp" line="266"/>
         <source>You must run this program with sudo or pkexec.</source>
         <translation>Du måste köra detta program med sudo eller pkexec.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="225"/>
+        <location filename="../src/main.cpp" line="235"/>
         <source>MX Snapshot</source>
         <translation>MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="247"/>
-        <location filename="../src/main.cpp" line="333"/>
-        <location filename="../src/settings.cpp" line="749"/>
-        <location filename="../src/settings.cpp" line="758"/>
-        <location filename="../src/settings.cpp" line="1375"/>
-        <location filename="../src/settings.cpp" line="1471"/>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
+        <location filename="../src/settings.cpp" line="770"/>
+        <location filename="../src/settings.cpp" line="779"/>
+        <location filename="../src/settings.cpp" line="1396"/>
+        <location filename="../src/settings.cpp" line="1506"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="290"/>
+        <location filename="../src/main.cpp" line="300"/>
         <source>Fatal error:</source>
         <translation>Fatalt fel:</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="292"/>
+        <location filename="../src/main.cpp" line="302"/>
         <source>Fatal error: unknown exception</source>
         <translation>Fatalt fel: okänt undantag</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="332"/>
-        <location filename="../src/settings.cpp" line="757"/>
+        <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nuvarande kärna stöder inte Squashfs, kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="240"/>
+        <location filename="../src/settings.cpp" line="261"/>
         <source>Exception during initialization: %1</source>
         <translation>Undantag under initiering: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="195"/>
+        <location filename="../src/settings.cpp" line="216"/>
         <source>Pending Arch bind-root cleanup state but installed-to-live-arch is missing: %1</source>
         <translation>I avvaktan på Arch bind-root cleanup state men installed-to-live-arch saknas: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="243"/>
+        <location filename="../src/settings.cpp" line="264"/>
         <source>Unknown exception during initialization</source>
         <translation>Okänt undantag under initiering</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="278"/>
+        <location filename="../src/settings.cpp" line="299"/>
         <source>Could not create work directory. </source>
         <translation>Kunde inte skapa arbetskatalog</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="361"/>
+        <location filename="../src/settings.cpp" line="382"/>
         <source>No suitable filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
         <translation>Inga passande filsystem hittade för tempkatalogen. Försökte /tmp, /home, och snapshot katalogen.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="372"/>
+        <location filename="../src/settings.cpp" line="393"/>
         <source>Could not create temp directory:</source>
         <translation>Kunde inte skapa temp katalog:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="373"/>
+        <location filename="../src/settings.cpp" line="394"/>
         <source>Please check that the parent directory exists and is writable:</source>
         <translation>Var vänlig kontrollera att överordnad katalog finns och är skrivbar:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="391"/>
+        <location filename="../src/settings.cpp" line="412"/>
         <source>Compression format &apos;%1&apos; is not supported by the current kernel</source>
         <translation>Kompressionsformat &apos;%1&apos; stöds inte av nuvarande kärna</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="397"/>
+        <location filename="../src/settings.cpp" line="418"/>
         <source>Invalid cores setting: %1. Must be between 1 and %2</source>
         <translation>Ogiltig kärninställning: %1. Måste vara mellan 1 och %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="406"/>
+        <location filename="../src/settings.cpp" line="427"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 99</source>
         <translation>Ogiltig trottel inställning: %1. Måste vara mellan 0 och 99</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="412"/>
+        <location filename="../src/settings.cpp" line="433"/>
         <source>Snapshot directory cannot be empty</source>
         <translation>Snapshotkatalogen kan inte vara tom</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="420"/>
+        <location filename="../src/settings.cpp" line="441"/>
         <source>Snapshot name cannot be empty</source>
         <translation>Snapshotnamnet kan inte vara tomt</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="426"/>
+        <location filename="../src/settings.cpp" line="447"/>
         <source>Snapshot name contains invalid characters: %1</source>
         <translation>Snapshotnamnet innehåller ogiltiga tecken: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="432"/>
+        <location filename="../src/settings.cpp" line="453"/>
         <source>Kernel version cannot be empty</source>
         <translation>Kärnversion kan inte vara tom</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="437"/>
+        <location filename="../src/settings.cpp" line="458"/>
         <source>Kernel file not found: /boot/vmlinuz-%1</source>
         <translation>Kärnfil ej hittad: /boot/vmlinuz-%1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="444"/>
+        <location filename="../src/settings.cpp" line="465"/>
         <source>Kernel %1 doesn&apos;t support Squashfs</source>
         <translation>Kärna %1 stöder inte Squashfs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="475"/>
+        <location filename="../src/settings.cpp" line="496"/>
         <source>Exclusion file does not exist: %1</source>
         <translation>Exklusionsfil finns inte: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="484"/>
+        <location filename="../src/settings.cpp" line="505"/>
         <source>Unbalanced quotes in exclusion list</source>
         <translation>Obalanserade citationstecken i exklusionslista</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="509"/>
+        <location filename="../src/settings.cpp" line="530"/>
         <source>Insufficient free space: %1 KiB available, minimum %2 KiB required</source>
         <translation>Otillräckligt fritt utrymme: %1 KiB tillgängligt, minimum %2 KiB behövs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="516"/>
+        <location filename="../src/settings.cpp" line="537"/>
         <source>Insufficient free space in work directory: %1 KiB available, minimum %2 KiB required</source>
         <translation>Otillräckligt fritt utrymme i arbetskatalog: %1 KiB tillgängligt, minimum %2 KiB behövs</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="531"/>
+        <location filename="../src/settings.cpp" line="552"/>
         <source>Failed to determine number of CPU cores</source>
         <translation>Kunde inte avgöra antal processorkärnor</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="537"/>
+        <location filename="../src/settings.cpp" line="558"/>
         <source>Configuration file does not exist: %1</source>
         <translation>Konfigurationsfil existerar inte: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="538"/>
+        <location filename="../src/settings.cpp" line="559"/>
         <source>Using default settings</source>
         <translation>Med standardinställningar</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="540"/>
+        <location filename="../src/settings.cpp" line="561"/>
         <source>Cannot read configuration file: %1</source>
         <translation>Kan inte läsa konfigurationsfil: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="541"/>
+        <location filename="../src/settings.cpp" line="562"/>
         <source>Error: %1</source>
         <translation>Fel: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="551"/>
+        <location filename="../src/settings.cpp" line="572"/>
         <source>Required tool not found: %1</source>
         <translation>Nödvändigt verktyg ej hittat: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="560"/>
+        <location filename="../src/settings.cpp" line="581"/>
         <source>Required directory not found: %1</source>
         <translation>Nödvändig katalog ej hittad: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="579"/>
+        <location filename="../src/settings.cpp" line="600"/>
         <source>Initialization Error</source>
         <translation>Initieringsfel</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="580"/>
+        <location filename="../src/settings.cpp" line="601"/>
         <source>Failed to initialize application settings:
 
 %1</source>
@@ -1009,47 +1024,47 @@
 %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="747"/>
+        <location filename="../src/settings.cpp" line="768"/>
         <source>Could not find a usable kernel</source>
         <translation>Kunde inte hitta en användbar kärna</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="748"/>
+        <location filename="../src/settings.cpp" line="769"/>
         <source>Searched for kernel files in /boot/ but none were found or accessible.</source>
         <translation>Sökte efter kärnfiler i /boot/ men inga hittades eller var tillgängliga.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="770"/>
+        <location filename="../src/settings.cpp" line="791"/>
         <source>No users found in the system</source>
         <translation>Inga användare hittade i systemet</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="773"/>
+        <location filename="../src/settings.cpp" line="794"/>
         <source>Failed to determine system information</source>
         <translation>Misslyckades med att avläsa systeminformation</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="943"/>
+        <location filename="../src/settings.cpp" line="964"/>
         <source>Used space on / (root): </source>
         <translation>Använt utrymme på / (root): </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="959"/>
+        <location filename="../src/settings.cpp" line="980"/>
         <source>estimated</source>
         <translation>uppskattad</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="966"/>
+        <location filename="../src/settings.cpp" line="987"/>
         <source>Used space on /home: </source>
         <translation>Använt utrymme på/home: </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1027"/>
+        <location filename="../src/settings.cpp" line="1048"/>
         <source>Free space on %1, where snapshot folder is placed: </source>
         <translation>Fritt utrymme på %1, där snapshotkatalogen är placerad:</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1031"/>
+        <location filename="../src/settings.cpp" line="1052"/>
         <source>The free space should be sufficient to hold the compressed data from / and /home
 
       If necessary, you can create more available space
@@ -1064,78 +1079,38 @@ genom att avlägsna tidigare snapshots och sparade kopior:
 </translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1045"/>
-        <source>Desktop</source>
-        <translation>Skrivbord</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1046"/>
-        <source>Documents</source>
-        <translation>Dokument</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1047"/>
-        <source>Downloads</source>
-        <translation>Nerladdningar</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1048"/>
-        <source>Flatpaks</source>
-        <translation>Flatpaks</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1049"/>
-        <source>Music</source>
-        <translation>Musik</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1050"/>
-        <source>Networks</source>
-        <translation>Nätverk</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1051"/>
-        <source>Pictures</source>
-        <translation>Bilder</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1053"/>
-        <source>Videos</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <location filename="../src/settings.cpp" line="1178"/>
+        <location filename="../src/settings.cpp" line="1199"/>
         <source>Error reading system configuration file: %1</source>
         <translation>Fel vid läsning av systemkonfigurationsfil: %1</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1187"/>
+        <location filename="../src/settings.cpp" line="1208"/>
         <source>Error accessing user configuration</source>
         <translation>Fel vid tillgång till användarkonfiguration</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1239"/>
+        <location filename="../src/settings.cpp" line="1260"/>
         <source>Could not copy exclusion file from %1 to %2</source>
         <translation>Kunde inte kopiera exklusionsfil från %1 till %2.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1262"/>
+        <location filename="../src/settings.cpp" line="1283"/>
         <source>Unsupported compression &apos;%1&apos; in configuration, using zstd.</source>
         <translation>Ej stödd komprimering &apos;%1&apos; i konfiguration, använder zstd.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1272"/>
+        <location filename="../src/settings.cpp" line="1293"/>
         <source>Invalid stored cores setting (%1). Using detected CPU count: %2</source>
         <translation>Ogiltig lagrad kärninställning (%1). Använder upptäckt CPU antal: %2</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1282"/>
+        <location filename="../src/settings.cpp" line="1303"/>
         <source>Invalid stored throttle setting (%1). Using 0.</source>
         <translation>Ogiltig lagrad trottel-inställning (%1). Använder 0.</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="1373"/>
-        <location filename="../src/settings.cpp" line="1469"/>
+        <location filename="../src/settings.cpp" line="1394"/>
+        <location filename="../src/settings.cpp" line="1504"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
         <translation>Output fil %1 finns redan. Var vänlig använd annat filnamn, eller ta bort den existerande filen.</translation>
     </message>
@@ -1172,27 +1147,42 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>&amp;Stäng</translation>
     </message>
     <message>
-        <location filename="../src/excludesutils.cpp" line="77"/>
+        <location filename="../src/excludesutils.cpp" line="78"/>
         <source>No diff output available.</source>
         <translation>Ingen utdata från diff tillgänglig.</translation>
     </message>
     <message>
-        <location filename="../src/excludesutils.cpp" line="89"/>
-        <source>Default exclusion file not found at %1.</source>
-        <translation>Standard exklusionsfil inte hittad på %1.</translation>
+        <location filename="../src/excludesutils.cpp" line="91"/>
+        <source>Could not open default exclusion file at %1.</source>
+        <translation>Kunde inte öppna standard exklusionsfil vid %1.</translation>
     </message>
     <message>
-        <location filename="../src/excludesutils.cpp" line="101"/>
+        <location filename="../src/excludesutils.cpp" line="97"/>
+        <source>Could not create exclusion file directory at %1.</source>
+        <translation>Kunde inte skapa exklusionsfils-katalog vid %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/excludesutils.cpp" line="106"/>
+        <source>Could not prepare exclusion file at %1.</source>
+        <translation>Kunde inte förbereda exklusionsfil vid %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/excludesutils.cpp" line="123"/>
+        <source>Could not read default exclusion file at %1.</source>
+        <translation>Kunde inte läsa standard exklusionsfil vid %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/excludesutils.cpp" line="131"/>
+        <source>Could not write exclusion file at %1.</source>
+        <translation>Kunde inte skriva exklusionsfil vid %1.</translation>
+    </message>
+    <message>
+        <location filename="../src/excludesutils.cpp" line="113"/>
         <source>Could not backup existing exclusion file to %1.</source>
         <translation>Kunde inte backa upp befintlig exklusionsfil till %1.</translation>
     </message>
     <message>
-        <location filename="../src/excludesutils.cpp" line="106"/>
-        <source>Could not remove existing exclusion file at %1.</source>
-        <translation>Kunde inte ta bort existerande exklusionsfil på %1.</translation>
-    </message>
-    <message>
-        <location filename="../src/excludesutils.cpp" line="113"/>
+        <location filename="../src/excludesutils.cpp" line="139"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
         <translation>Kunde inte kopiera standard exklusionsfil från %1 till %2.</translation>
     </message>
@@ -1206,7 +1196,7 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     </message>
     <message>
         <location filename="../src/work.cpp" line="278"/>
-        <location filename="../src/work.cpp" line="1057"/>
+        <location filename="../src/work.cpp" line="1060"/>
         <source>Done</source>
         <translation>Klar</translation>
     </message>
@@ -1218,34 +1208,34 @@ genom att avlägsna tidigare snapshots och sparade kopior:
     <message>
         <location filename="../src/work.cpp" line="303"/>
         <location filename="../src/work.cpp" line="360"/>
-        <location filename="../src/work.cpp" line="561"/>
-        <location filename="../src/work.cpp" line="569"/>
-        <location filename="../src/work.cpp" line="604"/>
-        <location filename="../src/work.cpp" line="647"/>
-        <location filename="../src/work.cpp" line="675"/>
-        <location filename="../src/work.cpp" line="689"/>
-        <location filename="../src/work.cpp" line="703"/>
-        <location filename="../src/work.cpp" line="711"/>
-        <location filename="../src/work.cpp" line="717"/>
-        <location filename="../src/work.cpp" line="725"/>
-        <location filename="../src/work.cpp" line="774"/>
-        <location filename="../src/work.cpp" line="790"/>
-        <location filename="../src/work.cpp" line="851"/>
-        <location filename="../src/work.cpp" line="866"/>
-        <location filename="../src/work.cpp" line="874"/>
-        <location filename="../src/work.cpp" line="885"/>
-        <location filename="../src/work.cpp" line="893"/>
-        <location filename="../src/work.cpp" line="1010"/>
-        <location filename="../src/work.cpp" line="1027"/>
-        <location filename="../src/work.cpp" line="1040"/>
-        <location filename="../src/work.cpp" line="1048"/>
-        <location filename="../src/work.cpp" line="1104"/>
-        <location filename="../src/work.cpp" line="1395"/>
-        <location filename="../src/work.cpp" line="1403"/>
-        <location filename="../src/work.cpp" line="1417"/>
-        <location filename="../src/work.cpp" line="1456"/>
-        <location filename="../src/work.cpp" line="1506"/>
-        <location filename="../src/work.cpp" line="1530"/>
+        <location filename="../src/work.cpp" line="564"/>
+        <location filename="../src/work.cpp" line="572"/>
+        <location filename="../src/work.cpp" line="607"/>
+        <location filename="../src/work.cpp" line="650"/>
+        <location filename="../src/work.cpp" line="678"/>
+        <location filename="../src/work.cpp" line="692"/>
+        <location filename="../src/work.cpp" line="706"/>
+        <location filename="../src/work.cpp" line="714"/>
+        <location filename="../src/work.cpp" line="720"/>
+        <location filename="../src/work.cpp" line="728"/>
+        <location filename="../src/work.cpp" line="777"/>
+        <location filename="../src/work.cpp" line="793"/>
+        <location filename="../src/work.cpp" line="854"/>
+        <location filename="../src/work.cpp" line="869"/>
+        <location filename="../src/work.cpp" line="877"/>
+        <location filename="../src/work.cpp" line="888"/>
+        <location filename="../src/work.cpp" line="896"/>
+        <location filename="../src/work.cpp" line="1013"/>
+        <location filename="../src/work.cpp" line="1030"/>
+        <location filename="../src/work.cpp" line="1043"/>
+        <location filename="../src/work.cpp" line="1051"/>
+        <location filename="../src/work.cpp" line="1107"/>
+        <location filename="../src/work.cpp" line="1398"/>
+        <location filename="../src/work.cpp" line="1406"/>
+        <location filename="../src/work.cpp" line="1420"/>
+        <location filename="../src/work.cpp" line="1459"/>
+        <location filename="../src/work.cpp" line="1509"/>
+        <location filename="../src/work.cpp" line="1533"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -1270,232 +1260,232 @@ genom att avlägsna tidigare snapshots och sparade kopior:
         <translation>Om du är säker på att du har tillräckligt med fritt utrymme, kör programmet en gång till med  -o/--override-size alternativet</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="542"/>
+        <location filename="../src/work.cpp" line="545"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Kopierar new-iso filsystem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="561"/>
+        <location filename="../src/work.cpp" line="564"/>
         <source>ISO template not found: </source>
         <translation>ISO mall inte hittad: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="569"/>
-        <location filename="../src/work.cpp" line="689"/>
+        <location filename="../src/work.cpp" line="572"/>
+        <location filename="../src/work.cpp" line="692"/>
         <source>Could not extract the ISO template: </source>
         <translation>Kunde inte extrahera ISO-mallen: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="597"/>
+        <location filename="../src/work.cpp" line="600"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
         <translation>Arch ISO mall saknar boot/ eller efi/ kataloger.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="600"/>
+        <location filename="../src/work.cpp" line="603"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
         <translation>Upptäckte boot/ eller efi/ under arbetskatalogens root; mallen kan ha blivit extraherad till fel plats.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="603"/>
+        <location filename="../src/work.cpp" line="606"/>
         <source>Template: %1</source>
         <translation>Mall: %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="639"/>
+        <location filename="../src/work.cpp" line="642"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
         <translation>Gammal archiso initramfs upptäckt, återuppbygger...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="641"/>
+        <location filename="../src/work.cpp" line="644"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
         <translation>Hittade /boot/archiso.img byggd för kärna %1, men vald kärna är %2.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="645"/>
+        <location filename="../src/work.cpp" line="648"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
         <translation>Återuppbyggnad av /boot/archiso.img misslyckades. Var vänlig återuppbygg den manuellt eller ta bort den gamla filen.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="657"/>
+        <location filename="../src/work.cpp" line="660"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
         <translation>Ingen /boot/archiso.img hittad, försöker skapa en...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="662"/>
-        <location filename="../src/work.cpp" line="1094"/>
+        <location filename="../src/work.cpp" line="665"/>
+        <location filename="../src/work.cpp" line="1097"/>
         <source>Warning</source>
         <translation>Varning</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="663"/>
+        <location filename="../src/work.cpp" line="666"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
         <translation>Kunde inte skapa /boot/archiso.img (är &apos;archiso&apos; paketet installerat?). Återgår till den vanliga initramfs — den resulterande ISO kommer troligen att misslyckas med att boota (&quot;Misslyckades med att starta Switch Root&quot;).</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="675"/>
+        <location filename="../src/work.cpp" line="678"/>
         <source>Could not find an initramfs image to use.</source>
         <translation>Kunde inte hitta en initramfs image att använda.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="704"/>
+        <location filename="../src/work.cpp" line="707"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>--grub-mbr alternativ specifierat men boot/grub/i386-pc/eltorito.img saknas i iso-template</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="712"/>
+        <location filename="../src/work.cpp" line="715"/>
         <source>Could not copy the template initrd: </source>
         <translation>Kunde inte kopiera mallen för initrd: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="718"/>
+        <location filename="../src/work.cpp" line="721"/>
         <source>Could not copy the kernel: </source>
         <translation>Kunde inte kopiera kärnan: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="726"/>
-        <location filename="../src/work.cpp" line="791"/>
-        <location filename="../src/work.cpp" line="875"/>
-        <location filename="../src/work.cpp" line="894"/>
+        <location filename="../src/work.cpp" line="729"/>
+        <location filename="../src/work.cpp" line="794"/>
+        <location filename="../src/work.cpp" line="878"/>
+        <location filename="../src/work.cpp" line="897"/>
         <source>Could not create the checksum for %1.</source>
         <translation>Kunde inte skapa checksumma för %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="734"/>
+        <location filename="../src/work.cpp" line="737"/>
         <source>Could not create temp directory. </source>
         <translation>Kunde inte skapa temp-katalog.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="775"/>
+        <location filename="../src/work.cpp" line="778"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
         <translation>Kunde inte kopiera kärnmoduler eller program till initrd.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="841"/>
+        <location filename="../src/work.cpp" line="844"/>
         <source>Squashing filesystem...</source>
         <translation>Squashing filsystem...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="852"/>
+        <location filename="../src/work.cpp" line="855"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Kunde inte skapa linuxfs fil, var vänlig kontrollera /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="867"/>
-        <location filename="../src/work.cpp" line="886"/>
+        <location filename="../src/work.cpp" line="870"/>
+        <location filename="../src/work.cpp" line="889"/>
         <source>Could not move %1 to the ISO directory.</source>
         <translation>Kunde inte flytta %1 till ISO-katalogen.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1001"/>
+        <location filename="../src/work.cpp" line="1004"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Skapar CD/DVD avbildsfil...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1011"/>
+        <location filename="../src/work.cpp" line="1014"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Kunde inte skapa ISO fil, var vänlig kontrollera om du har tillräckligt med utrymme på målpartitionen.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1021"/>
+        <location filename="../src/work.cpp" line="1024"/>
         <source>Making hybrid iso</source>
         <translation>Skapar hybrid iso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1028"/>
+        <location filename="../src/work.cpp" line="1031"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
         <translation>Kunde inte skapa ISO-hybriden; den skulle inte boota korrekt från USB.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1041"/>
-        <location filename="../src/work.cpp" line="1049"/>
+        <location filename="../src/work.cpp" line="1044"/>
+        <location filename="../src/work.cpp" line="1052"/>
         <source>Could not create the %1 checksum for the ISO.</source>
         <translation>Kunde inte skapa %1 checksumma för ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1062"/>
+        <location filename="../src/work.cpp" line="1065"/>
         <source>Success</source>
         <translation>Det lyckades</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1063"/>
+        <location filename="../src/work.cpp" line="1066"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>MX Snapshot cframgångsrikt avslutat!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1064"/>
+        <location filename="../src/work.cpp" line="1067"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Snapshot tog %1 för att avslutas.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1065"/>
+        <location filename="../src/work.cpp" line="1068"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Tack för att du använder MX Snapshot, kör sedan MX Live USB Maker! </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1080"/>
-        <location filename="../src/work.cpp" line="1101"/>
+        <location filename="../src/work.cpp" line="1083"/>
+        <location filename="../src/work.cpp" line="1104"/>
         <source>Installing </source>
         <translation>Installerar</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1091"/>
+        <location filename="../src/work.cpp" line="1094"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation>paru inte hittad; kan inte installera %1 från AUR.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1095"/>
+        <location filename="../src/work.cpp" line="1098"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation>Kunde inte installera %1; fortsätter utan installeraren.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1104"/>
+        <location filename="../src/work.cpp" line="1107"/>
         <source>Could not install </source>
         <translation>Kunde inte installera</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1114"/>
+        <location filename="../src/work.cpp" line="1117"/>
         <source>Calculating checksum...</source>
         <translation>Beräknar checksum...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1165"/>
+        <location filename="../src/work.cpp" line="1168"/>
         <source>Building new initrd...</source>
         <translation>Skapar ny initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1268"/>
+        <location filename="../src/work.cpp" line="1271"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation>Återuppbygger initramfs med: mkinitcpio %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1395"/>
-        <location filename="../src/work.cpp" line="1417"/>
+        <location filename="../src/work.cpp" line="1398"/>
+        <location filename="../src/work.cpp" line="1420"/>
         <source>Could not create the package list: </source>
         <translation>Kunde inte skapa paketlistan: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1404"/>
+        <location filename="../src/work.cpp" line="1407"/>
         <source>Could not create working directory. </source>
         <translation>Kunde inte skapa arbetskatalog.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1457"/>
+        <location filename="../src/work.cpp" line="1460"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Kunde inte förbereda en säker bind-root overlay. Snapshot kan inte fortsätta.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1507"/>
-        <location filename="../src/work.cpp" line="1531"/>
+        <location filename="../src/work.cpp" line="1510"/>
+        <location filename="../src/work.cpp" line="1534"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Kunde inte förbereda snapshotets bind-root miljö.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1847"/>
+        <location filename="../src/work.cpp" line="1850"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beräknar totalstorleken på exkluderade filer...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1874"/>
+        <location filename="../src/work.cpp" line="1877"/>
         <source>Calculating size of root...</source>
         <translation>Beräknar storleken på root...</translation>
     </message>
