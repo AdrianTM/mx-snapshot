@@ -57,6 +57,8 @@ jobs:
         run: cmake --build build --parallel
 
       - name: Test
+        env:
+          QT_QPA_PLATFORM: offscreen
         run: ctest --test-dir build --output-on-failure
 
   debian-package-check:
