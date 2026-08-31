@@ -27,7 +27,7 @@ void MessageHandler::showMessage(MessageType type, const QString &title, const Q
 void MessageHandler::showGuiMessage(MessageType type, const QString &title, const QString &message)
 {
 #ifndef CLI_BUILD
-    QMessageBox::Icon icon;
+    QMessageBox::Icon icon = QMessageBox::NoIcon;
     switch (type) {
     case Information:
         icon = QMessageBox::Information;
