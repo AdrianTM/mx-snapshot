@@ -1118,7 +1118,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../src/about.cpp" line="73"/>
         <source>Could not load %1</source>
-        <translation type="unfinished"/>
+        <translation>%1 kon niet worden geladen</translation>
     </message>
     <message>
         <location filename="../src/about.cpp" line="96"/>
@@ -1139,7 +1139,7 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
     <message>
         <location filename="../src/about.cpp" line="119"/>
         <source>Could not load changelog.</source>
-        <translation type="unfinished"/>
+        <translation>De changelog kon niet worden geladen.</translation>
     </message>
     <message>
         <location filename="../src/about.cpp" line="53"/>
@@ -1481,12 +1481,12 @@ door oudere snapshots en opgeslagen kopieën te verwijderen:
         <translation>De snapshot bind-root-omgeving kon niet worden voorbereid.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Totale grootte van uitgesloten bestanden berekenen...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Grootte van root berekenen...</translation>
     </message>

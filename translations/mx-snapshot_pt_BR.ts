@@ -1480,12 +1480,12 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Não foi possível montar o ambiente de captura do diretório raiz do sistema.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando o tamanho total dos arquivos excluídos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Calculando o tamanho da raiz (‘root’)...</translation>
     </message>

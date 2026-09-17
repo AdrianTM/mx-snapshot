@@ -1480,12 +1480,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Beregner den totale størrelsen til utelukkede filer …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Beregner størrelsen til root …</translation>
     </message>

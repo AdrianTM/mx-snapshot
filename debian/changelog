@@ -1,3 +1,9 @@
+mx-snapshot (26.09) mx; urgency=medium
+
+  * Brand the Arch lightdm/greeter templates instead of shipping stock defaults
+
+ -- Adrian <adrian@mxlinux.org>  Thu, 17 Sep 2026 16:24:10 -0400
+
 mx-snapshot (26.08) mx; urgency=medium
 
   * Fix separate-home exclusion size estimates

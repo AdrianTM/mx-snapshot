@@ -1292,7 +1292,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="642"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation>Un initramfs archiso obsolète a été détecté; reconstruction en cours…</translation>
+        <translation>Un initramfs archiso obsolète a été détecté; reconstruction en cours …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="644"/>
@@ -1307,7 +1307,7 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
     <message>
         <location filename="../src/work.cpp" line="660"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation>Aucun fichier /boot/archiso.img trouvé, tentative de création…</translation>
+        <translation>Aucun fichier /boot/archiso.img trouvé, tentative de création …</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="665"/>
@@ -1479,12 +1479,12 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
         <translation>Impossible de préparer l’environnement bind-root pour l’instantané (snapshot). </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root …</translation>
     </message>

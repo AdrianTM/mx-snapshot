@@ -19,12 +19,12 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="114"/>
         <source>The boot-menu editor failed; the snapshot cannot continue with potentially unedited files.</source>
-        <translation type="unfinished"/>
+        <translation>Η επεξεργασία του μενού εκκίνησης απέτυχε, η δημιουργία του στιγμιότυπου δεν μπορεί να συνεχιστεί, ενδέχεται να υπάρχουν αρχεία που δεν έχουν υποστεί επεξεργασία.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="131"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν χορηγήθηκε πρόσβαση διαχειριστή, η δημιουργία στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="258"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="313"/>
         <source>No input available to answer the exclusion file prompt; aborting without creating a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν υπάρχουν δεδομένα σχετικά με το αρχείο εξαίρεσης, η διαδικασία διακόπτεται χωρίς να δημιουργηθεί στιγμιότυπο.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="316"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="283"/>
         <source>Administrator access was not granted (authentication cancelled or denied).</source>
-        <translation type="unfinished"/>
+        <translation>Δεν χορηγήθηκε πρόσβαση διαχειριστή (η πιστοποίηση ακυρώθηκε ή απορρίφθηκε).</translation>
     </message>
 </context>
 <context>
@@ -135,7 +135,7 @@
         <location filename="../src/mainwindow.cpp" line="396"/>
         <location filename="../src/mainwindow.cpp" line="944"/>
         <source>MX Snapshot</source>
-        <translation>MX Στιγμιότυπο συστήματος</translation>
+        <translation>MX Στιγμιότυπο εγκατάστασης</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="33"/>
@@ -180,7 +180,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="172"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Snapshot is a utility that creates a bootable image (ISO) of your working system that you can use for storage or distribution. You can continue working with undemanding applications while it is running.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο συστήματος είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, μπορείτε να το χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια της λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Το στιγμιότυπο εγκατάστασης είναι εργαλείο δημιουργίας εικόνας (ISO) με δυνατότητα εκκίνησης του ενεργού συστήματος σας, μπορείτε να το χρησιμοποιήσετε για αποθήκευση ή διανομή. Κατά τη διάρκεια της λειτουργίας του, μπορείτε να συνεχίσετε την εργασία σας με εφαρμογές χωρίς ιδιαίτερες απαιτήσεις.&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="182"/>
@@ -231,7 +231,7 @@
     <message>
         <location filename="../src/mainwindow.ui" line="451"/>
         <source>You can also exclude certain directories by ticking the common choices below, or by clicking on the button to directly edit /etc/mx-snapshot-exclude.list.</source>
-        <translation>Μπορείτε να εξαιρέσετε καταλόγους τσεκάροντας τις πιο κάτω επιλογές, ή κάνοντας κλικ στο κάτω κουμπί για να επεξεργαστείτε άμεσα το /etc/mx-snapshot-exclude.list.</translation>
+        <translation>Μπορείτε να εξαιρέσετε καταλόγους επιλέγοντας το αντίστοιχο πλαίσιο στις πιο κάτω επιλογές ή κάνοντας κλικ στο κάτω κουμπί για να επεξεργαστείτε άμεσα το /etc/mx-snapshot-exclude.list.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.ui" line="496"/>
@@ -495,7 +495,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν χορηγήθηκε πρόσβαση διαχειριστή, η δημιουργία στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="522"/>
@@ -562,7 +562,7 @@
         <location filename="../src/mainwindow.cpp" line="276"/>
         <location filename="../src/mainwindow.cpp" line="713"/>
         <source>Could not replace the exclusion file with the updated default.</source>
-        <translation>Δεν κατέστη δυνατή η αντικατάσταση του αρχείου εξαιρέσεων με το ενημερωμένο αντίγραφο.</translation>
+        <translation>Δεν ήταν δυνατή η αντικατάσταση του αρχείου εξαιρέσεων με το ενημερωμένο αντίγραφο.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="724"/>
@@ -577,17 +577,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="745"/>
         <source>Administrator access is required to create a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>Απαιτείται πρόσβαση διαχειριστή για τη δημιουργία στιγμιότυπου.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="746"/>
         <source>The operation was cancelled. Select Next when you are ready to try again.</source>
-        <translation type="unfinished"/>
+        <translation>Η διαδικασία ακυρώθηκε. Επιλέξτε Επόμενο όταν είστε έτοιμοι να ξαναδοκιμάσετε.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="749"/>
         <source>Could not create the snapshot or work directory.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία στιγμιότυπου ή του καταλόγου εργασίας.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="762"/>
@@ -816,17 +816,17 @@
     <message>
         <location filename="../src/main.cpp" line="155"/>
         <source>Add the &apos;xorg=nvidia&apos; boot option to the ISO (for booting on a system with an NVIDIA card).</source>
-        <translation type="unfinished"/>
+        <translation>Προσθέστε την επιλογή εκκίνησης &apos;xorg=nvidia&apos; στο ISO (για εκκίνηση σε σύστημα με κάρτα γραφικών NVIDIA).</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="163"/>
         <source>Optional suffix for a monthly snapshot; only valid together with --month.</source>
-        <translation type="unfinished"/>
+        <translation>Προαιρετικό επίθημα για το μηνιαίο στιγμιότυπο, ισχύει μόνο σε συνδυασμό με την επιλογή --month.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="196"/>
         <source>A single suffix positional argument is only valid together with --month.</source>
-        <translation type="unfinished"/>
+        <translation>Επιτρέπεται μόνο ένα επίθημα θέσης σε συνδυασμό με την επιλογή --month.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="255"/>
@@ -846,7 +846,7 @@
     <message>
         <location filename="../src/main.cpp" line="235"/>
         <source>MX Snapshot</source>
-        <translation>MX Στιγμιότυπο συστήματος</translation>
+        <translation>MX Στιγμιότυπο εγκατάστασης</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="257"/>
@@ -861,12 +861,12 @@
     <message>
         <location filename="../src/main.cpp" line="300"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"/>
+        <translation>Σοβαρό σφάλμα:</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="302"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"/>
+        <translation>Σοβαρό σφάλμα: άγνωστη εξαίρεση</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="342"/>
@@ -882,27 +882,27 @@
     <message>
         <location filename="../src/settings.cpp" line="216"/>
         <source>Pending Arch bind-root cleanup state but installed-to-live-arch is missing: %1</source>
-        <translation type="unfinished"/>
+        <translation>Σε αναμονή της κατάστασης καθαρισμού bind-root στο Arch, αλλά λείπει το installed-to-live-arch: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="264"/>
         <source>Unknown exception during initialization</source>
-        <translation>Άγνωστη εξαίρεση</translation>
+        <translation>Άγνωστη εξαίρεση κατά την αρχικοποίηση</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="299"/>
         <source>Could not create work directory. </source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία του καταλόγου εργασίας. </translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="382"/>
         <source>No suitable filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε κατάλληλο σύστημα αρχείων για το προσωρινό κατάλογο. Δοκιμάστηκαν οι κατάλογοι /tmp, /home και ο κατάλογος στιγμιότυπων.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="393"/>
         <source>Could not create temp directory:</source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία του προσωρινού καταλόγου:</translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία του προσωρινού καταλόγου:</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="394"/>
@@ -922,12 +922,12 @@
     <message>
         <location filename="../src/settings.cpp" line="427"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 99</source>
-        <translation type="unfinished"/>
+        <translation>Μη έγκυρη ρύθμιση περιορισμού: %1. Πρέπει να είναι μεταξύ 0 και 99</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="433"/>
         <source>Snapshot directory cannot be empty</source>
-        <translation>Ο κατάλογος στιγμιότυπων δεν μπορεί να είναι κενός</translation>
+        <translation>Το όνομα καταλόγου στιγμιότυπων δεν μπορεί να είναι κενό</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="441"/>
@@ -1026,7 +1026,7 @@
     <message>
         <location filename="../src/settings.cpp" line="768"/>
         <source>Could not find a usable kernel</source>
-        <translation>Δεν κατέστη δυνατή η εύρεση διαθέσιμου πυρήνα</translation>
+        <translation>Δεν ήταν δυνατή η εύρεση χρήσιμου πυρήνα</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="769"/>
@@ -1091,12 +1091,12 @@
     <message>
         <location filename="../src/settings.cpp" line="1260"/>
         <source>Could not copy exclusion file from %1 to %2</source>
-        <translation>Δεν κατέστη δυνατή η αντιγραφή του αρχείου εξαιρέσεων από το %1 στο %2</translation>
+        <translation>Δεν ήταν δυνατή η αντιγραφή του αρχείου εξαιρέσεων από το %1 στο %2</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1283"/>
         <source>Unsupported compression &apos;%1&apos; in configuration, using zstd.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν υποστηρίζεται  στη ρύθμιση η συμπίεση &apos;%1&apos;, χρησιμοποιείστε το zstd.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1293"/>
@@ -1106,13 +1106,13 @@
     <message>
         <location filename="../src/settings.cpp" line="1303"/>
         <source>Invalid stored throttle setting (%1). Using 0.</source>
-        <translation type="unfinished"/>
+        <translation>Μη έγκυρη αποθηκευμένη ρύθμιση περιορισμού (%1). Χρησιμοποιείστε 0.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1394"/>
         <location filename="../src/settings.cpp" line="1504"/>
         <source>Output file %1 already exists. Please use another file name, or delete the existent file.</source>
-        <translation>Το αρχείο %1 υπάρχει. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
+        <translation>Το αρχείο %1 υπάρχει ήδη. Παρακαλώ χρησιμοποιήστε άλλο όνομα ή διαγράψτε το υπάρχον αρχείο.</translation>
     </message>
     <message>
         <location filename="../src/about.cpp" line="73"/>
@@ -1154,37 +1154,37 @@
     <message>
         <location filename="../src/excludesutils.cpp" line="91"/>
         <source>Could not open default exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατόν να ανοίξει το προεπιλεγμένο αρχείο εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="97"/>
         <source>Could not create exclusion file directory at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία καταλόγου του αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="106"/>
         <source>Could not prepare exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία του αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="123"/>
         <source>Could not read default exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η ανάγνωση του προεπιλεγμένου αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="131"/>
         <source>Could not write exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η εγγραφή του προεπιλεγμένου αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="113"/>
         <source>Could not backup existing exclusion file to %1.</source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία αντιγράφου ασφαλείας του υπάρχοντος αρχείου εξαιρέσεων στο %1.</translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία αντιγράφου ασφαλείας του υπάρχοντος αρχείου εξαιρέσεων στο %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="139"/>
         <source>Could not copy default exclusion file from %1 to %2.</source>
-        <translation>Δεν κατέστη δυνατή η αντιγραφή του προεπιλεγμένου αρχείου εξαιρέσεων από το %1 στο %2.</translation>
+        <translation>Δεν ήταν δυνατή η αντιγραφή του προεπιλεγμένου αρχείου εξαιρέσεων από το %1 στο %2.</translation>
     </message>
 </context>
 <context>
@@ -1242,7 +1242,7 @@
     <message>
         <location filename="../src/work.cpp" line="304"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν χορηγήθηκε πρόσβαση διαχειριστή, η δημιουργία στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="361"/>
@@ -1267,48 +1267,48 @@
     <message>
         <location filename="../src/work.cpp" line="564"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε το πρότυπο ISO: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="572"/>
         <location filename="../src/work.cpp" line="692"/>
         <source>Could not extract the ISO template: </source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η εξαγωγή του προτύπου ISO: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="600"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"/>
+        <translation>Στο πρότυπο ISO του Arch λείπουν οι φάκελοι boot/ ή efi/.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="603"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"/>
+        <translation>Οι φάκελοι boot/ ή efi/ εντοπίστηκαν στο root του καταλόγου εργασίας, ίσως το πρότυπο εξήχθη σε λάθος τοποθεσία.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="606"/>
         <source>Template: %1</source>
-        <translation type="unfinished"/>
+        <translation>Πρότυπο: %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="642"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"/>
+        <translation>Εντοπίστηκε παρωχημένο archiso initramfs, αναδημιουργία σε εξέλιξη...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="644"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"/>
+        <translation>Βρέθηκε το αρχείο /boot/archiso.img που έχει δημιουργηθεί για τον πυρήνα %1, αλλά ο επιλεγμένος πυρήνας είναι ο %2.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="648"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"/>
+        <translation>Απέτυχε η αναδημιουργία του αρχείου /boot/archiso.img. Παρακαλώ, δημιουργήστε το ξανά χειροκίνητα ή διαγράψτε το παλιό αρχείο.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="660"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"/>
+        <translation>Δεν βρέθηκε το αρχείο /boot/archiso.img, γίνεται προσπάθεια να δημιουργηθεί ένα...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="665"/>
@@ -1319,12 +1319,12 @@
     <message>
         <location filename="../src/work.cpp" line="666"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία του /boot/archiso.img (είναι εγκατεστημένο το πακέτο &apos;archiso&apos;;). Επιστροφή στο κανονικό initramfs — το ISO που θα προκύψει πιθανότατα δεν θα εκκινήσει (&quot;Αποτυχία εκκίνησης&quot;).</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="678"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η εύρεση μιας εικόνας initramfs.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="707"/>
@@ -1334,12 +1334,12 @@
     <message>
         <location filename="../src/work.cpp" line="715"/>
         <source>Could not copy the template initrd: </source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η αντιγραφή του προτύπου initrd: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="721"/>
         <source>Could not copy the kernel: </source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η αντιγραφή του πυρήνα: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="729"/>
@@ -1347,17 +1347,17 @@
         <location filename="../src/work.cpp" line="878"/>
         <location filename="../src/work.cpp" line="897"/>
         <source>Could not create the checksum for %1.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία αθροίσματος ελέγχου για το %1.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="737"/>
         <source>Could not create temp directory. </source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία προσωρινού καταλόγου. </translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία του προσωρινού καταλόγου. </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="778"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η αντιγραφή αρθρωμάτων του πυρήνα ή προγραμμάτων στο initrd.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="844"/>
@@ -1367,13 +1367,13 @@
     <message>
         <location filename="../src/work.cpp" line="855"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία αρχείου linuxfs, παρακαλώ ελέγξτε /var/log/%1.log</translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία του αρχείου linuxfs, παρακαλώ ελέγξτε το /var/log/%1.log</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="870"/>
         <location filename="../src/work.cpp" line="889"/>
         <source>Could not move %1 to the ISO directory.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η μετακίνηση του %1 στο κατάλογο του ISO.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1004"/>
@@ -1383,7 +1383,7 @@
     <message>
         <location filename="../src/work.cpp" line="1014"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1024"/>
@@ -1393,13 +1393,13 @@
     <message>
         <location filename="../src/work.cpp" line="1031"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία υβριδικού ISO, δεν θα εκκινούσε σωστά από USB.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1044"/>
         <location filename="../src/work.cpp" line="1052"/>
         <source>Could not create the %1 checksum for the ISO.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία του αθροίσματος ελέγχου %1 για το ISO.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1065"/>
@@ -1409,7 +1409,7 @@
     <message>
         <location filename="../src/work.cpp" line="1066"/>
         <source>MX Snapshot completed successfully!</source>
-        <translation>Το MX στιγμιότυπο συστήματος ολοκληρώθηκε με επιτυχία!</translation>
+        <translation>Το MX Στιγμιότυπο εγκατάστασης ολοκληρώθηκε με επιτυχία!</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1067"/>
@@ -1419,7 +1419,7 @@
     <message>
         <location filename="../src/work.cpp" line="1068"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
-        <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Στιγμιότυπο συστήματος, στη συνέχεια τρέξτε το MX Δημιουργία Live USB!</translation>
+        <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Στιγμιότυπο εγκατάστασης, στη συνέχεια τρέξτε το MX Δημιουργία Live USB!</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1083"/>
@@ -1430,17 +1430,17 @@
     <message>
         <location filename="../src/work.cpp" line="1094"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
-        <translation type="unfinished"/>
+        <translation>Το paru δεν βρέθηκε, δεν είναι δυνατή η εγκατάσταση του %1 από το AUR.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1098"/>
         <source>Could not install %1; continuing without the installer.</source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η εγκατάσταση του %1, συνέχιση χωρίς το εγκαταστάτη.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1107"/>
         <source>Could not install </source>
-        <translation>Δεν κατέστη δυνατή η εγκατάσταση </translation>
+        <translation>Δεν ήταν δυνατή η εγκατάσταση </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1117"/>
@@ -1455,37 +1455,37 @@
     <message>
         <location filename="../src/work.cpp" line="1271"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"/>
+        <translation>Αναδημιουργία του initramfs με την εντολή: mkinitcpio %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1398"/>
         <location filename="../src/work.cpp" line="1420"/>
         <source>Could not create the package list: </source>
-        <translation type="unfinished"/>
+        <translation>Δεν ήταν δυνατή η δημιουργία της λίστας πακέτων: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1407"/>
         <source>Could not create working directory. </source>
-        <translation>Δεν κατέστη δυνατή η δημιουργία καταλόγου εργασίας. </translation>
+        <translation>Δεν ήταν δυνατή η δημιουργία του καταλόγου εργασίας. </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1460"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
-        <translation>Δεν κατέστη δυνατή η προετοιμασία ασφαλούς προσάρτησης. Δεν μπορεί να συνεχιστεί το στιγμιότυπο.</translation>
+        <translation>Δεν ήταν δυνατή η προετοιμασία ασφαλούς bind-root. Η δημιουργία του στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1510"/>
         <location filename="../src/work.cpp" line="1534"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
-        <translation>Δεν κατέστη δυνατή η προετοιμασία περιβάλλοντος προσάρτησης.</translation>
+        <translation>Δεν ήταν δυνατή η προετοιμασία περιβάλλοντος bind-root του στιγμιότυπου.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Υπολογισμός συνολικού μεγέθους των εξαιρούμενων αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Υπολογισμός μεγέθους root...</translation>
     </message>

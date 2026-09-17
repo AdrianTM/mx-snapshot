@@ -4,7 +4,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
 # Translators:
-# Ioannis LM, 2023
+# Ioannis LM, 2026
 # 
 #, fuzzy
 msgid ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-12-04 14:53-0500\n"
 "PO-Revision-Date: 2022-12-04 20:22+0000\n"
-"Last-Translator: Ioannis LM, 2023\n"
+"Last-Translator: Ioannis LM, 2026\n"
 "Language-Team: Greek (https://app.transifex.com/anticapitalista/teams/10162/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,9 +24,9 @@ msgstr ""
 #. The desktop entry name will be displayed within the menu.
 #: desktop-in/mx-snapshot.desktop.in:5
 msgid "MX Snapshot"
-msgstr "MX Στιγμιότυπο συστήματος"
+msgstr "MX Στιγμιότυπο εγκατάστασης"
 
 #. # The desktop entry comment will be shown within the menu.
 #: desktop-in/mx-snapshot.desktop.in:7
 msgid "Create a live iso snapshot of your running system."
-msgstr "Δημιουργία στιγμιότυπου του συστήματος σας σε μορφή live iso."
+msgstr "Δημιουργία στιγμιότυπου της εγκατάστασης σας σε μορφή live iso."

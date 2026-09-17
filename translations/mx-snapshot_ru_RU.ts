@@ -19,12 +19,12 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="114"/>
         <source>The boot-menu editor failed; the snapshot cannot continue with potentially unedited files.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось запустить редактор меню загрузки; создание снимка не может быть продолжено с потенциально неотредактированными файлами.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="131"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Права администратора не были предоставлены; создание снимка не может быть продолжено.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="258"/>
@@ -97,7 +97,7 @@
     <message>
         <location filename="../src/batchprocessing.cpp" line="313"/>
         <source>No input available to answer the exclusion file prompt; aborting without creating a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>Нет ввода для ответа на запрос о файле исключений; создание снимка прервано.</translation>
     </message>
     <message>
         <location filename="../src/batchprocessing.cpp" line="316"/>
@@ -125,7 +125,7 @@
     <message>
         <location filename="../src/cmd.cpp" line="283"/>
         <source>Administrator access was not granted (authentication cancelled or denied).</source>
-        <translation type="unfinished"/>
+        <translation>Права администратора не были предоставлены (аутентификация отменена или отклонена).</translation>
     </message>
 </context>
 <context>
@@ -497,7 +497,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="490"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Права администратора не были предоставлены; создание снимка не может быть продолжено.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="522"/>
@@ -579,17 +579,17 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="745"/>
         <source>Administrator access is required to create a snapshot.</source>
-        <translation type="unfinished"/>
+        <translation>Для создания снимка требуются права администратора.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="746"/>
         <source>The operation was cancelled. Select Next when you are ready to try again.</source>
-        <translation type="unfinished"/>
+        <translation>Операция была отменена. Выберите «Далее», когда будете готовы повторить попытку.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="749"/>
         <source>Could not create the snapshot or work directory.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать каталог снимка или рабочий каталог.</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="762"/>
@@ -660,7 +660,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1007"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation>Авторское право (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1009"/>
@@ -818,17 +818,17 @@
     <message>
         <location filename="../src/main.cpp" line="155"/>
         <source>Add the &apos;xorg=nvidia&apos; boot option to the ISO (for booting on a system with an NVIDIA card).</source>
-        <translation type="unfinished"/>
+        <translation>Добавить параметр загрузки &apos;xorg=nvidia&apos; в ISO (для загрузки на системе с картой NVIDIA).</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="163"/>
         <source>Optional suffix for a monthly snapshot; only valid together with --month.</source>
-        <translation type="unfinished"/>
+        <translation>Необязательный суффикс для ежемесячного снимка; действует только вместе с --month.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="196"/>
         <source>A single suffix positional argument is only valid together with --month.</source>
-        <translation type="unfinished"/>
+        <translation>Одиночный позиционный аргумент-суффикс действителен только вместе с --month.</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="255"/>
@@ -863,12 +863,12 @@
     <message>
         <location filename="../src/main.cpp" line="300"/>
         <source>Fatal error:</source>
-        <translation type="unfinished"/>
+        <translation>Фатальная ошибка:</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="302"/>
         <source>Fatal error: unknown exception</source>
-        <translation type="unfinished"/>
+        <translation>Фатальная ошибка: неизвестное исключение</translation>
     </message>
     <message>
         <location filename="../src/main.cpp" line="342"/>
@@ -884,7 +884,7 @@
     <message>
         <location filename="../src/settings.cpp" line="216"/>
         <source>Pending Arch bind-root cleanup state but installed-to-live-arch is missing: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ожидается состояние очистки Arch bind-root, но installed-to-live-arch отсутствует: %1</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="264"/>
@@ -899,7 +899,7 @@
     <message>
         <location filename="../src/settings.cpp" line="382"/>
         <source>No suitable filesystem found for the temp directory. Tried /tmp, /home, and the snapshot directory.</source>
-        <translation type="unfinished"/>
+        <translation>Не найдена подходящая файловая система для временного каталога. Проверены /tmp, /home и каталог снимков.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="393"/>
@@ -924,7 +924,7 @@
     <message>
         <location filename="../src/settings.cpp" line="427"/>
         <source>Invalid throttle setting: %1. Must be between 0 and 99</source>
-        <translation type="unfinished"/>
+        <translation>Неверное значение ограничения: %1. Должно быть от 0 до 99</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="433"/>
@@ -1098,7 +1098,7 @@
     <message>
         <location filename="../src/settings.cpp" line="1283"/>
         <source>Unsupported compression &apos;%1&apos; in configuration, using zstd.</source>
-        <translation type="unfinished"/>
+        <translation>Неподдерживаемое сжатие &apos;%1&apos; в конфигурации, используется zstd.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1293"/>
@@ -1108,7 +1108,7 @@
     <message>
         <location filename="../src/settings.cpp" line="1303"/>
         <source>Invalid stored throttle setting (%1). Using 0.</source>
-        <translation type="unfinished"/>
+        <translation>Неверная сохранённая настройка ограничения (%1). Используется 0.</translation>
     </message>
     <message>
         <location filename="../src/settings.cpp" line="1394"/>
@@ -1156,27 +1156,27 @@
     <message>
         <location filename="../src/excludesutils.cpp" line="91"/>
         <source>Could not open default exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось открыть файл исключений по умолчанию в %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="97"/>
         <source>Could not create exclusion file directory at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать каталог файла исключений в %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="106"/>
         <source>Could not prepare exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось подготовить файл исключений в %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="123"/>
         <source>Could not read default exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось прочитать файл исключений по умолчанию в %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="131"/>
         <source>Could not write exclusion file at %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось записать файл исключений в %1.</translation>
     </message>
     <message>
         <location filename="../src/excludesutils.cpp" line="113"/>
@@ -1244,7 +1244,7 @@
     <message>
         <location filename="../src/work.cpp" line="304"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
-        <translation type="unfinished"/>
+        <translation>Права администратора не были предоставлены; создание снимка не может быть продолжено.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="361"/>
@@ -1269,48 +1269,48 @@
     <message>
         <location filename="../src/work.cpp" line="564"/>
         <source>ISO template not found: </source>
-        <translation type="unfinished"/>
+        <translation>Шаблон ISO не найден: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="572"/>
         <location filename="../src/work.cpp" line="692"/>
         <source>Could not extract the ISO template: </source>
-        <translation type="unfinished"/>
+        <translation>Не удалось извлечь шаблон ISO: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="600"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
-        <translation type="unfinished"/>
+        <translation>В шаблоне Arch ISO отсутствуют каталоги boot/ или efi/.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="603"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
-        <translation type="unfinished"/>
+        <translation>Обнаружены boot/ или efi/ в корне рабочего каталога; возможно, шаблон был извлечен в неправильное место.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="606"/>
         <source>Template: %1</source>
-        <translation type="unfinished"/>
+        <translation>Шаблон: %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="642"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
-        <translation type="unfinished"/>
+        <translation>Обнаружен устаревший archiso initramfs, пересборка...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="644"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
-        <translation type="unfinished"/>
+        <translation>Найден /boot/archiso.img, собранный для ядра %1, но выбранное ядро — %2.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="648"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось пересобрать /boot/archiso.img. Пожалуйста, пересоберите его вручную или удалите устаревший файл.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="660"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
-        <translation type="unfinished"/>
+        <translation>Не найден /boot/archiso.img, попытка создать...</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="665"/>
@@ -1321,12 +1321,12 @@
     <message>
         <location filename="../src/work.cpp" line="666"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать /boot/archiso.img (установлен ли пакет &apos;archiso&apos;?). Используется обычный initramfs — полученный ISO, скорее всего, не загрузится (&quot;Failed to start Switch Root&quot;).</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="678"/>
         <source>Could not find an initramfs image to use.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось найти образ initramfs для использования.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="707"/>
@@ -1336,12 +1336,12 @@
     <message>
         <location filename="../src/work.cpp" line="715"/>
         <source>Could not copy the template initrd: </source>
-        <translation type="unfinished"/>
+        <translation>Не удалось скопировать initrd шаблона: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="721"/>
         <source>Could not copy the kernel: </source>
-        <translation type="unfinished"/>
+        <translation>Не удалось скопировать ядро: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="729"/>
@@ -1349,7 +1349,7 @@
         <location filename="../src/work.cpp" line="878"/>
         <location filename="../src/work.cpp" line="897"/>
         <source>Could not create the checksum for %1.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать контрольную сумму для %1.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="737"/>
@@ -1359,7 +1359,7 @@
     <message>
         <location filename="../src/work.cpp" line="778"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось скопировать модули ядра или программы в initrd.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="844"/>
@@ -1375,7 +1375,7 @@
         <location filename="../src/work.cpp" line="870"/>
         <location filename="../src/work.cpp" line="889"/>
         <source>Could not move %1 to the ISO directory.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось переместить %1 в каталог ISO.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1004"/>
@@ -1395,13 +1395,13 @@
     <message>
         <location filename="../src/work.cpp" line="1031"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось сделать ISO гибридным; он не будет правильно загружаться с USB.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1044"/>
         <location filename="../src/work.cpp" line="1052"/>
         <source>Could not create the %1 checksum for the ISO.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать контрольную сумму %1 для ISO.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1065"/>
@@ -1432,12 +1432,12 @@
     <message>
         <location filename="../src/work.cpp" line="1094"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
-        <translation type="unfinished"/>
+        <translation>paru не найден; невозможно установить %1 из AUR.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1098"/>
         <source>Could not install %1; continuing without the installer.</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось установить %1; продолжение без установщика.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1107"/>
@@ -1457,13 +1457,13 @@
     <message>
         <location filename="../src/work.cpp" line="1271"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
-        <translation type="unfinished"/>
+        <translation>Пересборка initramfs с: mkinitcpio %1</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1398"/>
         <location filename="../src/work.cpp" line="1420"/>
         <source>Could not create the package list: </source>
-        <translation type="unfinished"/>
+        <translation>Не удалось создать список пакетов: </translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1407"/>
@@ -1482,12 +1482,12 @@
         <translation>Не удалось подготовить снимок среды bind-root.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Вычисление общего размера исключённых файлов...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Вычисление размера root...</translation>
     </message>

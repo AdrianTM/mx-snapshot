@@ -660,7 +660,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1007"/>
         <source>Copyright (c) MX Linux</source>
-        <translation>Copyright (c) MX Linux</translation>
+        <translation>Авторское право (c) MX Linux</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="1009"/>
@@ -690,7 +690,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="1079"/>
         <source>Are you sure you want to quit the application?</source>
-        <translation>Вы уверены, что хотите выйти из приложения?</translation>
+        <translation>Уверены, что хотите выйти из приложения?</translation>
     </message>
 </context>
 <context>
@@ -1482,12 +1482,12 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1850"/>
+        <location filename="../src/work.cpp" line="1870"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Вычисление общего размера исключённых файлов...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1877"/>
+        <location filename="../src/work.cpp" line="1897"/>
         <source>Calculating size of root...</source>
         <translation>Вычисление размера root...</translation>
     </message>
