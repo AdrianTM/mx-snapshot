@@ -1,4 +1,4 @@
-mx-snapshot (26.09) mx; urgency=medium
+mx-snapshot (26.09.2) mx; urgency=medium
 
   * Brand the Arch lightdm/greeter templates instead of shipping stock defaults
 
