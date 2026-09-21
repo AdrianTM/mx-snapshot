@@ -849,12 +849,12 @@
         <translation>MX Στιγμιότυπο εγκατάστασης</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
@@ -869,8 +869,8 @@
         <translation>Σοβαρό σφάλμα: άγνωστη εξαίρεση</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="342"/>
         <location filename="../src/settings.cpp" line="778"/>
+        <location filename="../src/main.cpp" line="342"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Ο ενεργός πυρήνας δεν υποστηρίζει Squashfs, δεν μπορεί να προχωρήσει.</translation>
     </message>
@@ -1190,302 +1190,302 @@
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="247"/>
+        <location filename="../src/work.cpp" line="312"/>
         <source>Cleaning...</source>
         <translation>Εκκαθάριση...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="278"/>
-        <location filename="../src/work.cpp" line="1060"/>
+        <location filename="../src/work.cpp" line="343"/>
+        <location filename="../src/work.cpp" line="1125"/>
         <source>Done</source>
         <translation>Ολοκληρώθηκε</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="292"/>
+        <location filename="../src/work.cpp" line="357"/>
         <source>Interrupted or failed to complete</source>
         <translation>Διακόπηκε ή απέτυχε η ολοκλήρωση</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="303"/>
-        <location filename="../src/work.cpp" line="360"/>
-        <location filename="../src/work.cpp" line="564"/>
-        <location filename="../src/work.cpp" line="572"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="650"/>
-        <location filename="../src/work.cpp" line="678"/>
-        <location filename="../src/work.cpp" line="692"/>
-        <location filename="../src/work.cpp" line="706"/>
-        <location filename="../src/work.cpp" line="714"/>
-        <location filename="../src/work.cpp" line="720"/>
-        <location filename="../src/work.cpp" line="728"/>
-        <location filename="../src/work.cpp" line="777"/>
+        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="425"/>
+        <location filename="../src/work.cpp" line="629"/>
+        <location filename="../src/work.cpp" line="637"/>
+        <location filename="../src/work.cpp" line="672"/>
+        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="743"/>
+        <location filename="../src/work.cpp" line="757"/>
+        <location filename="../src/work.cpp" line="771"/>
+        <location filename="../src/work.cpp" line="779"/>
+        <location filename="../src/work.cpp" line="785"/>
         <location filename="../src/work.cpp" line="793"/>
-        <location filename="../src/work.cpp" line="854"/>
-        <location filename="../src/work.cpp" line="869"/>
-        <location filename="../src/work.cpp" line="877"/>
-        <location filename="../src/work.cpp" line="888"/>
-        <location filename="../src/work.cpp" line="896"/>
-        <location filename="../src/work.cpp" line="1013"/>
-        <location filename="../src/work.cpp" line="1030"/>
-        <location filename="../src/work.cpp" line="1043"/>
-        <location filename="../src/work.cpp" line="1051"/>
-        <location filename="../src/work.cpp" line="1107"/>
-        <location filename="../src/work.cpp" line="1398"/>
-        <location filename="../src/work.cpp" line="1406"/>
-        <location filename="../src/work.cpp" line="1420"/>
-        <location filename="../src/work.cpp" line="1459"/>
-        <location filename="../src/work.cpp" line="1509"/>
-        <location filename="../src/work.cpp" line="1533"/>
+        <location filename="../src/work.cpp" line="842"/>
+        <location filename="../src/work.cpp" line="858"/>
+        <location filename="../src/work.cpp" line="919"/>
+        <location filename="../src/work.cpp" line="934"/>
+        <location filename="../src/work.cpp" line="942"/>
+        <location filename="../src/work.cpp" line="953"/>
+        <location filename="../src/work.cpp" line="961"/>
+        <location filename="../src/work.cpp" line="1078"/>
+        <location filename="../src/work.cpp" line="1095"/>
+        <location filename="../src/work.cpp" line="1108"/>
+        <location filename="../src/work.cpp" line="1116"/>
+        <location filename="../src/work.cpp" line="1172"/>
+        <location filename="../src/work.cpp" line="1463"/>
+        <location filename="../src/work.cpp" line="1471"/>
+        <location filename="../src/work.cpp" line="1485"/>
+        <location filename="../src/work.cpp" line="1524"/>
+        <location filename="../src/work.cpp" line="1574"/>
+        <location filename="../src/work.cpp" line="1598"/>
         <source>Error</source>
         <translation>Σφάλμα</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="369"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
         <translation>Δεν χορηγήθηκε πρόσβαση διαχειριστή, η δημιουργία στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="361"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Δεν υπάρχει αρκετός ελεύθερος χώρος στο δίσκο προορισμού σας, χρειάζεστε τουλάχιστον %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="364"/>
+        <location filename="../src/work.cpp" line="429"/>
         <source>You have %1 free space on %2</source>
         <translation>Έχετε %1 ελεύθερο χώρο στο %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="367"/>
+        <location filename="../src/work.cpp" line="432"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Εάν είστε βέβαιοι ότι έχετε αρκετό ελεύθερο χώρο, εκτελέστε ξανά το πρόγραμμα με την επιλογή -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="545"/>
+        <location filename="../src/work.cpp" line="610"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Αντιγραφή του συστήματος αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="564"/>
+        <location filename="../src/work.cpp" line="629"/>
         <source>ISO template not found: </source>
         <translation>Δεν βρέθηκε το πρότυπο ISO: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="572"/>
-        <location filename="../src/work.cpp" line="692"/>
+        <location filename="../src/work.cpp" line="637"/>
+        <location filename="../src/work.cpp" line="757"/>
         <source>Could not extract the ISO template: </source>
         <translation>Δεν ήταν δυνατή η εξαγωγή του προτύπου ISO: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="600"/>
+        <location filename="../src/work.cpp" line="665"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
         <translation>Στο πρότυπο ISO του Arch λείπουν οι φάκελοι boot/ ή efi/.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="603"/>
+        <location filename="../src/work.cpp" line="668"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
         <translation>Οι φάκελοι boot/ ή efi/ εντοπίστηκαν στο root του καταλόγου εργασίας, ίσως το πρότυπο εξήχθη σε λάθος τοποθεσία.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="606"/>
+        <location filename="../src/work.cpp" line="671"/>
         <source>Template: %1</source>
         <translation>Πρότυπο: %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="642"/>
+        <location filename="../src/work.cpp" line="707"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
         <translation>Εντοπίστηκε παρωχημένο archiso initramfs, αναδημιουργία σε εξέλιξη...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="644"/>
+        <location filename="../src/work.cpp" line="709"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
         <translation>Βρέθηκε το αρχείο /boot/archiso.img που έχει δημιουργηθεί για τον πυρήνα %1, αλλά ο επιλεγμένος πυρήνας είναι ο %2.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="648"/>
+        <location filename="../src/work.cpp" line="713"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
         <translation>Απέτυχε η αναδημιουργία του αρχείου /boot/archiso.img. Παρακαλώ, δημιουργήστε το ξανά χειροκίνητα ή διαγράψτε το παλιό αρχείο.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="660"/>
+        <location filename="../src/work.cpp" line="725"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
         <translation>Δεν βρέθηκε το αρχείο /boot/archiso.img, γίνεται προσπάθεια να δημιουργηθεί ένα...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="665"/>
-        <location filename="../src/work.cpp" line="1097"/>
+        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="1162"/>
         <source>Warning</source>
         <translation>Προσοχή</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="666"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του /boot/archiso.img (είναι εγκατεστημένο το πακέτο &apos;archiso&apos;;). Επιστροφή στο κανονικό initramfs — το ISO που θα προκύψει πιθανότατα δεν θα εκκινήσει (&quot;Αποτυχία εκκίνησης&quot;).</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="678"/>
+        <location filename="../src/work.cpp" line="743"/>
         <source>Could not find an initramfs image to use.</source>
         <translation>Δεν ήταν δυνατή η εύρεση μιας εικόνας initramfs.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="707"/>
+        <location filename="../src/work.cpp" line="772"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>Έχει οριστεί η επιλογή --grub-mbr αλλά λείπει το αρχείο boot/grub/i386-pc/eltorito.img από το πρότυπο iso</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="780"/>
         <source>Could not copy the template initrd: </source>
         <translation>Δεν ήταν δυνατή η αντιγραφή του προτύπου initrd: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="721"/>
+        <location filename="../src/work.cpp" line="786"/>
         <source>Could not copy the kernel: </source>
         <translation>Δεν ήταν δυνατή η αντιγραφή του πυρήνα: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="729"/>
         <location filename="../src/work.cpp" line="794"/>
-        <location filename="../src/work.cpp" line="878"/>
-        <location filename="../src/work.cpp" line="897"/>
+        <location filename="../src/work.cpp" line="859"/>
+        <location filename="../src/work.cpp" line="943"/>
+        <location filename="../src/work.cpp" line="962"/>
         <source>Could not create the checksum for %1.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία αθροίσματος ελέγχου για το %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="737"/>
+        <location filename="../src/work.cpp" line="802"/>
         <source>Could not create temp directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία του προσωρινού καταλόγου. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="778"/>
+        <location filename="../src/work.cpp" line="843"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
         <translation>Δεν ήταν δυνατή η αντιγραφή αρθρωμάτων του πυρήνα ή προγραμμάτων στο initrd.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="844"/>
+        <location filename="../src/work.cpp" line="909"/>
         <source>Squashing filesystem...</source>
         <translation>Συμπίεση αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="855"/>
+        <location filename="../src/work.cpp" line="920"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αρχείου linuxfs, παρακαλώ ελέγξτε το /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="870"/>
-        <location filename="../src/work.cpp" line="889"/>
+        <location filename="../src/work.cpp" line="935"/>
+        <location filename="../src/work.cpp" line="954"/>
         <source>Could not move %1 to the ISO directory.</source>
         <translation>Δεν ήταν δυνατή η μετακίνηση του %1 στο κατάλογο του ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1004"/>
+        <location filename="../src/work.cpp" line="1069"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Δημιουργία αρχείου εικόνας CD/DVD...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1014"/>
+        <location filename="../src/work.cpp" line="1079"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία αρχείου ISO, παρακαλώ ελέγξτε αν έχετε αρκετό χώρο στο προορισμό.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1024"/>
+        <location filename="../src/work.cpp" line="1089"/>
         <source>Making hybrid iso</source>
         <translation>Δημιουργία υβριδικού ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1031"/>
+        <location filename="../src/work.cpp" line="1096"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία υβριδικού ISO, δεν θα εκκινούσε σωστά από USB.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1044"/>
-        <location filename="../src/work.cpp" line="1052"/>
+        <location filename="../src/work.cpp" line="1109"/>
+        <location filename="../src/work.cpp" line="1117"/>
         <source>Could not create the %1 checksum for the ISO.</source>
         <translation>Δεν ήταν δυνατή η δημιουργία του αθροίσματος ελέγχου %1 για το ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1065"/>
+        <location filename="../src/work.cpp" line="1130"/>
         <source>Success</source>
         <translation>Επιτυχία</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1066"/>
+        <location filename="../src/work.cpp" line="1131"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>Το MX Στιγμιότυπο εγκατάστασης ολοκληρώθηκε με επιτυχία!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1067"/>
+        <location filename="../src/work.cpp" line="1132"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Χρειάστηκαν %1 για να ολοκληρωθεί.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1068"/>
+        <location filename="../src/work.cpp" line="1133"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Ευχαριστούμε που χρησιμοποιήσατε το MX Στιγμιότυπο εγκατάστασης, στη συνέχεια τρέξτε το MX Δημιουργία Live USB!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1083"/>
-        <location filename="../src/work.cpp" line="1104"/>
+        <location filename="../src/work.cpp" line="1148"/>
+        <location filename="../src/work.cpp" line="1169"/>
         <source>Installing </source>
         <translation>Εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1094"/>
+        <location filename="../src/work.cpp" line="1159"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation>Το paru δεν βρέθηκε, δεν είναι δυνατή η εγκατάσταση του %1 από το AUR.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1098"/>
+        <location filename="../src/work.cpp" line="1163"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation>Δεν ήταν δυνατή η εγκατάσταση του %1, συνέχιση χωρίς το εγκαταστάτη.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1107"/>
+        <location filename="../src/work.cpp" line="1172"/>
         <source>Could not install </source>
         <translation>Δεν ήταν δυνατή η εγκατάσταση </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1117"/>
+        <location filename="../src/work.cpp" line="1182"/>
         <source>Calculating checksum...</source>
         <translation>Υπολογισμός αθροίσματος ελέγχου...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1168"/>
+        <location filename="../src/work.cpp" line="1233"/>
         <source>Building new initrd...</source>
         <translation>Δημιουργία νέου initrd ...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1271"/>
+        <location filename="../src/work.cpp" line="1336"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation>Αναδημιουργία του initramfs με την εντολή: mkinitcpio %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1398"/>
-        <location filename="../src/work.cpp" line="1420"/>
+        <location filename="../src/work.cpp" line="1463"/>
+        <location filename="../src/work.cpp" line="1485"/>
         <source>Could not create the package list: </source>
         <translation>Δεν ήταν δυνατή η δημιουργία της λίστας πακέτων: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1407"/>
+        <location filename="../src/work.cpp" line="1472"/>
         <source>Could not create working directory. </source>
         <translation>Δεν ήταν δυνατή η δημιουργία του καταλόγου εργασίας. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1460"/>
+        <location filename="../src/work.cpp" line="1525"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Δεν ήταν δυνατή η προετοιμασία ασφαλούς bind-root. Η δημιουργία του στιγμιότυπου δεν μπορεί να συνεχιστεί.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1510"/>
-        <location filename="../src/work.cpp" line="1534"/>
+        <location filename="../src/work.cpp" line="1575"/>
+        <location filename="../src/work.cpp" line="1599"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Δεν ήταν δυνατή η προετοιμασία περιβάλλοντος bind-root του στιγμιότυπου.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1870"/>
+        <location filename="../src/work.cpp" line="1938"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Υπολογισμός συνολικού μεγέθους των εξαιρούμενων αρχείων...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1897"/>
+        <location filename="../src/work.cpp" line="1965"/>
         <source>Calculating size of root...</source>
         <translation>Υπολογισμός μεγέθους root...</translation>
     </message>

@@ -849,12 +849,12 @@
         <translation>MX Instantané - MX Snapshot</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -869,8 +869,8 @@
         <translation>Une erreur s’est produite en raison d’une exception inconnue.</translation>
     </message>
     <message>
-        <location filename="../src/main.cpp" line="342"/>
         <location filename="../src/settings.cpp" line="778"/>
+        <location filename="../src/main.cpp" line="342"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Le noyau actuel ne supporte pas Squashfs, impossible de continuer.</translation>
     </message>
@@ -1189,302 +1189,302 @@ Les instantanés « snapshots » %1 occupent %2 de l’espace disque.
 <context>
     <name>Work</name>
     <message>
-        <location filename="../src/work.cpp" line="247"/>
+        <location filename="../src/work.cpp" line="312"/>
         <source>Cleaning...</source>
         <translation>Nettoyage …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="278"/>
-        <location filename="../src/work.cpp" line="1060"/>
+        <location filename="../src/work.cpp" line="343"/>
+        <location filename="../src/work.cpp" line="1125"/>
         <source>Done</source>
         <translation>Terminé</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="292"/>
+        <location filename="../src/work.cpp" line="357"/>
         <source>Interrupted or failed to complete</source>
         <translation>Interrompu ou non terminé</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="303"/>
-        <location filename="../src/work.cpp" line="360"/>
-        <location filename="../src/work.cpp" line="564"/>
-        <location filename="../src/work.cpp" line="572"/>
-        <location filename="../src/work.cpp" line="607"/>
-        <location filename="../src/work.cpp" line="650"/>
-        <location filename="../src/work.cpp" line="678"/>
-        <location filename="../src/work.cpp" line="692"/>
-        <location filename="../src/work.cpp" line="706"/>
-        <location filename="../src/work.cpp" line="714"/>
-        <location filename="../src/work.cpp" line="720"/>
-        <location filename="../src/work.cpp" line="728"/>
-        <location filename="../src/work.cpp" line="777"/>
+        <location filename="../src/work.cpp" line="368"/>
+        <location filename="../src/work.cpp" line="425"/>
+        <location filename="../src/work.cpp" line="629"/>
+        <location filename="../src/work.cpp" line="637"/>
+        <location filename="../src/work.cpp" line="672"/>
+        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="743"/>
+        <location filename="../src/work.cpp" line="757"/>
+        <location filename="../src/work.cpp" line="771"/>
+        <location filename="../src/work.cpp" line="779"/>
+        <location filename="../src/work.cpp" line="785"/>
         <location filename="../src/work.cpp" line="793"/>
-        <location filename="../src/work.cpp" line="854"/>
-        <location filename="../src/work.cpp" line="869"/>
-        <location filename="../src/work.cpp" line="877"/>
-        <location filename="../src/work.cpp" line="888"/>
-        <location filename="../src/work.cpp" line="896"/>
-        <location filename="../src/work.cpp" line="1013"/>
-        <location filename="../src/work.cpp" line="1030"/>
-        <location filename="../src/work.cpp" line="1043"/>
-        <location filename="../src/work.cpp" line="1051"/>
-        <location filename="../src/work.cpp" line="1107"/>
-        <location filename="../src/work.cpp" line="1398"/>
-        <location filename="../src/work.cpp" line="1406"/>
-        <location filename="../src/work.cpp" line="1420"/>
-        <location filename="../src/work.cpp" line="1459"/>
-        <location filename="../src/work.cpp" line="1509"/>
-        <location filename="../src/work.cpp" line="1533"/>
+        <location filename="../src/work.cpp" line="842"/>
+        <location filename="../src/work.cpp" line="858"/>
+        <location filename="../src/work.cpp" line="919"/>
+        <location filename="../src/work.cpp" line="934"/>
+        <location filename="../src/work.cpp" line="942"/>
+        <location filename="../src/work.cpp" line="953"/>
+        <location filename="../src/work.cpp" line="961"/>
+        <location filename="../src/work.cpp" line="1078"/>
+        <location filename="../src/work.cpp" line="1095"/>
+        <location filename="../src/work.cpp" line="1108"/>
+        <location filename="../src/work.cpp" line="1116"/>
+        <location filename="../src/work.cpp" line="1172"/>
+        <location filename="../src/work.cpp" line="1463"/>
+        <location filename="../src/work.cpp" line="1471"/>
+        <location filename="../src/work.cpp" line="1485"/>
+        <location filename="../src/work.cpp" line="1524"/>
+        <location filename="../src/work.cpp" line="1574"/>
+        <location filename="../src/work.cpp" line="1598"/>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="304"/>
+        <location filename="../src/work.cpp" line="369"/>
         <source>Administrator access was not granted; the snapshot cannot continue.</source>
         <translation>L’accès administrateur•rice n’a pas été accordé; la création du snapshot ne peut pas continuer.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="361"/>
+        <location filename="../src/work.cpp" line="426"/>
         <source>There&apos;s not enough free space on your target disk, you need at least %1</source>
         <translation>Il n’y a pas assez d’espace libre sur votre disque cible, vous avez besoin d’au moins %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="364"/>
+        <location filename="../src/work.cpp" line="429"/>
         <source>You have %1 free space on %2</source>
         <translation>Vous avez %1 d’espace libre sur %2</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="367"/>
+        <location filename="../src/work.cpp" line="432"/>
         <source>If you are sure you have enough free space rerun the program with -o/--override-size option</source>
         <translation>Si vous êtes certain•e d’avoir assez d’espace libre, relancez le programme avec l’option -o/--override-size</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="545"/>
+        <location filename="../src/work.cpp" line="610"/>
         <source>Copying the new-iso filesystem...</source>
         <translation>Copie du nouveau système de fichiers iso en cours …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="564"/>
+        <location filename="../src/work.cpp" line="629"/>
         <source>ISO template not found: </source>
         <translation>Modèle ISO introuvable: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="572"/>
-        <location filename="../src/work.cpp" line="692"/>
+        <location filename="../src/work.cpp" line="637"/>
+        <location filename="../src/work.cpp" line="757"/>
         <source>Could not extract the ISO template: </source>
         <translation>Impossible d’extraire le modèle ISO: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="600"/>
+        <location filename="../src/work.cpp" line="665"/>
         <source>Arch ISO template is missing boot/ or efi/ directories.</source>
         <translation>Le modèle ISO Arch est incomplet: les répertoires boot/ ou efi/ sont absents.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="603"/>
+        <location filename="../src/work.cpp" line="668"/>
         <source>Detected boot/ or efi/ under the work directory root; the template may have been extracted to the wrong location.</source>
         <translation>Des répertoires boot/ ou efi/ ont été trouvés à la racine du répertoire de travail; il est possible que le modèle ait été extrait à un emplacement incorrect.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="606"/>
+        <location filename="../src/work.cpp" line="671"/>
         <source>Template: %1</source>
         <translation>Modèle: %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="642"/>
+        <location filename="../src/work.cpp" line="707"/>
         <source>Stale archiso initramfs detected, rebuilding...</source>
         <translation>Un initramfs archiso obsolète a été détecté; reconstruction en cours …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="644"/>
+        <location filename="../src/work.cpp" line="709"/>
         <source>Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.</source>
         <translation>Fichier /boot/archiso.img détecté pour le noyau %1, alors que le noyau sélectionné est %2.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="648"/>
+        <location filename="../src/work.cpp" line="713"/>
         <source>Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the stale file.</source>
         <translation>La reconstruction de /boot/archiso.img n’a pas abouti. Vous pouvez le reconstruire manuellement ou supprimer le fichier obsolète.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="660"/>
+        <location filename="../src/work.cpp" line="725"/>
         <source>No /boot/archiso.img found, attempting to create one...</source>
         <translation>Aucun fichier /boot/archiso.img trouvé, tentative de création …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="665"/>
-        <location filename="../src/work.cpp" line="1097"/>
+        <location filename="../src/work.cpp" line="730"/>
+        <location filename="../src/work.cpp" line="1162"/>
         <source>Warning</source>
         <translation>Attention</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="666"/>
+        <location filename="../src/work.cpp" line="731"/>
         <source>Could not create /boot/archiso.img (is the &apos;archiso&apos; package installed?). Falling back to the regular initramfs — the resulting ISO will likely fail to boot (&quot;Failed to start Switch Root&quot;).</source>
         <translation>Impossible de créer /boot/archiso.img (le paquet « archiso » est‑il installé?). Utilisation du initramfs classique — l’ISO générée pourrait ne pas démarrer (« Failed to start Switch Root »).</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="678"/>
+        <location filename="../src/work.cpp" line="743"/>
         <source>Could not find an initramfs image to use.</source>
         <translation>Aucune image initramfs utilisable n’a été trouvée.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="707"/>
+        <location filename="../src/work.cpp" line="772"/>
         <source>--grub-mbr option specified but boot/grub/i386-pc/eltorito.img is missing from iso-template</source>
         <translation>Option --grub-mbr spécifiée mais le fichier boot/grub/i386-pc/eltorito.img est absent du modèle ISO</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="715"/>
+        <location filename="../src/work.cpp" line="780"/>
         <source>Could not copy the template initrd: </source>
         <translation>Impossible de copier l’initrd du modèle: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="721"/>
+        <location filename="../src/work.cpp" line="786"/>
         <source>Could not copy the kernel: </source>
         <translation>Impossible de copier le noyau: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="729"/>
         <location filename="../src/work.cpp" line="794"/>
-        <location filename="../src/work.cpp" line="878"/>
-        <location filename="../src/work.cpp" line="897"/>
+        <location filename="../src/work.cpp" line="859"/>
+        <location filename="../src/work.cpp" line="943"/>
+        <location filename="../src/work.cpp" line="962"/>
         <source>Could not create the checksum for %1.</source>
         <translation>Impossible de créer la somme de contrôle pour %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="737"/>
+        <location filename="../src/work.cpp" line="802"/>
         <source>Could not create temp directory. </source>
         <translation>Impossible de créer le répertoire temporaire. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="778"/>
+        <location filename="../src/work.cpp" line="843"/>
         <source>Could not copy the kernel modules or programs into the initrd.</source>
         <translation>Impossible de copier les modules du noyau ou les programmes dans l’initrd.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="844"/>
+        <location filename="../src/work.cpp" line="909"/>
         <source>Squashing filesystem...</source>
         <translation>Création du système de fichiers compressé « SquashFS » …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="855"/>
+        <location filename="../src/work.cpp" line="920"/>
         <source>Could not create linuxfs file, please check /var/log/%1.log</source>
         <translation>Impossible de créer un fichier linuxfs, veuillez vérifier /var/log/%1.log</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="870"/>
-        <location filename="../src/work.cpp" line="889"/>
+        <location filename="../src/work.cpp" line="935"/>
+        <location filename="../src/work.cpp" line="954"/>
         <source>Could not move %1 to the ISO directory.</source>
         <translation>Impossible de déplacer %1 vers le dossier ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1004"/>
+        <location filename="../src/work.cpp" line="1069"/>
         <source>Creating CD/DVD image file...</source>
         <translation>Création du fichier image pour CD/DVD …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1014"/>
+        <location filename="../src/work.cpp" line="1079"/>
         <source>Could not create ISO file, please check whether you have enough space on the destination partition.</source>
         <translation>Impossible de créer le fichier ISO. Veuillez vérifier que l’espace sur la partition de destination est suffisant.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1024"/>
+        <location filename="../src/work.cpp" line="1089"/>
         <source>Making hybrid iso</source>
         <translation>Création d’une image ISO hybride</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1031"/>
+        <location filename="../src/work.cpp" line="1096"/>
         <source>Could not make the ISO hybrid; it would not boot correctly from USB.</source>
         <translation>Impossible de créer l’ISO hybride; le démarrage depuis une clé USB risque de ne pas fonctionner correctement.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1044"/>
-        <location filename="../src/work.cpp" line="1052"/>
+        <location filename="../src/work.cpp" line="1109"/>
+        <location filename="../src/work.cpp" line="1117"/>
         <source>Could not create the %1 checksum for the ISO.</source>
         <translation>Impossible de créer la somme de contrôle %1 pour l’ISO.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1065"/>
+        <location filename="../src/work.cpp" line="1130"/>
         <source>Success</source>
         <translation>Installation réussie</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1066"/>
+        <location filename="../src/work.cpp" line="1131"/>
         <source>MX Snapshot completed successfully!</source>
         <translation>Le processus de MX Snapshot s’est terminé avec succès!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1067"/>
+        <location filename="../src/work.cpp" line="1132"/>
         <source>Snapshot took %1 to finish.</source>
         <translation>Le processus de création de l’instantané s’est terminé en %1.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1068"/>
+        <location filename="../src/work.cpp" line="1133"/>
         <source>Thanks for using MX Snapshot, run MX Live USB Maker next!</source>
         <translation>Merci d’utiliser MX Instantané - MX Snapshot, lancez ensuite MX Live USB Création!</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1083"/>
-        <location filename="../src/work.cpp" line="1104"/>
+        <location filename="../src/work.cpp" line="1148"/>
+        <location filename="../src/work.cpp" line="1169"/>
         <source>Installing </source>
         <translation>Installation </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1094"/>
+        <location filename="../src/work.cpp" line="1159"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation>paru est introuvable; l’installation de %1 depuis l’AUR n’est pas possible.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1098"/>
+        <location filename="../src/work.cpp" line="1163"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation>Impossible d’installer %1; poursuite sans l’installateur.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1107"/>
+        <location filename="../src/work.cpp" line="1172"/>
         <source>Could not install </source>
         <translation>Installation impossible </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1117"/>
+        <location filename="../src/work.cpp" line="1182"/>
         <source>Calculating checksum...</source>
         <translation>Calcul de la somme de contrôle …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1168"/>
+        <location filename="../src/work.cpp" line="1233"/>
         <source>Building new initrd...</source>
         <translation>Nouvel initrd en cours de création …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1271"/>
+        <location filename="../src/work.cpp" line="1336"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation>Reconstruction de l’initramfs à l’aide de: mkinitcpio %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1398"/>
-        <location filename="../src/work.cpp" line="1420"/>
+        <location filename="../src/work.cpp" line="1463"/>
+        <location filename="../src/work.cpp" line="1485"/>
         <source>Could not create the package list: </source>
         <translation>Impossible de créer la liste des paquets: </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1407"/>
+        <location filename="../src/work.cpp" line="1472"/>
         <source>Could not create working directory. </source>
         <translation>Impossible de créer le répertoire de travail. </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1460"/>
+        <location filename="../src/work.cpp" line="1525"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Impossible de préparer un overlay bind-root sécurisé. La création de l’instantané (snapshot) ne peut pas se poursuivre.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1510"/>
-        <location filename="../src/work.cpp" line="1534"/>
+        <location filename="../src/work.cpp" line="1575"/>
+        <location filename="../src/work.cpp" line="1599"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Impossible de préparer l’environnement bind-root pour l’instantané (snapshot). </translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1870"/>
+        <location filename="../src/work.cpp" line="1938"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calcul de la taille totale des fichiers exclus …</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1897"/>
+        <location filename="../src/work.cpp" line="1965"/>
         <source>Calculating size of root...</source>
         <translation>Calcul de la taille de root …</translation>
     </message>
