@@ -1,3 +1,13 @@
+mx-snapshot (26.09.3) mx; urgency=medium
+
+  * On Arch, leave the login screen and display-manager settings alone when
+    creating a distribution snapshot with reset accounts, instead of
+    overwriting them with generic defaults.
+  * On Arch, install the OS installer from an enabled software repository
+    when possible, instead of always building it from the AUR.
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 21 Sep 2026 08:37:09 -0400
+
 mx-snapshot (26.09.2) mx; urgency=medium
 
   * Brand the Arch lightdm/greeter templates instead of shipping stock defaults
