@@ -90,6 +90,7 @@ void printError(const QString &message)
           "/usr/share/iso-snapshot-cli/scripts/installed-to-live-arch"}},
         {"ln", {"/usr/bin/ln", "/bin/ln"}},
         {"localize-repo", {"/usr/bin/localize-repo"}},
+        {"lsinitcpio", {"/usr/bin/lsinitcpio"}},
         {"mkdir", {"/usr/bin/mkdir", "/bin/mkdir"}},
         {"mkinitcpio", {"/usr/bin/mkinitcpio"}},
         {"mksquashfs", {"/usr/bin/mksquashfs"}},

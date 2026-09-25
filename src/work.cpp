@@ -706,12 +706,18 @@ void Work::copyNewIso()
             if (needsRebuild) {
                 emit message(tr("Stale archiso initramfs detected, rebuilding..."));
                 if (!rebuildArchisoInitramfs(archisoPath, kernelPath)) {
-                    QString details = tr("Found /boot/archiso.img built for kernel %1, but the selected kernel is %2.")
-                                          .arg(archisoKernel,
-                                               expectedKernel.isEmpty() ? settings->kernel : expectedKernel);
+                    const QString selectedKernel = expectedKernel.isEmpty() ? settings->kernel : expectedKernel;
+                    QString details = archisoKernel.isEmpty()
+                                          ? tr("Could not determine the kernel version of /boot/archiso.img "
+                                               "(selected kernel is %1).")
+                                                .arg(selectedKernel)
+                                          : tr("Found /boot/archiso.img built for kernel %1, but the selected "
+                                               "kernel is %2.")
+                                                .arg(archisoKernel, selectedKernel);
                     details += "\n"
-                               + tr("Rebuilding /boot/archiso.img failed. Please rebuild it manually or remove the "
-                                    "stale file.");
+                               + tr("Rebuilding /boot/archiso.img failed; check the mkinitcpio output in the log "
+                                    "for errors (e.g. a missing hook). Please fix them and rebuild it manually, "
+                                    "or remove the stale file.");
                     emit messageBox(BoxType::critical, tr("Error"), details);
                     cleanUp();
                     return;
@@ -1243,24 +1249,19 @@ void Work::openInitrd(const QString &file, const QString &initrd_dir)
 
 QString Work::initramfsKernelVersion(const QString &initramfsPath) const
 {
-    if (!QFileInfo::exists(initramfsPath)) {
+    if (!QFileInfo::exists(initramfsPath) || QStandardPaths::findExecutable("lsinitcpio").isEmpty()) {
         return {};
     }
-
-    QString listCmd;
-    const QString lsinitcpio = QStandardPaths::findExecutable("lsinitcpio");
-    if (lsinitcpio.isEmpty()) {
-        if (QStandardPaths::findExecutable("cpio").isEmpty()) {
-            return {};
-        }
-        listCmd = QString("cpio -it < \"%1\" 2>/dev/null").arg(initramfsPath);
-    } else {
-        listCmd = QString("\"%1\" -a \"%2\" 2>/dev/null").arg(lsinitcpio, initramfsPath);
+    // Images in /boot are root-only (0600), so the probe must run elevated.
+    // The analysis header reports the kernel as "==> Kernel: <version>".
+    const QString output
+        = Cmd().getOutAsRoot("lsinitcpio", {"-a", "-n", initramfsPath}, Cmd::QuietMode::Yes);
+    static const QRegularExpression kernelRegex(R"(^==> Kernel: (\S+))", QRegularExpression::MultilineOption);
+    const auto match = kernelRegex.match(output);
+    if (!match.hasMatch() || match.captured(1) == "unknown") {
+        return {};
     }
-    const QString cmd
-        = listCmd + " | awk -F/ '{for (i=1; i<=NF; i++) if ($i == \"modules\" && (i+1) <= NF) {print $(i+1); exit}}'";
-
-    return Cmd().getOut(cmd, Cmd::QuietMode::Yes).trimmed();
+    return match.captured(1);
 }
 
 QString Work::kernelImageVersion(const QString &kernelPath) const
