@@ -852,12 +852,12 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Snapshot do MX - Criador de Imagem ISO do Sistema Operacional</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
@@ -872,8 +872,8 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <translation>Ocorreu um erro crítico: exceção desconhecida</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="778"/>
         <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>O núcleo (kernel) atual não é compatível com o ‘Squashfs’. Por isso, não é possível continuar.</translation>
     </message>
@@ -1229,13 +1229,13 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
         <location filename="../src/work.cpp" line="1095"/>
         <location filename="../src/work.cpp" line="1108"/>
         <location filename="../src/work.cpp" line="1116"/>
-        <location filename="../src/work.cpp" line="1172"/>
-        <location filename="../src/work.cpp" line="1463"/>
-        <location filename="../src/work.cpp" line="1471"/>
-        <location filename="../src/work.cpp" line="1485"/>
-        <location filename="../src/work.cpp" line="1524"/>
-        <location filename="../src/work.cpp" line="1574"/>
-        <location filename="../src/work.cpp" line="1598"/>
+        <location filename="../src/work.cpp" line="1177"/>
+        <location filename="../src/work.cpp" line="1468"/>
+        <location filename="../src/work.cpp" line="1476"/>
+        <location filename="../src/work.cpp" line="1490"/>
+        <location filename="../src/work.cpp" line="1529"/>
+        <location filename="../src/work.cpp" line="1579"/>
+        <location filename="../src/work.cpp" line="1603"/>
         <source>Error</source>
         <translation>Ocorreu um Erro</translation>
     </message>
@@ -1312,7 +1312,7 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="730"/>
-        <location filename="../src/work.cpp" line="1162"/>
+        <location filename="../src/work.cpp" line="1167"/>
         <source>Warning</source>
         <translation>Aviso</translation>
     </message>
@@ -1423,69 +1423,69 @@ As %1 imagens ISOs estão ocupando %2 de espaço em disco.</translation>
     </message>
     <message>
         <location filename="../src/work.cpp" line="1148"/>
-        <location filename="../src/work.cpp" line="1169"/>
+        <location filename="../src/work.cpp" line="1174"/>
         <source>Installing </source>
         <translation>Instalando</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1159"/>
+        <location filename="../src/work.cpp" line="1163"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation>O gerenciador de pacotes ‘paru’ não foi encontrado e, assim, não é possível instalar o %1 a partir do AUR.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1163"/>
+        <location filename="../src/work.cpp" line="1168"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation>Não foi possível instalar o %1; prosseguindo sem o instalador.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1172"/>
+        <location filename="../src/work.cpp" line="1177"/>
         <source>Could not install </source>
         <translation>Não foi possível instalar</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1182"/>
+        <location filename="../src/work.cpp" line="1187"/>
         <source>Calculating checksum...</source>
         <translation>Calculando a soma de verificação...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1233"/>
+        <location filename="../src/work.cpp" line="1238"/>
         <source>Building new initrd...</source>
         <translation>Construindo o novo ‘initrd’...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1336"/>
+        <location filename="../src/work.cpp" line="1341"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation>Recompilando o initramfs com: mkinitcpio %1</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1463"/>
-        <location filename="../src/work.cpp" line="1485"/>
+        <location filename="../src/work.cpp" line="1468"/>
+        <location filename="../src/work.cpp" line="1490"/>
         <source>Could not create the package list: </source>
         <translation>Não foi possível estabelecer a lista de pacotes:</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1472"/>
+        <location filename="../src/work.cpp" line="1477"/>
         <source>Could not create working directory. </source>
         <translation>Não foi possível criar a pasta de trabalho.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1525"/>
+        <location filename="../src/work.cpp" line="1530"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation>Não foi possível montar um outro diretório por cima do diretório raiz do sistema. Não é possível continuar.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1575"/>
-        <location filename="../src/work.cpp" line="1599"/>
+        <location filename="../src/work.cpp" line="1580"/>
+        <location filename="../src/work.cpp" line="1604"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation>Não foi possível montar o ambiente de captura do diretório raiz do sistema.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1938"/>
+        <location filename="../src/work.cpp" line="1943"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Calculando o tamanho total dos arquivos excluídos...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1965"/>
+        <location filename="../src/work.cpp" line="1970"/>
         <source>Calculating size of root...</source>
         <translation>Calculando o tamanho da raiz (‘root’)...</translation>
     </message>

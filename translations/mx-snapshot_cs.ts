@@ -849,12 +849,12 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <translation>MX Snapshot</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -869,8 +869,8 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="778"/>
         <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Současné jádro nepodporuje Squashfs, nelze pokračovat.</translation>
     </message>
@@ -1227,13 +1227,13 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
         <location filename="../src/work.cpp" line="1095"/>
         <location filename="../src/work.cpp" line="1108"/>
         <location filename="../src/work.cpp" line="1116"/>
-        <location filename="../src/work.cpp" line="1172"/>
-        <location filename="../src/work.cpp" line="1463"/>
-        <location filename="../src/work.cpp" line="1471"/>
-        <location filename="../src/work.cpp" line="1485"/>
-        <location filename="../src/work.cpp" line="1524"/>
-        <location filename="../src/work.cpp" line="1574"/>
-        <location filename="../src/work.cpp" line="1598"/>
+        <location filename="../src/work.cpp" line="1177"/>
+        <location filename="../src/work.cpp" line="1468"/>
+        <location filename="../src/work.cpp" line="1476"/>
+        <location filename="../src/work.cpp" line="1490"/>
+        <location filename="../src/work.cpp" line="1529"/>
+        <location filename="../src/work.cpp" line="1579"/>
+        <location filename="../src/work.cpp" line="1603"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -1310,7 +1310,7 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
     </message>
     <message>
         <location filename="../src/work.cpp" line="730"/>
-        <location filename="../src/work.cpp" line="1162"/>
+        <location filename="../src/work.cpp" line="1167"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
@@ -1421,69 +1421,69 @@ V případě potřeby můžete vytvořit více volného místa odstraněním př
     </message>
     <message>
         <location filename="../src/work.cpp" line="1148"/>
-        <location filename="../src/work.cpp" line="1169"/>
+        <location filename="../src/work.cpp" line="1174"/>
         <source>Installing </source>
         <translation>Instalace</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1159"/>
+        <location filename="../src/work.cpp" line="1163"/>
         <source>paru not found; cannot install %1 from the AUR.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1163"/>
+        <location filename="../src/work.cpp" line="1168"/>
         <source>Could not install %1; continuing without the installer.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1172"/>
+        <location filename="../src/work.cpp" line="1177"/>
         <source>Could not install </source>
         <translation>Nelze nainstalovat</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1182"/>
+        <location filename="../src/work.cpp" line="1187"/>
         <source>Calculating checksum...</source>
         <translation>Počítání kontrolních součtů...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1233"/>
+        <location filename="../src/work.cpp" line="1238"/>
         <source>Building new initrd...</source>
         <translation>Vytváření nového initrd...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1336"/>
+        <location filename="../src/work.cpp" line="1341"/>
         <source>Rebuilding initramfs with: mkinitcpio %1</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1463"/>
-        <location filename="../src/work.cpp" line="1485"/>
+        <location filename="../src/work.cpp" line="1468"/>
+        <location filename="../src/work.cpp" line="1490"/>
         <source>Could not create the package list: </source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1472"/>
+        <location filename="../src/work.cpp" line="1477"/>
         <source>Could not create working directory. </source>
         <translation>Nebylo možné vytvořít pracovní složku.</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1525"/>
+        <location filename="../src/work.cpp" line="1530"/>
         <source>Could not prepare a safe bind-root overlay. Snapshot cannot continue.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1575"/>
-        <location filename="../src/work.cpp" line="1599"/>
+        <location filename="../src/work.cpp" line="1580"/>
+        <location filename="../src/work.cpp" line="1604"/>
         <source>Could not prepare the snapshot bind-root environment.</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1938"/>
+        <location filename="../src/work.cpp" line="1943"/>
         <source>Calculating total size of excluded files...</source>
         <translation>Výpočet celkové velikosti vyloučených souborů...</translation>
     </message>
     <message>
-        <location filename="../src/work.cpp" line="1965"/>
+        <location filename="../src/work.cpp" line="1970"/>
         <source>Calculating size of root...</source>
         <translation>Výpoćet velikosti root...</translation>
     </message>
