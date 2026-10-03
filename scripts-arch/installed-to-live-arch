@@ -755,9 +755,11 @@ action_passwd() {
 # display manager configured to autologin the original user is carried through
 # unchanged — so the live ISO tries to autologin a now-nonexistent account and
 # drops to a confusing greeter. Point every DM autologin we can find at demo.
-# The live-files package ships a demo-autologin /etc/sddm.conf, but that only
-# helps SDDM; Plasma 6.5's plasmalogin (and lightdm/gdm) need the same fix, and
-# drop-ins under *.conf.d/ can still override a shipped config. Staged and
+# The general-files template ships demo-autologin configs for SDDM
+# (/etc/sddm.conf) and plasmalogin (/etc/plasmalogin.conf.d/autologin.conf), so
+# autologin works even when the host has none configured; this covers the rest:
+# lightdm/gdm, the main plasmalogin.conf, and other *.conf.d/ drop-ins that
+# could still override a shipped config. Staged and
 # bind-mounted like the other rewrites so it is safe on the overlay and on the
 # plain-bind fallback bind-root alike.
 action_reset_autologin() {
