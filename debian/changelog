@@ -1,3 +1,11 @@
+mx-snapshot (26.10) mx; urgency=medium
+
+  * On Arch, log in automatically as the demo user when booting an ISO made
+    with reset accounts on KDE systems that use the Plasma login screen,
+    instead of asking for the demo password.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 03 Oct 2026 08:58:08 -0400
+
 mx-snapshot (26.09.3) mx; urgency=medium
 
   * On Arch, leave the login screen and display-manager settings alone when
