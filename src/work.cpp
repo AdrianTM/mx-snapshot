@@ -139,18 +139,21 @@ bool runAsSessionUser(Cmd &shell, const QString &user, const QString &cmd, const
 // privileges is what actually closes that, since the user cannot write there.
 bool placeInstallerLink(Cmd &shell, const QString &source, const QString &linkPath, const QString &user)
 {
+    // Preserve existing files and symlinks, including dangling symlinks.
+    const QFileInfo linkInfo(linkPath);
+    if (linkInfo.exists() || linkInfo.isSymLink()) {
+        return false; // Nothing was created, so cleanup must not remove it.
+    }
     if (geteuid() != 0) {
-        // Removes a symlink sitting at that name, never what it points at.
-        QFile::remove(linkPath);
         if (QFile::link(source, linkPath)) {
             return true;
         }
         qDebug() << "Could not create installer link:" << linkPath;
         return false;
     }
-    // -n so an existing symlink at that name is replaced rather than followed
-    // into the directory it points at.
-    if (!runAsSessionUser(shell, user, "ln", {"-sfn", "--", source, linkPath})) {
+    // No -f: do not replace a file created after the existence check.
+    // -T: never create a link inside an existing directory.
+    if (!runAsSessionUser(shell, user, "ln", {"-sT", "--", source, linkPath})) {
         qDebug() << "Could not create installer link as" << user << "at" << linkPath;
         return false;
     }
@@ -326,10 +329,9 @@ void Work::cleanUp()
     //   - mx-remaster's installed-to-live (Debian) drops a marker at
     //     /tmp/installed-to-live/cleanup.conf and is undone via snapshot-lib;
     //   - installed-to-live-arch persists state at /run/<app>/cleanup-arch.state
-    //     (or /tmp/<app>/...) and undoes itself via its own `cleanup` subcmd.
+    //     and undoes itself via its own `cleanup` subcmd.
     const QString appName = QCoreApplication::applicationName();
-    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
-                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state");
     if (archStatePresent) {
         shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
@@ -386,8 +388,7 @@ bool Work::checkAndMoveWorkDir(const QString &dir, quint64 req_size)
         // See Work::cleanUp for the rationale on the dual cleanup paths
         // (installed-to-live for Debian, installed-to-live-arch for Arch).
         const QString appName = QCoreApplication::applicationName();
-        if (QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
-            || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state")) {
+        if (QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")) {
             shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
         }
         if (QFileInfo::exists("/tmp/installed-to-live/cleanup.conf")) {
@@ -976,8 +977,7 @@ bool Work::createIso(const QString &filename)
     }
 
     const QString appName = QCoreApplication::applicationName();
-    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
-                                  || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+    const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state");
     if (archStatePresent) {
         shell.procAsRoot("installed-to-live-arch", {"cleanup"}, nullptr, nullptr, Cmd::QuietMode::Yes);
     }
@@ -1546,15 +1546,7 @@ void Work::setupEnv()
         } else if (QFileInfo::exists("/usr/share/applications/minstall.desktop")) {
             installerSource = "/usr/share/applications/minstall.desktop";
         }
-        // Drop the link in /etc/skel before the installer flow so any skel-to-demo
-        // copy step picks it up.
-        if (!installerSource.isEmpty()) {
-            const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
-            shell.procAsRoot("mkdir", {"-p", skelDesktopDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
-            shell.procAsRoot("ln", {"-sf", installerSource, skelDesktopDir + "/minstall.desktop"}, nullptr, nullptr,
-                             Cmd::QuietMode::Yes);
-            qDebug() << "Created installer link in skel:" << skelDesktopDir << "->" << installerSource;
-        } else {
+        if (installerSource.isEmpty()) {
             qDebug() << "No installer desktop file found";
         }
     }
@@ -1630,6 +1622,15 @@ void Work::setupEnv()
                 }
             }
         }
+    }
+    // Setup has mounted the snapshot root. Only change skel in an isolated
+    // overlay; plain binds share the host skel. Reset snapshots already have
+    // the installer link in the staged demo Desktop above.
+    if (!installerSource.isEmpty() && bindRootOverlayActive) {
+        const QString skelDesktopDir = bindRootPath + "/etc/skel/Desktop";
+        shell.procAsRoot("mkdir", {"-p", skelDesktopDir}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        shell.procAsRoot("ln", {"-sf", installerSource, skelDesktopDir + "/minstall.desktop"}, nullptr, nullptr,
+                         Cmd::QuietMode::Yes);
     }
     if (!bindRootOverlayActive) {
         shell.procAsRoot(installedToLive, {"-b", bindRootPath, "read-only"}, nullptr, nullptr,

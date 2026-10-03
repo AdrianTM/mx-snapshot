@@ -203,9 +203,8 @@ Settings::Settings(const QCommandLineParser &argParser, bool isGuiApp)
         // Two possible bind-root setups left behind from a previous run:
         // installed-to-live (Debian, marker at /tmp/installed-to-live/cleanup.conf)
         // and installed-to-live-arch (Arch, state at /run/<app>/cleanup-arch.state
-        // or its /tmp/ fallback). Run whichever cleanup matches.
-        const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state")
-                                      || QFileInfo::exists("/tmp/" + appName + "/cleanup-arch.state");
+        // only). Run whichever cleanup matches.
+        const bool archStatePresent = QFileInfo::exists("/run/" + appName + "/cleanup-arch.state");
         bool archCleanupOk = true;
         if (archStatePresent) {
             const QString archScript

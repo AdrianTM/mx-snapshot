@@ -45,7 +45,6 @@ APP_NAME=${APP_NAME:-mx-snapshot}
 
 LIVE_FILES_DIR=/usr/share/live-files
 PRIMARY_STATE_DIR=/run/$APP_NAME
-FALLBACK_STATE_DIR=/tmp/$APP_NAME
 STATE_FILE_NAME=cleanup-arch.state
 
 # Globals populated by argument parsing / start.
@@ -70,26 +69,30 @@ require_root() {
 
 # ------------------------------------------------------------------- state
 state_dir() {
-    if [[ -d $PRIMARY_STATE_DIR && -w $PRIMARY_STATE_DIR ]] || install -d -m 0755 "$PRIMARY_STATE_DIR" 2>/dev/null; then
-        printf '%s\n' "$PRIMARY_STATE_DIR"
-        return 0
+    # /run is root-controlled; never consume legacy state from world-writable /tmp.
+    [[ ! -L $PRIMARY_STATE_DIR ]] || fatal "state directory is a symlink"
+    if [[ ! -e $PRIMARY_STATE_DIR ]]; then
+        install -d -m 0755 "$PRIMARY_STATE_DIR" 2>/dev/null || fatal "cannot create state dir"
     fi
-    install -d -m 0755 "$FALLBACK_STATE_DIR" 2>/dev/null || fatal "cannot create state dir"
-    printf '%s\n' "$FALLBACK_STATE_DIR"
+    [[ -d $PRIMARY_STATE_DIR ]] || fatal "state directory is not a directory"
+    local owner mode
+    read -r owner mode < <(stat -c '%u %a' "$PRIMARY_STATE_DIR")
+    [[ $owner == 0 && $((8#$mode & 0022)) == 0 ]] || fatal "unsafe state directory"
+    printf '%s\n' "$PRIMARY_STATE_DIR"
 }
 
 state_file() {
-    local d
-    if [[ -f $PRIMARY_STATE_DIR/$STATE_FILE_NAME ]]; then
-        printf '%s\n' "$PRIMARY_STATE_DIR/$STATE_FILE_NAME"
-        return 0
+    local d f
+    d=$(state_dir) || return 1
+    f=$d/$STATE_FILE_NAME
+    [[ ! -L $f ]] || fatal "state file is a symlink"
+    if [[ -e $f ]]; then
+        local owner mode
+        [[ -f $f ]] || fatal "state is not a regular file"
+        read -r owner mode < <(stat -c '%u %a' "$f")
+        [[ $owner == 0 && $((8#$mode & 0022)) == 0 ]] || fatal "unsafe state file"
     fi
-    if [[ -f $FALLBACK_STATE_DIR/$STATE_FILE_NAME ]]; then
-        printf '%s\n' "$FALLBACK_STATE_DIR/$STATE_FILE_NAME"
-        return 0
-    fi
-    d=$(state_dir)
-    printf '%s\n' "$d/$STATE_FILE_NAME"
+    printf '%s\n' "$f"
 }
 
 # Lines:
@@ -382,14 +385,15 @@ action_timezone() {
 
     bind_mount_template "$tz_dir"
 
-    # Also fix up the bind-root copies so live tools see the right values
-    # even if their bind-mount source was stale.
+    # Only replace localtime in an isolated overlay. A plain bind shares the
+    # host symlink; bind_mount_template intentionally leaves it untouched.
     local bind_localtime=${BIND_ROOT%/}/etc/localtime
-    if [[ ! -e $bind_localtime || -L $bind_localtime ]]; then
+    if [[ $(findmnt -n -o FSTYPE --target "$BIND_ROOT") == overlay \
+        && $(stat -c %d "$BIND_ROOT") != "$(stat -c %d "$REAL_ROOT")" ]] \
+        && [[ ! -e $bind_localtime || -L $bind_localtime ]]; then
         rm -f "$bind_localtime"
         cp -a "$zone_file" "$bind_localtime"
     fi
-    printf '%s\n' "$tz" > "${BIND_ROOT%/}/etc/timezone"
 }
 
 # Hash a password with SHA-512 crypt. openssl is the primary tool (a declared

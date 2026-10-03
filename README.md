@@ -99,6 +99,19 @@ recommend it for anything other than MX or antiX compatible systems.
   - **-z**, **--compression** \<format\>  
     Compression format, valid choices: lz4, lzo, gzip, xz, zstd
 
+# ARCH SNAPSHOT SAFETY
+
+Arch cleanup state is stored only in `/run/<app>/cleanup-arch.state`.
+Legacy state in `/tmp` is ignored; do not move it into `/run` without verifying
+its contents. Leftover mounts from an interrupted legacy run need manual cleanup.
+State directories and files must be root-owned, must not be
+symlinks, and must not be writable by group or other users.
+
+The plain-bind fallback preserves the host timezone symlink and does not add
+an installer shortcut to the host's `/etc/skel`. Reset snapshots still receive
+the shortcut in the staged demo Desktop. Personal snapshots preserve any
+existing `minstall.desktop` file or symlink on the user's Desktop.
+
 # SEE ALSO
 
 mx-live-usb-maker -- writes created ISOs to USB flashdrives
