@@ -135,6 +135,11 @@ bool Cmd::helperProc(const QStringList &helperArgs, QString *output, const QByte
             handleElevationError();
             emit done();
             return false;
+        case ElevationBroker::Launch::Aborted:
+            // The application is quitting (the broker stays shut down); a
+            // per-call fallback would only raise another prompt on the way out.
+            emit done();
+            return false;
         case ElevationBroker::Launch::Ready: {
             if (quiet == QuietMode::No) {
                 qDebug() << "helper(serve)" << helperArgs;

@@ -23,7 +23,6 @@
  **********************************************************************/
 #include "elevationbroker.h"
 
-#include <QCoreApplication>
 #include <QDebug>
 #include <QEventLoop>
 
@@ -39,9 +38,9 @@ ElevationBroker::ElevationBroker(QObject *parent)
     connect(&proc, &QProcess::readyReadStandardOutput, this, &ElevationBroker::onStdout);
     connect(&proc, &QProcess::readyReadStandardError, this, &ElevationBroker::onStderr);
     connect(&proc, &QProcess::finished, this, &ElevationBroker::onFinished);
-    if (QCoreApplication::instance() != nullptr) {
-        connect(QCoreApplication::instance(), &QCoreApplication::aboutToQuit, this, &ElevationBroker::shutdown);
-    }
+    // No aboutToQuit hook: teardown that runs on aboutToQuit (Work::cleanUp())
+    // still needs the helper. A quit during a launch wait is handled in
+    // ensureStarted(); a serving helper is stopped by the destructor.
 }
 
 ElevationBroker::~ElevationBroker()
@@ -60,7 +59,7 @@ ElevationBroker::Launch ElevationBroker::ensureStarted(const QString &helperPath
         return Launch::Ready;
     }
     if (shuttingDown) {
-        return Launch::Failed;
+        return Launch::Aborted;
     }
     if (proc.state() == QProcess::NotRunning) {
         ready = false;
@@ -80,8 +79,17 @@ ElevationBroker::Launch ElevationBroker::ensureStarted(const QString &helperPath
     while (!ready && proc.state() == QProcess::Running) {
         QEventLoop wait;
         launchWaiters.append(&wait);
-        wait.exec();
+        const int waitResult = wait.exec();
         launchWaiters.removeOne(&wait);
+        // wakeLaunchWaiters() ends the wait with 0. Anything else means
+        // QCoreApplication::exit() ran (with exit(0), the next exec() returns
+        // -1): every later exec() returns at once, so READY/finished can never
+        // be delivered and this loop would spin. The application is quitting,
+        // so stop pkexec and stay shut down: later calls must not prompt again.
+        if (waitResult != 0 || shuttingDown) {
+            shutdown();
+            return Launch::Aborted;
+        }
     }
     if (ready) {
         return Launch::Ready;
@@ -136,16 +144,31 @@ void ElevationBroker::killActiveChild()
 
 void ElevationBroker::shutdown()
 {
+    const bool serving = ready;
+    shuttingDown = true;
+    ready = false;
     if (proc.state() == QProcess::NotRunning) {
         return;
     }
-    shuttingDown = true;
-    ready = false;
     failAllPending();
     wakeLaunchWaiters();
 
-    proc.closeWriteChannel(); // helper serve exits on stdin EOF
-    if (proc.waitForFinished(3000)) {
+    // A serving helper exits on stdin EOF. A launch still waiting for
+    // authentication is pkexec with its dialog open, which never does.
+    if (serving) {
+        proc.closeWriteChannel();
+        if (proc.waitForFinished(3000)) {
+            return;
+        }
+    }
+    stopProcess();
+}
+
+// Synchronous: waitForFinished() does not need a running event loop, so this
+// also works while the application is quitting.
+void ElevationBroker::stopProcess()
+{
+    if (proc.state() == QProcess::NotRunning) {
         return;
     }
     proc.terminate();

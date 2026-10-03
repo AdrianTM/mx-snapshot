@@ -50,6 +50,9 @@ public:
     explicit MainWindow(Settings *settings, QWidget *parent = nullptr);
     ~MainWindow() override;
 
+    // SIGINT/SIGTERM/SIGHUP: tear down a started snapshot, otherwise quit.
+    void cancelFromSignal();
+
 protected:
     void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
@@ -91,7 +94,11 @@ private:
     QString pendingOutputBuffer;
     bool transientOutputLineActive {};
     bool realProgressActive {};
-    bool cleanupInProgress = false;
+    // The first elevated calls of a run are waiting (for authentication) in a
+    // nested event loop that still delivers clicks and close requests.
+    bool elevatedSetupInProgress = false;
+    // A signal asked to quit before the snapshot started; nothing may start it.
+    bool quitRequested = false;
 
     [[nodiscard]] bool confirmStart();
     void cleanUp();

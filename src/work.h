@@ -52,6 +52,9 @@ public:
     [[nodiscard]] bool isStarted() const { return started; }
     [[nodiscard]] bool isDone() const { return done; }
     [[nodiscard]] bool isCleaningUp() const { return cleanupStarted; }
+    // True only while cleanUp() is still tearing down (it runs nested event
+    // loops, so the UI stays live); false again once it has requested exit.
+    [[nodiscard]] bool isCleanupRunning() const { return cleanupRunning; }
     [[nodiscard]] qint64 getElapsedTime() const { return e_timer.elapsed(); }
     [[nodiscard]] const Settings& getSettings() const { return *settings; }
 
@@ -119,6 +122,7 @@ private:
     bool started = false;
     bool done = false;
     bool cleanupStarted = false;
+    bool cleanupRunning = false;
     QTemporaryDir initrd_dir;
     QString bindRootPath = "/.bind-root";
     QString bindRootOverlayBase;

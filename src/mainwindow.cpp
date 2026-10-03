@@ -74,8 +74,12 @@ MainWindow::MainWindow(Settings *settings, QWidget *parent)
     setExclusions();
     setOtherOptions();
     if (settings->monthly) {
-        ui->btnNext->click();
-        ui->btnNext->click();
+        // Run inside exec(): Work::cleanUp() ends with QCoreApplication::exit(),
+        // which exec() discards if it is requested before the loop starts.
+        QTimer::singleShot(0, this, [this] {
+            ui->btnNext->click();
+            ui->btnNext->click();
+        });
     } else {
         listUsedSpace();
     }
@@ -468,13 +472,22 @@ void MainWindow::cleanUp()
     if (!work.isStarted() || work.isCleaningUp()) {
         return;
     }
-    if (cleanupInProgress) {
-        return;
-    }
-    cleanupInProgress = true;
-
     ui->stackedWidget->setCurrentWidget(ui->outputPage);
     work.cleanUp();
+}
+
+void MainWindow::cancelFromSignal()
+{
+    // cleanUp() exits the application when the teardown finishes and is a
+    // no-op while one is already running.
+    if (work.isStarted()) {
+        cleanUp();
+        return;
+    }
+    // Not started: quit. handleSettingsPage() may be inside its elevated
+    // checks; when their nested waits unwind it must not start the run.
+    quitRequested = true;
+    QCoreApplication::quit();
 }
 
 // Once the snapshot pipeline is underway a denied re-authentication (the polkit
@@ -733,12 +746,27 @@ void MainWindow::handleSettingsPage(const QString &file_name)
     // These are the first operations that ask for administrator access. If the
     // user cancels the authentication dialog (or it fails otherwise), stay on
     // the settings page so they can simply press Next again — don't kill the app.
+    // While authentication is pending the nested event loop still delivers
+    // clicks: disable the buttons so Next cannot start a second run, and
+    // closeApp() refuses to quit underneath the wait.
+    elevatedSetupInProgress = true;
+    ui->btnNext->setEnabled(false);
+    ui->btnBack->setEnabled(false);
+    ui->btnCancel->setEnabled(false);
     Cmd::clearElevationDenied();
     const bool dirsOk = settings->checkSnapshotDir() && settings->checkTempDir();
     if (dirsOk) {
         applyExclusions();
     }
+    elevatedSetupInProgress = false;
+    if (quitRequested) {
+        settings->tmpdir.reset();
+        return;
+    }
+    ui->btnCancel->setEnabled(true);
     if (Cmd::elevationDenied() || !dirsOk) {
+        ui->btnNext->setEnabled(true);
+        ui->btnBack->setEnabled(true);
         settings->tmpdir.reset(); // Drop any created work dir; a retry recreates it
         if (Cmd::elevationDenied()) {
             processMsgBox(BoxType::warning, tr("Cancelled"),
@@ -765,8 +793,8 @@ bool MainWindow::confirmStart()
         + tr("It will take some time to finish, depending on the size of the installed system and the capacity of "
              "your computer.")
         + "\n\n" + tr("OK to start?"));
-    messageBox.addButton(QMessageBox::Ok);
-    auto *pushCancel = messageBox.addButton(QMessageBox::Cancel);
+    auto *pushOk = messageBox.addButton(QMessageBox::Ok);
+    messageBox.addButton(QMessageBox::Cancel);
     auto *checkShutdown = new QCheckBox(this);
     checkShutdown->setText(tr("Shutdown computer when done."));
     if (settings->shutdown) {
@@ -774,7 +802,9 @@ bool MainWindow::confirmStart()
     }
     messageBox.setCheckBox(checkShutdown);
     messageBox.exec();
-    if (messageBox.clickedButton() == pushCancel) {
+    // Only an explicit OK starts the run: a box closed because the application
+    // is quitting returns with no button clicked.
+    if (messageBox.clickedButton() != pushOk) {
         return false;
     }
     settings->shutdown = checkShutdown->isChecked();
@@ -1049,12 +1079,8 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    // If cleanup is already running, don't second-guess it.
-    if (cleanupInProgress) {
-        event->accept();
-        return;
-    }
-    // Programmatic close (e.g. our own close() at the end of closeApp): just let it through.
+    // Programmatic close (our own close() at the end of closeApp, or the
+    // application quitting): just let it through.
     if (!event->spontaneous()) {
         event->accept();
         return;
@@ -1070,7 +1096,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 bool MainWindow::closeApp(bool fromCloseEvent)
 {
-    if (cleanupInProgress) {
+    // Closing the last window quits the event loops that the running teardown
+    // or authentication wait depends on. cleanUp() exits the app when it is
+    // done; a pending authentication returns control to the settings page.
+    if (work.isCleanupRunning() || elevatedSetupInProgress) {
         return false;
     }
     // Ask for confirmation when on outputPage and not done

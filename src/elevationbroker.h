@@ -42,7 +42,7 @@ class ElevationBroker : public QObject
 public:
     using OutputSink = std::function<void(const QByteArray &)>;
 
-    enum class Launch { Ready, Denied, Failed };
+    enum class Launch { Ready, Denied, Failed, Aborted };
 
     static ElevationBroker &instance();
     ~ElevationBroker() override;
@@ -50,6 +50,9 @@ public:
     // Start (or confirm) the broker. Blocks — pumping the event loop, so the
     // GUI stays responsive behind the pkexec dialog — until the broker prints
     // READY or exits. Denied = authentication cancelled/refused (pkexec 126/127).
+    // Aborted = the application started quitting during the wait, or the
+    // broker was shut down; it stays shut down, so callers must not fall back
+    // to another prompt.
     Launch ensureStarted(const QString &helperPath, const QString &elevationTool);
 
     // Run one helper request (argv exactly as passed to the helper in one-shot
@@ -85,6 +88,7 @@ private:
     void completeRequest(quint64 id, int code);
     void failAllPending();
     void wakeLaunchWaiters();
+    void stopProcess();
 
     QProcess proc;
     QByteArray buffer;

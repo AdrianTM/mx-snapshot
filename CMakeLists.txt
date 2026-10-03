@@ -361,6 +361,17 @@ if(BUILD_TESTS)
     set_common_properties(test-elevationbroker)
     add_dependencies(test-elevationbroker helper)
     add_test(NAME elevationbroker COMMAND test-elevationbroker)
+
+    # Separate process: a quit shuts the process-wide broker down for good.
+    add_executable(test-elevationbroker-quit
+        tests/test_elevationbroker_quit.cpp
+        src/elevationbroker.cpp
+        src/elevationbroker.h
+    )
+    target_link_libraries(test-elevationbroker-quit Qt6::Core Qt6::Test)
+    target_include_directories(test-elevationbroker-quit PRIVATE src)
+    set_common_properties(test-elevationbroker-quit)
+    add_test(NAME elevationbroker-quit COMMAND test-elevationbroker-quit)
 endif()
 
 # Handle translations

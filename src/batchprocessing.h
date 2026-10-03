@@ -34,6 +34,10 @@ class Batchprocessing : public QObject
 public:
     explicit Batchprocessing(Settings *settings, QObject *parent = nullptr);
 
+    // Run the whole snapshot pipeline synchronously. Kept out of the
+    // constructor so main() can route signals to cancel() while it runs.
+    void run();
+    void cancel();
     void setConnections();
 
     // True once the snapshot pipeline ran to completion (Work::createIso()

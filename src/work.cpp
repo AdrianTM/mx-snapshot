@@ -34,6 +34,7 @@
 #include <QProcess>
 #include <QRegularExpression>
 #include <QSettings>
+#include <QScopeGuard>
 #include <QStandardPaths>
 #include <QStorageInfo>
 #include <QTemporaryDir>
@@ -294,6 +295,11 @@ void Work::cleanUp()
         return;
     }
     cleanupStarted = true;
+    // Cleared on every return below, after requestExit() has asked the event
+    // loop to stop, so a window close during teardown can be refused without
+    // ever trapping the user once cleanup is over.
+    cleanupRunning = true;
+    const auto cleanupFinished = qScopeGuard([this] { cleanupRunning = false; });
 
     // Stop a running mksquashfs before queueing any other privileged request:
     // the broker executes FIFO, so anything queued below would otherwise wait

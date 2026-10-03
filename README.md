@@ -99,6 +99,20 @@ recommend it for anything other than MX or antiX compatible systems.
   - **-z**, **--compression** \<format\>  
     Compression format, valid choices: lz4, lzo, gzip, xz, zstd
 
+# CANCELLING A RUN
+
+SIGINT, SIGTERM and SIGHUP cancel a running snapshot in both the CLI and the
+GUI: a running mksquashfs is stopped, the bind-root environment is torn down,
+the log is archived, and the program exits with a failure status. A signal
+that arrives before the snapshot starts, including while waiting for
+authentication, exits without starting it. At the CLI exclusion-file prompt a
+signal ends the program immediately, since nothing has been set up yet.
+
+In the GUI, Next, Back and Cancel are disabled while the first authentication
+request is pending, and the window cannot be closed while it is pending or
+while cleanup is still tearing the snapshot down; the program exits on its own
+when cleanup finishes. `--month` runs start once the window is shown.
+
 # ARCH PACKAGING AND RELEASES
 
 `./build.sh --arch` builds in `build/arch-package` and clears that directory
