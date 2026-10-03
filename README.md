@@ -99,6 +99,19 @@ recommend it for anything other than MX or antiX compatible systems.
   - **-z**, **--compression** \<format\>  
     Compression format, valid choices: lz4, lzo, gzip, xz, zstd
 
+# ARCH PACKAGING AND RELEASES
+
+`./build.sh --arch` builds in `build/arch-package` and clears that directory
+before configuration. Developer builds in `build/` are preserved, and their
+cached compiler flags and test options do not affect the package.
+
+`./release.sh` publishes the requested tag before updating the AUR recipe,
+including when a previous attempt left the tag only in the local repository.
+Invalid versions report their error on stderr. AUR archive directories track
+`pkgver`; a leading `v` remains in the GitHub tag URL but is removed from the
+package version and archive directory name. `--no-push` skips the AUR push;
+it still publishes the GitHub tag and commits the AUR update.
+
 # USER CONFIGURATION
 
 When loading configuration, the application repairs ownership of the

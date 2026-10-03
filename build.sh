@@ -175,7 +175,7 @@ if [ "$ARCH_BUILD" = true ]; then
 
     echo "Arch Linux package build completed!"
     echo "Package: $(ls "$PKG_DEST_DIR"/*.pkg.tar.zst 2>/dev/null || echo 'not found')"
-    echo "Binary available at: $BUILD_DIR/mx-snapshot"
+    echo "Binary available at: $PWD/build/arch-package/mx-snapshot"
     exit 0
 fi
 

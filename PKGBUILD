@@ -21,11 +21,16 @@ provides=('mx-remaster-live-files=1.0.0')
 # /etc/mx-snapshot.conf and the exclude list are meant to be user-edited;
 # without this, pacman would overwrite local changes on every upgrade.
 backup=('etc/mx-snapshot.conf' 'etc/mx-snapshot-exclude.list')
+_builddir=build/arch-package
+
 source=()
 sha256sums=()
 
 build() {
     cd "${startdir}"
+
+    # Reconfigure from a clean package-only directory, preserving developer builds.
+    rm -rf "$_builddir"
 
     # Arch packaging is intentionally GUI-only.
     # iso-snapshot-cli is a Debian-only deliverable: on Debian it ships in its
@@ -35,7 +40,7 @@ build() {
     # `-DBUILD_CLI=ON` via makepkg's CFLAGS/options or build directly with
     # cmake.
     cmake -G Ninja \
-        -B build \
+        -B "$_builddir" \
         -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -43,16 +48,16 @@ build() {
         -DBUILD_GUI=ON \
         -DBUILD_CLI=OFF
 
-    cmake --build build --parallel
+    cmake --build "$_builddir" --parallel
 }
 
 package() {
     cd "${startdir}"
 
-    install -Dm755 build/mx-snapshot "${pkgdir}/usr/bin/mx-snapshot"
+    install -Dm755 "$_builddir/mx-snapshot" "${pkgdir}/usr/bin/mx-snapshot"
 
     install -dm755 "${pkgdir}/usr/share/mx-snapshot/locale"
-    install -Dm644 build/*.qm "${pkgdir}/usr/share/mx-snapshot/locale/" 2>/dev/null || true
+    install -Dm644 "$_builddir"/*.qm "${pkgdir}/usr/share/mx-snapshot/locale/" 2>/dev/null || true
 
     # Arch packaging is GUI-only (BUILD_CLI=OFF above); install scripts only
     # under /usr/share/mx-snapshot/, not /usr/share/iso-snapshot-cli/.
@@ -60,7 +65,7 @@ package() {
     cp -a scripts-arch/* "${pkgdir}/usr/share/mx-snapshot/scripts/"
 
     install -dm755 "${pkgdir}/usr/lib/mx-snapshot"
-    install -Dm755 build/helper "${pkgdir}/usr/lib/mx-snapshot/helper"
+    install -Dm755 "$_builddir/helper" "${pkgdir}/usr/lib/mx-snapshot/helper"
     install -Dm755 polkit/snapshot-lib "${pkgdir}/usr/lib/mx-snapshot/snapshot-lib"
 
     # GUI-only: install only the mx-snapshot policies. The iso-snapshot-cli

@@ -38,7 +38,7 @@ print_warning() {
 }
 
 print_error() {
-    echo -e "${RED}ERROR: $1${NC}"
+    echo -e "${RED}ERROR: $1${NC}" >&2
 }
 
 print_success() {
@@ -55,7 +55,7 @@ validate_version() {
     # Check semantic version format (major.minor.patch), YY.MM, or YY.MMsuffix format
     if ! [[ $clean_version =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?[a-z]*$ ]]; then
         print_error "Invalid version format: $version"
-        echo "Expected formats: 1.0.0, v1.0.0, YY.MM (like 26.01), or YY.MMsuffix (like 26.01arch)"
+        echo "Expected formats: 1.0.0, v1.0.0, YY.MM (like 26.01), or YY.MMsuffix (like 26.01arch)" >&2
         exit 1
     fi
 
@@ -65,9 +65,27 @@ validate_version() {
 # Check if tag already exists locally or on the remote
 tag_exists() {
     local version=$1
-    if git tag -l | grep -q "^${version}$"; then return 0; fi
-    if git ls-remote --tags mxlinux 2>/dev/null | grep -q "refs/tags/${version}$"; then return 0; fi
-    return 1
+    if git show-ref --verify --quiet "refs/tags/$version"; then return 0; fi
+    local remote_tag
+    remote_tag=$(git ls-remote --tags --refs mxlinux "refs/tags/$version") || {
+        print_error "Could not check tag '$version' on mxlinux"
+        exit 1
+    }
+    [[ -n "$remote_tag" ]]
+}
+
+# Ensure reruns recover when a tag was created locally but its push failed.
+ensure_tag_pushed() {
+    local version=$1 remote_tag
+    remote_tag=$(git ls-remote --tags --refs mxlinux "refs/tags/$version") || {
+        print_error "Could not check tag '$version' on mxlinux"
+        return 1
+    }
+    if [[ -z "$remote_tag" ]]; then
+        print_step "Pushing tag to GitHub..."
+        git push mxlinux "refs/tags/$version:refs/tags/$version" || return 1
+        print_success "Tag pushed to GitHub"
+    fi
 }
 
 # Get latest numeric release tag for comparison
@@ -187,14 +205,15 @@ update_aur_package() {
 
     local pkgbuild="$AUR_DIR/PKGBUILD"
     local srcinfo="$AUR_DIR/.SRCINFO"
+    local pkgver=${version#v}
 
     # Update PKGBUILD pkgver to match tag and remove pkgver() if present
     if [ -f "$pkgbuild" ]; then
-        print_step "Updating PKGBUILD pkgver to $version..."
+        print_step "Updating PKGBUILD pkgver to $pkgver..."
         if grep -q "^pkgver=" "$pkgbuild"; then
-            sed -i "s/^pkgver=.*/pkgver=${version}/" "$pkgbuild"
+            sed -i "s/^pkgver=.*/pkgver=${pkgver}/" "$pkgbuild"
         else
-            sed -i "/^pkgname=/a pkgver=${version}" "$pkgbuild"
+            sed -i "/^pkgname=/a pkgver=${pkgver}" "$pkgbuild"
         fi
 
         if grep -q "^pkgver()" "$pkgbuild"; then
@@ -209,6 +228,12 @@ update_aur_package() {
         print_error "PKGBUILD not found in $AUR_DIR"
         exit 1
     fi
+
+    # GitHub strips a leading v from the archive directory name.
+    # Repair older recipes as well as updating their version and URL.
+    # Keep these expansions literal for the PKGBUILD to evaluate.
+    # shellcheck disable=SC2016
+    sed -i 's/^_srcdir=.*/_srcdir="${pkgname}-${pkgver}"/' "$pkgbuild"
 
     # Convert to tarball source and calculate checksum
     print_step "Converting to tarball source and calculating checksum..."
@@ -255,8 +280,8 @@ update_aur_package() {
     (cd "$AUR_DIR" && makepkg --printsrcinfo) > "$srcinfo"
 
     # Sanity-check what is about to be committed (and pushed)
-    if ! grep -q "^[[:space:]]*pkgver = ${version}$" "$srcinfo"; then
-        print_error ".SRCINFO does not report pkgver = $version"
+    if ! grep -q "^[[:space:]]*pkgver = ${pkgver}$" "$srcinfo"; then
+        print_error ".SRCINFO does not report pkgver = $pkgver"
         exit 1
     fi
     if ! grep -q "^[[:space:]]*sha256sums = ${checksum}$" "$srcinfo"; then
@@ -442,11 +467,9 @@ main() {
             exit 0
         fi
         create_tag "$version" "$annotation"
-        print_step "Pushing tag to GitHub..."
-        git push mxlinux "$version"
-        print_success "Tag pushed to GitHub"
     fi
 
+    ensure_tag_pushed "$version"
     update_aur_package "$version" "$annotation"
     if [ "$push_aur" -eq 0 ]; then
         show_push_instructions "$version" "$tag_status"

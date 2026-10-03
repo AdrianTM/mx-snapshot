@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+"""Release regression checks using disposable repositories and no network."""
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import tempfile
+import unittest
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+class ReleaseWorkflows(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.directory = Path(self.temp.name)
+        self.env = dict(os.environ, GIT_CONFIG_GLOBAL='/dev/null', GIT_CONFIG_NOSYSTEM='1', GIT_AUTHOR_NAME='Release test', GIT_AUTHOR_EMAIL='test@example.invalid',
+                        GIT_COMMITTER_NAME='Release test', GIT_COMMITTER_EMAIL='test@example.invalid')
+        self.repo = self.directory / 'project'
+        self.run_command(['git', 'init', '-q', '-b', 'main', str(self.repo)])
+        (self.repo / 'file').write_text('test\n')
+        self.git('add', '.')
+        self.git('commit', '-qm', 'Initial')
+
+    def run_command(self, command, cwd=None, check=True):
+        return subprocess.run(command, cwd=cwd, env=self.env, text=True, capture_output=True, check=check)
+
+    def git(self, *args):
+        return self.run_command(['git', '-C', str(self.repo), *args]).stdout.strip()
+
+    def test_invalid_version_has_visible_error(self):
+        result = self.run_command(['bash', str(ROOT / 'release.sh'), '26.10-1'], self.repo, check=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Invalid version format', result.stderr)
+        self.assertIn('Expected formats', result.stderr)
+
+    @unittest.skipUnless(shutil.which('makepkg'), 'makepkg needed for metadata checks')
+    def test_local_tag_push_recovery_and_archive_directory(self):
+        remote = self.directory / 'remote.git'
+        self.run_command(['git', 'init', '-q', '--bare', str(remote)])
+        self.git('remote', 'add', 'mxlinux', str(remote))
+        version = 'v99.98g'
+        self.git('tag', '-a', version, '-m', 'Regression release')
+        aur = self.repo / 'aur'
+        self.run_command(['git', 'init', '-q', '-b', 'main', str(aur)])
+        (aur / 'PKGBUILD').write_text('''pkgname=mx-snapshot
+pkgver=26.10
+pkgrel=1
+pkgdesc='test'
+arch=('x86_64')
+url='https://mxlinux.org'
+license=('GPL3')
+source=('https://github.com/MX-Linux/mx-snapshot/archive/refs/tags/26.10.tar.gz')
+sha256sums=('SKIP')
+_srcdir="mx-snapshot-26.10"
+''')
+        self.run_command(['git', '-C', str(aur), 'add', '.'])
+        self.run_command(['git', '-C', str(aur), 'commit', '-qm', 'Initial recipe'])
+        tools = self.directory / 'bin'
+        tools.mkdir()
+        curl = tools / 'curl'
+        curl.write_text('#!/bin/bash\nwhile [[ $# -gt 0 ]]; do if [[ $1 == -o ]]; then printf test > "$2"; exit; fi; shift; done\nexit 1\n')
+        curl.chmod(0o755)
+        self.env['PATH'] = str(tools) + os.pathsep + self.env['PATH']
+        for _ in range(2):
+            self.run_command(['bash', str(ROOT / 'release.sh'), '--no-push', version], self.repo)
+            remote_tag = self.run_command(['git', '--git-dir', str(remote), 'rev-parse', 'refs/tags/' + version]).stdout.strip()
+            self.assertEqual(remote_tag, self.git('rev-parse', 'refs/tags/' + version))
+            metadata = self.run_command(['makepkg', '--printsrcinfo'], aur).stdout
+            self.assertIn('pkgver = 99.98g', metadata)
+            resolved = self.run_command(['bash', '-c', 'source PKGBUILD; printf "%s" "$_srcdir"'], aur).stdout
+            self.assertEqual(resolved, 'mx-snapshot-99.98g')
+
+    def test_remote_failure_aborts_before_aur_edits(self):
+        self.git('tag', '99.97g')
+        self.git('remote', 'add', 'mxlinux', str(self.directory / 'missing.git'))
+        result = self.run_command(['bash', str(ROOT / 'release.sh'), '--no-push', '99.97g'], self.repo, check=False)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('Could not check tag', result.stderr)
+        self.assertFalse((self.repo / 'aur').exists())
+
+    def test_package_build_keeps_developer_cache_and_discards_package_cache(self):
+        build = self.repo / 'build'
+        package_build = build / 'arch-package'
+        package_build.mkdir(parents=True)
+        (build / 'CMakeCache.txt').write_text('developer ASAN cache')
+        (package_build / 'CMakeCache.txt').write_text('stale package cache')
+        command = '''source "$1"
+startdir=$2
+cmake() {
+    [[ -f build/CMakeCache.txt ]] || return 1
+    [[ ! -f build/arch-package/CMakeCache.txt ]] || return 2
+    if [[ $1 != --build ]]; then
+        while [[ $# -gt 0 ]]; do
+            if [[ $1 == -B ]]; then [[ $2 == build/arch-package ]] || return 3; break; fi
+            shift
+        done
+    else
+        [[ $2 == build/arch-package ]] || return 4
+    fi
+}
+build
+'''
+        self.run_command(['bash', '-e', '-c', command, 'test', str(ROOT / 'PKGBUILD'), str(self.repo)])
+        self.assertEqual((build / 'CMakeCache.txt').read_text(), 'developer ASAN cache')
+        self.assertFalse((package_build / 'CMakeCache.txt').exists())
+
+
+if __name__ == '__main__':
+    unittest.main()
