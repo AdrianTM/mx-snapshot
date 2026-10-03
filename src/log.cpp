@@ -33,7 +33,7 @@
 
 Log::Log(const QString &fileName)
 {
-    logFile.setFileName(fileName);
+    logPath = fileName;
 
     // Check if log file exists and has wrong ownership
     if (QFileInfo::exists(fileName)) {
@@ -65,7 +65,8 @@ QString Log::defaultLogPath(const QString &appName)
 
 bool Log::openLogFile()
 {
-    const QByteArray name = logFile.fileName().toLocal8Bit();
+    // logPath, not logFile.fileName(): QFile::open(int fd) clears the file name.
+    const QByteArray name = logPath.toLocal8Bit();
     // O_NOFOLLOW: never follow a symlink at the final path component, so even
     // the world-writable /tmp fallback cannot be redirected at another file.
     const int fd = ::open(name.constData(), O_WRONLY | O_CREAT | O_APPEND | O_NOFOLLOW | O_CLOEXEC,
@@ -110,7 +111,7 @@ void Log::appendToFile(QtMsgType type, const QString &msg)
 {
     if (!logFile.isOpen()) {
         // Try to fix ownership and reopen.
-        fixLogFileOwnership(logFile.fileName());
+        fixLogFileOwnership(logPath);
         if (!openLogFile()) {
             qWarning() << "Still could not open log file after ownership fix";
             return;
@@ -143,7 +144,7 @@ void Log::appendToFile(QtMsgType type, const QString &msg)
 
 QString Log::getLog()
 {
-    return logFile.fileName();
+    return logPath;
 }
 
 void Log::fixLogFileOwnership(const QString &fileName)

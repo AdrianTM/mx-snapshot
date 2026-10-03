@@ -39,7 +39,10 @@ public:
 
 private:
     inline static QFile logFile;
+    // Kept separately: logFile is opened from a file descriptor (O_NOFOLLOW),
+    // and QFile::open(int fd) leaves fileName() empty.
+    inline static QString logPath;
     static void fixLogFileOwnership(const QString &fileName);
-    // Open logFile (filename already set) for appending without following a symlink.
+    // Open logPath into logFile for appending without following a symlink.
     static bool openLogFile();
 };
