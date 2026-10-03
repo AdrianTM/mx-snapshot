@@ -349,8 +349,9 @@ void Work::cleanUp()
     settings->tmpdir.reset();
     if (done) {
         emit message(tr("Done"));
-        Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
-                         Cmd::QuietMode::Yes);
+        Cmd().procAsRoot("snapshot-lib",
+                         {"copy_log", QCoreApplication::applicationName(), QDir::cleanPath(Log::getLog())}, nullptr,
+                         nullptr, Cmd::QuietMode::Yes);
         if (settings->shutdown) {
             const QString logDestination = settings->snapshotDir + "/" + settings->snapshotName + ".log";
             if (!QFile::copy(Log::getLog(), logDestination)) {
@@ -363,8 +364,9 @@ void Work::cleanUp()
         return;
     }
     emit message(tr("Interrupted or failed to complete"));
-    Cmd().procAsRoot("snapshot-lib", {"copy_log", QCoreApplication::applicationName()}, nullptr, nullptr,
-                     Cmd::QuietMode::Yes);
+    Cmd().procAsRoot("snapshot-lib",
+                     {"copy_log", QCoreApplication::applicationName(), QDir::cleanPath(Log::getLog())}, nullptr,
+                     nullptr, Cmd::QuietMode::Yes);
     requestExit(EXIT_FAILURE);
 }
 

@@ -53,7 +53,9 @@ recommend it for anything other than MX or antiX compatible systems.
     Output directory
 
   - **-f**, **--file** \<name\>  
-    Output filename
+    Output filename. `.iso` is added if missing; when `-f` is omitted or empty,
+    a default name is used. The name must not be blank or contain any of
+    `< > : " / | ? *`; the GUI applies the same rules to the name field.
 
   - **-k**, **--kernel** \<ver, or path\>  
     Name a different kernel to use other than the default running

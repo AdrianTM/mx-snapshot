@@ -57,6 +57,9 @@ public:
     [[nodiscard]] static QString resolveWorkDirParent(const QString &dir);
     [[nodiscard]] bool checkCompression() const;
     [[nodiscard]] bool checkConfiguration() const;
+    // Empty when name (the ISO file name, ".iso" included) is usable, otherwise
+    // the reason it is not. Shared by checkConfiguration() and the GUI.
+    [[nodiscard]] static QString snapshotNameError(const QString &name);
     [[nodiscard]] bool checkSnapshotDir() const;
     [[nodiscard]] QString getExcludesSourcePath() const { return excludesSourcePath; }
     [[nodiscard]] bool checkTempDir();

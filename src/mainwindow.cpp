@@ -609,6 +609,17 @@ void MainWindow::btnNext_clicked()
     QString file_name = ui->lineEditName->text();
     appendIsoExtension(file_name);
 
+    const bool onSetupPage = ui->stackedWidget->currentWidget() == ui->selectionPage
+                             || ui->stackedWidget->currentWidget() == ui->settingsPage;
+    if (onSetupPage) {
+        // Same rules as the CLI: a bad name (e.g. "dir/name") would only fail in
+        // xorriso, after the whole squashfs pass.
+        if (const QString nameError = Settings::snapshotNameError(file_name); !nameError.isEmpty()) {
+            QMessageBox::critical(this, tr("Error"), nameError);
+            return;
+        }
+    }
+
     if (QFile::exists(settings->snapshotDir + "/" + file_name)) {
         showErrorMessageBox(settings->snapshotDir + "/" + file_name);
         return;
@@ -656,6 +667,7 @@ void MainWindow::handleSelectionPage(const QString &file_name)
     ui->labelSummary->setText("\n" + tr("- Snapshot directory:") + " " + settings->snapshotDir + "\n" + "- "
                               + tr("Snapshot name:") + " " + file_name + "\n" + tr("- Kernel to be used:") + " "
                               + settings->kernel + "\n");
+    settings->snapshotName = file_name; // e.g. Work::cleanUp() names the saved log after it
     settings->codename = ui->textCodename->text();
     settings->distroVersion = ui->textDistroVersion->text();
     settings->projectName = ui->textProjectName->text();

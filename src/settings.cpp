@@ -449,15 +449,8 @@ bool Settings::checkConfiguration() const
 
     // Note: Directory creation is handled later with elevated permissions in checkSnapshotDir()
 
-    // Check snapshot name
-    if (snapshotName.isEmpty()) {
-        qCritical() << QObject::tr("Snapshot name cannot be empty");
-        return false;
-    }
-
-    // Check for invalid characters in snapshot name
-    if (snapshotName.contains(QRegularExpression("[<>:\"/\\|?*]"))) {
-        qCritical() << QObject::tr("Snapshot name contains invalid characters: %1").arg(snapshotName);
+    if (const QString nameError = snapshotNameError(snapshotName); !nameError.isEmpty()) {
+        qCritical().noquote() << nameError;
         return false;
     }
 
@@ -500,6 +493,22 @@ bool Settings::checkConfiguration() const
     return true;
 }
 
+QString Settings::snapshotNameError(const QString &name)
+{
+    QString baseName = name;
+    if (baseName.endsWith(".iso")) {
+        baseName.chop(4);
+    }
+    if (baseName.trimmed().isEmpty()) {
+        return QObject::tr("Snapshot name cannot be empty");
+    }
+    static const QRegularExpression invalidCharacters("[<>:\"/\\|?*]");
+    if (name.contains(invalidCharacters)) {
+        return QObject::tr("Snapshot name contains invalid characters: %1").arg(name);
+    }
+    return {};
+}
+
 bool Settings::validateExclusions() const
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
@@ -531,11 +540,15 @@ bool Settings::validateSpaceRequirements() const
     // Check if we have minimum free space (at least 1GB)
     constexpr quint64 MIN_FREE_SPACE = 1024 * 1024; // 1GB in KiB
 
-    // Get free space for snapshot directory (or its parent if it doesn't exist)
-    QString pathToCheck = snapshotDir;
-    if (!QDir(snapshotDir).exists()) {
-        // If snapshot dir doesn't exist, check parent directory
-        pathToCheck = QFileInfo(snapshotDir).absolutePath();
+    // Get free space for the snapshot directory, or for its nearest existing
+    // ancestor: checkSnapshotDir() creates the missing levels later (mkdir -p).
+    QString pathToCheck = QDir::cleanPath(QFileInfo(snapshotDir).absoluteFilePath());
+    while (!QFileInfo::exists(pathToCheck)) {
+        const QString parent = QFileInfo(pathToCheck).absolutePath();
+        if (parent == pathToCheck) {
+            break;
+        }
+        pathToCheck = parent;
     }
 
     const quint64 availableSpace = FileSystemUtils::getFreeSpace(pathToCheck);
@@ -861,16 +874,6 @@ void Settings::setVariables()
         distroVersion = osVersionId;
     } else {
         distroVersion = Cmd().getOut("lsb_release -rs");
-    }
-
-    // MX-on-Arch hybrid: /etc/mx-version contains e.g. "Infinity_Arch"
-    if (distroVersion.contains("Arch")) {
-        const QString baseName = projectName; // "MX"
-        const QStringList parts = distroVersion.split('_');
-        if (parts.size() >= 2) {
-            projectName = baseName + parts[0];     // "MXInfinity" or similar
-            codename = parts[1] + " " + parts[0];  // "Arch Infinity"
-        }
     }
 
     fullDistroName = projectName + "-" + distroVersion + "_" + QString(x86 ? "386" : "x64");
