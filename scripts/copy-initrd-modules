@@ -159,11 +159,15 @@ multipath
 reiserfs
 "
 
+# Module files may use hyphens or underscores (crc32-pclmul.ko vs
+# crc32c_generic.ko); modprobe treats both spellings as the same module.
 module_exists_in_tree() {
     local module_dir=$1
     local module_name=$2
-    local file_name=${module_name//-/_}
-    find "$module_dir" -type f -name "${file_name}.ko*" -print -quit 2>/dev/null | grep -q .
+    local underscored=${module_name//-/_}
+    local hyphenated=${module_name//_/-}
+    find "$module_dir" -type f \( -name "${underscored}.ko*" -o -name "${hyphenated}.ko*" \) -print -quit 2>/dev/null \
+        | grep -q .
 }
 
 main() {
@@ -246,7 +250,7 @@ main() {
 
     local conditional_module
     for conditional_module in $CONDITIONAL_MODULES; do
-        if module_exists_in_tree "$mod_dir" "${conditional_module//_/-}"; then
+        if module_exists_in_tree "$mod_dir" "$conditional_module"; then
             DEFAULT_LIST="${DEFAULT_LIST}"$'\n'"$conditional_module"
         fi
     done

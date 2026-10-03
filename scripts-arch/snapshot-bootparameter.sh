@@ -511,7 +511,11 @@ debug_list() {
 #----------------------------------------------------------------------------
 # Sort keybord options
 sorted_opts() {
-    printf '%s\n' "${1//,/ }" | sort -u | paste -sd, -
+    # One option per line so sort can order them; read -a splits on the
+    # commas-turned-spaces without globbing and drops empty items.
+    local -a opts
+    read -ra opts <<< "${1//,/ }"
+    printf '%s\n' "${opts[@]}" | sort -u | paste -sd, -
 }
 
 #----------------------------------------------------------------------------
