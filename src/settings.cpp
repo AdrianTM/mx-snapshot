@@ -144,17 +144,22 @@ bool redirectUserConfigPath()
     return true;
 }
 
-void chownFileToLoggedInUser(const QString &path)
+void chownUserConfigPath(const QString &path, const QString &userConfigDir)
 {
     const QString username = loggedInUserName();
     if (username.isEmpty() || path.isEmpty()) {
+        return;
+    }
+    const QString cleanPath = QDir::cleanPath(path);
+    const QString cleanConfigDir = QDir::cleanPath(userConfigDir);
+    if (cleanPath != cleanConfigDir && !cleanPath.startsWith(cleanConfigDir + "/")) {
         return;
     }
     // Never chown through a symlink: run as root the chown would follow it and
     // could hand ownership of an arbitrary target file to the user.
     struct stat st;
     const QByteArray pathBytes = path.toLocal8Bit();
-    if (lstat(pathBytes.constData(), &st) != 0 || S_ISLNK(st.st_mode)) {
+    if (lstat(pathBytes.constData(), &st) != 0 || (!S_ISREG(st.st_mode) && !S_ISDIR(st.st_mode))) {
         return;
     }
     // Only chown when the file is not already owned by the target user. The
@@ -163,6 +168,15 @@ void chownFileToLoggedInUser(const QString &path)
     // stayed root-owned, leaving the user unable to edit them.
     const struct passwd *pw = getpwnam(username.toLocal8Bit().constData());
     if (pw == nullptr || st.st_uid == pw->pw_uid) {
+        return;
+    }
+    // Confine resolved paths too: an intermediate symlink must not turn a
+    // user-config path into a system file or a directory outside the user's home.
+    const QString home = QFileInfo(QString::fromLocal8Bit(pw->pw_dir)).canonicalFilePath();
+    const QString config = QFileInfo(cleanConfigDir).canonicalFilePath();
+    const QString resolved = QFileInfo(path).canonicalFilePath();
+    if (home.isEmpty() || config.isEmpty() || !config.startsWith(home + "/")
+        || (resolved != config && !resolved.startsWith(config + "/"))) {
         return;
     }
     // -h: operate on the path itself (defends against a TOCTOU symlink swap).
@@ -1232,6 +1246,13 @@ void Settings::loadConfig()
     const QString userExcludesPath =
         QDir::cleanPath(userConfigDir + "/" + qApp->applicationName() + "-exclude.list");
     const QString userConfigPath = settingsUser.fileName();
+    // Create and repair the directory even when the exclude list already exists
+    // or a custom list is selected. QSettings may have created it as root while
+    // reading the initial settings earlier in the constructor.
+    if (!QDir().mkpath(userConfigDir)) {
+        qWarning() << QObject::tr("Could not create user configuration directory: %1").arg(userConfigDir);
+    }
+    chownUserConfigPath(userConfigDir, userConfigDir);
     const QString systemExcludesPath = QDir::cleanPath("/etc/" + qApp->applicationName() + "-exclude.list");
     QString localPath = QDir::cleanPath("/usr/local/share/excludes/" + qApp->applicationName() + "-exclude.list");
     QString usrPath = QDir::cleanPath("/usr/share/excludes/" + qApp->applicationName() + "-exclude.list");
@@ -1247,14 +1268,8 @@ void Settings::loadConfig()
     const bool usingDefaultUserPath = configuredExcludesPath == userExcludesPath;
     if (usingDefaultUserPath && !QFileInfo::exists(userExcludesPath)) {
         if (!excludesSourcePath.isEmpty() && QFileInfo::exists(excludesSourcePath)) {
-            QDir().mkpath(userConfigDir);
             if (QFile::copy(excludesSourcePath, userExcludesPath)) {
                 qDebug() << "Copied exclusion file from" << excludesSourcePath << "to" << userExcludesPath;
-                const QString username = loggedInUserName();
-                if (!username.isEmpty()) {
-                    Cmd().procAsRoot("chown", {username + ":", userExcludesPath}, nullptr, nullptr,
-                                     Cmd::QuietMode::Yes);
-                }
             } else {
                 qWarning() << QObject::tr("Could not copy exclusion file from %1 to %2")
                                   .arg(excludesSourcePath, userExcludesPath);
@@ -1264,12 +1279,10 @@ void Settings::loadConfig()
     }
     if (!QFileInfo::exists(configuredExcludesPath)) {
         qDebug() << "Configured snapshot_excludes file not found (" << configuredExcludesPath
-                 << "), using fallback path:" << fallbackExcludesPath;
-        configuredExcludesPath = fallbackExcludesPath;
+                 << "), using fallback path:" << excludesSourcePath;
+        configuredExcludesPath = excludesSourcePath;
     }
     snapshotExcludes.setFileName(configuredExcludesPath);
-    chownFileToLoggedInUser(userConfigPath);
-    chownFileToLoggedInUser(configuredExcludesPath);
     // snapshotBasename, makeIsohybrid, guiEditor, stamp, forceInstaller are now const members
     makeMd5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
     makeSha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
@@ -1305,6 +1318,12 @@ void Settings::loadConfig()
     }
     throttle = storedThrottle;
     resetAccounts = false;
+
+    // Sync before repairing file ownership: QSettings uses atomic replacement,
+    // so its final write can create a new root-owned inode.
+    settingsUser.sync();
+    chownUserConfigPath(userConfigPath, userConfigDir);
+    chownUserConfigPath(configuredExcludesPath, userConfigDir);
 }
 
 void Settings::excludeAll()

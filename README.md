@@ -99,6 +99,15 @@ recommend it for anything other than MX or antiX compatible systems.
   - **-z**, **--compression** \<format\>  
     Compression format, valid choices: lz4, lzo, gzip, xz, zstd
 
+# USER CONFIGURATION
+
+When loading configuration, the application repairs ownership of the
+`~/.config/MX-Linux` directory and its config and exclude files for the logged-in
+user. System exclude lists keep their existing ownership. If a custom exclude list is missing or the default
+user copy cannot be created, the application uses `/etc/<app>-exclude.list`
+when available, then the packaged list under `/usr/local/share/excludes` or
+`/usr/share/excludes`.
+
 # ARCH SNAPSHOT SAFETY
 
 Arch cleanup state is stored only in `/run/<app>/cleanup-arch.state`.
