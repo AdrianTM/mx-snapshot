@@ -582,11 +582,17 @@ void Work::cleanupBindRootOverlay()
     bindRootPath = "/.bind-root";
 }
 
-void Work::closeInitrd(const QString &initrd_dir, const QString &file)
+// Repack the edited initrd. False when the archive could not be fully written
+// (e.g. the work partition is full), so a truncated initrd is never shipped.
+bool Work::closeInitrd(const QString &initrd_dir, const QString &file)
 {
     qDebug() << "+++" << __PRETTY_FUNCTION__ << "+++";
-    QDir::setCurrent(initrd_dir);
-    shell.run("(find . |cpio -o -H newc --owner root:root |gzip -9) >\"" + file + "\"");
+    if (!QDir::setCurrent(initrd_dir)) {
+        qWarning() << "Cannot enter the initrd directory" << initrd_dir;
+        return false;
+    }
+    // pipefail: a failing find or cpio must fail the repack too, not only gzip.
+    return shell.run("set -o pipefail; (find . |cpio -o -H newc --owner root:root |gzip -9) >\"" + file + "\"");
 }
 
 // copyModules(mod_dir/kernel kernel)
@@ -729,7 +735,7 @@ void Work::copyNewIso()
                     cleanUp();
                     return;
                 }
-                // mkinitcpio already verified the target kernel; skip post-rebuild probing.
+                // rebuildArchisoInitramfs() only succeeds for the selected kernel.
             }
             initramfsSource = archisoPath;
         } else {
@@ -858,7 +864,15 @@ void Work::copyNewIso()
                 }
                 return;
             }
-            closeInitrd(path, settings->workDir + "/iso-template/antiX/initrd.gz");
+            const QString initrdFile = settings->workDir + "/iso-template/antiX/initrd.gz";
+            if (!closeInitrd(path, initrdFile)) {
+                if (!cleanupStarted) {
+                    emit messageBox(BoxType::critical, tr("Error"),
+                                    tr("Could not create the new initrd: %1").arg(initrdFile));
+                    cleanUp();
+                }
+                return;
+            }
             const QStringList ucToolDirs = {"/usr/bin", "/usr/local/bin"};
             if (!QStandardPaths::findExecutable("uc-tool", ucToolDirs).isEmpty()) {
                 qDebug() << "uc-tool found, injecting ucode into initrd";
@@ -1284,6 +1298,9 @@ QString Work::kernelImageVersion(const QString &kernelPath) const
     return match.hasMatch() ? match.captured(1) : QString();
 }
 
+// Rebuild /boot/archiso.img for the selected kernel. Succeeds only when the new
+// image is (as far as lsinitcpio can tell) built for that kernel: a preset builds
+// for its own ALL_kver, which need not be the kernel chosen for the snapshot.
 bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &kernelPath)
 {
     if (QStandardPaths::findExecutable("mkinitcpio").isEmpty()) {
@@ -1294,6 +1311,23 @@ bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &ke
         qWarning() << "Kernel image not found:" << kernelPath;
         return false;
     }
+
+    const QString expectedKernel = kernelImageVersion(kernelPath);
+    const auto buildMatchesKernel = [&](const QStringList &mkinitcpioArgs) {
+        emit message(tr("Rebuilding initramfs with: mkinitcpio %1").arg(mkinitcpioArgs.join(' ')));
+        if (!shell.procAsRoot("mkinitcpio", mkinitcpioArgs, nullptr, nullptr, Cmd::QuietMode::No)
+            || !QFileInfo::exists(archisoPath)) {
+            return false;
+        }
+        // An unreadable version cannot be checked; only a definite mismatch fails.
+        const QString builtKernel = initramfsKernelVersion(archisoPath);
+        if (!expectedKernel.isEmpty() && !builtKernel.isEmpty() && builtKernel != expectedKernel) {
+            qWarning() << "mkinitcpio" << mkinitcpioArgs << "built" << archisoPath << "for kernel" << builtKernel
+                       << "but the selected kernel is" << expectedKernel;
+            return false;
+        }
+        return true;
+    };
 
     QString presetName;
     const QDir presetDir("/etc/mkinitcpio.d");
@@ -1321,35 +1355,32 @@ bool Work::rebuildArchisoInitramfs(const QString &archisoPath, const QString &ke
             }
         }
     }
-
-    QStringList mkinitcpioArgs;
     if (!presetName.isEmpty()) {
-        mkinitcpioArgs = {"-p", presetName};
-    } else {
-        const QStringList configCandidates {
-            "/usr/lib/archiso/mkinitcpio.conf",
-            "/etc/mkinitcpio-archiso.conf",
-            "/usr/share/archiso/configs/releng/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
-            "/usr/share/archiso/configs/baseline/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
-        };
-        QString configPath;
-        for (const QString &candidate : configCandidates) {
-            if (QFileInfo::exists(candidate)) {
-                configPath = candidate;
-                break;
-            }
+        if (buildMatchesKernel({"-p", presetName})) {
+            return true;
         }
-        if (configPath.isEmpty()) {
-            qWarning() << "No archiso preset or config found for rebuilding archiso initramfs.";
-            return false;
-        }
-        mkinitcpioArgs = {"-c", configPath, "-k", kernelPath, "-g", archisoPath};
+        qWarning() << "The archiso preset" << presetName
+                   << "did not produce an initramfs for the selected kernel; building it directly.";
     }
-    emit message(tr("Rebuilding initramfs with: mkinitcpio %1").arg(mkinitcpioArgs.join(' ')));
-    if (!shell.procAsRoot("mkinitcpio", mkinitcpioArgs, nullptr, nullptr, Cmd::QuietMode::No)) {
+
+    const QStringList configCandidates {
+        "/usr/lib/archiso/mkinitcpio.conf",
+        "/etc/mkinitcpio-archiso.conf",
+        "/usr/share/archiso/configs/releng/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+        "/usr/share/archiso/configs/baseline/airootfs/etc/mkinitcpio.conf.d/archiso.conf",
+    };
+    QString configPath;
+    for (const QString &candidate : configCandidates) {
+        if (QFileInfo::exists(candidate)) {
+            configPath = candidate;
+            break;
+        }
+    }
+    if (configPath.isEmpty()) {
+        qWarning() << "No archiso config found for rebuilding archiso initramfs.";
         return false;
     }
-    return QFileInfo::exists(archisoPath);
+    return buildMatchesKernel({"-c", configPath, "-k", kernelPath, "-g", archisoPath});
 }
 
 // Replace text in menu items in grub.cfg, syslinux.cfg, isolinux.cfg
@@ -1735,8 +1766,11 @@ quint64 Work::getRequiredSpace()
         // isRoot() is true exactly when /home shares the root filesystem, which
         // means device() == rootDevice always holds in that case — the intended
         // check is the opposite: /home is a separate partition (!isRoot()) whose
-        // usage must be added to the required-space estimate below.
-        if (homeInfo.isValid() && !homeInfo.isRoot() && homeInfo.device() != rootDevice) {
+        // usage must be added to the required-space estimate below. A reset
+        // snapshot mounts an empty /home (empty=/home in setupEnv()), so nothing
+        // from that partition ends up in it.
+        if (!settings->resetAccounts && homeInfo.isValid() && !homeInfo.isRoot()
+            && homeInfo.device() != rootDevice) {
             homeDevice = homeInfo.device();
             includeHomeDevice = true;
         }

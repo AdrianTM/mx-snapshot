@@ -148,6 +148,12 @@ an installer shortcut to the host's `/etc/skel`. Reset snapshots still receive
 the shortcut in the staged demo Desktop. Personal snapshots preserve any
 existing `minstall.desktop` file or symlink on the user's Desktop.
 
+When `/boot/archiso.img` is rebuilt, the new image must be built for the
+selected kernel. An archiso preset that builds for a different kernel is
+followed by a direct `mkinitcpio -k <selected kernel>` build. If that also
+fails, a stale image stops the snapshot, and a missing one falls back to the
+regular initramfs with a warning, as before.
+
 # SEE ALSO
 
 mx-live-usb-maker -- writes created ISOs to USB flashdrives
