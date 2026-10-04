@@ -849,12 +849,12 @@
         <translation>MX スナップショット</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>エラー</translation>
     </message>
@@ -869,8 +869,8 @@
         <translation>致命的エラー: 不明な例外です</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="778"/>
         <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>現在のカーネルは Squashfs をサポートしてないので続行できません。</translation>
     </message>

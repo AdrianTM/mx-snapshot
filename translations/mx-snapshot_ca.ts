@@ -847,12 +847,12 @@
         <translation>MX Snapshot </translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -867,8 +867,8 @@
         <translation>Error fatal: excepció desconeguda</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="778"/>
         <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>El kernel actual no dona suport a Squashfs, no puc continuar.</translation>
     </message>

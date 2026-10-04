@@ -850,12 +850,12 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>MX Snapshot</translation>
     </message>
     <message>
+        <location filename="../src/main.cpp" line="257"/>
+        <location filename="../src/main.cpp" line="343"/>
         <location filename="../src/settings.cpp" line="770"/>
         <location filename="../src/settings.cpp" line="779"/>
         <location filename="../src/settings.cpp" line="1396"/>
         <location filename="../src/settings.cpp" line="1506"/>
-        <location filename="../src/main.cpp" line="257"/>
-        <location filename="../src/main.cpp" line="343"/>
         <source>Error</source>
         <translation>Virhe</translation>
     </message>
@@ -870,8 +870,8 @@ tallennetut kopiot: Vedokset %1 vievät %2 levytilaa.</translation>
         <translation>Kriittinen virhe: tuntematon poikkeus</translation>
     </message>
     <message>
-        <location filename="../src/settings.cpp" line="778"/>
         <location filename="../src/main.cpp" line="342"/>
+        <location filename="../src/settings.cpp" line="778"/>
         <source>Current kernel doesn&apos;t support Squashfs, cannot continue.</source>
         <translation>Nykyinen kernel ei tue Squashfs-funktioita, joten ei voi jatkaa.</translation>
     </message>

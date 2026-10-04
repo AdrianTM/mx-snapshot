@@ -1,3 +1,23 @@
+mx-snapshot (26.10.1) mx; urgency=medium
+
+  * On Arch, fix a security problem in snapshot cleanup, leave the running
+    system's timezone and Desktop icons alone, and make sure ISOs built with
+    another kernel (such as linux-lts) start correctly.
+  * Ctrl+C, stopping the program or logging out now cancels a running
+    snapshot cleanly, and the window can no longer freeze, start a second
+    snapshot or close before cleanup has finished.
+  * Stop with a clear error instead of producing an ISO that does not boot
+    when the disk fills up, and fix false "not enough free space" errors.
+  * Check the ISO name before starting, so an invalid name is rejected right
+    away instead of at the end.
+  * Save the right log after each run, in /var/log and, with "Shutdown
+    computer when done", next to the ISO.
+  * Keep your settings and exclude list working after using the command-line
+    tool with sudo.
+  * Do not add an unneeded keyboard boot option.
+
+ -- Adrian <adrian@mxlinux.org>  Sat, 03 Oct 2026 15:18:44 -0400
+
 mx-snapshot (26.10) mx; urgency=medium
 
   * On Arch, log in automatically as the demo user when booting an ISO made
