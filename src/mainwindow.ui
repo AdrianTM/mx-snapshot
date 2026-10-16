@@ -491,9 +491,9 @@ color: rgb(0, 0, 0);</string>
            <widget class="QComboBox" name="cbCompression"/>
           </item>
           <item row="3" column="3">
-           <widget class="QCheckBox" name="checkSha512">
+           <widget class="QCheckBox" name="checkSha256">
             <property name="text">
-             <string>sha512</string>
+             <string notr="true">sha256</string>
             </property>
            </widget>
           </item>

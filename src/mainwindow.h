@@ -78,7 +78,7 @@ private slots:
     void btnSelectSnapshot_clicked();
     void cbCompression_currentIndexChanged();
     void checkMd5_toggled(bool checked);
-    void checkSha512_toggled(bool checked);
+    void checkSha256_toggled(bool checked);
     void radioPersonal_clicked(bool checked);
     void radioRespin_toggled(bool checked);
     void spinCPU_valueChanged(int arg1);

@@ -290,7 +290,7 @@ void MainWindow::setOtherOptions()
 {
     ui->cbCompression->setCurrentIndex(ui->cbCompression->findText(settings->compression, Qt::MatchStartsWith));
     ui->checkMd5->setChecked(settings->makeMd5sum);
-    ui->checkSha512->setChecked(settings->makeSha512sum);
+    ui->checkSha256->setChecked(settings->makeSha256sum);
     ui->radioRespin->setChecked(settings->resetAccounts);
     ui->spinCPU->setMaximum(static_cast<int>(settings->maxCores));
     ui->spinCPU->setValue(static_cast<int>(settings->cores));
@@ -330,7 +330,7 @@ void MainWindow::setConnections()
             &MainWindow::cbCompression_currentIndexChanged);
     connect(ui->checkMd5, &QCheckBox::toggled, this, &MainWindow::checkMd5_toggled);
     connect(ui->checkShutdownOutput, &QCheckBox::toggled, this, [this](bool checked) { settings->shutdown = checked; });
-    connect(ui->checkSha512, &QCheckBox::toggled, this, &MainWindow::checkSha512_toggled);
+    connect(ui->checkSha256, &QCheckBox::toggled, this, &MainWindow::checkSha256_toggled);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDesktop, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDocuments, &QCheckBox::setChecked);
     connect(ui->excludeAll, &QCheckBox::clicked, ui->excludeDownloads, &QCheckBox::setChecked);
@@ -1161,10 +1161,10 @@ void MainWindow::checkMd5_toggled(bool checked)
     settings->makeMd5sum = checked;
 }
 
-void MainWindow::checkSha512_toggled(bool checked)
+void MainWindow::checkSha256_toggled(bool checked)
 {
-    qt_settings.setValue("make_sha512sum", checked ? "yes" : "no");
-    settings->makeSha512sum = checked;
+    qt_settings.setValue("make_sha256sum", checked ? "yes" : "no");
+    settings->makeSha256sum = checked;
 }
 
 

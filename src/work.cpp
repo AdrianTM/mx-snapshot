@@ -1139,10 +1139,10 @@ bool Work::createIso(const QString &filename)
         }
         return false;
     }
-    if (settings->makeSha512sum && !makeChecksum(HashType::sha512, settings->snapshotDir, filename)) {
+    if (settings->makeSha256sum && !makeChecksum(HashType::sha256, settings->snapshotDir, filename)) {
         if (!cleanupStarted) {
             emit messageBox(BoxType::critical, tr("Error"),
-                            tr("Could not create the %1 checksum for the ISO.").arg("SHA512"));
+                            tr("Could not create the %1 checksum for the ISO.").arg("SHA256"));
             cleanUp();
         }
         return false;

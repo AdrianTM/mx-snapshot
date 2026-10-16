@@ -1288,7 +1288,9 @@ void Settings::loadConfig()
     snapshotExcludes.setFileName(configuredExcludesPath);
     // snapshotBasename, makeIsohybrid, guiEditor, stamp, forceInstaller are now const members
     makeMd5sum = settingsUser.value("make_md5sum", "no").toString() != "no";
-    makeSha512sum = settingsUser.value("make_sha512sum", "no").toString() != "no";
+    // The ISO checksum switched from SHA-512 to SHA-256; honour the old key
+    // until the user saves the new one.
+    makeSha256sum = settingsUser.value("make_sha256sum", settingsUser.value("make_sha512sum", "no")).toString() != "no";
     compression = trimQuotes(settingsUser.value("compression", "zstd").toString());
     // The CLI path validates --compression in main.cpp; the config file value
     // was taken on trust. Reject anything outside the supported set so a
@@ -1425,14 +1427,14 @@ void Settings::processArgs(const QCommandLineParser &argParser)
         resetAccounts = true;
     }
     if (argParser.isSet("checksums")) {
-        makeSha512sum = makeMd5sum = true;
+        makeSha256sum = makeMd5sum = true;
     }
     if (argParser.isSet("month")) {
-        makeSha512sum = true;
+        makeSha256sum = true;
         makeMd5sum = false;
     }
     if (argParser.isSet("no-checksums")) {
-        makeSha512sum = makeMd5sum = false;
+        makeSha256sum = makeMd5sum = false;
     }
     if (!argParser.value("compression").isEmpty()) {
         compression = argParser.value("compression");

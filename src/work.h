@@ -34,7 +34,7 @@ class Work : public QObject
 {
     Q_OBJECT
 public:
-    enum HashType { md5, sha512 };
+    enum HashType { md5, sha256, sha512 };
     Q_ENUM(HashType)
 
     explicit Work(Settings *settings, QObject *parent = nullptr);

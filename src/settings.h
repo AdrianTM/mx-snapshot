@@ -137,7 +137,7 @@ public:
     QString releaseDate;
     bool isArch {};
     bool makeMd5sum {};
-    bool makeSha512sum {};
+    bool makeSha256sum {};
     bool resetAccounts {};
     uint cores {};
     uint throttle {};
