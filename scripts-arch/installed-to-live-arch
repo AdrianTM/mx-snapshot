@@ -21,6 +21,7 @@
 # *     empty=<dir>         mount empty tmpdir           → bindRoot/<dir>
 # *     live-files          ship /usr/share/live-files/files
 # *     general             live-files + general-files + passwd + timezone
+# *                         + fresh pacman keyring on first boot
 # *     version-file[=t]    write /etc/live/version/linuxfs.ver template
 # *     adjtime             zero-out /etc/adjtime in template
 # *
@@ -800,12 +801,114 @@ action_reset_autologin() {
     return 0
 }
 
+# ------------------------------------------------------------------- pacman keyring
+# The host's /etc/pacman.d/gnupg holds the local master signing key generated
+# by `pacman-key --init`. Shipping it in a distribution ISO would give every
+# install the same private key, so (like archiso's pacman-init.service) the
+# snapshot gets an empty keyring that a oneshot unit rebuilds on first boot.
+#
+# --populate restores the distro keyrings under /usr/share/pacman/keyrings, but
+# not keys the host trusts for extra repos (e.g. a third-party repo key added
+# with `pacman-key --add` + `--lsign-key`). Those are exported here and
+# re-added and locally signed by the unit, so the host's pacman.conf repos
+# keep working on the live system.
+action_reset_pacman_keyring() {
+    local keyring=/etc/pacman.d/gnupg
+    [[ -f $keyring/trustdb.gpg ]] || return 0
+
+    local stage=$WORK_DIR/pacman-keyring
+    local gpgtmp=$WORK_DIR/pacman-keyring-gpg
+    local keys_rel=etc/pacman.d/mx-snapshot-keys.gpg
+    local unit_name=mx-snapshot-pacman-init.service
+    mkdir -p "$stage/etc/pacman.d" "$stage/etc/systemd/system/multi-user.target.d" "$gpgtmp" || return 1
+    chmod 700 "$gpgtmp"
+
+    # Work on a copy so listing keys can't touch the host's trustdb or start an
+    # agent in its keyring dir.
+    cp -a "$keyring"/pubring.* "$keyring"/trustdb.gpg "$gpgtmp"/ 2>/dev/null \
+        || { warn "pacman-keyring: cannot copy $keyring"; return 1; }
+    local gpg=(gpg --homedir "$gpgtmp" --batch --no-permission-warning --with-colons)
+
+    # Key discovery must not fail silently: a failed listing would look like
+    # "no extra keys" and the ISO would lose the host's repo keys once the
+    # keyring is masked below.
+    local out
+
+    # Every fingerprint --populate will bring back on its own.
+    local -A distro=()
+    local f fpr
+    for f in /usr/share/pacman/keyrings/*.gpg; do
+        [[ -f $f ]] || continue
+        out=$("${gpg[@]}" --show-keys "$f" 2>&1) \
+            || { warn "pacman-keyring: cannot read $f: $out"; return 1; }
+        while IFS=: read -r rec _ _ _ _ _ _ _ _ fpr _; do
+            [[ $rec == fpr && -n $fpr ]] && distro[$fpr]=1
+        done <<< "$out"
+    done
+
+    # Fully trusted (validity f) primary keys that aren't distro keys; this
+    # leaves out the ultimately trusted (u) local master key itself.
+    out=$("${gpg[@]}" --no-auto-check-trustdb --list-keys 2>/dev/null) \
+        || { warn "pacman-keyring: cannot list keys in $keyring"; return 1; }
+    local extra=() rec validity want=0
+    while IFS=: read -r rec validity _ _ _ _ _ _ _ fpr _; do
+        case $rec in
+            pub) if [[ $validity == f ]]; then want=1; else want=0; fi ;;
+            fpr) if ((want)) && [[ -z ${distro[$fpr]:-} ]]; then extra+=("$fpr"); fi
+                 want=0 ;;
+        esac
+    done <<< "$out"
+
+    # Gate on a marker written only after every step succeeds: trustdb.gpg
+    # appears as soon as --init runs, so a failure in a later step would
+    # otherwise never be retried. Each step is safe to repeat.
+    local done_marker=$keyring/.mx-snapshot-keyring-ready
+    {
+        cat <<UNIT
+# Installed by mx-snapshot's installed-to-live-arch.
+# Build a fresh pacman keyring on first boot (the snapshot ships it empty).
+[Unit]
+Description=Initialize pacman keyring
+ConditionPathExists=!$done_marker
+After=time-sync.target
+Before=archlinux-keyring-wkd-sync.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/pacman-key --init
+ExecStart=/usr/bin/pacman-key --populate
+UNIT
+        if ((${#extra[@]})); then
+            printf 'ExecStart=/usr/bin/pacman-key --add /%s\n' "$keys_rel"
+            printf 'ExecStart=/usr/bin/pacman-key --lsign-key %s\n' "${extra[*]}"
+        fi
+        printf 'ExecStart=/usr/bin/touch %s\n' "$done_marker"
+    } > "$stage/etc/systemd/system/$unit_name" || return 1
+
+    printf '[Unit]\nWants=%s\n' "$unit_name" \
+        > "$stage/etc/systemd/system/multi-user.target.d/$unit_name.conf" || return 1
+
+    if ((${#extra[@]})); then
+        "${gpg[@]}" --export "${extra[@]}" > "$stage/$keys_rel" 2>/dev/null && [[ -s $stage/$keys_rel ]] \
+            || { warn "pacman-keyring: failed to export extra repo keys"; return 1; }
+        log "pacman-keyring: carrying over ${#extra[@]} extra repo key(s)"
+    fi
+
+    gpgconf --homedir "$gpgtmp" --kill all 2>/dev/null || true
+    rm -rf "$gpgtmp"
+
+    action_empty "$keyring" || return 1
+    bind_mount_template "$stage"
+}
+
 # ------------------------------------------------------------------- general
 action_general() {
     action_empty_dirs_general
     action_live_files || return 1
     action_general_files || return 1
     action_passwd || return 1
+    action_reset_pacman_keyring || return 1
     action_reset_autologin
     # doRepo is Debian-only (apt sources). Skipped here.
     action_timezone || return 1
@@ -954,6 +1057,7 @@ Actions for 'start':
   empty=<dir>         mount empty tmpdir       → bindRoot/<dir>
   live-files          ship /usr/share/live-files/files
   general             live-files + general-files + passwd + timezone
+                      + fresh pacman keyring on first boot
   version-file[=t]    write /etc/live/version/linuxfs.ver template
   adjtime             zero out /etc/adjtime in template
   live-setup          empty machine-id + systemd-firstboot/getty drop-ins
