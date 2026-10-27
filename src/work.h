@@ -92,6 +92,7 @@ private:
     void cleanupBindRootOverlay();
     [[nodiscard]] bool ensureOverlayModuleLoaded();
     void teardownOverlayBase(const QString &overlayBase);
+    [[nodiscard]] bool resetSnapdIdentity();
 
     // File operations
     bool replaceStringInFile(const QString &old_text, const QString &new_text, const QString &file_path);

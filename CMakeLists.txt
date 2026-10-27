@@ -147,6 +147,7 @@ set(COMMON_SOURCES
     src/squashfsutils.cpp
     src/checksumutils.cpp
     src/unitsecrets.cpp
+    src/snapdstate.cpp
 )
 
 set(COMMON_HEADERS
@@ -164,6 +165,7 @@ set(COMMON_HEADERS
     src/squashfsutils.h
     src/checksumutils.h
     src/unitsecrets.h
+    src/snapdstate.h
 )
 
 set(HELPER_SOURCES
@@ -362,6 +364,16 @@ if(BUILD_TESTS)
     target_include_directories(test-unitsecrets PRIVATE src)
     set_common_properties(test-unitsecrets)
     add_test(NAME unitsecrets COMMAND test-unitsecrets)
+
+    add_executable(test-snapdstate
+        tests/test_snapdstate.cpp
+        src/snapdstate.cpp
+        src/snapdstate.h
+    )
+    target_link_libraries(test-snapdstate Qt6::Core Qt6::Test)
+    target_include_directories(test-snapdstate PRIVATE src)
+    set_common_properties(test-snapdstate)
+    add_test(NAME snapdstate COMMAND test-snapdstate)
 
     add_executable(test-elevationbroker
         tests/test_elevationbroker.cpp

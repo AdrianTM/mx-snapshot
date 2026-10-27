@@ -52,6 +52,7 @@
 #include "elevationbroker.h"
 #include "filesystemutils.h"
 #include "log.h"
+#include "snapdstate.h"
 #include "squashfsutils.h"
 
 namespace
@@ -545,6 +546,40 @@ void Work::teardownOverlayBase(const QString &overlayBase)
         qWarning() << "cleanup_overlay could not fully tear down" << overlayBase
                    << "— overlay state left under /run for inspection";
     }
+}
+
+// A respin must not carry this computer's snap store registration (see
+// SnapdState). The device key and serial assertion are excluded in
+// Settings::otherExclusions(); the state that refers to them is replaced here
+// by a copy without them, bind-mounted over the bind-root's state.json so the
+// host's file is never touched. The cleanup of installed-to-live(-arch)
+// unmounts everything under the bind-root, this mount included.
+bool Work::resetSnapdIdentity()
+{
+    const QString statePath = bindRootPath + "/var/lib/snapd/state.json";
+    if (!shell.procAsRoot("stat", {"-c", "%n", statePath}, nullptr, nullptr, Cmd::QuietMode::Yes)) {
+        return true; // snapd isn't installed or never ran
+    }
+    // The state holds the store session: read it with a Cmd whose output
+    // doesn't reach the log or the window.
+    Cmd reader;
+    reader.setOutputSuppressed(true);
+    QString state;
+    if (!reader.procAsRoot("cat", {statePath}, &state, nullptr, Cmd::QuietMode::Yes)) {
+        qWarning() << "Cannot read" << statePath;
+        return false;
+    }
+    const std::optional<QByteArray> cleaned = SnapdState::withoutDeviceIdentity(state.toUtf8());
+    if (!cleaned) {
+        qWarning() << "Not a snapd state file:" << statePath;
+        return false;
+    }
+    // Written by root with a private umask: the bind source's owner and mode
+    // are what end up in the snapshot.
+    const QString cleanedPath = settings->workDir + "/snapd-state.json";
+    return shell.procAsRoot("sh", {"-c", "umask 077 && cat > \"$1\"", "sh", cleanedPath}, nullptr, &*cleaned,
+                            Cmd::QuietMode::Yes)
+        && shell.procAsRoot("mount", {"--bind", cleanedPath, statePath}, nullptr, nullptr, Cmd::QuietMode::Yes);
 }
 
 bool Work::ensureOverlayModuleLoaded()
@@ -1621,6 +1656,12 @@ void Work::setupEnv()
             shell.procAsRoot("ln", {"-sf", installerSource, demoDesktop + "/minstall.desktop"}, nullptr, nullptr,
                              Cmd::QuietMode::Yes);
             shell.procAsRoot("chown", {"-R", "1000:1000", demoDesktop}, nullptr, nullptr, Cmd::QuietMode::Yes);
+        }
+        if (!resetSnapdIdentity()) {
+            emit messageBox(BoxType::critical, tr("Error"),
+                            tr("Could not remove this computer's snap store registration from the snapshot."));
+            cleanUp();
+            return;
         }
     } else {
         QStringList args {"-F", "-b", bindRootPath, "start", "bind=/home"};

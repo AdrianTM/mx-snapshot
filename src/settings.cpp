@@ -1368,6 +1368,10 @@ void Settings::otherExclusions()
             QStringLiteral("var/lib/tailscale/.*"),
             QStringLiteral("root/*"),
             QStringLiteral("root/.!(bashrc|profile|bash_profile|bash_logout)"),
+            // snapd's store registration; Work::resetSnapdIdentity() drops the
+            // matching entries from its state, so snapd registers anew.
+            QStringLiteral("var/lib/snapd/device/private-keys-v1/*"),
+            QStringLiteral("var/lib/snapd/assertions/asserts-v0/serial/*"),
         };
         for (const QString &exclusion : resetExcludes) {
             addRemoveExclusion(true, exclusion);
