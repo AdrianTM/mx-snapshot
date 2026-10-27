@@ -1355,6 +1355,28 @@ void Settings::otherExclusions()
 
     if (resetAccounts) {
         addRemoveExclusion(true, QStringLiteral("/etc/minstall.conf"));
+        // Host identity and root's private data must not be shared by every
+        // system made from a respin. mksquashfs wildcards don't match dotfiles
+        // with "*", so directories get a second pattern for those.
+        //
+        // root's home is the admin's (keys, tokens, shell history, tool
+        // logins), so keep only the shell startup files, which hold the
+        // distro's defaults.
+        const QStringList resetExcludes {
+            QStringLiteral("var/lib/systemd/random-seed"),
+            QStringLiteral("var/lib/tailscale/*"),
+            QStringLiteral("var/lib/tailscale/.*"),
+            QStringLiteral("root/*"),
+            QStringLiteral("root/.!(bashrc|profile|bash_profile|bash_logout)"),
+        };
+        for (const QString &exclusion : resetExcludes) {
+            addRemoveExclusion(true, exclusion);
+        }
+        if (isArch) {
+            // Arch's sshdgenkeys.service recreates missing host keys before
+            // sshd starts; Debian's ssh.service does not, so keep them there.
+            addRemoveExclusion(true, QStringLiteral("etc/ssh/ssh_host_*"));
+        }
         if (!isArch) {
             // Exclude /etc/localtime if link and timezone not America/New_York.
             // Skipped on Arch — /etc/timezone is absent and the heuristic doesn't apply.
