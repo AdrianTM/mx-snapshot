@@ -101,6 +101,7 @@ private:
     bool quitRequested = false;
 
     [[nodiscard]] bool confirmStart();
+    [[nodiscard]] bool confirmUnitCredentials();
     void cleanUp();
     void abortIfElevationDenied();
     bool installPackage(const QString &package);

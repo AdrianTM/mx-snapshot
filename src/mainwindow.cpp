@@ -54,6 +54,7 @@
 #include "excludesutils.h"
 #include "settings.h"
 #include "squashfsutils.h"
+#include "unitsecrets.h"
 #include "work.h"
 #include <chrono>
 
@@ -751,7 +752,7 @@ void MainWindow::handleSettingsPage(const QString &file_name)
         return;
     }
 
-    if (!confirmStart()) {
+    if (!confirmUnitCredentials() || !confirmStart()) {
         return;
     }
 
@@ -793,6 +794,42 @@ void MainWindow::handleSettingsPage(const QString &file_name)
 
     work.startTimer();
     prepareForOutput(file_name);
+}
+
+// A respin is meant for other computers, but services the admin set up in
+// /etc/systemd/system go into it as they are, including any tokens or keys in
+// their Environment= lines. Name them (and any files this unelevated scan
+// couldn't read, which are copied all the same) and let the user stop.
+bool MainWindow::confirmUnitCredentials()
+{
+    if (!settings->resetAccounts) {
+        return true;
+    }
+    const UnitSecrets::ScanResult scan = UnitSecrets::findCredentials(QStringLiteral("/etc/systemd/system"));
+    if (scan.findings.isEmpty() && scan.unreadable.isEmpty()) {
+        return true;
+    }
+    QString text;
+    if (!scan.findings.isEmpty()) {
+        qWarning().noquote() << "Services with credentials will be included in the snapshot:"
+                             << scan.findings.join(", ");
+        text += tr("These services in /etc/systemd/system contain what look like passwords, tokens or keys, and "
+                   "will be included in the snapshot as they are:")
+                + "\n\n" + scan.findings.join('\n') + "\n\n";
+    }
+    if (!scan.unreadable.isEmpty()) {
+        qWarning().noquote() << "Could not check these service files for credentials:" << scan.unreadable.join(", ");
+        text += tr("These service files or folders could not be checked for passwords, tokens or keys, and will be included "
+                   "in the snapshot as they are:")
+                + "\n\n" + scan.unreadable.join('\n') + "\n\n";
+    }
+    text += tr("Every system started or installed from this ISO will have them. If the ISO will be shared, remove "
+               "the credentials from these files or add the files to the exclusion list. Disabling a service is "
+               "not enough: its files are still copied.")
+            + "\n\n" + tr("Continue anyway?");
+    return QMessageBox::Yes
+           == QMessageBox::warning(this, tr("Credentials in services"), text, QMessageBox::Yes | QMessageBox::No,
+                                   QMessageBox::No);
 }
 
 bool MainWindow::confirmStart()

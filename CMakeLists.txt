@@ -146,6 +146,7 @@ set(COMMON_SOURCES
     src/excludesutils.cpp
     src/squashfsutils.cpp
     src/checksumutils.cpp
+    src/unitsecrets.cpp
 )
 
 set(COMMON_HEADERS
@@ -162,6 +163,7 @@ set(COMMON_HEADERS
     src/excludesutils.h
     src/squashfsutils.h
     src/checksumutils.h
+    src/unitsecrets.h
 )
 
 set(HELPER_SOURCES
@@ -350,6 +352,16 @@ if(BUILD_TESTS)
     target_include_directories(test-checksumutils PRIVATE src)
     set_common_properties(test-checksumutils)
     add_test(NAME checksumutils COMMAND test-checksumutils)
+
+    add_executable(test-unitsecrets
+        tests/test_unitsecrets.cpp
+        src/unitsecrets.cpp
+        src/unitsecrets.h
+    )
+    target_link_libraries(test-unitsecrets Qt6::Core Qt6::Test)
+    target_include_directories(test-unitsecrets PRIVATE src)
+    set_common_properties(test-unitsecrets)
+    add_test(NAME unitsecrets COMMAND test-unitsecrets)
 
     add_executable(test-elevationbroker
         tests/test_elevationbroker.cpp

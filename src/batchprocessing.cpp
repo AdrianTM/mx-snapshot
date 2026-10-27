@@ -36,6 +36,7 @@
 #include "excludesutils.h"
 #include "log.h"
 #include "squashfsutils.h"
+#include "unitsecrets.h"
 #include "work.h"
 
 using namespace std::chrono_literals;
@@ -104,6 +105,23 @@ void Batchprocessing::run()
     }
     if (work.isCleaningUp()) {
         return;
+    }
+
+    // Non-interactive: name services whose credentials go into the respin, but
+    // don't stop (see MainWindow::confirmUnitCredentials()).
+    if (settings->resetAccounts) {
+        const UnitSecrets::ScanResult scan = UnitSecrets::findCredentials(QStringLiteral("/etc/systemd/system"));
+        if (!scan.findings.isEmpty()) {
+            qWarning().noquote()
+                << tr("Warning: these services in /etc/systemd/system contain what look like passwords, tokens or "
+                      "keys, and will be included in the snapshot as they are:")
+                << scan.findings.join(", ");
+        }
+        if (!scan.unreadable.isEmpty()) {
+            qWarning().noquote() << tr("Warning: these service files or folders could not be checked for passwords, tokens "
+                                       "or keys, and will be included in the snapshot as they are:")
+                                 << scan.unreadable.join(", ");
+        }
     }
 
     work.startTimer();
