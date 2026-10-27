@@ -1,3 +1,16 @@
+mx-snapshot (26.10.2) mx; urgency=medium
+
+  * Create a SHA-256 checksum file (.sha256) for the ISO instead of SHA-512,
+    the kind most distributions publish, which is also faster to make.
+  * On Arch, ISOs made for distribution keep the package repositories set up
+    on your system, including the MX Arch repository, instead of replacing
+    them with the default Arch ones.
+  * On Arch, each system started from an ISO made for distribution creates
+    its own package signing key on first start, instead of all of them
+    sharing the key copied from your system.
+
+ -- Adrian <adrian@mxlinux.org>  Mon, 26 Oct 2026 22:31:14 -0400
+
 mx-snapshot (26.10.1) mx; urgency=medium
 
   * On Arch, fix a security problem in snapshot cleanup, leave the running
